@@ -1,0 +1,36 @@
+{
+  "command": "node tools/check-event-images.cjs --texture-root D:\\Work\\ARCANA\\war3mapImported",
+  "exitCode": 0,
+  "events": 1004,
+  "entries": 112,
+  "explicitImages": 872,
+  "regionalImages": 20,
+  "commonImages": 13,
+  "characterAssignments": 300,
+  "expansionAssignments": 451,
+  "characterTextureHashes": 136,
+  "uniqueTextures": 421,
+  "eventTextureHashes": 268,
+  "thumbnailHashes": 421,
+  "sourceHashes": 421,
+  "mockScenes": 6321,
+  "candidateChecks": 12051,
+  "storyChecks": 45,
+  "resolutions": [
+    [
+      1600,
+      900
+    ],
+    [
+      1280,
+      960
+    ],
+    [
+      2560,
+      1080
+    ]
+  ],
+  "zeroSizeChecks": 3,
+  "runtimeTested": false,
+  "validationType": "static assets + mocked UI rendering; not Warcraft runtime"
+}

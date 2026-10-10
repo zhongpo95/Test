@@ -194,7 +194,7 @@
       "key": "common_ragna_break",
       "name": "라그나 더 블러드엣지",
       "effectName": "정면 돌파",
-      "keyword": "공통 · 방향 · 관통",
+      "keyword": "공통 · 헤드·백 적중 피해 · 관통",
       "grade": 1,
       "effects": [
         {
@@ -242,7 +242,7 @@
       "key": "common_nazrin_retreat",
       "name": "나즈린",
       "effectName": "돌아갈 틈을 남기기",
-      "keyword": "이동 · 이동 피해",
+      "keyword": "고정 신속 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {

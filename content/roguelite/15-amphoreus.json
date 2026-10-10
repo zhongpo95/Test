@@ -190,7 +190,7 @@
       "key": "amph_hyacine",
       "name": "히아킨",
       "effectName": "다시 걸을 여유",
-      "keyword": "고체력 · 재생",
+      "keyword": "내 체력 65% 이상 피해 · 재생",
       "grade": 1,
       "effects": [
         {

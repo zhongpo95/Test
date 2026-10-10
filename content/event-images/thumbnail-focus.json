@@ -4,6 +4,34 @@
     0.2
   ],
   "overrides": {
+    "war3mapImported\\UI_Card_RGT_11_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "2026-10-10 실제 썸네일 비교. 머리와 모자 윗부분이 잘리지 않도록 상단 정렬."
+    },
+    "war3mapImported\\UI_Card_GBF_io_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "2026-10-10 실제 썸네일 비교. 머리와 모자 윗부분이 잘리지 않도록 상단 정렬."
+    },
+    "war3mapImported\\UI_Card_FT_gray-fullbuster_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "2026-10-10 실제 썸네일 비교. 머리와 모자 윗부분이 잘리지 않도록 상단 정렬."
+    },
+    "war3mapImported\\UI_Card_FTG_juvia_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "2026-10-10 실제 썸네일 비교. 머리와 모자 윗부분이 잘리지 않도록 상단 정렬."
+    },
     "war3mapImported\\UI_Head_Official_aincrad_Icon.tga": {
       "anchor": [
         0.5,
@@ -1020,6 +1048,454 @@
       "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
     },
     "war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_ema.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_anan.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_noah.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_leia.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_miria.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_margo.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_koko.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_witch_prison_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_joker.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_morgana.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_ryuji.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_ann.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_yusuke.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_makoto.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_futaba.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_haru.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_akechi.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_sae.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_sojiro.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_ending_memorial.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_joker.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_morgana.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_ryuji.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_ann.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_yusuke.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_makoto.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_futaba.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_haru.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_akechi.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_yoshizawa.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_maruki.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_ending_memorial.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_letty.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_chen.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_alice.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_lunasa.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_merlin.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_lyrica.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_youmu.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_yuyuko.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_lily.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hakugyokurou_ending_memorial.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_rumia.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_cirno.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_meiling.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_patchouli.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_remilia.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_scarlet_mist_ending_memorial.tga": {
       "anchor": [
         0.5,
         0.5

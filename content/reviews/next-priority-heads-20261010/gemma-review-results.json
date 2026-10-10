@@ -1,0 +1,223 @@
+[
+  {
+    "file": "witch_prison-main-01.json",
+    "sha256": "10ffdee4d1b4fb56e239aeaacce6ca9ffab6f78de8c631f7e4663e7207d73a2a",
+    "monitorRecordId": "4148d2e4-3a50-4b38-b7df-cfe48550c1f4",
+    "started": "2026-10-10T11:11:01.870Z",
+    "finished": "2026-10-10T11:11:46.426Z",
+    "requestSha256": "1f78f6b042b88e4254f264e18b2caa57a604a1e6420270fdf3fde4cb34fc5559",
+    "manuscriptSha256": "efe554f7c8360a0bac79377cc0b13b8be55991b9e2303e57c2688c89543d6d56",
+    "result": {
+      "issues": [
+        {
+          "key": "wt_main_08",
+          "issue": "히로가 살아있는 시점과 에마의 시점이 혼재되어 화자가 불분명함.",
+          "fix": "히로의 시점으로 고정하거나, 에마의 기억과 히로의 현재를 명확히 분리하여 서술할 것."
+        },
+        {
+          "key": "wt_main_12",
+          "issue": "한나가 두 사람을 죽였다는 결과와 셰리까지 잃었다는 결과가 충돌함.",
+          "fix": "셰리의 죽음이 한나의 범행과 직접적인 인과관계가 있음을 명시하거나 시점을 구분할 것."
+        },
+        {
+          "key": "wt_main_15",
+          "issue": "유키가 내린 결론 앞에서 에마가 말한다는 도입부와 히로가 반론을 지킨다는 선택지 내 화자가 불일치함.",
+          "fix": "주요 화자를 에마로 통일하거나, 히로의 행동을 에마의 관찰로 묘사할 것."
+        }
+      ]
+    }
+  },
+  {
+    "file": "witch_prison-side-01.json",
+    "sha256": "d3dc304895162fc9b5004af392cf1259fb956c805bcf70ba87b6e365d0597868",
+    "monitorRecordId": "86d23084-b54a-4147-9688-ed641095a8c3",
+    "started": "2026-10-10T11:12:44.948Z",
+    "finished": "2026-10-10T11:12:49.905Z",
+    "requestSha256": "d1384ac15bd3737bfe969df1763847946f1cf64a875dbd26a7c2d17c77913f71",
+    "manuscriptSha256": "efe554f7c8360a0bac79377cc0b13b8be55991b9e2303e57c2688c89543d6d56",
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "witch-editor-delta-01.json",
+    "sha256": "861074914ab56f2975605d0bea3db1276b16066d1c9ccd72b24d3021daa0cd1a",
+    "monitorRecordId": "e7e9735f-e35a-428d-9caf-2f7edb7cfb3a",
+    "started": "2026-10-10T11:24:45.781Z",
+    "finished": "2026-10-10T11:24:47.311Z",
+    "requestSha256": "ded480a6902bdaedf438efcd0634d8d320055f57a2106e2000584663f5c32c7d",
+    "manuscriptSha256": null,
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "persona5-main-01.json",
+    "sha256": "050d24643a8866fb875be2770ad5dd19fc28db4cd272a2edad03779e4981e933",
+    "monitorRecordId": "ea2129a4-b399-47f0-adb9-f6f35a3ee224",
+    "started": "2026-10-10T11:15:37.560Z",
+    "finished": "2026-10-10T11:16:44.577Z",
+    "requestSha256": "312b746edaa5bef6b9da8d308bc0a6c3b423912e1e0b9a099b847a8335f4c437",
+    "manuscriptSha256": "2da5e923905e6de156257ec637556030cf10dde9bbe65af05c1b580c8560d3c2",
+    "result": {
+      "issues": [
+        {
+          "key": "p5_main_01",
+          "issue": "도입부에서 '전학생'이 학교 대신 성에 들어선다고 했으나, 본문에서는 '도쿄에서 조용히 지내려던 소년'으로 화자가 모호하게 기술됨.",
+          "fix": "도입부의 '전학생'이라는 정체성을 본문에서도 유지하여 '전학 온 소년'으로 수정."
+        },
+        {
+          "key": "p5_main_08",
+          "issue": "본문에서 조커가 '동료들을 보내고' 취조실로 끌려간다고 되어 있으나, 실제 원작 흐름상 조커는 동료들을 보내는 것이 아니라 동료들과 함께 행동하다가 분리되는 구조임.",
+          "fix": "'동료들을 보내고'를 '동료들과의 협력을 유지하며' 또는 '동료들을 보호하며'로 수정."
+        },
+        {
+          "key": "p5_main_15",
+          "issue": "조커가 자수하여 풀려난 후 '르블랑으로 돌아온다'고 되어 있으나, 본편 결말의 시간 순서상 귀향 전 마지막 일상과 르블랑에서의 재회는 별개의 시점임.",
+          "fix": "'르블랑으로 돌아온다'를 '동료들과의 약속을 지킨다' 또는 '일상으로 복귀한다'로 수정."
+        }
+      ]
+    }
+  },
+  {
+    "file": "persona5-side-01.json",
+    "sha256": "53ff0c5af297dc612e4b586f367b521de3ee030bef209f169e8f872819de92ff",
+    "monitorRecordId": "9524a511-bbd4-4db4-8c6c-7f17f0eee2fc",
+    "started": "2026-10-10T11:17:26.871Z",
+    "finished": "2026-10-10T11:18:10.940Z",
+    "requestSha256": "38eb9201657a34046d849ed83d8cd1c9c1410303d72480da664ddefa1fd606d4",
+    "manuscriptSha256": "2da5e923905e6de156257ec637556030cf10dde9bbe65af05c1b580c8560d3c2",
+    "result": {
+      "issues": [
+        {
+          "key": "p5_side_leblanc",
+          "issue": "소지로가 '물기부터 보라고' 했다는 대사는 문맥상 '먼지부터 보라' 혹은 '물기(습기)를 닦으라'는 의미로 해석될 여지가 있으나, 일반적인 르블랑의 청소 상황이나 소지로의 성격상 '먼지'나 '정돈'이 더 자연스러움.",
+          "fix": "소지로가 '먼지부터 닦으라'고 했다."
+        },
+        {
+          "key": "p5_side_ann_message",
+          "issue": "안이 친구에게 보낼 말을 고르는 상황에서 '답을 재촉하지 않는 문장'을 고른다는 결과가 '걱정을 말뿐인 다짐으로 끝내지 않는다'와 논리적으로 매끄럽게 연결되지 않음.",
+          "fix": "result: 걱정을 말뿐인 다짐으로 끝내지 않고 실질적인 배려를 담는다."
+        }
+      ]
+    }
+  },
+  {
+    "file": "persona5_royal-main-01.json",
+    "sha256": "10d9bdc55140b7d7448444487635a81dd7a2932902966df3ec34cab044265b33",
+    "monitorRecordId": "d803e09e-f800-4e7b-941e-2a0cb4befa63",
+    "started": "2026-10-10T11:18:24.196Z",
+    "finished": "2026-10-10T11:19:39.363Z",
+    "requestSha256": "63a25f5c491ec89c8c14b56917c7d8ef8c7e1e8a1055f94c643a1c97d0299c2c",
+    "manuscriptSha256": "58e935c62e4728f134c82ce14c71575ca67310bbe6d803f584511610fae9ff1c",
+    "result": {
+      "issues": [
+        {
+          "key": "p5r_main_05",
+          "issue": "본문에서 '조커가 카스미로 알고 지낸 사람은 동생 스미레였다'고 명시했으나, 이는 설정상 '카스미'라는 이름이 '스미레'의 정체로 덮여 있었음을 의미함. 하지만 이후 결과에서 '스미레는 드러난 진실을 받아들이지 못하고'라고 표현하여, 이미 정체가 드러난 상태에서 스미레가 거부하는 것처럼 묘사됨.",
+          "fix": "'스미레는 드러난 진실을 받아들이지 못하고'를 '카스미로 살고 싶었던 스미레는 드러난 진실을 받아들이지 못하고'로 수정하여 정체 노출과 심리적 저항의 인과관계를 명확히 할 것."
+        },
+        {
+          "key": "p5r_main_07",
+          "issue": "본문에서 '스미레는 다시 카스미로 살고 싶은 마음에 저항하고'라고 기술했으나, p5r_main_05에서 이미 정체가 드러났고 p5r_main_08에서 '자신의 이름으로 손을 뻗는다'는 변화가 일어나는 과정임. 07번에서 '카스미로 살고 싶은 마음'이 저항의 원인이라면 08번의 '자신의 이름'으로의 변화와 충돌할 수 있음.",
+          "fix": "'카스미로 살고 싶은 마음에 저항하고'를 '카스미라는 이름 뒤에 숨고 싶은 마음에 저항하고' 또는 '과거의 이름으로 돌아가려는 마음에 저항하고'로 수정하여 정체 수용의 흐름을 일관되게 유지할 것."
+        }
+      ]
+    }
+  },
+  {
+    "file": "hakugyokurou-main-01.json",
+    "sha256": "297f2b8cca149e36a74f4e9c345fb05a9c8da8692ede3c270f1c8da2d4d1b1e0",
+    "monitorRecordId": "767bde2b-6aa0-4b7e-8190-55c307abfc71",
+    "started": "2026-10-10T11:25:31.354Z",
+    "finished": "2026-10-10T11:25:38.381Z",
+    "requestSha256": "aa62d2facf21cda5d1d7b63d6d57c1bd0daa92ee64a9531f082476ce996a2d80",
+    "manuscriptSha256": "4c8c562ec4a453b55ece4cff5c3ac5012fdb83c3c75aea209d69320768d10f97",
+    "result": {
+      "issues": [
+        {
+          "key": "pcb_main_06",
+          "issue": "도입부에서 루나사가 먼저 나타났다고 명시했으나, story에서 루나사가 응답하는 것으로 묘사되어 순서상 모순이 발생함.",
+          "fix": "story의 시작을 '루나사가 먼저 보낸 신호에 응답하여 레이무가 구름 위로 올라선다.'로 수정하여 루나사의 선행을 명확히 함."
+        }
+      ]
+    }
+  },
+  {
+    "file": "hakugyokurou-side-01.json",
+    "sha256": "8eddd9ab5d4694c76d57fbf50e5c8857520e1ab6bcf16c72a816b3a27f5147c2",
+    "monitorRecordId": "45348cd5-c854-4132-923e-d466094b978e",
+    "started": "2026-10-10T11:25:38.464Z",
+    "finished": "2026-10-10T11:25:41.728Z",
+    "requestSha256": "30a48fc12680e7ac58153c09698c6a3ff1d2fac97948212c6696a0ac9f8a4847",
+    "manuscriptSha256": "4c8c562ec4a453b55ece4cff5c3ac5012fdb83c3c75aea209d69320768d10f97",
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "scarlet_mist-main-01.json",
+    "sha256": "fe737946d2de91dd6f5cab68dd522da87b709caa76b1ceb6c3991179230d4b6e",
+    "monitorRecordId": "155d690e-11ef-48d4-b2d2-c810d18cfaf4",
+    "started": "2026-10-10T11:25:41.798Z",
+    "finished": "2026-10-10T11:25:52.939Z",
+    "requestSha256": "9bf97ac6d31ff65c9843a3657003e0f14358bd2b68a023b5bdd030733dac77d8",
+    "manuscriptSha256": "0d0b8c654fd8b3fa1ed866043ee11198dc3003691eee0bb5f7de7d3f0ede02b2",
+    "result": {
+      "issues": [
+        {
+          "key": "eosd_main_04",
+          "issue": "도입부에서 메이링이 물러선 후 레이무가 따라간다고 했으나, 선택지 결과와 commonResult에서는 메이링을 따라간 길 끝에 입구가 있다고 묘사되어 메이링의 위치와 레이무의 이동 경로가 모호함.",
+          "fix": "story에서 '메이링이 물러난 뒤 그 뒤를 따라가며 저택의 입구를 확인한다'로 수정하여 이동의 연속성을 명확히 할 것."
+        },
+        {
+          "key": "eosd_main_10",
+          "issue": "사쿠야의 재등장 시점과 관련하여, 5면 본전(09) 직후에 6면 중간 재등장(10)이 오는 흐름은 맞으나, 08번에서 이미 사쿠야를 만났음에도 10번에서 '이미 넘어선 줄 알았던'이라는 표현이 08번의 첫 대면과 충돌할 수 있음.",
+          "fix": "10번의 story를 '이미 한 차례 물리쳤던 메이드가 다시 길을 막는다'로 수정하여 재등장임을 명확히 할 것."
+        }
+      ]
+    }
+  },
+  {
+    "file": "scarlet_mist-side-01.json",
+    "sha256": "40918f603552320f9753cc0ff7d278e6cf78dccaf182881c958877c591e9e5cb",
+    "monitorRecordId": "0cfe0a89-69e1-4865-af36-73469adda5e3",
+    "started": "2026-10-10T11:25:53.015Z",
+    "finished": "2026-10-10T11:25:56.474Z",
+    "requestSha256": "87b5455be2095164d21674054f62eb5841f224368fed4b8d046336260ad171d6",
+    "manuscriptSha256": "0d0b8c654fd8b3fa1ed866043ee11198dc3003691eee0bb5f7de7d3f0ede02b2",
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "persona5_royal-side-01.json",
+    "sha256": "5db409206d1db64863416b4fdfb73db4cd0a9e2ddb1d4c7ab00f736a2e27b91d",
+    "monitorRecordId": "223519c1-705c-4fba-8449-5ad701cb0a45",
+    "started": "2026-10-10T11:22:25.149Z",
+    "finished": "2026-10-10T11:22:42.124Z",
+    "requestSha256": "9c8738add44a75d5edc91ddd2aa95a9dace93ecb53fd83c3e3e0e3341fd40449",
+    "manuscriptSha256": "58e935c62e4728f134c82ce14c71575ca67310bbe6d803f584511610fae9ff1c",
+    "result": {
+      "issues": [
+        {
+          "key": "p5r_side_epilogue_station",
+          "issue": "도입부에서 마루키가 차를 몰아 역으로 향하는 길을 도왔다고 서술했으나, 이는 원작의 '봄 귀향' 시점과 충돌하거나 시스템 설정상 마루키가 조커를 직접 운전해 주는 상황이 일반적이지 않음.",
+          "fix": "마루키가 차를 몰아 역으로 향할 길을 도왔다. -> 마루키가 역으로 향하는 길에 조커를 배웅하며 도움을 주었다."
+        }
+      ]
+    }
+  },
+  {
+    "file": "touhou-editor-delta-01.json",
+    "sha256": "3d7ec8aaf8f31036a42739958b9ca55460043af07fd38d25171126f9ce690446",
+    "monitorRecordId": "9e219739-5387-49c0-b298-564aad5c90b3",
+    "started": "2026-10-10T11:30:38.500Z",
+    "finished": "2026-10-10T11:30:39.414Z",
+    "requestSha256": "7c8e9b5b5db0d4393527ce3723db679d7b0a73d116fc4e5584c5e1ba9815681a",
+    "manuscriptSha256": null,
+    "result": {
+      "issues": []
+    }
+  }
+]

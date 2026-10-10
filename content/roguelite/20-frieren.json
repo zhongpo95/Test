@@ -42,7 +42,7 @@
       "key": "fr_fern_routine",
       "name": "페른",
       "effectName": "매일 같은 거리에서",
-      "keyword": "공격 · 행동",
+      "keyword": "공격 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -186,7 +186,7 @@
       "key": "fr_sein_pause",
       "name": "자인",
       "effectName": "늦었다는 말 다음에",
-      "keyword": "고체력 · 재생",
+      "keyword": "내 체력 65% 이상 피해 · 재생",
       "grade": 1,
       "effects": [
         {
@@ -282,7 +282,7 @@
       "key": "fr_lawine_signal",
       "name": "라비네",
       "effectName": "멈출 때 건네는 신호",
-      "keyword": "치명 · 행동",
+      "keyword": "치명 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -306,7 +306,7 @@
       "key": "fr_kanne_rain",
       "name": "칸네",
       "effectName": "기다리던 비의 방향",
-      "keyword": "이동 연계 · 공격",
+      "keyword": "이동속도 비례 피해 · 공격",
       "grade": 1,
       "effects": [
         {

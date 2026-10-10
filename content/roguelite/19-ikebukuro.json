@@ -72,7 +72,7 @@
       "key": "drrr_celty",
       "name": "셀티 스툴루손",
       "effectName": "밤길을 잇는 바퀴",
-      "keyword": "이동 · 조건부 공격",
+      "keyword": "이동 속도 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -120,7 +120,7 @@
       "key": "drrr_anri",
       "name": "소노하라 안리",
       "effectName": "흔들리지 않는 칼끝",
-      "keyword": "치명 · 고체력",
+      "keyword": "치명 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {

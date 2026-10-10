@@ -1,0 +1,141 @@
+{
+  "documentRole": "다섯 신규 세계 통합 후 변경 코드의 독립 최종 검토 기록이다.",
+  "reviewedAt": "2026-10-10",
+  "baseCommit": "566ac42eb7120558090dc79ea949964a01830477",
+  "scope": "현재 git diff와 관련 호출·생성 메타데이터를 읽고 실제 결함 여부를 검토했다. 코드와 운영 데이터는 수정하지 않았다.",
+  "reviewedFiles": [
+    {
+      "path": "tools/check-event-images.cjs",
+      "sha256": "c27541c0e98f18891c87aa98ca1b09665dd5807d9d8267ca2bf4438c9dcb526e"
+    },
+    {
+      "path": "UI/UI_Map.j",
+      "sha256": "af95111ae0429c8a2c86fc3e0fc4bccf0d77738bedd158abfc6ae46d0e532077"
+    },
+    {
+      "path": "tools/check-head-progression.cjs",
+      "sha256": "3a9dca6ac9be504a550353ff504a2fb2bfbb4c34596421d4a5a1197da66d0fc3"
+    },
+    {
+      "path": "tools/generate-prototype-content.cjs",
+      "sha256": "df9e4e7863797bc9694a831aa5ab9a2d8208cd31f7252b0d05187ec8d6745f19"
+    },
+    {
+      "path": "tools/check-entry-card-tooltip.cjs",
+      "sha256": "7907249f240de55a19b0a8f60f831aaf4133d6e951f77d4701903de06030b41c"
+    },
+    {
+      "path": "tools/check-roguelite-id-capacity.cjs",
+      "sha256": "fda98e8bcc9b1fa05489b79b9fc2b3d8b929e16753f4227d25dabdbab0693163"
+    },
+    {
+      "path": "content/roguelite/27-persona5_royal.json",
+      "sha256": "211593f9153d6db6c1c9c166a023ffd5cafe8b48bf234a13d10e4e6fae879f09"
+    }
+  ],
+  "findings": [],
+  "conclusion": "현재 통합 데이터와 변경 코드에서 재현 가능한 결함을 찾지 못했다.",
+  "checks": [
+    {
+      "topic": "게임 장면과 애니 회차 장면 분류",
+      "files": [
+        "tools/check-event-images.cjs",
+        "content/event-images/expansion-scene-review.json",
+        "content/event-images/expansion-assignments.json"
+      ],
+      "result": "official-game-scene은 공식 게임 sourceKind·원본 URL·검토 해시·시점 설명·회차 null을 요구하고, 애니 장면은 회차와 공식 회차 근거를 별도로 요구한다. p5r_main_01의 실제 메타데이터와 파일 해시는 일치한다. 5/24 학교 회고라는 검토 경계도 유지된다."
+    },
+    {
+      "topic": "대표 이미지와 엔딩 기념",
+      "result": "대표 인물/작품 표지/엔딩 기념은 exactStoryScene=false이며 head·ending_memorial 키와 종류의 동치 검사를 추가했다. 현재 데이터 분류와 맞는다."
+    },
+    {
+      "topic": "지도 동적 머리 한도",
+      "files": [
+        "UI/UI_Map.j",
+        "Data/Data_Expedition.j"
+      ],
+      "result": "지도 표시가 실제 엔진의 ProtoHeadCapacity(pid)를 사용한다. 새 양성 검사에서 본편 머리를 유지한 3/3 표시를 실제 UI_Map 렌더 함수와 모의 프레임으로 확인했다."
+    },
+    {
+      "topic": "P5에서 로열 해금",
+      "files": [
+        "tools/check-head-progression.cjs",
+        "System/ExpeditionPrototype.j",
+        "content/roguelite/27-persona5_royal.json"
+      ],
+      "result": "실제 production의 persona5 head 25와 persona5_royal head 26이 연결된다. 마지막 추가 대화 정산 전에는 잠기며, 정산 뒤 한도가 증가하고 무료 입구에서 입문 카드를 지급한다. 기존 본편 머리 유지·중복 정산 차단·다른 플레이어 격리가 검사된다."
+    },
+    {
+      "topic": "새 런 검사의 범위",
+      "result": "새 테스트는 배열 초기화 함수 단독 호출에 그치지 않고 ProtoCleanup 뒤 실제 새 런 시작 action 2001을 OnSync로 보낸다. ExpRun 증가, 머리 수·완주 수·소유 초기화, 로열 재잠금, 영구 발견 기록 보존을 확인한다. 전체 16장 플레이를 처음부터 재현하지 않고 마지막 장 직전 상태를 마련하는 모의 검사라는 한계가 있다."
+    },
+    {
+      "topic": "생성기와 선행 조건",
+      "result": "새 변경은 다섯 세계의 인물·단서 강조 설정이다. 선행 머리 ID는 registry를 통해 26→25로 생성되고, 기존 생성기의 없는 머리·메인 없음·순환 거부가 유지된다. 강조는 표시 문자열에만 적용되어 카드·사건 키나 보상 수치를 변경하지 않는다."
+    },
+    {
+      "topic": "입구 양성 검사와 잠금 음성 검사",
+      "result": "추가된 두 보조 검사는 모든 입구의 지급·툴팁 검사를 위해 선행 완료 상태만 마련한다. 선행 잠금을 우회할 수 없다는 음성 검사는 check-head-progression에서 별도로 통과한다."
+    }
+  ],
+  "idPreservation": {
+    "heads": {
+      "previousCount": 23,
+      "currentCount": 28,
+      "changedExistingIds": []
+    },
+    "cards": {
+      "previousCount": 1390,
+      "currentCount": 1653,
+      "changedExistingIds": []
+    },
+    "events": {
+      "previousCount": 822,
+      "currentCount": 1004,
+      "changedExistingIds": []
+    }
+  },
+  "capacity": {
+    "heads": 28,
+    "registeredCards": 1653,
+    "cardFirst": 13,
+    "cardLast": 1665,
+    "events": 1004,
+    "playerKeyStride": 2048,
+    "currentMaximumPlayerCardKey": 7809,
+    "currentMaximumPlayerEventHistoryKey": 7148,
+    "currentMaximumBranchLabelIndex": 4018,
+    "currentMaximumDialogueLabelIndex": 600,
+    "allowedMaximumEntityId": 2047,
+    "allowedMaximumPlayerKey": 8191
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "node tools/check-head-progression.cjs",
+        "checks": 6,
+        "passed": true
+      },
+      {
+        "command": "node tools/check-roguelite-id-capacity.cjs",
+        "checks": 10,
+        "passed": true
+      }
+    ],
+    "existingOriginalBaseline": "회귀 검사에 포함된 최초 머리 13개·카드 924개(13~936)·사건 493개 ID 해시 검증 통과.",
+    "currentHeadBaseline": "이번 git HEAD 기준 기존 머리 23개·카드 1390개·사건 822개의 ID를 추가로 대조했고 변경이 없었다.",
+    "gameSceneFileHashChecked": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+    "fullEventImagesCLIExecuted": false,
+    "compileExecuted": false,
+    "warcraftRuntimeTested": false,
+    "gameVisualTested": false,
+    "mapCreated": false,
+    "productionModified": false
+  },
+  "limits": [
+    "실제 JASS를 JS로 번역하고 native와 UI 프레임을 모의 처리한 검사다. Warcraft 실행과 멀티플레이 검증이 아니다.",
+    "게임 장면 검토자의 시점 판단을 자동으로 증명하는 검사는 아니다. 현재 원고·검토 기록·파일의 일치를 확인했다.",
+    "이 기록은 코드 감사이며 이후 사용자 안내 문구의 충분성 검토는 별도 진행한다."
+  ]
+}

@@ -4,7 +4,7 @@
       "key": "pc_kokkoro_entry",
       "name": "콧코로",
       "effectName": "세심한 준비",
-      "keyword": "행동 속도 증가",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -24,7 +24,7 @@
       "key": "pc_pecorine_meal",
       "name": "페코린느",
       "effectName": "배가 든든할 때",
-      "keyword": "최대 체력 · 고체력",
+      "keyword": "최대 체력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -144,7 +144,7 @@
       "key": "pc_kokkoro_notes",
       "name": "콧코로",
       "effectName": "빠뜨리지 않은 목록",
-      "keyword": "사건 후보 · 처치 골드",
+      "keyword": "고정 신속 · 처치 골드",
       "grade": 1,
       "effects": [
         {
@@ -168,7 +168,7 @@
       "key": "pc_pecorine_expedition",
       "name": "페코린느",
       "effectName": "든든히 먹고 한 걸음 더",
-      "keyword": "고체력 · 일반 적",
+      "keyword": "내 체력 65% 이상 피해 · 일반 적",
       "grade": 1,
       "effects": [
         {
@@ -192,7 +192,7 @@
       "key": "pc_aoi_courage",
       "name": "아오이",
       "effectName": "조심스러운 발걸음",
-      "keyword": "이동 · 고체력",
+      "keyword": "고정 신속 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -244,7 +244,7 @@
       "key": "pc_tsumugi_fit",
       "name": "츠무기",
       "effectName": "움직임을 남기는 한 땀",
-      "keyword": "행동 · 이동",
+      "keyword": "고정 신속",
       "canonFact": "공식 의상 가게와 아이돌의 활동을 움직임에 맞는 준비로 각색한다. 실제 옷 장비·새 실 기술·호감 게이지는 생성하지 않는다.",
       "grade": 1,
       "effects": [
@@ -312,7 +312,7 @@
       "key": "pc_nozomi_step",
       "name": "노조미",
       "effectName": "발걸음에 맞춘 박자",
-      "keyword": "행동 · 최대 체력",
+      "keyword": "고정 신속 · 최대 체력",
       "canonFact": "카르미나 가수와 동료를 돕는 역할을 일정한 움직임·든든한 준비로 각색. 실제 공연·노래 스킬·즉시 회복·민심 변화는 없다.",
       "grade": 1,
       "effects": [
@@ -3272,7 +3272,7 @@
     "key": "gourmet",
     "name": "미식전 길드 하우스",
     "work": "프린세스 커넥트! Re:Dive",
-    "intro": "콧코로는 기억이 흐릿한 유우키와 새로운 길을 시작한다. 다시 함께 앉는 미식전의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "기억이 흐릿한 유우키와 그를 안내하는 콧코로가 여행을 시작한다. 페코린느, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다.",
     "effects": [
       {
         "stat": "max_health_percent",

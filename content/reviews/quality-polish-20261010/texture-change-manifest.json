@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "canonical": "D:\\Work\\ARCANA\\war3mapImported",
+  "export": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\quality-polish\\exports\\v1",
+  "archive": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\copy_archive\\quality_polish_20261010\\image-crop-fix",
+  "canonicalBeforeFiles": 1583,
+  "changedFiles": [
+    {
+      "source": "war3mapImported\\UI_Card_RGT_11_Art.tga",
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_11_Art.tga",
+      "before": "5639249da4c195958a0a518c801ba6a6eb379b233bad04708940d2c58c65f794",
+      "after": "06b67217c072eb770c251435d0583376ded3296f6364937fb9c00eb56d97c772",
+      "bytes": 131116,
+      "reason": "머리와 모자 윗부분을 보존하도록 상단 정렬."
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_io_Art.tga",
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_io_Art.tga",
+      "before": "ef569fdf265e5b81661b6708f9bf7ac0d5502cca870d09ec430d4d07b75f000b",
+      "after": "72209a56d4b26d387962528990947b0f6fe3f792c792a66cba9b44d20908b35b",
+      "bytes": 131116,
+      "reason": "머리와 모자 윗부분을 보존하도록 상단 정렬."
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FT_gray-fullbuster_Art.tga",
+      "target": "war3mapImported\\UI_EventThumb_Card_FT_gray-fullbuster_Art.tga",
+      "before": "f2b34197262f02971150d02a538ff2f10e26246ed1b1b5d4dde992d86ef89e5d",
+      "after": "37482c7f4cbb9fc4382b60ba9019fdfa520ef9d31f7778afe5b2fcd67076ea57",
+      "bytes": 131116,
+      "reason": "머리와 모자 윗부분을 보존하도록 상단 정렬."
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FTG_juvia_Art.tga",
+      "target": "war3mapImported\\UI_EventThumb_Card_FTG_juvia_Art.tga",
+      "before": "dc01cd096cc763de89cfa9c7ddc672ac552f4eddc6fce794068b7420f78efb3e",
+      "after": "5ac9805d86caba6fec6551060adeb0a92b224b2481d66c0eab90379673c38605",
+      "bytes": 131116,
+      "reason": "머리와 모자 윗부분을 보존하도록 상단 정렬."
+    },
+    {
+      "source": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\cover_portrait.jpg",
+      "target": "war3mapImported\\UI_Event_XP_ikebukuro_head.tga",
+      "before": "0b4773ac18925da0f8e96ab119fe0e1dc2bed45a819c71d6388a22424fbe24b0",
+      "after": "d40a8fc32216e767d04a3d72bc15f962e7dd5202d9cf72a76d51b20bb539b171",
+      "bytes": 262188,
+      "reason": "중앙 미카도·마사오미·안리와 상단 시즈오의 얼굴을 보존."
+    },
+    {
+      "source": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\cover_portrait.jpg",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga",
+      "before": "b0166dccc322de822ec879b3d482d50769b749fe1f4071c01e55cbd117e34ca0",
+      "after": "1158c61b945283046e95504aaa59863d81090cfab2675208ce226116a638b824",
+      "bytes": 131116,
+      "reason": "중앙 미카도·마사오미·안리와 상단 시즈오의 얼굴을 보존."
+    }
+  ],
+  "originalPreserved": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\cover_portrait.jpg",
+  "originalSha256": "69f3cf26e1138678be6941caa19f63ca695d52b886affa87e8e450a91acae3c6",
+  "canonicalInstalled": true,
+  "mapCreated": false,
+  "runtimeTested": false,
+  "preservedOtherFiles": 1577,
+  "bytesDelta": 0,
+  "archiveHashesVerified": 6,
+  "canonicalAfterFiles": 1583
+}

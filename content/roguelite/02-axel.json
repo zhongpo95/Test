@@ -3,7 +3,7 @@
     "key": "axel",
     "name": "액셀",
     "work": "이 멋진 세계에 축복을!",
-    "intro": "카즈마와 아쿠아가 액셀에서 모험가의 생활을 시작한다. 이상한 동료들과 돌아올 집의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "카즈마와 아쿠아가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 마을을 지켜야 할 싸움으로 번져 간다.",
     "effects": [
       {
         "stat": "swift",
@@ -103,7 +103,7 @@
       "key": "axel_megumin",
       "name": "메구밍",
       "effectName": "폭렬 마법에 올인",
-      "keyword": "차지 · 패널티",
+      "keyword": "차지 · 고정 신속 감소",
       "grade": 1,
       "effects": [
         {
@@ -131,7 +131,7 @@
       "key": "axel_darkness",
       "name": "다크니스",
       "effectName": "서툰 검과 단단한 갑옷",
-      "keyword": "생존 · 패널티",
+      "keyword": "생존 · 공격력",
       "grade": 1,
       "effects": [
         {
@@ -231,7 +231,7 @@
       "key": "axel_aqua_stage",
       "name": "아쿠아",
       "effectName": "박수가 끝난 뒤의 준비",
-      "keyword": "사건 후보 · 재생",
+      "keyword": "고정 신속 · 재생",
       "grade": 1,
       "effects": [
         {
@@ -255,7 +255,7 @@
       "key": "axel_darkness_small",
       "name": "다크니스",
       "effectName": "갑옷 옆에 남긴 작은 자리",
-      "keyword": "최대 체력 · 고체력",
+      "keyword": "최대 체력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -303,7 +303,7 @@
       "key": "axel_mitsurugi_stance",
       "name": "미츠루기",
       "effectName": "이름을 말하기 전의 자세",
-      "keyword": "방향 피해 · 보스",
+      "keyword": "헤드·백 적중 피해 · 보스",
       "grade": 1,
       "effects": [
         {
@@ -327,7 +327,7 @@
       "key": "axel_luna_arrival",
       "name": "루나",
       "effectName": "처음 온 사람의 다음 질문",
-      "keyword": "사건 후보 · 수급 · 최대 체력",
+      "keyword": "고정 신속 · 수급 · 최대 체력",
       "grade": 1,
       "effects": [
         {
@@ -383,7 +383,7 @@
       "key": "axel_kazuma_snow",
       "name": "사토 카즈마",
       "effectName": "먼 발자국을 따라갈 때",
-      "keyword": "이동 · 일반 적",
+      "keyword": "고정 신속 · 일반 적",
       "grade": 1,
       "effects": [
         {
@@ -455,7 +455,7 @@
       "key": "axel_kazuma_release",
       "name": "사토 카즈마",
       "effectName": "손을 떼는 순서",
-      "keyword": "이동 · 차지 속도",
+      "keyword": "고정 신속 · 차지 속도",
       "grade": 1,
       "effects": [
         {
@@ -479,7 +479,7 @@
       "key": "axel_chris_trace",
       "name": "크리스",
       "effectName": "흔적을 밟기 전에",
-      "keyword": "이동 · 치명 피해",
+      "keyword": "고정 신속 · 치명 피해",
       "grade": 1,
       "effects": [
         {
@@ -587,7 +587,7 @@
       "key": "axel_luna_space",
       "name": "루나",
       "effectName": "창구 밖의 빈자리",
-      "keyword": "사건 후보 · 받는 피해",
+      "keyword": "고정 신속 · 받는 피해",
       "grade": 1,
       "effects": [
         {
@@ -639,7 +639,7 @@
       "key": "axel_darkness_position",
       "name": "다크니스",
       "effectName": "검보다 먼저 선 자리",
-      "keyword": "방향 피해 · 받는 피해",
+      "keyword": "헤드·백 적중 피해 · 받는 피해",
       "grade": 1,
       "effects": [
         {

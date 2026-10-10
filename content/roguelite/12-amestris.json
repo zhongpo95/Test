@@ -3,7 +3,7 @@
     "key": "amestris",
     "name": "아메스트리스",
     "work": "강철의 연금술사 FULLMETAL ALCHEMIST",
-    "intro": "에드와 알은 잃어버린 몸을 되찾기 위해 여행한다. 돌아온 몸과 함께 걸어갈 길의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "금지된 인체 연성으로 몸을 잃은 에드와 알은 현자의 돌을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다.",
     "effects": [
       {
         "stat": "penetration",
@@ -110,7 +110,7 @@
       "key": "fma_winry_precision",
       "name": "윈리 록벨",
       "effectName": "작은 어긋남까지",
-      "keyword": "행동 · 차지 속도",
+      "keyword": "고정 신속 · 차지 속도",
       "grade": 1,
       "effects": [
         {
@@ -134,7 +134,7 @@
       "key": "fma_sheska",
       "name": "셰스카",
       "effectName": "한 권도 빠뜨리지 않는 기억",
-      "keyword": "사건 후보 · 처치 골드",
+      "keyword": "고정 신속 · 처치 골드",
       "grade": 1,
       "effects": [
         {
@@ -182,7 +182,7 @@
       "key": "fma_izumi",
       "name": "이즈미 커티스",
       "effectName": "도망치지 않는 한 걸음",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -206,7 +206,7 @@
       "key": "fma_izumi_flow",
       "name": "이즈미 커티스",
       "effectName": "혼자서도 흐름 속에서",
-      "keyword": "신속 · 이동 피해",
+      "keyword": "신속 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -254,7 +254,7 @@
       "key": "fma_riza_line",
       "name": "리자 호크아이",
       "effectName": "지나갈 선을 비우다",
-      "keyword": "치명타 확률 · 방향 공격",
+      "keyword": "치명타 확률 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -278,7 +278,7 @@
       "key": "fma_hughes_notice",
       "name": "마스 휴즈",
       "effectName": "보여 주기 전에 살필 것",
-      "keyword": "사건 후보 · 보스",
+      "keyword": "고정 신속 · 보스",
       "grade": 1,
       "effects": [
         {
@@ -354,7 +354,7 @@
       "key": "fma_ling_stride",
       "name": "린 야오",
       "effectName": "허기 뒤에도 한 걸음",
-      "keyword": "흡수 · 이동 피해",
+      "keyword": "흡수 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -402,7 +402,7 @@
       "key": "fma_hughes_sequence",
       "name": "마스 휴즈",
       "effectName": "사진과 보고서를 나누는 차례",
-      "keyword": "행동 · 치명 확률",
+      "keyword": "고정 신속 · 치명 확률",
       "grade": 1,
       "effects": [
         {
@@ -426,7 +426,7 @@
       "key": "fma_riza_pause",
       "name": "리자 호크아이",
       "effectName": "지나갈 사람이 먼저",
-      "keyword": "고체력 · 비방향",
+      "keyword": "내 체력 65% 이상 피해 · 비방향",
       "grade": 1,
       "effects": [
         {
@@ -502,7 +502,7 @@
       "key": "fma_ling_budget",
       "name": "린 야오",
       "effectName": "다음 길에 남길 계산",
-      "keyword": "이동 · 관통",
+      "keyword": "고정 신속 · 관통",
       "grade": 1,
       "effects": [
         {
@@ -526,7 +526,7 @@
       "key": "fma_winry_verify",
       "name": "윈리 록벨",
       "effectName": "기록으로 끝내지 않는 확인",
-      "keyword": "행동 · 치명 피해",
+      "keyword": "고정 신속 · 치명 피해",
       "grade": 1,
       "effects": [
         {
@@ -578,7 +578,7 @@
       "key": "fma_armstrong_space",
       "name": "알렉스 루이 암스트롱",
       "effectName": "힘을 모으기 전에 남긴 자리",
-      "keyword": "방향 · 받는 피해",
+      "keyword": "헤드·백 적중 피해 · 받는 피해",
       "grade": 1,
       "effects": [
         {

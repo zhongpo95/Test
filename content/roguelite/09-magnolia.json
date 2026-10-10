@@ -3,7 +3,7 @@
     "key": "magnolia",
     "name": "마그놀리아",
     "work": "페어리 테일",
-    "intro": "루시는 나츠와 해피를 통해 페어리 테일에 들어온다. 길드에 돌아올 한 사람의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "나츠와 해피를 만난 루시가 동경하던 페어리 테일의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다.",
     "effects": [
       {
         "stat": "attack_percent",
@@ -48,7 +48,7 @@
       "key": "ft_happy",
       "name": "해피",
       "effectName": "하늘에서 찾은 귀환길",
-      "keyword": "이동",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -140,7 +140,7 @@
       "key": "ft_erza_blade",
       "name": "엘자 스칼렛",
       "effectName": "검 하나에 실은 결심",
-      "keyword": "방향 · 치명",
+      "keyword": "헤드·백 적중 피해 · 치명",
       "grade": 1,
       "effects": [
         {
@@ -164,7 +164,7 @@
       "key": "ft_erza_guard",
       "name": "엘자 스칼렛",
       "effectName": "갑옷을 고르는 이유",
-      "keyword": "체력 · 보호막",
+      "keyword": "체력 · 보호막 유지 중 피해",
       "grade": 1,
       "effects": [
         {
@@ -212,7 +212,7 @@
       "key": "ft_charles",
       "name": "샤를",
       "effectName": "놓치지 않는 징후",
-      "keyword": "고체력 · 생존",
+      "keyword": "내 체력 65% 이상 피해 · 생존",
       "grade": 1,
       "effects": [
         {
@@ -236,7 +236,7 @@
       "key": "ft_natsu_focus",
       "name": "나츠 드래그닐",
       "effectName": "동료를 향한 불꽃",
-      "keyword": "공격 · 최종 대미지",
+      "keyword": "공격 · 최종 대미지 · 고정 신속 감소",
       "grade": 1,
       "effects": [
         {
@@ -288,7 +288,7 @@
       "key": "ft_juvia_umbrella",
       "name": "쥬비아 록서",
       "effectName": "하나 더 남긴 우산",
-      "keyword": "재생 · 고체력",
+      "keyword": "재생 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -312,7 +312,7 @@
       "key": "ft_mirajane_visitors",
       "name": "미라젠 스트라우스",
       "effectName": "사진 밖의 부탁",
-      "keyword": "사건 후보 · 치명타 피해",
+      "keyword": "고정 신속 · 치명타 피해",
       "grade": 1,
       "effects": [
         {
@@ -340,7 +340,7 @@
       "key": "ft_laxus_reply",
       "name": "렉서스 드레아",
       "effectName": "짧은 말의 뒷자리",
-      "keyword": "보스 · 치명타 피해 · 패널티",
+      "keyword": "보스 · 치명타 피해 · 공격력 감소",
       "grade": 1,
       "effects": [
         {
@@ -392,7 +392,7 @@
       "key": "ft_lucy_reader",
       "name": "루시 하트필리아",
       "effectName": "결말 앞의 다른 길",
-      "keyword": "사건 후보 · 치명타 확률",
+      "keyword": "고정 신속 · 치명타 확률",
       "grade": 1,
       "effects": [
         {
@@ -444,7 +444,7 @@
       "key": "ft_wendy_pace",
       "name": "웬디 마벨",
       "effectName": "서두르지 않을 발",
-      "keyword": "이동 · 재생",
+      "keyword": "고정 신속 · 재생",
       "grade": 1,
       "effects": [
         {
@@ -468,7 +468,7 @@
       "key": "ft_erza_balance",
       "name": "엘자 스칼렛",
       "effectName": "검을 잡을 쪽은 비워 두기",
-      "keyword": "방향 · 받는 피해",
+      "keyword": "헤드·백 적중 피해 · 받는 피해",
       "grade": 1,
       "effects": [
         {
@@ -492,7 +492,7 @@
       "key": "ft_lucy_copy",
       "name": "루시 하트필리아",
       "effectName": "다시 적기 전에 읽을 줄",
-      "keyword": "행동 속도 · 치명 확률",
+      "keyword": "고정 신속 · 치명 확률",
       "grade": 1,
       "effects": [
         {
@@ -516,7 +516,7 @@
       "key": "ft_charles_check",
       "name": "샤를",
       "effectName": "아직 보지 않은 쪽",
-      "keyword": "신속 · 고체력",
+      "keyword": "신속 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {

@@ -435,5 +435,100 @@
       325,
       225
     ]
+  },
+  {
+    "cardId": 1460,
+    "cardKey": "witch_prison_ending_memorial",
+    "cardName": "철문 너머의 내일",
+    "world": "witch_prison",
+    "icon": "UI_Card_XP_witch_prison_ending_memorial_Icon",
+    "art": "UI_Card_XP_witch_prison_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\originals\\promo_6.jpg",
+    "sourceSha256": "6c1667e42ba87aab79a3f981afa061e20dc7fb5288edcea94ed8bc318225dab3",
+    "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+    "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-a5ddd130d49c22002ed0df27ac5c6c97-2048x1024.jpg",
+    "credit": "© 2025 Re,AER LLC./Acacia",
+    "crop": [
+      512,
+      0,
+      1536,
+      1024
+    ]
+  },
+  {
+    "cardId": 1519,
+    "cardKey": "p5_ending_memorial",
+    "cardName": "다시 이어질 우리의 길",
+    "world": "persona5",
+    "icon": "UI_Card_XP_persona5_ending_memorial_Icon",
+    "art": "UI_Card_XP_persona5_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5_head.png",
+    "sourceSha256": "87210d6dea48286d5f4398e31b41ed7d03f86c829dc84d44f82ec4e777e63246",
+    "sourcePage": "https://persona5.jp/",
+    "sourceUrl": "https://persona5.jp/resources/img/top/key_visual.png",
+    "credit": "©ATLUS ©SEGA All rights reserved.",
+    "crop": [
+      67,
+      0,
+      884,
+      817
+    ]
+  },
+  {
+    "cardId": 1571,
+    "cardKey": "p5r_ending_memorial",
+    "cardName": "우리 손으로 고른 내일",
+    "world": "persona5_royal",
+    "icon": "UI_Card_XP_persona5_royal_ending_memorial_Icon",
+    "art": "UI_Card_XP_persona5_royal_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\originals\\p5r_coverpart1.png",
+    "sourceSha256": "c78ca828a1fbe31ce139ac9bbb03e29f4c0150cb62feaaa6fec1137595f792d1",
+    "sourcePage": "https://p5r.jp/",
+    "sourceUrl": "https://p5r.jp/resources/img/top/fv_chara1_58203731d9b71f6b674723d9f93fda37.png",
+    "credit": "©ATLUS ©SEGA All rights reserved.",
+    "crop": [
+      6,
+      0,
+      371,
+      365
+    ]
+  },
+  {
+    "cardId": 1620,
+    "cardKey": "hakugyokurou_ending_memorial",
+    "cardName": "돌아온 봄의 자리",
+    "world": "hakugyokurou",
+    "icon": "UI_Card_XP_hakugyokurou_ending_memorial_Icon",
+    "art": "UI_Card_XP_hakugyokurou_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\originals\\danmaku_card_reimu_r001.jpg",
+    "sourceSha256": "36941601630a20c00ed351d87531c0d50c6dfcfbf58f51576e9501f8013ebe5f",
+    "sourcePage": "https://danmaku.jp/archive/card/r001/",
+    "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+    "credit": "not individually credited on official card page",
+    "crop": [
+      131,
+      0,
+      469,
+      338
+    ]
+  },
+  {
+    "cardId": 1665,
+    "cardKey": "scarlet_mist_ending_memorial",
+    "cardName": "안개 뒤에 돌아온 여름",
+    "world": "scarlet_mist",
+    "icon": "UI_Card_XP_scarlet_mist_ending_memorial_Icon",
+    "art": "UI_Card_XP_scarlet_mist_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\originals\\danmaku_card_reimu_r001.jpg",
+    "sourceSha256": "36941601630a20c00ed351d87531c0d50c6dfcfbf58f51576e9501f8013ebe5f",
+    "sourcePage": "https://danmaku.jp/archive/card/r001/",
+    "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+    "credit": "not individually credited on official card page",
+    "crop": [
+      131,
+      0,
+      469,
+      338
+    ]
   }
 ]

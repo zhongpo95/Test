@@ -541,6 +541,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local boolean success = true
         local integer levelBefore = ProtoLevel[pid]
         local integer densityBefore = ProtoDensity[pid]
+        local integer followupHead = 1
+        local string followupNames = ""
         if ProtoStage[pid] != 2 or not ProtoBranchAllowed(pid, choice) then
             return
         endif
@@ -601,7 +603,17 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     if not ProtoHeadCompleted[ExpKey(pid, ProtoEventHead[id])] then
                         set ProtoHeadCompleted[ExpKey(pid, ProtoEventHead[id])] = true
                         set ProtoCompletedHeadCount[pid] = ProtoCompletedHeadCount[pid] + 1
-                        set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|cff216548머리 카드 한도 +1 · 최대 " + I2S(ProtoHeadCapacity(pid)) + "장|r"
+                        set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|cff216548이번 원정 머리 카드 한도 +1 · 최대 " + I2S(ProtoHeadCapacity(pid)) + "장|r"
+                        loop
+                            exitwhen followupHead > PROTO_HEAD_COUNT
+                            if ProtoHeadRequiredMain[followupHead] == ProtoEventHead[id] then
+                                set followupNames = followupNames + "|n후속 머리 후보 해금 · " + ProtoHeadName[followupHead]
+                            endif
+                            set followupHead = followupHead + 1
+                        endloop
+                        if followupNames != "" then
+                            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|cff216548" + followupNames + "|n이번 원정의 이후 사건 후보에 등장 가능|r"
+                        endif
                     endif
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 endif

@@ -35,19 +35,29 @@ for (const assignment of expansionAssignments) {
   const asset=manifest.assets.find(a=>a.target===assignment.image);
   assert.ok(asset && asset.world===assignment.world,'다른 작품의 사건 그림 '+event.key);
   assert.equal(asset.representativeCharacter,assignment.character,'대표 인물 기록 불일치 '+event.key);
-  if (assignment.kind==='official-episode-scene') {
+  if (['official-episode-scene','official-game-scene'].includes(assignment.kind)) {
     const review=sceneReviews.decisions.find(r=>r.approvedEventKey===event.key && r.decision==='approve');
-    assert.ok(review && review.world===assignment.world,'승인된 회차 장면 검토 없음 '+event.key);
-    assert.equal(review.asset.target,assignment.image,'승인한 회차 장면과 다른 이미지 '+event.key);
+    assert.ok(review && review.world===assignment.world,'승인된 장면 검토 없음 '+event.key);
+    assert.equal(review.asset.target,assignment.image,'승인한 장면과 다른 이미지 '+event.key);
     assert.equal(review.asset.sha256,asset.newHash,'검토한 장면 파일 변경 '+event.key);
-    assert.equal(review.asset.episode,asset.episode,'다른 회차로 변경됨 '+event.key);
-    assert.equal(asset.sourceKind,'official-anime-episode-still');
+    if (assignment.kind==='official-episode-scene') {
+      assert.equal(review.asset.episode,asset.episode,'다른 회차로 변경됨 '+event.key);
+      assert.equal(asset.sourceKind,'official-anime-episode-still');
+      assert.ok(review.officialEpisodeEvidence,'공식 회차 근거 누락 '+event.key);
+    } else {
+      assert.equal(asset.sourceKind,'official-game-screenshot');
+      assert.equal(review.asset.sourceKind,asset.sourceKind);
+      assert.equal(review.asset.sourceUrl,asset.sourceUrl);
+      assert.ok(review.officialGameEvidence && review.gameContext,'게임 시점·상황 검토 누락 '+event.key);
+      assert.equal(review.asset.episode,null,'게임 장면에 임의 회차 지정 '+event.key);
+    }
     assert.equal(assignment.exactStoryScene,true);
-    assert.ok(review.visualEvidence && review.officialEpisodeEvidence && review.decisionReason,'장면 검토 근거 누락');
+    assert.ok(review.visualEvidence && review.decisionReason,'장면 검토 근거 누락');
   } else {
     assert.equal(assignment.exactStoryScene,false,'인물·표지를 실제 사건 장면으로 기록하면 안 됨');
-    assert.ok(['representative-character','world-keyvisual'].includes(assignment.kind),'추가 그림 분류 오류');
+    assert.ok(['representative-character','world-keyvisual','ending-memorial'].includes(assignment.kind),'추가 그림 분류 오류');
     assert.equal(asset.characterKey==='head',assignment.kind==='world-keyvisual','인물 그림과 작품 표지 혼동 '+event.key);
+    assert.equal(asset.characterKey==='ending_memorial',assignment.kind==='ending-memorial','엔딩 기념 그림과 인물 혼동 '+event.key);
   }
   assert.ok(assignment.evidence && (event.intro+'\n'+event.story).includes(assignment.evidence),'본문에 없는 추가 그림 선정 근거 '+event.key);
   assert.ok(assignment.reason && assignment.sourcePage,'추가 그림 선정 이유·출처 누락 '+event.key);

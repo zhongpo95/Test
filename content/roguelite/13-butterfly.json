@@ -3,7 +3,7 @@
     "key": "butterfly",
     "name": "나비저택",
     "work": "귀멸의 칼날",
-    "intro": "나비저택에 도착한 탄지로와 동료들은 다시 움직일 준비를 시작한다. 다시 호흡하며 이어 가는 뜻의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "상처를 입고 나비저택에 도착한 탄지로와 동료들이 다시 검을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다.",
     "effects": [
       {
         "stat": "swift",
@@ -45,7 +45,7 @@
       "key": "kny_aoi",
       "name": "칸자키 아오이",
       "effectName": "다시 시작할 준비",
-      "keyword": "행동",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -65,7 +65,7 @@
       "key": "kny_tanjiro",
       "name": "카마도 탄지로",
       "effectName": "끊기지 않는 호흡",
-      "keyword": "신속 · 고체력",
+      "keyword": "신속 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -89,7 +89,7 @@
       "key": "kny_kanao",
       "name": "츠유리 카나오",
       "effectName": "먼저 읽는 움직임",
-      "keyword": "치명 · 행동",
+      "keyword": "치명 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -169,7 +169,7 @@
       "key": "kny_inosuke",
       "name": "하시비라 이노스케",
       "effectName": "머뭇거리지 않는 돌파",
-      "keyword": "일반 · 비방향",
+      "keyword": "일반 · 비방향 · 받는 피해 증가",
       "grade": 1,
       "effects": [
         {
@@ -225,7 +225,7 @@
       "key": "kny_kanao_quiet",
       "name": "츠유리 카나오",
       "effectName": "발이 움직이기 전에",
-      "keyword": "이동 · 치명 확률",
+      "keyword": "고정 신속 · 치명 확률",
       "grade": 1,
       "effects": [
         {
@@ -249,7 +249,7 @@
       "key": "kny_tanjiro_smell",
       "name": "카마도 탄지로",
       "effectName": "겹친 흔적 사이",
-      "keyword": "방향 적중 · 관통",
+      "keyword": "헤드·백 적중 피해 · 관통",
       "grade": 1,
       "effects": [
         {
@@ -321,7 +321,7 @@
       "key": "kny_inosuke_terrain",
       "name": "하시비라 이노스케",
       "effectName": "먼저 발을 내딛는 길",
-      "keyword": "이동 · 일반 적",
+      "keyword": "고정 신속 · 일반 적",
       "grade": 1,
       "effects": [
         {
@@ -373,7 +373,7 @@
       "key": "kny_tanjiro_return",
       "name": "카마도 탄지로",
       "effectName": "돌아오게 하는 꾸준함",
-      "keyword": "행동 속도 · 보스",
+      "keyword": "고정 신속 · 보스",
       "grade": 1,
       "effects": [
         {
@@ -397,7 +397,7 @@
       "key": "kny_nezuko_will",
       "name": "카마도 네즈코",
       "effectName": "겁내는 이의 앞에서",
-      "keyword": "재생 · 고체력",
+      "keyword": "재생 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -421,7 +421,7 @@
       "key": "kny_gourd_breath",
       "name": "카마도 탄지로",
       "effectName": "크기보다 긴 한숨",
-      "keyword": "차지 피해 · 행동 속도",
+      "keyword": "차지 피해 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -445,7 +445,7 @@
       "key": "kny_morning_breath",
       "name": "카마도 탄지로",
       "effectName": "인사 다음에도 이어지는 숨",
-      "keyword": "재생 · 고체력",
+      "keyword": "재생 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -469,7 +469,7 @@
       "key": "kny_kanao_return_hand",
       "name": "츠유리 카나오",
       "effectName": "다음 손을 거두는 때",
-      "keyword": "행동 속도 · 방향",
+      "keyword": "고정 신속 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -493,7 +493,7 @@
       "key": "kny_kanao_small_motion",
       "name": "츠유리 카나오",
       "effectName": "작게 움직여도 늦지 않게",
-      "keyword": "치명타 확률 · 이동 속도",
+      "keyword": "치명타 확률 · 고정 신속",
       "grade": 1,
       "effects": [
         {

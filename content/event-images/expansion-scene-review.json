@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewDate": "2026-10-10",
-  "reviewScope": "확장 작품의 공식 회차 장면과 사건 본문 대응 검토",
+  "reviewScope": "확장 작품의 공식 영상·게임 장면과 사건 본문 대응 검토",
   "sourceManifest": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\event-texture-manifest.json",
   "sourceManifestSha256": "975db060792e6baf312d053b725786f92a99a7a6df0f6af709d69dc0e2c91e53",
   "productionModified": false,
@@ -41,14 +41,14 @@
     "승인한 이미지는 사건 상황을 설명하며 선택 보상의 캐릭터를 바꾸지 않는다."
   ],
   "summary": {
-    "totalScenes": 25,
+    "totalScenes": 29,
     "decisionCounts": {
-      "approve": 16,
+      "approve": 20,
       "hold-phase-mismatch": 2,
       "alternative": 1,
       "hold-low-resolution": 6
     },
-    "primaryBindings": 16,
+    "primaryBindings": 20,
     "notes": [
       "파린 귀환으로 이름 붙였던 스틸은 뼈 확인 장면으로 의미를 정정했다.",
       "데이트 및 젊은 용사 일행 장면은 현재 사건 시점과 어긋나 보류했다.",
@@ -167,6 +167,34 @@
       "sceneKey": "scene_boros_battle",
       "eventSource": "war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga",
       "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_z_city_scene_boros_battle.tga"
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_01",
+      "sceneKey": "scene_first_palace",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.tga"
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_03",
+      "sceneKey": "scene_sayuri",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.tga"
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_09",
+      "sceneKey": "scene_interrogation",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.tga"
+    },
+    {
+      "world": "persona5_royal",
+      "eventKey": "p5r_main_01",
+      "sceneKey": "scene_counselor",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.tga"
     }
   ],
   "decisions": [
@@ -1683,6 +1711,227 @@
         "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
       ],
       "dialogueEvidence": "공식 스틸의 인물·시점·행동 대조이며 창작 선택 대사가 영상에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5",
+      "sceneKey": "scene_first_palace",
+      "decision": "approve",
+      "approvedEventKey": "p5_main_01",
+      "candidateEventKeys": [
+        "p5_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+        "sha256": "7049a2c17498d22c1400588ef8a7a16490e75896bf2231a23e2d16000860d7d3",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5a_01_35.jpg",
+        "sourceSha256": "b9d48d4df59e6635bbe7c90027aab599e4b6c829ac96a28026a7d8b447349906",
+        "sourcePage": "https://p5a.jp/story/01.html",
+        "sourceUrl": "https://p5a.jp/assets/img/story/01/03.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": null,
+        "episode": 1,
+        "nativeSourceSize": [
+          960,
+          540
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.tga",
+      "visibleCharacters": [
+        "조커",
+        "사카모토 류지"
+      ],
+      "visualEvidence": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다.",
+      "officialEpisodeEvidence": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다. 공식 1화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/26-persona5.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5_main_01",
+          "title": "낯선 도시의 가면",
+          "intro": "르블랑에 짐을 푼 전학생이 학교 대신 성 같은 곳에 들어선다.",
+          "story": "도쿄에서 조용히 지내려던 소년은 류지와 함께 낯선 성에 갇힌다. 류지가 위협받는 순간, 더는 보고만 있을 수 없다는 생각이 가면 아래에서 솟는다.",
+          "choiceLabels": [
+            "위협 앞에서 물러서지 않는다",
+            "류지에게 움직일 틈을 만든다",
+            "작은 안내자의 말을 듣는다"
+          ],
+          "commonResult": "소년은 페르소나에 눈뜨고 류지를 구한다. 성에서 만난 모르가나와 함께 출구를 찾아 현실로 돌아온다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+          "eventSha256": "485d369713132ce03f82ce998a856d9b8a33867470c7bce10e5684748e8cdea8"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5",
+      "sceneKey": "scene_sayuri",
+      "decision": "approve",
+      "approvedEventKey": "p5_main_03",
+      "candidateEventKeys": [
+        "p5_main_03"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+        "sha256": "9bfbd187bc88efb027c3dcf5be1230dc025aa6be78090979e543535892f52734",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5a_ep08_3.jpg",
+        "sourceSha256": "9f7a22edebfa026e149a89ae3d96687b4730dcbebfa353ed71ff667e287e3633",
+        "sourcePage": "https://p5a.jp/story/08.html",
+        "sourceUrl": "https://p5a.jp/assets/img/story/08/03.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": null,
+        "episode": 8,
+        "nativeSourceSize": [
+          960,
+          540
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다.",
+      "officialEpisodeEvidence": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다. 공식 8화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/26-persona5.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5_main_03",
+          "title": "액자 안에서 지워진 이름",
+          "intro": "유스케가 스승의 미술관에서 작품의 주인을 묻는다.",
+          "story": "명성으로 가득한 미술관에는 제자들의 삶도 전시되어 있다. 유스케는 믿어 온 스승의 말과 눈앞의 증거를 함께 마주한다. 한 그림을 둘러싼 진실은 예술에 대한 그의 믿음까지 흔든다.",
+          "choiceLabels": [
+            "그림에 남은 작은 차이를 본다",
+            "유스케가 확인할 시간을 지킨다",
+            "보물과 탈출로를 함께 점검한다"
+          ],
+          "commonResult": "유스케는 스승의 착취를 외면하지 않고 괴도단과 함께 맞선다. 마다라메의 보물을 확보하고 사유리에 남은 어머니의 흔적을 되찾는다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+          "eventSha256": "43f362808c9cedc69533af4326dab0e881afaa76ef27e6737e187ce74ac64df6"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5",
+      "sceneKey": "scene_interrogation",
+      "decision": "approve",
+      "approvedEventKey": "p5_main_09",
+      "candidateEventKeys": [
+        "p5_main_09"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+        "sha256": "411f2a4aacddb23c3a514cf07786aebd1c3f20c237ce91098312d15b3898591d",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5a_ep26_2.jpg",
+        "sourceSha256": "d44f5f045f240c75daf9f3d4ba2f2e174a63e32bde46b3c8638a4482e246f99b",
+        "sourcePage": "https://p5a.jp/story/26.html",
+        "sourceUrl": "https://p5a.jp/assets/img/story/26/02.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": null,
+        "episode": 26,
+        "nativeSourceSize": [
+          960,
+          540
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.tga",
+      "visibleCharacters": [
+        "니지마 사에"
+      ],
+      "visualEvidence": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다.",
+      "officialEpisodeEvidence": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다. 공식 26화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/26-persona5.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5_main_09",
+          "title": "취조실 밖으로 건네는 것",
+          "intro": "사에의 질문 앞에서 조커가 끝까지 동료를 지킨다.",
+          "story": "흐려지는 의식 속에서도 조커는 동료를 팔지 않는다. 사에에게 건네야 할 말과 휴대전화가 남아 있다. 한 사람이 믿어 주는가에 따라 취조실 밖의 계획이 이어질 수 있다.",
+          "choiceLabels": [
+            "동료의 이름을 거래하지 않는다",
+            "확인할 단서를 사에에게 맡긴다",
+            "약속한 전달 순서를 떠올린다"
+          ],
+          "commonResult": "사에가 조커의 부탁을 받아들인다. 아케치는 인지 속 조커를 죽이고, 실제 조커는 준비된 속임수와 사에의 도움으로 살아 돌아온다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+          "eventSha256": "4bed63a0ae3dc9f284019ff06809ac129b3dec4b43ca521b7374a80dbfb535f7"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5_royal",
+      "sceneKey": "scene_counselor",
+      "decision": "approve",
+      "approvedEventKey": "p5r_main_01",
+      "candidateEventKeys": [
+        "p5r_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+        "sha256": "609f54f71d595ed0830311c32388cba915d16319ff0b398d939ffb884b164340",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\originals\\p5r_top_royal1_c2_ss1_87a5b3c46d1d03037983f203d681c75e.jpg",
+        "sourceSha256": "ea2f856fdb55dff409aa948faae788ebeec0634e584d544cae85fde96f73ade8",
+        "sourcePage": "https://p5r.jp/",
+        "sourceUrl": "https://p5r.jp/resources/img/top/ss/royal1_c2_ss1_87a5b3c46d1d03037983f203d681c75e.jpg",
+        "sourceKind": "official-game-screenshot",
+        "season": null,
+        "episode": null,
+        "nativeSourceSize": [
+          1920,
+          1080
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.tga",
+      "visibleCharacters": [
+        "마루키 타쿠토",
+        "조커"
+      ],
+      "visualEvidence": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다.",
+      "officialGameEvidence": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다. 공식 게임 소개 페이지 https://p5r.jp/",
+      "gameContext": "앞선 학교생활을 회고하는 도입. 카모시다 사건 이후 마루키 부임과 새 동급생이 아닌 후배 요시자와의 만남. 정체 미공개. 화면 날짜 5월 24일. 1월 사건에 사용하지 않는다.",
+      "contentFile": "content/roguelite/27-persona5_royal.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5r_main_01",
+          "title": "겨울에 닿기 전의 인연",
+          "intro": "괴도단과 지냈던 한 해에서 새 인연의 첫 장면을 되짚는다.",
+          "story": "슈진 학원에는 상담사 마루키가 찾아왔고, 요시자와는 체조와 학교생활 사이에서 애쓰고 있었다. 조커는 각자의 이야기를 들으며 혼자서는 보지 못했던 마음을 알아 갔다. 겨울의 작은 어긋남을 따라가기 전에 그때의 말을 떠올린다.",
+          "choiceLabels": [
+            "답을 정하지 않고 먼저 듣는다",
+            "다음 시도에 필요한 것을 묻는다",
+            "나도 원하는 것이 무엇인지 생각한다"
+          ],
+          "commonResult": "상담실에서 나눈 질문과 요시자와와의 만남이 기억에 남는다. 다음 기억은 낯선 건물에서 같은 인연을 다시 만났던 때로 이어진다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+          "eventSha256": "c83f14d14b7967f00b186f375990f67da60f7a8a1651ece1527de130d30d12a2"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
     }
   ],
   "contactSheets": [
@@ -1769,6 +2018,52 @@
           "eventKey": "opm_main_07",
           "decision": "hold-phase-mismatch",
           "reason": "운석 낙하 후의 파손된 건물. 초안의 운석 낙하 전 지부 장면과 시점이 달라 사용하지 않는다."
+        }
+      ]
+    },
+    {
+      "world": "persona5",
+      "file": "content/reviews/next-priority-heads-20261010/persona5-scenes-normalized.json",
+      "sourceContentSha256": "2da5e923905e6de156257ec637556030cf10dde9bbe65af05c1b580c8560d3c2",
+      "approved": 3,
+      "notUsed": [
+        {
+          "subject": "공식 애니메이션 각색",
+          "decision": "record-medium-boundary",
+          "reason": "사에·소지로 대표 초상 및 메인 1/3/9 이미지는 공식 애니메이션 스틸이다. 원작 게임을 직접 캡처한 장면이라고 표기하지 않는다."
+        },
+        {
+          "subject": "엔딩 대표 그림",
+          "decision": "representative-only",
+          "reason": "원작 본편 키비주얼이며 실제 귀향 장면이 아니다."
+        }
+      ]
+    },
+    {
+      "world": "persona5_royal",
+      "file": "content/reviews/next-priority-heads-20261010/persona5_royal-scenes-normalized.json",
+      "sourceContentSha256": "58e935c62e4728f134c82ce14c71575ca67310bbe6d803f584511610fae9ff1c",
+      "approved": 1,
+      "notUsed": [
+        {
+          "subject": "원본 발표용 일반 의상",
+          "decision": "representative-only",
+          "reason": "로열 학교/괴도 초상은 겨울 전용 이미지가 아니므로 3학기 실제 장면으로 표기하지 않는다."
+        },
+        {
+          "subject": "아케치 백색 프린스 괴도복",
+          "decision": "hold",
+          "reason": "3학기 현장 복장과 충돌하여 로열 개별 카드 출력에서 제외했다."
+        },
+        {
+          "subject": "로열 1월 실제 장면",
+          "decision": "pending-official-exact-scene",
+          "reason": "공개 공식 페이지의 스틸에서 날짜와 상황을 확정하지 못했다. 5월 학교상담 회고만 실제 장면으로 승인했다."
+        },
+        {
+          "subject": "요시자와 신데렐라 전투 스틸",
+          "decision": "hold-exact-mapping",
+          "reason": "공개 소개 그림의 캐릭터·전투는 확인되지만 첫 각성의 날짜·전후 상황까지 입증되지 않아 10월 또는 1월 사건에 임의 연결하지 않았다."
         }
       ]
     }

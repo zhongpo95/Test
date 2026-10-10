@@ -63,6 +63,9 @@ check('모든 지역의 입문 카드 이미지와 보상 설명이 실제 지�
   const t = setup(), e = t.e;
   assert.equal(t.entries.length, t.e.PROTO_HEAD_COUNT);
   for (const event of t.entries) {
+    // 실제 후보 버튼은 잠긴 머리에서 비활성화된다. 전체 입문 보상의 양성 비교에는 선행 완주 상태를 마련한다.
+    const required = e.ProtoHeadRequiredMain[e.ProtoEventHead[event]];
+    if (required > 0) e.ProtoHeadCompleted[e.ExpKey(0, required)] = true;
     offer(t, [event]); enter(t);
     const card = e.ProtoHeadEntryCard[e.ProtoEventHead[event]];
     assert(t.visible(tooltip(t).id));

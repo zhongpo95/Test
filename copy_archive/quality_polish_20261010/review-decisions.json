@@ -1,0 +1,19 @@
+{
+  "accepted": [
+    {
+      "world": "fuyuki",
+      "reason": "시로가 전쟁을 알기 전부터 린과 함께 진입한 것으로 읽히지 않게 시로의 일상에 전쟁이 닥친다는 도입으로 수정했다. Gemma의 대안 문장을 그대로 채택하지는 않았다."
+    }
+  ],
+  "rejected": [
+    {
+      "world": "mitakihara",
+      "suggestion": "호무라의 전학 설정을 삭제한다.",
+      "reason": "기존 mitakihara_main_01 story에 같은 반으로 전학 오는 사실이 명시되어 있다. 근거 없는 삭제 제안이므로 유지했고 본문을 제공한 재검토에서 문제가 없었다."
+    }
+  ],
+  "reviewRecordIds": [
+    "3c78ea7b-1afb-4f76-b0cd-c261bbc42ad2",
+    "f03dbb8e-8dde-4081-9f84-ce0eb50a87d4"
+  ]
+}

@@ -120,6 +120,9 @@ check('등록된 모든 지역의 네 입구에서 머리·입문 카드·무료
       assert.equal(e.ProtoEventKey[id],e.ProtoHeadKey[head]+'_entry_'+pid);
       assert.equal(e.ProtoEventHead[id],head);assert.equal(e.ProtoEventKind[id],0);
       e.ProtoHeadCount[pid]=0;e.ProtoAP[pid]=20;
+      // 입구의 지급·저장 양성 경로다. 선행 조건 자체의 잠금·완주는 check-head-progression에서 검증한다.
+      const required=e.ProtoHeadRequiredMain[head];
+      if(required>0)e.ProtoHeadCompleted[e.ExpKey(pid,required)]=true;
       for(let owner=0;owner<4;owner++)assert.equal(e.ProtoEventEligible(pid,e.ProtoHeadEntryEvent[head*4+owner]),owner===pid);
       e.localPlayer=pid;e.ProtoStage[pid]=1;e.ProtoCandidates[e.ExpKey(pid,1)]=id;
       const copies=e.ProtoRewardCopies[e.ExpKey(pid,card)];

@@ -2,7 +2,7 @@
 'use strict';
 const fs = require('node:fs'), path = require('node:path');
 const {inspect} = require('./check-content-candidates.cjs');
-const worldKeys = ['amphoreus','phantom_blood','madolche','tengu','ikebukuro','frieren','dungeon_meshi','hunter_exam','roswaal_mansion','z_city'];
+const worldKeys = ['amphoreus','phantom_blood','madolche','tengu','ikebukuro','frieren','dungeon_meshi','hunter_exam','roswaal_mansion','z_city','witch_prison','persona5','persona5_royal','hakugyokurou','scarlet_mist'];
 const defaultDirectory = path.resolve(__dirname,'../content/roguelite');
 const schema = JSON.parse(fs.readFileSync(path.join(__dirname,'content-schema.json'),'utf8'));
 const permittedStats = new Set(schema.$defs.effect.properties.stat.enum);

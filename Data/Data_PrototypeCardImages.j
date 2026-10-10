@@ -561,5 +561,119 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(1364, "UI_Card_XP_z_city_boros_Icon", "UI_Card_XP_z_city_boros_Art")
         // 내일도 히어로
         call SetImages(1402, "UI_Card_XP_z_city_ending_memorial_Icon", "UI_Card_XP_z_city_ending_memorial_Art")
+        // 사쿠라바 에마
+        call SetImages(1403, "UI_Card_XP_witch_prison_ema_Icon", "UI_Card_XP_witch_prison_ema_Art")
+        // 니카이도 히로
+        call SetImages(1404, "UI_Card_XP_witch_prison_hiro_Icon", "UI_Card_XP_witch_prison_hiro_Art")
+        // 나츠메 앙앙
+        call SetImages(1405, "UI_Card_XP_witch_prison_anan_Icon", "UI_Card_XP_witch_prison_anan_Art")
+        // 조가사키 노아
+        call SetImages(1406, "UI_Card_XP_witch_prison_noah_Icon", "UI_Card_XP_witch_prison_noah_Art")
+        // 토노 한나
+        call SetImages(1407, "UI_Card_XP_witch_prison_hanna_Icon", "UI_Card_XP_witch_prison_hanna_Art")
+        // 타치바나 셰리
+        call SetImages(1408, "UI_Card_XP_witch_prison_sherry_Icon", "UI_Card_XP_witch_prison_sherry_Art")
+        // 하스미 레이아
+        call SetImages(1409, "UI_Card_XP_witch_prison_leia_Icon", "UI_Card_XP_witch_prison_leia_Art")
+        // 사에키 미리아
+        call SetImages(1410, "UI_Card_XP_witch_prison_miria_Icon", "UI_Card_XP_witch_prison_miria_Art")
+        // 쿠로베 나노카
+        call SetImages(1411, "UI_Card_XP_witch_prison_nanoka_Icon", "UI_Card_XP_witch_prison_nanoka_Art")
+        // 사와타리 코코
+        call SetImages(1412, "UI_Card_XP_witch_prison_koko_Icon", "UI_Card_XP_witch_prison_koko_Art")
+        // 호쇼 마고
+        call SetImages(1413, "UI_Card_XP_witch_prison_margo_Icon", "UI_Card_XP_witch_prison_margo_Art")
+        // 히카미 메루루
+        call SetImages(1414, "UI_Card_XP_witch_prison_meruru_Icon", "UI_Card_XP_witch_prison_meruru_Art")
+        // 철문 너머의 내일
+        call SetImages(1460, "UI_Card_XP_witch_prison_ending_memorial_Icon", "UI_Card_XP_witch_prison_ending_memorial_Art")
+        // 조커
+        call SetImages(1462, "UI_Card_XP_persona5_joker_Icon", "UI_Card_XP_persona5_joker_Art")
+        // 모르가나
+        call SetImages(1463, "UI_Card_XP_persona5_morgana_Icon", "UI_Card_XP_persona5_morgana_Art")
+        // 사카모토 류지
+        call SetImages(1464, "UI_Card_XP_persona5_ryuji_Icon", "UI_Card_XP_persona5_ryuji_Art")
+        // 타카마키 안
+        call SetImages(1465, "UI_Card_XP_persona5_ann_Icon", "UI_Card_XP_persona5_ann_Art")
+        // 키타가와 유스케
+        call SetImages(1466, "UI_Card_XP_persona5_yusuke_Icon", "UI_Card_XP_persona5_yusuke_Art")
+        // 니지마 마코토
+        call SetImages(1467, "UI_Card_XP_persona5_makoto_Icon", "UI_Card_XP_persona5_makoto_Art")
+        // 사쿠라 후타바
+        call SetImages(1468, "UI_Card_XP_persona5_futaba_Icon", "UI_Card_XP_persona5_futaba_Art")
+        // 오쿠무라 하루
+        call SetImages(1469, "UI_Card_XP_persona5_haru_Icon", "UI_Card_XP_persona5_haru_Art")
+        // 아케치 고로
+        call SetImages(1470, "UI_Card_XP_persona5_akechi_Icon", "UI_Card_XP_persona5_akechi_Art")
+        // 니지마 사에
+        call SetImages(1471, "UI_Card_XP_persona5_sae_Icon", "UI_Card_XP_persona5_sae_Art")
+        // 사쿠라 소지로
+        call SetImages(1472, "UI_Card_XP_persona5_sojiro_Icon", "UI_Card_XP_persona5_sojiro_Art")
+        // 다시 이어질 우리의 길
+        call SetImages(1519, "UI_Card_XP_persona5_ending_memorial_Icon", "UI_Card_XP_persona5_ending_memorial_Art")
+        // 조커
+        call SetImages(1520, "UI_Card_XP_persona5_royal_joker_Icon", "UI_Card_XP_persona5_royal_joker_Art")
+        // 모르가나
+        call SetImages(1521, "UI_Card_XP_persona5_royal_morgana_Icon", "UI_Card_XP_persona5_royal_morgana_Art")
+        // 사카모토 류지
+        call SetImages(1522, "UI_Card_XP_persona5_royal_ryuji_Icon", "UI_Card_XP_persona5_royal_ryuji_Art")
+        // 타카마키 안
+        call SetImages(1523, "UI_Card_XP_persona5_royal_ann_Icon", "UI_Card_XP_persona5_royal_ann_Art")
+        // 키타가와 유스케
+        call SetImages(1524, "UI_Card_XP_persona5_royal_yusuke_Icon", "UI_Card_XP_persona5_royal_yusuke_Art")
+        // 니지마 마코토
+        call SetImages(1525, "UI_Card_XP_persona5_royal_makoto_Icon", "UI_Card_XP_persona5_royal_makoto_Art")
+        // 사쿠라 후타바
+        call SetImages(1526, "UI_Card_XP_persona5_royal_futaba_Icon", "UI_Card_XP_persona5_royal_futaba_Art")
+        // 오쿠무라 하루
+        call SetImages(1527, "UI_Card_XP_persona5_royal_haru_Icon", "UI_Card_XP_persona5_royal_haru_Art")
+        // 아케치 고로
+        call SetImages(1528, "UI_Card_XP_persona5_royal_akechi_Icon", "UI_Card_XP_persona5_royal_akechi_Art")
+        // 요시자와
+        call SetImages(1529, "UI_Card_XP_persona5_royal_yoshizawa_Icon", "UI_Card_XP_persona5_royal_yoshizawa_Art")
+        // 마루키 타쿠토
+        call SetImages(1530, "UI_Card_XP_persona5_royal_maruki_Icon", "UI_Card_XP_persona5_royal_maruki_Art")
+        // 우리 손으로 고른 내일
+        call SetImages(1571, "UI_Card_XP_persona5_royal_ending_memorial_Icon", "UI_Card_XP_persona5_royal_ending_memorial_Art")
+        // 하쿠레이 레이무
+        call SetImages(1572, "UI_Card_XP_hakugyokurou_reimu_Icon", "UI_Card_XP_hakugyokurou_reimu_Art")
+        // 치르노
+        call SetImages(1573, "UI_Card_XP_hakugyokurou_cirno_Icon", "UI_Card_XP_hakugyokurou_cirno_Art")
+        // 레티 화이트록
+        call SetImages(1574, "UI_Card_XP_hakugyokurou_letty_Icon", "UI_Card_XP_hakugyokurou_letty_Art")
+        // 첸
+        call SetImages(1575, "UI_Card_XP_hakugyokurou_chen_Icon", "UI_Card_XP_hakugyokurou_chen_Art")
+        // 앨리스 마가트로이드
+        call SetImages(1576, "UI_Card_XP_hakugyokurou_alice_Icon", "UI_Card_XP_hakugyokurou_alice_Art")
+        // 릴리 화이트
+        call SetImages(1577, "UI_Card_XP_hakugyokurou_lily_Icon", "UI_Card_XP_hakugyokurou_lily_Art")
+        // 루나사 프리즘리버
+        call SetImages(1578, "UI_Card_XP_hakugyokurou_lunasa_Icon", "UI_Card_XP_hakugyokurou_lunasa_Art")
+        // 메를랑 프리즘리버
+        call SetImages(1579, "UI_Card_XP_hakugyokurou_merlin_Icon", "UI_Card_XP_hakugyokurou_merlin_Art")
+        // 리리카 프리즘리버
+        call SetImages(1580, "UI_Card_XP_hakugyokurou_lyrica_Icon", "UI_Card_XP_hakugyokurou_lyrica_Art")
+        // 콘파쿠 요우무
+        call SetImages(1581, "UI_Card_XP_hakugyokurou_youmu_Icon", "UI_Card_XP_hakugyokurou_youmu_Art")
+        // 사이교우지 유유코
+        call SetImages(1582, "UI_Card_XP_hakugyokurou_yuyuko_Icon", "UI_Card_XP_hakugyokurou_yuyuko_Art")
+        // 돌아온 봄의 자리
+        call SetImages(1620, "UI_Card_XP_hakugyokurou_ending_memorial_Icon", "UI_Card_XP_hakugyokurou_ending_memorial_Art")
+        // 하쿠레이 레이무
+        call SetImages(1621, "UI_Card_XP_scarlet_mist_reimu_Icon", "UI_Card_XP_scarlet_mist_reimu_Art")
+        // 루미아
+        call SetImages(1622, "UI_Card_XP_scarlet_mist_rumia_Icon", "UI_Card_XP_scarlet_mist_rumia_Art")
+        // 치르노
+        call SetImages(1623, "UI_Card_XP_scarlet_mist_cirno_Icon", "UI_Card_XP_scarlet_mist_cirno_Art")
+        // 홍 메이링
+        call SetImages(1624, "UI_Card_XP_scarlet_mist_meiling_Icon", "UI_Card_XP_scarlet_mist_meiling_Art")
+        // 파츄리 널릿지
+        call SetImages(1625, "UI_Card_XP_scarlet_mist_patchouli_Icon", "UI_Card_XP_scarlet_mist_patchouli_Art")
+        // 이자요이 사쿠야
+        call SetImages(1626, "UI_Card_XP_scarlet_mist_sakuya_Icon", "UI_Card_XP_scarlet_mist_sakuya_Art")
+        // 레밀리아 스칼렛
+        call SetImages(1627, "UI_Card_XP_scarlet_mist_remilia_Icon", "UI_Card_XP_scarlet_mist_remilia_Art")
+        // 안개 뒤에 돌아온 여름
+        call SetImages(1665, "UI_Card_XP_scarlet_mist_ending_memorial_Icon", "UI_Card_XP_scarlet_mist_ending_memorial_Art")
     endfunction
 endlibrary

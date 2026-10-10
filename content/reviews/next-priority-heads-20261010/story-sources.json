@@ -1,0 +1,2872 @@
+[
+  {
+    "worldKey": "witch_prison",
+    "draftFile": "content/expansion-drafts/witch_prison.json",
+    "reviewedAt": "2026-10-10",
+    "status": "정적 검사 완료. Gemma 검토와 통합 전 초안.",
+    "scope": {
+      "work": "魔法少女ノ魔女裁判 / 마법소녀의 마녀재판",
+      "edition": "2025년 PC 본편",
+      "mainCount": 16,
+      "sideCount": 16,
+      "epilogueCount": 2,
+      "cardCount": 59,
+      "spoilers": "본편 핵심 반전과 진엔딩 포함",
+      "excluded": [
+        "Switch판의 추가 스틸을 새 사건의 근거로 사용하는 일",
+        "코믹스만의 변경 전개",
+        "마법소녀의 인습촌",
+        "개별 배드엔드의 혼합",
+        "직접 부활·즉사·무적·시간 되돌리기 지급"
+      ]
+    },
+    "evidenceBoundary": {
+      "official": "제작사 명의 출시 보도자료, Steam 소개, Nintendo 소개로 초반 전제와 기본 인물 성격을 확인했다. 공식 소개가 후반 진상을 공개하지 않는 부분은 공식 검증이라고 표시하지 않았다.",
+      "secondary": "각 재판의 개별 공략으로 범인·피해자·증거 순서를 확인했다. 2025년 PC판 완주 후기와 별도 완주 후기로 반복 구조와 진엔딩의 공통 내용을 대조했다.",
+      "limits": [
+        "게임을 직접 실행하거나 원본 시나리오 파일을 읽은 검증이 아니다.",
+        "Game8의 종합 감상 문서는 기억 기반 오차 가능성을 명시하므로 단독 근거로 채택하지 않았다.",
+        "한국어 이름은 일본어 공식 표기의 음역을 통일한 작업 표기이며 공식 한국어 현지화 표기라고 주장하지 않는다.",
+        "후반 인과의 세부에 확정되지 않은 심리 해석을 더하지 않았다."
+      ]
+    },
+    "sources": [
+      {
+        "id": "official_pc_release",
+        "kind": "primary",
+        "url": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+        "read": true,
+        "basis": "Re,AER가 직접 게시한 2025년 출시 소개. 열세 소녀의 감금 전제 및 각 인물의 이름·기본 성격·공개 마법."
+      },
+      {
+        "id": "official_switch_release",
+        "kind": "primary",
+        "url": "https://prtimes.jp/main/html/rd/p/000000012.000066682.html",
+        "read": true,
+        "basis": "제작사 명의 소개와 인물 명칭을 교차 확인했다. 추가 스틸은 PC 본편의 새 사건 근거로 쓰지 않는다."
+      },
+      {
+        "id": "official_steam",
+        "kind": "primary",
+        "url": "https://store.steampowered.com/app/3101040/",
+        "read": true,
+        "basis": "PC판 작품 소개와 에마가 감옥에서 눈을 뜨는 전제."
+      },
+      {
+        "id": "nintendo_intro",
+        "kind": "primary_distribution",
+        "url": "https://www.nintendo.com/jp/topics/article/b09a8af4-3998-46c1-89f3-0caa82dd5743",
+        "read": true,
+        "basis": "공식 배급 플랫폼의 작품 소개와 마녀화·재판 전제."
+      },
+      {
+        "id": "trial_guide_01",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/706345",
+        "read": true,
+        "basis": "첫 재판의 노아 사건과 레이아의 시선 유도, 방송 기록."
+      },
+      {
+        "id": "trial_guide_02",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707719",
+        "read": true,
+        "basis": "미리아와 에마의 실제 영혼 교환이 아니라 보호하려던 거짓말이었다는 반전."
+      },
+      {
+        "id": "trial_guide_03",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707749",
+        "read": true,
+        "basis": "한나와 셰리 사건의 관계 및 건물 위치의 단서."
+      },
+      {
+        "id": "trial_guide_04",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707753",
+        "read": true,
+        "basis": "아리사 사건에서 에마에게 내려지는 잠정 판결과 다음 재판으로 이어지는 순서."
+      },
+      {
+        "id": "trial_guide_05",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/796569",
+        "read": true,
+        "basis": "나노카 사건과 메루루의 정체, 앞선 결론의 재검토."
+      },
+      {
+        "id": "trial_guide_06",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707758",
+        "read": true,
+        "basis": "히로 편 첫 재판의 메루루·마고 사건."
+      },
+      {
+        "id": "trial_guide_07",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707764",
+        "read": true,
+        "basis": "히로 편 두 번째 재판의 코코·나노카 사건."
+      },
+      {
+        "id": "trial_guide_08",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707774",
+        "read": true,
+        "basis": "히로 편 세 번째 재판의 앙앙·노아 사건."
+      },
+      {
+        "id": "trial_guide_09",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707788",
+        "read": true,
+        "basis": "히로 편 네 번째 재판의 레이아·에마·한나 사건."
+      },
+      {
+        "id": "trial_guide_10",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/707812",
+        "read": true,
+        "basis": "마지막 반복의 사바트 재판과 대마녀에 닿는 순서."
+      },
+      {
+        "id": "trial_guide_11",
+        "kind": "secondary_walkthrough",
+        "url": "https://game8.jp/manosaba/796583",
+        "read": true,
+        "basis": "유키를 상대로 한 최종 재판에서 에마와 히로가 대화를 이어 가는 순서."
+      },
+      {
+        "id": "pc_completion_2025",
+        "kind": "secondary_firsthand_review",
+        "url": "https://note.com/ajimis/n/n6fbca4a95b43",
+        "read": true,
+        "basis": "2025년 작성된 PC판 완주 후기. 히로의 첫 반복 기억 범위, 세 차례 진행, 마지막 책의 역할, 진엔딩을 개별 공략 및 독립 후기와 대조했다.",
+        "excludedInterpretations": [
+          "작성자의 선악 평가",
+          "특정 마법의 메타 해석",
+          "주관적인 동기 추측",
+          "자해·범행의 절차적 설명"
+        ]
+      },
+      {
+        "id": "independent_completion",
+        "kind": "secondary_firsthand_review",
+        "url": "https://www.momotoyuin.com/entry/manosaba-review",
+        "read": true,
+        "basis": "별도 작성자의 완주 후기. 대마녀 유키, 인자 회수와 퇴장, 마지막 화해를 교차 확인했다. Switch판 감상 자체와 기술적 평가는 원고에 사용하지 않았다."
+      }
+    ],
+    "characterBasis": [
+      {
+        "key": "wt_ema",
+        "japanese": "桜羽エマ",
+        "display": "사쿠라바 에마",
+        "anchor": "official_pc_release",
+        "retained": "밝은 태도와 사람에게 다가가려는 모습."
+      },
+      {
+        "key": "wt_hiro",
+        "japanese": "二階堂ヒロ",
+        "display": "니카이도 히로",
+        "anchor": "official_pc_release",
+        "retained": "엄격한 정의감과 확인하려는 태도."
+      },
+      {
+        "key": "wt_anan",
+        "japanese": "夏目アンアン",
+        "display": "나츠메 앙앙",
+        "anchor": "official_pc_release",
+        "retained": "스케치북 필담."
+      },
+      {
+        "key": "wt_noah",
+        "japanese": "城ケ崎ノア",
+        "display": "조가사키 노아",
+        "anchor": "official_pc_release",
+        "retained": "액체 조작과 그림."
+      },
+      {
+        "key": "wt_hanna",
+        "japanese": "遠野ハンナ",
+        "display": "토노 한나",
+        "anchor": "official_pc_release",
+        "retained": "꾸민 말투와 부유."
+      },
+      {
+        "key": "wt_sherry",
+        "japanese": "橘シェリー",
+        "display": "타치바나 셰리",
+        "anchor": "official_pc_release",
+        "retained": "자칭 탐정의 호기심과 괴력."
+      },
+      {
+        "key": "wt_leia",
+        "japanese": "蓮見レイア",
+        "display": "하스미 레이아",
+        "anchor": "official_pc_release",
+        "retained": "배우의 태도와 중심에 서려는 성향."
+      },
+      {
+        "key": "wt_miria",
+        "japanese": "佐伯ミリア",
+        "display": "사에키 미리아",
+        "anchor": "official_pc_release",
+        "retained": "소극적이지만 친절한 모습."
+      },
+      {
+        "key": "wt_nanoka",
+        "japanese": "黒部ナノカ",
+        "display": "쿠로베 나노카",
+        "anchor": "official_pc_release",
+        "retained": "저택에 관한 지식과 단독 행동."
+      },
+      {
+        "key": "wt_koko",
+        "japanese": "沢渡ココ",
+        "display": "사와타리 코코",
+        "anchor": "official_pc_release",
+        "retained": "스트리머와 화면 관찰."
+      },
+      {
+        "key": "wt_margo",
+        "japanese": "宝生マーゴ",
+        "display": "호쇼 마고",
+        "anchor": "official_pc_release",
+        "retained": "친근한 태도 뒤의 경계."
+      },
+      {
+        "key": "wt_meruru",
+        "japanese": "氷上メルル",
+        "display": "히카미 메루루",
+        "anchor": "official_pc_release",
+        "retained": "걱정이 많은 겉모습과 치유."
+      }
+    ],
+    "eventAnchors": [
+      {
+        "event": "wt_main_01",
+        "sources": [
+          "official_steam",
+          "official_pc_release",
+          "pc_completion_2025"
+        ],
+        "boundary": "감금과 초기 히로의 죽음. 뒤의 모든 사건을 히로가 기억한다고 쓰지 않는다."
+      },
+      {
+        "event": "wt_main_02",
+        "sources": [
+          "trial_guide_01"
+        ],
+        "boundary": "노아 사건의 현장 조사."
+      },
+      {
+        "event": "wt_main_03",
+        "sources": [
+          "trial_guide_01"
+        ],
+        "boundary": "레이아의 범행과 시선 유도."
+      },
+      {
+        "event": "wt_main_04",
+        "sources": [
+          "trial_guide_02"
+        ],
+        "boundary": "미리아가 실제로 영혼을 바꾸었다고 쓰지 않는다."
+      },
+      {
+        "event": "wt_main_05",
+        "sources": [
+          "trial_guide_03"
+        ],
+        "boundary": "두 친구의 비극. 죽음을 배려나 최선의 해결책으로 보상하지 않는다."
+      },
+      {
+        "event": "wt_main_06",
+        "sources": [
+          "trial_guide_04"
+        ],
+        "boundary": "4번째 재판의 잠정 판결로 한정한다."
+      },
+      {
+        "event": "wt_main_07",
+        "sources": [
+          "trial_guide_05",
+          "pc_completion_2025"
+        ],
+        "boundary": "다음 재판에서 메루루의 진상과 앞선 결론의 오류가 드러난다."
+      },
+      {
+        "event": "wt_main_08",
+        "sources": [
+          "trial_guide_06",
+          "pc_completion_2025"
+        ],
+        "boundary": "첫 파국과 히로의 두 번째 시간. 기억 범위는 자신의 초기 죽음 이전이다."
+      },
+      {
+        "event": "wt_main_09",
+        "sources": [
+          "trial_guide_06"
+        ],
+        "boundary": "마고가 메루루를 죽인 사건."
+      },
+      {
+        "event": "wt_main_10",
+        "sources": [
+          "trial_guide_07",
+          "independent_completion"
+        ],
+        "boundary": "코코·나노카 사건과 간수의 가족 관계. 구체적인 살해 도구와 절차는 제외한다."
+      },
+      {
+        "event": "wt_main_11",
+        "sources": [
+          "trial_guide_08"
+        ],
+        "boundary": "마법 없이 그린 그림과 앙앙·노아 사건."
+      },
+      {
+        "event": "wt_main_12",
+        "sources": [
+          "trial_guide_09",
+          "pc_completion_2025"
+        ],
+        "boundary": "레이아·에마의 죽음 뒤 셰리까지 잃은 순서. 셰리의 직접 실행 묘사는 제외한다."
+      },
+      {
+        "event": "wt_main_13",
+        "sources": [
+          "trial_guide_10",
+          "pc_completion_2025"
+        ],
+        "boundary": "해독해 둔 책의 전달과 마지막 반복. 자해 방식·선택지는 제외하고 서사적 시간 이동만 남긴다."
+      },
+      {
+        "event": "wt_main_14",
+        "sources": [
+          "trial_guide_10"
+        ],
+        "boundary": "열세 명의 사바트와 대마녀의 등장."
+      },
+      {
+        "event": "wt_main_15",
+        "sources": [
+          "trial_guide_11",
+          "independent_completion"
+        ],
+        "boundary": "대마녀에게 질문을 이어 가는 최종 재판."
+      },
+      {
+        "event": "wt_main_16",
+        "sources": [
+          "trial_guide_11",
+          "pc_completion_2025",
+          "independent_completion"
+        ],
+        "boundary": "인자의 무해화·회수, 유키·메루루의 퇴장과 화해."
+      },
+      {
+        "event": "wt_side_*",
+        "sources": [
+          "official_pc_release"
+        ],
+        "boundary": "16개 모두 성격에 근거해 새로 쓴 회상형 일상이며 원작 실재 사건이 아니다. 현재 서사에서 퇴장한 인물을 부활시키지 않는다."
+      },
+      {
+        "event": "wt_epilogue_*",
+        "sources": [
+          "pc_completion_2025",
+          "independent_completion"
+        ],
+        "boundary": "본편 화해 이후의 짧은 여운만 새로 썼으며 새 귀환지나 거주지를 확정하지 않는다."
+      }
+    ],
+    "retainedDecisions": [
+      "16개 메인을 첫 시간 1~7, 전환 8, 히로 편 9~12, 마지막 반복 13~16으로 분리했다.",
+      "모든 보상 선택은 수사·응답·관찰의 차이이며 원작의 살인이나 자해 실행을 플레이어가 선택하지 않는다.",
+      "입문은 에마, 머리 효과는 관통 2이며 공격력·보스·치명·방향·비방향·차지·이동·건강·재생을 분산했다.",
+      "기본 카드 12장은 모두 일반 1등급이며 일반 사건에서 서로 다른 효과를 고르게 한다.",
+      "메인 카드 45장은 같은 사건 안에서 같은 희귀도·서로 다른 벡터다. 엔딩 1장만 공통 기념 예외다.",
+      "회복 수치는 건강 조건 피해와 함께 작은 재생 값으로 두고 기존 합산 최대체력 10%/초 상한을 유지한다.",
+      "행동력 최대치 카드는 wt_side_order 2번 뒤 wt_side_margin 1번에서만 지급되며 다른 지급 경로가 없다."
+    ],
+    "discardedOrDeferred": [
+      {
+        "idea": "히로가 에마 편 전체를 기억하고 모든 범행을 선제 해결하는 선택",
+        "status": "discarded",
+        "reason": "초기 반복에서 기억하는 범위와 다르다. 이번 히로는 자신이 죽기 전까지만 기억한다."
+      },
+      {
+        "idea": "4번째 재판의 에마 유죄 설명을 아리사 사건의 최종 진상으로 확정",
+        "status": "discarded",
+        "reason": "다음 재판에서 뒤집히는 잠정 결론이다. 두 단계로 분리했다."
+      },
+      {
+        "idea": "미리아와 에마가 실제로 영혼을 바꾼 상태에서 사건 진행",
+        "status": "discarded",
+        "reason": "앙앙에게 한 보호 목적의 거짓말이라는 반전과 충돌한다."
+      },
+      {
+        "idea": "시간 회귀를 플레이어 부활 또는 체력 비용 능력으로 지급",
+        "status": "discarded",
+        "reason": "기존 회복·사망 규칙을 바꾸고 사용자 금지 조건과 충돌한다."
+      },
+      {
+        "idea": "처형·자해·살해 절차를 성공 보상 선택으로 사용",
+        "status": "discarded",
+        "reason": "게임 내 선택의 초점은 관찰과 대화다. 체력 지불·즉사·직접 부활도 쓰지 않는다."
+      },
+      {
+        "idea": "메루루를 끝까지 실제 마녀였다고 단정하는 설명",
+        "status": "discarded",
+        "reason": "후반 정체를 가리는 초반 설명과 혼동할 수 있어 명시적 종족 판정은 보상에서 뺐다."
+      },
+      {
+        "idea": "모든 소녀가 같은 장소로 귀환해 함께 사는 후일담",
+        "status": "deferred",
+        "reason": "그런 결말을 확인하지 못했다. 화해와 미래의 가능성까지만 남긴다."
+      },
+      {
+        "idea": "일반 사건을 현재 살아 있는 인물의 새 행동으로 무제한 삽입",
+        "status": "discarded",
+        "reason": "세 차례 진행의 사망·생존 상태와 충돌하므로 회상형으로 구성했다."
+      }
+    ],
+    "validation": {
+      "method": "tools/check-priority-expansion.cjs inspectExpansion",
+      "cards": 59,
+      "events": 34,
+      "reachable": 34,
+      "main": 16,
+      "side": 16,
+      "epilogues": 2,
+      "errors": 0,
+      "warnings": 0,
+      "free": [
+        "wt_side_names",
+        "wt_side_blank"
+      ],
+      "requiredCardEvents": [
+        "wt_side_noah_detail",
+        "wt_side_koko_detail",
+        "wt_side_margin"
+      ],
+      "capacityCard": "wt_hiro_margin",
+      "capacityDuplicatePath": null,
+      "runtimeTested": false,
+      "visualTested": false,
+      "gemmaReviewed": false
+    },
+    "imageHandoff": {
+      "agent": "priority_image_research",
+      "characters": "12개 기본 인물 키와 16개 메인 키를 공유했다. 공식 일반 초상만 사용하고 처형·마녀 변형 그림은 요청하지 않았다.",
+      "eventKeys": [
+        "wt_main_01",
+        "wt_main_02",
+        "wt_main_08",
+        "wt_main_16"
+      ],
+      "endingKey": "witch_prison_ending_memorial",
+      "endingImagePolicy": "정확한 진엔딩 스틸이 없으면 작품 공통 표지를 사용하고 결말 장면이라고 주장하지 않는다."
+    }
+  },
+  {
+    "worldKey": "persona5",
+    "checkedAt": "2026-10-10",
+    "scope": "2016년 게임 본편 정상 결말. 애니메이션·로열·외전의 개별 장면은 합치지 않는다.",
+    "verificationBoundary": "공식 홍보·인물 소개는 시작점과 성향을 확인한다. 원작 후반과 정상 결말의 필수 사건 순서는 보조 줄거리·위키 자료로 대조했다. 게임 실플레이·전체 대사 전사·한국어 정식 자막 대조는 하지 않았다. 직접 열리지 않는 Fandom 문서는 검색 도구에 반환된 본문 범위만 읽었다.",
+    "primarySources": [
+      {
+        "id": "p5_official",
+        "url": "https://persona5.jp/gad2.html",
+        "kind": "official",
+        "method": "공식 소개의 검색 반환 본문을 읽음.",
+        "supported": "상경·학생생활·마음의 괴도단 기본 설정."
+      },
+      {
+        "id": "p5_hero",
+        "url": "https://persona5.jp/character/hero.html",
+        "kind": "official",
+        "method": "공식 캐릭터 소개의 검색 반환 본문을 읽음.",
+        "supported": "전학생 주인공·카페 생활·각성."
+      },
+      {
+        "id": "p5_school",
+        "url": "https://persona5.jp/sp/school_life/",
+        "kind": "official",
+        "method": "공식 소개의 검색 반환 본문을 읽음.",
+        "supported": "학교·협력자와의 일상."
+      },
+      {
+        "id": "p5_yusuke",
+        "url": "https://persona5.jp/character/yusuke.html",
+        "kind": "official",
+        "method": "웹 본문을 읽음.",
+        "supported": "미술 특기생·마다라메 제자·어머니 상실."
+      },
+      {
+        "id": "p5_futaba",
+        "url": "https://persona5.jp/character/futaba.html",
+        "kind": "official",
+        "method": "웹 본문을 읽음.",
+        "supported": "해커·은둔 상태·초기 페르소나의 기본 설정."
+      },
+      {
+        "id": "p5_makoto",
+        "url": "https://persona5.jp/character/makoto.html",
+        "kind": "official",
+        "method": "공식 캐릭터 소개의 검색 반환 본문을 읽음.",
+        "supported": "학생회장과 작전 참모의 기본 성향."
+      }
+    ],
+    "supplementalSources": [
+      {
+        "id": "p5_wiki",
+        "url": "https://en.wikipedia.org/wiki/Persona_5",
+        "kind": "community_summary",
+        "method": "웹 본문 Plot을 읽음.",
+        "supported": "사건 순서와 본편·로열 정상 결말의 차이. 아케치 생존은 문서의 단정을 그대로 채택하지 않음."
+      },
+      {
+        "id": "p5_plot",
+        "url": "https://megamitensei.fandom.com/wiki/Persona_5",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "초기 성 진입과 안 합류의 흐름."
+      },
+      {
+        "id": "madarame",
+        "url": "https://megamitensei.fandom.com/wiki/Madarame%27s_Palace",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "사유리와 유스케 어머니의 연결."
+      },
+      {
+        "id": "kaneshiro",
+        "url": "https://megamitensei.fandom.com/wiki/Kaneshiro%27s_Palace",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "협박 뒤 은행 접근·마코토 각성의 순서."
+      },
+      {
+        "id": "futaba",
+        "url": "https://megamitensei.fandom.com/wiki/Futaba%27s_Palace",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "알리바바 요청·피라미드·메제드의 연결."
+      },
+      {
+        "id": "morgana",
+        "url": "https://megamitensei.fandom.com/wiki/Morgana",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "모르가나 이탈과 하루의 동행, 재합류 전후."
+      },
+      {
+        "id": "okumura",
+        "url": "https://megamitensei.fandom.com/wiki/Okumura%27s_Palace",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "공략의 대상과 하루의 관계."
+      },
+      {
+        "id": "cognition",
+        "url": "https://megamitensei.fandom.com/wiki/Cognition",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "사에의 인지 속 조커와 실제 조커의 구분."
+      },
+      {
+        "id": "akechi",
+        "url": "https://en.wikipedia.org/wiki/Goro_Akechi",
+        "kind": "community_summary",
+        "method": "검색 색인에 반환된 본문을 읽음.",
+        "supported": "사에 팰리스의 협력과 배신, 시도와의 관계."
+      }
+    ],
+    "eventEvidence": [
+      {
+        "eventKey": "p5_main_01",
+        "sourceIds": [
+          "p5_official",
+          "p5_hero",
+          "p5_plot"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "4월 카모시다 팰리스 첫 진입. 모르가나 합류와 류지의 후속 각성은 구분한다."
+      },
+      {
+        "eventKey": "p5_main_02",
+        "sourceIds": [
+          "p5_plot"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "시호의 사건을 선정적으로 재현하지 않는다. 카모시다를 살해하는 선택은 만들지 않는다."
+      },
+      {
+        "eventKey": "p5_main_03",
+        "sourceIds": [
+          "p5_yusuke",
+          "madarame"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "마다라메 편. 사유리의 원작자는 유스케의 어머니이며 새 그림 제작 사건으로 바꾸지 않는다."
+      },
+      {
+        "eventKey": "p5_main_04",
+        "sourceIds": [
+          "p5_makoto",
+          "kaneshiro"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "카네시로 은행 편. 돈 지불·골드 획득은 실제 보상으로 만들지 않는다."
+      },
+      {
+        "eventKey": "p5_main_05",
+        "sourceIds": [
+          "p5_futaba",
+          "futaba"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "후타바는 악한 어른의 개심 대상과 다르다. 어머니의 실제 부활이나 전모의 조기 확정은 하지 않는다."
+      },
+      {
+        "eventKey": "p5_main_06",
+        "sourceIds": [
+          "morgana",
+          "okumura"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "오쿠무라 편의 모르가나 재합류와 하루 각성. 일시 갈등을 영구 이탈로 만들지 않는다."
+      },
+      {
+        "eventKey": "p5_main_07",
+        "sourceIds": [
+          "p5_wiki",
+          "okumura"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "오쿠무라는 암살자의 개입으로 사망한다. 괴도단의 선택이 죽음을 일으킨다고 쓰지 않는다."
+      },
+      {
+        "eventKey": "p5_main_08",
+        "sourceIds": [
+          "akechi",
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "아케치의 배신 전모는 다음 장에서 공개한다. 사에를 개심시켰다고 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5_main_09",
+        "sourceIds": [
+          "cognition",
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "살해된 대상은 사에의 인지 속 조커다. 실제 조커의 부활로 서술하지 않는다."
+      },
+      {
+        "eventKey": "p5_main_10",
+        "sourceIds": [
+          "akechi",
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "아케치가 후속 장면에 현장 동료로 돌아오거나 사망·생존이 확정되었다고 하지 않는다."
+      },
+      {
+        "eventKey": "p5_main_11",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "시도 전투와 탈출. 조커만 단독으로 모든 탈출을 해결하거나 류지가 실제 사망했다고 쓰지 않는다."
+      },
+      {
+        "eventKey": "p5_main_12",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "성배의 반복 회복은 적의 원작 서사. 플레이어 직접 회복 보상으로 옮기지 않는다."
+      },
+      {
+        "eventKey": "p5_main_13",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "이고르 정체는 이 단계에서 공개. 쌍둥이의 통합과 파티의 재집결을 실제 카드 합성·부활로 만들지 않는다."
+      },
+      {
+        "eventKey": "p5_main_14",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "사타나엘은 원작 결전 서사이며 플레이어 즉사 공격으로 지급하지 않는다. 로열의 추가 겨울은 이 본편에 섞지 않는다."
+      },
+      {
+        "eventKey": "p5_main_15",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "본편 정상 결말의 조커 자수와 석방. 로열 분기의 아케치 대리 자수는 여기서 사용하지 않는다."
+      },
+      {
+        "eventKey": "p5_main_16",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "필수 사건 순서를 바탕으로 한 새 문장·관찰 선택",
+        "canonBoundary": "게임 본편 정상 결말. 동료들이 함께 차로 귀향하는 장면이며 로열의 택시·역 인사와 구분한다."
+      },
+      {
+        "eventKey": "p5_side_safe_exit",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_notebook",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_leblanc",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_yusuke_line",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_makoto_route",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_futaba_display",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_haru_gloves",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_debate",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_sae_notes",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_ryuji_pace",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_ann_message",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_return_seat",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_morgana_follow",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_futaba_follow",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_haru_follow",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_side_team_signal",
+        "sourceIds": [
+          "p5_school"
+        ],
+        "kind": "선행 메인 시점에 맞춘 창작 일상 회상",
+        "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다."
+      },
+      {
+        "eventKey": "p5_epilogue_counter",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "정상 결말 직전·귀향길의 창작 후일담",
+        "canonBoundary": "본편 봄 귀향 직전 인사를 회상하는 창작 후일담. 아케치 현장 등장과 로열의 역 장면은 넣지 않는다."
+      },
+      {
+        "eventKey": "p5_epilogue_road",
+        "sourceIds": [
+          "p5_wiki"
+        ],
+        "kind": "정상 결말 직전·귀향길의 창작 후일담",
+        "canonBoundary": "본편 정상 결말의 귀향길에 붙인 짧은 창작 후일담. 이후 스크램블·택티카의 사건은 포함하지 않는다."
+      }
+    ],
+    "imagePlan": {
+      "worldKey": "persona5",
+      "entryCard": "p5_morgana",
+      "characters": [
+        {
+          "key": "p5_joker",
+          "name": "조커"
+        },
+        {
+          "key": "p5_morgana",
+          "name": "모르가나"
+        },
+        {
+          "key": "p5_ryuji",
+          "name": "사카모토 류지"
+        },
+        {
+          "key": "p5_ann",
+          "name": "타카마키 안"
+        },
+        {
+          "key": "p5_yusuke",
+          "name": "키타가와 유스케"
+        },
+        {
+          "key": "p5_makoto",
+          "name": "니지마 마코토"
+        },
+        {
+          "key": "p5_futaba",
+          "name": "사쿠라 후타바"
+        },
+        {
+          "key": "p5_haru",
+          "name": "오쿠무라 하루"
+        },
+        {
+          "key": "p5_akechi",
+          "name": "아케치 고로"
+        },
+        {
+          "key": "p5_sae",
+          "name": "니지마 사에"
+        },
+        {
+          "key": "p5_sojiro",
+          "name": "사쿠라 소지로"
+        }
+      ],
+      "ending": {
+        "key": "p5_ending_memorial",
+        "name": "다시 이어질 우리의 길"
+      },
+      "pathsAssigned": false,
+      "notes": "본편 복장과 얼굴 식별 우선. 아케치 이미지가 변신 정체를 선택 이전에 과하게 드러내지 않도록 장면 시점 확인."
+    },
+    "retained": [
+      {
+        "idea": "16장 메인과 정상 결말",
+        "reason": "핵심 팰리스와 취조실·시도·성배·현실 증언의 인과를 끊지 않는다."
+      },
+      {
+        "idea": "모든 일반 사건에 회상 문장과 선행 선택 조건",
+        "reason": "아직 등장하지 않은 동료나 전투 중 갑작스러운 현재 장소 변경을 막는다. 기존 previous는 특정 선택 조건이므로 일반 사건 일부는 선택에 따라 열리지 않는다."
+      },
+      {
+        "idea": "행동력 최대치 보상의 단일 지급 경로",
+        "reason": "p5_side_futaba_follow 1번에서만 지급하고 엔딩 후 반복 경로를 두지 않는다."
+      }
+    ],
+    "discarded": [
+      {
+        "idea": "조커가 실제로 죽었다가 카드로 부활",
+        "reason": "취조실에서 죽은 인지 속 대상과 실제 인물의 구분을 훼손한다."
+      },
+      {
+        "idea": "아케치를 본편 봄 귀향 파티에 추가",
+        "reason": "확정할 수 없는 생존과 재합류를 원작 사실처럼 만들지 않는다."
+      },
+      {
+        "idea": "개심을 보스 즉사 카드로 지급",
+        "reason": "기존 보스 중심 게임과 지원 스탯 범위를 벗어난다."
+      },
+      {
+        "idea": "음식·상담·물품 제작을 물약이나 직접 회복 보상으로 연결",
+        "reason": "물약 가치 및 HP 비용·직접 회복 금지와 충돌한다."
+      },
+      {
+        "idea": "봄 귀향 직후에 로열의 3학기 시작",
+        "reason": "원작 시간 순서와 맞지 않아 겨울 기억의 확장 분기로 연결한다."
+      }
+    ],
+    "uncertainty": [
+      "선택 대화와 일반·후일담은 원작 대사 전재가 아닌 창작이다.",
+      "보조 자료의 상세 해석은 원작 영상 직접 검증과 다르다.",
+      "코옵 연애·모든 최고랭크·선택형 진화는 필수 사건으로 넣지 않았다."
+    ],
+    "staticVerification": {
+      "world": "persona5",
+      "cards": 58,
+      "events": 34,
+      "main": 16,
+      "side": 16,
+      "epilogues": 2,
+      "reachable": 34,
+      "freeSideEvents": [
+        "p5_side_safe_exit",
+        "p5_side_notebook"
+      ],
+      "freeEpilogues": [],
+      "requiredCards": [
+        {
+          "event": "p5_side_morgana_follow",
+          "card": "p5_morgana",
+          "path": [
+            {
+              "event": "p5_main_01",
+              "outcome": 3
+            },
+            {
+              "event": "p5_side_morgana_follow",
+              "outcome": 1
+            }
+          ]
+        },
+        {
+          "event": "p5_side_futaba_follow",
+          "card": "p5_futaba",
+          "path": [
+            {
+              "event": "p5_main_01",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_02",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_03",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_04",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_05",
+              "outcome": 1
+            },
+            {
+              "event": "p5_side_futaba_display",
+              "outcome": 1
+            },
+            {
+              "event": "p5_side_futaba_follow",
+              "outcome": 1
+            }
+          ]
+        },
+        {
+          "event": "p5_side_haru_follow",
+          "card": "p5_haru",
+          "path": [
+            {
+              "event": "p5_main_01",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_02",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_03",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_04",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_05",
+              "outcome": 1
+            },
+            {
+              "event": "p5_main_06",
+              "outcome": 2
+            },
+            {
+              "event": "p5_side_haru_gloves",
+              "outcome": 1
+            },
+            {
+              "event": "p5_side_haru_follow",
+              "outcome": 1
+            }
+          ]
+        }
+      ],
+      "capacityCards": [
+        {
+          "card": "p5_futaba_margin",
+          "baseCapacity": 1,
+          "acquisitionSources": [
+            {
+              "event": "p5_side_futaba_follow",
+              "outcome": 1
+            }
+          ],
+          "duplicate": null
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "validation": {
+      "gemma": "root 공동 검토 대기. 이 작성 에이전트는 직접 호출하지 않음.",
+      "build": "미실행",
+      "runtime": "미실행",
+      "visual": "미실행. 이미지 매핑 전.",
+      "productionModified": false,
+      "mapCreated": false
+    }
+  },
+  {
+    "worldKey": "persona5_royal",
+    "checkedAt": "2026-10-10",
+    "scope": {
+      "game": "페르소나5 더 로열",
+      "route": "3학기 접근 조건이 갖춰진 정상 결말. 마루키 제안 거부.",
+      "systemPrerequisite": "이번 런 persona5 메인 완주. requiresCompletedHead 메타데이터만 작성했고 공통 엔진 구현·시험은 root 담당.",
+      "timeBoundary": "본편을 끝냈다는 사용자 진행은 후속 머리 해금 조건이다. 원작 시간은 봄 귀향 뒤가 아니라 같은 해 겨울로 되짚어 확장 분기를 읽는다.",
+      "excluded": [
+        "나쁜 결말 강제",
+        "원작 코옵·연애 상대·최고랭크의 강제",
+        "후속 외전",
+        "아케치 확정 생존·재회"
+      ]
+    },
+    "verificationBoundary": "공식 자료는 작품·인물의 기본 소개와 3학기를 확인했다. 상세한 정체·날짜·엔딩은 공식 홍보에 없는 내용이므로 보조 위키 및 매체 가이드에 의존했음을 분리한다. 직접 플레이하거나 전 대사·영상과 대조하지 않았다. Fandom은 검색 도구에 반환된 본문 범위에서 확인했고 직접 열기의 오류를 완독으로 기재하지 않는다.",
+    "primarySources": [
+      {
+        "id": "royal_official",
+        "url": "https://p5r.jp/",
+        "kind": "official",
+        "method": "공식 소개의 웹 본문·검색 반환 내용을 읽음.",
+        "supported": "신규 인물 요시자와·마루키와 추가 3학기 존재. 홍보상의 카스미 소개만으로 최종 정체를 확정하지 않는다."
+      },
+      {
+        "id": "royal_school",
+        "url": "https://p5r.jp/school_life/",
+        "kind": "official",
+        "method": "공식 소개의 검색 반환 본문을 읽음.",
+        "supported": "추가 학교생활·협력 관계의 범위."
+      },
+      {
+        "id": "base_setting",
+        "url": "https://persona5.jp/gad2.html",
+        "kind": "official",
+        "method": "공식 소개의 검색 반환 본문을 읽음.",
+        "supported": "학생생활과 마음의 괴도단의 기본 설정."
+      }
+    ],
+    "supplementalSources": [
+      {
+        "id": "royal_plot",
+        "url": "https://megamitensei.fandom.com/wiki/Persona_5_Royal",
+        "kind": "community_summary",
+        "method": "검색 반환 본문. 일반 직접 열기는 내부 오류.",
+        "supported": "겨울 분기·새해의 차이·친구 방문·후반 결말의 개요."
+      },
+      {
+        "id": "royal_calendar",
+        "url": "https://megamitensei.fandom.com/wiki/Calendar/Persona_5",
+        "kind": "community_summary",
+        "method": "검색 반환 본문.",
+        "supported": "1월 2일 조사, 9일 구조, 11일 라벤차, 12일 본격 진입, 2월 2~3일 결전, 2월 석방의 순서."
+      },
+      {
+        "id": "royal_palace",
+        "url": "https://megamitensei.fandom.com/wiki/Maruki%27s_Palace",
+        "kind": "community_summary",
+        "method": "검색 반환 본문.",
+        "supported": "초기 조사 인원·정체 공개·동료 재집결·메멘토스와 남은 길의 연결."
+      },
+      {
+        "id": "sumire_confidant",
+        "url": "https://megamitensei.fandom.com/wiki/Confidant/Sumire_Yoshizawa",
+        "kind": "community_summary",
+        "method": "검색 반환 본문.",
+        "supported": "1월 9일의 거부와 12일의 자기 수용 후 관계 확장 구분. 원작 대사를 인용하지 않는다."
+      },
+      {
+        "id": "royal_group",
+        "url": "https://megamitensei.fandom.com/wiki/Phantom_Thieves_of_Hearts",
+        "kind": "community_summary",
+        "method": "검색 반환 본문.",
+        "supported": "가을 초기 각성 때의 동행과 괴도단 권유 유보."
+      },
+      {
+        "id": "royal_cutscene",
+        "url": "https://megamitensei.fandom.com/wiki/List_of_Persona_5_Cutscenes",
+        "kind": "community_summary",
+        "method": "검색 반환 본문.",
+        "supported": "자매 정체와 사고의 핵심 관계만 확인. 잔혹한 시각 묘사·원문 대사는 사용하지 않음."
+      },
+      {
+        "id": "adam",
+        "url": "https://megamitensei.fandom.com/wiki/Adam_Kadmon",
+        "kind": "community_summary",
+        "method": "검색 반환 본문.",
+        "supported": "아자토스 이후 아담 카드몬, 동료 협력과 빈틈, 맨손 대치의 순서."
+      },
+      {
+        "id": "maruki",
+        "url": "https://megamitensei.fandom.com/wiki/Takuto_Maruki",
+        "kind": "community_summary",
+        "method": "검색 반환 본문.",
+        "supported": "최종 보스의 단계와 원작 능력 구분. 세부 전투 수치는 사용하지 않음."
+      },
+      {
+        "id": "normal_endings",
+        "url": "https://www.rpgsite.net/feature/9612-persona-5-royal-endings-guide-interrogation-answers-how-to-get-the-true-ending",
+        "kind": "editorial_guide",
+        "method": "게임 매체 가이드의 검색 반환 본문.",
+        "supported": "정상 결말과 3학기 접근·제안 거부 분기 확인. 선택 보상을 나쁜 결말 유도로 설계하지 않음."
+      },
+      {
+        "id": "base_and_royal",
+        "url": "https://en.wikipedia.org/wiki/Persona_5",
+        "kind": "community_summary",
+        "method": "웹 Plot/Royal 본문을 읽음.",
+        "supported": "본편 자수·봄 귀향과 로열의 겨울 확장·역 작별 차이. 아케치의 원래 생존에 관한 단정은 채택하지 않음."
+      }
+    ],
+    "eventEvidence": [
+      {
+        "eventKey": "p5r_main_01",
+        "period": "겨울의 기억으로 돌아가는 학교생활 회고",
+        "sourceIds": [
+          "royal_official",
+          "royal_school"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "앞선 학교생활을 회고하는 도입. 카모시다 사건 이후 마루키 부임과 새 동급생이 아닌 후배 요시자와의 만남. 정체 미공개."
+      },
+      {
+        "eventKey": "p5r_main_02",
+        "period": "10월 초기 각성 회고",
+        "sourceIds": [
+          "royal_group"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "10월의 미확인 팰리스. 마루키 소유와 스미레 정체는 이때 밝히지 않는다. 초기 각성을 1월의 완전한 자기 수용과 구분한다."
+      },
+      {
+        "eventKey": "p5r_main_03",
+        "period": "12월 24일 뒤~1월 초",
+        "sourceIds": [
+          "royal_plot",
+          "base_and_royal"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "12월 24일 이후 로열 분기와 1월 1~2일. 후타바는 아직 원래 현실을 되찾아 조사에 합류한 상태가 아니다."
+      },
+      {
+        "eventKey": "p5r_main_04",
+        "period": "1월 2일",
+        "sourceIds": [
+          "royal_palace",
+          "royal_calendar"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "1월 2일 조사. 이 시점 현장 파티는 조커·아케치·요시자와다. 기존 괴도단 전원 동행을 만들지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_05",
+        "period": "1월 2일 조사 후반",
+        "sourceIds": [
+          "royal_cutscene",
+          "royal_palace"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "실제 카스미는 사고에서 스미레를 지키다 사망했다. 잔혹한 장면·자해 선택을 재현하지 않는다. 요시자와라는 카드명은 유지하되 본문은 이 단계부터 스미레."
+      },
+      {
+        "eventKey": "p5r_main_06",
+        "period": "1월 3~8일 개별 방문",
+        "sourceIds": [
+          "royal_plot"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "1월 3~8일 개별 방문의 각색. 동료들이 모두 즉시 조사 파티로 합류하거나 원래의 가족이 단순 환영이라고 단정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_07",
+        "period": "1월 9일",
+        "sourceIds": [
+          "royal_palace",
+          "sumire_confidant"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "1월 9일. 스미레의 완전한 각성과 정식 동행은 다음 메인에서 다룬다. 동료들의 합류는 공통 결과에 배치."
+      },
+      {
+        "eventKey": "p5r_main_08",
+        "period": "1월 11일 설명→12일 자기 수용",
+        "sourceIds": [
+          "royal_calendar",
+          "sumire_confidant"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "1월 11일 라벤차 설명과 12일 정식 진입·자기 수용을 순서대로 압축. 원작의 코옵 최대 진화 엘라는 강제하지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_09",
+        "period": "1월 중순 이후 조사. 자유 진행 일자는 고정하지 않음",
+        "sourceIds": [
+          "royal_palace"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "3학기 팰리스 중간 제한과 메멘토스 심부 조사. 실제 날짜는 플레이 순서에 따라 달라져 고정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_10",
+        "period": "남은 팰리스 조사와 보물 경로 확보",
+        "sourceIds": [
+          "royal_plot"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "루미의 기억 변경과 관계 상실, 연구 좌절의 보조 자료 확인 범위. 세부 연구 수치나 원작 밖 회복·부활을 추가하지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_11",
+        "period": "2월 2일",
+        "sourceIds": [
+          "royal_plot",
+          "normal_endings"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "2월 2일. 마루키의 설명은 그의 주장으로 서술하며 아케치의 원래 생사를 단정하지 않는다. optional 헤리워드 각성을 필수로 추가하지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_12",
+        "period": "2월 3일 보스전",
+        "sourceIds": [
+          "adam",
+          "maruki"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "2월 3일 아자토스→아담 카드몬 전투 순서. 원작 보스 기술을 HP 비용·즉사·무적 보상으로 지급하지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_13",
+        "period": "2월 3일 탈출→현실 복귀와 2월 석방",
+        "sourceIds": [
+          "adam",
+          "base_and_royal",
+          "royal_calendar"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "원작의 마지막 맨손 대치·탈출과 2월 석방까지. 아케치가 이 장면 이후 르블랑에 돌아온다고 쓰지 않는다."
+      },
+      {
+        "eventKey": "p5r_main_14",
+        "period": "3월 봄 작별",
+        "sourceIds": [
+          "base_and_royal"
+        ],
+        "kind": "필수 사건의 순서만 참고하고 선택·반응을 새로 작성",
+        "canonBoundary": "로열 정상 결말의 마루키 택시 지원과 역의 요시자와 인사. 친구 전원이 차로 귀향하는 본편 엔딩과 구분. 조건부 차창 인물을 현장 재회로 쓰지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_practice",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_counsel",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_autumn_exit",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_trio_notes",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_family",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_old_steps",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_new_signal",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_window",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_answers",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_records",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_pace",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_not_equal",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_yoshizawa_follow",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_futaba_follow",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_akechi_follow",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_side_before_signal",
+        "period": "표시된 선행 메인 시점의 일상·준비 회상",
+        "sourceIds": [
+          "royal_school"
+        ],
+        "kind": "새로 쓴 대화와 관찰",
+        "canonBoundary": "표시된 선행 메인 이후의 창작 회상이다. 당시 현장 동료와 이후 조사에서 알게 된 사실을 섞지 않는다. 미래의 승패를 선택 단계에서 확정하지 않는다."
+      },
+      {
+        "eventKey": "p5r_epilogue_paths",
+        "period": "3학기 정상 결말 뒤 봄의 회상",
+        "sourceIds": [
+          "base_and_royal"
+        ],
+        "kind": "정상 결말의 작별에 붙인 창작 회상",
+        "canonBoundary": "정상 결말의 미래 계획에서 출발한 창작 회상. 아케치의 재합류나 이후 외전 확정 사실은 넣지 않는다."
+      },
+      {
+        "eventKey": "p5r_epilogue_station",
+        "period": "3학기 정상 결말 뒤 봄의 회상",
+        "sourceIds": [
+          "base_and_royal"
+        ],
+        "kind": "정상 결말의 작별에 붙인 창작 회상",
+        "canonBoundary": "로열 역 작별의 창작 회상. 주인공이 아케치와 확정 재회하는 추가 결말로 만들지 않는다."
+      }
+    ],
+    "identityAndPresence": [
+      {
+        "range": "머리 설명·입문·모든 카드명",
+        "rule": "요시자와 중립 이름. 카드 이름에 스미레나 죽은 언니 정체를 선공개하지 않음."
+      },
+      {
+        "range": "main01~04",
+        "rule": "해당 시점의 인물은 요시자와로 부르며 마루키의 계획과 정체를 미리 확정하지 않음."
+      },
+      {
+        "range": "main05 이후",
+        "rule": "서사에서 스미레 사용 가능. 원고의 카드 성장 이름은 요시자와 유지."
+      },
+      {
+        "range": "main03~06",
+        "rule": "후타바 등은 바뀐 일상을 경험하는 대상이며 조사 인원이 아님."
+      },
+      {
+        "range": "main04~05",
+        "rule": "조사 현장은 조커·아케치·요시자와."
+      },
+      {
+        "range": "main07",
+        "rule": "기존 동료의 현장 합류는 공통 결과. 요시자와의 완전한 자기 수용은 아직 아님."
+      },
+      {
+        "range": "main08 이후",
+        "rule": "스미레의 본격 동행 가능."
+      },
+      {
+        "range": "main13 현실 복귀 이후",
+        "rule": "아케치의 현장 동행·봄 재회는 없음. 원래 생사를 확정하지 않음."
+      }
+    ],
+    "imagePlan": {
+      "worldKey": "persona5_royal",
+      "entryCard": "p5r_yoshizawa",
+      "characters": [
+        {
+          "key": "p5r_joker",
+          "name": "조커"
+        },
+        {
+          "key": "p5r_morgana",
+          "name": "모르가나"
+        },
+        {
+          "key": "p5r_ryuji",
+          "name": "사카모토 류지"
+        },
+        {
+          "key": "p5r_ann",
+          "name": "타카마키 안"
+        },
+        {
+          "key": "p5r_yusuke",
+          "name": "키타가와 유스케"
+        },
+        {
+          "key": "p5r_makoto",
+          "name": "니지마 마코토"
+        },
+        {
+          "key": "p5r_futaba",
+          "name": "사쿠라 후타바"
+        },
+        {
+          "key": "p5r_haru",
+          "name": "오쿠무라 하루"
+        },
+        {
+          "key": "p5r_akechi",
+          "name": "아케치 고로"
+        },
+        {
+          "key": "p5r_yoshizawa",
+          "name": "요시자와"
+        },
+        {
+          "key": "p5r_maruki",
+          "name": "마루키 타쿠토"
+        }
+      ],
+      "ending": {
+        "key": "p5r_ending_memorial",
+        "name": "우리 손으로 고른 내일"
+      },
+      "pathsAssigned": false,
+      "notes": [
+        "마루키는 공식 상담사 대표 이미지 우선.",
+        "아케치의 흰 프린스 괴도복을 3학기 현장 장면으로 쓰지 않는다.",
+        "인물 대표와 실제 날짜·사건 스틸을 구분한다.",
+        "요시자와는 main05 전 정체·죽음 회상 장면을 선공개하지 않는다."
+      ]
+    },
+    "retained": [
+      {
+        "idea": "본편과 분리한 14장 후속 머리",
+        "reason": "기존 팰리스 반복보다 새로운 인연과 3학기의 질문을 중심에 둔다."
+      },
+      {
+        "idea": "일반 사건의 과거 시점과 선행 조건",
+        "reason": "초기 조사 인원 제한을 지키고 후반 사건에서 갑자기 과거 현재형 장면이 생기지 않게 한다."
+      },
+      {
+        "idea": "스미레 정체와 성장 이름의 분리",
+        "reason": "입문 시점 스포일러와 같은 인물의 별도 이름 성장 묶음 문제를 함께 피한다."
+      },
+      {
+        "idea": "재생·공격 결합과 기존 조건부 공격",
+        "reason": "생존 보조만 제시하는 선택 대신 기존 보스 중심 전투 시너지를 세 갈래로 나눈다."
+      }
+    ],
+    "discarded": [
+      {
+        "idea": "본편 봄 귀향 이후에 새해가 시작되는 선형 후속",
+        "reason": "원작의 확장 분기 시간 순서와 맞지 않는다."
+      },
+      {
+        "idea": "마루키의 현실 변경을 죽은 인물의 단순 환영이라고 축약",
+        "reason": "인지와 역사가 변경된 현실이라는 설정을 잘못 전달한다."
+      },
+      {
+        "idea": "스미레를 죽은 언니 카스미가 부활한 인물로 작성",
+        "reason": "자매의 정체와 사고의 관계를 뒤집는다."
+      },
+      {
+        "idea": "아케치를 엔딩 뒤 확정 재회시키기",
+        "reason": "미확정 영역을 실제 생존 사실로 만들어 버린다."
+      },
+      {
+        "idea": "인지를 바꾸는 카드·부활 카드·사타나엘 즉사 카드",
+        "reason": "현재 지원 스탯을 벗어나며 사용자 전투 구조와 맞지 않는다."
+      },
+      {
+        "idea": "마루키 제안 수락 시 더 좋은 카드",
+        "reason": "요청한 정상 결말을 보상으로 비틀어 나쁜 종결을 강요한다."
+      }
+    ],
+    "uncertainty": [
+      "원작 전체 영상·전사·한국어 공식 자막은 직접 대조하지 않았다.",
+      "세부 보스 공격 순서와 페르소나 진화 선택 조건은 필수 장면 이외에 추가하지 않았다.",
+      "초안 효과 수치는 실게임 밸런스 검증값이 아니다."
+    ],
+    "staticVerification": {
+      "world": "persona5_royal",
+      "cards": 52,
+      "events": 32,
+      "main": 14,
+      "side": 16,
+      "epilogues": 2,
+      "reachable": 32,
+      "freeSideEvents": [
+        "p5r_side_practice",
+        "p5r_side_counsel"
+      ],
+      "freeEpilogues": [],
+      "requiredCards": [
+        {
+          "event": "p5r_side_yoshizawa_follow",
+          "card": "p5r_yoshizawa",
+          "path": [
+            {
+              "event": "p5r_main_01",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_02",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_03",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_04",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_05",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_06",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_07",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_08",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_side_yoshizawa_follow",
+              "outcome": 1
+            }
+          ]
+        },
+        {
+          "event": "p5r_side_futaba_follow",
+          "card": "p5r_futaba",
+          "path": [
+            {
+              "event": "p5r_main_01",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_02",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_03",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_04",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_05",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_06",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_07",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_08",
+              "outcome": 2
+            },
+            {
+              "event": "p5r_side_family",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_side_futaba_follow",
+              "outcome": 1
+            }
+          ]
+        },
+        {
+          "event": "p5r_side_akechi_follow",
+          "card": "p5r_akechi",
+          "path": [
+            {
+              "event": "p5r_main_01",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_02",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_03",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_04",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_05",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_06",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_07",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_08",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_09",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_10",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_main_11",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_side_trio_notes",
+              "outcome": 1
+            },
+            {
+              "event": "p5r_side_akechi_follow",
+              "outcome": 1
+            }
+          ]
+        }
+      ],
+      "capacityCards": [
+        {
+          "card": "p5r_futaba_margin",
+          "baseCapacity": 1,
+          "acquisitionSources": [
+            {
+              "event": "p5r_side_futaba_follow",
+              "outcome": 1
+            }
+          ],
+          "duplicate": null
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "validation": {
+      "gemma": "root 검토 대기. 작성자는 직접 호출하지 않음.",
+      "build": "미실행",
+      "runtime": "미실행",
+      "visual": "미실행. 인물·실제 장면 매핑은 이미지 담당 검토 필요.",
+      "mapCreated": false,
+      "productionModified": false
+    }
+  },
+  {
+    "documentRole": "동방요요몽·동방홍마향 머리카드 확장의 원작 출처와 각색 경계",
+    "researchedAt": "2026-10-10",
+    "status": "두 전용 초안의 자체 정적 검사를 마쳤다. Gemma 상호검토·생성 카탈로그 통합·런타임·이미지 검수는 별도 후속 단계다.",
+    "files": [
+      "content/expansion-drafts/hakugyokurou.json",
+      "content/expansion-drafts/scarlet_mist.json"
+    ],
+    "scope": {
+      "hakugyokurou": "2003년 동방요요몽 레이무 본편 1~6면과 A 정상 엔딩. EX·Phantasm 제외.",
+      "scarlet_mist": "2002년 동방홍마향 레이무 본편 1~6면과 A 정상 엔딩. EX 제외."
+    },
+    "sourceAccess": [
+      {
+        "id": "zun-th07",
+        "url": "https://www16.big.or.jp/~zun/html/th07.html",
+        "authority": "제작자 ZUN 공식 작품 페이지",
+        "read": "페이지와 작품·매뉴얼 링크를 확인했다. 웹 도구에서 Shift-JIS 일본어가 깨져 보이므로 이 페이지의 본문으로 세부 사건을 검증했다고 하지 않는다.",
+        "supports": [
+          "작품 식별",
+          "공식 동봉 자료의 출처"
+        ]
+      },
+      {
+        "id": "zun-th06",
+        "url": "https://www16.big.or.jp/~zun/html/th06.html",
+        "authority": "제작자 ZUN 공식 작품 페이지",
+        "read": "페이지와 매뉴얼 링크 확인. 문자 인코딩 표시 문제로 세부 줄거리는 읽을 수 있는 동봉 원문 전재와 대조했다.",
+        "supports": [
+          "작품 식별",
+          "공식 동봉 자료의 출처"
+        ]
+      },
+      {
+        "id": "th07-settings-ja",
+        "url": "https://omake.thwiki.cc/translate/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6_%E8%A7%92%E8%89%B2%E8%AE%BE%E5%AE%9A.ja.txt",
+        "authority": "ZUN의 동봉 캐릭터 설정 원문을 THBWiki가 일본어로 전재한 자료",
+        "read": "전체 일본어 텍스트를 열어 읽음. 현재 게임 설치본과 바이트 단위 원문 대조는 하지 않았다.",
+        "supports": [
+          "치르노 1면 중간보스와 레티의 역할",
+          "첸·앨리스·릴리의 본편 위치",
+          "프리즘리버 자매 각각의 악기와 연주에 치유 효과가 없다는 설정",
+          "요우무가 봄을 모으는 이유",
+          "유유코·서행요·봉인의 결말 경계"
+        ]
+      },
+      {
+        "id": "th06-omake-ja",
+        "url": "https://omake.thwiki.cc/translate/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1_omake.ja.txt",
+        "authority": "ZUN의 동봉 omake 원문을 THBWiki가 일본어로 전재한 자료",
+        "read": "일본어 캐릭터 소개와 본편·EX 경계 부분을 읽음. EX 줄거리는 포함 근거가 아니라 제외 범위 판단에만 썼다.",
+        "supports": [
+          "각 보스의 본편 순서와 기본 능력",
+          "메이링의 문지기 역할",
+          "파츄리의 마법과 서재",
+          "사쿠야의 시간 능력",
+          "레밀리아가 햇빛을 가리기 위해 안개를 펼친 이유"
+        ]
+      },
+      {
+        "id": "th07-prologue",
+        "url": "https://en.touhouwiki.net/wiki/Perfect_Cherry_Blossom/Story/Prologue",
+        "authority": "게임 도입 원문의 일본어·영어 전재",
+        "read": "검색 도구가 반환한 도입 전문 중 오월에도 겨울이 지속되는 부분을 확인했다.",
+        "supports": [
+          "오월의 긴 겨울",
+          "레이무의 출발"
+        ]
+      },
+      {
+        "id": "th07-reimu-script",
+        "url": "https://en.touhouwiki.net/wiki/Perfect_Cherry_Blossom/Story/Reimu%27s_Scenario",
+        "authority": "본편 레이무 시나리오의 일본어·영어 전재",
+        "read": "직접 open은 캐시 실패가 있었으나 검색 조회에서 1~6면 대사와 등장 순서가 반환됐다. 레이무 4면의 루나사 선행 등장, 메를랑·리리카 합류를 별도 질의로 확인했다.",
+        "supports": [
+          "레티→첸→앨리스→프리즘리버 자매→요우무→유유코 순서",
+          "앨리스의 봄 수집자 언급",
+          "세 자매의 꽃놀이 연주 초대",
+          "6면 봉인 해제 동기와 마지막 탄막 단계"
+        ]
+      },
+      {
+        "id": "th06-reimu-script",
+        "url": "https://en.touhouwiki.net/wiki/Embodiment_of_Scarlet_Devil/Story/Reimu%27s_Scenario",
+        "authority": "본편 레이무 시나리오의 일본어·영어 전재",
+        "read": "검색 조회로 1~5면 일본어·영어 대면 장면과 등장 순서를 확인했다. 6면 사쿠야 재등장은 별도의 6면 스펠 목록으로 보강했다.",
+        "supports": [
+          "루미아→치르노→메이링→파츄리→사쿠야 순서",
+          "메이링을 따라 저택으로 가는 흐름",
+          "넓은 서재·사쿠야의 청소 방해 대사 맥락"
+        ]
+      },
+      {
+        "id": "th06-stage6",
+        "url": "https://en.touhouwiki.net/wiki/Embodiment_of_Scarlet_Devil/Spell_Cards/Stage_6",
+        "authority": "게임 6면 스펠 이름·소유자 전재 및 팬 작성 패턴 설명",
+        "read": "사쿠야의 6면 중간보스 표시와 레밀리아의 최종보스 스펠 목록을 읽었다. 팬 작성 세부 패턴 공략이나 안전지대를 보상 메커니즘으로 쓰지 않았다.",
+        "supports": [
+          "사쿠야 6면 재등장",
+          "레밀리아 최종전"
+        ]
+      },
+      {
+        "id": "th07-reimu-good-a",
+        "url": "https://touhou.fandom.com/wiki/Perfect_Cherry_Blossom/Story/Reimu%27s_Good_Ending_A",
+        "authority": "게임 레이무 A 정상 엔딩 일본어·영어 전재",
+        "read": "검색 조회로 신사 귀환, 꽃놀이 준비, 서행요 미완전 개화와 봉인 미해제 결말을 확인했다. 특정 설치본 게임 재생은 하지 않았다.",
+        "supports": [
+          "봉인이 풀리지 않은 정상 해결",
+          "레이무의 신사 귀환과 꽃놀이",
+          "봄의 복귀"
+        ]
+      },
+      {
+        "id": "th06-reimu-good-a",
+        "url": "https://touhou.fandom.com/wiki/Embodiment_of_Scarlet_Devil/Story/Reimu%27s_Good_Ending_A",
+        "authority": "게임 레이무 A 정상 엔딩 일본어·영어 전재",
+        "read": "검색 조회로 신사의 맑은 여름과 양산을 들고 찾아온 레밀리아를 확인했다. 대사의 긴 직접 인용을 원고에 넣지 않았다.",
+        "supports": [
+          "붉은 안개가 걷힌 일상",
+          "양산을 든 레밀리아의 방문"
+        ]
+      }
+    ],
+    "globalAdaptation": {
+      "facts": "원작의 인물·동기·등장 순서·승패·정상 해결만 유지한다. 전투를 두 장으로 나눈 경우에도 같은 보스와 별개의 새로운 이변이 생겼다고 하지 않는다.",
+      "choices": "플레이어는 원작을 바꾸는 선택 대신 관찰·돌파·준비 대상을 고른다. 모든 한국어 선택과 반응은 새 문장이다. 직접 번역한 긴 대사나 원문을 옮기지 않았다.",
+      "ordinary": "일반 사건의 행동들은 새로 쓴 짧은 준비 또는 본편을 지나온 뒤의 회상이다. 회상 속 인물이 현재 화면에 갑자기 동행했다고 서술하지 않는다.",
+      "timeline": "현재 스키마에는 선택과 무관한 최소 메인 단계 조건이 없으므로 특정 회상은 previous와 previousChoice=1로 실제 선행 선택 후에 연다. 따라서 일반 16개가 한 런에서 전부 등장한다고 보장하지 않는다. 원작 순서와 사건 실제 수를 혼동하지 않는다.",
+      "rewards": "인물의 능력을 새 기능으로 복제하지 않고 관찰한 행동을 기존 수치 보상으로 각색했다. 방어·최대체력은 공격 옵션과 함께 썼다. 흡수는 홍마향 일부 카드에서만 소량 사용하며 기존 합산 회복 상한을 유지한다.",
+      "uiBoundary": "창작·각색·검증·엔진 같은 제작 설명은 canonFact/canonBoundary와 이 문서에만 둔다. 게임 표시 필드에는 넣지 않는다.",
+      "images": "원고에는 임의 icon 경로를 넣지 않았다. 전용 이미지 담당이 공식 또는 출처를 명확히 분리한 자료로 후속 연결한다."
+    },
+    "worlds": [
+      {
+        "world": "hakugyokurou",
+        "characters": [
+          {
+            "key": "pcb_reimu",
+            "name": "하쿠레이 레이무"
+          },
+          {
+            "key": "pcb_cirno",
+            "name": "치르노"
+          },
+          {
+            "key": "pcb_letty",
+            "name": "레티 화이트록"
+          },
+          {
+            "key": "pcb_chen",
+            "name": "첸"
+          },
+          {
+            "key": "pcb_alice",
+            "name": "앨리스 마가트로이드"
+          },
+          {
+            "key": "pcb_lily",
+            "name": "릴리 화이트"
+          },
+          {
+            "key": "pcb_lunasa",
+            "name": "루나사 프리즘리버"
+          },
+          {
+            "key": "pcb_merlin",
+            "name": "메를랑 프리즘리버"
+          },
+          {
+            "key": "pcb_lyrica",
+            "name": "리리카 프리즘리버"
+          },
+          {
+            "key": "pcb_youmu",
+            "name": "콘파쿠 요우무"
+          },
+          {
+            "key": "pcb_yuyuko",
+            "name": "사이교우지 유유코"
+          }
+        ],
+        "route": [
+          "도입의 오월",
+          "1면 치르노 중간보스",
+          "1면 레티",
+          "2면 첸",
+          "3면 앨리스",
+          "4면 릴리 중간보스",
+          "4면 루나사 선행 대면 및 메를랑·리리카 합류",
+          "5면 요우무",
+          "6면 요우무 중간 방해와 유유코",
+          "6면 마지막 탄막",
+          "레이무 A 정상 해결"
+        ],
+        "note": "6면에서 요우무가 다시 경고하며 막아서는 순서를 pcb_main_10의 첫 문장에 명시하고 유유코 대면으로 이어 간다. 레이무 시나리오의 해당 대사와 등장·격파 순서를 별도 질의로 확인했다.",
+        "main": [
+          {
+            "event": "pcb_main_01",
+            "anchor": "도입 및 1면 중간보스",
+            "sources": [
+              "th07-prologue",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_02",
+            "anchor": "1면 레티",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_03",
+            "anchor": "2면 첸",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_04",
+            "anchor": "3면 앨리스",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_05",
+            "anchor": "4면 릴리 화이트",
+            "sources": [
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_06",
+            "anchor": "4면 레이무 경로 대화",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_07",
+            "anchor": "4면 프리즘리버 자매전",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_08",
+            "anchor": "5면 요우무 중간 대면",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_09",
+            "anchor": "5면 요우무 본전",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_10",
+            "anchor": "6면 요우무 중간 재등장, 유유코 대면 및 동봉 설정",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_11",
+            "anchor": "6면 유유코 본전",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_12",
+            "anchor": "6면 마지막 반혼접 단계",
+            "sources": [
+              "th07-reimu-script",
+              "th07-settings-ja"
+            ],
+            "boundary": "전투 대응과 짧은 내적 판단은 새로 썼으며 본편 결과를 바꾸지 않는다."
+          },
+          {
+            "event": "pcb_main_13",
+            "anchor": "레이무 A 정상 엔딩과 동봉 유유코 설정",
+            "sources": [
+              "th07-reimu-good-a",
+              "th07-settings-ja"
+            ],
+            "boundary": "유해의 정체는 서술자의 설명이다. 유유코가 알아차렸다고 하지 않는다."
+          }
+        ],
+        "ordinary": [
+          {
+            "event": "pcb_side_petals",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "출발 준비 창작",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_route",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "출발 준비 창작",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_snowline",
+            "previous": "pcb_main_02",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_turn",
+            "previous": "pcb_main_03",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_crossing",
+            "previous": "pcb_main_03",
+            "previousChoice": 1,
+            "requiredCard": "pcb_chen",
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_strings",
+            "previous": "pcb_main_04",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_bookedge",
+            "previous": "pcb_main_04",
+            "previousChoice": 1,
+            "requiredCard": "pcb_alice",
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_cloud",
+            "previous": "pcb_main_05",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_firstnote",
+            "previous": "pcb_main_06",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_brass",
+            "previous": "pcb_main_07",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_rest",
+            "previous": "pcb_main_07",
+            "previousChoice": 1,
+            "requiredCard": "pcb_lyrica",
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_ensemble",
+            "previous": "pcb_main_07",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_stairs",
+            "previous": "pcb_main_08",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_garden",
+            "previous": "pcb_main_09",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_unopened",
+            "previous": "pcb_main_10",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_side_lastlight",
+            "previous": "pcb_main_11",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th07-settings-ja",
+              "th07-reimu-script"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_epilogue_broom",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "정상 해결 후 창작 일상",
+            "sources": [
+              "th07-reimu-good-a"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          },
+          {
+            "event": "pcb_epilogue_tea",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "정상 해결 후 창작 일상",
+            "sources": [
+              "th07-reimu-good-a"
+            ],
+            "boundary": "원작에 같은 사건·대사가 있다는 주장이 아니다."
+          }
+        ],
+        "free": [
+          "pcb_side_petals",
+          "pcb_side_route"
+        ],
+        "capacity": {
+          "card": "pcb_lyrica_margin",
+          "onlySource": "pcb_side_rest#1",
+          "prerequisites": [
+            "pcb_main_07#1",
+            "pcb_lyrica 보유"
+          ],
+          "duplicatePath": false
+        },
+        "preserved": [
+          "세 자매를 각각 카드와 별개 관찰 대상으로 유지한다.",
+          "릴리는 대사 없이 움직임으로만 표현한다.",
+          "레티와 치르노를 봄을 빼앗은 범인으로 지정하지 않는다.",
+          "유유코는 부활하거나 유해의 정체를 깨닫지 않는다."
+        ],
+        "rejected": [
+          {
+            "idea": "프리즘리버 음악으로 즉시 체력을 회복한다.",
+            "reason": "동봉 설정에서 연주 자체에 부가·치유 효과가 없다고 명시되며 요청한 직접 회복 금지와도 맞지 않는다."
+          },
+          {
+            "idea": "첸을 따라가 란과 유카리를 본편 중간에 만난다.",
+            "reason": "EX·Phantasm의 인물을 레이무 본편 순서에 삽입하게 된다."
+          },
+          {
+            "idea": "서행요를 완전히 피워 유유코를 부활시킨다.",
+            "reason": "정상 결말과 반대이며 실제 부활 보상도 범위 밖이다."
+          },
+          {
+            "idea": "릴리에게 봄의 원인을 설명하는 긴 대사를 준다.",
+            "reason": "본편에 대사가 없고 원인을 알고 안내했다는 근거가 없다."
+          }
+        ]
+      },
+      {
+        "world": "scarlet_mist",
+        "characters": [
+          {
+            "key": "eosd_reimu",
+            "name": "하쿠레이 레이무"
+          },
+          {
+            "key": "eosd_rumia",
+            "name": "루미아"
+          },
+          {
+            "key": "eosd_cirno",
+            "name": "치르노"
+          },
+          {
+            "key": "eosd_meiling",
+            "name": "홍 메이링"
+          },
+          {
+            "key": "eosd_patchouli",
+            "name": "파츄리 널릿지"
+          },
+          {
+            "key": "eosd_sakuya",
+            "name": "이자요이 사쿠야"
+          },
+          {
+            "key": "eosd_remilia",
+            "name": "레밀리아 스칼렛"
+          }
+        ],
+        "route": [
+          "붉은 안개와 밤의 출발",
+          "1면 루미아",
+          "2면 이름 없는 중간보스와 치르노",
+          "3면 메이링 추격과 본전",
+          "4면 이름 없는 중간보스와 파츄리",
+          "5면 사쿠야",
+          "6면 사쿠야 재등장",
+          "6면 레밀리아",
+          "레이무 A 정상 엔딩"
+        ],
+        "main": [
+          {
+            "event": "eosd_main_01",
+            "anchor": "도입 및 1면 루미아 대면",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_02",
+            "anchor": "1면 루미아전",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_03",
+            "anchor": "2면 치르노",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_04",
+            "anchor": "3면 메이링 중간 대면과 추격",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_05",
+            "anchor": "3면 메이링 본전",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_06",
+            "anchor": "4면 파츄리 대면",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_07",
+            "anchor": "4면 파츄리전",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_08",
+            "anchor": "5면 사쿠야 중간 대면",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_09",
+            "anchor": "5면 사쿠야 본전 및 동봉 시간 능력 설정",
+            "sources": [
+              "th06-reimu-script",
+              "th06-omake-ja"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_10",
+            "anchor": "6면 사쿠야 중간보스",
+            "sources": [
+              "th06-stage6"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_11",
+            "anchor": "6면 레밀리아 대면 및 동봉 안개의 목적",
+            "sources": [
+              "th06-omake-ja",
+              "th06-stage6",
+              "th06-reimu-good-a"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_12",
+            "anchor": "6면 레밀리아전과 정상 해결",
+            "sources": [
+              "th06-omake-ja",
+              "th06-stage6",
+              "th06-reimu-good-a"
+            ],
+            "boundary": "공격의 관찰과 반응은 독자적 한국어 문장이며 원작 능력을 플레이어에게 그대로 주지 않는다."
+          },
+          {
+            "event": "eosd_main_13",
+            "anchor": "레이무 A 정상 엔딩",
+            "sources": [
+              "th06-reimu-good-a"
+            ],
+            "boundary": "햇빛이 돌아온 신사와 양산 방문까지만 사용하고 EX의 비와 플랑드르는 이어 붙이지 않는다."
+          }
+        ],
+        "ordinary": [
+          {
+            "event": "eosd_side_direction",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "출발 준비 창작",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_cleared",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "출발 준비 창작",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_shadow",
+            "previous": "eosd_main_02",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_nighttalk",
+            "previous": "eosd_main_02",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_lakeedge",
+            "previous": "eosd_main_03",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_icepride",
+            "previous": "eosd_main_03",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_gatepath",
+            "previous": "eosd_main_04",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_gatecenter",
+            "previous": "eosd_main_05",
+            "previousChoice": 1,
+            "requiredCard": "eosd_meiling",
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_window",
+            "previous": "eosd_main_06",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_quietstudy",
+            "previous": "eosd_main_07",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_index",
+            "previous": "eosd_main_07",
+            "previousChoice": 1,
+            "requiredCard": "eosd_patchouli",
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_cleaning",
+            "previous": "eosd_main_08",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_knife",
+            "previous": "eosd_main_09",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_schedule",
+            "previous": "eosd_main_09",
+            "previousChoice": 1,
+            "requiredCard": "eosd_sakuya",
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_threshold",
+            "previous": "eosd_main_10",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_side_sunshade",
+            "previous": "eosd_main_11",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "kind": "본편 관찰에 근거한 창작 회상",
+            "sources": [
+              "th06-omake-ja",
+              "th06-reimu-script"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_epilogue_parasol",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "정상 해결 후 창작 일상",
+            "sources": [
+              "th06-reimu-good-a"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          },
+          {
+            "event": "eosd_epilogue_summer",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "kind": "정상 해결 후 창작 일상",
+            "sources": [
+              "th06-reimu-good-a"
+            ],
+            "boundary": "원작에 동일한 대화가 존재한다고 주장하지 않는다."
+          }
+        ],
+        "free": [
+          "eosd_side_direction",
+          "eosd_side_cleared"
+        ],
+        "capacity": {
+          "card": "eosd_sakuya_margin",
+          "onlySource": "eosd_side_schedule#1",
+          "prerequisites": [
+            "eosd_main_09#1",
+            "eosd_sakuya 보유"
+          ],
+          "duplicatePath": false
+        },
+        "preserved": [
+          "사쿠야의 6면 중간 재등장을 한 장으로 유지한다.",
+          "메이링은 제대로 길을 지키는 문지기로 쓰고 잠만 자는 팬덤 성격을 붙이지 않는다.",
+          "이름 없는 두 중간보스에게 별도 확정 이름·성격·대사를 주지 않는다.",
+          "레밀리아의 안개 목적과 양산 방문은 서로 다른 출처 부분에서 대조했다."
+        ],
+        "rejected": [
+          {
+            "idea": "대요정·소악마를 공식 이름과 확정된 성격으로 대화 카드화한다.",
+            "reason": "해당 게임의 동봉 설정과 본문에는 개별 정식 이름·성격을 확인할 수 없어 보류한다."
+          },
+          {
+            "idea": "사쿠야 카드를 획득하면 시간을 멈춘다.",
+            "reason": "원작 능력의 서사와 현재 전투 엔진 수치 보상은 별개다."
+          },
+          {
+            "idea": "레밀리아 카드가 운명을 바꿔 회피·명중을 확정한다.",
+            "reason": "이번 설계 범위에 없는 기능이며 원작 기본 능력만으로 구체적 전투 효과를 단정할 수 없다."
+          },
+          {
+            "idea": "결말 직후 플랑드르를 만나는 본편 보스전을 추가한다.",
+            "reason": "EX를 본편과 섞게 되므로 제외한다."
+          }
+        ]
+      }
+    ],
+    "uncertain": [
+      {
+        "topic": "원본 설치 파일 직접 대조",
+        "status": "미수행",
+        "reason": "제작자 페이지와 읽을 수 있는 동봉 원문 전재·시나리오 전재를 대조했다. 실제 게임 스크립트 또는 플레이 영상 전체를 검증한 것은 아니다."
+      },
+      {
+        "topic": "공식 사이트 일본어 인코딩",
+        "status": "접근 제약 기록",
+        "reason": "공식 작품 페이지는 열렸지만 웹 도구의 일본어 표시가 깨졌다. 그 페이지를 읽어 모든 설정을 확인했다고 과장하지 않는다."
+      },
+      {
+        "topic": "다른 주인공·다른 샷 타입 엔딩",
+        "status": "범위 밖",
+        "reason": "레이무 A로 일관되게 닫는다. 마리사·사쿠야 경로의 다른 대사와 결말을 섞지 않는다."
+      }
+    ],
+    "validation": {
+      "inspectExpansion": {
+        "hakugyokurou": {
+          "cards": 49,
+          "main": 13,
+          "side": 16,
+          "epilogues": 2,
+          "reachable": 31,
+          "errors": 0,
+          "warnings": 0
+        },
+        "scarlet_mist": {
+          "cards": 45,
+          "main": 13,
+          "side": 16,
+          "epilogues": 2,
+          "reachable": 31,
+          "errors": 0,
+          "warnings": 0
+        }
+      },
+      "allChoicesThree": true,
+      "allEventRewardsSameGrade": true,
+      "distinctChoiceEffectVectorsExceptCommonEnding": true,
+      "noHPPaymentGoldPotionDensity": true,
+      "unusedCards": 0,
+      "crossProductionKeyCollisions": 0,
+      "displayMetaOrJapaneseLeaks": 0,
+      "gemmaReviewed": false,
+      "runtimeTested": false,
+      "gameVisualTested": false,
+      "mapBuilt": false
+    }
+  }
+]

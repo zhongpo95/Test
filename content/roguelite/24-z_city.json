@@ -290,7 +290,7 @@
       "key": "opm_main_01_1",
       "name": "사이타마",
       "effectName": "망설임보다 먼저",
-      "keyword": "공격력 · 건강 유지",
+      "keyword": "공격력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -506,7 +506,7 @@
       "key": "opm_main_04_1",
       "name": "음속의 소닉",
       "effectName": "다음 발이 닿는 곳",
-      "keyword": "신속 · 이동 연계",
+      "keyword": "신속 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -530,7 +530,7 @@
       "key": "opm_main_04_2",
       "name": "사이타마",
       "effectName": "호들갑 없는 판단",
-      "keyword": "건강 유지 · 공격력",
+      "keyword": "내 체력 65% 이상 피해 · 공격력",
       "grade": 1,
       "effects": [
         {
@@ -602,7 +602,7 @@
       "key": "opm_main_05_2",
       "name": "사이타마",
       "effectName": "다음 칸을 보는 눈",
-      "keyword": "공격력 · 건강 유지",
+      "keyword": "공격력 · 내 체력 65% 이상 피해",
       "grade": 2,
       "effects": [
         {
@@ -650,7 +650,7 @@
       "key": "opm_main_06_1",
       "name": "사이타마",
       "effectName": "흩어지지 않는 순찰",
-      "keyword": "이동 속도 · 이동 연계",
+      "keyword": "이동 속도 · 이동속도 비례 피해",
       "grade": 2,
       "effects": [
         {
@@ -986,7 +986,7 @@
       "key": "opm_main_10_3",
       "name": "사이타마",
       "effectName": "목표를 향한 직선",
-      "keyword": "보스 피해 · 이동 연계",
+      "keyword": "보스 피해 · 이동속도 비례 피해",
       "grade": 3,
       "effects": [
         {

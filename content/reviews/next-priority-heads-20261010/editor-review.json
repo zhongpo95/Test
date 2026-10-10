@@ -1,0 +1,425 @@
+{
+  "reviews": [
+    {
+      "reviewedAt": "2026-10-10",
+      "worldKey": "witch_prison",
+      "input": {
+        "draft": "content/expansion-drafts/witch_prison.json",
+        "draftSha256": "efe554f7c8360a0bac79377cc0b13b8be55991b9e2303e57c2688c89543d6d56",
+        "sources": "content/expansion-drafts/witch-prison-sources.json",
+        "sourcesSha256": "5a823da0d059a8c12de139cb4ae1e31bd63f6c907b65ea7f830345b040e6e305"
+      },
+      "scope": "16개 메인, 16개 일반 사건, 2개 후일담의 원작 인과·세 차례 시간·선택 시점·반전 공개를 독립 검토했다.",
+      "summary": "반복 기억 범위나 마지막 재판의 참여 인물에 확인된 오류는 없었다. 선택 이전의 진상 공개 1건, 시간 이동 문장의 위치 1건, 생략된 인과 연결 1건을 편집 후보로 남긴다.",
+      "findings": [
+        {
+          "id": "WITCH-01",
+          "priority": 3,
+          "event": "wt_main_04",
+          "field": "story",
+          "line": 1632,
+          "category": "선택 이전 반전 공개",
+          "evidence": "선택 화면 본문이 이미 미리아의 보호 목적과 영혼 교환이 거짓이었다는 결론을 밝힌다. 이어지는 선택지는 감추려던 대상과 뒤바뀌었다는 말을 조사하게 되어, 다른 재판처럼 조사 관점 선택 뒤 진상을 얻는 순서가 약해진다.",
+          "canonAssessment": "사실 내용 자체는 맞다. 공개 위치의 문제다.",
+          "sources": [
+            "https://game8.jp/manosaba/707719"
+          ],
+          "proposedStory": "미리아의 죽음을 둘러싸고 에마와 영혼이 바뀌었다는 말이 재판에 오른다. 에마는 두 사람의 행동과 남은 증거를 대조하며, 그 말이 누구를 향한 위험과 이어지는지 살핀다.",
+          "proposedResultDirection": "실제로 영혼이 바뀐 것은 아니며 미리아가 에마를 지키려 한 말이었다는 설명을 commonResult에 둔다.",
+          "changed": false
+        },
+        {
+          "id": "WITCH-02",
+          "priority": 3,
+          "event": "wt_main_12",
+          "field": "dialogue.commonResult",
+          "line": 2175,
+          "category": "다음 장 생존자 변화의 인과 생략",
+          "evidence": "앞의 본문과 모든 선택은 레이아·에마·한나를 다루는데 결과에서만 셰리까지 잃었다고 넘어간다. 새 독자는 다음 장에서 왜 히로·미리아·아리사만 남는지 연결하기 어렵다. 셰리가 죽었다는 사실이나 순서 자체는 틀리지 않았다.",
+          "sources": [
+            "https://note.com/ajimis/n/n6fbca4a95b43"
+          ],
+          "sourceAssessment": "2025년 완주 후기의 두 번째 시간 4장 설명은 셰리가 한나와 함께 최후를 맞고 세 사람이 남는다고 설명한다. 개별 Game8 공략 본문에서는 셰리의 이 부분까지 직접 확인하지 못했다.",
+          "proposedResult": "두 사람을 죽인 한나의 범행이 밝혀진다. 셰리는 한나를 홀로 보내지 않겠다는 마음으로 함께 최후를 맞는다. 히로 곁에는 미리아와 아리사만 남고, 미처 나누지 못한 말이 무겁게 남는다.",
+          "boundary": "실행 과정이나 방법을 추가하지 않고 인물 사이의 연결만 한 문장으로 보완한다.",
+          "changed": false
+        },
+        {
+          "id": "WITCH-03",
+          "priority": 2,
+          "event": "wt_main_13",
+          "field": "story / dialogue.commonResult / dialogue.nodes[0].story",
+          "line": 2183,
+          "category": "시간 이동보다 앞서야 할 선택과 추가 대화",
+          "evidence": "story 마지막은 이미 모두가 살아 있는 시간으로 돌아간다고 확정한다. 그 뒤 선택 1·2는 남겨진 책을 읽고 남은 미리아·아리사의 목소리를 듣고, shared_pages는 다시 만날 얼굴들을 떠올린다고 한다. 실제 흐름은 책의 도움과 다짐 뒤 마지막 반복인데 화면 순서에서는 귀환 뒤에 귀환 준비를 한다.",
+          "sources": [
+            "https://note.com/ajimis/n/n6fbca4a95b43",
+            "https://game8.jp/manosaba/707812"
+          ],
+          "proposedStoryEnding": "히로는 남은 기회를 붙들기 전에, 소녀들이 남긴 말과 지식을 끝까지 읽는다.",
+          "proposedPlacement": "귀환을 확정하는 문장은 shared_pages 대화가 끝난 뒤 표시되는 commonResult의 첫 문장으로 이동한다. 그러면 story와 모든 선택은 귀환 전, 정산 뒤 main14는 마지막 반복으로 일관된다.",
+          "changed": false
+        }
+      ],
+      "retainedAfterRecheck": [
+        {
+          "event": "wt_main_08",
+          "assessment": "에마가 유키와 과거를 마주한 뒤 첫 파국이 끝나고, 히로가 초기 사망까지의 기억으로 두 번째 시간을 시작한다는 순서는 보조 자료와 맞는다. 히로가 에마 편 전체를 기억한다고 바꿀 근거가 없다.",
+          "source": "https://note.com/ajimis/n/n6fbca4a95b43"
+        },
+        {
+          "event": "wt_main_15",
+          "assessment": "에마의 관계 질문, 히로의 심문 유지, 앙앙의 힘으로 대화 틈 확보는 서로 다른 참여자의 역할이다. Game8 최종 공략도 초반 히로·앙앙, 후반 에마 중심 질문을 구분하므로 참여자가 다르다는 이유로 모순 처리하지 않는다.",
+          "source": "https://game8.jp/manosaba/796583"
+        },
+        {
+          "events": "wt_side_*",
+          "assessment": "일반 16개 모두 본문에서 기억·회상·과거 장면임을 표시한다. 현재 시간에서 이미 퇴장한 인물을 새로 등장시키는 사건은 찾지 못했다. 선택 결과의 현재형은 회상 속 관찰과 응답으로 읽힌다."
+        },
+        {
+          "events": "wt_epilogue_*",
+          "assessment": "epilogue=true이며 재판 뒤 화해·회상을 다룬다. 유키·메루루가 다시 현장에 합류하거나 모든 인물이 함께 거주한다는 미확인 결말은 없다."
+        }
+      ],
+      "evidenceBoundary": {
+        "primary": "Re,AER 출시 소개에서 열세 소녀·감금과 기본 인물 전제를 다시 확인했다. https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+        "secondary": "각 재판의 Game8 공략, 원고에 기록된 2025년 PC판 완주 후기와 별도 후기의 반환 본문을 대조했다. 후반 반복·죽음·진상 검토는 공식 원문 시나리오 검증이 아니다.",
+        "notPerformed": [
+          "PC 게임 직접 실행",
+          "원본 전체 대사 전사 대조",
+          "한국어 정식 자막 대조",
+          "이미지 시점 검수"
+        ]
+      },
+      "staticVerification": {
+        "tool": "tools/check-priority-expansion.cjs inspectExpansion",
+        "cards": 59,
+        "events": 34,
+        "main": 16,
+        "side": 16,
+        "epilogues": 2,
+        "reachable": 34,
+        "errors": 0,
+        "warnings": 0,
+        "allChoiceRewardVectorsChecked": true,
+        "duplicateEffectVectors": 0,
+        "exception": "마지막 공통 무효과 엔딩 기념 카드만 명시 예외다.",
+        "freeSideEvents": 2,
+        "requiredCardEvents": 3,
+        "capacityCardAcquisitionSources": 1,
+        "capacityDuplicatePath": null
+      },
+      "validation": {
+        "draftModified": false,
+        "productionModified": false,
+        "gemmaCalledByThisReviewer": false,
+        "warcraftRuntime": false,
+        "visualInspection": false,
+        "mapCreated": false
+      }
+    },
+    {
+      "world": "persona5_royal",
+      "checkedAt": "2026-10-10",
+      "scope": "Gemma가 제기한 p5r_epilogue_station의 마루키 택시 도움 사실 여부만 독립 재검토했다.",
+      "eventKey": "p5r_epilogue_station",
+      "draftSentence": "마루키는 차를 몰아 역으로 향할 길을 도왔다.",
+      "reviewClaim": "마루키가 직접 차를 몰아 조커의 역 이동을 돕는 내용이 원작과 다르다는 지적.",
+      "disposition": "reject-finding-retain-draft",
+      "conclusion": "기존 출처 두 곳의 정상 결말 요약은 마루키가 택시 기사가 되어 조커를 역으로 데려다주고, 다른 괴도단원들은 뒤따르는 사람들의 주의를 돌린다고 명시한다. 현재 문장은 이 범위와 일치하므로 삭제하거나 다른 운전자로 바꿀 근거가 없다.",
+      "evidence": [
+        {
+          "sourceIdInDraft": "maruki",
+          "url": "https://megamitensei.fandom.com/wiki/Takuto_Maruki",
+          "kind": "community_summary",
+          "method": "검색 도구에 반환된 엔딩 본문을 대조했다. 직접 웹 열기는 robots 제한이 표시되어 직접 완독으로 기록하지 않는다.",
+          "paraphrase": "게임 끝에서 마루키는 택시 기사가 되었으며, 다른 동료들이 주인공을 뒤따르는 요원들의 주의를 돌리는 동안 주인공을 역으로 운전해 준다.",
+          "supports": [
+            "운전 주체가 마루키다.",
+            "목적지는 기차역이다.",
+            "정상 결말의 작별에 해당한다."
+          ]
+        },
+        {
+          "sourceIdInDraft": "royal_plot",
+          "url": "https://megamitensei.fandom.com/wiki/Persona_5_Royal",
+          "kind": "community_summary",
+          "method": "검색 도구에 반환된 Plot의 마지막 날 본문을 대조했다. 직접 웹 열기는 robots 제한이 표시되어 직접 완독으로 기록하지 않는다.",
+          "paraphrase": "주인공의 마지막 날, 뒤따르는 경찰을 알아챈 일행에게 택시 기사 마루키가 역까지의 이동을 돕겠다고 나선다. 다른 괴도단원들이 추적자의 주의를 돌리고 주인공은 역에서 스미레와도 작별한다.",
+          "supports": [
+            "택시를 운전하는 마루키의 도움과 역의 스미레 인사가 같은 정상 결말의 흐름이다.",
+            "현재 사건의 두 문장을 연결해도 다른 분기의 장면을 섞는 문제가 없다."
+          ]
+        }
+      ],
+      "boundaries": [
+        "상세 결말을 공식 홍보 페이지가 확인해 준다고 주장하지 않는다. 여기서는 기존 원고에 명시된 보조 위키 두 페이지의 검색 반환 본문을 대조했다.",
+        "두 페이지가 같은 커뮤니티 위키에 속하므로 독립된 두 원작 증거라고 표현하지 않는다.",
+        "실제 게임 플레이, 엔딩 동영상 전체, 공식 대사 전사, 한국어 자막은 직접 대조하지 않았다.",
+        "아케치의 생존·재회나 후속 외전과의 관계는 이 검토의 범위가 아니다.",
+        "연결표의 마루키 이미지는 상담사 대표 초상이다. 택시 장면을 직접 보여 주는 이미지로 분류하지 않았다."
+      ],
+      "changes": {
+        "draftModified": false,
+        "productionModified": false,
+        "mapCreated": false
+      }
+    },
+    {
+      "documentRole": "동방 두 초안의 독립 문맥·시점 검토 기록이다. 원고와 운영 파일은 수정하지 않는다.",
+      "reviewedAt": "2026-10-10",
+      "status": "review-complete-finding-resolved-by-root",
+      "reviewedFiles": [
+        {
+          "path": "content/expansion-drafts/hakugyokurou.json",
+          "sha256": "4c8c562ec4a453b55ece4cff5c3ac5012fdb83c3c75aea209d69320768d10f97"
+        },
+        {
+          "path": "content/expansion-drafts/scarlet_mist.json",
+          "sha256": "cc3fdcec59a18d0726d3fc7751d92b2776012faa0059fb03a78460e46f8c2937"
+        },
+        {
+          "path": "content/expansion-drafts/touhou-sources.json",
+          "sha256": "ac6a526610926f83a1046104f466fb8b484d6f3963fc5535e7096651e24a74dd"
+        }
+      ],
+      "scope": [
+        "두 작품의 레이무 본편 1~6면과 A 정상 엔딩 범위",
+        "각 메인 13장, 일반 16개, 후일담 2개의 도입·본문·선택·결과·대화 노드",
+        "보스와 중간보스의 실제 재등장 순서",
+        "릴리 및 이름 없는 중간보스의 대사·정체를 공식 사실로 지어내는지",
+        "선택 이전과 이후, 일반 사건의 회상 시점이 연결되는지"
+      ],
+      "findings": [
+        {
+          "id": "TOUHOU-01",
+          "priority": "P2",
+          "category": "ordinary-event-time-context",
+          "world": "scarlet_mist",
+          "eventKey": "eosd_side_direction",
+          "fields": [
+            "intro",
+            "story"
+          ],
+          "evidence": {
+            "intro": "밤길을 나서기 전에 보이는 표식을 고른다.",
+            "story": "안개 때문에 익숙한 풍경도 한 덩어리처럼 보인다. 멀리 볼 수 없다고 아무 데로나 움직일 수는 없다. 짧게 준비를 마친다.",
+            "previous": null,
+            "requiredCard": null,
+            "mainStage": 0,
+            "epilogue": false,
+            "earlierResult": "레밀리아와의 승부가 끝난다. 붉은 안개가 걷히고 여름의 햇빛이 다시 환상향에 닿는다."
+          },
+          "condition": "이 일반 사건을 사용하지 않은 채 eosd_main_12를 완료하고 마지막 13장을 아직 보지 않은 경우다. 머리 보유·행동력·보상 조건을 만족하면 후보 자격이 남는다.",
+          "reason": "본문에서는 레밀리아와의 싸움 뒤 안개가 걷혔다고 확정했는데, 선행 제한 없는 일반 사건은 다시 안개 속 출발 준비를 현재형으로 보여 준다. 처음 출발한 장면을 회상하는 표시가 없어 진행 시점이 뒤로 이동한 것처럼 읽힌다.",
+          "engineEvidence": {
+            "file": "System/ExpeditionPrototype.j",
+            "function": "ProtoEventEligible",
+            "lines": "187~229",
+            "interpretation": "메인 미완주 동안 일반 사건의 최대 메인 단계 제한은 없고, previous가 없는 사건은 추가 선행 검사를 받지 않는다. 완주 후에는 일반 사건이 차단되므로 엔딩 뒤 등장 문제라고 확대하지 않는다."
+          },
+          "suggestedChange": {
+            "intro": "붉은 안개 속으로 처음 나서던 밤을 되짚는다.",
+            "story": "처음에는 안개 때문에 익숙한 풍경도 한 덩어리처럼 보였다. 멀리 볼 수 없던 그 밤, 어떤 표식을 먼저 골랐는지 떠올린다."
+          },
+          "changeBoundary": "선택과 보상은 그대로 두고 회상 도입만 명확히 하는 편집 제안이다. 새 런타임 조건이나 원작 장면을 추가하지 않는다.",
+          "confidence": "high-for-eligibility; editorial-for-wording",
+          "resolution": {
+            "status": "resolved",
+            "editor": "root",
+            "currentIntro": "붉은 안개 속으로 처음 나서던 밤을 되짚는다.",
+            "currentStory": "안개 때문에 익숙한 풍경도 한 덩어리처럼 보였다. 멀리 볼 수 없다고 아무 데로나 움직일 수는 없었다. 그때 길을 찾기 위해 무엇을 기준으로 삼았는지 떠올린다.",
+            "independentCheck": "수정된 도입과 본문을 다시 읽었으며, 출발 전 사건을 명시적으로 회상하는 문장이 되어 지적의 시점 문제가 해소됐다.",
+            "rootReportedPreservation": "원본을 외부 copy_archive에 보존하고 ledger에 전후 문장을 기록했다고 root가 보고했다. 이 검토자는 해당 아카이브와 ledger를 별도 검사하지 않았다.",
+            "rootReportedGemma": {
+              "runId": "9e219739-5387-49c0-b298-564aad5c90b3",
+              "issues": [],
+              "boundary": "root가 전달한 delta 검토 결과다. 이 검토자는 직접 Gemma를 호출하지 않았다."
+            }
+          }
+        }
+      ],
+      "rejectedFindings": [
+        {
+          "eventKey": "pcb_main_06",
+          "claim": "루나사가 나타난 뒤 응답하는 순서가 모순이라는 지적.",
+          "disposition": "retain",
+          "reason": "도입에서 선행 등장과 동생들의 합류를 압축하고 본문에서 같은 만남을 풀어 쓴다. 본문의 루나사 응답 뒤 메를랑·리리카 합류 순서는 전재 시나리오와 일치하며, 응답은 반드시 첫 인사여야 하는 행동이 아니다.",
+          "sources": [
+            "th07-reimu-script"
+          ]
+        },
+        {
+          "eventKey": "eosd_main_04",
+          "claim": "메이링이 물러선 뒤 따라가는 위치가 모순이라는 지적.",
+          "disposition": "retain",
+          "reason": "원작 3면에서 메이링은 첫 대면 뒤 퇴장하고 다시 등장한다. 레이무가 뒤따랐다는 문답이 있으며, 원고도 추적 중 행동을 선택하고 다음 메인에서 입구의 승부를 마친다. 이미 통과한 입구를 다시 막는 문장은 없다.",
+          "sources": [
+            "th06-reimu-script"
+          ]
+        },
+        {
+          "eventKey": "eosd_main_10",
+          "claim": "이미 쓰러뜨린 사쿠야가 다시 나타나는 것은 모순이라는 지적.",
+          "disposition": "retain",
+          "reason": "사쿠야는 5면 중간보스·보스 이후 6면 중간보스로 다시 등장한다. 원고의 재등장은 원작 순서에 대응하며 새로 지어낸 부활이나 같은 승부의 무효화가 아니다.",
+          "sources": [
+            "th06-reimu-script",
+            "th06-stage6"
+          ]
+        }
+      ],
+      "retainedChecks": [
+        {
+          "worlds": [
+            "hakugyokurou"
+          ],
+          "topic": "등장 순서",
+          "result": "치르노·레티, 첸, 앨리스, 릴리, 프리즘리버 자매, 요우무, 유유코로 이어지며 요우무의 6면 재등장도 명시한다. 루나사 선행 뒤 두 동생 합류가 레이무 시나리오와 맞는다.",
+          "sources": [
+            "th07-settings-ja",
+            "th07-reimu-script"
+          ]
+        },
+        {
+          "worlds": [
+            "hakugyokurou"
+          ],
+          "topic": "릴리 및 봉인의 경계",
+          "result": "릴리의 탄막과 레이무의 관찰만 있고 릴리에게 공식 발언을 붙이지 않았다. 유유코는 유해의 정체를 모른 채 남고 봉인이 풀리지 않는다. 서술자 설명을 유유코의 자각이나 부활로 바꾸지 않았다.",
+          "sources": [
+            "th07-settings-ja",
+            "th07-reimu-good-a"
+          ]
+        },
+        {
+          "worlds": [
+            "scarlet_mist"
+          ],
+          "topic": "이름 없는 중간보스",
+          "result": "검토한 게임 표시 문장과 카드에서 대요정·소악마의 이름 또는 확정된 성격·대사를 새로 붙이지 않았다. 일부 중간 전투를 압축한 것은 이 검토에서 인과 오류로 세지 않는다.",
+          "sources": [
+            "th06-omake-ja",
+            "th06-reimu-script"
+          ]
+        },
+        {
+          "worlds": [
+            "hakugyokurou",
+            "scarlet_mist"
+          ],
+          "topic": "A 정상 엔딩",
+          "result": "요요몽의 신사 귀환·꽃놀이와 서행요 불완전 개화·봉인 유지, 홍마향의 맑은 여름과 양산을 든 레밀리아 방문이 각각 A 엔딩 전재와 맞는다. EX 또는 Phantasm 전투를 결말에 붙이지 않았다.",
+          "sources": [
+            "th07-reimu-good-a",
+            "th06-reimu-good-a"
+          ]
+        },
+        {
+          "worlds": [
+            "hakugyokurou",
+            "scarlet_mist"
+          ],
+          "topic": "기타 선택과 일반·후일담",
+          "result": "선행 만남을 요구하는 일반 사건은 관찰·회상 어휘를 사용하며 이전 상대가 현재 동행하는 장면으로 바꾸지 않았다. 후일담은 본편 정상 해결 뒤 일상의 창작 범위다. 그 밖에 보고할 만한 시점·인물 모순은 찾지 못했다.",
+          "sources": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "th07-settings-ja",
+          "url": "https://omake.thwiki.cc/translate/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6_%E8%A7%92%E8%89%B2%E8%AE%BE%E5%AE%9A.ja.txt",
+          "type": "original-settings-republished",
+          "checked": "웹 open으로 일본어 전재의 릴리 167~179행, 자매 180~227행, 요우무 228행 이후, 유유코 267~337행을 직접 읽었다. 이 호스트는 제작자 사이트가 아니다.",
+          "supports": "릴리 무대사, 연주 부가 효과 없음, 유유코의 동기·미인지·봉인."
+        },
+        {
+          "id": "th06-omake-ja",
+          "url": "https://omake.thwiki.cc/translate/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1_omake.ja.txt",
+          "type": "original-settings-republished",
+          "checked": "웹 open으로 동봉 원문 전재와 EX 구획을 확인했다. EX 서사는 본편 채택 근거로 사용하지 않았다.",
+          "supports": "본편/EX 경계 보조. 세부 인과는 레이무 시나리오와 엔딩 전재를 사용."
+        },
+        {
+          "id": "th07-reimu-script",
+          "url": "https://en.touhouwiki.net/wiki/Perfect_Cherry_Blossom/Story/Reimu%27s_Scenario",
+          "type": "game-script-republished",
+          "checked": "웹 검색 반환 일본어·영어 본문 중 4면 자매 합류, 5면 요우무의 봄 요구, 6면 요우무 재등장을 읽었다. 직접 열기의 robots 제한과 구분한다.",
+          "supports": "주요 대면 순서."
+        },
+        {
+          "id": "th06-reimu-script",
+          "url": "https://en.touhouwiki.net/wiki/Embodiment_of_Scarlet_Devil/Story/Reimu%27s_Scenario",
+          "type": "game-script-republished",
+          "checked": "웹 검색 반환 일본어·영어 본문 중 3면 메이링 퇴장·재등장과 뒤따르는 문답, 5면 사쿠야의 두 대면을 읽었다. 직접 열기의 robots 제한과 구분한다.",
+          "supports": "메이링 추적과 사쿠야 5면 전후 순서."
+        },
+        {
+          "id": "th06-stage6",
+          "url": "https://en.touhouwiki.net/wiki/Embodiment_of_Scarlet_Devil/Spell_Cards/Stage_6",
+          "type": "spell-list-republished",
+          "checked": "웹 검색 반환 목록의 Midboss Spell Card와 소유자 Sakuya Izayoi 표시를 읽었다. 팬 작성 공략은 세부 전투 동작의 원작 근거로 사용하지 않았다.",
+          "supports": "6면 사쿠야 중간보스 재등장."
+        },
+        {
+          "id": "th07-reimu-good-a",
+          "url": "https://touhou.fandom.com/wiki/Perfect_Cherry_Blossom/Story/Reimu%27s_Good_Ending_A",
+          "type": "game-ending-republished",
+          "checked": "웹 검색 반환의 일본어·영어 엔딩 본문을 읽었다. 신사 귀환, 꽃놀이, 완전히 피지 못한 서행요와 봉인 유지에 한정했다.",
+          "supports": "요요몽 A 정상 해결."
+        },
+        {
+          "id": "th06-reimu-good-a",
+          "url": "https://touhou.fandom.com/wiki/Embodiment_of_Scarlet_Devil/Story/Reimu%27s_Good_Ending_A",
+          "type": "game-ending-republished",
+          "checked": "웹 검색 반환의 일본어·영어 엔딩 본문을 읽었다. 맑은 여름·매미 소리와 레밀리아의 양산 방문에 한정했다.",
+          "supports": "홍마향 A 정상 해결."
+        }
+      ],
+      "validation": {
+        "inspectExpansion": {
+          "hakugyokurou": {
+            "cards": 49,
+            "events": 31,
+            "main": 13,
+            "side": 16,
+            "epilogues": 2,
+            "errors": [],
+            "warnings": []
+          },
+          "scarlet_mist": {
+            "cards": 45,
+            "events": 31,
+            "main": 13,
+            "side": 16,
+            "epilogues": 2,
+            "errors": [],
+            "warnings": []
+          }
+        },
+        "choiceVectors": "모든 메인·일반·후일담에서 기존 inspectExpansion의 세 선택 효과 벡터 검사 통과. 마지막 공통 무효과 엔딩 기념카드만 명시 예외다.",
+        "runtimeEligibility": "ProtoEventEligible 소스 읽기만 수행했다. 실제 게임 재현은 아니다.",
+        "sourceGamePlayed": false,
+        "fullVideoOrInstalledScriptCompared": false,
+        "warcraftRuntimeTested": false,
+        "gameVisualTested": false,
+        "mapCreated": false,
+        "draftModified": false,
+        "productionModified": false
+      },
+      "limitations": [
+        "원작 설치 파일 또는 전체 플레이 영상을 직접 확인하지 않았다.",
+        "제작자 공식 페이지가 이 보고서의 세부 인과를 직접 보증한다고 쓰지 않았다. 확인한 자료는 원작 텍스트의 제3자 전재다.",
+        "독립 검토에서 새 문제를 억지로 늘리지 않았으며 확인한 문장 범위 밖의 무오류를 보장하지 않는다."
+      ],
+      "snapshotBoundary": "최초 원고를 읽고 판단한 지적이다. 보고서 저장 직전에 root의 편집 반영이 완료되어 reviewedFiles의 해시는 반영 후 파일 기준이다. 지적의 evidence에는 최초 읽은 문장을 보존했다."
+    }
+  ],
+  "applied": [
+    "마녀재판 4장 진상은 선택 정산 뒤 공개",
+    "마녀재판 12장 관계와 두 살인 및 최후 구분",
+    "마녀재판 13장 귀환은 추가 대화 뒤 정산",
+    "홍마향 일반 사건은 출발 당시 회상으로 시점 고정"
+  ],
+  "boundary": "Gemma 의견을 모두 사실로 취급하지 않고 제공 원문 및 출처와 대조했다. 보조 출처만으로 대조한 후반 원작 사실은 공식 영상 검증으로 주장하지 않는다."
+}

@@ -36,7 +36,7 @@
       "key": "mad_magileine",
       "name": "마돌체 마죠레느",
       "effectName": "첫 손님을 부르는 준비",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {

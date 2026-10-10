@@ -154,7 +154,7 @@
       "key": "hx_hisoka",
       "name": "히소카",
       "effectName": "시선을 빼앗는 위협",
-      "keyword": "치명 피해 · 방향 공격",
+      "keyword": "치명 피해 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -202,7 +202,7 @@
       "key": "hx_satotz",
       "name": "사토츠",
       "effectName": "앞사람을 놓치지 않는 보폭",
-      "keyword": "이동 · 이동 연계",
+      "keyword": "이동 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -434,7 +434,7 @@
       "key": "hx_main_03_1",
       "name": "사토츠",
       "effectName": "발소리의 기준",
-      "keyword": "이동 · 이동 연계",
+      "keyword": "이동 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -554,7 +554,7 @@
       "key": "hx_main_04_3",
       "name": "레오리오",
       "effectName": "서두름을 나눈 손",
-      "keyword": "고체력 · 행동 속도",
+      "keyword": "내 체력 65% 이상 피해 · 행동 속도",
       "grade": 1,
       "effects": [
         {
@@ -698,7 +698,7 @@
       "key": "hx_main_06_3",
       "name": "키르아",
       "effectName": "안심 뒤의 빈틈",
-      "keyword": "치명 확률 · 방향 공격",
+      "keyword": "치명 확률 · 헤드·백 적중 피해",
       "grade": 2,
       "effects": [
         {
@@ -746,7 +746,7 @@
       "key": "hx_main_07_2",
       "name": "레오리오",
       "effectName": "초조함 다음의 판단",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 2,
       "effects": [
         {
@@ -890,7 +890,7 @@
       "key": "hx_main_09_2",
       "name": "곤",
       "effectName": "사냥 뒤의 퇴로",
-      "keyword": "이동 · 이동 연계",
+      "keyword": "이동 · 이동속도 비례 피해",
       "grade": 2,
       "effects": [
         {
@@ -914,7 +914,7 @@
       "key": "hx_main_09_3",
       "name": "히소카",
       "effectName": "위협이 향하는 방향",
-      "keyword": "치명 확률 · 방향 공격",
+      "keyword": "치명 확률 · 헤드·백 적중 피해",
       "grade": 2,
       "effects": [
         {
@@ -962,7 +962,7 @@
       "key": "hx_main_10_2",
       "name": "히소카",
       "effectName": "한곳을 향한 시선의 틈",
-      "keyword": "치명 확률 · 방향 공격",
+      "keyword": "치명 확률 · 헤드·백 적중 피해",
       "grade": 3,
       "effects": [
         {
@@ -1130,7 +1130,7 @@
       "key": "hx_main_12_3",
       "name": "네테로",
       "effectName": "승패를 가르는 기준",
-      "keyword": "최종 대미지 · 고체력",
+      "keyword": "최종 대미지 · 내 체력 65% 이상 피해",
       "grade": 3,
       "effects": [
         {
@@ -1202,7 +1202,7 @@
       "key": "hx_main_13_3",
       "name": "곤",
       "effectName": "합격 뒤에도 남은 질문",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 3,
       "effects": [
         {

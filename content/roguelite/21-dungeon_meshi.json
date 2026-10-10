@@ -59,7 +59,7 @@
       "key": "dm_marcille",
       "name": "마르실",
       "effectName": "확인하고 펼치는 술식",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 1,
       "effects": [
         {
@@ -107,7 +107,7 @@
       "key": "dm_senshi",
       "name": "센시",
       "effectName": "빠뜨리지 않는 준비",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -275,7 +275,7 @@
       "key": "dm_main_01_3",
       "name": "마르실",
       "effectName": "미루지 않는 준비",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 1,
       "effects": [
         {
@@ -299,7 +299,7 @@
       "key": "dm_main_02_1",
       "name": "센시",
       "effectName": "손질부터 지키는 순서",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -323,7 +323,7 @@
       "key": "dm_main_02_2",
       "name": "마르실",
       "effectName": "의심을 질문으로",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 1,
       "effects": [
         {
@@ -395,7 +395,7 @@
       "key": "dm_main_03_2",
       "name": "마르실",
       "effectName": "엇갈리지 않는 사선",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 1,
       "effects": [
         {
@@ -515,7 +515,7 @@
       "key": "dm_main_05_1",
       "name": "센시",
       "effectName": "다음 수확의 자리",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 2,
       "effects": [
         {
@@ -539,7 +539,7 @@
       "key": "dm_main_05_2",
       "name": "마르실",
       "effectName": "질문하는 마법사",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 2,
       "effects": [
         {
@@ -635,7 +635,7 @@
       "key": "dm_main_06_3",
       "name": "센시",
       "effectName": "모르는 것은 따로",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 2,
       "effects": [
         {
@@ -659,7 +659,7 @@
       "key": "dm_main_07_1",
       "name": "라이오스",
       "effectName": "본 것만 남기는 기억",
-      "keyword": "최종 대미지 · 고체력",
+      "keyword": "최종 대미지 · 내 체력 65% 이상 피해",
       "grade": 2,
       "effects": [
         {
@@ -683,7 +683,7 @@
       "key": "dm_main_07_2",
       "name": "마르실",
       "effectName": "끌려가지 않는 집중",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 2,
       "effects": [
         {
@@ -755,7 +755,7 @@
       "key": "dm_main_08_2",
       "name": "마르실",
       "effectName": "물을 딛기 전",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 2,
       "effects": [
         {
@@ -803,7 +803,7 @@
       "key": "dm_main_09_1",
       "name": "마르실",
       "effectName": "책의 바깥을 묻다",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 2,
       "effects": [
         {
@@ -827,7 +827,7 @@
       "key": "dm_main_09_2",
       "name": "파린",
       "effectName": "친구가 바라본 곳",
-      "keyword": "최종 대미지 · 고체력",
+      "keyword": "최종 대미지 · 내 체력 65% 이상 피해",
       "grade": 2,
       "effects": [
         {
@@ -851,7 +851,7 @@
       "key": "dm_main_09_3",
       "name": "센시",
       "effectName": "해 본 사람의 순서",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 2,
       "effects": [
         {
@@ -923,7 +923,7 @@
       "key": "dm_main_10_3",
       "name": "마르실",
       "effectName": "말해 주어야 할 한계",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 3,
       "effects": [
         {
@@ -1043,7 +1043,7 @@
       "key": "dm_main_12_2",
       "name": "마르실",
       "effectName": "무너진 계획 다음",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 3,
       "effects": [
         {
@@ -1091,7 +1091,7 @@
       "key": "dm_main_13_1",
       "name": "마르실",
       "effectName": "끝까지 듣는 설명",
-      "keyword": "대미지 · 차지",
+      "keyword": "대미지 · 차지 속도",
       "grade": 3,
       "effects": [
         {
@@ -1115,7 +1115,7 @@
       "key": "dm_main_13_2",
       "name": "라이오스",
       "effectName": "기다리는 결심",
-      "keyword": "최종 대미지 · 고체력",
+      "keyword": "최종 대미지 · 내 체력 65% 이상 피해",
       "grade": 3,
       "effects": [
         {
@@ -1139,7 +1139,7 @@
       "key": "dm_main_13_3",
       "name": "센시",
       "effectName": "흐트러뜨리지 않는 손",
-      "keyword": "공격 · 고체력",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
       "grade": 3,
       "effects": [
         {

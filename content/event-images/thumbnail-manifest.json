@@ -1171,16 +1171,16 @@
       "sourceAspect": 1.0,
       "crop": [
         0.0,
-        44.8,
+        0.0,
         512.0,
-        332.8
+        288.0
       ],
       "anchor": [
         0.5,
-        0.2
+        0.0
       ],
       "target": "war3mapImported\\UI_EventThumb_Card_FTG_juvia_Art.tga",
-      "sha256": "dc01cd096cc763de89cfa9c7ddc672ac552f4eddc6fce794068b7420f78efb3e",
+      "sha256": "5ac9805d86caba6fec6551060adeb0a92b224b2481d66c0eab90379673c38605",
       "bytes": 131116
     },
     {
@@ -1283,16 +1283,16 @@
       "sourceAspect": 1.0,
       "crop": [
         0.0,
-        44.8,
+        0.0,
         512.0,
-        332.8
+        288.0
       ],
       "anchor": [
         0.5,
-        0.2
+        0.0
       ],
       "target": "war3mapImported\\UI_EventThumb_Card_FT_gray-fullbuster_Art.tga",
-      "sha256": "f2b34197262f02971150d02a538ff2f10e26246ed1b1b5d4dde992d86ef89e5d",
+      "sha256": "37482c7f4cbb9fc4382b60ba9019fdfa520ef9d31f7778afe5b2fcd67076ea57",
       "bytes": 131116
     },
     {
@@ -1647,16 +1647,16 @@
       "sourceAspect": 1.0,
       "crop": [
         0.0,
-        44.8,
+        0.0,
         512.0,
-        332.8
+        288.0
       ],
       "anchor": [
         0.5,
-        0.2
+        0.0
       ],
       "target": "war3mapImported\\UI_EventThumb_Card_GBF_io_Art.tga",
-      "sha256": "ef569fdf265e5b81661b6708f9bf7ac0d5502cca870d09ec430d4d07b75f000b",
+      "sha256": "72209a56d4b26d387962528990947b0f6fe3f792c792a66cba9b44d20908b35b",
       "bytes": 131116
     },
     {
@@ -3355,16 +3355,16 @@
       "sourceAspect": 1.0,
       "crop": [
         0.0,
-        44.8,
+        0.0,
         512.0,
-        332.8
+        288.0
       ],
       "anchor": [
         0.5,
-        0.2
+        0.0
       ],
       "target": "war3mapImported\\UI_EventThumb_Card_RGT_11_Art.tga",
-      "sha256": "5639249da4c195958a0a518c801ba6a6eb379b233bad04708940d2c58c65f794",
+      "sha256": "06b67217c072eb770c251435d0583376ded3296f6364937fb9c00eb56d97c772",
       "bytes": 131116
     },
     {
@@ -9432,14 +9432,14 @@
       "character": "듀라라라",
       "role": "eventThumbnail",
       "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga",
-      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\quality-polish\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga",
       "size": [
         256,
         128
       ],
       "displayAspect": 1.7777777777777777,
       "source": "war3mapImported\\UI_Event_XP_ikebukuro_head.tga",
-      "sourceSha256": "0b4773ac18925da0f8e96ab119fe0e1dc2bed45a819c71d6388a22424fbe24b0",
+      "sourceSha256": "d40a8fc32216e767d04a3d72bc15f962e7dd5202d9cf72a76d51b20bb539b171",
       "sourceSize": [
         256,
         256
@@ -9461,7 +9461,7 @@
         0.5,
         0.5
       ],
-      "sha256": "b0166dccc322de822ec879b3d482d50769b749fe1f4071c01e55cbd117e34ca0",
+      "sha256": "1158c61b945283046e95504aaa59863d81090cfab2675208ce226116a638b824",
       "bytes": 131116,
       "sourcePage": "https://www.durarara2usa.com/",
       "sourceUrl": "https://www.durarara2usa.com/img/top/KV_ketsu.jpg",
@@ -12196,6 +12196,3497 @@
         "opm_main_12"
       ],
       "note": "12화 대결에서 힘을 드러낸 보로스. 갑옷을 입은 첫 대면과 최후 이후를 구분한다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "ema",
+      "character": "사쿠라바 에마",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
+      "sourceSha256": "44c186905553a4b9987ceaaa1aea328ab1cc1ba89c7b6861426a9a48ca8948e0",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "679a4b2b961cc5ab9878d1848d9a5df3ef0b45d4bf0e286372c2fdd730d87b73",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-a28576f49b8a3cb6d0a32db4586a55fb-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "사쿠라바 에마",
+      "visibleCharacters": [
+        "사쿠라바 에마"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "hiro",
+      "character": "니카이도 히로",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
+      "sourceSha256": "35714d3ef5ec8764baf6f707ef9a41e25175ca225fa2623128d8ac336621bb7f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "825fc9123929de7a9de433beba003a48c99b23e4bfd4b952714beba978a12265",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-25b9d2bcb70983d0b23cffabc99ba807-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "니카이도 히로",
+      "visibleCharacters": [
+        "니카이도 히로"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "anan",
+      "character": "나츠메 앙앙",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_anan.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_anan.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_anan.tga",
+      "sourceSha256": "7458fdbe9a4458698945f14c627fa53b03215a4dbb1d232f626dc6c47eb84541",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "ddcadf1c310ef777fffb2d219b7ebd24fbd93a276d932c65892132a019760f5f",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-864b0eb317a09015601c4cd5d5f42c32-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "나츠메 앙앙",
+      "visibleCharacters": [
+        "나츠메 앙앙"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "noah",
+      "character": "조가사키 노아",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_noah.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
+      "sourceSha256": "0f3e348ef741cc4b837be59b85e76194348d966aba97d9ed123535dfff0ef049",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "6d334c4687712537dd9bba059fa02f5ce5de964ae9c61a6204fe60d008c8cd4a",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-dd17c56ec17dae394a5a6ae169523884-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "조가사키 노아",
+      "visibleCharacters": [
+        "조가사키 노아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "leia",
+      "character": "하스미 레이아",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_leia.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_leia.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_leia.tga",
+      "sourceSha256": "65ec14b428557ed8df54416f1f964cf7b91222a9eee938e34c83cd9a7fbd4dfe",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "d8e44a0b780cb07e571a36907b9079140893f6291a40eeceae36b511de075764",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-4d66855fb7492db0a2a4896000f0f4f5-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "하스미 레이아",
+      "visibleCharacters": [
+        "하스미 레이아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "miria",
+      "character": "사에키 미리아",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_miria.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_miria.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_miria.tga",
+      "sourceSha256": "e543850bf5f5b4ed4a30c8cd783d7b556dbc2f241fe16e59a434d695333338f8",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "e4571a724cb2386e834164ad18c9075c630b54df4c9efe2164f94b391389c0bb",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-777a868b0481019e411068440131ed26-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "사에키 미리아",
+      "visibleCharacters": [
+        "사에키 미리아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "margo",
+      "character": "호쇼 마고",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_margo.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_margo.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_margo.tga",
+      "sourceSha256": "fd71b8a63c0a4daa51d7c9184a37a20d9653577001e98100607c272f206770f7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "155e30c3d6cab5b45926a9814d50080e0d461fae3f0d4ad5bf776cc0168403e6",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-bff7bcdd0cf97c8bb397ba512d3cb9ac-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "호쇼 마고",
+      "visibleCharacters": [
+        "호쇼 마고"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "nanoka",
+      "character": "쿠로베 나노카",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_nanoka.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_nanoka.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga",
+      "sourceSha256": "df2969ac8ba3b4685ac95f7a90f0ec11ae444c8a1961bd35f33c5cc51397b3e7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "1220e4ed9e96fb62588cfe1a5be562d35260fc17c0a3537d554388390172439c",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-a2df0d39b2cc4475ba8c6008d55fcaca-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "쿠로베 나노카",
+      "visibleCharacters": [
+        "쿠로베 나노카"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "sherry",
+      "character": "타치바나 셰리",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga",
+      "sourceSha256": "6400935e4ee0403feb36448ecb94eca5ca054121e75989863e8fec4add9cbbf3",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "9fd0241704b0757b36586868f65a0a1293f289f61f6c4c20290ff118e29c3d75",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-ace61d6369be3731bca578448088f0b3-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "타치바나 셰리",
+      "visibleCharacters": [
+        "타치바나 셰리"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "hanna",
+      "character": "토노 한나",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_hanna.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_hanna.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga",
+      "sourceSha256": "3ecf66e00b66f416a4c49aeeb572e6278884a41539657181874e2356d003a7d5",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "e2d4c854742a6a3d8a0fc845c31449ab64783ff7de1d10e47816759edb8b2774",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-85b2d7f9e25993eede41dcede6ee998d-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "토노 한나",
+      "visibleCharacters": [
+        "토노 한나"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "koko",
+      "character": "사와타리 코코",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_koko.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_koko.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga",
+      "sourceSha256": "8933754f8cd8e1968ac056784e14ac28726011624a7233ffd9dcb7bd39289925",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "a5dcb0ee52d9796692f2ed5d270e106aa353126ef538348ee7d000ac7f7d6b48",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-6dde480bbd38a7b0f483e72d3157cfc7-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "사와타리 코코",
+      "visibleCharacters": [
+        "사와타리 코코"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "meruru",
+      "character": "히카미 메루루",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga",
+      "sourceSha256": "8756f355d340dc9e6950aa28616fd137c83318e680ec3fc6bf3d60e66abdff90",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "c4d77e31031d5ab44765b30b6b9cf993eb320e2ed158367e3303ee9d0b7a6811",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-cf000843cbcf25e8a99896fed7000f63-1771x2700.jpg",
+      "sourceKind": "official-game-character-art",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "히카미 메루루",
+      "visibleCharacters": [
+        "히카미 메루루"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+    },
+    {
+      "world": "witch_prison",
+      "characterKey": "head",
+      "character": "마녀의 감옥",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2\\war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_witch_prison_head.tga",
+      "sourceSha256": "f443825725da89fe558de44c80df1073ac037413347f617b734c6424090130ff",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "676dff0bfb0ce5dafb89b1489b6c0b68dd7eaa8056a821f565f5f5954dfd00b8",
+      "bytes": 131116,
+      "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+      "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-a73ea3d2d2b6aea036c722162ca17f8f-2048x1024.jpg",
+      "sourceKind": "official-game-press-image",
+      "artist": "© 2025 Re,AER LLC./Acacia",
+      "representativeCharacter": "마녀의 감옥",
+      "visibleCharacters": [],
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "characterDesigner": "梅まろ",
+      "note": "공식 출시 자료의 재판장 배경을 작품 대표 장소로 사용한다. 특정 재판의 용의자나 판결 장면으로 단정하지 않는다."
+    },
+    {
+      "world": "persona5",
+      "characterKey": "joker",
+      "character": "조커",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_joker.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_joker.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_joker.tga",
+      "sourceSha256": "d61cd4b9530e166941055688244a47ed0be684dd9e6af80cd2f7c3c5dd85e7f7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "411ede63329d4756ded56cae487a802e818682e653b8b7b47dcc3707b0a52516",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/hero.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/hero/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "조커",
+      "visibleCharacters": [
+        "조커"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "morgana",
+      "character": "모르가나",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_morgana.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_morgana.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_morgana.tga",
+      "sourceSha256": "423cd617f9ce080faeaf1eb95b1872bb8bf2c09c62148aa0ea33617f0ebe6b9f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "6e1778ad8d21d9d63b14823ad5637372efb4e6c77ece98348dab38b2c38ffbcf",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/morgana.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/morgana/char_img_whole.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "모르가나",
+      "visibleCharacters": [
+        "모르가나"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "ryuji",
+      "character": "사카모토 류지",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_ryuji.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_ryuji.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_ryuji.tga",
+      "sourceSha256": "463d7422d204fe53fc5b048d8dca66c2c0e8ca822f2302d6c4c20f5fb5505dcd",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "061d1748a21477ffad67e1825db095edc1b044afaf5da363a60e14684cecd8d1",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/ryuji.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/ryuji/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "사카모토 류지",
+      "visibleCharacters": [
+        "사카모토 류지"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "ann",
+      "character": "타카마키 안",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_ann.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_ann.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_ann.tga",
+      "sourceSha256": "b88837c45c1c9da949e4145c55e91877335b956c2f92ce1f5696077eed701c3a",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "f07cdc5861c9dcf0d9c43f664c70efced93b93de537032c2a06f43c4139e1174",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/anne.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/anne/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "타카마키 안",
+      "visibleCharacters": [
+        "타카마키 안"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "yusuke",
+      "character": "키타가와 유스케",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_yusuke.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_yusuke.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_yusuke.tga",
+      "sourceSha256": "59d2cfd042bb04716e4a2b3bddbc7dd98e1aa2ddcf84c9c4acbc93c6191beb0c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "fab083c6f1a37e324c5c2b1f25068b0506101c74a1ec8d3a14537c7e4753eabb",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/yusuke.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/yusuke/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "키타가와 유스케",
+      "visibleCharacters": [
+        "키타가와 유스케"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "makoto",
+      "character": "니지마 마코토",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_makoto.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_makoto.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_makoto.tga",
+      "sourceSha256": "05dc27ffd7837eb66b0f8a1ab85cb7892f9a6d9c9ba37580e8b975dea0e72422",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "cd56ef40b071d984b40176638694c647f5601cc84ff588b4ed916de4f165e778",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/makoto.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/makoto/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "니지마 마코토",
+      "visibleCharacters": [
+        "니지마 마코토"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "futaba",
+      "character": "사쿠라 후타바",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_futaba.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_futaba.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_futaba.tga",
+      "sourceSha256": "bad955ec5f25763d18a3aad274bc4ba332048243e0cfe0cc1bfdd32ab2e1d960",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "dc96f0595139969cdb8fd69a9eb1cbd3c698792f77c3da5f829664e26d48fcc7",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/futaba.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/futaba/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "사쿠라 후타바",
+      "visibleCharacters": [
+        "사쿠라 후타바"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "haru",
+      "character": "오쿠무라 하루",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_haru.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_haru.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_haru.tga",
+      "sourceSha256": "b315a448f1ac69346efdfab5b25da306b029cc64dea3617698a17fa401609d3e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "964c6ba65f4042ccdcf05aaedcae2e7df2dd39022bea3c34d88c2d90802062d5",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/haru.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/haru/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "오쿠무라 하루",
+      "visibleCharacters": [
+        "오쿠무라 하루"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "akechi",
+      "character": "아케치 고로",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_akechi.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_akechi.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_akechi.tga",
+      "sourceSha256": "b63ec7a1703fefe6b28ef42fcc06f12c6256067e83147b4b446ce29d62c51e30",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5e936b5cd33b77339b4efc58ada8b83913fface072b3563f6391c672109a0b07",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/sp/character/akechi.html",
+      "sourceUrl": "https://persona5.jp/resources/img/character/sp/akechi/char_img.png?v=1759993807615",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "아케치 고로",
+      "visibleCharacters": [
+        "아케치 고로"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "sae",
+      "character": "니지마 사에",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_sae.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_sae.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_sae.tga",
+      "sourceSha256": "411f2a4aacddb23c3a514cf07786aebd1c3f20c237ce91098312d15b3898591d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "21d37f1999a47767c47e2bf78852dfd7e375daac8a30f6470d4f5e8b2d412d9d",
+      "bytes": 131116,
+      "sourcePage": "https://p5a.jp/story/26.html",
+      "sourceUrl": "https://p5a.jp/assets/img/story/26/02.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ATLUS ©SEGA/PERSONA5 the Animation Project",
+      "representativeCharacter": "니지마 사에",
+      "visibleCharacters": [
+        "니지마 사에"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": 26,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "PERSONA5 the Animation"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "sojiro",
+      "character": "사쿠라 소지로",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_sojiro.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_sojiro.tga",
+      "sourceSha256": "0b3b9285d5e202fe60f7db35f88c5e4fc66c64db02da2d8abfb56e95899453e3",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "b21a7dcaa7993bb78182c2ed236ca8e93f77387908b3e290e74f2dcd8fa7b75d",
+      "bytes": 131116,
+      "sourcePage": "https://p5a.jp/story/18.html",
+      "sourceUrl": "https://p5a.jp/assets/img/story/18/01.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ATLUS ©SEGA/PERSONA5 the Animation Project",
+      "representativeCharacter": "사쿠라 소지로",
+      "visibleCharacters": [
+        "사쿠라 소지로"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": 18,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "PERSONA5 the Animation"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "head",
+      "character": "페르소나5",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_head.tga",
+      "sourceSha256": "1bec25035a694969d1bf4cd8265f96d24f1b9d3441b721b10b06653463f3e493",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "158a86bd6b242fe48d0b30dbecc0889fce581fb704d3882d73b5e7a91bb46729",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/",
+      "sourceUrl": "https://persona5.jp/resources/img/top/key_visual.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "페르소나5",
+      "visibleCharacters": [],
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "ending_memorial",
+      "character": "다시 이어질 우리의 길",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_ending_memorial.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_ending_memorial.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_ending_memorial.tga",
+      "sourceSha256": "1bec25035a694969d1bf4cd8265f96d24f1b9d3441b721b10b06653463f3e493",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "158a86bd6b242fe48d0b30dbecc0889fce581fb704d3882d73b5e7a91bb46729",
+      "bytes": 131116,
+      "sourcePage": "https://persona5.jp/",
+      "sourceUrl": "https://persona5.jp/resources/img/top/key_visual.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "다시 이어질 우리의 길",
+      "visibleCharacters": [],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다.",
+      "sourceWork": "Persona 5"
+    },
+    {
+      "world": "persona5",
+      "characterKey": "scene_first_palace",
+      "character": "성을 마주한 두 사람",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+      "sourceSha256": "7049a2c17498d22c1400588ef8a7a16490e75896bf2231a23e2d16000860d7d3",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "528322b5b050e3ccd5489490668768506640aa6f5421d4817f40573c712713bb",
+      "bytes": 131116,
+      "sourcePage": "https://p5a.jp/story/01.html",
+      "sourceUrl": "https://p5a.jp/assets/img/story/01/03.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ATLUS ©SEGA/PERSONA5 the Animation Project",
+      "representativeCharacter": "성을 마주한 두 사람",
+      "visibleCharacters": [
+        "조커",
+        "사카모토 류지"
+      ],
+      "semanticRole": "exact-adapted-anime-scene",
+      "exactStoryScene": true,
+      "season": null,
+      "episode": 1,
+      "eventKeys": [
+        "p5_main_01"
+      ],
+      "note": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다."
+    },
+    {
+      "world": "persona5",
+      "characterKey": "scene_sayuri",
+      "character": "액자 안의 사유리",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+      "sourceSha256": "9bfbd187bc88efb027c3dcf5be1230dc025aa6be78090979e543535892f52734",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "98005a0d612827a78f66bb95f7169207c02d3027033fa2f5d9478b72bb8ba1a1",
+      "bytes": 131116,
+      "sourcePage": "https://p5a.jp/story/08.html",
+      "sourceUrl": "https://p5a.jp/assets/img/story/08/03.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ATLUS ©SEGA/PERSONA5 the Animation Project",
+      "representativeCharacter": "액자 안의 사유리",
+      "visibleCharacters": [],
+      "semanticRole": "exact-adapted-anime-scene",
+      "exactStoryScene": true,
+      "season": null,
+      "episode": 8,
+      "eventKeys": [
+        "p5_main_03"
+      ],
+      "note": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다."
+    },
+    {
+      "world": "persona5",
+      "characterKey": "scene_interrogation",
+      "character": "취조실의 검사",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+      "sourceSha256": "411f2a4aacddb23c3a514cf07786aebd1c3f20c237ce91098312d15b3898591d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "21d37f1999a47767c47e2bf78852dfd7e375daac8a30f6470d4f5e8b2d412d9d",
+      "bytes": 131116,
+      "sourcePage": "https://p5a.jp/story/26.html",
+      "sourceUrl": "https://p5a.jp/assets/img/story/26/02.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ATLUS ©SEGA/PERSONA5 the Animation Project",
+      "representativeCharacter": "취조실의 검사",
+      "visibleCharacters": [
+        "니지마 사에"
+      ],
+      "semanticRole": "exact-adapted-anime-scene",
+      "exactStoryScene": true,
+      "season": null,
+      "episode": 26,
+      "eventKeys": [
+        "p5_main_09"
+      ],
+      "note": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다."
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "joker",
+      "character": "조커",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_joker.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_joker.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_joker.tga",
+      "sourceSha256": "4a2f9e2c144aaa4da0a92e6f9cf799c5fe47e7e0423d2794c07bed2105227bd3",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "03625c1b47ab486e5794c66d485a760ee20885edb746cb4d158b08815265acee",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/hero/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/hero/costume2_fbfcd04fd7ce91f54b1ec840887c9923.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "조커",
+      "visibleCharacters": [
+        "조커"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "morgana",
+      "character": "모르가나",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_morgana.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_morgana.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_morgana.tga",
+      "sourceSha256": "c4b0b9c220811fa6d86ea0a51589d9a623fbec35fa657ca14071e788474110f8",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "9a39cff306c45fe33ab76cf7510b752a2343d740297504ededd30534b1d0cbf2",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/morgana/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/morgana/costume1_eae37499d983d1091be7cdc1bf2fb4b4.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "모르가나",
+      "visibleCharacters": [
+        "모르가나"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "ryuji",
+      "character": "사카모토 류지",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_ryuji.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_ryuji.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_ryuji.tga",
+      "sourceSha256": "0ce8fcd75f2cadc8df0dc4e8753a92fb6ecccc8c5496d45ec1d249da98761988",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "e97cd646944941d35d7fc53c7ea8a50d90ae40ccb77bd561fa56317da52795c8",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/ryuji/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/ryuji/costume2_c9ee26e0e1f8a87214d9d38cea2ff1a6.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "사카모토 류지",
+      "visibleCharacters": [
+        "사카모토 류지"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "ann",
+      "character": "타카마키 안",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_ann.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_ann.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_ann.tga",
+      "sourceSha256": "972524243f115a7ce0203993c342ea08e8fc9f4c47d9458d20a64c9f9a9bbb94",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "01e0a8eeb74c5681e285b6e6fdf6255293105900eb0b38cce6c02cf457da52e9",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/anne/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/anne/costume2_0d74813eff29e913d4925f1887fc90a9.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "타카마키 안",
+      "visibleCharacters": [
+        "타카마키 안"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "yusuke",
+      "character": "키타가와 유스케",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_yusuke.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_yusuke.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_yusuke.tga",
+      "sourceSha256": "2476aae7ff4956e198bda05d2e89e0a7625a5a69260c06c60e0d92685bbcd47d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "0ec1ec035a4d49eff8b9e010e3240cb515e4bd1978be34f8bd4fac2eff005313",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/yusuke/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/yusuke/costume2_d074937c003544263d7a24ef86b27686.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "키타가와 유스케",
+      "visibleCharacters": [
+        "키타가와 유스케"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "makoto",
+      "character": "니지마 마코토",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_makoto.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_makoto.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_makoto.tga",
+      "sourceSha256": "9d57d7b7dd12278d6cf7d7cfbdc6551a8c7789da5021f5139ec8d98dfdcb3482",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "c9ed495e27d77d8623058a0fa6f1e17deebe7a9fb613690ff3907480881f600b",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/makoto/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/makoto/costume2_6319d447cfa129142fdd279104c1514a.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "니지마 마코토",
+      "visibleCharacters": [
+        "니지마 마코토"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "futaba",
+      "character": "사쿠라 후타바",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_futaba.tga",
+      "sourceSha256": "7e91d1999cec7c1428669d6d00dde3fdb49fb78b0724f980fdd4b0dc06f92abc",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "31af21dbb8ffd5948f58348ed4dcabcb8e43537f080551bda966bd8f5a35e95b",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/futaba/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/futaba/costume2_2cca8c6ff508631570335573e5e6bd8a.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "사쿠라 후타바",
+      "visibleCharacters": [
+        "사쿠라 후타바"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "haru",
+      "character": "오쿠무라 하루",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_haru.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_haru.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_haru.tga",
+      "sourceSha256": "2005c4cfa2cfe695abfafba4e290e2fe1f80dc1fdc0449f9a3b637dc4f9c59f6",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "710e6d9083682f8edeb44a0d32a3d28ef6cbc1d41a0d72abf5d818f792615e32",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/haru/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/haru/costume2_a9d760d4aeeab57ab5ded13789e7a0b9.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "오쿠무라 하루",
+      "visibleCharacters": [
+        "오쿠무라 하루"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "akechi",
+      "character": "아케치 고로",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_akechi.tga",
+      "sourceSha256": "1dc1e9e00cf52a95b0995d5a10c422761a4ae56cd311ff3f4e3c8e9555ce5de5",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "ccc572540880f6f0a63a7c5f6ce40b21eb0e9d9a17ad726391397187e2ad6714",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/akechi/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/akechi/costume1_9fefb2bee52a2f35faa8c9179dc805cc.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "아케치 고로",
+      "visibleCharacters": [
+        "아케치 고로"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 일반 탐정 초상. 백색 프린스 괴도복은 3학기 현장 복장과 달라 제외했다. 이 초상도 겨울 복장이나 특정 1월 현장으로 주장하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "yoshizawa",
+      "character": "요시자와",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_yoshizawa.tga",
+      "sourceSha256": "7c9abf87661aec94c06d036a7402096c467d17a5b43c159a0a5e59ad538a50c4",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "4440d7f8e02bee2b3e00d7f939174974fae80edc20b894fb8191fc63be584b37",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/character/kasumi/",
+      "sourceUrl": "https://p5r.jp/resources/img/character/kasumi/costume2_e9bdd1860bead9f30628c3da17a70768.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "요시자와",
+      "visibleCharacters": [
+        "요시자와"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 괴도복 초상. 카드명은 요시자와로 유지하며 정체·특정 각성 날짜를 이 그림만으로 공개하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "maruki",
+      "character": "마루키 타쿠토",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_maruki.tga",
+      "sourceSha256": "d8c5ba3ee6a5e2f56cb0f1e359277892e58f7576f5bd258128d3084ad8d5718e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "d234d1b38d9845906a80098c3894f86c35b49cc960253f3a4747f476f49568ca",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/",
+      "sourceUrl": "https://p5r.jp/resources/img/sp/top/royal1_c2_img1_4a4dd79a6e37bd7534e4fe77cdb88127.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "마루키 타쿠토",
+      "visibleCharacters": [
+        "마루키 타쿠토"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 상담사 기본 초상. 후반 의상이나 3학기 전투 장면이 아니다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "head",
+      "character": "페르소나5 더 로열",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_head.tga",
+      "sourceSha256": "ca0c97920837b2654743eb93a069e1c2809dd8cc02e150cb3a81b884b8ba2e0e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5552ff1bc5e2bb128b00b73c0be22eaac1ccd4aaeec9ee89f77993d0741168b9",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/",
+      "sourceUrl": "https://p5r.jp/resources/img/top/fv_chara2_44c4c96752ea5f430a6a450ab9b85d3b.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "페르소나5 더 로열",
+      "visibleCharacters": [],
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "ending_memorial",
+      "character": "우리 손으로 고른 내일",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_ending_memorial.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_ending_memorial.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_ending_memorial.tga",
+      "sourceSha256": "5ab5599fc197b8e6f0185cc39aa2321672e1492993c56f817b69dda785f69558",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "e08c5c689c19c7170cc0abda99614b9992d8b22397daac78991b88ba6ede85a8",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/",
+      "sourceUrl": "https://p5r.jp/resources/img/top/fv_chara1_58203731d9b71f6b674723d9f93fda37.png",
+      "sourceKind": "official-game-character-art",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "우리 손으로 고른 내일",
+      "visibleCharacters": [],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다.",
+      "sourceWork": "Persona 5 Royal"
+    },
+    {
+      "world": "persona5_royal",
+      "characterKey": "scene_counselor",
+      "character": "학교에 온 상담사",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+      "sourceSha256": "609f54f71d595ed0830311c32388cba915d16319ff0b398d939ffb884b164340",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "6a524385463544a264e2489eca702a3caf581b79bc4ea10248bfee8dec43fd84",
+      "bytes": 131116,
+      "sourcePage": "https://p5r.jp/",
+      "sourceUrl": "https://p5r.jp/resources/img/top/ss/royal1_c2_ss1_87a5b3c46d1d03037983f203d681c75e.jpg",
+      "sourceKind": "official-game-screenshot",
+      "artist": "©ATLUS ©SEGA All rights reserved.",
+      "representativeCharacter": "학교에 온 상담사",
+      "visibleCharacters": [
+        "마루키 타쿠토",
+        "조커"
+      ],
+      "semanticRole": "exact-game-scene",
+      "exactStoryScene": true,
+      "season": null,
+      "episode": null,
+      "eventKeys": [
+        "p5r_main_01"
+      ],
+      "note": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다."
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "reimu",
+      "character": "하쿠레이 레이무",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga",
+      "sourceSha256": "d35838e5446074b099c41fc81746554fc3c3cf7a50fff3f76e1dfd8e8417721b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5babcd310ec2ecc29de6b76a24b9fd1f7071fe7e2ebb99e2b79c7f6af0c09975",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r001/",
+      "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "하쿠레이 레이무",
+      "visibleCharacters": [
+        "하쿠레이 레이무"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "letty",
+      "character": "레티 화이트록",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_letty.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_letty.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_letty.tga",
+      "sourceSha256": "b3030c4b49325e1e23392e38afe2819b28fe902a2abe3fb3781aea0300b3d3b9",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "81728a0acd7afc2730a8f670bb22474e5a7af30271a3eb54a253c6e971b2422c",
+      "bytes": 131116,
+      "sourcePage": "https://altema.jp/lostword/chara/81",
+      "sourceUrl": "https://img.altema.jp/lostword/chara/stand/81.jpg",
+      "sourceKind": "licensed-derivative-character-art-third-party-host",
+      "artist": "individual artist unverified",
+      "representativeCharacter": "레티 화이트록",
+      "visibleCharacters": [
+        "레티 화이트록"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "로스트워드 L1 기본 복장 원본을 공개 알테마에서 확보하고 공식 2022년 소개의 동일 복장·얼굴과 대조했다. H5 변종·환생·사교클럽 의상은 제외했다. 원작 요요몽 실제 장면이 아니다. 개별 작가 표기는 미확인이다.",
+      "sourceWork": "東方LostWord",
+      "copyright": "©上海アリス幻樂団 ©GOOD SMILE COMPANY, INC. / NextNinja Co., Ltd.",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "chen",
+      "character": "첸",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_chen.tga",
+      "sourceSha256": "b27d601db517b337e074acfc085420e38f90c649ad9c120f29dfaa0571738a2f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "516d83b97e9032d023a2c748e03e4143ae50831556d0294dd7e715149b75d5e2",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r062/",
+      "sourceUrl": "https://danmaku.jp/import/card/r062_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "첸",
+      "visibleCharacters": [
+        "첸"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "alice",
+      "character": "앨리스 마가트로이드",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_alice.tga",
+      "sourceSha256": "c67deb3eb59d02684f2bd9bce3e9ae6b4bcafcc647f81ed47e55e116e43e0f8b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5c3a59eb816d10133e789fc158582d668c84d865d3fd9c693480441ea541d1b7",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r011/",
+      "sourceUrl": "https://danmaku.jp/import/card/r011_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "앨리스 마가트로이드",
+      "visibleCharacters": [
+        "앨리스 마가트로이드"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "lunasa",
+      "character": "루나사 프리즘리버",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lunasa.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_lunasa.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_lunasa.tga",
+      "sourceSha256": "4d43f20eb5237f8055cef631ac170fdde5a03d41580734af91211754976da0bd",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "280bd817d0ada9fead4692d4280a666f12f5b8980bdbaf9ce71248d3e8e848d0",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r051/",
+      "sourceUrl": "https://danmaku.jp/import/card/r051_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "루나사 프리즘리버",
+      "visibleCharacters": [
+        "루나사 프리즘리버"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "merlin",
+      "character": "메를랑 프리즘리버",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_merlin.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_merlin.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_merlin.tga",
+      "sourceSha256": "37ff135a54cb98ab3c367bb9a178f0275cb5aa180555e7296cddef45083adcca",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "3adc2aeb916ed6e7c3513259527ac349f5271d79008e2ecfaf2aebaa538b4c9d",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r052/",
+      "sourceUrl": "https://danmaku.jp/import/card/r052_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "메를랑 프리즘리버",
+      "visibleCharacters": [
+        "메를랑 프리즘리버"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "lyrica",
+      "character": "리리카 프리즘리버",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lyrica.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_lyrica.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_lyrica.tga",
+      "sourceSha256": "fe3d24b46b626ab6441690822f52ca40e2ce087ae733ab4fc127a9ae78c640b2",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "fc2576e05b9d232950bef72d3189980bb706660f651aa3581547233c1c8a4cd1",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r053/",
+      "sourceUrl": "https://danmaku.jp/import/card/r053_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "리리카 프리즘리버",
+      "visibleCharacters": [
+        "리리카 프리즘리버"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "youmu",
+      "character": "콘파쿠 요우무",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_youmu.tga",
+      "sourceSha256": "72820eb5ecb87d9ffbd3824fbefee8a6b6810d309cd8ae70aa3a081d990dd259",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "69a785001a9700376bed53f2d33cedb849429e2e9d649878a2fc2607c6d82ca5",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r013/",
+      "sourceUrl": "https://danmaku.jp/import/card/r013_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "콘파쿠 요우무",
+      "visibleCharacters": [
+        "콘파쿠 요우무"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "yuyuko",
+      "character": "사이교우지 유유코",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_yuyuko.tga",
+      "sourceSha256": "53a75d99a47ae159f3e41f0d41f1642ceee298e7ee148bcf9166ec34d51fa957",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "92c572b86a3143a1a3b1648094d6a81c5eb2a061a346aa29266f7b2899060271",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r044/",
+      "sourceUrl": "https://danmaku.jp/import/card/r044_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "사이교우지 유유코",
+      "visibleCharacters": [
+        "사이교우지 유유코"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "lily",
+      "character": "릴리 화이트",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lily.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_lily.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_lily.tga",
+      "sourceSha256": "138f91947342347f0f3a3d8e0f95ee84226b6e812c69f41c8b4f6d22931a13a5",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "ba393fd6ee77dcb5f36125ab26c1d1181fb0f35968b15a7ce0887294f59330ee",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r067/",
+      "sourceUrl": "https://images.ctfassets.net/rnt9181hio7z/3uOWgnhiXQ3YiOSA5KU9EV/153ca2a7411477ddacdb0e2820c544b7/r067_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "릴리 화이트",
+      "visibleCharacters": [
+        "릴리 화이트"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "head",
+      "character": "백옥루",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_head.tga",
+      "sourceSha256": "e9b6e9a8e83db5161a0e6f853b0ccccf98712dfb879a29610ffb7c5d839f151e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "eaffc0b78b480f823bbdb0923db6f36ba72cf29e0c6fdbb3b45f6d7b0b41db04",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/sr030/",
+      "sourceUrl": "https://danmaku.jp/import/card/sr030_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "CUBETYPE",
+      "representativeCharacter": "백옥루",
+      "visibleCharacters": [
+        "사이교우지 유유코"
+      ],
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 다마쿠카구라 일러스트에 그려진 원작 최종 보스를 작품 대표로 사용한다. 특정 스펠 카드·전투 단계·사이교우아야카시 개화 장면으로 단정하지 않는다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": true,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "hakugyokurou",
+      "characterKey": "ending_memorial",
+      "character": "돌아온 봄의 자리",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_ending_memorial.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_hakugyokurou_ending_memorial.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_hakugyokurou_ending_memorial.tga",
+      "sourceSha256": "d35838e5446074b099c41fc81746554fc3c3cf7a50fff3f76e1dfd8e8417721b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5babcd310ec2ecc29de6b76a24b9fd1f7071fe7e2ebb99e2b79c7f6af0c09975",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r001/",
+      "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "돌아온 봄의 자리",
+      "visibleCharacters": [
+        "하쿠레이 레이무"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "레이무 기본 초상을 원작 완주 기념으로 사용한다. 실제 엔딩 CG, 꽃놀이 현장, 양산을 든 레밀리아의 신사 방문을 보여 주는 장면이 아니다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "reimu",
+      "character": "하쿠레이 레이무",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga",
+      "sourceSha256": "d35838e5446074b099c41fc81746554fc3c3cf7a50fff3f76e1dfd8e8417721b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5babcd310ec2ecc29de6b76a24b9fd1f7071fe7e2ebb99e2b79c7f6af0c09975",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r001/",
+      "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "하쿠레이 레이무",
+      "visibleCharacters": [
+        "하쿠레이 레이무"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "rumia",
+      "character": "루미아",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_rumia.tga",
+      "sourceSha256": "0265bf12c5d988214ab3275ce62dd552c5180c0c4d152f202e6028d95dd4b2e7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "f5fd0b97abc6e2c302143d28f62f5c2c3350ba3d035ad6ea93ba793fe61a701c",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r030/",
+      "sourceUrl": "https://danmaku.jp/import/card/r030_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "루미아",
+      "visibleCharacters": [
+        "루미아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "cirno",
+      "character": "치르노",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_cirno.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_cirno.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_cirno.tga",
+      "sourceSha256": "28998b0f9e73d750be38bc50f0e8787cc8afdd4d080ea2bdeda633548cfba910",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "418e4b97d52783ee377316f5e1751911e88e4a6110fbd6527ff8975e3ffe89d8",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r009/",
+      "sourceUrl": "https://danmaku.jp/import/card/r009_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "치르노",
+      "visibleCharacters": [
+        "치르노"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "meiling",
+      "character": "홍 메이링",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_meiling.tga",
+      "sourceSha256": "b3758a52d8e98c2be66dc1755a92234b1dc80b25c550bd50a3b3576824e43ceb",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "65214069027aa13a97f322cf37623d34bab76dd41be9d68c5b92d2dbf4a8c6da",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r058/",
+      "sourceUrl": "https://danmaku.jp/import/card/r058_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "홍 메이링",
+      "visibleCharacters": [
+        "홍 메이링"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "patchouli",
+      "character": "파츄리 널릿지",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_patchouli.tga",
+      "sourceSha256": "793e304bda5ec3e34c0f641eda226d03bbcab6171db45685c2055efc2ddae66c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5de19527810396e2f283e6fdc94e2c7d88ebb3cb55fc05659ad0b0b26f41d460",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r003/",
+      "sourceUrl": "https://danmaku.jp/import/card/r003_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "파츄리 널릿지",
+      "visibleCharacters": [
+        "파츄리 널릿지"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "sakuya",
+      "character": "이자요이 사쿠야",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga",
+      "sourceSha256": "b9a13970ab8dc9ebc79a92d7c5ab97e913742b93c58d3ccd6578bd1f78d55673",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "f4432b9fa2a12751c18eb3c340cc48082e4d3b6197376329cf4575375666cca2",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r010/",
+      "sourceUrl": "https://danmaku.jp/import/card/r010_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "이자요이 사쿠야",
+      "visibleCharacters": [
+        "이자요이 사쿠야"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "remilia",
+      "character": "레밀리아 스칼렛",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_remilia.tga",
+      "sourceSha256": "665dcad1c928b166d93c8fdae046dd42eead5a8872918462309f77d0c8a4df9e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "c424ea2841bec014dfc8fc8a365d267e03e1c361ec492b1fd84d8318b84e97b0",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r005/",
+      "sourceUrl": "https://danmaku.jp/import/card/r005_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "레밀리아 스칼렛",
+      "visibleCharacters": [
+        "레밀리아 스칼렛"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "head",
+      "character": "홍마향",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_head.tga",
+      "sourceSha256": "beb81ef0cbc00f8a9c22d47d66a7fddd35d1134086ea35c963b5bb9e32610d79",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "abc464c9726772323e6c667db4678d1c513185811bd54f425fcb23123e3f8210",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/sr023/",
+      "sourceUrl": "https://danmaku.jp/import/card/sr023_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "kanechi",
+      "representativeCharacter": "홍마향",
+      "visibleCharacters": [
+        "레밀리아 스칼렛"
+      ],
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "공식 다마쿠카구라 일러스트에 그려진 원작 최종 보스를 작품 대표로 사용한다. 특정 스펠 카드·전투 단계·사이교우아야카시 개화 장면으로 단정하지 않는다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": true,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
+    },
+    {
+      "world": "scarlet_mist",
+      "characterKey": "ending_memorial",
+      "character": "안개 뒤에 돌아온 여름",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_ending_memorial.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1\\war3mapImported\\UI_EventThumb_XP_scarlet_mist_ending_memorial.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_scarlet_mist_ending_memorial.tga",
+      "sourceSha256": "d35838e5446074b099c41fc81746554fc3c3cf7a50fff3f76e1dfd8e8417721b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5babcd310ec2ecc29de6b76a24b9fd1f7071fe7e2ebb99e2b79c7f6af0c09975",
+      "bytes": 131116,
+      "sourcePage": "https://danmaku.jp/archive/card/r001/",
+      "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+      "sourceKind": "official-licensed-derivative-card-art",
+      "artist": "not individually credited on official card page",
+      "representativeCharacter": "안개 뒤에 돌아온 여름",
+      "visibleCharacters": [
+        "하쿠레이 레이무"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": null,
+      "episode": null,
+      "eventKeys": [],
+      "note": "레이무 기본 초상을 원작 완주 기념으로 사용한다. 실제 엔딩 CG, 꽃놀이 현장, 양산을 든 레밀리아의 신사 방문을 보여 주는 장면이 아니다.",
+      "sourceWork": "東方ダンマクカグラ",
+      "copyright": "©上海アリス幻樂団 ©アンノウンX",
+      "artistVerified": false,
+      "originalCreator": "ZUN / 上海アリス幻樂団",
+      "sourceNature": "licensed-derivative-representative",
+      "originalGameExactScene": false
     }
   ]
 }
