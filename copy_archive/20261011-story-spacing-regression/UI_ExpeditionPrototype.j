@@ -20,6 +20,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer StoryRegion
         private integer StoryTitle
         private integer StoryIcon
+        private integer StoryMeasure
+        private integer array StoryLines
+        private string StoryCached = ""
+        private real StoryCachedTop = -1.0
+        private integer StoryLineCount = 0
         private integer StoryText
         private integer OutcomePanel
         private integer OutcomeHeading
@@ -145,6 +150,107 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameClearAllPoints(frame)
         call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetSize(frame, width, height)
+    endfunction
+
+    // 색상 태그가 줄 경계를 넘어가도 다음 줄에서 같은 색으로 이어진다.
+    private function StoryLastColor takes string value, string current returns string
+        local integer i = 0
+        local integer n = StringLength(value)
+        loop
+            exitwhen i >= n
+            if SubString(value, i, i + 2) == "|c" then
+                set current = SubString(value, i, i + 10)
+                set i = i + 10
+            elseif SubString(value, i, i + 2) == "|r" then
+                set current = PAPER_BODY
+                set i = i + 2
+            else
+                set i = i + 1
+            endif
+        endloop
+        return current
+    endfunction
+
+    private function RenderSpacedStory takes string value, real top, real available returns nothing
+        local integer i = 0
+        local integer n
+        local integer row = 0
+        local string word
+        local string line = ""
+        local string active = PAPER_BODY
+        local string lineColor = PAPER_BODY
+        local real y = top
+        local real baseHeight
+        local boolean overflow = false
+        if value == StoryCached and top == StoryCachedTop then
+            return
+        endif
+        set StoryCached = value
+        set StoryCachedTop = top
+        loop
+            exitwhen i >= StoryLineCount
+            call DzFrameShow(StoryLines[i], false)
+            set i = i + 1
+        endloop
+        set StoryLineCount = 0
+        call DzFrameSetText(StoryText, "")
+        call PaperText(StoryMeasure, "가", PAPER_BODY)
+        set baseHeight = DzFrameGetHeight(StoryMeasure)
+        if baseHeight <= 0.0 or baseHeight > 0.03 then
+            call PaperText(StoryText, value, PAPER_BODY)
+            return
+        endif
+        // 자동 줄바꿈은 실제 폰트로 측정한다. 글자 수 추정으로 한글을 자르지 않는다.
+        set value = JNStringReplace(value, "|n", " |n ") + " |n"
+        set n = JNStringCount(value, " ") + 1
+        set i = 0
+        loop
+            exitwhen i >= n or overflow
+            set word = JNStringSplit(value, " ", i)
+            if word != "" then
+                call PaperText(StoryMeasure, lineColor + word, PAPER_BODY)
+                if word != "|n" and DzFrameGetHeight(StoryMeasure) > baseHeight * 1.5 then
+                    set overflow = true
+                    exitwhen overflow
+                endif
+                call PaperText(StoryMeasure, lineColor + line + " " + word, PAPER_BODY)
+                if word == "|n" or (line != "" and DzFrameGetHeight(StoryMeasure) > baseHeight * 1.5) then
+                    if row >= 32 or y + baseHeight > top + available then
+                        set overflow = true
+                    else
+                        call PlaceCoverPart(StoryLines[row], StoryPanel, 0.018, y, 0.274, baseHeight + 0.001)
+                        call PaperText(StoryLines[row], lineColor + line, PAPER_BODY)
+                        call DzFrameShow(StoryLines[row], true)
+                        set row = row + 1
+                        if line == "" then
+                            set y = y + baseHeight * 0.6
+                        else
+                            set y = y + baseHeight + 0.002
+                        endif
+                        set line = ""
+                        set lineColor = active
+                    endif
+                endif
+                if word != "|n" then
+                    if line != "" then
+                        set line = line + " "
+                    endif
+                    set line = line + word
+                    set active = StoryLastColor(word, active)
+                endif
+            endif
+            set i = i + 1
+        endloop
+        set StoryLineCount = row
+        if overflow then
+            set i = 0
+            loop
+                exitwhen i >= row
+                call DzFrameShow(StoryLines[i], false)
+                set i = i + 1
+            endloop
+            call PaperText(StoryText, StoryCached, PAPER_BODY)
+        endif
     endfunction
 
     private function PlaceEventImage takes integer frame, integer parent, real x, real y, real width, real height, integer id returns nothing
@@ -399,7 +505,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                 call PlaceCoverPart(StoryTitle, StoryPanel, 0.112, 0.048, 0.180, 0.070)
                 call PlaceCoverPart(StoryText, StoryPanel, 0.018, 0.126, 0.274, 0.242)
             endif
-            call PaperText(StoryText, ProtoDialogueStoryText(pid), PAPER_BODY)
+            // 본문은 아래에서 호버 상태까지 결정한 뒤 한 번만 배치한다.
         endif
         set i = 1
         loop
@@ -441,10 +547,17 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endloop
         if ProtoStage[pid] == 2 and not ProtoDialogueFollowing(pid) and HoverBranch > 0 and HoverBranch <= ProtoDialogueChoiceCount(pid) then
             call DzFrameSetFont(StoryText, "Fonts\\DFHeiMd.ttf", 0.011, 0)
-            call PaperText(StoryText, "[행동 상세 · 커서를 옮기면 사건 설명]|n" + ProtoDialogueChoiceText(pid, HoverBranch, false), PAPER_BODY)
+            call RenderSpacedStory("[행동 상세 · 커서를 옮기면 사건 설명]|n" + ProtoDialogueChoiceText(pid, HoverBranch, false), 0.126, 0.242)
         else
             set HoverBranch = 0
             call DzFrameSetFont(StoryText, "Fonts\\DFHeiMd.ttf", 0.011, 0)
+            if ProtoStage[pid] == 2 or ProtoStage[pid] == 3 then
+                if ProtoDialogueFollowing(pid) then
+                    call RenderSpacedStory(ProtoDialogueStoryText(pid), 0.104, 0.264)
+                else
+                    call RenderSpacedStory(ProtoDialogueStoryText(pid), 0.126, 0.242)
+                endif
+            endif
         endif
         call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1)
         call ExpUISetButton(RerollButton, "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", ExpGold[pid] >= 500 + ProtoRerolls[pid] * 100)
@@ -525,6 +638,16 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set StoryIcon = ExpUITexture(StoryPanel, 0.018, 0.045, 0.080, 0.080, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
         set StoryTitle = ExpUILabel(StoryPanel, 0.112, 0.048, 0.180, 0.070, 0.014, "")
         set StoryText = ExpUILabel(StoryPanel, 0.018, 0.146, 0.274, 0.222, 0.011, "")
+        set StoryMeasure = ExpUILabel(StoryPanel, 0, 0, 0.274, 0, 0.011, "")
+        call DzFrameShow(StoryMeasure, false)
+        set i = 0
+        loop
+            exitwhen i >= 32
+            set StoryLines[i] = ExpUILabel(StoryPanel, 0.018, 0.126, 0.274, 0.014, 0.011, "")
+            call JNFrameSetTextAlignment(StoryLines[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+            call DzFrameShow(StoryLines[i], false)
+            set i = i + 1
+        endloop
         call JNFrameSetTextAlignment(StoryTitle, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         call JNFrameSetTextAlignment(StoryText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set i = 1
