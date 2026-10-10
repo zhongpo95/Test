@@ -4,6 +4,8 @@ Frame "TEXTAREA" "ArcanaEventStory" {
     Width 0.274,
     Height 0.242,
     FrameFont "Fonts\DFHeiMd.ttf", 0.011, "",
+    FontShadowColor 0.0 0.0 0.0 0.0,
+    FontShadowOffset 0.0 0.0,
     TextAreaLineHeight 0.011,
     TextAreaLineGap 0.002,
     TextAreaInset 0.002,
