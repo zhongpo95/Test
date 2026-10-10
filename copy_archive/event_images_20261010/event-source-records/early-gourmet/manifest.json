@@ -1,0 +1,192 @@
+[
+  {
+    "eventKeys": [
+      "gourmet_main_01"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_mushrooms.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_mushrooms.png",
+    "importPath": "war3mapImported\\UI_Event_GRE_mushrooms.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_01.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/aa6aa35af189b190702c191d607de3b8-840x472.jpg",
+    "sourceSHA": "cb7cf5c101b6bb44ec8e3227b68869e805506d2e42622fe04c35ac6478ffd37e",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\originals\\1-10.jpg",
+    "sourceSize": [
+      840,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      840,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "1화 첫 버섯 의뢰에서 함께 식사를 준비하는 유우키와 콧코로.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "2020 프리코네 애니 1기 공식 공개 스틸. 게임/2기 장면 혼용 없음.",
+    "tgaSHA256": "875800c12c2674aecde4051365e9ae87501da423366c487d72929aeacab09dcc",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "gourmet_main_02"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_contest.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_contest.png",
+    "importPath": "war3mapImported\\UI_Event_GRE_contest.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_02.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/86384036caa88325bea337e11e6edf2e-840x472.jpg",
+    "sourceSHA": "18bbbaa39aa8b906819141f848c42678bf05c445e2586573eb553ccb0aef3268",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\originals\\2-3.jpg",
+    "sourceSize": [
+      840,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      840,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "2화 대식 대회에서 음식을 먹는 페코린느.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "2020 프리코네 애니 1기 공식 공개 스틸. 게임/2기 장면 혼용 없음.",
+    "tgaSHA256": "19eccc445284a9253d82b6388fea7548d3ded563466d2ddd1c68a6bf4a8d51e0",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "gourmet_main_03"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_restaurant.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_restaurant.png",
+    "importPath": "war3mapImported\\UI_Event_GRE_restaurant.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_03.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/8934be4c0c517a84abd9415583c8fa81-840x472.jpg",
+    "sourceSHA": "43e71c39d181a8575172b73975d9927e7a6fe9bcc6e57b71a1e75ecdbc1d2166",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\originals\\3-6.jpg",
+    "sourceSize": [
+      840,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      840,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "3화 식당에서 모인 페코린느·캐르·콧코로·유우키. 식재료와 숨은 메뉴 소동.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "2020 프리코네 애니 1기 공식 공개 스틸. 게임/2기 장면 혼용 없음.",
+    "tgaSHA256": "d8c367d4aa07b90c270c53b7996befd5741f808a8401c63cb17b0bcf3b790212",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "gourmet_main_05"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_house.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_house.png",
+    "importPath": "war3mapImported\\UI_Event_GRE_house.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_04.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/e8db811eac8bde71aa250d87591d34f5-840x472.jpg",
+    "sourceSHA": "cc16d11708bf7a6a71eabac6201eb62a864af0b5637ce835dd6472e60e8e7722",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\originals\\4-3.jpg",
+    "sourceSize": [
+      840,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      840,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "4화 집에서 청소를 준비하며 움직이는 일행. 낡은 새 거점 구간.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "2020 프리코네 애니 1기 공식 공개 스틸. 게임/2기 장면 혼용 없음.",
+    "tgaSHA256": "58e829bb255d01a66e527148eb9f2ab9c2595c0e3ed5a00f39cd53792d56786c",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "gourmet_main_06"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_rescue.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\UI_Event_GRE_rescue.png",
+    "importPath": "war3mapImported\\UI_Event_GRE_rescue.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_07.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/bea10e5ee6aa94c415570e5677f19668-840x472.jpg",
+    "sourceSHA": "a1b6866560a9cb2d3d41b67e1126a6ffcfd28765c6afc54a7cd3fba8128064c3",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-gourmet\\originals\\7-9.jpg",
+    "sourceSize": [
+      840,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      840,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "1기7화 쉐도우 사건의 페코린느와 캐르. 전투 중 공격 프레임이 아니라 두 동료가 마주하는 장면. 2기 결말 전투 아님.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "2020 프리코네 애니 1기 공식 공개 스틸. 게임/2기 장면 혼용 없음.",
+    "tgaSHA256": "b15222762badcc19ef0529f4cb67033f223d50878c0af908bdc8ebf573075ee7",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

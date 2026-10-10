@@ -1,0 +1,167 @@
+[
+  {
+    "key": "meeting",
+    "eventKeys": [
+      "mitakihara_main_10",
+      "mitakihara_epilogue_memory"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_meeting.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_meeting.png",
+    "importPath": "war3mapImported\\UI_Event_MTO_meeting.tga",
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep10",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1148_photo_1741600937446583776",
+    "sourceSHA": "93dfec9d6e8781fa909e511f43b7ea91813697a7897f2e28ef800e72e6cd05e9",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\originals\\ep10_story_1148_photo_1741600937446583776.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "sourceEdition": "2011 original TV series / official YouTube rebroadcast HD",
+    "archivesReferencePage": "https://www.madoka-magica.com/tv/archives/story/10.html",
+    "episode": 10,
+    "crop": [
+      150,
+      50,
+      1020,
+      675
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "10화 원본 TV의 첫 만남 회상. 두 얼굴을 모두 보존하기 위해 가로 구도를 정사각 안에 배치한다. 후일담도 처음의 만남을 회상하므로 같은 그림을 공유한다.",
+    "artist": "개별 원화 담당자 미확인. 원본 TV 공식 재방영 스틸.",
+    "credit": "©Magica Quartet／Aniplex・Madoka Partners・MBS",
+    "tgaSHA256": "fb7391178ecbc1b9d5e5d2191d3661871319cc786581d4206030a05a44b6d32a",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 및 최종256정사각 육안검수. main12는 얼굴 전체 보존을 위해 여백 포함 배치로 재조정."
+  },
+  {
+    "key": "explanation",
+    "eventKeys": [
+      "mitakihara_main_11"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_explanation.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_explanation.png",
+    "importPath": "war3mapImported\\UI_Event_MTO_explanation.tga",
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep11",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1150_photo_1742204635587949871",
+    "sourceSHA": "4afbe0d9507c780945c3828736b66ff1b0c42a6ef3ed3fe05d4ebf89b92767c4",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\originals\\ep11_story_1150_photo_1742204635587949871.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "sourceEdition": "2011 original TV series / official YouTube rebroadcast HD",
+    "archivesReferencePage": "https://www.madoka-magica.com/tv/archives/story/11.html",
+    "episode": 11,
+    "crop": [
+      260,
+      0,
+      935,
+      675
+    ],
+    "fitMode": "cover",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "11화 인형 사이에서 설명하는 큐베. archives 11화 img3과 동일한 컷이다. 마도카의 능력이 이미 발현된 듯한 장면을 피한다.",
+    "artist": "개별 원화 담당자 미확인. 원본 TV 공식 재방영 스틸.",
+    "credit": "©Magica Quartet／Aniplex・Madoka Partners・MBS",
+    "tgaSHA256": "7a6d9b1c9c1280a953ffced94067dc0f6029436943bd86e7387b06e2697d0775",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 및 최종256정사각 육안검수. main12는 얼굴 전체 보존을 위해 여백 포함 배치로 재조정."
+  },
+  {
+    "key": "struggle",
+    "eventKeys": [
+      "mitakihara_main_12"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_struggle.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_struggle.png",
+    "importPath": "war3mapImported\\UI_Event_MTO_struggle.tga",
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep12",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1152_photo_1742804639974440101",
+    "sourceSHA": "644626e8682329ffbb9c5439a789da63d463284aee9e5ca3c017d76a58d6f879",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\originals\\ep12_story_1152_photo_1742804639974440101.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "sourceEdition": "2011 original TV series / official YouTube rebroadcast HD",
+    "archivesReferencePage": "https://www.madoka-magica.com/tv/archives/story/index.html",
+    "episode": 12,
+    "crop": [
+      230,
+      82,
+      960,
+      594
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "12화 시작에서 홀로 싸운 뒤 지친 호무라. archives 12화 img1과 동일한 컷이다. 원본의 좁은 영화식 상하 검은 띠만 제외하고 얼굴을 보존한다.",
+    "artist": "개별 원화 담당자 미확인. 원본 TV 공식 재방영 스틸.",
+    "credit": "©Magica Quartet／Aniplex・Madoka Partners・MBS",
+    "tgaSHA256": "142f55eb7dbc31227275612b32a05d35b31604416b8c0b0d466146500d0cf7f6",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 및 최종256정사각 육안검수. main12는 얼굴 전체 보존을 위해 여백 포함 배치로 재조정."
+  },
+  {
+    "key": "wish",
+    "eventKeys": [
+      "mitakihara_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_wish.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\UI_Event_MTO_wish.png",
+    "importPath": "war3mapImported\\UI_Event_MTO_wish.tga",
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep12",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1152_photo_1742804640642529526",
+    "sourceSHA": "3a93b83595a0fc79b502f50f982c0ccf08a03119a4f58002bf7e96b37b749ab9",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara\\originals\\ep12_story_1152_photo_1742804640642529526.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "sourceEdition": "2011 original TV series / official YouTube rebroadcast HD",
+    "archivesReferencePage": "https://www.madoka-magica.com/tv/archives/story/index.html",
+    "episode": 12,
+    "crop": [
+      300,
+      82,
+      812,
+      594
+    ],
+    "fitMode": "cover",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "12화에서 마도카가 나타나 호무라를 받쳐 주는 원본 TV 장면. 호무라의 표정과 마도카의 팔을 함께 남긴다. 소원 이후의 변신이나 세계 변경 장면은 미리 보여 주지 않는다.",
+    "artist": "개별 원화 담당자 미확인. 원본 TV 공식 재방영 스틸.",
+    "credit": "©Magica Quartet／Aniplex・Madoka Partners・MBS",
+    "tgaSHA256": "fad3405ef1665e4abbce1339a17b793bf2e6ec6c744532145a83e25758c678ea",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 및 최종256정사각 육안검수. main12는 얼굴 전체 보존을 위해 여백 포함 배치로 재조정."
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "eventKeys": [
+      "academy_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_bridge.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_bridge.png",
+    "importPath": "war3mapImported\\UI_Event_ACO_bridge.tga",
+    "sourcePage": "https://toaru-project.com/railgun_s/story/14.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000016/block/00000022/00000065.jpg",
+    "sourceSHA": "97a2c95b53818dc38a2be7239b606fc331c78ce572401d8e9552c8359e693cd0",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\originals\\14-4.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "토우마가밤의다리에서미코토를막아서는14화대면장면.",
+    "flashback": false,
+    "artist": "개별스틸원화담당자미확인; 회차작화진은공식페이지기재",
+    "credit": "©鎌池和馬／冬川基／アスキー・メディアワークス／PROJECT-RAILGUN S",
+    "sourceEdition": "A Certain Scientific Railgun S / Sisters arc, 2013",
+    "tgaSHA256": "7b9795df0f5f7ede98a5f7178e30777e6a29443e19f68bf447e7c3e41e40a458",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256미리보기확인, 원본전경유지로손·얼굴잘림없음. 12는야간장면이라어둡지만두인물식별가능"
+  },
+  {
+    "eventKeys": [
+      "academy_main_11"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_cat_memory.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_cat_memory.png",
+    "importPath": "war3mapImported\\UI_Event_ACO_cat_memory.tga",
+    "sourcePage": "https://toaru-project.com/railgun_s/story/12.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000014/block/00000026/00000076.jpg",
+    "sourceSHA": "2af63fb591e9b3be136babd7cba7f8093ecd6234e3499eec6bea86774386d80c",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\originals\\12-3.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "12화토우마가미사카동생과고양이를만나는장면. 결전중새로운만남이아닌앞선만남의회상으로만사용.",
+    "flashback": true,
+    "artist": "개별스틸원화담당자미확인; 회차작화진은공식페이지기재",
+    "credit": "©鎌池和馬／冬川基／アスキー・メディアワークス／PROJECT-RAILGUN S",
+    "sourceEdition": "A Certain Scientific Railgun S / Sisters arc, 2013",
+    "tgaSHA256": "8167a5e6b3d02899f2c8953e6e53211507e5ac857b93028368a8d342fde47dd8",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256미리보기확인, 원본전경유지로손·얼굴잘림없음. 12는야간장면이라어둡지만두인물식별가능"
+  },
+  {
+    "eventKeys": [
+      "academy_main_12"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_sisters.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_sisters.png",
+    "importPath": "war3mapImported\\UI_Event_ACO_sisters.tga",
+    "sourcePage": "https://toaru-project.com/railgun_s/story/16.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000018/block/00000018/00000049.jpg",
+    "sourceSHA": "d0315cbda429232ebd67b6fc277e6fde6b57994a924e943340c8284febe8ac5f",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\originals\\16-0.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "16화미코토가미사카동생을부축하며지원요청하는장면. 공식시놉시스와일치.",
+    "flashback": false,
+    "artist": "개별스틸원화담당자미확인; 회차작화진은공식페이지기재",
+    "credit": "©鎌池和馬／冬川基／アスキー・メディアワークス／PROJECT-RAILGUN S",
+    "sourceEdition": "A Certain Scientific Railgun S / Sisters arc, 2013",
+    "tgaSHA256": "4aa8828345bf893102d3d6db83e69f6db889dbf10647dac27846c0254c9eedbd",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256미리보기확인, 원본전경유지로손·얼굴잘림없음. 12는야간장면이라어둡지만두인물식별가능"
+  },
+  {
+    "eventKeys": [
+      "academy_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_resolve.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\UI_Event_ACO_resolve.png",
+    "importPath": "war3mapImported\\UI_Event_ACO_resolve.tga",
+    "sourcePage": "https://toaru-project.com/railgun_s/story/16.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000018/block/00000018/00000051.jpg",
+    "sourceSHA": "965ddab0d523ba8599904d41a5fe69e328d38d51553c7e52a6fc5e1f513b1abb",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\academy\\originals\\16-2.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "16화최종격돌의토우마. 15화첫유효타가아니라시스터즈지원이있는최종화면사용.",
+    "flashback": false,
+    "artist": "개별스틸원화담당자미확인; 회차작화진은공식페이지기재",
+    "credit": "©鎌池和馬／冬川基／アスキー・メディアワークス／PROJECT-RAILGUN S",
+    "sourceEdition": "A Certain Scientific Railgun S / Sisters arc, 2013",
+    "tgaSHA256": "571543848531cd8902443a5ea4076d3bab4ab9ec88ca5b0baebe7f113f314262",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256미리보기확인, 원본전경유지로손·얼굴잘림없음. 12는야간장면이라어둡지만두인물식별가능"
+  }
+]

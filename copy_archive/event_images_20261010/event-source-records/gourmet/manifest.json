@@ -1,0 +1,154 @@
+[
+  {
+    "eventKeys": [
+      "gourmet_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_visitors.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_visitors.png",
+    "importPath": "war3mapImported\\UI_Event_GRO_visitors.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/story/ep_10.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/02/6978c28545e9346fb1b4fc9ccfa42261.jpg",
+    "sourceSHA": "df85455237c80816985eff3e97c58ad90efb206f0d7ff03404c3662a1cad5bb4",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\originals\\10-shot6.jpg",
+    "sourceSize": [
+      839,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      839,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "S2제10화습격후길드하우스에도움을청한부상미야코. 시노부도함께보인다고주장하지않음.",
+    "artist": "개별스틸원화담당자미확인; CygamesPictures공식제작",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "Princess Connect Re:Dive Season2 / 2022",
+    "tgaSHA256": "aa58109a0139400133854cb09ef3ea5e0dc1d203c033c41c9b59bbf27205d3b1",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 원본인물재대조, 256얼굴경계검수"
+  },
+  {
+    "eventKeys": [
+      "gourmet_main_11"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_bondage.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_bondage.png",
+    "importPath": "war3mapImported\\UI_Event_GRO_bondage.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/story/ep_11.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/4efdb116e5e14c856dd6d7f351e72269.jpg",
+    "sourceSHA": "d2f2967f799a4bf0847121109c438e2b1628e86e70143ca7e816a3838aadc156",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\originals\\11-shot4.jpg",
+    "sourceSize": [
+      839,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      839,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "S2제11화카이저곁에서강요받는캐르. 친구들과이미합류한뒤의장면으로오인하지않음.",
+    "artist": "개별스틸원화담당자미확인; CygamesPictures공식제작",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "Princess Connect Re:Dive Season2 / 2022",
+    "tgaSHA256": "103e364e49235f79761019e72eb05a10d8ba27b25448bc9ea7adab64b10cb1d1",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 원본인물재대조, 256얼굴경계검수"
+  },
+  {
+    "eventKeys": [
+      "gourmet_main_12"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_return.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_return.png",
+    "importPath": "war3mapImported\\UI_Event_GRO_return.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/story/index.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/9bbcd0b4f0ff03b2a0211217de305aba.jpg",
+    "sourceSHA": "84ad56397eb7781b735fe47770294ea034f888d98623972be5f18e07e3ec57d2",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\originals\\12-shot8.jpg",
+    "sourceSize": [
+      839,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      839,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "S2제12화다시힘을보태는유우키의모습. 네사람전원합류완료를주장하지않음.",
+    "artist": "개별스틸원화담당자미확인; CygamesPictures공식제작",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "Princess Connect Re:Dive Season2 / 2022",
+    "tgaSHA256": "f5edb3cd477996685cbd47d0e7a46024a974a68547b9e87a8e8700dc4416eda1",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 원본인물재대조, 256얼굴경계검수"
+  },
+  {
+    "eventKeys": [
+      "gourmet_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_together.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\UI_Event_GRO_together.png",
+    "importPath": "war3mapImported\\UI_Event_GRO_together.tga",
+    "sourcePage": "https://anime.priconne-redive.jp/story/index.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/78482592953cd622c2f267d2eca14edc.jpg",
+    "sourceSHA": "eb7262b8e3d14aef2897d92b167c05426c4fb3dc5d8919c96a28704a82406b47",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\gourmet\\originals\\12-shot4.jpg",
+    "sourceSize": [
+      839,
+      472
+    ],
+    "crop": [
+      0,
+      0,
+      839,
+      472
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "S2제12화유우키·콧코로·페코린느가힘을잇는결전. 캐르구출과정의이미지이며식탁귀환으로쓰지않음.",
+    "artist": "개별스틸원화담당자미확인; CygamesPictures공식제작",
+    "credit": "©アニメ「プリンセスコネクト！Re:Dive」製作委員会",
+    "sourceEdition": "Princess Connect Re:Dive Season2 / 2022",
+    "tgaSHA256": "7f274175f3ae33781986d74c52d4804278a2c82e105226462ec4f82dc3f5311a",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 원본인물재대조, 256얼굴경계검수"
+  }
+]

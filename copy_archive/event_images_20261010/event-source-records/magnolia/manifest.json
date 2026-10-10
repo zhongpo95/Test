@@ -1,0 +1,78 @@
+[
+  {
+    "eventKeys": [
+      "magnolia_main_12"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\magnolia\\UI_Event_MGO_erza.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\magnolia\\UI_Event_MGO_erza.png",
+    "importPath": "war3mapImported\\UI_Event_MGO_erza.tga",
+    "sourcePage": "https://www.b-ch.com/titles/4189/026",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189026a.jpg",
+    "sourceSHA": "ca9d529ac1c5dda8e599f43ff9170d8e35a11328344dd6da90d1e744c6245ecc",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\magnolia\\originals\\26-1.jpg",
+    "sourceSize": [
+      1920,
+      1080
+    ],
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "26화 아리아 전투에 대응하는 엘자의 검격 자세. 나츠가 아리아의 승자인 것처럼 표현하지 않음.",
+    "artist": "A-1 Pictures/사테라이트 제작. 정식 배급 공개 스틸이며 개별 원화 담당자 미확인.",
+    "credit": "©真島ヒロ／講談社・フェアリーテイル製作ギルド・テレビ東京",
+    "sourceEdition": "Fairy Tail first TV series / Phantom Lord arc episodes 26 and 28",
+    "tgaSHA256": "f6a7da18a2a4f35139e0d86be091918b84268d104e157c58a8b34d7ac186b743",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "1920×1080 정식 배급 원본 전체 보존, 256 contain 축소. 얼굴/검/마법 경계 유지.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "magnolia_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\magnolia\\UI_Event_MGO_fairylaw.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\magnolia\\UI_Event_MGO_fairylaw.png",
+    "importPath": "war3mapImported\\UI_Event_MGO_fairylaw.tga",
+    "sourcePage": "https://www.b-ch.com/titles/4189/028",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189028a.jpg",
+    "sourceSHA": "d7678e216512badd3b6031eecbb001684b8982057ff52d42096ae574753c99cc",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\magnolia\\originals\\28-1.jpg",
+    "sourceSize": [
+      1920,
+      1080
+    ],
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "28화 마카로프가 페어리 로우를 사용하는 장면. 나츠·가질 전투 종료 이후 조제와의 결판.",
+    "artist": "A-1 Pictures/사테라이트 제작. 정식 배급 공개 스틸이며 개별 원화 담당자 미확인.",
+    "credit": "©真島ヒロ／講談社・フェアリーテイル製作ギルド・テレビ東京",
+    "sourceEdition": "Fairy Tail first TV series / Phantom Lord arc episodes 26 and 28",
+    "tgaSHA256": "39a844005975f0204d1107e1536facd0d78872068e07b5794ca1ce61e49dfae8",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "1920×1080 정식 배급 원본 전체 보존, 256 contain 축소. 얼굴/검/마법 경계 유지.",
+    "activeModified": false
+  }
+]
