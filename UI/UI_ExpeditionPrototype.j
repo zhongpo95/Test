@@ -83,16 +83,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
     endfunction
 
     private function CreateStoryText takes nothing returns integer
-        local integer frame
-        call DzLoadToc("war3mapImported\\Arcana_EventStory.toc")
-        set frame = DzCreateFrame("ArcanaEventStory", StoryPanel, FrameCount())
-        if frame == 0 then
-            // 템플릿 생성 실패 시 기존 TEXT 본문으로 표시한다.
-            set frame = ExpUILabel(StoryPanel, 0.018, 0.126, 0.274, 0.242, 0.011, "")
-        endif
-        // 밝은 종이 배경에서는 기존 TEXT와 같은 무외곽선 글꼴을 사용한다.
-        call DzFrameSetFont(frame, "Fonts\\DFHeiMd.ttf", 0.011, 0)
-        return frame
+        // TEXTAREA의 검은 그림자를 피하고 결과 영역과 같은 TEXT 표시를 사용한다.
+        return ExpUILabel(StoryPanel, 0.018, 0.126, 0.274, 0.242, 0.011, "")
     endfunction
 
     private function ClearCandidateHover takes nothing returns nothing
