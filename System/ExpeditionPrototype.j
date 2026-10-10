@@ -420,12 +420,16 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set reward = ProtoDisplayCardName(pid, ProtoBranchCard[key])
             if ProtoOwnsCharacter(pid, ProtoBranchCard[key]) then
                 set reward = reward + " (효과 추가)"
+            else
+                set reward = reward + " 획득"
             endif
         endif
         if ProtoBranchCard2[key] > 0 then
             set reward = reward + " · " + ProtoDisplayCardName(pid, ProtoBranchCard2[key])
             if ProtoOwnsCharacter(pid, ProtoBranchCard2[key]) then
                 set reward = reward + " (효과 추가)"
+            else
+                set reward = reward + " 획득"
             endif
         endif
         if ProtoBranchGold[key] > 0 then
