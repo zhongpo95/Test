@@ -1,0 +1,116 @@
+[
+  {
+    "eventKeys": [
+      "butterfly_main_09"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\UI_Event_BTO_awakening.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\UI_Event_BTO_awakening.png",
+    "importPath": "war3mapImported\\UI_Event_BTO_awakening.tga",
+    "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep4",
+    "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2119_photo_1636338060099603055",
+    "sourceSHA": "a6dd51e0ebc531f73aa786c24316bc2dfc524d186cb284363e39981482973663",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\originals\\4-2.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "crop": [
+      0,
+      0,
+      1200,
+      675
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "현실의 네즈코가 열차 안에서 탄지로를 깨우려는 장면. 가족의 꿈 장면으로 재해석하지 않음.",
+    "artist": "ufotable 제작. 공식 회차 크레딧 존재하나 개별 스틸 원화 담당자는 특정하지 못함.",
+    "credit": "©吾峠呼世晴／集英社・アニプレックス・ufotable",
+    "sourceEdition": "TV anime Mugen Train Arc / 2021",
+    "tgaSHA256": "1581f160217941ea30ef10168f17f172670b6149f5eb167df8870a9395efc2d5",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 1200×675 전체 보존. 256 표시에서 얼굴과 검격/동료 경계 검사.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "butterfly_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\UI_Event_BTO_defenders.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\UI_Event_BTO_defenders.png",
+    "importPath": "war3mapImported\\UI_Event_BTO_defenders.tga",
+    "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep5",
+    "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2130_photo_1636945395959519039",
+    "sourceSHA": "eb09cc0f85347702d3001b891cf88941e6d4ec373f8d759370ccb584f3e1298c",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\originals\\5-3.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "crop": [
+      0,
+      0,
+      1200,
+      675
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "엔무와 융합된 객차에서 젠이츠와 네즈코가 함께 승객을 지키는 장면.",
+    "artist": "ufotable 제작. 공식 회차 크레딧 존재하나 개별 스틸 원화 담당자는 특정하지 못함.",
+    "credit": "©吾峠呼世晴／集英社・アニプレックス・ufotable",
+    "sourceEdition": "TV anime Mugen Train Arc / 2021",
+    "tgaSHA256": "a7c9de68eb1c82ff2ff82891d6e2ba6043477b6353274835ea098db49d384924",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 1200×675 전체 보존. 256 표시에서 얼굴과 검격/동료 경계 검사.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "butterfly_main_12"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\UI_Event_BTO_flame.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\UI_Event_BTO_flame.png",
+    "importPath": "war3mapImported\\UI_Event_BTO_flame.tga",
+    "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep6",
+    "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2135_photo_163728925822676990",
+    "sourceSHA": "e1e0fe7cd8322bd2ec1110e3f66356341c49cf8b056b9c9a450f2c95e1f3e98e",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\butterfly\\originals\\6-3.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "crop": [
+      0,
+      0,
+      1200,
+      675
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "아카자와 싸우는 렌고쿠의 검격 장면. 치명상 이후 최후 장면으로 앞당겨 쓰지 않음.",
+    "artist": "ufotable 제작. 공식 회차 크레딧 존재하나 개별 스틸 원화 담당자는 특정하지 못함.",
+    "credit": "©吾峠呼世晴／集英社・アニプレックス・ufotable",
+    "sourceEdition": "TV anime Mugen Train Arc / 2021",
+    "tgaSHA256": "cf477625b664360bf54d3db333416063040850ab140c3469ff40c179778e61c1",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 1200×675 전체 보존. 256 표시에서 얼굴과 검격/동료 경계 검사.",
+    "activeModified": false
+  }
+]

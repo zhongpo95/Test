@@ -1,0 +1,1143 @@
+[
+  {
+    "source": "war3mapImported/UI_Event_ABO_letter.tga",
+    "target": "war3mapImported\\UI_Event_ABO_letter.tga",
+    "sha256": "eb0ae7d8ef3dc4c24a1e8182d621fde0f2325a300822f79951d960929325c9f9",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_main_10"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep10/img_story-10_a09.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ABO_assault.tga",
+    "target": "war3mapImported\\UI_Event_ABO_assault.tga",
+    "sha256": "8682b3d4ca17ad61f2482d07ff0c320da5c14b3ce73833b997fb6fb6c3831f9c",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_main_11"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep10/img_story-10_a13.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ABO_black_suit.tga",
+    "target": "war3mapImported\\UI_Event_ABO_black_suit.tga",
+    "sha256": "384b201a916e1c46ec5eea175e9e07960e486e2fbe5289bf02817605dddd14dd",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_main_12"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep11/img_story-11_a10.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ABO_rescue.tga",
+    "target": "war3mapImported\\UI_Event_ABO_rescue.tga",
+    "sha256": "9b2b6a9b30d5d3cf21d818e7f91c4dd37fd9148f221e6d3cd701463a4b80efb1",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_main_13"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep12/img_story-12_a05.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ABO_memory.tga",
+    "target": "war3mapImported\\UI_Event_ABO_memory.tga",
+    "sha256": "6c0b6bfb2f274fb8ca4714ddb0d33d5f3b145722a7f6413f46dd3cbfeaa98e80",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_epilogue_memory"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep12/img_story-12_a13.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUO_castle.tga",
+    "target": "war3mapImported\\UI_Event_FUO_castle.tga",
+    "sha256": "d8d76f873acaa5188cd0a20ef06df8f83df67cc71a1b99444a2813a59f49b503",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_11"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/16.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/16/01.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUO_identity.tga",
+    "target": "war3mapImported\\UI_Event_FUO_identity.tga",
+    "sha256": "a1683dcc07eedbb6674cd3837c3eb914e7e33ee575cd2fb0ceb1ba44297fc349",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_12"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/19.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/19/03.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUO_clash.tga",
+    "target": "war3mapImported\\UI_Event_FUO_clash.tga",
+    "sha256": "530648c1760f6f72dd57108efd941229398fcfc3f51b43255291188a1a8a18a8",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_13"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/21.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/21/01.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUO_plan.tga",
+    "target": "war3mapImported\\UI_Event_FUO_plan.tga",
+    "sha256": "241788050baacc924fee1215e38ac994d1652aa17dc7906f3f6460c51a173049",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_14"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/23.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/23/02.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUO_blades.tga",
+    "target": "war3mapImported\\UI_Event_FUO_blades.tga",
+    "sha256": "88285134215682eb3ace776ddb2444c8880a5e32ea3a2a97a578767c2dda9cf6",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_15"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/25.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/25/01.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUO_memory.tga",
+    "target": "war3mapImported\\UI_Event_FUO_memory.tga",
+    "sha256": "3829650088639eb223c87e1f3e26e40bbea15ed1760f15ba9451b26ace2cca95",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_epilogue_memory"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/06.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/06/05.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTO_meeting.tga",
+    "target": "war3mapImported\\UI_Event_MTO_meeting.tga",
+    "sha256": "fb7391178ecbc1b9d5e5d2191d3661871319cc786581d4206030a05a44b6d32a",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_10",
+      "mitakihara_epilogue_memory"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep10",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1148_photo_1741600937446583776"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTO_explanation.tga",
+    "target": "war3mapImported\\UI_Event_MTO_explanation.tga",
+    "sha256": "7a6d9b1c9c1280a953ffced94067dc0f6029436943bd86e7387b06e2697d0775",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_11"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep11",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1150_photo_1742204635587949871"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTO_struggle.tga",
+    "target": "war3mapImported\\UI_Event_MTO_struggle.tga",
+    "sha256": "142f55eb7dbc31227275612b32a05d35b31604416b8c0b0d466146500d0cf7f6",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_12"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep12",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1152_photo_1742804639974440101"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTO_wish.tga",
+    "target": "war3mapImported\\UI_Event_MTO_wish.tga",
+    "sha256": "fad3405ef1665e4abbce1339a17b793bf2e6ec6c744532145a83e25758c678ea",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_13"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep12",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1152_photo_1742804640642529526"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAO1_door.tga",
+    "target": "war3mapImported\\UI_Event_SAO1_door.tga",
+    "sha256": "b123c934b6146ded32c1ac0a5c530a8482879054b04b0a6b8921809f172c4155",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_09"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/09.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/9_pic2.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAO1_cabin.tga",
+    "target": "war3mapImported\\UI_Event_SAO1_cabin.tga",
+    "sha256": "066979f8156e2fa15d0505b286842fd83a8548a675a1997a0d8b15ce8a4546b8",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_10"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/11.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/11_pic2.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAO1_yui.tga",
+    "target": "war3mapImported\\UI_Event_SAO1_yui.tga",
+    "sha256": "d9e7a3aaab1f18f733a17ae89c93c20dee01f7bad3043b2ed07e7b559f437fd7",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_11"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/12.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/12_pic4.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAO1_heathcliff.tga",
+    "target": "war3mapImported\\UI_Event_SAO1_heathcliff.tga",
+    "sha256": "c69e9f98f9d6afaa8f6d0a6b011bdee20e073900b5ec4dc1b7b00daf7b3d7f81",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_13"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/14.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/14_pic1.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAO1_return.tga",
+    "target": "war3mapImported\\UI_Event_SAO1_return.tga",
+    "sha256": "fc3517c248d813f30c37586b3cf82ee8d503196c52fbb04504e5d6b08fc38f6f",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_14"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/14.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/14_pic6.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAO1_memory.tga",
+    "target": "war3mapImported\\UI_Event_SAO1_memory.tga",
+    "sha256": "1bc950e43821e388caa291c0d125959ea6f97d156bee73b1a5c98218d79a9caf",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_epilogue_memory"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/13.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/13_pic3.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_KRO_promise.tga",
+    "target": "war3mapImported\\UI_Event_KRO_promise.tga",
+    "sha256": "05c4415cec7265093fa8eb3824fe3de2c17fd2887bd38c50498c7a72bc41a0cc",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "karakura_main_13"
+    ],
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_t_25.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_KRO_answer.tga",
+    "target": "war3mapImported\\UI_Event_KRO_answer.tga",
+    "sha256": "78432df4701a71a561cf21284b68f0018e4e63c7aa08d470a293d50c5293b1d5",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "karakura_main_15"
+    ],
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_t_23.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_KRO_memory.tga",
+    "target": "war3mapImported\\UI_Event_KRO_memory.tga",
+    "sha256": "50e659d501a437acdaf02af697a2068b7652498c74681c73d0977c6df1fb4f21",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "karakura_epilogue_memory"
+    ],
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_k_01.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AMO_home.tga",
+    "target": "war3mapImported\\UI_Event_AMO_home.tga",
+    "sha256": "a88cd1aea463f59cf66e15f3ad8e645750a0bc6ccb38da92d396ee0076f7f0ac",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "amestris_main_18"
+    ],
+    "sourcePage": "https://www.hagaren.jp/fa/about/story06.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story64.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_PEO_reef.tga",
+    "target": "war3mapImported\\UI_Event_PEO_reef.tga",
+    "sha256": "faa383f698e20a280f17f11e18b972c732a1c3d1e5c00f0ca98fb800f89f7b28",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "hsr_main_10"
+    ],
+    "sourcePage": "https://blog.de.playstation.com/?p=178594",
+    "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/17ad58597ee0283cd03eab8d89180d05e394ba67.png"
+  },
+  {
+    "source": "war3mapImported/UI_Event_PEO_sunday.tga",
+    "target": "war3mapImported\\UI_Event_PEO_sunday.tga",
+    "sha256": "0b9dcd8bbe1f794bd303a59d77d02a4571436f170d9b30c54d1d11edc5e02222",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "hsr_main_13"
+    ],
+    "sourcePage": "https://blog.de.playstation.com/?p=178594",
+    "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/626f19c60819d0329144a48fcf0990a7d616ae48.png"
+  },
+  {
+    "source": "war3mapImported/UI_Event_PEO_theater.tga",
+    "target": "war3mapImported\\UI_Event_PEO_theater.tga",
+    "sha256": "3bdb49d114b674a2c55078f178ad40d6c8f4524e1bea8d8dd5cd9c3603d3b063",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "hsr_main_14"
+    ],
+    "sourcePage": "https://blog.de.playstation.com/?p=178594",
+    "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/f44956aa77ef1623c0ab28b9224702c328cccb32.png"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACO_bridge.tga",
+    "target": "war3mapImported\\UI_Event_ACO_bridge.tga",
+    "sha256": "7b9795df0f5f7ede98a5f7178e30777e6a29443e19f68bf447e7c3e41e40a458",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_10"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/14.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000016/block/00000022/00000065.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACO_cat_memory.tga",
+    "target": "war3mapImported\\UI_Event_ACO_cat_memory.tga",
+    "sha256": "8167a5e6b3d02899f2c8953e6e53211507e5ac857b93028368a8d342fde47dd8",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_11"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/12.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000014/block/00000026/00000076.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACO_sisters.tga",
+    "target": "war3mapImported\\UI_Event_ACO_sisters.tga",
+    "sha256": "4aa8828345bf893102d3d6db83e69f6db889dbf10647dac27846c0254c9eedbd",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_12"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/16.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000018/block/00000018/00000049.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACO_resolve.tga",
+    "target": "war3mapImported\\UI_Event_ACO_resolve.tga",
+    "sha256": "571543848531cd8902443a5ea4076d3bab4ab9ec88ca5b0baebe7f113f314262",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_13"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/16.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000018/block/00000018/00000051.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRO_visitors.tga",
+    "target": "war3mapImported\\UI_Event_GRO_visitors.tga",
+    "sha256": "aa58109a0139400133854cb09ef3ea5e0dc1d203c033c41c9b59bbf27205d3b1",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_10"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/story/ep_10.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/02/6978c28545e9346fb1b4fc9ccfa42261.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRO_bondage.tga",
+    "target": "war3mapImported\\UI_Event_GRO_bondage.tga",
+    "sha256": "103e364e49235f79761019e72eb05a10d8ba27b25448bc9ea7adab64b10cb1d1",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_11"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/story/ep_11.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/4efdb116e5e14c856dd6d7f351e72269.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRO_return.tga",
+    "target": "war3mapImported\\UI_Event_GRO_return.tga",
+    "sha256": "f5edb3cd477996685cbd47d0e7a46024a974a68547b9e87a8e8700dc4416eda1",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_12"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/story/index.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/9bbcd0b4f0ff03b2a0211217de305aba.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRO_together.tga",
+    "target": "war3mapImported\\UI_Event_GRO_together.tga",
+    "sha256": "7f274175f3ae33781986d74c52d4804278a2c82e105226462ec4f82dc3f5311a",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_13"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/story/index.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/78482592953cd622c2f267d2eca14edc.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_BTO_awakening.tga",
+    "target": "war3mapImported\\UI_Event_BTO_awakening.tga",
+    "sha256": "1581f160217941ea30ef10168f17f172670b6149f5eb167df8870a9395efc2d5",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "butterfly_main_09"
+    ],
+    "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep4",
+    "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2119_photo_1636338060099603055"
+  },
+  {
+    "source": "war3mapImported/UI_Event_BTO_defenders.tga",
+    "target": "war3mapImported\\UI_Event_BTO_defenders.tga",
+    "sha256": "a7c9de68eb1c82ff2ff82891d6e2ba6043477b6353274835ea098db49d384924",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "butterfly_main_10"
+    ],
+    "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep5",
+    "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2130_photo_1636945395959519039"
+  },
+  {
+    "source": "war3mapImported/UI_Event_BTO_flame.tga",
+    "target": "war3mapImported\\UI_Event_BTO_flame.tga",
+    "sha256": "cf477625b664360bf54d3db333416063040850ab140c3469ff40c179778e61c1",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "butterfly_main_12"
+    ],
+    "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep6",
+    "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2135_photo_163728925822676990"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXO_lake.tga",
+    "target": "war3mapImported\\UI_Event_AXO_lake.tga",
+    "sha256": "7372a33dd31f54b1e8c3e32230094676b1329735b16fbcafbd8b6dd6044061b5",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_06"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/05/3.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXO_duel.tga",
+    "target": "war3mapImported\\UI_Event_AXO_duel.tga",
+    "sha256": "c340aa5c3eb798088a49dab5e4d3828eaa5d00e1459f211e42de73e03853e52f",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_07"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/06/3.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXO_winter.tga",
+    "target": "war3mapImported\\UI_Event_AXO_winter.tga",
+    "sha256": "e0914f6ccaeea41355c6cfb17b0b0f31ef3fe55bf2953c405c159cb04334d360",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_08"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/07/4.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXO_shop.tga",
+    "target": "war3mapImported\\UI_Event_AXO_shop.tga",
+    "sha256": "1d8b5ab2f64d342f842e1be87799d266b09a483f4ad9a3a7313563f8e308c347",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_09"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/08/3.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXO_home.tga",
+    "target": "war3mapImported\\UI_Event_AXO_home.tga",
+    "sha256": "c3598c9da7e0219123b16eeebf46bdfd718f8b1446533284e1a1b205c8f65019",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_10"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/08/6.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXO_explosion.tga",
+    "target": "war3mapImported\\UI_Event_AXO_explosion.tga",
+    "sha256": "3c4d49dd25caf39f7aa5664d4fcf2d2f9da37e34ff8b30db1dab6daa90fbd695",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_11"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/10/3.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MGO_erza.tga",
+    "target": "war3mapImported\\UI_Event_MGO_erza.tga",
+    "sha256": "f6a7da18a2a4f35139e0d86be091918b84268d104e157c58a8b34d7ac186b743",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "magnolia_main_12"
+    ],
+    "sourcePage": "https://www.b-ch.com/titles/4189/026",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189026a.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MGO_fairylaw.tga",
+    "target": "war3mapImported\\UI_Event_MGO_fairylaw.tga",
+    "sha256": "39a844005975f0204d1107e1536facd0d78872068e07b5794ca1ce61e49dfae8",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "magnolia_main_13"
+    ],
+    "sourcePage": "https://www.b-ch.com/titles/4189/028",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189028a.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACE_friends.tga",
+    "target": "war3mapImported\\UI_Event_ACE_friends.tga",
+    "sha256": "b4a3c271a75cafde8458f821f3e730cbe2f2aae00a33769f148bef7f37bdd3f1",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_01"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/04.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000006/block/00000042/00000121.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACE_sisters.tga",
+    "target": "war3mapImported\\UI_Event_ACE_sisters.tga",
+    "sha256": "b40ac45055f84397fbdb04fef50091d7b4372a921a52869f16851fd1fc671107",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_02"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/05.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000007/block/00000040/00000117.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACE_resistance.tga",
+    "target": "war3mapImported\\UI_Event_ACE_resistance.tga",
+    "sha256": "19d10b6569e06154a924d563899cf412bf24d0abbec426c8e859f8caaa2be98d",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_04"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/06.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000008/block/00000038/00000109.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACE_shinobu.tga",
+    "target": "war3mapImported\\UI_Event_ACE_shinobu.tga",
+    "sha256": "a0d17e028a79023163eb0d9b3cbe32b97446697d190d8074b03b02c634b8a184",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_06"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/08.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000010/block/00000034/00000102.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACE_dolls.tga",
+    "target": "war3mapImported\\UI_Event_ACE_dolls.tga",
+    "sha256": "53c7f822b8f22a6b23a9bf5e451a0879497b0dae212531bfbebe03b83da32020",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_07"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/10.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000012/block/00000030/00000086.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ACE_waiting.tga",
+    "target": "war3mapImported\\UI_Event_ACE_waiting.tga",
+    "sha256": "749faf506ffb423b26e401827bc82044408346ff2d70fa34d998daaf80c877de",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "academy_main_08"
+    ],
+    "sourcePage": "https://toaru-project.com/railgun_s/story/07.html",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000009/block/00000036/00000108.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUE_berserker.tga",
+    "target": "war3mapImported\\UI_Event_FUE_berserker.tga",
+    "sha256": "dcf8a5c1aa5bc18f6d6e5f27e25675bf57a2b1e946b5b72bd99e73997ff70dd3",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_04"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/04.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/04/02.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUE_school.tga",
+    "target": "war3mapImported\\UI_Event_FUE_school.tga",
+    "sha256": "7ed67dacdaff574d02bc220fc84aa8c1e240329611cc9f9e0e970d83975b03a0",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_06"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/06.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/06/02.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUE_caster.tga",
+    "target": "war3mapImported\\UI_Event_FUE_caster.tga",
+    "sha256": "a3c31c48f61cade1ec6f7e0146b0459c908e5aa8765ba578868dfb540eacfbcf",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_07"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/08.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/08/02.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUE_kuzuki.tga",
+    "target": "war3mapImported\\UI_Event_FUE_kuzuki.tga",
+    "sha256": "8a3f71b56101618ed54966d99347e478a728deb9d27244a7c63bda812e539307",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_09"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/11.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/11/03.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_FUE_hostage.tga",
+    "target": "war3mapImported\\UI_Event_FUE_hostage.tga",
+    "sha256": "b6a58ea90a15445206cef5d2f97910b5d2bcd6725d20f722513e955dfa4d437e",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "fuyuki_main_10"
+    ],
+    "sourcePage": "https://www.fate-sn.com/ubw/story/13.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/13/03.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ABE_classroom.tga",
+    "target": "war3mapImported\\UI_Event_ABE_classroom.tga",
+    "sha256": "efc7e5d0f699465fd4ec55148e079d7e7a677f2b16accf594fb9065112de96be",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_main_01"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep1/img_story-01_a07-amih24k9.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ABE_frontline.tga",
+    "target": "war3mapImported\\UI_Event_ABE_frontline.tga",
+    "sha256": "e9fec61f987bcb8f66503d316c416c1e81d85b638535036cb509bc2fd2be26c0",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_main_05"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep1/img_story-01_b02-dn8y4h91.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ABE_aquarium.tga",
+    "target": "war3mapImported\\UI_Event_ABE_aquarium.tga",
+    "sha256": "df88b2ad8a2a0deb5b09baf98a018d61e380df274c8f1b824d691908ea733d50",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "abydos_main_08"
+    ],
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep8/img_story-08_a05.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTE_warning.tga",
+    "target": "war3mapImported\\UI_Event_MTE_warning.tga",
+    "sha256": "f17ffc86ae51a7da96ba9a04d2d489c8db10e9a46ac2df33c680b7a058e1aa20",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_01"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep01",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1137_photo_173528171775139523"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTE_tea.tga",
+    "target": "war3mapImported\\UI_Event_MTE_tea.tga",
+    "sha256": "b663aa856b44e25376d3cbbc968575a373cd3af371a259b9dd0e512436ee31ea",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_02"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep02",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1138_photo_1736754950513577350"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTE_sunset.tga",
+    "target": "war3mapImported\\UI_Event_MTE_sunset.tga",
+    "sha256": "8cf2f16a7b647d8d154a4654c7cd91613c79b31c97a44f58e8d0322cc95eda2d",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_04"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep04",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1141_photo_1737971186038897918"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTE_difference.tga",
+    "target": "war3mapImported\\UI_Event_MTE_difference.tga",
+    "sha256": "37fc3f4374ad754afea7652e2a7cc57ecd1e097ab9e5ca669bf51e4cbc5ad820",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_06"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep06",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1143_photo_1739177039111355596"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTE_rain.tga",
+    "target": "war3mapImported\\UI_Event_MTE_rain.tga",
+    "sha256": "08c427b83e36b3257962e04ab1ec1cb23c64d3a8f2453e190cfa471402bfc006",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_08"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep08",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1146_photo_1740377482285493201"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAE_declaration.tga",
+    "target": "war3mapImported\\UI_Event_SAE_declaration.tga",
+    "sha256": "b7cd4bc6b630e63f4b74d975952da0f7413423d8e2e5ecd128142f670228e194",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_01"
+    ],
+    "sourcePage": "https://www.swordart-online.net/sp/aincrad/story/story01.html",
+    "sourceUrl": "https://www.swordart-online.net/sp/aincrad/story/img/img_story01.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAE_guild.tga",
+    "target": "war3mapImported\\UI_Event_SAE_guild.tga",
+    "sha256": "16af02396454eb05012567eafbddf35c9fa91a5a6f33c0f2b8b274c74410940a",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_03"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/03.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/3_pic1.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAE_feather.tga",
+    "target": "war3mapImported\\UI_Event_SAE_feather.tga",
+    "sha256": "57647baa9e47a7be0e1135bef0017acc88b15f2ddbf654257d2db56ee8f19c48",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_05"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/04.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/4_pic5.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_SAE_rest.tga",
+    "target": "war3mapImported\\UI_Event_SAE_rest.tga",
+    "sha256": "fc83f54093552efe24e1d37d47243fb4d4af24a90dfa81eb4296c7a92e01e039",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "aincrad_main_08"
+    ],
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/05.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/5_pic3.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_KAE_lesson.tga",
+    "target": "war3mapImported\\UI_Event_KAE_lesson.tga",
+    "sha256": "c231386a52fa0420e974ec906227af0ade8e16505f40289bc2c6b9d5e1fd660a",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "karakura_main_02"
+    ],
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_01.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p01/p01_t_02.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_KAE_cooperation.tga",
+    "target": "war3mapImported\\UI_Event_KAE_cooperation.tga",
+    "sha256": "1240032f84821f69c74fcb28e66945d579f3b8c3e64ca6693210b568da868436",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "karakura_main_03"
+    ],
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_01.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p01/p01_t_16.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_KAE_gate.tga",
+    "target": "war3mapImported\\UI_Event_KAE_gate.tga",
+    "sha256": "1af2283ac8a0af6b41bf8b3294009ec500f531b66ac6b8d734ae3d0926e99383",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "karakura_main_06"
+    ],
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_02.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p02/p02_01.png"
+  },
+  {
+    "source": "war3mapImported/UI_Event_KAE_kenpachi.tga",
+    "target": "war3mapImported\\UI_Event_KAE_kenpachi.tga",
+    "sha256": "87fde5ad5697bf0dfd3fed97b4c55b545df65cb109ba98c8833bfd41e6512600",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "karakura_main_09"
+    ],
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_02.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p02/p02_t_10.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MTV_companions.tga",
+    "target": "war3mapImported\\UI_Event_MTV_companions.tga",
+    "sha256": "cd90951f5692048194ad82cc4d56e3f8b81014b4376c68ec7b3eddc70a4063f6",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "mitakihara_main_03"
+    ],
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep03",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1140_photo_1737358905312167630"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AME_brothers.tga",
+    "target": "war3mapImported\\UI_Event_AME_brothers.tga",
+    "sha256": "c0d064bd8422bb9a767a26fb29a9ef4dca6400df5d85fb4cdd799d417f2ec14b",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "amestris_main_01"
+    ],
+    "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story02.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AME_nina.tga",
+    "target": "war3mapImported\\UI_Event_AME_nina.tga",
+    "sha256": "4115e154131dae9f6167b15b589065ef5e6ee7eeeffad61dfd8879da3ac86f30",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "amestris_main_03"
+    ],
+    "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story04.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AME_winry.tga",
+    "target": "war3mapImported\\UI_Event_AME_winry.tga",
+    "sha256": "5241af41fe6bba3c94b511ab374dc9aea4390969ff0cef84ce4051e8c5c49791",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "amestris_main_06"
+    ],
+    "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story09.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AME_training.tga",
+    "target": "war3mapImported\\UI_Event_AME_training.tga",
+    "sha256": "b8c98761e0db54de27b9b1e40b196263c405396126f139d91c67aaf54f08b096",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "amestris_main_07"
+    ],
+    "sourcePage": "https://www.hagaren.jp/fa/about/story01.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story12.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXE_megumin.tga",
+    "target": "war3mapImported\\UI_Event_AXE_megumin.tga",
+    "sha256": "892acf550f8cc357445bce865634f67f2d0e20820d53ca49f582d61d42fb53b8",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_02"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/02/4.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXE_darkness.tga",
+    "target": "war3mapImported\\UI_Event_AXE_darkness.tga",
+    "sha256": "d106fb578e59a2af7fb2ec7c46478c54728fa96a1e403280c1bedfd49e7d25a7",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_03"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/03/5.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXE_practice.tga",
+    "target": "war3mapImported\\UI_Event_AXE_practice.tga",
+    "sha256": "b099cb2a0d1cb6c274141264b2bfc1f28639ad8e8dc75da528716e54214c5cc4",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_04"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/04/6.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_AXE_beldia.tga",
+    "target": "war3mapImported\\UI_Event_AXE_beldia.tga",
+    "sha256": "8bccf01a7de8fd9d52956f664f517a4647fc44ded589fd5197b90d23a5b355eb",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "axel_main_05"
+    ],
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/04/3.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_ZGE_folca.tga",
+    "target": "war3mapImported\\UI_Event_ZGE_folca.tga",
+    "sha256": "cdadc948f75d67faf971121ed696aacd48eae884318a9cbf9d78865f9115c315",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "zegagrande_main_02"
+    ],
+    "sourcePage": "https://cgworld.jp/special-feature/202403-relink1.html",
+    "sourceUrl": "https://cgworld.jp/interview/images/202403-relink/202403-relink-k2.png"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MGE_daybreak.tga",
+    "target": "war3mapImported\\UI_Event_MGE_daybreak.tga",
+    "sha256": "e4611477a83facccbfe9c925d5be32f96f1c3adb2234d96ba69c3f81ac2ac25c",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "magnolia_main_02"
+    ],
+    "sourcePage": "https://www.b-ch.com/titles/4189/004",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189004a.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MGE_lullaby.tga",
+    "target": "war3mapImported\\UI_Event_MGE_lullaby.tga",
+    "sha256": "99eb0e33952085b3bb8e3e58ccf7d86eaf7d7512d91d5f0563846acf758874c1",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "magnolia_main_05"
+    ],
+    "sourcePage": "https://www.b-ch.com/titles/4189/008",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189008a.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_MGE_guild.tga",
+    "target": "war3mapImported\\UI_Event_MGE_guild.tga",
+    "sha256": "08d63123d441454df18c74958eec9893af91ad41c614a6524dd27c98203b939f",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "magnolia_main_07"
+    ],
+    "sourcePage": "https://www.b-ch.com/titles/4189/021",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189021a.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_BTE_shinobu.tga",
+    "target": "war3mapImported\\UI_Event_BTE_shinobu.tga",
+    "sha256": "f82e7ff2b8196a933cfc075ca0be2b8495752d30a6324b2d520d8be7ebd2bd5a",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "butterfly_main_02"
+    ],
+    "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=24",
+    "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/24/01.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_BTE_kanao.tga",
+    "target": "war3mapImported\\UI_Event_BTE_kanao.tga",
+    "sha256": "7635e7cbe329b621f904f333f5aad2e6fc8beb47614902537e779f012cef6ca5",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "butterfly_main_04"
+    ],
+    "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=25",
+    "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/25/03.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_BTE_return.tga",
+    "target": "war3mapImported\\UI_Event_BTE_return.tga",
+    "sha256": "22be86632de19cdc5f8f6349ad82cb9a9093ddba57867ce66e30923af6d53918",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "butterfly_main_05"
+    ],
+    "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=25",
+    "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/25/04.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRE_mushrooms.tga",
+    "target": "war3mapImported\\UI_Event_GRE_mushrooms.tga",
+    "sha256": "875800c12c2674aecde4051365e9ae87501da423366c487d72929aeacab09dcc",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_01"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_01.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/aa6aa35af189b190702c191d607de3b8-840x472.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRE_contest.tga",
+    "target": "war3mapImported\\UI_Event_GRE_contest.tga",
+    "sha256": "19eccc445284a9253d82b6388fea7548d3ded563466d2ddd1c68a6bf4a8d51e0",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_02"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_02.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/86384036caa88325bea337e11e6edf2e-840x472.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRE_restaurant.tga",
+    "target": "war3mapImported\\UI_Event_GRE_restaurant.tga",
+    "sha256": "d8c367d4aa07b90c270c53b7996befd5741f808a8401c63cb17b0bcf3b790212",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_03"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_03.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/8934be4c0c517a84abd9415583c8fa81-840x472.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRE_house.tga",
+    "target": "war3mapImported\\UI_Event_GRE_house.tga",
+    "sha256": "58e829bb255d01a66e527148eb9f2ab9c2595c0e3ed5a00f39cd53792d56786c",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_05"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_04.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/e8db811eac8bde71aa250d87591d34f5-840x472.jpg"
+  },
+  {
+    "source": "war3mapImported/UI_Event_GRE_rescue.tga",
+    "target": "war3mapImported\\UI_Event_GRE_rescue.tga",
+    "sha256": "b15222762badcc19ef0529f4cb67033f223d50878c0af908bdc8ebf573075ee7",
+    "bytes": 262188,
+    "role": "official-event-image",
+    "eventKeys": [
+      "gourmet_main_06"
+    ],
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_07.html",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/bea10e5ee6aa94c415570e5677f19668-840x472.jpg"
+  }
+]

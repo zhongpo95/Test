@@ -1,0 +1,1192 @@
+[
+  {
+    "eventKey": "gbf_deck_position",
+    "character": "오이겐",
+    "image": "war3mapImported\\UI_Card_GBF_eugen_Art.tga",
+    "evidence": "카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_broken_focus",
+    "character": "이오",
+    "image": "war3mapImported\\UI_Card_GBF_io_Art.tga",
+    "evidence": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_sealed_report",
+    "character": "제타",
+    "image": "war3mapImported\\UI_Card_GBF_zeta_Art.tga",
+    "evidence": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_alchemy_sample",
+    "character": "칼리오스트로",
+    "image": "war3mapImported\\UI_Card_GBF_cagliostro_Art.tga",
+    "evidence": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_return_signal",
+    "character": "라캄",
+    "image": "war3mapImported\\UI_Card_GBF_rackam_Art.tga",
+    "evidence": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_rosetta_dates",
+    "character": "로제타",
+    "image": "war3mapImported\\UI_Card_GBF_rosetta_Art.tga",
+    "evidence": "로제타는 두 안내의 날짜가 다르다며 네가 직접 무엇을 확인했는지 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_rolan_two_questions",
+    "character": "롤란",
+    "image": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+    "evidence": "롤란이 여행자에게 길을 알려 주는데 여행자는 가려던 곳과 물어본 곳이 다르다고 뒤늦게 말한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_lancelot_shift",
+    "character": "랜슬롯",
+    "image": "war3mapImported\\UI_Card_GBF_lancelot_Art.tga",
+    "evidence": "랜슬롯은 앞에 몇 명이 서는지보다 뒤를 누가 이어받는지 먼저 묻고 베인은 돌아오는 쪽을 남기자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_percival_load",
+    "character": "퍼시벌",
+    "image": "war3mapImported\\UI_Card_GBF_percival_Art.tga",
+    "evidence": "퍼시벌은 같은 수로 나누었다고 같은 부담이 되는 것은 아니라고 말한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_yodarha_foot",
+    "character": "요달라하",
+    "image": "war3mapImported\\UI_Card_GBF_yodarha_Art.tga",
+    "evidence": "낚시꾼을 자처하는 요달라하 옆으로 긴 짐을 든 여행자가 지나가자 그는 낚싯대보다 발을 먼저 옮겨 비켜 준다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_io_audience",
+    "character": "이오",
+    "image": "war3mapImported\\UI_Card_GBF_io_Art.tga",
+    "evidence": "이오가 사람들에게 웃음을 주려고 작은 시범을 준비하는데 앞줄은 서로의 어깨에 가려 보이지 않는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gbf_rolan_next_request",
+    "character": "롤란",
+    "image": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+    "evidence": "다른 방문에서 목적부터 말했던 너를 롤란이 알아보고 새 부탁의 목록을 펼친다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_01",
+    "character": "루리아",
+    "image": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+    "evidence": "곁에 선 루리아는 성정수와 마음을 잇는 소녀다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_04",
+    "character": "루리아",
+    "image": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+    "evidence": "구출한 사람들을 안전한 곳으로 옮기던 루리아가 거센 바람 너머를 살핀다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_05",
+    "character": "이드",
+    "image": "war3mapImported\\UI_Card_GBF_id_Art.tga",
+    "evidence": "퓨리칸의 폭주를 진정시킨 기공단 앞에 아비아의 지도자 릴리스와 검사 이드가 나타난다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_06",
+    "character": "라캄",
+    "image": "war3mapImported\\UI_Card_GBF_rackam_Art.tga",
+    "evidence": "라캄이 조타를 붙잡고 동료들에게 대비하라고 외친다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_07",
+    "character": "루리아",
+    "image": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+    "evidence": "설산에서 루리아를 찾았지만 그녀는 스스로 행동하지 못한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_09",
+    "character": "이드",
+    "image": "war3mapImported\\UI_Card_GBF_id_Art.tga",
+    "evidence": "화산의 성정수 볼칸 볼라가 기공단과 이드를 함께 위협한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_10",
+    "character": "롤란",
+    "image": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+    "evidence": "루리아를 다시 쫓기 전에 롤란이 일행을 부른다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_11",
+    "character": "루리아",
+    "image": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+    "evidence": "돌아온 일행은 무너지는 도시에서 루리아를 되찾아야 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_12",
+    "character": "이드",
+    "image": "war3mapImported\\UI_Card_GBF_id_Art.tga",
+    "evidence": "바요이의 탑으로 향하는 기공단 앞에서 이드는 더는 릴리스가 요구하는 희생을 따르지 않겠다는 뜻을 밝힌다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_13",
+    "character": "롤란",
+    "image": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+    "evidence": "기공단과 롤란의 도움으로 베르사에서 분리된 이드가 통제를 되찾는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "zegagrande_main_14",
+    "character": "롤란",
+    "image": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+    "evidence": "기공단은 롤란이 남긴 의뢰를 대신 해결하며 일지와 흔적을 모은다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_receipt",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "루시와 주소를 대조해 놓은 의뢰서 중 같은 물품에 서로 다른 수령인이 적혀 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_fish",
+    "character": "해피",
+    "image": "war3mapImported\\UI_Card_FT_happy_Art.tga",
+    "evidence": "해피가 수송할 짐 옆에서 생선 봉지를 발견했다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_new_board",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "다른 방문에서 의뢰서를 구분했던 너를 루시가 알아보고 새로 붙은 의뢰의 첫 줄을 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_armory",
+    "character": "엘자 스칼렛",
+    "image": "war3mapImported\\UI_Card_FT_erza-scarlet_Art.tga",
+    "evidence": "엘자는 여행 가방을 금세 닫았지만, 내 짐은 아직 바닥에 널려 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_river",
+    "character": "그레이 풀버스터",
+    "image": "war3mapImported\\UI_Card_FT_gray-fullbuster_Art.tga",
+    "evidence": "그레이는 간단한 구조물을 만들 수 있지만 물살 속에 고정할지는 장담하지 않는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_wet_receipt",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "빠른 물길에서 짐이 젖은 뒤 루시가 번진 글씨를 살피고 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_controlled_flame",
+    "character": "나츠 드래그닐",
+    "image": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga",
+    "evidence": "나츠와 공격 준비를 해 본 뒤 운반할 짐 옆에서 다시 힘을 맞춘다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_iron_lunch",
+    "character": "가질 레드폭스",
+    "image": "war3mapImported\\UI_Card_FTG_gajeel_Art.tga",
+    "evidence": "가질이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_two_umbrellas",
+    "character": "쥬비아 록서",
+    "image": "war3mapImported\\UI_Card_FTG_juvia_Art.tga",
+    "evidence": "쥬비아가 그레이가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_magazine_queue",
+    "character": "미라젠 스트라우스",
+    "image": "war3mapImported\\UI_Card_FTG_mirajane_Art.tga",
+    "evidence": "길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_laxus_short_reply",
+    "character": "렉서스 드레아",
+    "image": "war3mapImported\\UI_Card_FTG_laxus_Art.tga",
+    "evidence": "렉서스가 뒤쪽은 자신이 맡겠다고 짧게 말하자 나츠는 먼저 가라는 말이냐며 돌아선다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_gildarts_wall",
+    "character": "길다트 클라이브",
+    "image": "war3mapImported\\UI_Card_FTG_gildarts_Art.tga",
+    "evidence": "길다트가 무심코 지나간 쪽의 벽이 부서져 사람들이 문이 어디였는지 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_lucy_unfinished",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "루시가 쓴 이야기를 읽던 사람이 결말보다 앞에서 왜 그 길을 택했냐고 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "ft_mirajane_next_note",
+    "character": "미라젠 스트라우스",
+    "image": "war3mapImported\\UI_Card_FTG_mirajane_Art.tga",
+    "evidence": "다른 방문에서 손님의 목적을 구분했던 너를 미라젠이 알아본다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_01",
+    "character": "나츠 드래그닐",
+    "image": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga",
+    "evidence": "불을 쓰는 나츠와 날개 달린 고양이 해피가 그녀를 구한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_03",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "루시는 페어리 테일에 들어왔다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_06",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "루시는 방을 구하고 의뢰 보수로 생활하며 마그놀리아의 하루를 익힌다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_08",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "페어리 테일이 팬텀 로드에 맞서는 동안 루시가 납치된다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_09",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "루시는 부유한 하트필리아 가문에서 나와 자신의 삶을 찾아왔다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_10",
+    "character": "나츠 드래그닐",
+    "image": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga",
+    "evidence": "창가의 루시 아래에 나츠가 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_11",
+    "character": "엘자 스칼렛",
+    "image": "war3mapImported\\UI_Card_FT_erza-scarlet_Art.tga",
+    "evidence": "에르자는 공격을 막아 내지만 쓰러진다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_14",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "전쟁이 끝난 뒤 루시는 하트필리아 저택으로 간다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_main_15",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "마그놀리아로 돌아온 루시 앞에는 아직 상처 입은 길드가 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "magnolia_epilogue_memory",
+    "character": "루시 하트필리아",
+    "image": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+    "evidence": "팬텀 로드와의 싸움이 끝나고, 루시는 아버지에게 자신의 뜻을 전한 뒤 동료들에게 돌아가는 길을 택했다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_rooftop_marks",
+    "character": "시호인 요루이치",
+    "image": "war3mapImported\\UI_Card_BBO2_yoruichi_Art.tga",
+    "evidence": "요루이치는 그 입구 옆의 좁은 발판을 통해 거리를 벌리자고 하고, 루키아는 아래 골목에 적이 몰리기 전에 입구를 맡자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_return_receipt",
+    "character": "우라하라 키스케",
+    "image": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga",
+    "evidence": "우라하라는 약속한 준비물을 펼치고, 차드는 짐을 한 번에 나눠 들어 좁은 길을 비우려 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_closed_lane",
+    "character": "쿠치키 루키아",
+    "image": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga",
+    "evidence": "하지만 바깥 골목의 흔적은 아직 남아 있어 루키아가 그쪽을 맡으려 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_light_parcel",
+    "character": "콘",
+    "image": "war3mapImported\\UI_Card_BBS_kon_Art.tga",
+    "evidence": "다른 방문에서 젖은 배송 쪽지를 읽었던 너를 우류가 알아보고 새 상자 앞의 콘을 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_stray_alarm",
+    "character": "시호인 요루이치",
+    "image": "war3mapImported\\UI_Card_BBO2_yoruichi_Art.tga",
+    "evidence": "요루이치는 가장 가까운 신호를 따라 좁은 길로 들어가려 하고, 차드는 사람들이 지나는 길을 먼저 확보한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_unmarked_corner",
+    "character": "쿠치키 루키아",
+    "image": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga",
+    "evidence": "루키아는 돌아갈 갈림길을 다시 확인하고, 우라하라는 경보 기록에서 빼먹은 지점을 짚는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_joint_training",
+    "character": "쿠로사키 이치고",
+    "image": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga",
+    "evidence": "이치고와 앞길을 맡아 본 뒤, 칼을 너무 빨리 뻗으면 다음 동작이 흐트러진다는 점을 알게 된다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_ripped_sleeve",
+    "character": "이시다 우류",
+    "image": "war3mapImported\\UI_Card_BBO1_uryu_Art.tga",
+    "evidence": "우류가 찢어진 소매를 펼치고 이치고에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_chad_toy",
+    "character": "사도 야스토라",
+    "image": "war3mapImported\\UI_Card_BBO2_sado_Art.tga",
+    "evidence": "차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_yuzu_supplies",
+    "character": "쿠로사키 유즈",
+    "image": "war3mapImported\\UI_Card_QU7_yuzu_Art.tga",
+    "evidence": "유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_don_audience",
+    "character": "돈 칸온지",
+    "image": "war3mapImported\\UI_Card_BBS_kanonji_Art.tga",
+    "evidence": "돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_uncertain_kit",
+    "character": "우라하라 키스케",
+    "image": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga",
+    "evidence": "우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_tatsuki_space",
+    "character": "아리사와 타츠키",
+    "image": "war3mapImported\\UI_Card_SUP5_tatsuki_Art.tga",
+    "evidence": "타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_empty_bench",
+    "character": "쿠로사키 카린",
+    "image": "war3mapImported\\UI_Card_SUP5_karin_Art.tga",
+    "evidence": "상점 앞에서 쉬려는 손님을 카린이 벤치의 반대편으로 짧게 부른다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_welcome_at_door",
+    "character": "쿠로사키 잇신",
+    "image": "war3mapImported\\UI_Card_BBO2_isshin_Art.tga",
+    "evidence": "이치고를 찾으러 왔다는 말에 잇신이 의원 문 밖까지 나와 반갑게 맞는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_small_shop_clerk",
+    "character": "츠무기야 우루루",
+    "image": "war3mapImported\\UI_Card_BBS_ururu_Art.tga",
+    "evidence": "우라하라 상점의 손님이 우루루에게 커다란 상자를 밖으로 옮기라며 혼자서는 못 들 것 같다고 비웃는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_unasked_invitation",
+    "character": "아사노 케이고",
+    "image": "war3mapImported\\UI_Card_BKQ11_keigo_Art.tga",
+    "evidence": "케이고가 네게 이치고와 마을을 둘러보자고 약속했지만 이치고는 그런 말을 들은 적 없다고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "bl_urahara_return_list",
+    "character": "우라하라 키스케",
+    "image": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga",
+    "evidence": "다른 방문에서 준비 요령을 익힌 너를 우라하라가 알아보고 새 목록을 펼친다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_01",
+    "character": "쿠치키 루키아",
+    "image": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga",
+    "evidence": "영혼을 볼 수 있는 고등학생 쿠로사키 이치고 앞에 사신 쿠치키 루키아가 나타난다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_04",
+    "character": "쿠치키 루키아",
+    "image": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga",
+    "evidence": "루키아의 위치를 알아낸 소울 소사이어티는 그녀를 체포하러 사신 아바라이 렌지와 쿠치키 뱌쿠야를 보낸다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_05",
+    "character": "쿠로사키 이치고",
+    "image": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga",
+    "evidence": "루키아를 구하러 가려는 이치고는 우라하라의 훈련을 받아들인다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_07",
+    "character": "야마다 하나타로",
+    "image": "war3mapImported\\UI_Card_BBS_hanataro_Art.tga",
+    "evidence": "그때 치료를 맡는 사번대의 사신 야마다 하나타로를 만난다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_08",
+    "character": "아바라이 렌지",
+    "image": "war3mapImported\\UI_Card_BBO1_renji_Art.tga",
+    "evidence": "참죄궁으로 가는 길에서 렌지가 이치고를 막는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_11",
+    "character": "시호인 요루이치",
+    "image": "war3mapImported\\UI_Card_BBO2_yoruichi_Art.tga",
+    "evidence": "이치고를 데려온 요루이치는 뱌쿠야에게 맞서려면 참백도의 두 번째 해방인 만해가 필요하다고 설명한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_12",
+    "character": "쿠로사키 이치고",
+    "image": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga",
+    "evidence": "집행이 시작되는 순간 이치고가 나타나 공격을 막는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "karakura_main_16",
+    "character": "쿠로사키 이치고",
+    "image": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga",
+    "evidence": "사신 대장 우키타케는 이치고에게 사신대행증을 건넨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_dreamy_slots",
+    "character": "어벤츄린",
+    "image": "war3mapImported\\UI_Card_HSR_1304_Art.tga",
+    "evidence": "어벤츄린은 손에 남길 돈부터 정하라며 빈 기계 옆에 선다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_after_win",
+    "character": "스파클",
+    "image": "war3mapImported\\UI_Card_HSR_1306_Art.tga",
+    "evidence": "한 번의 놀이를 끝내고 코인을 정리하는데 스파클이 박수 소리를 흉내 낸다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_after_loss",
+    "character": "블랙 스완",
+    "image": "war3mapImported\\UI_Card_HSR_1307_Art.tga",
+    "evidence": "블랙 스완은 기억 속 손이 언제 멈칫했는지 함께 살피자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_sorted_tokens",
+    "character": "미샤",
+    "image": "war3mapImported\\UI_Card_Misha.tga",
+    "evidence": "미샤는 호텔로 돌아갈 길에서 강한 흔적이 남은 방향을 짚고, 어벤츄린은 남은 준비물을 빽빽한 길과 나눠 쓰지 말자고 한다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_soulglad",
+    "character": "갤러거",
+    "image": "war3mapImported\\UI_Card_HSR_1301_Art.tga",
+    "evidence": "갤러거는 유난히 같은 말만 반복하는 사람을 경계하고, 미샤는 광고에 가려진 호텔 쪽 안내를 짚는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_masked_stage",
+    "character": "스파클",
+    "image": "war3mapImported\\UI_Card_HSR_1306_Art.tga",
+    "evidence": "스파클은 어느 쪽 얼굴을 믿느냐고 되묻고, 블랙 스완은 두 안내를 들었을 때의 기억을 따로 살펴보자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_remembered_exit",
+    "character": "어벤츄린",
+    "image": "war3mapImported\\UI_Card_HSR_1304_Art.tga",
+    "evidence": "어벤츄린은 그 좁은 자리를 그대로 통과하지 말자고 하고, 갤러거는 남아 있는 경비 안내를 다시 확인한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_walking_sign",
+    "character": "미샤",
+    "image": "war3mapImported\\UI_Card_Misha.tga",
+    "evidence": "미샤는 호텔 입구의 시계판이 있는 쪽을 짚고, 블랙 스완은 방금 본 간판과 기억 속 간판의 차이를 찾는다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_scattered_banknotes",
+    "character": "어벤츄린",
+    "image": "war3mapImported\\UI_Card_HSR_1304_Art.tga",
+    "evidence": "어벤츄린은 돈이 나오는 것과 쫓아가서 챙길 수 있는 것은 다르다며 네가 얼마를 걸지 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_floating_treat",
+    "character": "미샤",
+    "image": "war3mapImported\\UI_Card_Misha.tga",
+    "evidence": "너에게만 말을 건 미샤는 다른 별에서도 이런 간식을 먹는지 묻다가 네가 먼저 내디딘 발을 본다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_dream_eye_gap",
+    "character": "아케론",
+    "image": "war3mapImported\\UI_Card_HSR_1308_Art.tga",
+    "evidence": "아케론은 장검을 든 채 그림의 연결 부분과 실제 발을 둘 간격이 같은지 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_scene_after_applause",
+    "character": "스파클",
+    "image": "war3mapImported\\UI_Card_HSR_1306_Art.tga",
+    "evidence": "스파클은 지금 웃는 사람이 누구의 편인지부터 물으며 아직 남은 장면이 있다고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_monster_last_order",
+    "character": "갤러거",
+    "image": "war3mapImported\\UI_Card_HSR_1301_Art.tga",
+    "evidence": "음료를 살피던 갤러거는 손님을 예의 있게 대하면서도 왜 처음에는 다른 주문을 했는지 다시 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_jade_unwritten_price",
+    "character": "제이드",
+    "image": "war3mapImported\\UI_Card_HSR_1314_Art.tga",
+    "evidence": "제이드는 네가 골라 온 물건보다 그것을 고른 이유를 오래 듣는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_name_over_song",
+    "character": "로빈",
+    "image": "war3mapImported\\UI_Card_HSR_1309_Art.tga",
+    "evidence": "대극장의 사전 공연 안내 자리에서 네 앞의 관객들이 로빈의 이름을 번갈아 외쳐 뒤쪽 사람은 시작 안내를 듣지 못한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_introduction_left",
+    "character": "로빈",
+    "image": "war3mapImported\\UI_Card_HSR_1309_Art.tga",
+    "evidence": "옆을 지나던 로빈이 네가 내민 소개지에서 이름이 어디에 있는지 묻자 참가자는 빈 여백을 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_cowboy_in_frame",
+    "character": "부트힐",
+    "image": "war3mapImported\\UI_Card_HSR_1315_Art.tga",
+    "evidence": "한 관광객이 IPC 광고 앞에서 부트힐의 기념사진을 찍어 달라며 네게 카메라를 건넨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_view_without_armor",
+    "character": "반디",
+    "image": "war3mapImported\\UI_Card_HSR_1310_Icon.tga",
+    "evidence": "꿈속 관광 안내 자리에서 여행자가 반디에게 SAM의 모습을 보여 달라고 부탁한다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_name_after_poster",
+    "character": "로빈",
+    "image": "war3mapImported\\UI_Card_HSR_1309_Art.tga",
+    "evidence": "로빈은 누가 소개를 준비했고 누가 이름을 말했는지 다시 구분하자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_photo_missing_caption",
+    "character": "부트힐",
+    "image": "war3mapImported\\UI_Card_HSR_1315_Art.tga",
+    "evidence": "부트힐은 배경만 바꾸면 같은 뜻도 바뀌는 줄 알았냐며 네가 앞서 적은 이유를 보여 준다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_misha_second_page",
+    "character": "미샤",
+    "image": "war3mapImported\\UI_Card_Misha.tga",
+    "evidence": "전에 꿈속에서 길을 함께 살폈던 미샤가 네게 새 안내지를 보여 준다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_robin_next_row",
+    "character": "로빈",
+    "image": "war3mapImported\\UI_Card_HSR_1309_Art.tga",
+    "evidence": "다른 방문에서 뒤편의 안내를 함께 들었던 너를 로빈이 알아본다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_main_01",
+    "character": "미샤",
+    "image": "war3mapImported\\UI_Card_Misha.tga",
+    "evidence": "명찰에는 ‘미샤’라고 적혀 있다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_main_03",
+    "character": "반디",
+    "image": "war3mapImported\\UI_Card_HSR_1310_Icon.tga",
+    "evidence": "반디를 따라 오른 드림 보더에서는 꿈의 도시가 한눈에 보인다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_main_04",
+    "character": "블랙 스완",
+    "image": "war3mapImported\\UI_Card_HSR_1307_Art.tga",
+    "evidence": "그때 낯선 여인이 모습을 드러내고, 자신을 블랙 스완이라고 소개한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_main_05",
+    "character": "반디",
+    "image": "war3mapImported\\UI_Card_HSR_1310_Icon.tga",
+    "evidence": "도중에 만난 검객 아케론과 로비로 향하던 중, 마침내 반디를 발견한다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_main_06",
+    "character": "블랙 스완",
+    "image": "war3mapImported\\UI_Card_HSR_1307_Art.tga",
+    "evidence": "그사이 블랙 스완이 당신에게 다가와, 이 일을 더 알아볼 수 있는 상대가 있다며 빠져나갈 길을 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_main_07",
+    "character": "어벤츄린",
+    "image": "war3mapImported\\UI_Card_HSR_1304_Art.tga",
+    "evidence": "어벤츄린은 패밀리의 약속이 무너지면 컴퍼니가 개입할 명분을 얻는다고 설명한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_main_08",
+    "character": "어벤츄린",
+    "image": "war3mapImported\\UI_Card_HSR_1304_Art.tga",
+    "evidence": "시계 스튜디오에서 어벤츄린은 힘을 해방하고 열차 일행을 공격한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "hsr_main_11",
+    "character": "미샤",
+    "image": "war3mapImported\\UI_Card_Misha.tga",
+    "evidence": "시계공의 흔적을 좇던 일행을 미샤가 기억의 공간으로 안내한다.",
+    "kind": "character-portrait"
+  },
+  {
+    "eventKey": "hsr_main_12",
+    "character": "선데이",
+    "image": "war3mapImported\\UI_Card_HSR_1313_Art.tga",
+    "evidence": "로빈과 열차 동료 웰트가 스텔라론 문제로 패밀리의 실권자 ‘꿈의 주인’과 협상을 시도하지만, 선데이가 가로막는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_workshop",
+    "character": "윈리 록벨",
+    "image": "war3mapImported\\UI_Card_FMO3_winry_Art.tga",
+    "evidence": "에드워드가 정비를 마친 팔을 움직이자 윈리가 손목에서 나는 미세한 소리에 귀를 기울인다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_measurement_notes",
+    "character": "윈리 록벨",
+    "image": "war3mapImported\\UI_Card_FMO3_winry_Art.tga",
+    "evidence": "윈리가 기록지를 넘기다 낡은 정비서의 치수가 번진 부분을 발견한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_library",
+    "character": "셰스카",
+    "image": "war3mapImported\\UI_Card_FMA_21_Art.tga",
+    "evidence": "셰스카가 물에 젖어 읽을 수 없게 된 기술서의 한 페이지를 막힘없이 적어 내려간다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_training",
+    "character": "이즈미 커티스",
+    "image": "war3mapImported\\UI_Card_FMO2_izumi_Art.tga",
+    "evidence": "이즈미는 사냥터의 발자국과 먹다 남은 열매를 가리키며, 강한 기술부터 찾는 너를 멈춰 세운다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_after_large",
+    "character": "이즈미 커티스",
+    "image": "war3mapImported\\UI_Card_FMO2_izumi_Art.tga",
+    "evidence": "큰 적을 넘긴 자리에서 이즈미가 네 등 뒤의 발자국을 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_after_crowd",
+    "character": "이즈미 커티스",
+    "image": "war3mapImported\\UI_Card_FMO2_izumi_Art.tga",
+    "evidence": "여러 적 사이에서 힘을 모으던 연습이 끝나자 이즈미가 발밑을 보게 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_hayate_commands",
+    "character": "리자 호크아이",
+    "image": "war3mapImported\\UI_Card_FMO3_riza_Art.tga",
+    "evidence": "리자가 블랙 하야테에게 낮은 목소리로 기다리라고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_family_photo",
+    "character": "마스 휴즈",
+    "image": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga",
+    "evidence": "휴즈가 소중한 가족 사진을 보여주려 하자, 셰스카가 들고 온 보고서가 그 아래로 겹쳐 깔린다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_home_spares",
+    "character": "피나코 록벨",
+    "image": "war3mapImported\\UI_Card_FMA_13_Art.tga",
+    "evidence": "윈리가 준비한 소모품을 가방에 전부 넣으려 하자, 피나코가 돌아왔을 때 쓸 몫을 가리키며 만류한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_butcher_counter",
+    "character": "시그 커티스",
+    "image": "war3mapImported\\UI_Card_FMA_26_Art.tga",
+    "evidence": "시그가 정육점의 같은 무게 묶음을 나누다가 작은 묶음을 다시 저울에 올린다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_ling_lunch",
+    "character": "린 야오",
+    "image": "war3mapImported\\UI_Card_FMO2_lin_Art.tga",
+    "evidence": "린이 식사 접시를 깨끗이 비운 뒤 계산서를 보고 환하게 웃는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_flame_supplies",
+    "character": "로이 머스탱",
+    "image": "war3mapImported\\UI_Card_RMU12_roy_Art.tga",
+    "evidence": "로이가 준비 목록을 보며 발화포를 챙기려는데 리자가 먼저 사람들이 지나갈 곳을 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_pie_delivery",
+    "character": "마스 휴즈",
+    "image": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga",
+    "evidence": "그레이시아가 나눌 애플파이를 상자에 넣는데 휴즈가 설명하던 받는 사람의 이름 둘이 겹친다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_sheska_next_blank",
+    "character": "셰스카",
+    "image": "war3mapImported\\UI_Card_FMA_21_Art.tga",
+    "evidence": "전에 함께 기록을 비교했던 너를 셰스카가 알아본다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "fma_pinako_return_list",
+    "character": "피나코 록벨",
+    "image": "war3mapImported\\UI_Card_FMA_13_Art.tga",
+    "evidence": "귀환의 몫을 남기는 일을 익혔던 너에게 피나코가 지난번 표시를 보여 준다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_02",
+    "character": "에드워드 엘릭",
+    "image": "war3mapImported\\UI_Card_FCU8_edward_Art.tga",
+    "evidence": "에드와 알은 그의 연성이 등가교환을 뛰어넘는 듯 보여 현자의 돌을 의심한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_05",
+    "character": "셰스카",
+    "image": "war3mapImported\\UI_Card_FMA_21_Art.tga",
+    "evidence": "그러나 읽은 책을 통째로 기억하는 전 직원 셰스카가 내용을 복원해 주어 조사는 이어진다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_08",
+    "character": "그리드",
+    "image": "war3mapImported\\UI_Card_FMO3_greed_Art.tga",
+    "evidence": "그리드는 알을 납치해 갑옷에 혼을 묶어 둔 방법을 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_09",
+    "character": "마스 휴즈",
+    "image": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga",
+    "evidence": "센트럴로 돌아온 형제는 자신들의 조사를 도왔던 군인 휴즈가 이미 살해됐다는 소식을 듣는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_10",
+    "character": "로이 머스탱",
+    "image": "war3mapImported\\UI_Card_RMU12_roy_Art.tga",
+    "evidence": "휴즈 살해범으로 체포된 마리아 로스가 탈옥한 뒤 머스탱에게 불타 죽었다는 소식이 퍼진다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_11",
+    "character": "반 호엔하임",
+    "image": "war3mapImported\\UI_Card_FMO2_hohenheim_Art.tga",
+    "evidence": "고향 리젬블에서 에드는 오랫동안 가족 곁을 떠나 있던 아버지 호엔하임과 마주한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_12",
+    "character": "윈리 록벨",
+    "image": "war3mapImported\\UI_Card_FMO3_winry_Art.tga",
+    "evidence": "센트럴에서 스카와 맞서던 중 윈리는 그가 의사였던 자신의 부모를 죽였다는 사실을 듣는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_14",
+    "character": "알폰스 엘릭",
+    "image": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga",
+    "evidence": "알 — 서로 다른 곳에서 모두 같은 날을 버티고 있어.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_15",
+    "character": "반 호엔하임",
+    "image": "war3mapImported\\UI_Card_FMO2_hohenheim_Art.tga",
+    "evidence": "호엔하임이 오랜 세월 준비한 대항 연성이 발동해 아버지에게 빼앗긴 국민의 혼을 각자의 몸으로 돌려보낸다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_16",
+    "character": "알폰스 엘릭",
+    "image": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga",
+    "evidence": "알 — 메이, 형에게 팔을 돌려줄 방법이 있어.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_main_17",
+    "character": "에드워드 엘릭",
+    "image": "war3mapImported\\UI_Card_FCU8_edward_Art.tga",
+    "evidence": "에드는 다른 사람의 생명이나 현자의 돌을 대가로 쓰지 않고 동생을 데려올 답을 찾는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "amestris_epilogue_memory",
+    "character": "알폰스 엘릭",
+    "image": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga",
+    "evidence": "알이 자신의 몸으로 돌아온 뒤, 형제가 지나온 길도 다르게 보인다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_night_path",
+    "character": "아가츠마 젠이츠",
+    "image": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga",
+    "evidence": "젠이츠는 멀리서 들려오는 기묘한 소리에 귀를 기울이며 멈춰 서고, 이노스케는 거칠게 앞길을 가로막는 수풀을 헤치며 나아가려 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_night_found",
+    "character": "츠유리 카나오",
+    "image": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga",
+    "evidence": "젠이츠는 소리를 듣는 것과 그 순간 몸을 움직이는 것은 다르다고 말하고, 카나오가 반응을 확인할 자리를 가리킨다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_night_wrong",
+    "character": "코쵸 시노부",
+    "image": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
+    "evidence": "시노부는 다음 임무를 위한 회복 준비를 강조하고, 이노스케는 더욱 직접적인 돌파 방식을 요구한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_unread_bottles",
+    "character": "코쵸 시노부",
+    "image": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
+    "evidence": "시노부는 이름을 모르는 것을 먼저 쓰지 말라고 하고, 아오이는 확인한 병과 빈 용기부터 따로 놓는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_white_linen",
+    "character": "칸자키 아오이",
+    "image": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
+    "evidence": "아오이는 아직 마르지 않은 묶음을 펼쳐 보이고, 이노스케는 돌아가면 마른 보급을 가져올 길이 있다고 나선다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_crow_dispatch",
+    "character": "카마도 탄지로",
+    "image": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+    "evidence": "맡을 일을 놓쳐 같은 문장을 다시 듣자 탄지로가 숨을 고르고 확인할 순서를 정하자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_midday_noise",
+    "character": "아가츠마 젠이츠",
+    "image": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga",
+    "evidence": "출발할 짐을 묶는 소리와 발소리가 뒤섞이자 젠이츠가 문턱에서 멈춘다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_mixed_traces",
+    "character": "카마도 탄지로",
+    "image": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+    "evidence": "탄지로는 보이는 자국만 곧장 따르지 않고 냄새가 갈라지는 곳을 짚는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_before_departure",
+    "character": "코쵸 시노부",
+    "image": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
+    "evidence": "시노부는 상대에 맞춰 가져갈 것을 다시 고르자고 하고, 카나오는 짐을 나누면 발을 옮기는 데 덜 걸린다고 몸으로 보여 준다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_senior_challenge",
+    "character": "무라타",
+    "image": "war3mapImported\\UI_Card_KNYG_murata_Art.tga",
+    "evidence": "저택을 찾은 무라타를 선배라고 소개하자 이노스케가 자기보다 강한지부터 묻는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_return_to_training",
+    "character": "카마도 탄지로",
+    "image": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+    "evidence": "쉬지 않는 탄지로를 보고 돌아온 젠이츠와 이노스케가 훈련장 문 앞에서 서로 먼저 들어가라며 버틴다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_frightened_visitor",
+    "character": "카마도 네즈코",
+    "image": "war3mapImported\\UI_Card_KMO1_nezuko_Art.tga",
+    "evidence": "해가 진 뒤 저택을 찾은 방문객이 네즈코를 보고 뒤로 물러난다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_first_gourd",
+    "character": "칸자키 아오이",
+    "image": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
+    "evidence": "표주박을 보고 네가 먼저 큰 것을 집자 아오이가 아직 설명을 끝내지 않았다고 손을 멈춘다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_morning_greeting",
+    "character": "카마도 탄지로",
+    "image": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+    "evidence": "탄지로에게 아침 인사를 하려는데 그가 대답하다가 자기 호흡의 박자를 다시 잇는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_hand_return",
+    "character": "츠유리 카나오",
+    "image": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga",
+    "evidence": "카나오와 손동작으로 반응을 맞추던 네가 끝났다고 생각한 순간에도 손은 앞으로 남아 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_partition_role",
+    "character": "하시비라 이노스케",
+    "image": "war3mapImported\\UI_Card_KMO2_inosuke_Art.tga",
+    "evidence": "이노스케가 가림막 뒤로 옮겨 간 네 위치를 가리키고는 이제 네가 맞혀 보라고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "kny_after_first_gourd",
+    "character": "카마도 탄지로",
+    "image": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+    "evidence": "첫 표주박 도전이 끝난 뒤 네가 도구를 내려놓으려는데 탄지로는 아직 숨을 잇고 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "butterfly_main_01",
+    "character": "칸자키 아오이",
+    "image": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
+    "evidence": "아오이와 어린 조력자 키요, 스미, 나호가 치료와 돌봄을 맡는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "butterfly_main_07",
+    "character": "렌고쿠 쿄쥬로",
+    "image": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga",
+    "evidence": "사람들이 사라진 무한열차에 오른 일행은 염주 렌고쿠 쿄쥬로와 합류한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "butterfly_main_08",
+    "character": "카마도 탄지로",
+    "image": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+    "evidence": "탄지로는 이미 죽은 가족이 살아 있는 집에서 다시 평범한 하루를 보낸다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "butterfly_main_11",
+    "character": "렌고쿠 쿄쥬로",
+    "image": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga",
+    "evidence": "열차가 탈선해 일행은 밖으로 튕겨 나가지만, 렌고쿠가 승객들을 보호한 덕분에 모두 살아남는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "butterfly_main_13",
+    "character": "렌고쿠 쿄쥬로",
+    "image": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga",
+    "evidence": "치명상을 입은 렌고쿠는 아카자를 붙잡아 해가 뜰 때까지 놓아주지 않으려 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "butterfly_main_14",
+    "character": "카마도 탄지로",
+    "image": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+    "evidence": "탄지로와 젠이츠, 이노스케는 부상을 치료하며 큰 상실을 마주한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_road_meal",
+    "character": "페코린느",
+    "image": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+    "evidence": "페코린느는 식재료 바구니를 들여다보며 자기 몫을 몇 번이고 다시 세고, 콧코로는 다음 끼니에 쓸 재료를 따로 묶는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_after_feast",
+    "character": "페코린느",
+    "image": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+    "evidence": "페코린느는 비어 가는 냄비를 보고 재료를 더 보태자고 하고, 캬루는 남은 음식부터 나눌 자리를 정하자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_after_portions",
+    "character": "콧코로",
+    "image": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
+    "evidence": "앞서 콧코로와 나누어 둔 밀봉 식사 한 끼가 남았다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_dusty_room",
+    "character": "콧코로",
+    "image": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
+    "evidence": "콧코로는 버릴 것부터 구분하자고 하고, 페코린느는 큰 상자를 들어내면 안쪽까지 볼 수 있다고 말한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_faded_spice_map",
+    "character": "페코린느",
+    "image": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+    "evidence": "페코린느는 직접 확인하고 싶어 하고, 캬루는 지도의 정확성을 먼저 의심한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_tea_invitation",
+    "character": "아오이",
+    "image": "war3mapImported\\UI_Card_PCR_104031_Art.tga",
+    "evidence": "아오이가 작은 차 모임 안내장을 들고 문 앞을 서성인다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_rainy_harvest",
+    "character": "콧코로",
+    "image": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
+    "evidence": "콧코로는 막힌 배수길과 남은 묶음을 번갈아 보고, 페코린느는 들 수 있는 것부터 옮기자고 한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_wrong_costume_tag",
+    "character": "츠무기",
+    "image": "war3mapImported\\UI_Card_PCR_105431_Art.tga",
+    "evidence": "츠무기가 옷에 묶인 이름표를 의뢰서 옆에 놓는다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_witness_hours",
+    "character": "카스미",
+    "image": "war3mapImported\\UI_Card_PCR_101431_Art.tga",
+    "evidence": "카스미가 두 주민의 진술을 나란히 펼친다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_monica_market_watch",
+    "character": "모니카",
+    "image": "war3mapImported\\UI_Card_PCR_105331_Art.tga",
+    "evidence": "모니카는 지킬 길목을 나누자고 하고, 페코린느는 식사할 사람들의 몫도 걱정한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_delivery_divide",
+    "character": "유우키",
+    "image": "war3mapImported\\UI_Card_PCRS_yuuki_Art.tga",
+    "evidence": "유우키의 배달 짐과 미식전의 보급품이 같은 수레에 실렸다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "pc_rehearsal_wall",
+    "character": "노조미",
+    "image": "war3mapImported\\UI_Card_PCR_102931_Art.tga",
+    "evidence": "벽 너머에서는 주민들이 쉬고 있고, 노조미는 연습도 부탁도 전부 한 번에 맡기는 어렵다고 말한다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gourmet_main_04",
+    "character": "페코린느",
+    "image": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+    "evidence": "식탁에서 헤어졌다가 다시 모인 네 사람에게 페코린느가 생각을 꺼낸다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gourmet_main_07",
+    "character": "캬루",
+    "image": "war3mapImported\\UI_Card_PCR_106031_Art.tga",
+    "evidence": "캐르에게는 친구들에게 말하지 못한 임무가 있다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gourmet_main_09",
+    "character": "페코린느",
+    "image": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+    "evidence": "콧코로는 임시 왕궁에서 본 초상화와 페코린느를 번갈아 본다.",
+    "kind": "character-illustration"
+  },
+  {
+    "eventKey": "gourmet_main_14",
+    "character": "페코린느",
+    "image": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+    "evidence": "위기가 끝나고 페코린느는 왕녀 유스티아나의 이름과 자리를 되찾는다.",
+    "kind": "character-illustration"
+  }
+]

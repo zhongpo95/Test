@@ -3,6 +3,11 @@
 const fs = require('node:fs'), path = require('node:path');
 const {inspect} = require('./check-content-candidates.cjs');
 const root = path.resolve(__dirname, '..');
+const eventImages = JSON.parse(fs.readFileSync(path.join(root,'content/event-images/texture-manifest.json'),'utf8'));
+const eventImageAspects = new Map(eventImages.assets.map(asset=>{
+  if (!Number.isFinite(asset.aspectRatio) || asset.aspectRatio<=0) throw Error('사건 그림의 표시 비율 오류. '+asset.target);
+  return [asset.target,asset.aspectRatio];
+}));
 const statNames = ['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity'];
 const q = x => '"' + String(x).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\r?\n/g,'|n') + '"';
 const highlightConfig = {"palette":{"person":"FF006B8F","clue":"FF865500"},"limits":{"story":4,"intro":2,"label":1,"result":2},"worlds":{"fuyuki":{"person":["에미야 시로","시로","세이버","토오사카 린","린","아처","랜서","캐스터","길가메시"],"clue":["성배","룰 브레이커","수호자","영주"]},"axel":{"person":["카즈마","아쿠아","메구밍","다크니스","위즈","베르디아"],"clue":["디스트로이어","동력원","폭렬 마법"]},"abydos":{"person":["호시노","시로코","세리카","아야네","노노미","선생","검은 양복"],"clue":["자퇴서","사막 기지","카이저론","학교 부지"]},"academy":{"person":["미코토","토우마","누노타바 시노부","시노부","일방통행","10032호","액셀러레이터"],"clue":["시스터즈","트리 다이어그램","레벨 6","미사카 네트워크","레벨6 시프트"]},"mitakihara":{"person":["마도카","호무라","마미","사야카","쿄코","큐베"],"clue":["소울젬","그리프 시드","발푸르기스의 밤","소울 젬"]},"aincrad":{"person":["키리토","아스나","유이","사치","카야바","히스클리프"],"clue":["너브기어","유이의 마음","이도류","시스템 관리자"]},"amestris":{"person":["에드","알","윈리","호엔하임","머스탱","린","그리드","스카"],"clue":["현자의 돌","인체 연성","국토 연성진","진리의 문"]},"karakura":{"person":["이치고","루키아","렌지","뱌쿠야","아이젠","요루이치","우라하라"],"clue":["붕옥","쌍극","만해","중앙 46실"]},"gourmet":{"person":["페코린느","캐르","콧코로","유우키","카이저","라비리스트","쥰"],"clue":["미식전","반지","열쇠","쉐도우"]},"butterfly":{"person":["탄지로","네즈코","시노부","카나오","렌고쿠","엔무","아카자"],"clue":["전집중 상중","정신의 핵","무한열차"]},"magnolia":{"person":["나츠","루시","엘자","그레이","마카로프","가질","조제"],"clue":["페어리 테일","팬텀 로드","주피터","엘리먼트 4"]},"penacony":{"person":["미샤","미하일","반디","선데이","로빈","아케론","어벤츄린","블랙 스완"],"clue":["은하열차","꿈의 주인","시계공","꿈의 경계"]},"zegagrande":{"person":["루리아","비","롤란","릴리스","이드"],"clue":["구속구","앙그라마이뉴","베르사","일지"]}}};
@@ -73,8 +78,12 @@ function generate(worlds, options={}) {
     '        constant integer PROTO_CARD_LAST = '+(nextCard-1),
     '        constant string PROTO_SAVE_PREFIX = "원정.콘텐츠2."',
     ...strings.map(s=>'        string array '+s), ...integers.map(s=>'        integer array '+s),
-    '        real array ProtoEvolutionGoal','    endglobals','');
+    '        real array ProtoEvolutionGoal','        real array ProtoEventImageAspect','    endglobals','');
   const set = (name,id,value) => lines.push('        set '+name+'['+id+'] = '+(typeof value==='string' ? q(value) : value));
+  const eventImage = (id, icon) => {
+    set('ProtoEventIcon',id,icon);
+    lines.push('        set ProtoEventImageAspect['+id+'] = '+(eventImageAspects.get(icon) || 1).toFixed(6));
+  };
   const effects = (id, list, evolved) => {
     for (const e of list) lines.push('        call ProtoSetEffect('+id+', '+(statNames.indexOf(e.stat)+1)+', '+Number(e.value).toFixed(2)+', '+evolved+')');
   };
@@ -96,7 +105,7 @@ function generate(worlds, options={}) {
         const id=(h-1)*4+p+1;
         set('ProtoEventKey',id,w.world.key+'_entry_'+p);set('ProtoEventName',id,w.world.name+' 방문'); set('ProtoEventHead',id,h); set('ProtoEventKind',id,0);set('ProtoEventChoices',id,1);
         set('ProtoEventAPCost',id,0);set('ProtoEventGrade',id,1);
-        set('ProtoEventStory',id,marked(w.world.intro,'story')); set('ProtoEventIntro',id,marked(w.world.intro,'intro'));set('ProtoEventIcon',id,w.world.entryIcon || w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNManual.blp');
+        set('ProtoEventStory',id,marked(w.world.intro,'story')); set('ProtoEventIntro',id,marked(w.world.intro,'intro'));eventImage(id,w.world.entryIcon || w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNManual.blp');
       }
     }
     for (const c of w.cards) {
@@ -113,7 +122,7 @@ function generate(worlds, options={}) {
       set('ProtoEventAPCost',id,e.actionCost ?? 1);set('ProtoEventMainStage',id,e.mainStage || 0);set('ProtoEventEpilogue',id,e.epilogue ? 1 : 0);
       // 분기 최고 카드 등급은 가능한 보상의 기준이며 성공률은 각 분기에 별도 표시한다.
       set('ProtoEventGrade',id,Math.max(1,...e.choices.flatMap(b=>[b.card,b.card2]).filter(Boolean).map(key=>worlds.flatMap(x=>x.cards).find(c=>c.key===key).grade)));
-      set('ProtoEventStory',id,marked(e.story,'story'));set('ProtoEventIntro',id,marked(e.intro,'intro'));set('ProtoEventIcon',id,e.icon || w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNTome.blp');
+      set('ProtoEventStory',id,marked(e.story,'story'));set('ProtoEventIntro',id,marked(e.intro,'intro'));eventImage(id,e.icon || w.world.entryIcon || w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNTome.blp');
       set('ProtoEventRequired',id,e.previous ? events.get(e.previous) : 0);set('ProtoEventRequiredChoice',id,e.previousChoice || 0);set('ProtoEventRequiredCard',id,e.requiredCard ? cards.get(e.requiredCard):0);set('ProtoEventFailure',id,e.failure || '');
       if (e.dialogue?.enabled) {
         set('ProtoEventDialogueEnabled',id,1);

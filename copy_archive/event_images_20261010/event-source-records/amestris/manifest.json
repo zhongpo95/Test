@@ -1,0 +1,42 @@
+[
+  {
+    "eventKeys": [
+      "amestris_main_18"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\amestris\\UI_Event_AMO_home.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\amestris\\UI_Event_AMO_home.png",
+    "importPath": "war3mapImported\\UI_Event_AMO_home.tga",
+    "sourcePage": "https://www.hagaren.jp/fa/about/story06.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story64.jpg",
+    "sourceSHA": "897bef8308f96c3870fbfa85191fea57e8c5664598f495cef6d910b8d31c053d",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\amestris\\originals\\page0-63.jpg",
+    "sourceSize": [
+      300,
+      169
+    ],
+    "crop": [
+      0,
+      0,
+      300,
+      169
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "64화리젠불귀향길. 형제가되찾은일상을상징하는공식결말회차배경.",
+    "recommended": true,
+    "artist": "개별원화담당자미확인",
+    "credit": "©荒川弘／鋼の錬金術師製作委員会・MBS",
+    "sourceEdition": "2009 FULLMETAL ALCHEMIST",
+    "tgaSHA256": "a88cd1aea463f59cf66e15f3ad8e645750a0bc6ccb38da92d396ee0076f7f0ac",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256 미리보기 식별·얼굴경계 확인, 보조맥락과 장면확정 구분",
+    "objectCardCandidate": false
+  }
+]

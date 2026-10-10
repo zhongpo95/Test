@@ -1,0 +1,116 @@
+[
+  {
+    "eventKeys": [
+      "butterfly_main_02"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\UI_Event_BTE_shinobu.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\UI_Event_BTE_shinobu.png",
+    "importPath": "war3mapImported\\UI_Event_BTE_shinobu.tga",
+    "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=24",
+    "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/24/01.jpg",
+    "sourceSHA": "c58d2a6c24b57e4d744f9d38f28fa746ed64b562dba6d49b64d05238d03feb10",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\originals\\24-0.jpg",
+    "sourceSize": [
+      940,
+      529
+    ],
+    "crop": [
+      0,
+      0,
+      940,
+      529
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "24화 밤에 자신의 마음을 전하는 시노부.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©吾峠呼世晴／集英社・アニプレックス・ufotable",
+    "sourceEdition": "2019 귀멸의 칼날 입지편 공식24~26화 스틸.",
+    "tgaSHA256": "f82e7ff2b8196a933cfc075ca0be2b8495752d30a6324b2d520d8be7ebd2bd5a",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "butterfly_main_04"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\UI_Event_BTE_kanao.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\UI_Event_BTE_kanao.png",
+    "importPath": "war3mapImported\\UI_Event_BTE_kanao.tga",
+    "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=25",
+    "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/25/03.jpg",
+    "sourceSHA": "1e375017a9c9610cf50c648efe1f135fcfb602d376ef38865674a844285c6d6b",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\originals\\25-2.jpg",
+    "sourceSize": [
+      940,
+      529
+    ],
+    "crop": [
+      0,
+      0,
+      940,
+      529
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "25화 회복 수련에서 탄지로와 카나오가 마주하는 장면. 26화 동전 대화를 앞당긴 컷 아님.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©吾峠呼世晴／集英社・アニプレックス・ufotable",
+    "sourceEdition": "2019 귀멸의 칼날 입지편 공식24~26화 스틸.",
+    "tgaSHA256": "7635e7cbe329b621f904f333f5aad2e6fc8beb47614902537e779f012cef6ca5",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "butterfly_main_05"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\UI_Event_BTE_return.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\UI_Event_BTE_return.png",
+    "importPath": "war3mapImported\\UI_Event_BTE_return.tga",
+    "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=25",
+    "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/25/04.jpg",
+    "sourceSHA": "fee6a5dae248c30391a884e4d1bf2bebf3766a891320ead505844e7254c92dba",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-butterfly\\originals\\25-3.jpg",
+    "sourceSize": [
+      940,
+      529
+    ],
+    "crop": [
+      0,
+      0,
+      940,
+      529
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "25화 젠이츠와 이노스케가 탄지로의 수련을 보며 다시 관심을 보이는 장면.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©吾峠呼世晴／集英社・アニプレックス・ufotable",
+    "sourceEdition": "2019 귀멸의 칼날 입지편 공식24~26화 스틸.",
+    "tgaSHA256": "22be86632de19cdc5f8f6349ad82cb9a9093ddba57867ce66e30923af6d53918",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

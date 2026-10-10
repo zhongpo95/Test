@@ -1665,7 +1665,8 @@
       ],
       "failure": null,
       "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
     },
     {
       "key": "pc_after_feast",
@@ -1715,7 +1716,8 @@
       ],
       "failure": null,
       "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
     },
     {
       "key": "pc_after_portions",
@@ -1765,7 +1767,8 @@
       ],
       "failure": null,
       "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga"
     },
     {
       "key": "pc_dusty_room",
@@ -1815,7 +1818,8 @@
       ],
       "failure": null,
       "canonFact": "공식 길드 하우스 청소 활동에서 별도 작은 방 정리 문제를 창작한다. 방·물건·길목 배정과 거래는 맵 전용이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga"
     },
     {
       "key": "pc_faded_spice_map",
@@ -1865,7 +1869,8 @@
       ],
       "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.",
       "canonFact": "공식 향신료 수확 의뢰와 불확실한 조미료 지도 모험에서 별도 평범한 채집 지도를 창작한다. 본편 마을·섀도 실종이나 궁극 조미료를 해결하는 사건은 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
     },
     {
       "key": "pc_tea_invitation",
@@ -1915,7 +1920,8 @@
       ],
       "failure": null,
       "canonFact": "학교 분위기에 적응하기 어려운 아오이를 유우키·콧코로가 돕는 공식 소재에서 별도 작은 모임 안내장 문제를 창작한다. 초대장과 결과는 맵 전용이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_104031_Art.tga"
     },
     {
       "key": "pc_rainy_harvest",
@@ -1965,7 +1971,8 @@
       ],
       "failure": null,
       "canonFact": "미식전의 쌀농사에서 별도 비오는작업일을창작한다. 비가오려는데논가에묶어둔곡식과막힌배수길이함께남았다. 콧코로는필요한도구를세고페코린느는옮길수있는것부터들자고한다. 한행동으로수확·배수둘다완전히해결하지않고다른일을남긴다. 1 도구비를내고준비·자원정리요령을얻는다.곡물재고·영구골드능력없음.2더많은적이드나들구역을맡고지정페코린느준비.3범위와보급만;모든논을구했다는결말없음.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga"
     },
     {
       "key": "pc_wrong_costume_tag",
@@ -2003,7 +2010,8 @@
       ],
       "failure": null,
       "canonFact": "츠무기가게로배달된옷의이름표와의뢰서받을사람이서로다르다. 유우키는종이를번갈아보고츠무기는허락없이자르면돌릴수없다며가위를내려놓는다. 옷을수선해버리는것이정답이아니고확인·반송범위를고른다. 1확인할수있는연락·측정준비에서배운요령을카드로.실제옷장비없음.2일당과확인된보급물약.유우키에게호감·모든배송완료를주는결말아님.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105431_Art.tga"
     },
     {
       "key": "pc_witness_hours",
@@ -2053,7 +2061,8 @@
       ],
       "failure": null,
       "canonFact": "카스미가자경단에들어온두주민의평범한길목목격담을나란히놓는다. 한사람은짐수레를다른이는어두운보행자를봤지만진술한시각이다르다. 서로거짓말한다고단정하기전에어느부분을확인할지결정한다.섀도정체·본편괴수섬사건을해결하지않는다. 조사는관통·치명준비로각색하나원작주문없음.2보급포장비100·적수-1·물약2.3판단하지않은빈칸을남긴다.시각표는실제시간소모·NPC판정이아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_101431_Art.tga"
     },
     {
       "key": "pc_monica_market_watch",
@@ -2103,7 +2112,8 @@
       ],
       "failure": null,
       "canonFact": "주민을해치는일이생겨가게들이일찍문을닫으려한다. 모니카는지킬길목을정하자고하고페코린느는상인들이저녁준비를못하는것을걱정한다. 캬루는넓게맡을수록놓칠구석도늘어난다고말한다.공식6화의주민보호동기를참고한새작은시장준비문제이고수수께끼기사를쓰러뜨리지않는다. 1순서준비에서고정신속180과감소2만.2무료이지만적수+2;기사처치·주민완전안전없음.3적강함-1하한1·물약1·비용100.4상인일당이며폐점자체해결아님.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_105331_Art.tga"
     },
     {
       "key": "pc_delivery_divide",
@@ -2153,7 +2163,8 @@
       ],
       "failure": null,
       "canonFact": "유우키가전할짐과미식전이들고갈보급의목적지가다르다.같은수레에올렸는데첫갈림길부터어느짐을누가맡을지정해야한다.콧코로는다시포장할몫을표시하고페코린느는큰짐을먼저들자고한다.플레이어의실제NPC동행이나목적지이동없음. 1지속회복·신속준비를유지해다음전투로간다.2동료와몫을나누는공격방어준비,적수+1.3목적지에짐전부배달했다고하지않는다.책임기록·물품인벤토리생성없음.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCRS_yuuki_Art.tga"
     },
     {
       "key": "pc_rehearsal_wall",
@@ -2203,7 +2214,8 @@
       ],
       "failure": null,
       "canonFact": "카르미나의연습자리에둔짐이좁은벽쪽을막고,바로너머에서는주민들이쉬려한다.노조미는연습을준비하되모든부탁을한번에들어줄수없다며상황을살핀다. 미식전은벽쪽짐을정리할지바깥길까지맡을지정한다.구성원실력상하·정치갈등·주민마음을수치화하지않는다. 1동작·든든한준비만.새노래스킬·민심·연습시간연장없음.2더많은개인적수.3소음문제를전체해결하지않고제한된실무만한다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_PCR_102931_Art.tga"
     },
     {
       "key": "gourmet_main_01",
@@ -2434,7 +2446,8 @@
         "enabled": true,
         "commonResult": "네 사람이 만든 길드는 미식전이라는 이름을 얻는다. 협회는 활동 거점으로 쓸 집을 빌려 준다. 일행은 앞으로 함께 지낼 장소를 보러 간다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
     },
     {
       "key": "gourmet_main_05",
@@ -2607,7 +2620,8 @@
         "enabled": true,
         "commonResult": "캐르는 감시 임무를 밝히지 못한다. 주인을 따르고 싶은 마음도, 친구들과 계속 지내고 싶은 마음도 남아 있다. 평소처럼 식사를 나누는 동안에도 그 둘은 쉽게 나뉘지 않는다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_PCR_106031_Art.tga"
     },
     {
       "key": "gourmet_main_08",
@@ -2736,7 +2750,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
     },
     {
       "key": "gourmet_main_10",
@@ -3066,7 +3081,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
     },
     {
       "key": "gourmet_epilogue_memory",

@@ -538,7 +538,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoOutcome[pid] = ProtoEventName[id]
         if ProtoEventKind[id] == 0 then
             call ProtoGrantHead(pid, ProtoEventHead[id])
-            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventStory[id] + "|n|n|cff216548[지역 개방]|cff315a70|n머리 카드 획득 · " + ProtoHeadName[ProtoEventHead[id]] + "|n관련 사건 풀 개방 · " + ProtoHeadEffectText(ProtoEventHead[id]) + "|n|n|cff216548[입문 카드]|cff315a70"
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n|cff216548[지역 개방]|cff315a70|n머리 카드 획득 · " + ProtoHeadName[ProtoEventHead[id]] + "|n관련 사건 풀 개방 · " + ProtoHeadEffectText(ProtoEventHead[id]) + "|n|n|cff216548[입문 카드]|cff315a70"
             call ProtoGrantEventCard(pid, ProtoHeadEntryCard[ProtoEventHead[id]])
         else
             // 표시한 비용과 필드 위험은 먼저 적용한다. 실패했다고 판돈이 환급되지는 않는다.

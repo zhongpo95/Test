@@ -2008,7 +2008,8 @@
       ],
       "failure": null,
       "canonFact": "우라하라 상점과 인물의 역할을 참고한 맵 창작 사건이다. 해당 사건이 원작에서 그대로 일어났다고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO2_yoruichi_Art.tga"
     },
     {
       "key": "bl_return_receipt",
@@ -2058,7 +2059,8 @@
       ],
       "failure": null,
       "canonFact": "우라하라 상점과 인물의 역할을 참고한 맵 창작 사건이다. 해당 사건이 원작에서 그대로 일어났다고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga"
     },
     {
       "key": "bl_closed_lane",
@@ -2108,7 +2110,8 @@
       ],
       "failure": null,
       "canonFact": "우라하라 상점과 인물의 역할을 참고한 맵 창작 사건이다. 해당 사건이 원작에서 그대로 일어났다고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga"
     },
     {
       "key": "bl_light_parcel",
@@ -2158,7 +2161,8 @@
       ],
       "failure": null,
       "canonFact": "공식 우류의 손재주·콘의 인형·상점주인 우라하라·동료를생각하는오리히메·집안일을맡는유즈에서 새배송방문을창작했다. 우류카드가개인자격이며옛상자4번/같은날의선형본편이나인형구조기능을재현하지않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBS_kon_Art.tga"
     },
     {
       "key": "bl_stray_alarm",
@@ -2208,7 +2212,8 @@
       ],
       "failure": "표시에 100골드를 썼지만 먼저 울린 신호가 빈 골목에서 끊겼다. 카드는 받지 못했다. 요루이치는 지나온 길과 아직 보지 못한 갈림을 따로 짚고 루키아는 돌아갈 표식부터 다시 보자고 한다.",
       "canonFact": "우라하라 상점과 인물의 역할을 참고한 맵 창작 사건이다. 해당 사건이 원작에서 그대로 일어났다고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO2_yoruichi_Art.tga"
     },
     {
       "key": "bl_unmarked_corner",
@@ -2258,7 +2263,8 @@
       ],
       "failure": null,
       "canonFact": "우라하라 상점과 인물의 역할을 참고한 맵 창작 사건이다. 해당 사건이 원작에서 그대로 일어났다고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga"
     },
     {
       "key": "bl_joint_training",
@@ -2308,7 +2314,8 @@
       ],
       "failure": null,
       "canonFact": "우라하라 상점과 인물의 역할을 참고한 맵 창작 사건이다. 해당 사건이 원작에서 그대로 일어났다고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga"
     },
     {
       "key": "bl_ripped_sleeve",
@@ -2358,7 +2365,8 @@
       ],
       "failure": null,
       "canonFact": "우류의 바느질·손재주와 콘의 인형 생활에서 별도 소매·실타래 문제를 창작한다. 실제 장비 내구도·수선·아이템은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO1_uryu_Art.tga"
     },
     {
       "key": "bl_chad_toy",
@@ -2408,7 +2416,8 @@
       ],
       "failure": null,
       "canonFact": "차드의 약한 사람 보호와 귀여운 물건 선호를 바탕으로 별도 인형을 창작한다. 아이 NPC 호위·장난감 슬롯·모든 주민 보호는 새 기능이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO2_sado_Art.tga"
     },
     {
       "key": "bl_yuzu_supplies",
@@ -2458,7 +2467,8 @@
       ],
       "failure": null,
       "canonFact": "가사를 맡는 유즈와 동료를 지키는 이치고의 공식 역할에서 별도 가족 보급 문제를 창작한다. 실제 가족 상태·부재 타이머·즉시 치료나 불멸은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_QU7_yuzu_Art.tga"
     },
     {
       "key": "bl_don_audience",
@@ -2508,7 +2518,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인기 영매 방송인의 공개 촬영에서 별도 통행 문제를 창작한다. 원작 구호·방송 전체·영혼을 홀로 부활시키는 장면은 재현하지 않는다. 시청률·군중 NPC·시야 변화가 아니라 카드와 개인 필드 결과다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBS_kanonji_Art.tga"
     },
     {
       "key": "bl_uncertain_kit",
@@ -2558,7 +2569,8 @@
       ],
       "failure": "준비 묶음의 목록이 끝까지 맞지 않았다. 지불한 180골드는 돌아오지 않고 카드도 받지 못한다. 확인되지 않은 물품을 쓸 수 있다고 하지는 않는다.",
       "canonFact": "공식 사신용 물품을 제공하는 상점 주인의 역할에서 별도 불완전 보급 묶음을 창작한다. 원작 할인·가챠·사기 장면이 실제 있었음을 주장하지 않는다. 65%는 맵의 고정 검사 확률이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga"
     },
     {
       "key": "bl_tatsuki_space",
@@ -2608,7 +2620,8 @@
       ],
       "failure": null,
       "canonFact": "타츠키의 공식 가라테와 오리히메의 친구 관계에서 별도 좁은 준비 자리 문제를 창작한다. 인테르하이 승패·친구의 부상·사신 힘의 각성을 해결하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_SUP5_tatsuki_Art.tga"
     },
     {
       "key": "bl_empty_bench",
@@ -2659,7 +2672,8 @@
       "failure": null,
       "canonFact": "공식 카린의 냉정함과 영감에서 상점 앞의 창작 만남을 만들었다. 보이지 않는 존재의 정체·본편 사건을 확정하지 않고 플레이어에게 유령 시야를 주지 않는다.",
       "uncertain": [],
-      "actionCost": 0
+      "actionCost": 0,
+      "icon": "war3mapImported\\UI_Card_SUP5_karin_Art.tga"
     },
     {
       "key": "bl_welcome_at_door",
@@ -2709,7 +2723,8 @@
       ],
       "failure": null,
       "canonFact": "공식 잇신의 가족 사랑과 과한 응대·유즈의 가사 역할에서 의원 문 앞 환영을 창작했다. 친척 편입·진료 결과·즉시 체력 회복·원작 가족의 비밀을 결정하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBO2_isshin_Art.tga"
     },
     {
       "key": "bl_small_shop_clerk",
@@ -2759,7 +2774,8 @@
       ],
       "failure": null,
       "canonFact": "공식 우루루의 점원 역할과 외형과 다른 초인적 능력에서 큰 심부름의 경계 문제를 창작했다. 차드는 부탁을 나누는 대화 인물이며 플레이어의 상시 동행이 아니다. 실제 상자 운반·노동 게이지·점원 고용은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BBS_ururu_Art.tga"
     },
     {
       "key": "bl_unasked_invitation",
@@ -2809,7 +2825,8 @@
       ],
       "failure": null,
       "canonFact": "공식 활발하고 이치고에게 자주 말을 거는 케이고와 의리 있는 이치고에서 허락 없는 초대를 창작했다. 실제 동행 경로·방문 타이머·무한 사건·우정 수치·원작 관계 결말은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_BKQ11_keigo_Art.tga"
     },
     {
       "key": "bl_urahara_return_list",
@@ -2860,7 +2877,8 @@
           "chance": 100,
           "result": "우류와 더 강한 적이 오가는 확인 담당 구역을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 우류는 더 강한 확인 몫의 목록만 펼쳤지만 루키아가 아직 보지 않은 골목의 답은 적지 않았다."
         }
-      ]
+      ],
+      "icon": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga"
     },
     {
       "key": "karakura_main_01",
@@ -2932,7 +2950,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga"
     },
     {
       "key": "karakura_main_02",
@@ -3120,7 +3139,8 @@
         "enabled": true,
         "commonResult": "루키아에게 기다리는 것이 처형이라는 사실을 알게 된 이치고는 자신과 가족을 구한 사람을 그대로 버릴 수 없다고 결심한다. 하지만 지금은 그녀를 따라갈 힘부터 되찾아야 한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga"
     },
     {
       "key": "karakura_main_05",
@@ -3192,7 +3212,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga"
     },
     {
       "key": "karakura_main_06",
@@ -3307,7 +3328,8 @@
         "enabled": true,
         "commonResult": "그는 지하수로를 이용해 감옥으로 접근하는 길을 안내한다. 정령정의 모든 사신이 같은 뜻은 아니다. 일행은 새 조력자 덕분에 참죄궁 가까이 가지만, 그 앞에는 렌지가 기다리고 있다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBS_hanataro_Art.tga"
     },
     {
       "key": "karakura_main_08",
@@ -3379,7 +3401,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBO1_renji_Art.tga"
     },
     {
       "key": "karakura_main_09",
@@ -3581,7 +3604,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBO2_yoruichi_Art.tga"
     },
     {
       "key": "karakura_main_12",
@@ -3653,7 +3677,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga"
     },
     {
       "key": "karakura_main_13",
@@ -3957,7 +3982,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga"
     },
     {
       "key": "karakura_epilogue_memory",

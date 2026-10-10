@@ -1,0 +1,192 @@
+[
+  {
+    "eventKeys": [
+      "fuyuki_main_04"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_berserker.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_berserker.png",
+    "importPath": "war3mapImported\\UI_Event_FUE_berserker.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/04.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/04/02.jpg",
+    "sourceSHA": "96ec865da07e472267be5aa47bba75914e0860e86eaa637800938bb2bd4ce335",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\originals\\04-02.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "UBW #03 첫 전투의 버서커 공격. 후반 일리야 성 전투와 구분.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC　©TYPE-MOON",
+    "sourceEdition": "2014~2015 TV Fate/stay night Unlimited Blade Works 공식 회차 스틸",
+    "tgaSHA256": "dcf8a5c1aa5bc18f6d6e5f27e25675bf57a2b1e946b5b72bd99e73997ff70dd3",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 600x338 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "fuyuki_main_06"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_school.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_school.png",
+    "importPath": "war3mapImported\\UI_Event_FUE_school.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/06.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/06/02.jpg",
+    "sourceSHA": "e27f5d2b81f698171ed4d303996c3f491752b3ead0ba5d219483d6ad4a171ac7",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\originals\\06-02.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "UBW #05 방과 후 학교에서 린이 시로를 공격하는 상황.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC　©TYPE-MOON",
+    "sourceEdition": "2014~2015 TV Fate/stay night Unlimited Blade Works 공식 회차 스틸",
+    "tgaSHA256": "7ed67dacdaff574d02bc220fc84aa8c1e240329611cc9f9e0e970d83975b03a0",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 600x338 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "fuyuki_main_07"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_caster.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_caster.png",
+    "importPath": "war3mapImported\\UI_Event_FUE_caster.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/08.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/08/02.jpg",
+    "sourceSHA": "230070099472c3ca58028276de0d00da2e8dbe39307043d09eac9970890e149a",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\originals\\08-02.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "UBW #07 류도사 중정의 캐스터 공격. 세이버와 어새신의 산문 전투로 혼동하지 않음.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC　©TYPE-MOON",
+    "sourceEdition": "2014~2015 TV Fate/stay night Unlimited Blade Works 공식 회차 스틸",
+    "tgaSHA256": "a3c31c48f61cade1ec6f7e0146b0459c908e5aa8765ba578868dfb540eacfbcf",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 600x338 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "fuyuki_main_09"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_kuzuki.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_kuzuki.png",
+    "importPath": "war3mapImported\\UI_Event_FUE_kuzuki.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/11.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/11/03.jpg",
+    "sourceSHA": "498b21eca2d55533d4fc7e4f822bdd759bb76dd272457d7c45f0bb2beea63445",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\originals\\11-03.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "UBW #10 쿠즈키와 세이버의 충돌. 캐스터가 강화한 마스터의 직접 전투 위협.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC　©TYPE-MOON",
+    "sourceEdition": "2014~2015 TV Fate/stay night Unlimited Blade Works 공식 회차 스틸",
+    "tgaSHA256": "8a3f71b56101618ed54966d99347e478a728deb9d27244a7c63bda812e539307",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 600x338 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "fuyuki_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_hostage.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\UI_Event_FUE_hostage.png",
+    "importPath": "war3mapImported\\UI_Event_FUE_hostage.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/13.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/13/03.jpg",
+    "sourceSHA": "deb0f2d73cf597466f58d02cca4d0991e33a0f1f6d50d914a16e2a46500eabc5",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-fuyuki\\originals\\13-03.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      0,
+      0,
+      600,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "UBW #12 캐스터가 타이가를 인질로 잡은 상황. 계약 탈취 전후 서사의 직접 장면.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC　©TYPE-MOON",
+    "sourceEdition": "2014~2015 TV Fate/stay night Unlimited Blade Works 공식 회차 스틸",
+    "tgaSHA256": "b6a58ea90a15445206cef5d2f97910b5d2bcd6725d20f722513e955dfa4d437e",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 600x338 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

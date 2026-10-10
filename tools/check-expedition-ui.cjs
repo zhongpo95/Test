@@ -24,6 +24,7 @@ function fresh(localPlayer = 0, prototype = false) {
     TriggerRegisterTimerEvent: (trigger,seconds,periodic) => timers.push({trigger,seconds,periodic}),
     TriggerRegisterTimerEventSingle: no, DzTriggerRegisterKeyEventByCode: no,
     FrameCount: () => count + 1, DzGetGameUI: () => 0, GetGameplayUI: () => 0,
+    JNGetLocalClientWidth: () => e.windowWidth ?? 1600, JNGetLocalClientHeight: () => e.windowHeight ?? 900,
     DzCreateFrameByTagName: (type,name,parent) => {const id=++count;frames.set(id,{id,type,parent,shown:true,enabled:true,scripts:{}});return id;},
     DzFrameSetPoint: (id,point,relative,relativePoint,x,y) => Object.assign(frame(id),{relative,x,y,absolute:false}),
     DzFrameSetParent: (id,parent) => {frame(id).parent=parent;},

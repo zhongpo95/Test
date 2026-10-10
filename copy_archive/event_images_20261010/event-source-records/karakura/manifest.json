@@ -1,0 +1,119 @@
+[
+  {
+    "eventKeys": [
+      "karakura_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\UI_Event_KRO_promise.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\UI_Event_KRO_promise.png",
+    "importPath": "war3mapImported\\UI_Event_KRO_promise.tga",
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_t_25.jpg",
+    "sourceSHA": "9b69e694d88629474f194c01cc12c9ba4e2f82a60ed33a0afb588ca996740b92",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\originals\\p03_t_25.jpg",
+    "sourceSize": [
+      200,
+      150
+    ],
+    "crop": [
+      0,
+      0,
+      200,
+      150
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "전후 뱌쿠야가 루키아에게 사정을 설명하는 공식 회고 구간의 얼굴. 싸움 종료 뒤 지키려 했던 약속이라는 주제에 대응하며 결투 직후의 정확한 프레임이라고 단정하지 않음.",
+    "sourceEdition": "2004 TV series / Soul Society Rescue arc, official Studio Pierrot retrospective",
+    "artist": "개별 원화 담당자 미확인",
+    "credit": "©久保帯人／集英社・テレビ東京・dentsu・ぴえろ",
+    "tgaSHA256": "05c4415cec7265093fa8eb3824fe3de2c17fd2887bd38c50498c7a72bc41a0cc",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "pass: 256 미리보기 확인, 얼굴 잘림 없음, 출처 시점과 상세 인용 구분",
+    "activeModified": false,
+    "qualityNote": "200×150 또는266×200 공식 원본. 256 사건아이콘용 소폭 확대, 큰 일러스트용 아님"
+  },
+  {
+    "eventKeys": [
+      "karakura_main_15"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\UI_Event_KRO_answer.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\UI_Event_KRO_answer.png",
+    "importPath": "war3mapImported\\UI_Event_KRO_answer.tga",
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_t_23.jpg",
+    "sourceSHA": "2a91f4cf173a5a21e1f8d983df2b5aca81a2bc3c2fc1439e736f8bfa2907984b",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\originals\\p03_t_23.jpg",
+    "sourceSize": [
+      200,
+      150
+    ],
+    "crop": [
+      0,
+      0,
+      200,
+      150
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "공식 페이지의 카이엔 가족과 화해 후 잔류·작별을 설명하는 구간의 루키아. 잔류 결정의 정서에 대응하며 해당 대사 순간이라고 단정하지 않음.",
+    "sourceEdition": "2004 TV series / Soul Society Rescue arc, official Studio Pierrot retrospective",
+    "artist": "개별 원화 담당자 미확인",
+    "credit": "©久保帯人／集英社・テレビ東京・dentsu・ぴえろ",
+    "tgaSHA256": "78432df4701a71a561cf21284b68f0018e4e63c7aa08d470a293d50c5293b1d5",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "pass: 256 미리보기 확인, 얼굴 잘림 없음, 출처 시점과 상세 인용 구분",
+    "activeModified": false,
+    "qualityNote": "200×150 또는266×200 공식 원본. 256 사건아이콘용 소폭 확대, 큰 일러스트용 아님"
+  },
+  {
+    "eventKeys": [
+      "karakura_epilogue_memory"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\UI_Event_KRO_memory.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\UI_Event_KRO_memory.png",
+    "importPath": "war3mapImported\\UI_Event_KRO_memory.tga",
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_k_01.jpg",
+    "sourceSHA": "0a5dc20b8e980c5ccd73744607da9194d4de9dfc42bc6ab9ced349555398c902",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\karakura\\originals\\p03_k_01.jpg",
+    "sourceSize": [
+      266,
+      200
+    ],
+    "crop": [
+      0,
+      0,
+      266,
+      200
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "동료와 귀환하는 이치고의 뒷모습을 여정 회상에 사용. 학교 복도 사건에는 억지 연결하지 않음.",
+    "sourceEdition": "2004 TV series / Soul Society Rescue arc, official Studio Pierrot retrospective",
+    "artist": "개별 원화 담당자 미확인",
+    "credit": "©久保帯人／集英社・テレビ東京・dentsu・ぴえろ",
+    "tgaSHA256": "50e659d501a437acdaf02af697a2068b7652498c74681c73d0977c6df1fb4f21",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "pass: 256 미리보기 확인, 얼굴 잘림 없음, 출처 시점과 상세 인용 구분",
+    "activeModified": false,
+    "qualityNote": "200×150 또는266×200 공식 원본. 256 사건아이콘용 소폭 확대, 큰 일러스트용 아님"
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "eventKeys": [
+      "karakura_main_02"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_lesson.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_lesson.png",
+    "importPath": "war3mapImported\\UI_Event_KAE_lesson.tga",
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_01.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p01/p01_t_02.jpg",
+    "sourceSHA": "c361f47497e0fd462c004e9b28902003e7b32f640b9eb7428707a3cf0e0c9174",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\originals\\p01_t_02.jpg",
+    "sourceSize": [
+      200,
+      153
+    ],
+    "crop": [
+      0,
+      0,
+      200,
+      153
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "루키아가 이치고에게 사신의 역할을 그림으로 설명하는 초기 장면.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©久保帯人／集英社・テレビ東京・dentsu・ぴえろ",
+    "sourceEdition": "2004 TV BLEACH 사신대행·소울 소사이어티 잠입편. 천년혈전 아님.",
+    "tgaSHA256": "c231386a52fa0420e974ec906227af0ade8e16505f40289bc2c6b9d5e1fd660a",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "karakura_main_03"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_cooperation.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_cooperation.png",
+    "importPath": "war3mapImported\\UI_Event_KAE_cooperation.tga",
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_01.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p01/p01_t_16.jpg",
+    "sourceSHA": "976f3f36c9016191b5ea5af98cdbbb078d91b6afa6151b33b8958d96830fa01d",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\originals\\p01_t_16.jpg",
+    "sourceSize": [
+      200,
+      153
+    ],
+    "crop": [
+      0,
+      0,
+      200,
+      153
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "초기 사신대행편 이치고와 이시다가 함께 대응하는 장면.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©久保帯人／集英社・テレビ東京・dentsu・ぴえろ",
+    "sourceEdition": "2004 TV BLEACH 사신대행·소울 소사이어티 잠입편. 천년혈전 아님.",
+    "tgaSHA256": "1240032f84821f69c74fcb28e66945d579f3b8c3e64ca6693210b568da868436",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "karakura_main_06"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_gate.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_gate.png",
+    "importPath": "war3mapImported\\UI_Event_KAE_gate.tga",
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_02.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p02/p02_01.png",
+    "sourceSHA": "06d1f640ecb97404fe8b8ffc2b6ac5a0340196c0cce29dc80026b871092731e0",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\originals\\p02_01.png",
+    "sourceSize": [
+      306,
+      230
+    ],
+    "crop": [
+      0,
+      0,
+      306,
+      230
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "세이레이테이 입구에서 이치고를 막는 이치마루 긴. 지단보 뒤의 진입 좌절과 일치.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©久保帯人／集英社・テレビ東京・dentsu・ぴえろ",
+    "sourceEdition": "2004 TV BLEACH 사신대행·소울 소사이어티 잠입편. 천년혈전 아님.",
+    "tgaSHA256": "1af2283ac8a0af6b41bf8b3294009ec500f531b66ac6b8d734ae3d0926e99383",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "karakura_main_09"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_kenpachi.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\UI_Event_KAE_kenpachi.png",
+    "importPath": "war3mapImported\\UI_Event_KAE_kenpachi.tga",
+    "sourcePage": "https://pierrot.jp/title/bleach/playback_02.html",
+    "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p02/p02_t_10.jpg",
+    "sourceSHA": "5eee5c6d3b8eab53b5d54223f756524254b32e9b8dccb9e514a47475361e2a85",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-karakura\\originals\\p02_t_10.jpg",
+    "sourceSize": [
+      200,
+      153
+    ],
+    "crop": [
+      0,
+      0,
+      200,
+      153
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "소울 소사이어티 잠입편 이치고가 켄파치와 정면으로 대치하는 장면. 후대 재대결 아님.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©久保帯人／集英社・テレビ東京・dentsu・ぴえろ",
+    "sourceEdition": "2004 TV BLEACH 사신대행·소울 소사이어티 잠입편. 천년혈전 아님.",
+    "tgaSHA256": "87fde5ad5697bf0dfd3fed97b4c55b545df65cb109ba98c8833bfd41e6512600",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

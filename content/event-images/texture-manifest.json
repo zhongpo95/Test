@@ -1,0 +1,2477 @@
+{
+  "schemaVersion": 1,
+  "encoding": "256x256 uncompressed RGBA32; display with aspectRatio",
+  "assets": [
+    {
+      "target": "war3mapImported\\UI_Event_ABE_aquarium.tga",
+      "aspectRatio": 1.779359431,
+      "sourceRelativePath": "early-abydos/originals/ep8_img_story-08_a05.jpg",
+      "sourceHash": "c19920561c3e5f7da314e1590037cf6cacfcd59dfa09f209547d4667e57e626e",
+      "originalCrop": [
+        0,
+        0,
+        1000,
+        562
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep8/img_story-08_a05.jpg",
+      "eventKeys": [
+        "abydos_main_08"
+      ],
+      "oldHash": "df88b2ad8a2a0deb5b09baf98a018d61e380df274c8f1b824d691908ea733d50",
+      "newHash": "0dbfd84952f20134dfd8be6c526989daf55cfbb7441fbb9810dde4f318adb461",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ABE_classroom.tga",
+      "aspectRatio": 1.779359431,
+      "sourceRelativePath": "early-abydos/originals/ep1_img_story-01_a07-amih24k9.jpg",
+      "sourceHash": "b97d849d5d51c1546868ddf722d9b12f0e9708e3813983658a642630eba7d34e",
+      "originalCrop": [
+        0,
+        0,
+        1000,
+        562
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep1/img_story-01_a07-amih24k9.jpg",
+      "eventKeys": [
+        "abydos_main_01"
+      ],
+      "oldHash": "efc7e5d0f699465fd4ec55148e079d7e7a677f2b16accf594fb9065112de96be",
+      "newHash": "38f179f05a9b9cc3add8698c631fc3499e1d7a2985cea312a6851fab8eda9f65",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ABE_frontline.tga",
+      "aspectRatio": 1.779359431,
+      "sourceRelativePath": "early-abydos/originals/ep1_img_story-01_b02-dn8y4h91.jpg",
+      "sourceHash": "af4e211424bcbf13c9e2c9544ebf214cd69368e36bea432b08f44a35b5602363",
+      "originalCrop": [
+        0,
+        0,
+        1000,
+        562
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep1/img_story-01_b02-dn8y4h91.jpg",
+      "eventKeys": [
+        "abydos_main_05"
+      ],
+      "oldHash": "e9fec61f987bcb8f66503d316c416c1e81d85b638535036cb509bc2fd2be26c0",
+      "newHash": "2812cefca4471b4052b979c048d5fbbf6e9bdae9c2aa341625d7ad55d0054eeb",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ABO_assault.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "abydos/originals/ep10_img_story-10_a13.jpg",
+      "sourceHash": "47c5b8a7e3f35fd63ffd5f6361242a3adb9c7585486b84e0e9bd9b079282fa68",
+      "originalCrop": [
+        100,
+        0,
+        662,
+        562
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep10/img_story-10_a13.jpg",
+      "eventKeys": [
+        "abydos_main_11"
+      ],
+      "oldHash": "8682b3d4ca17ad61f2482d07ff0c320da5c14b3ce73833b997fb6fb6c3831f9c",
+      "newHash": "8682b3d4ca17ad61f2482d07ff0c320da5c14b3ce73833b997fb6fb6c3831f9c",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ABO_black_suit.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "abydos/originals/ep11_img_story-11_a10.jpg",
+      "sourceHash": "b220d3255294546444fb40f6e6397c269a0f473a414d2f77894b40ed5d155c87",
+      "originalCrop": [
+        190,
+        0,
+        752,
+        562
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep11/img_story-11_a10.jpg",
+      "eventKeys": [
+        "abydos_main_12"
+      ],
+      "oldHash": "384b201a916e1c46ec5eea175e9e07960e486e2fbe5289bf02817605dddd14dd",
+      "newHash": "384b201a916e1c46ec5eea175e9e07960e486e2fbe5289bf02817605dddd14dd",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ABO_letter.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "abydos/originals/ep10_img_story-10_a09.jpg",
+      "sourceHash": "3db6602dd8815b36df40ab18fdfb01441fe0fec3257fc85b6767673bd400d17b",
+      "originalCrop": [
+        270,
+        0,
+        832,
+        562
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep10/img_story-10_a09.jpg",
+      "eventKeys": [
+        "abydos_main_10"
+      ],
+      "oldHash": "eb0ae7d8ef3dc4c24a1e8182d621fde0f2325a300822f79951d960929325c9f9",
+      "newHash": "eb0ae7d8ef3dc4c24a1e8182d621fde0f2325a300822f79951d960929325c9f9",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ABO_memory.tga",
+      "aspectRatio": 1.776198934,
+      "sourceRelativePath": "abydos/originals/ep12_img_story-12_a13.jpg",
+      "sourceHash": "971dbb51790cf7180f48ffbe0ec0c4190497f02a80a08f662683a96733c39877",
+      "originalCrop": [
+        0,
+        0,
+        1000,
+        563
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep12/img_story-12_a13.jpg",
+      "eventKeys": [
+        "abydos_epilogue_memory"
+      ],
+      "oldHash": "6c0b6bfb2f274fb8ca4714ddb0d33d5f3b145722a7f6413f46dd3cbfeaa98e80",
+      "newHash": "8c5abc4eef2e1ef7a428640377b5328430a478f7219bab5c866a68a4c7dbbe75",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ABO_rescue.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "abydos/originals/ep12_img_story-12_a05.jpg",
+      "sourceHash": "de979bf1a1d605a6a87e69b3db2a428ac0ef0dce688b6be0be5a87679770a697",
+      "originalCrop": [
+        215,
+        0,
+        778,
+        563
+      ],
+      "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+      "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep12/img_story-12_a05.jpg",
+      "eventKeys": [
+        "abydos_main_13"
+      ],
+      "oldHash": "9b2b6a9b30d5d3cf21d818e7f91c4dd37fd9148f221e6d3cd701463a4b80efb1",
+      "newHash": "9b2b6a9b30d5d3cf21d818e7f91c4dd37fd9148f221e6d3cd701463a4b80efb1",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACE_dolls.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-academy/originals/10-1.jpg",
+      "sourceHash": "7aeaae7d814ec43c1c0a697ae19c2708e41a7d70f1781d69e4915682d567058b",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/10.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000012/block/00000030/00000086.jpg",
+      "eventKeys": [
+        "academy_main_07"
+      ],
+      "oldHash": "53c7f822b8f22a6b23a9bf5e451a0879497b0dae212531bfbebe03b83da32020",
+      "newHash": "92230988c93994b47129ac6b18d5700a2e05c5201ae5d19235f58216d9763cbb",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACE_friends.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-academy/originals/04-0.jpg",
+      "sourceHash": "206f6a480a767ced4469bd7f6c010ece221f1a904f5ed894c34de3c7208d3461",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/04.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000006/block/00000042/00000121.jpg",
+      "eventKeys": [
+        "academy_main_01"
+      ],
+      "oldHash": "b4a3c271a75cafde8458f821f3e730cbe2f2aae00a33769f148bef7f37bdd3f1",
+      "newHash": "9251a357a8d082aaaaaa01facc47731e671e4ec3064b2d4183c15040089fd564",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACE_resistance.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-academy/originals/06-0.jpg",
+      "sourceHash": "bbaba25902498bb6e15f0a1ae3fe42781d99bbd82faf9fee42a5b63d91dd38a4",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/06.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000008/block/00000038/00000109.jpg",
+      "eventKeys": [
+        "academy_main_04"
+      ],
+      "oldHash": "19d10b6569e06154a924d563899cf412bf24d0abbec426c8e859f8caaa2be98d",
+      "newHash": "f8e0b22ee0a9ee5ba83a0675445871089b3f7cb6a631097597ac0fc5f0bd1bad",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACE_shinobu.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-academy/originals/08-5.jpg",
+      "sourceHash": "5386fa31b492fe8bb9553f8a5d30abc59fceb8bbd3708c8c59188601c59a0119",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/08.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000010/block/00000034/00000102.jpg",
+      "eventKeys": [
+        "academy_main_06"
+      ],
+      "oldHash": "a0d17e028a79023163eb0d9b3cbe32b97446697d190d8074b03b02c634b8a184",
+      "newHash": "9079eb06f1cbcf152a741cf5f66f8409eae1d5d10f2b8b71cb3314b53b4f207d",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACE_sisters.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-academy/originals/05-2.jpg",
+      "sourceHash": "937ec353d7d0dd13ad1378fc884bd37a29858a192a2b1230b92f297d99aa48c3",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/05.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000007/block/00000040/00000117.jpg",
+      "eventKeys": [
+        "academy_main_02"
+      ],
+      "oldHash": "b40ac45055f84397fbdb04fef50091d7b4372a921a52869f16851fd1fc671107",
+      "newHash": "40edeb8d62c46ed6af1029de691b061fec4fed60f0c83e30ee786601624fe4c6",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACE_waiting.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-academy/originals/07-5.jpg",
+      "sourceHash": "c483c49898f2167f449d5fafc69edc57cdc64b6be636509b8f6cddeb3bbccb28",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/07.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000009/block/00000036/00000108.jpg",
+      "eventKeys": [
+        "academy_main_08"
+      ],
+      "oldHash": "749faf506ffb423b26e401827bc82044408346ff2d70fa34d998daaf80c877de",
+      "newHash": "401a78c17af1e8a27ff8333f2eb31bcb09e9b3591d2811faaa2bc7a1bd7ea7e6",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACO_bridge.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "academy/originals/14-4.jpg",
+      "sourceHash": "97a2c95b53818dc38a2be7239b606fc331c78ce572401d8e9552c8359e693cd0",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/14.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000016/block/00000022/00000065.jpg",
+      "eventKeys": [
+        "academy_main_10"
+      ],
+      "oldHash": "7b9795df0f5f7ede98a5f7178e30777e6a29443e19f68bf447e7c3e41e40a458",
+      "newHash": "23da71cb9515d4f12750d6c4a3a63f50afbf3c01b911ffa440ba336f4c99f82e",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACO_cat_memory.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "academy/originals/12-3.jpg",
+      "sourceHash": "2af63fb591e9b3be136babd7cba7f8093ecd6234e3499eec6bea86774386d80c",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/12.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000014/block/00000026/00000076.jpg",
+      "eventKeys": [
+        "academy_main_11"
+      ],
+      "oldHash": "8167a5e6b3d02899f2c8953e6e53211507e5ac857b93028368a8d342fde47dd8",
+      "newHash": "cda65d9b94dfe34d31a98a34f7ff493244cdac84ec62c1f39e3655e5394b32db",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACO_resolve.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "academy/originals/16-2.jpg",
+      "sourceHash": "965ddab0d523ba8599904d41a5fe69e328d38d51553c7e52a6fc5e1f513b1abb",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/16.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000018/block/00000018/00000051.jpg",
+      "eventKeys": [
+        "academy_main_13"
+      ],
+      "oldHash": "571543848531cd8902443a5ea4076d3bab4ab9ec88ca5b0baebe7f113f314262",
+      "newHash": "15c9da5f0b4ac132a33cd831ac42799f7059fb1d0a072fe64ef0b05e11e6254c",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ACO_sisters.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "academy/originals/16-0.jpg",
+      "sourceHash": "d0315cbda429232ebd67b6fc277e6fde6b57994a924e943340c8284febe8ac5f",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://toaru-project.com/railgun_s/story/16.html",
+      "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/contents/00000018/block/00000018/00000049.jpg",
+      "eventKeys": [
+        "academy_main_12"
+      ],
+      "oldHash": "4aa8828345bf893102d3d6db83e69f6db889dbf10647dac27846c0254c9eedbd",
+      "newHash": "92019bc58051c7eb0ed787bbcfcc761cadd1b84c8a2648f219cfd8d902a0ed80",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AME_brothers.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "amestris/originals/page0-1.jpg",
+      "sourceHash": "cd3bc59b6cddf967057d347581aea7cac2e4d8e7745bd750d5690fce5ce1a9d6",
+      "originalCrop": [
+        0,
+        0,
+        300,
+        169
+      ],
+      "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+      "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story02.jpg",
+      "eventKeys": [
+        "amestris_main_01"
+      ],
+      "oldHash": "c0d064bd8422bb9a767a26fb29a9ef4dca6400df5d85fb4cdd799d417f2ec14b",
+      "newHash": "a809fe3e7051bee97e32b2bd4e4a05a75162abae9b5f7796e5cdf17ab70bf491",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AME_nina.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "amestris/originals/page0-3.jpg",
+      "sourceHash": "a08f1462aaa6d74e13f5abc761908b39815bba6bd3ea3be9300a479d193e07d7",
+      "originalCrop": [
+        0,
+        0,
+        300,
+        169
+      ],
+      "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+      "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story04.jpg",
+      "eventKeys": [
+        "amestris_main_03"
+      ],
+      "oldHash": "4115e154131dae9f6167b15b589065ef5e6ee7eeeffad61dfd8879da3ac86f30",
+      "newHash": "8356c82bc73114a30844637d25eab6599553780357f45b0a82605154cd2ef705",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AME_training.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "amestris/originals/page0-11.jpg",
+      "sourceHash": "2fcf7c0b4257a3c359934f28a862aa3fdaef1685610e3db9d6c074c4a966c9c3",
+      "originalCrop": [
+        0,
+        0,
+        300,
+        169
+      ],
+      "sourcePage": "https://www.hagaren.jp/fa/about/story01.html",
+      "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story12.jpg",
+      "eventKeys": [
+        "amestris_main_07"
+      ],
+      "oldHash": "b8c98761e0db54de27b9b1e40b196263c405396126f139d91c67aaf54f08b096",
+      "newHash": "69ce18249ee086a2f7d6fd738c1b41ec4feaa0b9d1f7e8a9e6f347fa9caaca72",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AME_winry.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "amestris/originals/page0-8.jpg",
+      "sourceHash": "757327500b25ede12ffce791e1cf87fd12952d2dbb947b4f0f70cb905edacb53",
+      "originalCrop": [
+        0,
+        0,
+        300,
+        169
+      ],
+      "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+      "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story09.jpg",
+      "eventKeys": [
+        "amestris_main_06"
+      ],
+      "oldHash": "5241af41fe6bba3c94b511ab374dc9aea4390969ff0cef84ce4051e8c5c49791",
+      "newHash": "1e7945ed7ec07adac04f8906718ecfc7cb9d0a2fbf7ae2132738de0bf8c5bffb",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AMO_home.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "amestris/originals/page0-63.jpg",
+      "sourceHash": "897bef8308f96c3870fbfa85191fea57e8c5664598f495cef6d910b8d31c053d",
+      "originalCrop": [
+        0,
+        0,
+        300,
+        169
+      ],
+      "sourcePage": "https://www.hagaren.jp/fa/about/story06.html",
+      "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story64.jpg",
+      "eventKeys": [
+        "amestris_main_18"
+      ],
+      "oldHash": "a88cd1aea463f59cf66e15f3ad8e645750a0bc6ccb38da92d396ee0076f7f0ac",
+      "newHash": "63ce8974c917974267e0a4980333084b9d8d6fc5e574bb5c651a08c50266b0c1",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXE_beldia.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "early-axel/originals/04-3.jpg",
+      "sourceHash": "e3195abf0d1e739eac48a26bfb77ccc7d565186d9e95a6f2c8a2891bd509f352",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/04/3.jpg",
+      "eventKeys": [
+        "axel_main_05"
+      ],
+      "oldHash": "8bccf01a7de8fd9d52956f664f517a4647fc44ded589fd5197b90d23a5b355eb",
+      "newHash": "b294fd0c472bbaa976ce456624ca1aad1bb7f25880dce52abd24b288bcc9b498",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXE_darkness.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "early-axel/originals/03-5.jpg",
+      "sourceHash": "732ed5ee138bee99cef102c6138702222b54ba8284abe861bfeabe80a0f81b5d",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/03/5.jpg",
+      "eventKeys": [
+        "axel_main_03"
+      ],
+      "oldHash": "d106fb578e59a2af7fb2ec7c46478c54728fa96a1e403280c1bedfd49e7d25a7",
+      "newHash": "d56097057544ea10193b6e19b3a6d8160ef5d0fe1370ee27134abbe7bdda8ded",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXE_megumin.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "early-axel/originals/02-4.jpg",
+      "sourceHash": "58a36c4b247f211a1a48f1e27c12a3a99bd7e443ff73949017f7f074b68e9b64",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/02/4.jpg",
+      "eventKeys": [
+        "axel_main_02"
+      ],
+      "oldHash": "892acf550f8cc357445bce865634f67f2d0e20820d53ca49f582d61d42fb53b8",
+      "newHash": "d66e0eed843959114d9b51b54d45bd4bc3e381c74bd286d1d67690cf1a4c9662",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXE_practice.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "early-axel/originals/04-6.jpg",
+      "sourceHash": "a94071cd18ffb9ef917c38422315d548fcb6ec54ba15f1176fd63838e27b04c1",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/04/6.jpg",
+      "eventKeys": [
+        "axel_main_04"
+      ],
+      "oldHash": "b099cb2a0d1cb6c274141264b2bfc1f28639ad8e8dc75da528716e54214c5cc4",
+      "newHash": "926b3c75fdbdf64123f7b37458d823135efe36a67a4f74416f487f0a93312a8d",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXO_duel.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "axel/originals/06-3.jpg",
+      "sourceHash": "cd793a3e0cb4581c59e387bf44eccb64dda87bdb6c4e2573d255acceea6bab50",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/06/3.jpg",
+      "eventKeys": [
+        "axel_main_07"
+      ],
+      "oldHash": "c340aa5c3eb798088a49dab5e4d3828eaa5d00e1459f211e42de73e03853e52f",
+      "newHash": "87ad2960f31471d9f00a2999e2411ecc6ab231722ffa4ed0d47d5d29b02a3012",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXO_explosion.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "axel/originals/10-3.jpg",
+      "sourceHash": "25707ad55d763060b0b52d643ac5a55af50154ac918067b1950b946a2f037596",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/10/3.jpg",
+      "eventKeys": [
+        "axel_main_11"
+      ],
+      "oldHash": "3c4d49dd25caf39f7aa5664d4fcf2d2f9da37e34ff8b30db1dab6daa90fbd695",
+      "newHash": "cea5deb2d3e2d9c32769cf0b5b1425f92c2c93966eef4f38def47bb9586b00e7",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXO_home.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "axel/originals/08-6.jpg",
+      "sourceHash": "9860bf68ea219203ac14de4a1261fe4a7e97093d855f8624385689d8e59754fe",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/08/6.jpg",
+      "eventKeys": [
+        "axel_main_10"
+      ],
+      "oldHash": "c3598c9da7e0219123b16eeebf46bdfd718f8b1446533284e1a1b205c8f65019",
+      "newHash": "b39eb88c8118a3aed8d903422cd71cd667a2cc029b1be8488c90194f78ece5a1",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXO_lake.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "axel/originals/05-3.jpg",
+      "sourceHash": "e61281c5ae23461a12ef325e6889d4051e6bf14f5cec569eff251737be8ae831",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/05/3.jpg",
+      "eventKeys": [
+        "axel_main_06"
+      ],
+      "oldHash": "7372a33dd31f54b1e8c3e32230094676b1329735b16fbcafbd8b6dd6044061b5",
+      "newHash": "44573999391244576198a688a03054664215c4b3099f5c036bbd3d0d8e16c2e5",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXO_shop.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "axel/originals/08-3.jpg",
+      "sourceHash": "9dc5cdf32ed67b87f0190a6afa85fe6f2673814b218f98b830f2b3e11e9a33d3",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/08/3.jpg",
+      "eventKeys": [
+        "axel_main_09"
+      ],
+      "oldHash": "1d8b5ab2f64d342f842e1be87799d266b09a483f4ad9a3a7313563f8e308c347",
+      "newHash": "05fc80a205c49bb4237b29d7e13981470851e4a724d4ce3706e91912802b0d0b",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_AXO_winter.tga",
+      "aspectRatio": 1.775956284,
+      "sourceRelativePath": "axel/originals/07-4.jpg",
+      "sourceHash": "fade12568b8ea362cf905069d1ab3b8cb5868c8a514ace6c9e5bf428b69eb6f5",
+      "originalCrop": [
+        0,
+        0,
+        650,
+        366
+      ],
+      "sourcePage": "https://konosuba.com/1st/story/",
+      "sourceUrl": "https://konosuba.com/1st/story/img/07/4.jpg",
+      "eventKeys": [
+        "axel_main_08"
+      ],
+      "oldHash": "e0914f6ccaeea41355c6cfb17b0b0f31ef3fe55bf2953c405c159cb04334d360",
+      "newHash": "e27cbcf5497a8f92ba2eb2889ea4990a67b2fedd085cba37a0249e2aaf5e6bf4",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_BTE_kanao.tga",
+      "aspectRatio": 1.776937618,
+      "sourceRelativePath": "early-butterfly/originals/25-2.jpg",
+      "sourceHash": "1e375017a9c9610cf50c648efe1f135fcfb602d376ef38865674a844285c6d6b",
+      "originalCrop": [
+        0,
+        0,
+        940,
+        529
+      ],
+      "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=25",
+      "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/25/03.jpg",
+      "eventKeys": [
+        "butterfly_main_04"
+      ],
+      "oldHash": "7635e7cbe329b621f904f333f5aad2e6fc8beb47614902537e779f012cef6ca5",
+      "newHash": "fbc8430354f1fabfa8b2db8bbaeea2644c0f6bd40438a3983c86ae048a62c229",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_BTE_return.tga",
+      "aspectRatio": 1.776937618,
+      "sourceRelativePath": "early-butterfly/originals/25-3.jpg",
+      "sourceHash": "fee6a5dae248c30391a884e4d1bf2bebf3766a891320ead505844e7254c92dba",
+      "originalCrop": [
+        0,
+        0,
+        940,
+        529
+      ],
+      "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=25",
+      "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/25/04.jpg",
+      "eventKeys": [
+        "butterfly_main_05"
+      ],
+      "oldHash": "22be86632de19cdc5f8f6349ad82cb9a9093ddba57867ce66e30923af6d53918",
+      "newHash": "be9aa0ecd67e0ae24460e2683bb4933a881a1fad04f7362d5aade4ada679b557",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_BTE_shinobu.tga",
+      "aspectRatio": 1.776937618,
+      "sourceRelativePath": "early-butterfly/originals/24-0.jpg",
+      "sourceHash": "c58d2a6c24b57e4d744f9d38f28fa746ed64b562dba6d49b64d05238d03feb10",
+      "originalCrop": [
+        0,
+        0,
+        940,
+        529
+      ],
+      "sourcePage": "https://kimetsu.com/anime/risshihen/story/?story=24",
+      "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/story/24/01.jpg",
+      "eventKeys": [
+        "butterfly_main_02"
+      ],
+      "oldHash": "f82e7ff2b8196a933cfc075ca0be2b8495752d30a6324b2d520d8be7ebd2bd5a",
+      "newHash": "00ac5c63c1839fe2a656db8061c66972063dd5dcd8ba0d52726a4c814e0fa37d",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_BTO_awakening.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "butterfly/originals/4-2.jpg",
+      "sourceHash": "a6dd51e0ebc531f73aa786c24316bc2dfc524d186cb284363e39981482973663",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep4",
+      "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2119_photo_1636338060099603055",
+      "eventKeys": [
+        "butterfly_main_09"
+      ],
+      "oldHash": "1581f160217941ea30ef10168f17f172670b6149f5eb167df8870a9395efc2d5",
+      "newHash": "a969f6eb1d836c21f9c9682fb23ffcfd9bc66cdf0c6ced382b48a1d3d9caadd0",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_BTO_defenders.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "butterfly/originals/5-3.jpg",
+      "sourceHash": "eb09cc0f85347702d3001b891cf88941e6d4ec373f8d759370ccb584f3e1298c",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep5",
+      "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2130_photo_1636945395959519039",
+      "eventKeys": [
+        "butterfly_main_10"
+      ],
+      "oldHash": "a7c9de68eb1c82ff2ff82891d6e2ba6043477b6353274835ea098db49d384924",
+      "newHash": "79af0eb68b11f5a54ab1affe80e107306ebd9f734435240afdac94104eb4460f",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_BTO_flame.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "butterfly/originals/6-3.jpg",
+      "sourceHash": "e1e0fe7cd8322bd2ec1110e3f66356341c49cf8b056b9c9a450f2c95e1f3e98e",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://kimetsu.com/anime/mugenresshahen_tv/story/?id=ep6",
+      "sourceUrl": "https://kimetsu.com/anime/mugenresshahen_tv/story/SYS/CONTENTS/story_2135_photo_163728925822676990",
+      "eventKeys": [
+        "butterfly_main_12"
+      ],
+      "oldHash": "cf477625b664360bf54d3db333416063040850ab140c3469ff40c179778e61c1",
+      "newHash": "d72756c1dc1df36fe18fbbd46d3249a5751d67a915b8e4862deb09b12db354b9",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUE_berserker.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-fuyuki/originals/04-02.jpg",
+      "sourceHash": "96ec865da07e472267be5aa47bba75914e0860e86eaa637800938bb2bd4ce335",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/04.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/04/02.jpg",
+      "eventKeys": [
+        "fuyuki_main_04"
+      ],
+      "oldHash": "dcf8a5c1aa5bc18f6d6e5f27e25675bf57a2b1e946b5b72bd99e73997ff70dd3",
+      "newHash": "17eaa2ab37caec781c8d1d7085cd19448844a4b9dd4f7e532eee95f1b496b60a",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUE_caster.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-fuyuki/originals/08-02.jpg",
+      "sourceHash": "230070099472c3ca58028276de0d00da2e8dbe39307043d09eac9970890e149a",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/08.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/08/02.jpg",
+      "eventKeys": [
+        "fuyuki_main_07"
+      ],
+      "oldHash": "a3c31c48f61cade1ec6f7e0146b0459c908e5aa8765ba578868dfb540eacfbcf",
+      "newHash": "2837cf3b04540b812db8910ed4e70db5bb78738ba7ff798893f40ee1bb52be19",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUE_hostage.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-fuyuki/originals/13-03.jpg",
+      "sourceHash": "deb0f2d73cf597466f58d02cca4d0991e33a0f1f6d50d914a16e2a46500eabc5",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/13.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/13/03.jpg",
+      "eventKeys": [
+        "fuyuki_main_10"
+      ],
+      "oldHash": "b6a58ea90a15445206cef5d2f97910b5d2bcd6725d20f722513e955dfa4d437e",
+      "newHash": "eac273065a49bfb49e5fff7b5c53298702cb534bd38315ec066e9ce3d77e125d",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUE_kuzuki.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-fuyuki/originals/11-03.jpg",
+      "sourceHash": "498b21eca2d55533d4fc7e4f822bdd759bb76dd272457d7c45f0bb2beea63445",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/11.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/11/03.jpg",
+      "eventKeys": [
+        "fuyuki_main_09"
+      ],
+      "oldHash": "8a3f71b56101618ed54966d99347e478a728deb9d27244a7c63bda812e539307",
+      "newHash": "0db37b24ec9b9719a35f3f7653640e79cddf83e0bf387fa6f22b52569114c49f",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUE_school.tga",
+      "aspectRatio": 1.775147929,
+      "sourceRelativePath": "early-fuyuki/originals/06-02.jpg",
+      "sourceHash": "e27f5d2b81f698171ed4d303996c3f491752b3ead0ba5d219483d6ad4a171ac7",
+      "originalCrop": [
+        0,
+        0,
+        600,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/06.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/06/02.jpg",
+      "eventKeys": [
+        "fuyuki_main_06"
+      ],
+      "oldHash": "7ed67dacdaff574d02bc220fc84aa8c1e240329611cc9f9e0e970d83975b03a0",
+      "newHash": "a0508a9371713c9f036985f27c5adf4ffe458c80edbe51921feafaca724e8874",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUO_blades.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "fuyuki/originals/25-01.jpg",
+      "sourceHash": "4dfe95adfb727b09eeeea82dbfa324a1b3d263cfac1a470de81ab090f907f81d",
+      "originalCrop": [
+        130,
+        0,
+        468,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/25.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/25/01.jpg",
+      "eventKeys": [
+        "fuyuki_main_15"
+      ],
+      "oldHash": "88285134215682eb3ace776ddb2444c8880a5e32ea3a2a97a578767c2dda9cf6",
+      "newHash": "88285134215682eb3ace776ddb2444c8880a5e32ea3a2a97a578767c2dda9cf6",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUO_castle.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "fuyuki/originals/16-01.jpg",
+      "sourceHash": "f60fdec96ee3673bb6560a1461cfdcf1b98962f5ec124ad615c13a9a7adb3339",
+      "originalCrop": [
+        100,
+        0,
+        438,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/16.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/16/01.jpg",
+      "eventKeys": [
+        "fuyuki_main_11"
+      ],
+      "oldHash": "d8d76f873acaa5188cd0a20ef06df8f83df67cc71a1b99444a2813a59f49b503",
+      "newHash": "d8d76f873acaa5188cd0a20ef06df8f83df67cc71a1b99444a2813a59f49b503",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUO_clash.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "fuyuki/originals/21-01.jpg",
+      "sourceHash": "3c27c5b8761af498926935232f6ee68c0918c7edbdde5a1598e2e1e2f80c41e5",
+      "originalCrop": [
+        100,
+        0,
+        438,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/21.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/21/01.jpg",
+      "eventKeys": [
+        "fuyuki_main_13"
+      ],
+      "oldHash": "530648c1760f6f72dd57108efd941229398fcfc3f51b43255291188a1a8a18a8",
+      "newHash": "530648c1760f6f72dd57108efd941229398fcfc3f51b43255291188a1a8a18a8",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUO_identity.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "fuyuki/originals/19-03.jpg",
+      "sourceHash": "79039c526b3f2b01e076f4bca6a755b1b54f13104aff8fbc06b3fc7f1b7f88a5",
+      "originalCrop": [
+        130,
+        0,
+        468,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/19.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/19/03.jpg",
+      "eventKeys": [
+        "fuyuki_main_12"
+      ],
+      "oldHash": "a1683dcc07eedbb6674cd3837c3eb914e7e33ee575cd2fb0ceb1ba44297fc349",
+      "newHash": "a1683dcc07eedbb6674cd3837c3eb914e7e33ee575cd2fb0ceb1ba44297fc349",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUO_memory.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "fuyuki/originals/06-05.jpg",
+      "sourceHash": "8b6e4ee6a2765119ea7ab9e8383d2329d637aa464013434b9ef9ee5abce39cea",
+      "originalCrop": [
+        160,
+        0,
+        498,
+        338
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/06.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/06/05.jpg",
+      "eventKeys": [
+        "fuyuki_epilogue_memory"
+      ],
+      "oldHash": "3829650088639eb223c87e1f3e26e40bbea15ed1760f15ba9451b26ace2cca95",
+      "newHash": "3829650088639eb223c87e1f3e26e40bbea15ed1760f15ba9451b26ace2cca95",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_FUO_plan.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "fuyuki/originals/23-02.jpg",
+      "sourceHash": "065d0488741f5b8c4588978aa040a977120d0f95cc1b6151a0c8fdaff1349a65",
+      "originalCrop": [
+        170,
+        0,
+        507,
+        337
+      ],
+      "sourcePage": "https://www.fate-sn.com/ubw/story/23.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/23/02.jpg",
+      "eventKeys": [
+        "fuyuki_main_14"
+      ],
+      "oldHash": "241788050baacc924fee1215e38ac994d1652aa17dc7906f3f6460c51a173049",
+      "newHash": "241788050baacc924fee1215e38ac994d1652aa17dc7906f3f6460c51a173049",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRE_contest.tga",
+      "aspectRatio": 1.779661017,
+      "sourceRelativePath": "early-gourmet/originals/2-3.jpg",
+      "sourceHash": "18bbbaa39aa8b906819141f848c42678bf05c445e2586573eb553ccb0aef3268",
+      "originalCrop": [
+        0,
+        0,
+        840,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_02.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/86384036caa88325bea337e11e6edf2e-840x472.jpg",
+      "eventKeys": [
+        "gourmet_main_02"
+      ],
+      "oldHash": "19eccc445284a9253d82b6388fea7548d3ded563466d2ddd1c68a6bf4a8d51e0",
+      "newHash": "d713b7dd5a12b1636b0433a3916400b09b0588dbb2983595a81199512b3b0958",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRE_house.tga",
+      "aspectRatio": 1.779661017,
+      "sourceRelativePath": "early-gourmet/originals/4-3.jpg",
+      "sourceHash": "cc16d11708bf7a6a71eabac6201eb62a864af0b5637ce835dd6472e60e8e7722",
+      "originalCrop": [
+        0,
+        0,
+        840,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_04.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/e8db811eac8bde71aa250d87591d34f5-840x472.jpg",
+      "eventKeys": [
+        "gourmet_main_05"
+      ],
+      "oldHash": "58e829bb255d01a66e527148eb9f2ab9c2595c0e3ed5a00f39cd53792d56786c",
+      "newHash": "7d9f878b04a3c16fdbcde74e02ee6bf795ba97d8af2897130513b61aaa8d4736",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRE_mushrooms.tga",
+      "aspectRatio": 1.779661017,
+      "sourceRelativePath": "early-gourmet/originals/1-10.jpg",
+      "sourceHash": "cb7cf5c101b6bb44ec8e3227b68869e805506d2e42622fe04c35ac6478ffd37e",
+      "originalCrop": [
+        0,
+        0,
+        840,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_01.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/aa6aa35af189b190702c191d607de3b8-840x472.jpg",
+      "eventKeys": [
+        "gourmet_main_01"
+      ],
+      "oldHash": "875800c12c2674aecde4051365e9ae87501da423366c487d72929aeacab09dcc",
+      "newHash": "6a56def7ed3f5d865304c02cd2c46a994a28f0783d4ce3e23560c24376cdc312",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRE_rescue.tga",
+      "aspectRatio": 1.779661017,
+      "sourceRelativePath": "early-gourmet/originals/7-9.jpg",
+      "sourceHash": "a1b6866560a9cb2d3d41b67e1126a6ffcfd28765c6afc54a7cd3fba8128064c3",
+      "originalCrop": [
+        0,
+        0,
+        840,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_07.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/bea10e5ee6aa94c415570e5677f19668-840x472.jpg",
+      "eventKeys": [
+        "gourmet_main_06"
+      ],
+      "oldHash": "b15222762badcc19ef0529f4cb67033f223d50878c0af908bdc8ebf573075ee7",
+      "newHash": "7830b0a5c08b5a1846caae6af3ef542acfcd79b28401a4703fe54d5b7337bbe7",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRE_restaurant.tga",
+      "aspectRatio": 1.779661017,
+      "sourceRelativePath": "early-gourmet/originals/3-6.jpg",
+      "sourceHash": "43e71c39d181a8575172b73975d9927e7a6fe9bcc6e57b71a1e75ecdbc1d2166",
+      "originalCrop": [
+        0,
+        0,
+        840,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/archive/1st/story/id_03.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/data/8934be4c0c517a84abd9415583c8fa81-840x472.jpg",
+      "eventKeys": [
+        "gourmet_main_03"
+      ],
+      "oldHash": "d8c367d4aa07b90c270c53b7996befd5741f808a8401c63cb17b0bcf3b790212",
+      "newHash": "269844abdcca43414a46d0d5de8793894d770be758cd302951aa38067eb5279f",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRO_bondage.tga",
+      "aspectRatio": 1.777542373,
+      "sourceRelativePath": "gourmet/originals/11-shot4.jpg",
+      "sourceHash": "d2f2967f799a4bf0847121109c438e2b1628e86e70143ca7e816a3838aadc156",
+      "originalCrop": [
+        0,
+        0,
+        839,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/story/ep_11.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/4efdb116e5e14c856dd6d7f351e72269.jpg",
+      "eventKeys": [
+        "gourmet_main_11"
+      ],
+      "oldHash": "103e364e49235f79761019e72eb05a10d8ba27b25448bc9ea7adab64b10cb1d1",
+      "newHash": "6bda921af84bb9586c9c347ba99d358ccafe0fd08ecd2d0048e62e3f9d87fefe",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRO_return.tga",
+      "aspectRatio": 1.777542373,
+      "sourceRelativePath": "gourmet/originals/12-shot8.jpg",
+      "sourceHash": "84ad56397eb7781b735fe47770294ea034f888d98623972be5f18e07e3ec57d2",
+      "originalCrop": [
+        0,
+        0,
+        839,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/story/index.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/9bbcd0b4f0ff03b2a0211217de305aba.jpg",
+      "eventKeys": [
+        "gourmet_main_12"
+      ],
+      "oldHash": "f5edb3cd477996685cbd47d0e7a46024a974a68547b9e87a8e8700dc4416eda1",
+      "newHash": "cb54ba5b7812d784f9fb482ac6529da06fb28dfa6ea07fe90ae04665b4284d86",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRO_together.tga",
+      "aspectRatio": 1.777542373,
+      "sourceRelativePath": "gourmet/originals/12-shot4.jpg",
+      "sourceHash": "eb7262b8e3d14aef2897d92b167c05426c4fb3dc5d8919c96a28704a82406b47",
+      "originalCrop": [
+        0,
+        0,
+        839,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/story/index.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/03/78482592953cd622c2f267d2eca14edc.jpg",
+      "eventKeys": [
+        "gourmet_main_13"
+      ],
+      "oldHash": "7f274175f3ae33781986d74c52d4804278a2c82e105226462ec4f82dc3f5311a",
+      "newHash": "2747fe4788bd493768810c1bb9399c2545d56f113433e6ac33e6026fa0f47497",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_GRO_visitors.tga",
+      "aspectRatio": 1.777542373,
+      "sourceRelativePath": "gourmet/originals/10-shot6.jpg",
+      "sourceHash": "df85455237c80816985eff3e97c58ad90efb206f0d7ff03404c3662a1cad5bb4",
+      "originalCrop": [
+        0,
+        0,
+        839,
+        472
+      ],
+      "sourcePage": "https://anime.priconne-redive.jp/story/ep_10.html",
+      "sourceUrl": "https://anime.priconne-redive.jp/app/wp-content/uploads/2022/02/6978c28545e9346fb1b4fc9ccfa42261.jpg",
+      "eventKeys": [
+        "gourmet_main_10"
+      ],
+      "oldHash": "aa58109a0139400133854cb09ef3ea5e0dc1d203c033c41c9b59bbf27205d3b1",
+      "newHash": "edef5c56aba6977d7216c5c16f45ff59938cb81c68826e0537817552796cee97",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_KAE_cooperation.tga",
+      "aspectRatio": 1.307189542,
+      "sourceRelativePath": "early-karakura/originals/p01_t_16.jpg",
+      "sourceHash": "976f3f36c9016191b5ea5af98cdbbb078d91b6afa6151b33b8958d96830fa01d",
+      "originalCrop": [
+        0,
+        0,
+        200,
+        153
+      ],
+      "sourcePage": "https://pierrot.jp/title/bleach/playback_01.html",
+      "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p01/p01_t_16.jpg",
+      "eventKeys": [
+        "karakura_main_03"
+      ],
+      "oldHash": "1240032f84821f69c74fcb28e66945d579f3b8c3e64ca6693210b568da868436",
+      "newHash": "f8008ada95d1bdaf876f76861ef6f0735742f85903505a66c7015c5087cebd68",
+      "contentBoundsBefore": [
+        0,
+        30,
+        256,
+        226
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_KAE_gate.tga",
+      "aspectRatio": 1.330434783,
+      "sourceRelativePath": "early-karakura/originals/p02_01.png",
+      "sourceHash": "06d1f640ecb97404fe8b8ffc2b6ac5a0340196c0cce29dc80026b871092731e0",
+      "originalCrop": [
+        0,
+        0,
+        306,
+        230
+      ],
+      "sourcePage": "https://pierrot.jp/title/bleach/playback_02.html",
+      "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p02/p02_01.png",
+      "eventKeys": [
+        "karakura_main_06"
+      ],
+      "oldHash": "1af2283ac8a0af6b41bf8b3294009ec500f531b66ac6b8d734ae3d0926e99383",
+      "newHash": "d1676b5f85dc84afba22a06e712e2454afd2c48c1a1ca2b467cc7a7ff840bc2e",
+      "contentBoundsBefore": [
+        0,
+        32,
+        256,
+        224
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_KAE_kenpachi.tga",
+      "aspectRatio": 1.307189542,
+      "sourceRelativePath": "early-karakura/originals/p02_t_10.jpg",
+      "sourceHash": "5eee5c6d3b8eab53b5d54223f756524254b32e9b8dccb9e514a47475361e2a85",
+      "originalCrop": [
+        0,
+        0,
+        200,
+        153
+      ],
+      "sourcePage": "https://pierrot.jp/title/bleach/playback_02.html",
+      "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p02/p02_t_10.jpg",
+      "eventKeys": [
+        "karakura_main_09"
+      ],
+      "oldHash": "87fde5ad5697bf0dfd3fed97b4c55b545df65cb109ba98c8833bfd41e6512600",
+      "newHash": "fdfdc9ffd613f694937d7227d6808db4560fd2abbb8576715a7d19f42fc43cb6",
+      "contentBoundsBefore": [
+        0,
+        30,
+        256,
+        226
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_KAE_lesson.tga",
+      "aspectRatio": 1.307189542,
+      "sourceRelativePath": "early-karakura/originals/p01_t_02.jpg",
+      "sourceHash": "c361f47497e0fd462c004e9b28902003e7b32f640b9eb7428707a3cf0e0c9174",
+      "originalCrop": [
+        0,
+        0,
+        200,
+        153
+      ],
+      "sourcePage": "https://pierrot.jp/title/bleach/playback_01.html",
+      "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p01/p01_t_02.jpg",
+      "eventKeys": [
+        "karakura_main_02"
+      ],
+      "oldHash": "c231386a52fa0420e974ec906227af0ade8e16505f40289bc2c6b9d5e1fd660a",
+      "newHash": "c7b6c9b77f9361923a03152703f901422eb63759e70380ce86cd322ffd71d280",
+      "contentBoundsBefore": [
+        0,
+        30,
+        256,
+        226
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_KRO_answer.tga",
+      "aspectRatio": 1.333333333,
+      "sourceRelativePath": "karakura/originals/p03_t_23.jpg",
+      "sourceHash": "2a91f4cf173a5a21e1f8d983df2b5aca81a2bc3c2fc1439e736f8bfa2907984b",
+      "originalCrop": [
+        0,
+        0,
+        200,
+        150
+      ],
+      "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+      "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_t_23.jpg",
+      "eventKeys": [
+        "karakura_main_15"
+      ],
+      "oldHash": "78432df4701a71a561cf21284b68f0018e4e63c7aa08d470a293d50c5293b1d5",
+      "newHash": "bd386bb86045d57271d41b48d5d06bf9b474461e79d9d78fd0c3ae6731668f2c",
+      "contentBoundsBefore": [
+        0,
+        32,
+        256,
+        224
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_KRO_memory.tga",
+      "aspectRatio": 1.33,
+      "sourceRelativePath": "karakura/originals/p03_k_01.jpg",
+      "sourceHash": "0a5dc20b8e980c5ccd73744607da9194d4de9dfc42bc6ab9ced349555398c902",
+      "originalCrop": [
+        0,
+        0,
+        266,
+        200
+      ],
+      "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+      "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_k_01.jpg",
+      "eventKeys": [
+        "karakura_epilogue_memory"
+      ],
+      "oldHash": "50e659d501a437acdaf02af697a2068b7652498c74681c73d0977c6df1fb4f21",
+      "newHash": "3073a705d2805308edb93d9e3f2cacfd19c7fa4a4fe51af5cd52fb2d221f8908",
+      "contentBoundsBefore": [
+        0,
+        32,
+        256,
+        224
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_KRO_promise.tga",
+      "aspectRatio": 1.333333333,
+      "sourceRelativePath": "karakura/originals/p03_t_25.jpg",
+      "sourceHash": "9b69e694d88629474f194c01cc12c9ba4e2f82a60ed33a0afb588ca996740b92",
+      "originalCrop": [
+        0,
+        0,
+        200,
+        150
+      ],
+      "sourcePage": "https://pierrot.jp/title/bleach/playback_03.html",
+      "sourceUrl": "https://pierrot.jp/title/bleach/images/playback/p03/p03_t_25.jpg",
+      "eventKeys": [
+        "karakura_main_13"
+      ],
+      "oldHash": "05c4415cec7265093fa8eb3824fe3de2c17fd2887bd38c50498c7a72bc41a0cc",
+      "newHash": "98eff57b137102e6a048265924a4e4a932951c0e2c49b8ca700b22de9d6d1809",
+      "contentBoundsBefore": [
+        0,
+        32,
+        256,
+        224
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MGE_daybreak.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-magnolia/originals/4-1.jpg",
+      "sourceHash": "3df9a92a044c283053eda41862f7179e8bca0efd6b4126466f9d70b5df403301",
+      "originalCrop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "sourcePage": "https://www.b-ch.com/titles/4189/004",
+      "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189004a.jpg",
+      "eventKeys": [
+        "magnolia_main_02"
+      ],
+      "oldHash": "e4611477a83facccbfe9c925d5be32f96f1c3adb2234d96ba69c3f81ac2ac25c",
+      "newHash": "359c6eab7da3d1efa3053f770d106c1f762d6b4455388864230de3a2ea4fc43b",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MGE_guild.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-magnolia/originals/21-1.jpg",
+      "sourceHash": "5742c5a27e14c723554b9214c7948eb9903e9ad81c01e69e1f7a707683bb0aee",
+      "originalCrop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "sourcePage": "https://www.b-ch.com/titles/4189/021",
+      "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189021a.jpg",
+      "eventKeys": [
+        "magnolia_main_07"
+      ],
+      "oldHash": "08d63123d441454df18c74958eec9893af91ad41c614a6524dd27c98203b939f",
+      "newHash": "6473146eae4bdb1f63e8f64b3a0e5ffc00622982d895f78434fa231bed87e389",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MGE_lullaby.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-magnolia/originals/8-1.jpg",
+      "sourceHash": "6dd6cd02ec75cd3fe11e47f7c328f6a008766e6d84560ef03ba1e90fb92371d9",
+      "originalCrop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "sourcePage": "https://www.b-ch.com/titles/4189/008",
+      "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189008a.jpg",
+      "eventKeys": [
+        "magnolia_main_05"
+      ],
+      "oldHash": "99eb0e33952085b3bb8e3e58ccf7d86eaf7d7512d91d5f0563846acf758874c1",
+      "newHash": "eaa701f1d0e0213d02ee5ac067497ca4c83e97afed379a95eee7b8dd1b41ae37",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MGO_erza.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "magnolia/originals/26-1.jpg",
+      "sourceHash": "ca9d529ac1c5dda8e599f43ff9170d8e35a11328344dd6da90d1e744c6245ecc",
+      "originalCrop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "sourcePage": "https://www.b-ch.com/titles/4189/026",
+      "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189026a.jpg",
+      "eventKeys": [
+        "magnolia_main_12"
+      ],
+      "oldHash": "f6a7da18a2a4f35139e0d86be091918b84268d104e157c58a8b34d7ac186b743",
+      "newHash": "815a33dcee4a2eb5251616928cfcb11cd284a3d3c859373281d0fbc9a0cc1410",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MGO_fairylaw.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "magnolia/originals/28-1.jpg",
+      "sourceHash": "d7678e216512badd3b6031eecbb001684b8982057ff52d42096ae574753c99cc",
+      "originalCrop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "sourcePage": "https://www.b-ch.com/titles/4189/028",
+      "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189028a.jpg",
+      "eventKeys": [
+        "magnolia_main_13"
+      ],
+      "oldHash": "39a844005975f0204d1107e1536facd0d78872068e07b5794ca1ce61e49dfae8",
+      "newHash": "08fb1c890b947aab897a954a85344706b2f29b42dedea39eaf72517b18e37298",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTE_difference.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-mitakihara/originals/6-7.jpg",
+      "sourceHash": "634f37e49cf181d9531e0875c2aa47d403cb4a3c67a060d8d4d5144807e8164e",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep06",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1143_photo_1739177039111355596",
+      "eventKeys": [
+        "mitakihara_main_06"
+      ],
+      "oldHash": "37fc3f4374ad754afea7652e2a7cc57ecd1e097ab9e5ca669bf51e4cbc5ad820",
+      "newHash": "75fc0c5987e66b31a8c87c34b814eb86210a4f5270256c846970305d63513dff",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTE_rain.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-mitakihara/originals/8-10.jpg",
+      "sourceHash": "27c62663993e0314235bc7dcebf027023ee1a0be3cba90aea5b19461e910ecc9",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep08",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1146_photo_1740377482285493201",
+      "eventKeys": [
+        "mitakihara_main_08"
+      ],
+      "oldHash": "08c427b83e36b3257962e04ab1ec1cb23c64d3a8f2453e190cfa471402bfc006",
+      "newHash": "ab40c73ec148a298d5d398e3f2dd6696d7fb681cce4e5dd47424bb68a9fdce50",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTE_sunset.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-mitakihara/originals/4-5.jpg",
+      "sourceHash": "b2f9ed5423c65f26a1905dc49bacfe88ad75c41f716b69679421984f2878dc0c",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep04",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1141_photo_1737971186038897918",
+      "eventKeys": [
+        "mitakihara_main_04"
+      ],
+      "oldHash": "8cf2f16a7b647d8d154a4654c7cd91613c79b31c97a44f58e8d0322cc95eda2d",
+      "newHash": "b776b647baec4f64b3131099d8e7083b71d67cb27b782b681cfb7110affc40be",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTE_tea.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-mitakihara/originals/2-2.jpg",
+      "sourceHash": "c93b24ed1f85df877054dfa1055c19b0578257765c647d33c42cdb3099a1d64f",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep02",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1138_photo_1736754950513577350",
+      "eventKeys": [
+        "mitakihara_main_02"
+      ],
+      "oldHash": "b663aa856b44e25376d3cbbc968575a373cd3af371a259b9dd0e512436ee31ea",
+      "newHash": "ab75ee20a5279d577d7e9050e8507f4bbcdad7e8f577035d13bfdacd8ddf76ac",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTE_warning.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "early-mitakihara/originals/1-3.jpg",
+      "sourceHash": "9cdb7cad791739f8cabb35a1269f9c744ee4862d3a65df44e11a204b94acf88c",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep01",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1137_photo_173528171775139523",
+      "eventKeys": [
+        "mitakihara_main_01"
+      ],
+      "oldHash": "f17ffc86ae51a7da96ba9a04d2d489c8db10e9a46ac2df33c680b7a058e1aa20",
+      "newHash": "bcfcfd8116c2012d89c95e7a039cf6cd1e36f689bfb7daea21b0ef681b3e196a",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTO_explanation.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "mitakihara/originals/ep11_story_1150_photo_1742204635587949871.jpg",
+      "sourceHash": "4afbe0d9507c780945c3828736b66ff1b0c42a6ef3ed3fe05d4ebf89b92767c4",
+      "originalCrop": [
+        260,
+        0,
+        935,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep11",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1150_photo_1742204635587949871",
+      "eventKeys": [
+        "mitakihara_main_11"
+      ],
+      "oldHash": "7a6d9b1c9c1280a953ffced94067dc0f6029436943bd86e7387b06e2697d0775",
+      "newHash": "7a6d9b1c9c1280a953ffced94067dc0f6029436943bd86e7387b06e2697d0775",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTO_meeting.tga",
+      "aspectRatio": 1.392,
+      "sourceRelativePath": "mitakihara/originals/ep10_story_1148_photo_1741600937446583776.jpg",
+      "sourceHash": "93dfec9d6e8781fa909e511f43b7ea91813697a7897f2e28ef800e72e6cd05e9",
+      "originalCrop": [
+        150,
+        50,
+        1020,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep10",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1148_photo_1741600937446583776",
+      "eventKeys": [
+        "mitakihara_main_10",
+        "mitakihara_epilogue_memory"
+      ],
+      "oldHash": "fb7391178ecbc1b9d5e5d2191d3661871319cc786581d4206030a05a44b6d32a",
+      "newHash": "7f1e6694f2f5182bcfd42931d3d3332061f91c5978dda2e0a6ae8f7dce0eff91",
+      "contentBoundsBefore": [
+        0,
+        36,
+        256,
+        220
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTO_struggle.tga",
+      "aspectRatio": 1.42578125,
+      "sourceRelativePath": "mitakihara/originals/ep12_story_1152_photo_1742804639974440101.jpg",
+      "sourceHash": "644626e8682329ffbb9c5439a789da63d463284aee9e5ca3c017d76a58d6f879",
+      "originalCrop": [
+        230,
+        82,
+        960,
+        594
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep12",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1152_photo_1742804639974440101",
+      "eventKeys": [
+        "mitakihara_main_12"
+      ],
+      "oldHash": "142f55eb7dbc31227275612b32a05d35b31604416b8c0b0d466146500d0cf7f6",
+      "newHash": "0f2aed88d7d0e0e9cb710564aeaefb71cbca6344a5e04579e8600c1c8d8d09a1",
+      "contentBoundsBefore": [
+        0,
+        38,
+        256,
+        218
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTO_wish.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "mitakihara/originals/ep12_story_1152_photo_1742804640642529526.jpg",
+      "sourceHash": "3a93b83595a0fc79b502f50f982c0ccf08a03119a4f58002bf7e96b37b749ab9",
+      "originalCrop": [
+        300,
+        82,
+        812,
+        594
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep12",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1152_photo_1742804640642529526",
+      "eventKeys": [
+        "mitakihara_main_13"
+      ],
+      "oldHash": "fad3405ef1665e4abbce1339a17b793bf2e6ec6c744532145a83e25758c678ea",
+      "newHash": "fad3405ef1665e4abbce1339a17b793bf2e6ec6c744532145a83e25758c678ea",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_MTV_companions.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "mitakihara03-v2/originals/3-3.jpg",
+      "sourceHash": "8e339e596445cba624fdc2982b628d9d57697be6d7768794f1070c1d86a4b347",
+      "originalCrop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep03",
+      "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1140_photo_1737358905312167630",
+      "eventKeys": [
+        "mitakihara_main_03"
+      ],
+      "oldHash": "cd90951f5692048194ad82cc4d56e3f8b81014b4376c68ec7b3eddc70a4063f6",
+      "newHash": "d71df11b2968961ff831886f6868658b39eabf2f9b2aa5a3a18dce1e54c0fdd7",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_PEO_reef.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "penacony/originals/article0-0.png",
+      "sourceHash": "33d7b0d9fe6e172908483803d603b5d1b50df164214296adb870253e550beb7f",
+      "originalCrop": [
+        840,
+        0,
+        3000,
+        2160
+      ],
+      "sourcePage": "https://blog.de.playstation.com/?p=178594",
+      "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/17ad58597ee0283cd03eab8d89180d05e394ba67.png",
+      "eventKeys": [
+        "hsr_main_10"
+      ],
+      "oldHash": "faa383f698e20a280f17f11e18b972c732a1c3d1e5c00f0ca98fb800f89f7b28",
+      "newHash": "faa383f698e20a280f17f11e18b972c732a1c3d1e5c00f0ca98fb800f89f7b28",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_PEO_sunday.tga",
+      "aspectRatio": 1.777777778,
+      "sourceRelativePath": "penacony/originals/article0-3.png",
+      "sourceHash": "056baa0a2f28f8bb9f9de11675374b3ce056ae74f2e166948b3d54340ac09f3a",
+      "originalCrop": [
+        0,
+        0,
+        3840,
+        2160
+      ],
+      "sourcePage": "https://blog.de.playstation.com/?p=178594",
+      "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/626f19c60819d0329144a48fcf0990a7d616ae48.png",
+      "eventKeys": [
+        "hsr_main_13"
+      ],
+      "oldHash": "0b9dcd8bbe1f794bd303a59d77d02a4571436f170d9b30c54d1d11edc5e02222",
+      "newHash": "5b4180cecf28c64d3962279b58e1c310304af30cfd9d215133acc879bb53b30f",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_PEO_theater.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "penacony/originals/article0-10.png",
+      "sourceHash": "942b1bf6ed86652918ef15195b8e29fa4c8c0cf33670c095d748143d4e837435",
+      "originalCrop": [
+        840,
+        0,
+        3000,
+        2160
+      ],
+      "sourcePage": "https://blog.de.playstation.com/?p=178594",
+      "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/f44956aa77ef1623c0ab28b9224702c328cccb32.png",
+      "eventKeys": [
+        "hsr_main_14"
+      ],
+      "oldHash": "3bdb49d114b674a2c55078f178ad40d6c8f4524e1bea8d8dd5cd9c3603d3b063",
+      "newHash": "3bdb49d114b674a2c55078f178ad40d6c8f4524e1bea8d8dd5cd9c3603d3b063",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAE_declaration.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "early-aincrad/originals/01-collage.jpg",
+      "sourceHash": "d925b287651cbd338020ead2502fb7fb382e96c641de270a1fc7c5f7bbcb00c8",
+      "originalCrop": [
+        235,
+        132,
+        470,
+        264
+      ],
+      "sourcePage": "https://www.swordart-online.net/sp/aincrad/story/story01.html",
+      "sourceUrl": "https://www.swordart-online.net/sp/aincrad/story/img/img_story01.jpg",
+      "eventKeys": [
+        "aincrad_main_01"
+      ],
+      "oldHash": "b7cd4bc6b630e63f4b74d975952da0f7413423d8e2e5ecd128142f670228e194",
+      "newHash": "9bb4ee735c03901ea109cf8d7038b96a7c29dc2f66b6465d2f5dff552beebd97",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAE_feather.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "early-aincrad/originals/04_4_pic5.jpg",
+      "sourceHash": "0ca0baf6d408d0a050fdca83a93ccabef389d9a015f6689af616f673118bc75c",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/04.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/4_pic5.jpg",
+      "eventKeys": [
+        "aincrad_main_05"
+      ],
+      "oldHash": "57647baa9e47a7be0e1135bef0017acc88b15f2ddbf654257d2db56ee8f19c48",
+      "newHash": "b38639b7727e71b31be555ace3dc562bafd757efd51b76c816cf3d881509408c",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAE_guild.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "early-aincrad/originals/03_3_pic1.jpg",
+      "sourceHash": "199674943ba92190b5f6aa2849d99076d4a2c6f53f2ecc369c3aa9cf5edf606b",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/03.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/3_pic1.jpg",
+      "eventKeys": [
+        "aincrad_main_03"
+      ],
+      "oldHash": "16af02396454eb05012567eafbddf35c9fa91a5a6f33c0f2b8b274c74410940a",
+      "newHash": "3dec5999eed45f996e4da809800a975fb1758b9f097d3bd87131f7ae8c1073d2",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAE_rest.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "early-aincrad/originals/05_5_pic3.jpg",
+      "sourceHash": "85028f00d76c4fb684e21f134ad9f2732f64b0c0ef3300a16b7f54242e9da440",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/05.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/5_pic3.jpg",
+      "eventKeys": [
+        "aincrad_main_08"
+      ],
+      "oldHash": "fc83f54093552efe24e1d37d47243fb4d4af24a90dfa81eb4296c7a92e01e039",
+      "newHash": "826ed2b7930b1e50ef57e454f870243548532511a3f2cf46b2ae7784b110e3ac",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAO1_cabin.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "aincrad/originals/11_pic2.jpg",
+      "sourceHash": "83b4c6241c4b2e92e2ca1ec79f7b1a1e991e6a657e84d464997e86433f9ec7d5",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/11.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/11_pic2.jpg",
+      "eventKeys": [
+        "aincrad_main_10"
+      ],
+      "oldHash": "066979f8156e2fa15d0505b286842fd83a8548a675a1997a0d8b15ce8a4546b8",
+      "newHash": "df57d3ff7f389a575b075f689f10da5ba2378b4a011836a7fc71cba763b531dd",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAO1_door.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "aincrad/originals/9_pic2.jpg",
+      "sourceHash": "29d63f3e2f15cc8bdc774c088c4c2c9a9fc0b873ceb68aee7400c3179457cb38",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/09.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/9_pic2.jpg",
+      "eventKeys": [
+        "aincrad_main_09"
+      ],
+      "oldHash": "b123c934b6146ded32c1ac0a5c530a8482879054b04b0a6b8921809f172c4155",
+      "newHash": "a6f6430fa86abe3c4ee831959149b503206997baefcbc464b3f5311875bf68f3",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAO1_heathcliff.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "aincrad/originals/14_pic1.jpg",
+      "sourceHash": "1b0d73f8e997c316535cd41904e4cd11dfd4ec312c8ce59d1e7da519c75bd803",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/14.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/14_pic1.jpg",
+      "eventKeys": [
+        "aincrad_main_13"
+      ],
+      "oldHash": "c69e9f98f9d6afaa8f6d0a6b011bdee20e073900b5ec4dc1b7b00daf7b3d7f81",
+      "newHash": "fb49faed051252ec7b4bdae3307b04deab3eb7f6c912d9b0a97154a0eea0a470",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAO1_memory.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "aincrad/originals/13_pic3.jpg",
+      "sourceHash": "2a37fd7214ac1a12bcb487686b4dfad3d05628964c8da9608d90545b96bb55d8",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/13.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/13_pic3.jpg",
+      "eventKeys": [
+        "aincrad_epilogue_memory"
+      ],
+      "oldHash": "1bc950e43821e388caa291c0d125959ea6f97d156bee73b1a5c98218d79a9caf",
+      "newHash": "0b04f9709fbf695a6503ddbd6c5046c1f7bfc2546d007ab508748092dfb1b1b3",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAO1_return.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "aincrad/originals/14_pic6.jpg",
+      "sourceHash": "f7d354db2e544de94d66dbec4195941d44592301172e749b0d07730f66e77c55",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/14.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/14_pic6.jpg",
+      "eventKeys": [
+        "aincrad_main_14"
+      ],
+      "oldHash": "fc3517c248d813f30c37586b3cf82ee8d503196c52fbb04504e5d6b08fc38f6f",
+      "newHash": "d821834a7045d297e223ac25fc59b40fec572edb09988739a6f82268934d1700",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_SAO1_yui.tga",
+      "aspectRatio": 1.78030303,
+      "sourceRelativePath": "aincrad/originals/12_pic4.jpg",
+      "sourceHash": "c470af2fde4e146a5c30b3a7c1a16c646b3636d974a3e8cafdae38b35c7f076a",
+      "originalCrop": [
+        0,
+        0,
+        235,
+        132
+      ],
+      "sourcePage": "https://www.swordart-online.net/aincrad/story/12.html",
+      "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/12_pic4.jpg",
+      "eventKeys": [
+        "aincrad_main_11"
+      ],
+      "oldHash": "d9e7a3aaab1f18f733a17ae89c93c20dee01f7bad3043b2ed07e7b559f437fd7",
+      "newHash": "6092bf37bb6304e724d27574cd97cc11dbc7c7849705a05ca53347e316a79fa0",
+      "contentBoundsBefore": [
+        0,
+        56,
+        256,
+        200
+      ],
+      "operation": "normalized"
+    },
+    {
+      "target": "war3mapImported\\UI_Event_ZGE_folca.tga",
+      "aspectRatio": 1.0,
+      "sourceRelativePath": "early-zegagrande/folca-street.png",
+      "sourceHash": "9e2eaa2b3a231d127a2058bd04df64d9fcaa4825b68b4d591a8835d1d794abbf",
+      "originalCrop": [
+        115,
+        75,
+        440,
+        400
+      ],
+      "sourcePage": "https://cgworld.jp/special-feature/202403-relink1.html",
+      "sourceUrl": "https://cgworld.jp/interview/images/202403-relink/202403-relink-k2.png",
+      "eventKeys": [
+        "zegagrande_main_02"
+      ],
+      "oldHash": "cdadc948f75d67faf971121ed696aacd48eae884318a9cbf9d78865f9115c315",
+      "newHash": "cdadc948f75d67faf971121ed696aacd48eae884318a9cbf9d78865f9115c315",
+      "contentBoundsBefore": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "operation": "preserved"
+    }
+  ]
+}

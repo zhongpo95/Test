@@ -1905,7 +1905,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO3_winry_Art.tga"
     },
     {
       "key": "fma_measurement_notes",
@@ -1955,7 +1956,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO3_winry_Art.tga"
     },
     {
       "key": "fma_trial_footprints",
@@ -2055,7 +2057,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMA_21_Art.tga"
     },
     {
       "key": "fma_training",
@@ -2105,7 +2108,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO2_izumi_Art.tga"
     },
     {
       "key": "fma_after_large",
@@ -2155,7 +2159,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO2_izumi_Art.tga"
     },
     {
       "key": "fma_after_crowd",
@@ -2205,7 +2210,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO2_izumi_Art.tga"
     },
     {
       "key": "fma_hayate_commands",
@@ -2256,7 +2262,8 @@
       "failure": null,
       "canonFact": "리자의 침착함·정확한 사격·반려견 블랙 하야테에서 별도 기다림 문제를 창작한다. 원작 반려견 훈련 장면·새 명령 시스템을 재현하지 않는다.",
       "uncertain": [],
-      "actionCost": 0
+      "actionCost": 0,
+      "icon": "war3mapImported\\UI_Card_FMO3_riza_Art.tga"
     },
     {
       "key": "fma_family_photo",
@@ -2306,7 +2313,8 @@
       ],
       "failure": null,
       "canonFact": "휴즈의 가족 자랑·빠른 판단과 셰스카의 읽은 글 기억·군법회의소 일을 바탕으로 한 별도 문서와 사진이다. 휴즈가 살아 있던 시기의 독립 만남이며 본편 음모·사망·부활을 바꾸지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga"
     },
     {
       "key": "fma_home_spares",
@@ -2356,7 +2364,8 @@
       ],
       "failure": null,
       "canonFact": "피나코의 정비와 돌아갈 집·윈리의 지원 역할을 별도 보급 분배로 각색한다. 실제 오토메일 부품·장비 강화·집 상태를 생성하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMA_13_Art.tga"
     },
     {
       "key": "fma_butcher_counter",
@@ -2406,7 +2415,8 @@
       ],
       "failure": null,
       "canonFact": "시그의 정육점·강한 몸·세심함과 이즈미의 엄격한 가르침을 별도 분배 작업으로 창작한다. 질병·잃은 장기·인체 연성은 대가나 보상이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMA_26_Art.tga"
     },
     {
       "key": "fma_ling_lunch",
@@ -2456,7 +2466,8 @@
       ],
       "failure": null,
       "canonFact": "공식 큰 식욕·검술·상황 적응과 15화의 러시밸리 식사 소재에서 별도 계산 문제를 창작한다. 알폰스는 식사하거나 물약을 마시지 않는다. 먹어서 즉시 플레이어를 치료하거나 불로불사·그리드 동화는 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO2_lin_Art.tga"
     },
     {
       "key": "fma_flame_supplies",
@@ -2506,7 +2517,8 @@
       ],
       "failure": null,
       "canonFact": "로이의 발화포 장갑·불꽃 준비, 리자의 냉정한 보좌, 하보크의 실무에서 별도 보급 문제를 만든다. 하보크의 부상 전 일상이며 장갑·불꽃·군대를 지급하거나 전투·부상을 해결하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_RMU12_roy_Art.tga"
     },
     {
       "key": "fma_pie_delivery",
@@ -2556,7 +2568,8 @@
       ],
       "failure": "겹친 이름의 연락을 끝내 확인하지 못했다. 포장과 연락에 쓴 120골드는 돌아오지 않고 카드도 받지 못한다. 휴즈는 상자 이름부터 다시 나누자고 한다.",
       "canonFact": "그레이시아의 애플파이와 휴즈의 가족 사랑·남을 돕는 성격, 알폰스의 침착함에서 별도 전달 문제를 창작한다. 휴즈 생전의 독립 만남이며 가족의 본편 운명을 바꾸지 않는다. 알폰스는 파이를 먹지 않는다. 70%는 맵의 연락 검사 수치다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga"
     },
     {
       "key": "fma_sheska_next_blank",
@@ -2607,7 +2620,8 @@
       ],
       "failure": null,
       "canonFact": "공식 책 기억 능력·정비·배려 역할에서 창작한 개인 기록 보유 재방문이다. 문서 복원 기술이나 본편 연구의 결론을 보상으로 지급하지 않는다. 행동력 최대치1은 사냥 시간을 늘리지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMA_21_Art.tga"
     },
     {
       "key": "fma_pinako_return_list",
@@ -2658,7 +2672,8 @@
       ],
       "failure": null,
       "canonFact": "공식 귀환 장소를 지키는 피나코·정비사 윈리·정육점 시그의 역할에서 창작한 개인 기억 보유 방문이다. 새 장비·물약·즉시 회복·NPC 동행을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FMA_13_Art.tga"
     },
     {
       "key": "amestris_main_01",
@@ -2788,7 +2803,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FCU8_edward_Art.tga"
     },
     {
       "key": "amestris_main_03",
@@ -2990,7 +3006,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FMA_21_Art.tga"
     },
     {
       "key": "amestris_main_06",
@@ -3193,7 +3210,8 @@
         "enabled": true,
         "commonResult": "알이 원래 몸을 잃은 사정은 그에게 불멸의 기술로 보인다. 에드는 동생을 구하려 그리드와 싸운다. 그리드 곁의 동료들은 군의 실험으로 인간과 동물이 합쳐진 키메라들이다. 이때 군 최고지도자 브래들리가 직접 진압에 나서 그리드 세력을 무너뜨린다. 알은 구하지만 군의 실험과 인조인간의 관계는 풀리지 않은 채 남는다. 형제는 사건을 뒤로하고 센트럴로 돌아가며, 그곳에서 자신들이 모르던 소식을 듣게 된다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FMO3_greed_Art.tga"
     },
     {
       "key": "amestris_main_09",
@@ -3250,7 +3268,8 @@
         "enabled": true,
         "commonResult": "다시 만날 수 있으리라 생각했던 사람의 집에는 기다리던 가족만 남아 있다. 에드와 알은 자신들이 찾는 진실의 위험이 연구실 밖의 삶에도 닿았음을 절감한다. 친구를 잃은 머스탱 역시 범인을 찾으려 한다. 그 과정에서 군인 마리아 로스가 휴즈 살해범이라는 혐의를 받으며, 알려진 사건의 경위를 다시 살펴야 할 문제가 생긴다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga"
     },
     {
       "key": "amestris_main_10",
@@ -3322,7 +3341,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_RMU12_roy_Art.tga"
     },
     {
       "key": "amestris_main_11",
@@ -3394,7 +3414,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FMO2_hohenheim_Art.tga"
     },
     {
       "key": "amestris_main_12",
@@ -3466,7 +3487,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FMO3_winry_Art.tga"
     },
     {
       "key": "amestris_main_13",
@@ -3595,7 +3617,8 @@
         "enabled": true,
         "commonResult": "스카는 브래들리와 싸우며 형이 남긴 연구를 바탕으로 준비한 역전 연성을 실행할 자리를 지킨다. 국가연금술사에게 복수하던 힘이 이제 나라의 사람들을 살리는 데 쓰인다. 호엔하임 역시 긴 세월 준비한 대항 연성으로 국민의 혼을 되찾을 때를 기다린다. 서로 다른 곳의 싸움이 이어지지만 적도 멈추지 않는다. 아버지는 실행에 필요한 다섯 인주를 모으며 마지막 순간을 준비한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga"
     },
     {
       "key": "amestris_main_15",
@@ -3652,7 +3675,8 @@
         "enabled": true,
         "commonResult": "국민은 살아나고 동료들은 다시 힘을 다해 공격할 수 있다. 그러나 아버지는 아직 쓰러지지 않았다. 빼앗긴 혼 때문에 거대한 힘을 유지하기 어려워진 그는 사람들을 새로 흡수하려 한다. 이를 막는 동료들의 공격은 그의 힘을 계속 소모시킨다. 끝까지 저항하는 적의 반격에 에드의 기계 팔과 알의 갑옷이 크게 부서지며, 국민을 구한 뒤에도 형제의 생존은 위태롭다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FMO2_hohenheim_Art.tga"
     },
     {
       "key": "amestris_main_16",
@@ -3724,7 +3748,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga"
     },
     {
       "key": "amestris_main_17",
@@ -3796,7 +3821,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FCU8_edward_Art.tga"
     },
     {
       "key": "amestris_main_18",
@@ -3921,7 +3947,8 @@
       ],
       "failure": "",
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga"
     },
     {
       "key": "amestris_main_father_underground",

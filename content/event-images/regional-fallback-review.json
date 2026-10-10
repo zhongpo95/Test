@@ -1,0 +1,82 @@
+[
+  {
+    "eventKey": "gbf_airship_crate",
+    "reason": "오이겐·라캄·카타리나의 화물·장비·통로 분기가 동등하게 제시되어 한 인물로 사건 전체를 대표하지 않는다."
+  },
+  {
+    "eventKey": "zegagrande_main_08",
+    "reason": "장치를 설명하는 중심 인물 자스바의 삽화가 현재 카드 이미지 목록에 없다."
+  },
+  {
+    "eventKey": "zegagrande_epilogue_memory",
+    "reason": "기공단 전체의 귀환과 다음 항해를 회고하므로 특정 인물보다 지역 대표 그림을 유지한다."
+  },
+  {
+    "eventKey": "ft_request_board",
+    "reason": "나츠·루시·샤를의 운반·의뢰·수송 분기가 동등하게 제시되어 단일 주연을 정하지 않는다."
+  },
+  {
+    "eventKey": "ft_timber",
+    "reason": "그레이·웬디·엘자의 서로 다른 준비를 고르는 사건이며 한 인물을 중심으로 삼을 근거가 부족하다."
+  },
+  {
+    "eventKey": "bl_shop_boxes",
+    "reason": "콘·이치고·우류·오리히메가 같은 배송 문제의 서로 다른 역할을 맡으므로 특정 인물로 한정하지 않는다."
+  },
+  {
+    "eventKey": "karakura_main_10",
+    "reason": "루키아와 형의 죽음을 마주하는 화자는 간쥬이며, 현재 카드 이미지 목록에 간쥬의 삽화가 없다."
+  },
+  {
+    "eventKey": "karakura_main_14",
+    "reason": "명령 기관의 참상을 발견하고 질문하는 히츠가야의 삽화가 현재 카드 이미지 목록에 없다."
+  },
+  {
+    "eventKey": "hsr_main_02",
+    "reason": "본문은 정체를 밝히기 전의 익명 소녀만 제시한다. 후속 장이나 보상에서 유추한 인물로 먼저 표시하지 않는다."
+  },
+  {
+    "eventKey": "hsr_main_09",
+    "reason": "본문의 대화 상대는 갑주 상태의 샘이다. 반디의 인물 삽화를 해당 갑주 모습의 장면처럼 사용하지 않는다."
+  },
+  {
+    "eventKey": "hsr_epilogue_postcard",
+    "reason": "여행에서 만난 사람들을 함께 회고하는 엽서이며 본문에 특정 주연이 제시되지 않는다."
+  },
+  {
+    "eventKey": "hsr_epilogue_voice",
+    "reason": "각자의 길을 떠난 사람들의 다음 만남을 회고하는 사건으로 특정 인물 이름이 없다."
+  },
+  {
+    "eventKey": "fma_trial_footprints",
+    "reason": "에드워드·알폰스·암스트롱·리자가 시험 결과에 각각 의견을 보태므로 보조 인물을 단독 주연으로 지정하지 않는다."
+  },
+  {
+    "eventKey": "amestris_main_04",
+    "reason": "현자의 돌 연구 단서를 제공하는 마르코의 삽화가 현재 카드 이미지 목록에 없다."
+  },
+  {
+    "eventKey": "amestris_main_13",
+    "reason": "나라의 통로와 전쟁을 설명하는 올리비에의 삽화가 없다. 이름이 비슷한 알렉스 루이 암스트롱을 대신 연결하지 않는다."
+  },
+  {
+    "eventKey": "butterfly_epilogue_memory",
+    "reason": "나비저택에서 치료·훈련·상실을 함께 돌아보는 후일담으로 한 인물이 특정되지 않는다."
+  },
+  {
+    "eventKey": "gourmet_main_08",
+    "reason": "위기에서 일행을 이끄는 중심 인물 라비리스트의 삽화가 현재 카드 이미지 목록에 없다."
+  },
+  {
+    "eventKey": "gourmet_epilogue_memory",
+    "reason": "네 사람의 식탁과 공동의 여행을 회고하므로 한 인물보다 지역 대표 그림을 유지한다."
+  },
+  {
+    "eventKey": "fy_shinji_offer",
+    "reason": "제목과 사건의 제안자인 신지 전용 삽화가 없어 지역 대표를 유지한다. 보조 인물 린으로 바꾸지 않는다."
+  },
+  {
+    "eventKey": "fy_teacher_statement",
+    "reason": "목격담을 전하는 잇세이 전용 삽화가 없어 지역 대표를 유지한다. 보조 인물 린으로 바꾸지 않는다."
+  }
+]
