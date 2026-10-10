@@ -359,5 +359,81 @@
       600,
       846
     ]
+  },
+  {
+    "cardId": 1256,
+    "cardKey": "dungeon_meshi_ending_memorial",
+    "cardName": "다시 마주 앉은 식탁",
+    "world": "dungeon_meshi",
+    "icon": "UI_Card_XP_dungeon_meshi_head_Icon",
+    "art": "UI_Card_XP_dungeon_meshi_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\cover2_cover.webp",
+    "sourceSha256": "81dd4728c481f870ba36302fc972df8c8deb6ada381234443db9553978d626b2",
+    "sourcePage": "https://delicious-in-dungeon.com/",
+    "sourceUrl": "https://delicious-in-dungeon.com/assets/top/vis2.webp?v2",
+    "credit": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+    "crop": [
+      100,
+      900,
+      2900,
+      3700
+    ]
+  },
+  {
+    "cardId": 1266,
+    "cardKey": "hunter_exam_ending_memorial",
+    "cardName": "합격증 너머의 친구",
+    "world": "hunter_exam",
+    "icon": "UI_Card_XP_hunter_exam_ending_memorial_Icon",
+    "art": "UI_Card_XP_hunter_exam_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep21_1.jpg",
+    "sourceSha256": "1d188209f358b99f16127923e921e8567611e239703521974907ca858b3ce7ec",
+    "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/021.html",
+    "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/021_1.jpg",
+    "credit": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+    "crop": [
+      120,
+      0,
+      400,
+      280
+    ]
+  },
+  {
+    "cardId": 1355,
+    "cardKey": "rz_main_ending_memorial",
+    "cardName": "모두가 있는 저택의 아침",
+    "world": "roswaal_mansion",
+    "icon": "UI_Card_XP_roswaal_mansion_ending_memorial_Icon",
+    "art": "UI_Card_XP_roswaal_mansion_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep11_5.jpg",
+    "sourceSha256": "44b2ea068ae885c86c67fd3c5da2983403e09f8d5f77157bd463a2bc929f482e",
+    "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP11",
+    "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/11/5.jpg",
+    "credit": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+    "crop": [
+      455,
+      0,
+      1175,
+      720
+    ]
+  },
+  {
+    "cardId": 1402,
+    "cardKey": "z_city_ending_memorial",
+    "cardName": "내일도 히어로",
+    "world": "z_city",
+    "icon": "UI_Card_XP_z_city_ending_memorial_Icon",
+    "art": "UI_Card_XP_z_city_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep12_6.jpg",
+    "sourceSha256": "b4a91417828c38b6f506cdfff8b7340ebe713f3911fe2a5a20fecb2ef14c45be",
+    "sourcePage": "https://onepunchman-anime.net/story/#/season1/12",
+    "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/12_06.jpg",
+    "credit": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+    "crop": [
+      100,
+      0,
+      325,
+      225
+    ]
   }
 ]

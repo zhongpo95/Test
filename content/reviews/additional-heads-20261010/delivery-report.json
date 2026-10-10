@@ -1,0 +1,108 @@
+{
+  "issue": 164,
+  "batch": "additional-four-and-head-completion",
+  "worlds": [
+    {
+      "key": "dungeon_meshi",
+      "name": "던전밥",
+      "cards": 48,
+      "main": 14,
+      "side": 14,
+      "epilogues": 2
+    },
+    {
+      "key": "hunter_exam",
+      "name": "헌터시험장",
+      "cards": 49,
+      "main": 14,
+      "side": 16,
+      "epilogues": 2
+    },
+    {
+      "key": "roswaal_mansion",
+      "name": "로즈월 저택",
+      "cards": 50,
+      "main": 14,
+      "side": 16,
+      "epilogues": 2
+    },
+    {
+      "key": "z_city",
+      "name": "Z시",
+      "cards": 47,
+      "main": 13,
+      "side": 16,
+      "epilogues": 2
+    }
+  ],
+  "added": {
+    "heads": 4,
+    "cards": 194,
+    "events": 125,
+    "entries": 16,
+    "images": 180
+  },
+  "catalog": {
+    "heads": 23,
+    "cards": 1390,
+    "events": 822,
+    "sha256": "51d9c1e441ae2dc270785095bd9dee153a8d765806035c8738c39739e20914a4",
+    "imageRegistrySha256": "477e436ff7e041772835f616a35b4103cac0ae8148d41842af7bb7abe7bd02ba"
+  },
+  "headProgression": {
+    "baseCapacity": 2,
+    "perDistinctMainCompletion": 1,
+    "scope": "이번 런",
+    "completedHeadsRetained": true,
+    "resetEachRun": true,
+    "permanentDiscoveryDoesNotUnlockSequel": true,
+    "royalContentPending": true,
+    "royalRequirement": "persona5 메인 완주"
+  },
+  "compile": {
+    "template": "D:\\Work\\WC3Maps\\mm\\2\\카드_이미지팩_Arcana_A_20261010\\validation-work\\template.j",
+    "template_sha256": "66b3210546341010bae31c285547aecb5a65b5adb4a440d3a58fdad2f381bf81",
+    "compiler_exit": 0,
+    "map_created": false,
+    "pjass_exit": 0,
+    "script_sha256": "1e3af1bda20cbcfab914ff1f04bb983e99118c0badb157a4972a1d39682fdc68",
+    "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   140277 lines: war3map.j\r\nParse successful:   152186 lines: <total>\r\n24 errors ignored\r\n"
+  },
+  "compileBoundary": "JASSHelper/PJass 스크립트 검사. 기존과 동일한 24 errors ignored. 게임 실행 증거 아님.",
+  "pack": {
+    "asiFile": "Arcana_A.asi",
+    "files": 1325,
+    "sourceBytes": 518368622,
+    "asiBytes": 225585219,
+    "asiSha256": "7c2e9d46b6271c40f21a287ba377e76ed56064559ff4b814853bfb731648efda",
+    "loaderBytes": 2560,
+    "loaderSha256": "f2cef2d21ac7585317b6691426c635926ee93c6bb931ab242cf4bd1e9b20632e",
+    "mpqOffset": 2560,
+    "mpqSha256": "30c22f249c0195262da56fb34b8228c0b74e0dbc705c65977605b93ad4d3bbe4",
+    "archiveVersion": 0,
+    "compression": "lossless zlib",
+    "allMemberHashesVerified": true,
+    "standaloneLoaderRequired": false,
+    "mapCreated": false,
+    "installed": false,
+    "warcraftRuntimeTested": false,
+    "path": "D:\\Work\\ARCANA\\builds\\asi\\20261010_additional4_heads\\Arcana_A.asi",
+    "distributionPath": "D:\\Work\\ARCANA\\Arcana_A.asi",
+    "beforeBytes": 197440670,
+    "increaseBytes": 28144549,
+    "increasePercent": 14.25
+  },
+  "visual": {
+    "inspected": "네 작품 인물 및 회차 그림 접촉표. 12개 회차 장면과 사건 인물·시점 대조.",
+    "warcraftInspected": false
+  },
+  "notTested": [
+    "실제 Warcraft/JN 화면 및 입력",
+    "멀티플레이 동기화",
+    "서버 도감 저장·불러오기",
+    "실제 등장 빈도와 보상 밸런스",
+    "Warcraft VM 실행 한도·FPS"
+  ],
+  "mapCreated": false,
+  "installed": false
+}

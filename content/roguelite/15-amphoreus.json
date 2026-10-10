@@ -2702,7 +2702,7 @@
         {
           "label": "증명되지 않은 전제를 적어 둔다",
           "result": "아낙사의 질문처럼 확실한 것과 추측을 나눈다.",
-          "card": "amph_anaxa",
+          "card": "amphoreus_main_03_1",
           "card2": "",
           "gold": 0,
           "cost": 0,
@@ -2864,7 +2864,7 @@
         {
           "label": "이제 답할 수 있는 부분만 고친다",
           "result": "아낙사의 질문에 아는 만큼 정확하게 응한다.",
-          "card": "amph_anaxa",
+          "card": "amphoreus_main_03_1",
           "card2": "",
           "gold": 0,
           "cost": 0,
@@ -3092,11 +3092,6 @@
   ],
   "storyChanges": [],
   "reviewRecords": [
-    {
-      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\editor-delta-01.json",
-      "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
-      "scope": "첫 검토 후 바꾼 5작품 14개 사건"
-    },
     {
       "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\amphoreus-main-01.json",
       "monitorRecordId": "a942f417-13e9-4990-95ef-f43783cdae0f"

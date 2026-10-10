@@ -1,0 +1,2936 @@
+{
+  "world": {
+    "key": "z_city",
+    "name": "Z시",
+    "work": "원펀맨",
+    "intro": "너무 쉽게 싸움을 끝내는 사이타마에게 제노스가 찾아온다. 히어로 시험과 도시의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다.",
+    "effects": [
+      {
+        "stat": "boss_damage_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "opm_genos",
+    "mainStory": {
+      "title": "내일도 히어로",
+      "length": 13,
+      "focus": [
+        "boss_damage_percent",
+        "charge_damage",
+        "penetration"
+      ],
+      "source": "2015년 TV 애니메이션 1기 1~12화",
+      "adaptation": "주요 사건의 발생 순서와 승패를 유지하고 관찰·준비·판단을 선택으로 삼는다. 마지막은 보로스와 침공의 결말 및 일상 복귀로 닫으며 원작의 모든 미래 위기를 해결했다고 하지 않는다."
+    },
+    "icon": "war3mapImported\\UI_Card_XP_z_city_head_Icon.tga",
+    "entryIcon": "war3mapImported\\UI_Event_XP_z_city_head.tga"
+  },
+  "sources": [
+    "https://www.b-ch.com/titles/4888/001",
+    "https://www.b-ch.com/titles/4888/002",
+    "https://www.b-ch.com/titles/4888/003",
+    "https://www.b-ch.com/titles/4888/004",
+    "https://www.b-ch.com/titles/4888/005",
+    "https://www.b-ch.com/titles/4888/006",
+    "https://www.b-ch.com/titles/4888/007",
+    "https://www.b-ch.com/titles/4888/009",
+    "https://www.b-ch.com/titles/4888/010",
+    "https://www.b-ch.com/titles/4888/011",
+    "https://www.b-ch.com/titles/4888/012",
+    "https://www.tv-tokyo.co.jp/anime/onepunchman/episodes/",
+    "https://onepunchman-anime.net/goods/bd/bd_4.php",
+    "https://onepunchman-anime.net/goods/bd/bd_6.php",
+    "https://lostinanime.com/2015/11/one-punch-man-07/",
+    "https://lostinanime.com/2015/11/one-punch-man-09/",
+    "https://lostinanime.com/2015/12/one-punch-man-12-end-and-seies-review/"
+  ],
+  "canonBoundary": "2015년 TV 애니메이션 1기 1~12화만 사용한다. 모스키토 소녀와 제노스의 합류, 진화의 집, 도원단과 소닉, 인정 시험, 활동 보고, 운석, 심해왕, A시 외계 침공과 보로스의 결말 순서다. 가로우, 괴인협회, 무술대회, 2기 이후 장비·기술·관계와 OVA·드라마 CD는 범위 밖이다. 사이타마의 한방이나 무적, 타츠마키의 반사, 보로스의 재생은 서사에 한정하며 같은 능력을 플레이어에게 지급하지 않는다. 보상은 기존 공격·치명·신속·차지·관통 등의 수치이며 흡수·재생의 기존 합산 최대체력 10%/초 제한을 바꾸지 않는다. 체력 비용·직접 회복·물약·골드·몬스터 수 변경 보상은 없다. 일반 사건의 준비 장면과 회상, 후일담 대사는 새로 썼다. 공식 각화 소개를 기본으로 쓰고 소개에 없는 7·9·12화의 결말은 출처 문서에 보조자료로 명시한다. 메인 선택은 원래 승패를 고치지 않고 관찰 대상을 바꾼다.",
+  "cards": [
+    {
+      "key": "opm_saitama",
+      "name": "사이타마",
+      "effectName": "힘을 싣는 마지막 순간",
+      "keyword": "보스 피해 · 공격력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_genos",
+      "name": "제노스",
+      "effectName": "끝까지 좁힌 포화",
+      "keyword": "차지 공격 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_sonic",
+      "name": "음속의 소닉",
+      "effectName": "앞질러 잡는 간격",
+      "keyword": "신속 · 치명 확률",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_mumen",
+      "name": "무면허 라이더",
+      "effectName": "물러서지 않는 앞줄",
+      "keyword": "공격력 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_bang",
+      "name": "뱅",
+      "effectName": "힘이 흐르는 길",
+      "keyword": "관통 · 받는 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_tatsumaki",
+      "name": "전율의 타츠마키",
+      "effectName": "다른 각도에서 오는 압력",
+      "keyword": "비방향 공격 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 5
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_atomic",
+      "name": "아토믹 사무라이",
+      "effectName": "짧고 정확한 칼끝",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_metalbat",
+      "name": "금속배트",
+      "effectName": "빈틈을 닫는 타격",
+      "keyword": "헤드·백 공격 · 공격력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_boros",
+      "name": "보로스",
+      "effectName": "맞설 상대를 향한 집중",
+      "keyword": "최종 대미지 · 보스 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "final_damage_percent",
+          "value": 1
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_genos_plan",
+      "name": "제노스",
+      "effectName": "다음 행동을 위한 여백",
+      "keyword": "행동력 최대치 · 공격력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_01_1",
+      "name": "사이타마",
+      "effectName": "망설임보다 먼저",
+      "keyword": "공격력 · 건강 유지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_01_2",
+      "name": "사이타마",
+      "effectName": "한 지점에 모은 힘",
+      "keyword": "차지 공격 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 5
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_01_3",
+      "name": "사이타마",
+      "effectName": "돌아보기 전의 한 걸음",
+      "keyword": "행동 속도 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 2
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_02_1",
+      "name": "제노스",
+      "effectName": "출력보다 먼저 본 변화",
+      "keyword": "대미지 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_02_2",
+      "name": "사이타마",
+      "effectName": "결정적인 거리",
+      "keyword": "보스 피해 · 이동 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "move_speed",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_02_3",
+      "name": "제노스",
+      "effectName": "하나로 좁힌 질문",
+      "keyword": "치명 확률 · 차지 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "charge_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_03_1",
+      "name": "제노스",
+      "effectName": "돌진 전의 틈",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_03_2",
+      "name": "사이타마",
+      "effectName": "흩어지지 않는 중심",
+      "keyword": "보스 피해 · 받는 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_03_3",
+      "name": "제노스",
+      "effectName": "통로를 가르는 포화",
+      "keyword": "비방향 공격 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 5
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_04_1",
+      "name": "음속의 소닉",
+      "effectName": "다음 발이 닿는 곳",
+      "keyword": "신속 · 이동 연계",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_04_2",
+      "name": "사이타마",
+      "effectName": "호들갑 없는 판단",
+      "keyword": "건강 유지 · 공격력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_04_3",
+      "name": "음속의 소닉",
+      "effectName": "칼끝 뒤의 방향",
+      "keyword": "헤드·백 공격 · 치명 확률",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 5
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_05_1",
+      "name": "제노스",
+      "effectName": "기록 밖에서 본 힘",
+      "keyword": "대미지 · 차지 공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "charge_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_05_2",
+      "name": "사이타마",
+      "effectName": "다음 칸을 보는 눈",
+      "keyword": "공격력 · 건강 유지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_05_3",
+      "name": "제노스",
+      "effectName": "대련 전의 초점",
+      "keyword": "치명 확률 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_06_1",
+      "name": "사이타마",
+      "effectName": "흩어지지 않는 순찰",
+      "keyword": "이동 속도 · 이동 연계",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "moving_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_06_2",
+      "name": "음속의 소닉",
+      "effectName": "도발 너머의 동선",
+      "keyword": "신속 · 헤드·백 공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 120
+        },
+        {
+          "stat": "directional_damage",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_06_3",
+      "name": "제노스",
+      "effectName": "마감 전에 정한 순서",
+      "keyword": "차지 속도 · 대미지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_07_1",
+      "name": "제노스",
+      "effectName": "하늘로 좁힌 사선",
+      "keyword": "차지 공격 · 차지 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 7
+        },
+        {
+          "stat": "charge_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_07_2",
+      "name": "뱅",
+      "effectName": "위기 앞의 판단",
+      "keyword": "관통 · 대미지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_07_3",
+      "name": "사이타마",
+      "effectName": "올려다본 한 점",
+      "keyword": "보스 피해 · 공격력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_08_1",
+      "name": "음속의 소닉",
+      "effectName": "빗속에서 벌린 간격",
+      "keyword": "신속 · 치명 확률",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 120
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_08_2",
+      "name": "무면허 라이더",
+      "effectName": "도착하기 위한 페달",
+      "keyword": "이동 속도 · 공격력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_08_3",
+      "name": "제노스",
+      "effectName": "흩어진 위치의 확인",
+      "keyword": "비방향 공격 · 대미지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 7
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_09_1",
+      "name": "제노스",
+      "effectName": "지킬 방향의 선택",
+      "keyword": "대미지 · 받는 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_09_2",
+      "name": "무면허 라이더",
+      "effectName": "비켜 주지 않은 자리",
+      "keyword": "공격력 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_09_3",
+      "name": "사이타마",
+      "effectName": "비가 멎는 순간의 집중",
+      "keyword": "보스 피해 · 치명 확률",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_10_1",
+      "name": "뱅",
+      "effectName": "흔들린 뒤의 첫 판단",
+      "keyword": "관통 · 받는 피해 감소",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_10_2",
+      "name": "제노스",
+      "effectName": "두 전선 사이의 조준",
+      "keyword": "대미지 · 차지 속도",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "charge_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_10_3",
+      "name": "사이타마",
+      "effectName": "목표를 향한 직선",
+      "keyword": "보스 피해 · 이동 연계",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "moving_damage",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_11_1",
+      "name": "아토믹 사무라이",
+      "effectName": "베어 낸 뒤의 관찰",
+      "keyword": "치명 확률 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_11_2",
+      "name": "금속배트",
+      "effectName": "공격 사이를 잇는 타격",
+      "keyword": "헤드·백 공격 · 공격력",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 9
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_11_3",
+      "name": "사이타마",
+      "effectName": "막힌 길을 넘는 힘",
+      "keyword": "일반 피해 · 최종 대미지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_12_1",
+      "name": "보로스",
+      "effectName": "마침내 마주한 상대",
+      "keyword": "보스 피해 · 최종 대미지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_12_2",
+      "name": "사이타마",
+      "effectName": "받아칠 순간의 집중",
+      "keyword": "차지 공격 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 10
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "opm_main_12_3",
+      "name": "전율의 타츠마키",
+      "effectName": "상공을 되돌린 압력",
+      "keyword": "비방향 공격 · 대미지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 10
+        },
+        {
+          "stat": "damage_percent",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2015년 애니메이션 1기에서 보인 태도와 전투의 관찰점을 기존 수치로 옮긴 카드다. 원작 기술의 직접 습득이나 원킬·무적·무한 재생을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "z_city_ending_memorial",
+      "name": "내일도 히어로",
+      "effectName": "Z시의 다음 하루",
+      "keyword": "엔딩 기념",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기 침공 결말을 마친 기념 카드다. 동일 지역의 일반 인물 카드와 합쳐지지 않도록 고유 이름을 사용한다.",
+      "uncertain": [],
+      "endingCard": true
+    }
+  ],
+  "events": [
+    {
+      "key": "opm_main_01",
+      "title": "너무 빨리 끝나는 싸움",
+      "intro": "사이타마는 괴인을 쓰러뜨리고도 채 가시지 않은 무료함을 느낀다.",
+      "story": "강적을 기다렸는데 싸움은 또 금방 끝났다. 집으로 돌아가는 길, 사이타마는 힘을 얻기 전 한 아이를 구하려고 뛰어들었던 때를 떠올린다. 그때는 결과를 확신해서 움직인 것이 아니었다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "처음 아이에게 다가갔던 이유를 떠올린다.",
+          "result": "이길 수 있는지 계산하기 전에 외면할 수 없는 얼굴이 있었다. 시작의 이유를 더 큰 적의 크기와 바꾸지 않았다.",
+          "card": "opm_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "짧은 싸움에서 힘을 싣는 순간을 되짚는다.",
+          "result": "허공을 향한 동작을 줄이고 목표 앞에서 자세를 정리한다. 대단한 동작보다 힘이 흐트러지지 않는 순간에 집중했다.",
+          "card": "opm_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "싸움이 끝난 뒤 거리부터 살핀다.",
+          "result": "자신의 허전함만 보고 있으면 지나칠 것이 있었다. 위험이 남은 곳을 먼저 확인하고 돌아갈 길을 잡았다.",
+          "card": "opm_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 1화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "사이타마는 답을 찾았다며 떠들지 않는다. 내일도 도움이 필요한 곳에 가겠다는 일만큼은 달라지지 않았다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_main_02",
+      "title": "모기 떼가 지나간 자리",
+      "intro": "모스키토 소녀를 상대하던 제노스 앞에 사이타마가 나타난다.",
+      "story": "Z시에 몰려든 모기 떼와 싸우던 제노스는 상대의 변화에 몰렸다. 위기의 순간 나타난 사이타마의 힘은 그가 세운 예상과 달랐다. 며칠 뒤, 제노스가 그 힘을 알고 싶다며 사이타마의 집을 찾아온다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제노스가 놓친 변화부터 정리한다.",
+          "result": "처음 세운 판단을 고집하면 달라진 상대를 놓친다. 제노스는 공격을 쏟기 전 다시 확인할 지점을 적었다.",
+          "card": "opm_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 들어온 거리를 되짚는다.",
+          "result": "위험한 순간에 어디까지 다가갔는지 살폈다. 멀리서 지켜보기만 할 때와 결정적인 거리에 설 때의 차이를 기억했다.",
+          "card": "opm_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스의 질문을 짧게 나누어 듣는다.",
+          "result": "모든 답을 한꺼번에 얻으려는 설명을 잠시 멈췄다. 지금 묻고 싶은 한 가지를 고르자 말이 또렷해졌다.",
+          "card": "opm_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 2화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "제노스의 방문은 한 번의 감사 인사로 끝나지 않았다. 사이타마의 평범한 생활 옆에 끈질긴 질문 하나가 자리 잡는다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_scene_genos_visit.tga"
+    },
+    {
+      "key": "opm_main_03",
+      "title": "진화의 집으로 향하는 길",
+      "intro": "사이타마와 제노스는 자신들을 노린 조직의 본거지로 향한다.",
+      "story": "아머드 고릴라가 전한 이야기 끝에는 지너스 박사의 연구가 있었다. 사이타마의 몸을 이용하려는 계획을 멈추기 위해 두 사람이 움직인다. 내부에서 풀려난 아수라 카부토는 연구자가 통제할 수 있는 상대조차 아니었다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제노스와 상대의 돌진을 먼저 관찰한다.",
+          "result": "부피가 큰 몸만 따라가지 않고 움직임이 시작되는 방향을 보았다. 급한 반응을 줄이자 노릴 틈이 선명해졌다.",
+          "card": "opm_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 자세를 유지하는 모습을 본다.",
+          "result": "위협적인 기세에 덩달아 동작을 키우지 않았다. 중심을 흩뜨리지 않은 채 한 상대에게 힘을 모았다.",
+          "card": "opm_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스와 막힌 통로의 사각을 살핀다.",
+          "result": "앞만 보면 공격을 비껴 보낼 자리가 보이지 않는다. 벽과 통로의 각도를 보며 다음 위치를 골랐다.",
+          "card": "opm_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 3화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "실험실이 내세운 강함도 사이타마 앞에서 끝을 맞는다. 제노스는 거창한 설명만으로 눈앞의 차이를 다 이해할 수 없다는 사실을 남긴다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga"
+    },
+    {
+      "key": "opm_main_04",
+      "title": "같은 머리 모양의 오해",
+      "intro": "도원단의 소동을 들은 사이타마가 F시로 향한다.",
+      "story": "뉴스 속 도원단은 모두 머리를 밀고 있었다. 사이타마는 자신까지 한패로 오해받을까 걱정한다. 한편 제니르의 경호를 맡은 소닉이 도원단을 쫓고 있었고, 사이타마의 앞에도 빠른 칼날이 나타난다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "소닉의 빠른 발이 멈추는 곳을 본다.",
+          "result": "속도에 시선만 빼앗기지 않고 다음 발을 딛을 자리를 찾았다. 사라졌다 나타나는 듯한 움직임에도 간격이 있었다.",
+          "card": "opm_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 피하지 않은 거리를 살핀다.",
+          "result": "상대의 속도만 보고 뒤로 물러서지 않았다. 닿을 거리를 침착하게 판단하는 태도를 기억했다.",
+          "card": "opm_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "소닉의 칼끝과 몸 방향을 따로 본다.",
+          "result": "번쩍이는 날과 몸의 회전이 항상 같은 것을 말하지는 않았다. 힘이 실리는 선을 골라 읽었다.",
+          "card": "opm_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 4화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "소동이 끝나도 소닉의 시선은 사이타마에게 남았다. 사이타마가 원한 조용한 정리와 소닉이 받아들인 승부는 같은 것이 아니었다.",
+        "nodes": [
+          {
+            "key": "reflection",
+            "story": "소닉이 떠난 뒤에도 사이타마는 뉴스의 오해가 더 신경 쓰인다. 유명해지는 것과 제대로 알려지는 것은 얼마나 다를까?",
+            "choices": [
+              {
+                "label": "남이 붙일 이름에 너무 매달리지 않는다.",
+                "result": "긴 해명 대신 앞으로 어떻게 행동할지를 남겼다."
+              },
+              {
+                "label": "필요한 오해만 짧게 바로잡는다.",
+                "result": "말을 늘릴수록 소동도 커질 수 있었다. 꼭 필요한 사실만 골랐다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_sonic.tga"
+    },
+    {
+      "key": "opm_main_05",
+      "title": "서로 다른 등급표",
+      "intro": "히어로 인정 시험에서 두 사람은 다른 등급을 받는다.",
+      "story": "사이타마는 체력 측정 기록을 바꾸고도 필기시험 때문에 C급으로 합격한다. 제노스는 시험과 실적을 인정받아 S급이 된다. 등급표의 간격과 눈앞에서 본 힘의 간격은 제노스에게 전혀 다르게 보였다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제노스가 등급보다 직접 본 것을 믿도록 듣는다.",
+          "result": "공식 평가를 모른 척하지 않되 그것이 모든 답이라고 여기지도 않았다. 제노스는 자신이 따라갈 이유를 다시 확인했다.",
+          "card": "opm_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마와 다음에 준비할 항목을 고른다.",
+          "result": "불만만 길게 늘어놓는 대신 놓친 부분을 구분했다. 이미 잘한 것과 다시 살필 것을 한 줄에 섞지 않았다.",
+          "card": "opm_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이어질 대련에서 제노스의 관찰점을 정한다.",
+          "result": "승패보다 거리와 자세가 바뀌는 순간을 보려 했다. 한 번의 비교에서 배울 수 있는 것을 좁혔다.",
+          "card": "opm_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 5화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "제노스는 사이타마의 제자가 되겠다는 뜻을 굽히지 않는다. 평가표를 받아 든 두 사람은 각자의 이름으로 히어로 활동을 시작한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga"
+    },
+    {
+      "key": "opm_main_06",
+      "title": "일주일이라는 마감",
+      "intro": "C급의 활동 보고 기한을 알게 된 사이타마가 거리로 나간다.",
+      "story": "프로가 된 지 닷새가 지나서야 사이타마는 매주 활동 보고가 필요하다는 사실을 듣는다. 사건을 찾으려고 서두르지만 그럴수록 거리의 작은 일은 눈에 들어오지 않는다. 다시 나타난 소닉은 승부를 재촉하며 상황을 더 꼬이게 한다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사이타마와 당장 살필 거리부터 정한다.",
+          "result": "모든 골목을 한꺼번에 훑으려던 발걸음을 정리했다. 먼저 확인할 곳을 고르니 움직임이 덜 낭비됐다.",
+          "card": "opm_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "소닉의 도발과 주변의 위험을 구분한다.",
+          "result": "승부를 재촉하는 목소리가 사람들의 동선까지 가릴 수는 없었다. 방향이 바뀌는 순간에 집중했다.",
+          "card": "opm_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스가 알려 준 규정을 짧게 되짚는다.",
+          "result": "한꺼번에 많은 일을 벌이기보다 필요한 조건부터 확인했다. 헛수고를 줄이는 순서가 공격의 준비에도 남았다.",
+          "card": "opm_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 6화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "활동은 조급하게 이름을 남기는 일과 달랐다. 소닉과의 소동을 지나며 사이타마는 자신이 해야 할 일을 다시 바라본다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_main_07",
+      "title": "하늘이 내려앉기 전에",
+      "intro": "Z시로 떨어지는 운석 앞에 제노스와 뱅이 남는다.",
+      "story": "협회 지부는 이미 비어 있었다. 제노스는 스승이 사는 도시를 지키려고 운석을 향해 전력을 쏟으려 하고, 뱅은 눈앞의 위협에서 시선을 떼지 않는다. 뒤이어 도착한 사이타마가 하늘을 올려다본다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제노스가 겨누는 한 지점을 따라 본다.",
+          "result": "작은 목표만 노릴 때와 다른 집중이 필요했다. 남은 시간을 흩어 쓰지 않고 출력이 모일 순간을 정했다.",
+          "card": "opm_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "뱅이 위협을 판단하는 순서를 듣는다.",
+          "result": "아는 것과 바랄 뿐인 것을 구분했다. 냉정한 판단이 몸을 굳게 만드는 대신 움직일 방향을 남겼다.",
+          "card": "opm_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 도약하기 전 중심을 잡는 모습을 본다.",
+          "result": "목표가 크다고 준비까지 크게 흔들릴 필요는 없었다. 힘을 싣는 시작점을 놓치지 않았다.",
+          "card": "opm_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 7화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "사이타마가 운석을 부순다. 충돌의 위기는 막았지만 흩어진 파편이 남긴 피해까지 사라진 것은 아니었다.",
+        "nodes": [
+          {
+            "key": "reflection",
+            "story": "깨진 운석 뒤에는 무너진 건물과 당황한 사람들이 남았다. 위기를 막았다는 말과 피해를 입었다는 말이 같은 거리에서 부딪친다.",
+            "choices": [
+              {
+                "label": "남은 피해를 가볍게 말하지 않는다.",
+                "result": "살아남은 기쁨으로 모든 상처를 덮을 수는 없었다. 지금 보이는 어려움을 먼저 살폈다."
+              },
+              {
+                "label": "사이타마의 행동과 결과를 구분해 기억한다.",
+                "result": "해낸 일을 지우지도, 하지 못한 일까지 해냈다고 보태지도 않았다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_scene_meteor_branch.tga"
+    },
+    {
+      "key": "opm_main_08",
+      "title": "비 내리는 도시로",
+      "intro": "J시에 나타난 심해왕을 향해 히어로들이 움직인다.",
+      "story": "지상에 올라온 해인족 뒤로 더 강한 심해왕이 나타났다. 소닉은 눈앞의 상대를 상대하고, 무면허 라이더는 자전거로 현장을 향한다. 사이타마와 제노스도 도시로 향하지만 모두가 같은 장소에 있는 것은 아니다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "소닉이 상대와 벌리는 간격을 지켜본다.",
+          "result": "위험한 거리를 인정하는 것은 눈을 돌리는 일과 달랐다. 다음 움직임을 위해 비워 둘 공간을 읽었다.",
+          "card": "opm_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "무면허 라이더가 현장으로 가는 길을 따라 본다.",
+          "result": "빨리 도착하려는 마음을 잃지 않으면서도 길을 놓치지 않았다. 다른 사람의 부름이 들리는 쪽으로 발을 움직였다.",
+          "card": "opm_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마와 제노스의 이동을 구분해 살핀다.",
+          "result": "함께 출발했다고 끝까지 같은 곳에 있는 것은 아니었다. 누가 어디에서 위험을 마주할지 다시 확인했다.",
+          "card": "opm_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 8화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "각자의 길은 아직 한 점에 모이지 않았다. 심해왕의 위협이 피난소로 향하며 싸움의 무게가 달라진다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_mumen.tga"
+    },
+    {
+      "key": "opm_main_09",
+      "title": "피난소의 앞줄",
+      "intro": "제노스와 무면허 라이더가 심해왕 앞에서 사람들을 지킨다.",
+      "story": "제노스는 아이를 감싸다 심해왕의 공격에 크게 손상된다. 뒤이어 도착한 무면허 라이더도 힘의 차이를 알고 있지만 물러서지 않는다. 피난소의 시선이 그에게 모이는 동안 또 다른 발걸음이 비를 가르고 다가온다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제노스가 아이 쪽으로 몸을 돌린 순간을 기억한다.",
+          "result": "공격할 기회보다 먼저 지켜야 할 방향을 골랐다. 목표를 놓치지 않으면서도 주변을 보는 시선을 남겼다.",
+          "card": "opm_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "무면허 라이더가 다시 일어서는 모습을 지켜본다.",
+          "result": "상대보다 강하다는 증명은 할 수 없었다. 그래도 자리를 내주지 않으려는 의지가 손끝에 남았다.",
+          "card": "opm_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 들어올 틈과 사람들의 위치를 살핀다.",
+          "result": "혼란 속에서도 마지막으로 힘을 모을 거리는 분명했다. 공격할 대상을 놓치지 않는 집중을 기억했다.",
+          "card": "opm_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 9화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마침내 도착한 사이타마가 심해왕을 쓰러뜨린다. 마지막 일격만으로는 그 전에 버틴 사람들의 시간을 다 말할 수 없었다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_mumen.tga"
+    },
+    {
+      "key": "opm_main_10",
+      "title": "회의실 밖의 폭음",
+      "intro": "비상 소집으로 모인 S급 히어로들이 예언을 전해 듣는다.",
+      "story": "뱅의 도장을 찾았던 사이타마와 제노스도 A시 협회 본부로 향한다. 시바바와가 남긴 지구의 위기에 관한 예언이 전해지고, 설명이 끝나기도 전에 폭음이 건물을 흔든다. 거대한 우주선의 공격이 도시를 덮친 것이다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "뱅과 흔들린 뒤의 주변을 먼저 살핀다.",
+          "result": "놀란 마음을 가라앉히고 움직일 수 있는 공간을 확인했다. 눈에 보이는 위협부터 순서를 붙였다.",
+          "card": "opm_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스와 지상과 상공의 위협을 나눈다.",
+          "result": "서로 다른 곳의 위험을 한꺼번에 겨누면 집중이 갈라졌다. 먼저 겨눌 대상을 분명하게 골랐다.",
+          "card": "opm_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 우주선으로 향하는 길을 본다.",
+          "result": "긴 설명보다 지금 닿아야 할 곳이 먼저였다. 목표까지 이어지는 움직임에 힘을 모았다.",
+          "card": "opm_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 10화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "회의는 상황을 지켜보는 자리가 될 수 없었다. 히어로들은 무너진 도시와 상공의 적을 향해 움직인다.",
+        "nodes": [
+          {
+            "key": "reflection",
+            "story": "처음의 포격으로 A시는 이미 큰 피해를 입었다. 살아남은 사람들이 있는 곳에서 다시 같은 공격이 반복되게 둘 수는 없다.",
+            "choices": [
+              {
+                "label": "지상에서 싸울 사람들의 자리를 확인한다.",
+                "result": "상공만 올려다보다 곁의 위험을 놓치지 않도록 시선을 돌렸다."
+              },
+              {
+                "label": "다음 포격이 올 방향을 경계한다.",
+                "result": "첫 공격을 막았던 것처럼 말하지 않았다. 지금 할 수 있는 대응에 집중했다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_bang.tga"
+    },
+    {
+      "key": "opm_main_11",
+      "title": "되살아나는 적과 부서지는 통로",
+      "intro": "지상에서는 멜자르갈드가 버티고, 우주선 안에서는 함선 병력이 사이타마를 막는다.",
+      "story": "아토믹 사무라이와 뱅, 금속배트, 프리즈너가 멜자르갈드를 상대하지만 잘라 낸 몸은 다시 이어진다. 사이타마는 혼자 우주선 안쪽으로 들어간다. 지상에 재차 포격이 쏟아지기 전에 두 전선에서 돌파구가 필요했다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아토믹 사무라이가 자른 뒤의 변화를 본다.",
+          "result": "칼날이 지나간 순간에만 시선을 두지 않았다. 다시 이어지는 위치를 보며 다음에 겨눌 곳을 좁혔다.",
+          "card": "opm_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "금속배트가 타격을 이어 가는 간격을 본다.",
+          "result": "큰 힘을 계속 휘두르기보다 동료의 공격이 끊기는 자리를 노렸다. 연속된 타격 사이에 자기 차례를 찾았다.",
+          "card": "opm_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함선 안에서 사이타마가 향하는 곳을 따라 본다.",
+          "result": "눈앞의 적을 넘는 일과 목적지를 잃지 않는 일을 함께 생각했다. 막힌 통로가 여럿이어도 시선은 안쪽을 향했다.",
+          "card": "opm_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 11화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "무작정 같은 공격을 되풀이해서는 지상의 적을 쓰러뜨릴 수 없었다. 히어로들은 재생 속에 숨은 약점을 살피고, 사이타마는 함선의 중심으로 나아간다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_atomic.tga"
+    },
+    {
+      "key": "opm_main_12",
+      "title": "강함의 끝에서 마주 선 둘",
+      "intro": "사이타마가 보로스와 맞서는 동안 지상의 싸움도 끝을 향한다.",
+      "story": "타츠마키가 쏟아지는 포격을 되돌리고, 지상의 히어로들은 멜자르갈드의 약점을 공략한다. 우주선에서는 강함에 권태를 느낀 보로스가 사이타마와 맞선다. 쉽게 끝날 것 같던 대결은 함선 위까지 이어진다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "보로스가 한 상대에게 집중하는 모습을 본다.",
+          "result": "끝없이 넓은 곳을 떠돌아도 그가 겨누는 것은 눈앞의 한 명이었다. 힘을 흩어 쓰지 않는 집중만을 기억했다.",
+          "card": "opm_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 마지막 공격을 받아치는 순간을 본다.",
+          "result": "상대의 기세를 따라 동작을 서두르지 않았다. 힘을 내보낼 순간을 끝까지 기다렸다.",
+          "card": "opm_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지상에서 타츠마키가 포격의 방향을 바꾸는 모습을 본다.",
+          "result": "위협을 하나씩 쫓기보다 전체가 몰리는 방향을 읽었다. 넓은 시야 속에서 공격의 중심을 골랐다.",
+          "card": "opm_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 12화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "보로스의 마지막 공격을 사이타마의 진심 펀치가 꺾는다. 쓰러진 보로스와 기울어지는 함선 뒤로 침공의 결말이 드러난다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga"
+    },
+    {
+      "key": "opm_main_13",
+      "title": "내일도 히어로",
+      "intro": "침공은 끝났지만 무너진 도시와 히어로들의 일은 남는다.",
+      "story": "전투의 소음이 잦아들고 쓰러진 함선이 눈앞에 남는다. 모두가 같은 곳에서 같은 싸움을 본 것은 아니다. 사이타마와 제노스도 다시 일상으로 돌아갈 준비를 한다. 큰 싸움 하나가 앞으로의 모든 질문을 끝내 주지는 않았다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사이타마와 다시 걸을 길을 바라본다.",
+          "result": "멋진 결말을 오래 붙들기보다 다음에 도움이 필요한 곳을 떠올렸다.",
+          "card": "z_city_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스와 오늘 본 일을 차분히 정리한다.",
+          "result": "한 사람의 마지막 일격과 다른 사람들이 버틴 시간을 함께 남겼다.",
+          "card": "z_city_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지상에서 싸운 히어로들의 이름을 기억한다.",
+          "result": "함선 안의 승리만으로 모든 일을 대신 설명하지 않았다. 서로 다른 자리의 노력을 빠뜨리지 않았다.",
+          "card": "z_city_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 12화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "최강이라는 이름만으로 도시의 하루를 다 설명할 수는 없다. 내일도 누군가는 먼저 달려가고, 누군가는 끝까지 앞을 지킬 것이다.",
+            "choices": [
+              {
+                "label": "다음 날로 돌아간다.",
+                "result": "지금의 싸움은 여기서 끝난다. 히어로로서의 일상은 다시 이어진다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_side_threshold",
+      "title": "문턱에 놓인 긴 설명",
+      "intro": "제노스가 사이타마를 찾아왔던 날의 대화를 떠올린다.",
+      "story": "문턱을 넘은 설명은 길었지만 사이타마가 한 번에 받아들일 수 있는 말은 많지 않았다. 다시 그 대화를 정리한다면 어느 지점에서 숨을 고를까?",
+      "actionCost": 1,
+      "previous": "opm_main_02",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제노스가 지금 가장 묻고 싶은 것을 고른다.",
+          "result": "질문 하나를 남기자 답을 들을 자리도 생겼다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 이해한 지점부터 되짚는다.",
+          "result": "이미 전해진 말을 다시 쌓지 않았다. 다음 한마디가 들어갈 틈을 남겼다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "설명이 짧아지는 순간의 집중을 기억한다.",
+          "result": "더 세게 말하는 대신 정확히 짚었다. 말과 동작 모두 불필요한 부분을 줄였다.",
+          "card": "opm_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 2화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga"
+    },
+    {
+      "key": "opm_side_shopping",
+      "title": "장바구니를 놓을 자리",
+      "intro": "사이타마가 돌아가는 길의 짐을 잠깐 내려놓는다.",
+      "story": "늘 하던 일을 끝내고 돌아가는 길이다. 큰 이야기가 없어도 급한 마음을 내려놓을 틈은 있다. 짐을 다시 들기 전에 흐트러진 자세를 고친다.",
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "발을 먼저 안정되게 놓는다.",
+          "result": "서두르지 않고 중심부터 맞추었다. 다시 들었을 때 힘이 덜 흩어졌다.",
+          "card": "opm_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한 번에 들 물건과 나눌 물건을 구분한다.",
+          "result": "무조건 세게 쥐는 대신 힘을 모을 곳을 골랐다.",
+          "card": "opm_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지나가는 사람의 길을 먼저 비운다.",
+          "result": "짐만 바라보던 시선을 돌렸다. 한 걸음 옮기자 서로의 길이 편해졌다.",
+          "card": "opm_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 1화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_side_report",
+      "title": "빈 활동 보고란",
+      "intro": "사이타마와 제노스가 앞선 순찰의 보고를 정리하던 때를 떠올린다.",
+      "story": "긴 문장으로 빈칸을 채우는 것보다 실제로 본 일을 남기는 편이 어려웠다. 사이타마가 기억을 더듬는 동안 제노스는 빠진 순서를 확인했다. 그때 함께 정리했던 기록을 다시 펼쳐 본다.",
+      "actionCost": 1,
+      "previous": "opm_main_06",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사이타마와 한 일을 짧게 적는다.",
+          "result": "하지 않은 일을 보태지 않자 다음에 살필 것이 드러났다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스와 사실과 추측을 나눈다.",
+          "result": "확신할 수 없는 부분을 덜어 내니 중요한 관찰이 남았다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "소닉의 소동에서 놓친 주변을 떠올린다.",
+          "result": "도발에 시선이 묶였던 순간을 찾아내니 다음에 비워 둘 거리가 보였다.",
+          "card": "opm_sonic",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 6화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_side_short_route",
+      "title": "다음 순찰의 여백",
+      "intro": "제노스와 앞선 순찰 기록의 빈칸을 살폈던 때를 돌아본다.",
+      "story": "그날의 보고를 마치자 덜 헤맬 수 있는 길이 보였다. 제노스는 분 단위로 계획을 채우려 했지만 사이타마는 뜻밖의 부름이 올 자리도 남겨 두자고 했다. 그때 나누었던 말을 되짚어 본다.",
+      "actionCost": 1,
+      "previous": "opm_side_report",
+      "previousChoice": 2,
+      "requiredCard": "opm_genos",
+      "choices": [
+        {
+          "label": "제노스와 다음 행동을 위한 여백을 남긴다.",
+          "result": "꽉 채운 계획에서 겹치는 이동을 덜어 냈다. 다른 일을 살필 여유가 하나 생겼다.",
+          "card": "opm_genos_plan",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마와 꼭 필요한 동선만 남긴다.",
+          "result": "짧아진 길만큼 한곳을 제대로 볼 수 있었다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "계획보다 먼저 확인할 변화의 징후를 고른다.",
+          "result": "어제의 기록이 오늘의 상황까지 보장하지는 않는다. 고칠 부분을 일찍 찾기로 했다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 6화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga"
+    },
+    {
+      "key": "opm_side_footprint",
+      "title": "발자국보다 빠른 판단",
+      "intro": "소닉의 움직임을 떠올리며 첫걸음의 방향을 살핀다.",
+      "story": "눈으로 좇다 보면 이미 늦었던 움직임이다. 가장 빠른 장면을 다시 떠올리기보다 그 직전에 어디에 체중이 실렸는지 생각해 본다.",
+      "actionCost": 1,
+      "previous": "opm_main_04",
+      "previousChoice": 1,
+      "requiredCard": "opm_sonic",
+      "choices": [
+        {
+          "label": "소닉의 다음 착지점을 먼저 떠올린다.",
+          "result": "지나간 자리를 따라가지 않고 앞으로 닿을 자리를 보았다.",
+          "card": "opm_sonic",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "급하게 좇지 않던 사이타마의 간격을 생각한다.",
+          "result": "모든 움직임에 반응하느라 자기 중심을 버릴 필요는 없었다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "칼날이 향한 선과 발이 향한 선을 나눈다.",
+          "result": "겹치는 방향만 믿지 않고 두 선이 갈라지는 순간을 읽었다.",
+          "card": "opm_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 4화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_sonic.tga"
+    },
+    {
+      "key": "opm_side_bicycle",
+      "title": "페달에 앞서 정할 길",
+      "intro": "비 내리는 길을 달리던 무면허 라이더를 기억한다.",
+      "story": "어디로 가야 할지 아는 것과 그곳까지 도착하는 것은 다른 일이다. 라이더의 페달, 사이타마의 발걸음, 제노스의 결심을 떠올리며 자신이 먼저 준비할 것을 고른다.",
+      "actionCost": 1,
+      "previous": "opm_main_08",
+      "previousChoice": 2,
+      "requiredCard": "opm_mumen",
+      "choices": [
+        {
+          "label": "앞에 설 준비를 끝까지 놓지 않는다.",
+          "result": "도착이 끝이라고 생각하지 않았다. 멈춘 뒤 해야 할 일까지 바라보았다.",
+          "card": "opm_mumen",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 현장으로 향한 걸음을 생각한다.",
+          "result": "남의 급한 마음에 휩쓸리기보다 닿아야 할 곳을 또렷이 보았다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스가 먼저 확인했을 위험을 떠올린다.",
+          "result": "도착하자마자 움직일 수 있도록 위협을 겨눌 준비를 남겼다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 8화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_mumen.tga"
+    },
+    {
+      "key": "opm_side_interval",
+      "title": "대련이 시작되기 전",
+      "intro": "제노스가 대련을 앞두고 정해 두었던 관찰 기준을 떠올린다.",
+      "story": "사이타마와의 차이를 단숨에 없애려는 마음만으로는 관찰할 틈이 없었다. 제노스는 공격하기 전에 놓치고 싶지 않은 한 순간을 골라 두었다. 대련에서 무엇을 보려 했는지 다시 생각해 본다.",
+      "actionCost": 1,
+      "previous": "opm_main_05",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "공격이 시작되는 어깨와 발을 함께 본다.",
+          "result": "빠르다는 감상 대신 동작의 시작점을 남겼다.",
+          "card": "opm_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스가 힘을 내보낼 순서를 정리한다.",
+          "result": "급하게 모든 출력을 쓰지 않고 준비가 끝나는 지점을 확인했다.",
+          "card": "opm_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 끝까지 유지하는 거리를 본다.",
+          "result": "상대의 힘만큼 자신의 위치도 중요했다. 닿는 순간을 놓치지 않기로 했다.",
+          "card": "opm_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 5화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga"
+    },
+    {
+      "key": "opm_side_clearance",
+      "title": "소동 뒤에 남은 통로",
+      "intro": "소닉의 도발이 지나간 거리의 동선을 되짚는다.",
+      "story": "승부만 바라보면 지나는 사람과 부딪칠 수 있다. 당시의 골목을 다시 떠올리며 싸움의 방향과 사람들이 벗어날 방향을 구분한다.",
+      "actionCost": 1,
+      "previous": "opm_main_06",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "소닉이 돌아 나갈 공간을 살핀다.",
+          "result": "빠른 움직임에도 지나갈 공간이 필요했다. 막힌 쪽으로 시선을 쫓지 않았다.",
+          "card": "opm_sonic",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 서 있던 중심을 기준으로 잡는다.",
+          "result": "복잡한 길에서 기준점 하나를 정하니 판단이 덜 흔들렸다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "두 동선이 교차하는 순간을 짚는다.",
+          "result": "서로 다른 방향을 한눈에 읽으려다 놓친 것을 찾았다. 먼저 볼 선을 골랐다.",
+          "card": "opm_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 6화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_sonic.tga"
+    },
+    {
+      "key": "opm_side_dojo",
+      "title": "문턱을 넘기 전의 자세",
+      "intro": "뱅의 도장을 찾았던 시간을 잠시 떠올린다.",
+      "story": "비상 소집이 오기 전에는 잠깐의 고요가 있었다. 뱅의 균형 잡힌 자세, 제노스의 시선, 사이타마의 평소 같은 태도를 떠올리며 자신의 긴장을 살핀다.",
+      "actionCost": 0,
+      "previous": "opm_main_10",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "뱅의 발과 허리가 향한 방향을 살핀다.",
+          "result": "힘을 주는 곳만 보지 않고 힘이 지나갈 길을 찾았다.",
+          "card": "opm_bang",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스처럼 관찰할 지점을 좁힌다.",
+          "result": "전부 배우려는 마음에서 한 가지를 골랐다. 시선이 또렷해졌다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마의 필요 없는 힘을 뺀 자세를 따른다.",
+          "result": "굳어 있던 어깨를 내려놓고 다음 동작을 준비했다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 10화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_bang.tga"
+    },
+    {
+      "key": "opm_side_fragments",
+      "title": "파편을 본 뒤의 말",
+      "intro": "운석이 깨진 뒤 Z시의 거리를 돌아본 기억이 남는다.",
+      "story": "위기를 막았다는 사실과 피해를 입은 사람의 불만이 부딪쳤다. 그날의 일을 짧은 칭찬이나 비난 하나로 줄이면 빠지는 것이 생긴다.",
+      "actionCost": 1,
+      "previous": "opm_main_07",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사이타마가 한 일부터 정확하게 기억한다.",
+          "result": "해낸 일과 하지 못한 일을 구분했다. 한쪽 때문에 다른 쪽을 지우지 않았다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스가 지키려던 도시의 일상을 생각한다.",
+          "result": "큰 목표만 있던 것이 아니었다. 돌아갈 집과 익숙한 길이 결심을 붙들었다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "뱅이 위협 앞에서 보인 침착함을 떠올린다.",
+          "result": "감정이 커질수록 확인할 사실을 먼저 세웠다.",
+          "card": "opm_bang",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 7화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_side_frontline",
+      "title": "마지막 일격 전에",
+      "intro": "피난소에서 사람들이 버틴 시간을 되돌아본다.",
+      "story": "싸움의 끝만 기억하면 아이를 감싼 팔과 다시 일어선 사람을 놓친다. 누구의 힘이 더 컸는지를 잠시 내려놓고 끝까지 이어진 행동을 살핀다.",
+      "actionCost": 1,
+      "previous": "opm_main_09",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제노스가 몸을 돌린 방향을 떠올린다.",
+          "result": "위협을 겨누면서도 지켜야 할 곳을 놓치지 않았다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "무면허 라이더가 지킨 앞줄을 기억한다.",
+          "result": "버틴 시간이 헛되었다고 말하지 않았다. 뒤에 있던 사람의 입장에서 그 자리를 보았다.",
+          "card": "opm_mumen",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 들어온 순간의 집중을 남긴다.",
+          "result": "결정적인 공격을 위해 무엇을 보고 있었는지 되짚었다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 9화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_mumen.tga"
+    },
+    {
+      "key": "opm_side_repair_notes",
+      "title": "다시 움직일 때의 기록",
+      "intro": "제노스는 피난소에서의 판단을 돌아본다.",
+      "story": "손상된 몸의 이야기만으로는 그가 왜 움직였는지 설명할 수 없다. 제노스는 다시 같은 위험을 보았을 때 무엇을 먼저 확인할지 짧게 정리한다.",
+      "actionCost": 1,
+      "previous": "opm_main_09",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아이를 지킬 방향을 먼저 확인한다.",
+          "result": "상대의 움직임과 보호할 위치를 함께 두었다. 둘 중 하나를 시야 밖으로 밀어내지 않았다.",
+          "card": "opm_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "공격을 집중할 순간을 좁힌다.",
+          "result": "모든 동작을 같은 힘으로 반복하지 않기로 했다. 필요한 때에 출력이 모이도록 준비했다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "도착할 동료가 들어올 길을 비워 둔다.",
+          "result": "혼자 끝내려는 시선에서 벗어나 다음 공격이 이어질 자리를 생각했다.",
+          "card": "opm_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 9화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga"
+    },
+    {
+      "key": "opm_side_cut",
+      "title": "잘린 뒤에 다시 보는 것",
+      "intro": "멜자르갈드를 상대하던 지상의 연계를 떠올린다.",
+      "story": "잘려 나간 몸이 다시 이어지는 상대였다. 아토믹 사무라이의 칼날과 금속배트의 타격, 뱅의 움직임이 겹치는 순간을 따로 나누어 살펴본다.",
+      "actionCost": 1,
+      "previous": "opm_main_11",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아토믹 사무라이가 다음 칼끝을 고른 지점을 본다.",
+          "result": "많이 베었다는 수보다 어디를 겨눴는지가 남았다.",
+          "card": "opm_atomic",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "금속배트가 동료의 공격 사이를 채운 때를 본다.",
+          "result": "서로의 동작을 막지 않으면서 공격을 이어 갈 간격을 골랐다.",
+          "card": "opm_metalbat",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "뱅이 힘을 흘리며 다음 자리를 잡는 모습을 본다.",
+          "result": "정면에서 버티기만 하지 않고 다음 움직임의 길을 남겼다.",
+          "card": "opm_bang",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 11화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_metalbat.tga"
+    },
+    {
+      "key": "opm_side_sky",
+      "title": "고개를 든 사람들의 방향",
+      "intro": "두 번째 포격을 막던 순간의 하늘을 떠올린다.",
+      "story": "타츠마키의 대응이 지상의 싸움과 맞물렸다. 멀리 있는 위협에만 시선을 빼앗겨 가까운 전선을 잊지 않도록 그때의 두 장면을 나누어 생각한다.",
+      "actionCost": 1,
+      "previous": "opm_main_12",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "타츠마키가 읽은 포격의 방향을 생각한다.",
+          "result": "개개의 탄환보다 전체가 향하는 지점을 먼저 보았다.",
+          "card": "opm_tatsumaki",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지상에서 아토믹 사무라이가 겨눈 자리를 기억한다.",
+          "result": "상공의 변화가 있어도 눈앞의 약점을 놓치지 않았다.",
+          "card": "opm_atomic",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "금속배트가 동료의 틈을 잇는 순간을 남긴다.",
+          "result": "한쪽의 성공을 기다리기만 하지 않고 자기 자리의 공격을 이어 갔다.",
+          "card": "opm_metalbat",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 12화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_tatsumaki.tga"
+    },
+    {
+      "key": "opm_side_rival",
+      "title": "강한 상대를 찾는다는 것",
+      "intro": "보로스가 찾아온 이유를 사이타마와의 대결 뒤에 돌아본다.",
+      "story": "끝없이 강한 상대를 찾는 마음이 닮아 보여도 그 때문에 지나온 길까지 같아지지는 않는다. 지상에 남은 피해와 두 사람의 대결을 함께 기억한다.",
+      "actionCost": 1,
+      "previous": "opm_main_12",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "보로스가 한 상대에게 모은 집중만 살핀다.",
+          "result": "강함을 바라는 마음과 다른 곳을 파괴한 행동을 같은 이유로 덮지 않았다.",
+          "card": "opm_boros",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이타마가 끝까지 흔들리지 않은 태도를 본다.",
+          "result": "상대가 붙인 의미를 그대로 떠안을 필요는 없었다. 해야 할 일에 시선을 두었다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지상에서 싸운 뱅의 자리를 함께 떠올린다.",
+          "result": "커다란 대결 밖에서도 위험은 계속됐다. 가까운 사람을 지킬 거리를 놓치지 않았다.",
+          "card": "opm_bang",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 12화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_boros.tga"
+    },
+    {
+      "key": "opm_side_two_reports",
+      "title": "한 전투의 다른 기록",
+      "intro": "함선 안과 지상에서 본 일이 서로 다른 모양으로 남는다.",
+      "story": "사이타마가 부순 통로와 지상의 히어로들이 마주한 재생하는 적은 같은 침공의 다른 얼굴이었다. 자신이 본 부분만으로 전부를 설명하지 않으려면 무엇을 더 들여다봐야 할까?",
+      "actionCost": 1,
+      "previous": "opm_main_11",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사이타마가 향하던 목적지를 기준으로 정리한다.",
+          "result": "눈앞의 충돌을 나열하는 대신 어디로 가기 위한 행동이었는지 남겼다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아토믹 사무라이의 관찰을 따로 구분한다.",
+          "result": "함선 안의 방법이 지상의 적에게도 같을 것이라고 단정하지 않았다.",
+          "card": "opm_atomic",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "금속배트가 이어 간 공격의 간격을 돌아본다.",
+          "result": "한 명의 움직임만으로 끊기지 않은 이유를 모두 설명할 수는 없었다.",
+          "card": "opm_metalbat",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2015년판 11화의 인물·상황을 바탕으로 새로 쓴 짧은 준비 장면 또는 회상이다. 공식 본편에 동일 대사가 존재한다고 주장하지 않는다. 이전 사건 조건이 있는 회상은 해당 장면을 지난 뒤에만 나온다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_epilogue_home",
+      "title": "문을 다시 여는 하루",
+      "intro": "사이타마와 제노스는 평소의 생활로 돌아온다.",
+      "story": "큰 싸움 뒤에도 사소한 일은 남는다. 제노스가 하루를 길게 정리하려 하자 사이타마는 우선 내일 할 일부터 생각한다. 둘의 말하는 속도는 아직 다르지만 같은 방에 놓일 이야기는 늘었다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사이타마와 내일 먼저 할 일을 고른다.",
+          "result": "모든 답을 오늘 찾으려 하지 않았다. 다음 걸음을 시작할 한 가지를 남겼다.",
+          "card": "opm_saitama",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스의 기록에서 가장 중요한 한 줄을 듣는다.",
+          "result": "배우려는 마음은 그대로 두고 설명의 순서를 짧게 정리했다.",
+          "card": "opm_genos",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제노스가 다시 묻고 싶은 질문을 고른다.",
+          "result": "오래 생각할 질문 하나를 남기니 대화를 서둘러 끝낼 필요가 없었다.",
+          "card": "opm_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기 침공 종료 뒤의 일상을 바탕으로 한 창작 후일담이다. 이후 시즌의 적·사건·장비는 등장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga"
+    },
+    {
+      "key": "opm_epilogue_names",
+      "title": "모두가 본 것은 달랐다",
+      "intro": "침공 뒤에 남은 서로 다른 활약을 돌아본다.",
+      "story": "함선 안의 싸움과 지상의 싸움은 한 사람의 이야기로 합쳐지지 않는다. 타츠마키가 바라본 하늘, 아토믹 사무라이가 겨눈 적, 금속배트가 채운 간격을 각각 기억한다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "타츠마키가 지킨 상공의 방향을 남긴다.",
+          "result": "멀리 있는 위협을 읽는 시야가 가까운 전선을 지키는 데 이어졌다.",
+          "card": "opm_tatsumaki",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아토믹 사무라이가 살핀 약점을 기억한다.",
+          "result": "단단해 보이는 상대도 자세히 볼 이유가 있었다. 정확히 겨눌 곳을 놓치지 않았다.",
+          "card": "opm_atomic",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "금속배트가 잇던 타격을 떠올린다.",
+          "result": "눈에 띄는 한순간 사이에도 싸움은 이어졌다. 그 간격을 메운 움직임을 빠뜨리지 않았다.",
+          "card": "opm_metalbat",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기 11~12화 지상 전투를 되돌아보는 창작 후일담이다. 공식 본편에 별도 회합이나 대사가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_z_city_tatsumaki.tga"
+    }
+  ],
+  "reviewRecords": [
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\z_city-main-01.json",
+      "monitorRecordId": "52c2b999-f1aa-4f48-8f87-47f1a0a1b3ff"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\z_city-side-01.json",
+      "monitorRecordId": "0e1c1a70-aced-4ce3-8f31-4c74b9bcde43"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\opm-editor-delta-01.json",
+      "monitorRecordId": "5d7b44c8-e398-4b2b-9617-911c8709d17a",
+      "scope": "독립 편집 후 지칭 1개와 회상 4개 재검토"
+    }
+  ],
+  "editorReview": "content/reviews/additional-heads-20261010/editor-review.json"
+}

@@ -17,6 +17,7 @@ library DataExpedition
         boolean ExpPrototypeActive = false
         boolean ExpPrototypeEnabled = false
         constant integer PROTO_BASE_AP = 20
+        constant integer PROTO_BASE_HEAD_CAPACITY = 2
         constant integer PROTO_HUNT_SECONDS = 1200
         constant integer PROTO_CHOICE_SECONDS = 90
         constant integer PROTO_DEFAULT_DENSITY = 8
@@ -33,8 +34,10 @@ library DataExpedition
         integer array ProtoAPMax
         integer array ProtoMainProgress
         integer array ProtoHeadCount
+        integer array ProtoCompletedHeadCount
         integer array ProtoStartHead
         boolean array ProtoHeadOwned
+        boolean array ProtoHeadCompleted
         boolean array ProtoHeadKnown
         integer array ProtoCodexSlot
         integer array ProtoStage
@@ -130,6 +133,10 @@ library DataExpedition
 
     function ExpKey takes integer pid, integer id returns integer
         return pid * EXP_PLAYER_KEY_STRIDE + id
+    endfunction
+
+    function ProtoHeadCapacity takes integer pid returns integer
+        return PROTO_BASE_HEAD_CAPACITY + ProtoCompletedHeadCount[pid]
     endfunction
 
     function ExpLoss takes integer node, real progress returns integer

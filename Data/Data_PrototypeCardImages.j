@@ -489,5 +489,77 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(1174, "UI_Card_XP_frieren_kanne_Icon", "UI_Card_XP_frieren_kanne_Art")
         // 프리렌 일행
         call SetImages(1208, "UI_Card_XP_frieren_head_Icon", "UI_Card_XP_frieren_head_Art")
+        // 라이오스
+        call SetImages(1209, "UI_Card_XP_dungeon_meshi_laios_Icon", "UI_Card_XP_dungeon_meshi_laios_Art")
+        // 마르실
+        call SetImages(1210, "UI_Card_XP_dungeon_meshi_marcille_Icon", "UI_Card_XP_dungeon_meshi_marcille_Art")
+        // 칠책
+        call SetImages(1211, "UI_Card_XP_dungeon_meshi_chilchuck_Icon", "UI_Card_XP_dungeon_meshi_chilchuck_Art")
+        // 센시
+        call SetImages(1212, "UI_Card_XP_dungeon_meshi_senshi_Icon", "UI_Card_XP_dungeon_meshi_senshi_Art")
+        // 파린
+        call SetImages(1213, "UI_Card_XP_dungeon_meshi_falin_Icon", "UI_Card_XP_dungeon_meshi_falin_Art")
+        // 나마리
+        call SetImages(1214, "UI_Card_XP_dungeon_meshi_namari_Icon", "UI_Card_XP_dungeon_meshi_namari_Art")
+        // 슈로
+        call SetImages(1215, "UI_Card_XP_dungeon_meshi_shuro_Icon", "UI_Card_XP_dungeon_meshi_shuro_Art")
+        // 카블루
+        call SetImages(1216, "UI_Card_XP_dungeon_meshi_kabru_Icon", "UI_Card_XP_dungeon_meshi_kabru_Art")
+        // 다시 마주 앉은 식탁
+        call SetImages(1256, "UI_Card_XP_dungeon_meshi_head_Icon", "UI_Card_XP_dungeon_meshi_head_Art")
+        // 곤
+        call SetImages(1257, "UI_Card_XP_hunter_exam_gon_Icon", "UI_Card_XP_hunter_exam_gon_Art")
+        // 키르아
+        call SetImages(1258, "UI_Card_XP_hunter_exam_killua_Icon", "UI_Card_XP_hunter_exam_killua_Art")
+        // 크라피카
+        call SetImages(1259, "UI_Card_XP_hunter_exam_kurapika_Icon", "UI_Card_XP_hunter_exam_kurapika_Art")
+        // 레오리오
+        call SetImages(1260, "UI_Card_XP_hunter_exam_leorio_Icon", "UI_Card_XP_hunter_exam_leorio_Art")
+        // 히소카
+        call SetImages(1261, "UI_Card_XP_hunter_exam_hisoka_Icon", "UI_Card_XP_hunter_exam_hisoka_Art")
+        // 한조
+        call SetImages(1262, "UI_Card_XP_hunter_exam_hanzo_Icon", "UI_Card_XP_hunter_exam_hanzo_Art")
+        // 사토츠
+        call SetImages(1263, "UI_Card_XP_hunter_exam_satotz_Icon", "UI_Card_XP_hunter_exam_satotz_Art")
+        // 네테로
+        call SetImages(1264, "UI_Card_XP_hunter_exam_netero_Icon", "UI_Card_XP_hunter_exam_netero_Art")
+        // 합격증 너머의 친구
+        call SetImages(1266, "UI_Card_XP_hunter_exam_ending_memorial_Icon", "UI_Card_XP_hunter_exam_ending_memorial_Art")
+        // 나츠키 스바루
+        call SetImages(1306, "UI_Card_XP_roswaal_mansion_subaru_Icon", "UI_Card_XP_roswaal_mansion_subaru_Art")
+        // 에밀리아
+        call SetImages(1307, "UI_Card_XP_roswaal_mansion_emilia_Icon", "UI_Card_XP_roswaal_mansion_emilia_Art")
+        // 렘
+        call SetImages(1308, "UI_Card_XP_roswaal_mansion_rem_Icon", "UI_Card_XP_roswaal_mansion_rem_Art")
+        // 람
+        call SetImages(1309, "UI_Card_XP_roswaal_mansion_ram_Icon", "UI_Card_XP_roswaal_mansion_ram_Art")
+        // 베아트리스
+        call SetImages(1310, "UI_Card_XP_roswaal_mansion_beatrice_Icon", "UI_Card_XP_roswaal_mansion_beatrice_Art")
+        // 로즈월 L. 메이더스
+        call SetImages(1311, "UI_Card_XP_roswaal_mansion_roswaal_Icon", "UI_Card_XP_roswaal_mansion_roswaal_Art")
+        // 팩
+        call SetImages(1312, "UI_Card_XP_roswaal_mansion_puck_Icon", "UI_Card_XP_roswaal_mansion_puck_Art")
+        // 모두가 있는 저택의 아침
+        call SetImages(1355, "UI_Card_XP_roswaal_mansion_ending_memorial_Icon", "UI_Card_XP_roswaal_mansion_ending_memorial_Art")
+        // 사이타마
+        call SetImages(1356, "UI_Card_XP_z_city_saitama_Icon", "UI_Card_XP_z_city_saitama_Art")
+        // 제노스
+        call SetImages(1357, "UI_Card_XP_z_city_genos_Icon", "UI_Card_XP_z_city_genos_Art")
+        // 음속의 소닉
+        call SetImages(1358, "UI_Card_XP_z_city_sonic_Icon", "UI_Card_XP_z_city_sonic_Art")
+        // 무면허 라이더
+        call SetImages(1359, "UI_Card_XP_z_city_mumen_Icon", "UI_Card_XP_z_city_mumen_Art")
+        // 뱅
+        call SetImages(1360, "UI_Card_XP_z_city_bang_Icon", "UI_Card_XP_z_city_bang_Art")
+        // 전율의 타츠마키
+        call SetImages(1361, "UI_Card_XP_z_city_tatsumaki_Icon", "UI_Card_XP_z_city_tatsumaki_Art")
+        // 아토믹 사무라이
+        call SetImages(1362, "UI_Card_XP_z_city_atomic_Icon", "UI_Card_XP_z_city_atomic_Art")
+        // 금속배트
+        call SetImages(1363, "UI_Card_XP_z_city_metalbat_Icon", "UI_Card_XP_z_city_metalbat_Art")
+        // 보로스
+        call SetImages(1364, "UI_Card_XP_z_city_boros_Icon", "UI_Card_XP_z_city_boros_Art")
+        // 내일도 히어로
+        call SetImages(1402, "UI_Card_XP_z_city_ending_memorial_Icon", "UI_Card_XP_z_city_ending_memorial_Art")
     endfunction
 endlibrary

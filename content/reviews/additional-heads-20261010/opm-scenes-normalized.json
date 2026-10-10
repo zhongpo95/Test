@@ -1,0 +1,60 @@
+{
+  "world": "z_city",
+  "sourceContentSha256": "4e576cd1b1a99455283b92eb4ea0dcc8ef88fce7cd1c1a5b2b6d3913c551bdeb",
+  "approvedScenes": [
+    {
+      "sceneKey": "genos_visit",
+      "eventKey": "opm_main_02",
+      "eventTitle": "모기 떼가 지나간 자리",
+      "eventIntro": "모스키토 소녀를 상대하던 제노스 앞에 사이타마가 나타난다.",
+      "eventStory": "Z시에 몰려든 모기 떼와 싸우던 제노스는 상대의 변화에 몰렸다. 위기의 순간 나타난 사이타마의 힘은 그가 세운 예상과 달랐다. 며칠 뒤, 제노스가 그 힘을 알고 싶다며 사이타마의 집을 찾아온다.",
+      "eventSha256": "7055683f2fec7eb3813010542222aac13a5d2d79487e1d426a8f6ec3efc4b956",
+      "episode": 2,
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/2",
+      "visibleScene": "2화 제노스가 사이타마의 집에 찾아온 공식 스틸. 본문 마지막 문장의 첫 방문과 일치한다. 전투 중 손상된 얼굴이나 훗날 업그레이드 모습이 아니다.",
+      "dialogueEvidence": "공식 스틸의 인물·시점·행동 대조이며 창작 선택 대사가 영상에 있다고 주장하지 않는다."
+    },
+    {
+      "sceneKey": "meteor_branch",
+      "eventKey": "opm_main_07",
+      "eventTitle": "하늘이 내려앉기 전에",
+      "eventIntro": "Z시로 떨어지는 운석 앞에 제노스와 뱅이 남는다.",
+      "eventStory": "협회 지부는 이미 비어 있었다. 제노스는 스승이 사는 도시를 지키려고 운석을 향해 전력을 쏟으려 하고, 뱅은 눈앞의 위협에서 시선을 떼지 않는다. 뒤이어 도착한 사이타마가 하늘을 올려다본다.",
+      "eventSha256": "2b85e2ecd604d3d6e5e3f83b16cc246043e31677d34b6af7061d2f732bbd7ef0",
+      "episode": 7,
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/7",
+      "visibleScene": "7화 텅 빈 협회 지부에 남아 있는 제노스와 뱅. 본문 첫 문장과 일치하며 운석 파괴 후의 잔해로 앞선 시점을 대체하지 않는다.",
+      "dialogueEvidence": "공식 스틸의 인물·시점·행동 대조이며 창작 선택 대사가 영상에 있다고 주장하지 않는다."
+    },
+    {
+      "sceneKey": "boros_battle",
+      "eventKey": "opm_main_12",
+      "eventTitle": "강함의 끝에서 마주 선 둘",
+      "eventIntro": "사이타마가 보로스와 맞서는 동안 지상의 싸움도 끝을 향한다.",
+      "eventStory": "타츠마키가 쏟아지는 포격을 되돌리고, 지상의 히어로들은 멜자르갈드의 약점을 공략한다. 우주선에서는 강함에 권태를 느낀 보로스가 사이타마와 맞선다. 쉽게 끝날 것 같던 대결은 함선 위까지 이어진다.",
+      "eventSha256": "d04fee4b1859fd30554d8ee2c01c596280026989982ad64493847d29fe2f57f2",
+      "episode": 12,
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/12",
+      "visibleScene": "12화 우주선 대결 중 힘을 드러낸 보로스. 함선까지 이어지는 대결 범위와 일치한다. 첫 갑옷 대면이나 타츠마키의 지상 포격 반사 자체를 묘사한 장면은 아니다.",
+      "dialogueEvidence": "공식 스틸의 인물·시점·행동 대조이며 창작 선택 대사가 영상에 있다고 주장하지 않는다."
+    }
+  ],
+  "notUsed": [
+    {
+      "sourceKey": "head_bd1",
+      "decision": "hold-layout",
+      "reason": "공식 블루레이 표지에 상품 인쇄·상자 윤곽이 포함되어 머리 카드에는 깨끗한 1기 인물 스틸을 사용했다."
+    },
+    {
+      "sourceKey": "atomic",
+      "decision": "hold-prefer-episode-still",
+      "reason": "공식 기본 그림도 확보했으나 1기 11화에서 식별 가능한 실제 스틸을 우선했다."
+    },
+    {
+      "sourceKey": "ep07_5",
+      "eventKey": "opm_main_07",
+      "decision": "hold-phase-mismatch",
+      "reason": "운석 낙하 후의 파손된 건물. 초안의 운석 낙하 전 지부 장면과 시점이 달라 사용하지 않는다."
+    }
+  ]
+}

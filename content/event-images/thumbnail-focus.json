@@ -689,6 +689,342 @@
         0.5
       ],
       "reason": "공식 회차 장면을 패딩 없는 16:9 표시 영역으로 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_laios.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_marcille.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_chilchuck.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_senshi.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_falin.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_namari.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_shuro.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_kabru.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_scene_senshi_cooking.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_dungeon_meshi_scene_falin_return.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_killua.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_leorio.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_hisoka.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_hanzo.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_satotz.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_netero.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_scene_ship_meeting.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_scene_tunnel_run.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_scene_netero_ball.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_hunter_exam_scene_friends_departure.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_subaru.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_emilia.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_rem.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_ram.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_beatrice.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_roswaal.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_puck.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_first_morning.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_curse_in_library.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_beasts_aftermath.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_saitama.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_genos.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_sonic.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_mumen.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_bang.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_tatsumaki.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_atomic.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_metalbat.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_boros.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_head.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_scene_genos_visit.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_scene_meteor_branch.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
+    },
+    "war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "사건용 16:9 원본은 패딩 없이 전체 구도를 사용한다."
     }
   }
 }

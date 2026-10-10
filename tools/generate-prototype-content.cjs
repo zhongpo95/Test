@@ -19,6 +19,10 @@ Object.assign(highlightConfig.worlds, {
   tengu: {person:['시도','토카','요시노','쿠루미','코토리','오리가미','마나'],clue:['공간진','요시농','라타토스크','AST']},
   ikebukuro: {person:['미카도','마사오미','안리','셀티','이자야','시즈오','신라','카도타'],clue:['다라즈','황건적','사이카','폐공장']},
   frieren: {person:['프리렌','페른','슈타르크','힘멜','하이터','아이젠','자인','플람메','제리에','덴켄','라비네','칸네'],clue:['졸트라크','1급 마법사','복제체','아우라']},
+  dungeon_meshi: {person:['라이오스','마르실','칠책','센시','파린','나마리','슈로','카블루'],clue:['염룡','역린','켈피','운디네','고대 마법']},
+  hunter_exam: {person:['곤','키르아','크라피카','레오리오','히소카','한조','사토츠','네테로','일루미'],clue:['트릭 타워','제빌섬','번호표','헌터시험','최종 시험']},
+  roswaal_mansion: {person:['스바루','에밀리아','렘','람','베아트리스','로즈월','팩'],clue:['금서고','울가름','샤마크','저주']},
+  z_city: {person:['사이타마','제노스','소닉','무면허 라이더','뱅','타츠마키','아토믹 사무라이','금속배트','보로스'],clue:['진화의 집','도원단','심해왕','멜자르갈드','우주선']},
 });
 // 원고는 평문으로 두고 생성 시점에만 짧은 인물·단서 강조를 추가한다.
 function highlight(text, world, field, config) {
@@ -76,6 +80,17 @@ function allocateIds(worlds, previous=readRegistry()) {
 function generate(worlds, options={}) {
   const highlights=options.highlights===false ? null : highlightConfig;
   const registry=allocateIds(worlds, options.registry || readRegistry());
+  const headsByKey=new Map(worlds.filter(w=>w.world.key!=='common').map(w=>[w.world.key,w.world]));
+  for (const world of headsByKey.values()) {
+    const visited=new Set([world.key]);
+    let required=world.requiresCompletedHead;
+    while (required!==undefined) {
+      const previous=headsByKey.get(required);
+      if (!previous || !previous.mainStory?.length) throw Error('선행 머리 카드의 메인스토리가 없습니다. '+world.key+' -> '+required);
+      if (visited.has(required)) throw Error('머리 카드 해금 조건이 순환합니다. '+world.key);
+      visited.add(required);required=previous.requiresCompletedHead;
+    }
+  }
   const cards = new Map(Object.entries(registry.cards)), events = new Map(Object.entries(registry.events)), lines = [];
   const changeKeys = new Set(), eventFirst = new Map();
   let changeCount = 0;
@@ -90,7 +105,7 @@ function generate(worlds, options={}) {
     w.head = w.world.key==='common' ? 0 : registry.heads[w.world.key];
   }
   const strings = ['ProtoCardDescription','ProtoEventCommonResult','ProtoDialogueStory','ProtoDialogueLabel','ProtoDialogueResult','ProtoStoryChangeKey','ProtoStoryChangeName','ProtoStoryChangeDescriptionText','ProtoHeadKey','ProtoHeadName','ProtoHeadIntro','ProtoHeadIcon','ProtoCardKey','ProtoCardName','ProtoCardEffectName','ProtoCardKeyword','ProtoEventKey','ProtoEventName','ProtoEventStory','ProtoEventIntro','ProtoEventIcon','ProtoEventFailure','ProtoBranchLabel','ProtoBranchResult'];
-  const integers = ['ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadEntryEvent','ProtoHeadMainLength','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
+  const integers = ['ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadEntryEvent','ProtoHeadMainLength','ProtoHeadRequiredMain','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
   lines.push('// 검토된 머리 카드, 캐릭터 카드와 사건 콘텐츠를 로드한다. 생성 도구로 갱신한다.', 'library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototypeStats','    globals',
     '        constant integer PROTO_HEAD_COUNT = '+head,
     '        constant integer PROTO_STORY_CHANGE_COUNT = '+changeCount,
@@ -121,6 +136,7 @@ function generate(worlds, options={}) {
       set('ProtoHeadKey',h,w.world.key);set('ProtoHeadName',h,w.world.name); set('ProtoHeadIntro',h,w.world.intro);
       set('ProtoHeadIcon',h,w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNManual.blp');
       set('ProtoHeadEntryCard',h,cards.get(w.world.entryCard));set('ProtoHeadMainLength',h,w.world.mainStory?.length || 0);
+      set('ProtoHeadRequiredMain',h,w.world.requiresCompletedHead ? registry.heads[w.world.requiresCompletedHead] : 0);
       for (const e of w.world.effects || [w.world.bonus]) {
         if (!e || !statNames.includes(e.stat) || !Number.isFinite(e.value)) throw Error('머리 카드 효과 오류. '+w.world.key);
         lines.push('        call SaveReal(ProtoHeadEffectData, '+h+', '+(statNames.indexOf(e.stat)+1)+', '+Number(e.value).toFixed(2)+')');

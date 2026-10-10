@@ -11740,9 +11740,3091 @@
         1208
       ],
       "source": "war3mapImported/UI_Card_XP_frieren_head_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "laios",
+      "character": "라이오스",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_laios_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_laios_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\laios_face.png",
+      "sourceSha256": "4d275a5750ab6670ad5f849a5fc9acaba16bd68f4178f4d63312622aae78073a",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/1f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "27d4087a203c85b9ed2f019cc06ca6341daf6905e7a790c162471f37fc7ff300",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1209
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_laios_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "laios",
+      "character": "라이오스",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_laios_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_laios_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        114,
+        8,
+        764,
+        658
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\laios_portrait.png",
+      "sourceSha256": "fbe30f211c8905c0fac1728b84b709bf08cd328eeb4c9ca213a542969c092100",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/1c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "e55e4995aff3b6ada9c70c97518d0ed0892b0d0f25b6f92ae2587f58736cbc60",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1209
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_laios_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "marcille",
+      "character": "마르실",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_marcille_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_marcille_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\marcille_face.png",
+      "sourceSha256": "a818e0fd5fe26de0e7df99951cc152b4c240fcb9c3014dff64cd2dbefad5656e",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/2f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "6bc0a6c187a7b2c32835d1df6f2ec65c3877eb74d2c10a4fb0eb9df9c0b5bb33",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1210
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_marcille_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "marcille",
+      "character": "마르실",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_marcille_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_marcille_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        128.5,
+        79,
+        778.5,
+        729
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\marcille_portrait.png",
+      "sourceSha256": "b43aec6105646401e0e8ba508550a75152d7b8227841338a68c75631dcd4b7c7",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/2c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "f7c2e067dc46cb83416fa3e487f8a0a85de2ec60165bf999aa6f69b981414bad",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1210
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_marcille_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "chilchuck",
+      "character": "칠책",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_chilchuck_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_chilchuck_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\chilchuck_face.png",
+      "sourceSha256": "bb0b2be26bb22dd0ac5120e8c0fbacf776a8cc3ff7a4720504282974a0f018de",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/3f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "311cbf8349a6cce558c22143ce6b0728ac3d02f98eda6a1da40296d4dd3ce505",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1211
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_chilchuck_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "chilchuck",
+      "character": "칠책",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_chilchuck_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_chilchuck_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        207.5,
+        199,
+        827.5,
+        819
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\chilchuck_portrait.png",
+      "sourceSha256": "f36652ee307b7a9d4f220cd930d3a534f19a9d698a13707ed71bae68c0ae554a",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/3c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "9769793d6b8923d59c77e82707ca7f833844a1c92335ccb4d24aa342be20e4b5",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1211
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_chilchuck_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "senshi",
+      "character": "센시",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_senshi_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_senshi_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\senshi_face.png",
+      "sourceSha256": "c544db671c52953107bdcd5f96a731829deca6cbdd10151c57f4f74fc58d831f",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/4f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "1faff469b7dbc76d1e9280f19c820d99837b554225ed0fc78b7b4698559685de",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1212
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_senshi_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "senshi",
+      "character": "센시",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_senshi_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_senshi_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        187,
+        190,
+        807,
+        810
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\senshi_portrait.png",
+      "sourceSha256": "4d2fbaa00d0042fcaea24da98ff2d51ea7e42098e8c11ff443d3c169c8de3d87",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/4c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "0525fdb0bc02ffe361e0090cdbdf1828ac05bdb232c391986344626a6cc8b204",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1212
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_senshi_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "falin",
+      "character": "파린",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_falin_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_falin_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\falin_face.png",
+      "sourceSha256": "5c997df0e6a07c82efc986e585c13876d56a90e406984e22792d10818eca27e4",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/5f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "8ea5bcbd7aaf5e3184de27531830779420e5d53cd819b996820bf909ac3b82ff",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1213
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_falin_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "falin",
+      "character": "파린",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_falin_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_falin_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        149.5,
+        90,
+        799.5,
+        740
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\falin_portrait.png",
+      "sourceSha256": "172d2196fc91d6af6378f63c19adb96411549e372d8b3cb3a9eed874c3cf9f04",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/5c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "8c22f5d97872956687b770baaf88dca8e49a297c6e93bbbde4c3aaa9d05c32fb",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1213
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_falin_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "namari",
+      "character": "나마리",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_namari_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_namari_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\namari_face.png",
+      "sourceSha256": "4a476ad0a36a1858fae7a6d787c5a06e6e3f276549c1f5caf0ad716b5c0bf9db",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/6f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "aeafb6156c95108e332c0d83cb85fe6f20b42929e1a4e71a1f0f5650fbb8ab96",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1214
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_namari_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "namari",
+      "character": "나마리",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_namari_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_namari_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        86.5,
+        190,
+        706.5,
+        810
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\namari_portrait.png",
+      "sourceSha256": "e4fa3cc36cbea0ab8f3700e55f8784a5db1a55f7d7c9aeb50d6a171392cd7da0",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/6c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "f9b29a88949717e5e3c62cceb7ccad33f377c9b758b21e5bb1954e3cb026b13f",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1214
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_namari_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "shuro",
+      "character": "슈로",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_shuro_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_shuro_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\shuro_face.png",
+      "sourceSha256": "a06562f78ea82bd9a6f8ca50fda266fed89bfb5083cbe94125b89cae89594a17",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/7f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "c86a0201d5fef437679f1eb7e0072eb4caad5af817d5463f725b2273db2a05c5",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1215
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_shuro_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "shuro",
+      "character": "슈로",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_shuro_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_shuro_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        125.5,
+        60,
+        775.5,
+        710
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\shuro_portrait.png",
+      "sourceSha256": "6de859cc45f0d89b382f6f321fa193553c10a4933b571d075a0a6bd43bb83bf3",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/7c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "3b3df60efc7c7b70055ff90b2c1e900336e74975b5a66b5c41030b92843fd772",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1215
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_shuro_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "kabru",
+      "character": "카블루",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_kabru_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_kabru_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        390,
+        20,
+        770,
+        400
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\kabru_face.png",
+      "sourceSha256": "21c60ef43389a38dde9b0b8f1ddf486eee90e92c3b56859d2a3b41732fb1480f",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/8f.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "f412ad21c7659007d6f42437cdab8037f9225369ad7a3577e0d826024f84802c",
+      "bytes": 65580,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        1160,
+        420
+      ],
+      "cardIds": [
+        1216
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_kabru_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "kabru",
+      "character": "카블루",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_kabru_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_kabru_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        87.5,
+        60,
+        737.5,
+        710
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\kabru_portrait.png",
+      "sourceSha256": "90d102f2ca6bb4356b4ef93d93bba3b4fe7de1909b83ef33d6ecc69436bc9759",
+      "sourcePage": "https://delicious-in-dungeon.com/#Character",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/character/8c.png",
+      "sourceKind": "official-anime-character",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "68271d7fac2dc081048fdabe9e46473142558cb770492e75cfab34519067f9ed",
+      "bytes": 1048620,
+      "note": "공식 1기 인물 비주얼. 파린은 인간형. 사건의 정확한 장면이 아닌 인물 대표 그림.",
+      "nativeSourceSize": [
+        900,
+        1720
+      ],
+      "cardIds": [
+        1216
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_kabru_Art.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "head",
+      "character": "던전밥",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_head_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_head_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        100,
+        900,
+        2900,
+        3700
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\cover2_cover.webp",
+      "sourceSha256": "81dd4728c481f870ba36302fc972df8c8deb6ada381234443db9553978d626b2",
+      "sourcePage": "https://delicious-in-dungeon.com/",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/top/vis2.webp?v2",
+      "sourceKind": "official-anime-keyvisual",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "e04502e775284f624809ead86612bef0caeb64d67f52d75b16405020246d96ec",
+      "bytes": 65580,
+      "note": "공식 1기 키 비주얼. 네 사람이 식사를 준비하는 작품 대표 그림.",
+      "nativeSourceSize": [
+        3000,
+        4085
+      ],
+      "cardIds": [
+        1256
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_head_Icon.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "characterKey": "head",
+      "character": "던전밥",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_dungeon_meshi_head_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_dungeon_meshi_head_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        100,
+        900,
+        2900,
+        3700
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\cover2_cover.webp",
+      "sourceSha256": "81dd4728c481f870ba36302fc972df8c8deb6ada381234443db9553978d626b2",
+      "sourcePage": "https://delicious-in-dungeon.com/",
+      "sourceUrl": "https://delicious-in-dungeon.com/assets/top/vis2.webp?v2",
+      "sourceKind": "official-anime-keyvisual",
+      "artist": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+      "sha256": "f2bea396777a177e3274c73e3818a2ce23ba94c95459ee30153a38ef80263279",
+      "bytes": 1048620,
+      "note": "공식 1기 키 비주얼. 네 사람이 식사를 준비하는 작품 대표 그림.",
+      "nativeSourceSize": [
+        3000,
+        4085
+      ],
+      "cardIds": [
+        1256
+      ],
+      "source": "war3mapImported/UI_Card_XP_dungeon_meshi_head_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "gon",
+      "character": "곤",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_gon_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_gon_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        120,
+        15,
+        320,
+        215
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep01_2.jpg",
+      "sourceSha256": "8ab03e6e39b8e141d666675e34da71e356da6b8104e3702d6b040287c88922eb",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/001.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/001_2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "3ce4c36b827497f03a141709f71f6b32d4a203b1876bcc046b2ad8da668f1a90",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "곤",
+      "visibleCharacters": [
+        "곤"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 1,
+      "eventKeys": [],
+      "cardIds": [
+        1257
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_gon_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "gon",
+      "character": "곤",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_gon_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_gon_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        70,
+        0,
+        350,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep01_2.jpg",
+      "sourceSha256": "8ab03e6e39b8e141d666675e34da71e356da6b8104e3702d6b040287c88922eb",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/001.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/001_2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "0f3f0648d45c18db239a84ba74af9760cac92ed75d31b0549ab689a05e0321d1",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "곤",
+      "visibleCharacters": [
+        "곤"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 1,
+      "eventKeys": [],
+      "cardIds": [
+        1257
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_gon_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "killua",
+      "character": "키르아",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_killua_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_killua_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        125,
+        30,
+        355,
+        260
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_5.jpg",
+      "sourceSha256": "93847ec68970da736def315555e095a619e3e955ec6d2cc6e97e9e4a88abf584",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "6de8dad23b1c9614172c78bf7a92945e149780c331d8060ca72a9b14bbd76944",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "키르아",
+      "visibleCharacters": [
+        "키르아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1258
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_killua_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "killua",
+      "character": "키르아",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_killua_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_killua_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        90,
+        0,
+        370,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_5.jpg",
+      "sourceSha256": "93847ec68970da736def315555e095a619e3e955ec6d2cc6e97e9e4a88abf584",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "12ae309fed55b51aaea97cac0f1ac8d2ecc1636db2f22f3a564d73345226baf2",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "키르아",
+      "visibleCharacters": [
+        "키르아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1258
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_killua_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "kurapika",
+      "character": "크라피카",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_kurapika_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_kurapika_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        80,
+        20,
+        300,
+        240
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_4.jpg",
+      "sourceSha256": "e88d09a45963148f984547d5f6f6d280f5ced2b2a00c3e166705e42ca5be0785",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_4.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "9b65e46272fdb0cbb182f1a77e57b7932c4d80b2e8b59b66f0eea42187054156",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "크라피카",
+      "visibleCharacters": [
+        "크라피카"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1259
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_kurapika_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "kurapika",
+      "character": "크라피카",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_kurapika_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_kurapika_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        50,
+        0,
+        330,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_4.jpg",
+      "sourceSha256": "e88d09a45963148f984547d5f6f6d280f5ced2b2a00c3e166705e42ca5be0785",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_4.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "2e10df7c0e4eabd993a19bc417dadc6ca7d6dc98b65236b01371da050b507571",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "크라피카",
+      "visibleCharacters": [
+        "크라피카"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1259
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_kurapika_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "leorio",
+      "character": "레오리오",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_leorio_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_leorio_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        275,
+        10,
+        485,
+        220
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_3.jpg",
+      "sourceSha256": "b406ec36f4a19f1e7ebe983ce212860f0b2cfa0ca25491bf0e3149d0378a6bd6",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_3.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "33bf36c0192dca0e58de420d4422077fca6f40913968bccc2198ea73950684fd",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "레오리오",
+      "visibleCharacters": [
+        "레오리오"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1260
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_leorio_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "leorio",
+      "character": "레오리오",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_leorio_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_leorio_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        220,
+        0,
+        500,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_3.jpg",
+      "sourceSha256": "b406ec36f4a19f1e7ebe983ce212860f0b2cfa0ca25491bf0e3149d0378a6bd6",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_3.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "deb39d75ab9524b64c6e9b240c976ef2c732dccea088f5182ec84dcf54d5fb16",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "레오리오",
+      "visibleCharacters": [
+        "레오리오"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1260
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_leorio_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "hisoka",
+      "character": "히소카",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_hisoka_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_hisoka_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        200,
+        20,
+        440,
+        260
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep03_2.jpg",
+      "sourceSha256": "891b3e391896282db121fd548b4b2059f34255a4da125bd646b4b586f3392263",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/003.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/003_2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "ef7280b971ad4d502961cea71334a80608b5e827c8fd58cc0ba86c7943909c73",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "히소카",
+      "visibleCharacters": [
+        "히소카"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 3,
+      "eventKeys": [],
+      "cardIds": [
+        1261
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_hisoka_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "hisoka",
+      "character": "히소카",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_hisoka_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_hisoka_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        180,
+        0,
+        460,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep03_2.jpg",
+      "sourceSha256": "891b3e391896282db121fd548b4b2059f34255a4da125bd646b4b586f3392263",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/003.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/003_2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "f2eb41aeb506e1acc6b207c4f19fca14f4cb9f909446831e8029e04cdada86b8",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "히소카",
+      "visibleCharacters": [
+        "히소카"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 3,
+      "eventKeys": [],
+      "cardIds": [
+        1261
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_hisoka_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "hanzo",
+      "character": "한조",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_hanzo_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_hanzo_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        110,
+        20,
+        345,
+        255
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_1.jpg",
+      "sourceSha256": "f361b2ace3a13f62cc4c03c9cc482183b753ce233f74749fedb8e9859d350758",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_1.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "8563aaa4cb2b4daeb7cd32dfe4519383cbd3abf5c3a2c62fb878fff892a1959c",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "한조",
+      "visibleCharacters": [
+        "한조"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1262
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_hanzo_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "hanzo",
+      "character": "한조",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_hanzo_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_hanzo_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        85,
+        0,
+        365,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep19_1.jpg",
+      "sourceSha256": "f361b2ace3a13f62cc4c03c9cc482183b753ce233f74749fedb8e9859d350758",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/019_1.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "efcc9af79c5546795def54787c4bb4d2413fbd528b69c7bc889ece3c08a885a3",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "한조",
+      "visibleCharacters": [
+        "한조"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 19,
+      "eventKeys": [],
+      "cardIds": [
+        1262
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_hanzo_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "satotz",
+      "character": "사토츠",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_satotz_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_satotz_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        70,
+        20,
+        320,
+        270
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep03_5.jpg",
+      "sourceSha256": "3aca1de86b87d45409a16cdaa34bd07bb90f1f6134a9df86ed5270ee29ddfc18",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/003.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/003_5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "f2aa57c8546f6e07225785c2a9405f127d7a38bee1010d9d9dae716409bafb0f",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "사토츠",
+      "visibleCharacters": [
+        "사토츠"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 3,
+      "eventKeys": [],
+      "cardIds": [
+        1263
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_satotz_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "satotz",
+      "character": "사토츠",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_satotz_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_satotz_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        20,
+        0,
+        300,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep03_5.jpg",
+      "sourceSha256": "3aca1de86b87d45409a16cdaa34bd07bb90f1f6134a9df86ed5270ee29ddfc18",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/003.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/003_5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "e0d11ade558b0fc4f5dbf0bfeb74c7a02f05a787b2faa40fd14109a6897bcda5",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "사토츠",
+      "visibleCharacters": [
+        "사토츠"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 3,
+      "eventKeys": [],
+      "cardIds": [
+        1263
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_satotz_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "netero",
+      "character": "네테로",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_netero_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_netero_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        110,
+        10,
+        380,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep07_2.jpg",
+      "sourceSha256": "aa4d1762644b611e37a316a1a177b4c6e77ccc0961762a733169bb031e73073a",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/007.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/007_2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "95af8ed0ac02c606a4f5c4903314e2c1f3b6c8576c843575b9e9687a5e7fd9c0",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "네테로",
+      "visibleCharacters": [
+        "네테로"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 7,
+      "eventKeys": [],
+      "cardIds": [
+        1264
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_netero_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "netero",
+      "character": "네테로",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_netero_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_netero_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        105,
+        0,
+        385,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep07_2.jpg",
+      "sourceSha256": "aa4d1762644b611e37a316a1a177b4c6e77ccc0961762a733169bb031e73073a",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/007.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/007_2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "007a0ad96c21b5c8ab1bd765ca0526865285f5829703fb74637e894378f20c68",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "네테로",
+      "visibleCharacters": [
+        "네테로"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 7,
+      "eventKeys": [],
+      "cardIds": [
+        1264
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_netero_Art.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "ending_memorial",
+      "character": "합격증 너머의 친구",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_ending_memorial_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_ending_memorial_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        150,
+        20,
+        390,
+        260
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep21_1.jpg",
+      "sourceSha256": "1d188209f358b99f16127923e921e8567611e239703521974907ca858b3ce7ec",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/021.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/021_1.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "38c72cb7a381a2eaef953135cd52c554f46bd8c6a1e44e5dec5bb379288a976f",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "합격증 너머의 친구",
+      "visibleCharacters": [
+        "곤"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 21,
+      "eventKeys": [],
+      "cardIds": [
+        1266
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_ending_memorial_Icon.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "characterKey": "ending_memorial",
+      "character": "합격증 너머의 친구",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_hunter_exam_ending_memorial_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_hunter_exam_ending_memorial_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        120,
+        0,
+        400,
+        280
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep21_1.jpg",
+      "sourceSha256": "1d188209f358b99f16127923e921e8567611e239703521974907ca858b3ce7ec",
+      "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/021.html",
+      "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/021_1.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+      "copyrightPage": "https://www.vap.co.jp/hunterhunter/dvd01.html",
+      "sha256": "1e02f853ce7f9616ac9cb24ce42f17136877692cb540e8512c736cbfe2e59097",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        500,
+        280
+      ],
+      "representativeCharacter": "합격증 너머의 친구",
+      "visibleCharacters": [
+        "곤"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 21,
+      "eventKeys": [],
+      "cardIds": [
+        1266
+      ],
+      "source": "war3mapImported/UI_Card_XP_hunter_exam_ending_memorial_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "subaru",
+      "character": "스바루",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_subaru_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_subaru_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        420,
+        30,
+        1050,
+        660
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep09_2.jpg",
+      "sourceSha256": "dcf00d49e95c98af30eac0a6f5fa9f301b52dbb7e1c37d206306e6f512421132",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP9",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/9/2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "0f8e48366d47a3b8936d864fd2201edc53a4c2985f3460f673e9b3ca4e705372",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "스바루",
+      "visibleCharacters": [
+        "스바루"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 9,
+      "eventKeys": [],
+      "cardIds": [
+        1306
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_subaru_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "subaru",
+      "character": "스바루",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_subaru_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_subaru_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        360,
+        0,
+        1080,
+        720
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep09_2.jpg",
+      "sourceSha256": "dcf00d49e95c98af30eac0a6f5fa9f301b52dbb7e1c37d206306e6f512421132",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP9",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/9/2.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "0846790e0e59ff26fe334800bbcccdc3a0e446b23d25d66cb46b747d91a09099",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "스바루",
+      "visibleCharacters": [
+        "스바루"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 9,
+      "eventKeys": [],
+      "cardIds": [
+        1306
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_subaru_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "emilia",
+      "character": "에밀리아",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_emilia_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_emilia_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        330,
+        70,
+        880,
+        620
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep05_4.jpg",
+      "sourceSha256": "6958f7d732a64b19e9c1b76b261186667bfbf5f2692fe17ff62e52f221a9f472",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP5",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/5/4.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "91626c231ec864f0da2c4bf8406ed62c5b4465e958ac5928b923c3a383b69e30",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "에밀리아",
+      "visibleCharacters": [
+        "에밀리아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 5,
+      "eventKeys": [],
+      "cardIds": [
+        1307
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_emilia_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "emilia",
+      "character": "에밀리아",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_emilia_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_emilia_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        190,
+        0,
+        910,
+        720
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep05_4.jpg",
+      "sourceSha256": "6958f7d732a64b19e9c1b76b261186667bfbf5f2692fe17ff62e52f221a9f472",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP5",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/5/4.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "ecfd575411eda0b77c408f378b06a00f096a0a6c1c1acfe6728249bb8b0eec4c",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "에밀리아",
+      "visibleCharacters": [
+        "에밀리아"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 5,
+      "eventKeys": [],
+      "cardIds": [
+        1307
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_emilia_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "rem",
+      "character": "렘",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_rem_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_rem_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        140,
+        10,
+        740,
+        610
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep08_3.jpg",
+      "sourceSha256": "3da5c225f88b3f4fd9e5106b2df05b01e97bb1f110fbbf55a450d651e325439a",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP8",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/8/3.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "7a6bea49043db8f7a64db3ee9dda746e48cd690b021b695605b2d07aec023ec4",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "렘",
+      "visibleCharacters": [
+        "렘"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 8,
+      "eventKeys": [],
+      "cardIds": [
+        1308
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_rem_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "rem",
+      "character": "렘",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_rem_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_rem_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        55,
+        0,
+        775,
+        720
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep08_3.jpg",
+      "sourceSha256": "3da5c225f88b3f4fd9e5106b2df05b01e97bb1f110fbbf55a450d651e325439a",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP8",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/8/3.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "ea822641d0a04b54ecbd7b6f6f75e130d2e87eb749491ec9306fa41ce72f691e",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "렘",
+      "visibleCharacters": [
+        "렘"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 8,
+      "eventKeys": [],
+      "cardIds": [
+        1308
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_rem_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "ram",
+      "character": "람",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_ram_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_ram_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        680,
+        20,
+        1200,
+        540
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep04_6.jpg",
+      "sourceSha256": "ead2c8c327616175adc2a431937c469b7c2b29c9a585ac991354facae560ba41",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP4",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/4/6.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "f8428e672e2d4f91e18ceb4b2f9a83ecf8b987f20c7dacc38880bd89ccf0cfe8",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "람",
+      "visibleCharacters": [
+        "람"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1309
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_ram_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "ram",
+      "character": "람",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_ram_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_ram_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        635,
+        0,
+        1235,
+        600
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep04_6.jpg",
+      "sourceSha256": "ead2c8c327616175adc2a431937c469b7c2b29c9a585ac991354facae560ba41",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP4",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/4/6.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "900eb8b0f9339922b94fab73d69f0f65bf4dc9f66393c4a5336f1bc227d28e4f",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "람",
+      "visibleCharacters": [
+        "람"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1309
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_ram_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "beatrice",
+      "character": "베아트리스",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_beatrice_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_beatrice_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        310,
+        10,
+        930,
+        630
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep05_1.jpg",
+      "sourceSha256": "5cd0441c350e4df688443a4878c117f90fe8a220e549bc0d623421229d2fb155",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP5",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/5/1.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "72dc5337878da5ee8c0f874aec1a16a7343603fda24fb0bce3eedf26f0efa1ad",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "베아트리스",
+      "visibleCharacters": [
+        "베아트리스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 5,
+      "eventKeys": [],
+      "cardIds": [
+        1310
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_beatrice_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "beatrice",
+      "character": "베아트리스",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_beatrice_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_beatrice_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        245,
+        0,
+        965,
+        720
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep05_1.jpg",
+      "sourceSha256": "5cd0441c350e4df688443a4878c117f90fe8a220e549bc0d623421229d2fb155",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP5",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/5/1.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "50e9f8122ded3f09ef3d9859781cdf69fa620aeb3a91a0cc6ef73239fe370eed",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "베아트리스",
+      "visibleCharacters": [
+        "베아트리스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 5,
+      "eventKeys": [],
+      "cardIds": [
+        1310
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_beatrice_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "roswaal",
+      "character": "로즈월 L. 메이더스",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_roswaal_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_roswaal_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        250,
+        60,
+        850,
+        660
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep04_5.jpg",
+      "sourceSha256": "e9cf2ebe3d222f4e8b9fefc1fd4fb2cd25f5c8704848da814e80086894c11e97",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP4",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/4/5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "aa449e93290e23702a9b24741cda56c5077b3a3d5b5e944c2fd7b864fde7ea99",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "로즈월 L. 메이더스",
+      "visibleCharacters": [
+        "로즈월 L. 메이더스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1311
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_roswaal_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "roswaal",
+      "character": "로즈월 L. 메이더스",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_roswaal_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_roswaal_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        210,
+        0,
+        930,
+        720
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep04_5.jpg",
+      "sourceSha256": "e9cf2ebe3d222f4e8b9fefc1fd4fb2cd25f5c8704848da814e80086894c11e97",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP4",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/4/5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "9cf5f545adecbb5a26c60577cd0b5cf1cc732c425fd08028a81e4dabaa88ee7a",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "로즈월 L. 메이더스",
+      "visibleCharacters": [
+        "로즈월 L. 메이더스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1311
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_roswaal_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "puck",
+      "character": "팩",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_puck_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_puck_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        280,
+        10,
+        610,
+        340
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\puck_face.png",
+      "sourceSha256": "78790c7be469c9c79d917a78d288f61959e1b5c89c02f83bfa508ae876cd89d4",
+      "sourcePage": "https://re-zero-anime.jp/tv/character/",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/character/f/3.png",
+      "sourceKind": "official-anime-character-art",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "b80c982f7fcd95b506a792b3e223ad7c57425ad15ddb201f927e4f625b8c7231",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        832,
+        416
+      ],
+      "representativeCharacter": "팩",
+      "visibleCharacters": [
+        "팩"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": null,
+      "eventKeys": [],
+      "cardIds": [
+        1312
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_puck_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "puck",
+      "character": "팩",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_puck_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_puck_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        365,
+        200,
+        845,
+        680
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\puck.png",
+      "sourceSha256": "894b0b394dbc443664e844a77def2f6c26c5a0c957ddfd92835217b803df06f5",
+      "sourcePage": "https://re-zero-anime.jp/tv/character/",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/character/c/3.png",
+      "sourceKind": "official-anime-character-art",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "8d088072270153e4f8d0e921b31a18e45690a0b3624acfdd96b56a6adb03848c",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1120,
+        1760
+      ],
+      "representativeCharacter": "팩",
+      "visibleCharacters": [
+        "팩"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": null,
+      "eventKeys": [],
+      "cardIds": [
+        1312
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_puck_Art.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "ending_memorial",
+      "character": "모두가 있는 저택의 아침",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_ending_memorial_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_ending_memorial_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        540,
+        40,
+        1150,
+        650
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep11_5.jpg",
+      "sourceSha256": "44b2ea068ae885c86c67fd3c5da2983403e09f8d5f77157bd463a2bc929f482e",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP11",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/11/5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "9b45e6dc26e19b822eee65cfbb9fe66af4c21f6a4d542d5a681eb86a100c7fdc",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "모두가 있는 저택의 아침",
+      "visibleCharacters": [
+        "스바루"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 11,
+      "eventKeys": [],
+      "cardIds": [
+        1355
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_ending_memorial_Icon.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "characterKey": "ending_memorial",
+      "character": "모두가 있는 저택의 아침",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_roswaal_mansion_ending_memorial_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_roswaal_mansion_ending_memorial_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        455,
+        0,
+        1175,
+        720
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep11_5.jpg",
+      "sourceSha256": "44b2ea068ae885c86c67fd3c5da2983403e09f8d5f77157bd463a2bc929f482e",
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP11",
+      "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/11/5.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+      "copyrightPage": "https://re-zero-anime.jp/tv/story/tv1r.html",
+      "sha256": "9e60a3414115032c261753d10fead20d09a80547dd39698b0cbaecad3170e3d9",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        1280,
+        720
+      ],
+      "representativeCharacter": "모두가 있는 저택의 아침",
+      "visibleCharacters": [
+        "스바루"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 11,
+      "eventKeys": [],
+      "cardIds": [
+        1355
+      ],
+      "source": "war3mapImported/UI_Card_XP_roswaal_mansion_ending_memorial_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "saitama",
+      "character": "사이타마",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_saitama_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_saitama_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        90,
+        15,
+        290,
+        215
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep01_6.jpg",
+      "sourceSha256": "96d36ffb3a6deb9bd97036170b7d8f5d4a2e41e35d5f56e239130513d2fb79d9",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/1",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/01_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "c5d788b4e151e79bfa191c7cf4f831498bca20deb48544948014c3af961e7183",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "사이타마",
+      "visibleCharacters": [
+        "사이타마"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 1,
+      "eventKeys": [],
+      "cardIds": [
+        1356
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_saitama_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "saitama",
+      "character": "사이타마",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_saitama_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_saitama_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        75,
+        0,
+        300,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep01_6.jpg",
+      "sourceSha256": "96d36ffb3a6deb9bd97036170b7d8f5d4a2e41e35d5f56e239130513d2fb79d9",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/1",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/01_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "ea5ec7ace976c7235157e3546858721539c439490c3119ba1ecb455265b86eef",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "사이타마",
+      "visibleCharacters": [
+        "사이타마"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 1,
+      "eventKeys": [],
+      "cardIds": [
+        1356
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_saitama_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "genos",
+      "character": "제노스",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_genos_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_genos_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        80,
+        15,
+        260,
+        195
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep04_6.jpg",
+      "sourceSha256": "f4d477cce86e40ea0ee5219d44fb75729e249bace6b2d294ad639264345222a1",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/4",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/04_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "c1201fc6d824021a9bf677244d0ae5c027ba8c1fab74b4d734fa720b846cd467",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "제노스",
+      "visibleCharacters": [
+        "제노스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1357
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_genos_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "genos",
+      "character": "제노스",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_genos_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_genos_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        50,
+        0,
+        275,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep04_6.jpg",
+      "sourceSha256": "f4d477cce86e40ea0ee5219d44fb75729e249bace6b2d294ad639264345222a1",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/4",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/04_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "7bd6e01451d0f5b48bf9dac8919acd9b35ea151316f9fc8c2a98e9782aa4f0e9",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "제노스",
+      "visibleCharacters": [
+        "제노스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1357
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_genos_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "sonic",
+      "character": "음속의 소닉",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_sonic_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_sonic_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        115,
+        15,
+        300,
+        200
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep04_5.jpg",
+      "sourceSha256": "8c4756ac165147c68c583a57c3e4d848cb4e5ee853f73539ec4ef72f322290fb",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/4",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/04_05.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "70ca7e7f1af4048139d7102a381f632f9f11d7429e333c4afae8ede6e3bdf162",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "음속의 소닉",
+      "visibleCharacters": [
+        "음속의 소닉"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1358
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_sonic_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "sonic",
+      "character": "음속의 소닉",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_sonic_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_sonic_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        85,
+        0,
+        310,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep04_5.jpg",
+      "sourceSha256": "8c4756ac165147c68c583a57c3e4d848cb4e5ee853f73539ec4ef72f322290fb",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/4",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/04_05.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "1161a684c4e9dcf6d20758242904a3501dff7ce30a9f910bd41870772f482292",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "음속의 소닉",
+      "visibleCharacters": [
+        "음속의 소닉"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1358
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_sonic_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "mumen",
+      "character": "무면허 라이더",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_mumen_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_mumen_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        125,
+        10,
+        305,
+        190
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep04_3.jpg",
+      "sourceSha256": "89435df0a3f6d3984ede24023556a4f39260138556f76e4d3c52ee840e331fbe",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/4",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/04_03.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "26be499f66bef1dc9af64904aa6701f36a8a5da0a75f83d0af52a2140a9f7495",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "무면허 라이더",
+      "visibleCharacters": [
+        "무면허 라이더"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1359
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_mumen_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "mumen",
+      "character": "무면허 라이더",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_mumen_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_mumen_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        90,
+        0,
+        315,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep04_3.jpg",
+      "sourceSha256": "89435df0a3f6d3984ede24023556a4f39260138556f76e4d3c52ee840e331fbe",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/4",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/04_03.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "0b7b9a50fd1799c0b951ed8744d7e5bb6325bab77103c53c48927b7638ae6e0c",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "무면허 라이더",
+      "visibleCharacters": [
+        "무면허 라이더"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 4,
+      "eventKeys": [],
+      "cardIds": [
+        1359
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_mumen_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "bang",
+      "character": "뱅",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_bang_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_bang_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        145,
+        0,
+        325,
+        180
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep07_2.jpg",
+      "sourceSha256": "b5485ff7fb4648190c9c3035ee670d23d8b77f68c486fa9ab75f8a7807fb751a",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/7",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/07_02.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "89ac644c17d9d936b84b4ae9553b08a76df560587ab1c5f1fd23f9095991f525",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "뱅",
+      "visibleCharacters": [
+        "뱅"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 7,
+      "eventKeys": [],
+      "cardIds": [
+        1360
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_bang_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "bang",
+      "character": "뱅",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_bang_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_bang_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        105,
+        0,
+        330,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep07_2.jpg",
+      "sourceSha256": "b5485ff7fb4648190c9c3035ee670d23d8b77f68c486fa9ab75f8a7807fb751a",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/7",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/07_02.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "56150e6aa4a431e764dced253e143308f997d5ee1e967e31d3d2394d411f6e9f",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "뱅",
+      "visibleCharacters": [
+        "뱅"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 7,
+      "eventKeys": [],
+      "cardIds": [
+        1360
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_bang_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "tatsumaki",
+      "character": "전율의 타츠마키",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_tatsumaki_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_tatsumaki_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        160,
+        15,
+        340,
+        195
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep10_2.jpg",
+      "sourceSha256": "46b569197b3899cacf614a5226b4b7ebd88f77b2bf64830a139b8b7e89896937",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/10",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/10_02.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "9f0f167c35bf543976c206065b156b5cf677fa1762a47654b6be97c923114818",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "전율의 타츠마키",
+      "visibleCharacters": [
+        "전율의 타츠마키"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 10,
+      "eventKeys": [],
+      "cardIds": [
+        1361
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_tatsumaki_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "tatsumaki",
+      "character": "전율의 타츠마키",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_tatsumaki_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_tatsumaki_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        130,
+        0,
+        355,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep10_2.jpg",
+      "sourceSha256": "46b569197b3899cacf614a5226b4b7ebd88f77b2bf64830a139b8b7e89896937",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/10",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/10_02.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "cd53bca51b82aa7f8d1751fa174c5c9b98ce2704d0b7ad36afa47bf1574f1616",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "전율의 타츠마키",
+      "visibleCharacters": [
+        "전율의 타츠마키"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 10,
+      "eventKeys": [],
+      "cardIds": [
+        1361
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_tatsumaki_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "atomic",
+      "character": "아토믹 사무라이",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_atomic_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_atomic_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        135,
+        5,
+        305,
+        175
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep11_3.jpg",
+      "sourceSha256": "3221ce5deb6404dca518c687aa45f35000746f455f017387bd66cf2033082b6b",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/11",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/11_03.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "a954492d20a74c71997a185f0c27afcc92182bd3e38a1922b66b6bbaf5828f82",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "아토믹 사무라이",
+      "visibleCharacters": [
+        "아토믹 사무라이"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 11,
+      "eventKeys": [],
+      "cardIds": [
+        1362
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_atomic_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "atomic",
+      "character": "아토믹 사무라이",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_atomic_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_atomic_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        70,
+        0,
+        295,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep11_3.jpg",
+      "sourceSha256": "3221ce5deb6404dca518c687aa45f35000746f455f017387bd66cf2033082b6b",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/11",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/11_03.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "9a7544af0fc218bdc7cc355c232997f6731f673494caeba134217b0e2cdcb058",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "아토믹 사무라이",
+      "visibleCharacters": [
+        "아토믹 사무라이"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 11,
+      "eventKeys": [],
+      "cardIds": [
+        1362
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_atomic_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "metalbat",
+      "character": "금속배트",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_metalbat_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_metalbat_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        310,
+        40,
+        510,
+        240
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\metalbat.png",
+      "sourceSha256": "2a6dca413eb7458e22de039c43d85c1a79e86f309f55f8b85d6ee115abac934d",
+      "sourcePage": "https://onepunchman-anime.net/character/",
+      "sourceUrl": "https://onepunchman-anime.net/character/img/detail_kinzoku.png",
+      "sourceKind": "official-anime-character-art",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "38cc79ce1fc7835e8b5979415ffed9d3beabc2209412dce2fa6b20cc9a33fe9a",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        770,
+        700
+      ],
+      "representativeCharacter": "금속배트",
+      "visibleCharacters": [
+        "금속배트"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": null,
+      "eventKeys": [],
+      "sourcePublicationSeason": null,
+      "costumeCompatibilityEvidence": "1기 10화 공식 스틸 ep10_3의 검은 교복과 붉은 상의를 확인. 후반 각성/다른 의상 없음.",
+      "cardIds": [
+        1363
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_metalbat_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "metalbat",
+      "character": "금속배트",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_metalbat_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_metalbat_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        225,
+        30,
+        525,
+        330
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\metalbat.png",
+      "sourceSha256": "2a6dca413eb7458e22de039c43d85c1a79e86f309f55f8b85d6ee115abac934d",
+      "sourcePage": "https://onepunchman-anime.net/character/",
+      "sourceUrl": "https://onepunchman-anime.net/character/img/detail_kinzoku.png",
+      "sourceKind": "official-anime-character-art",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "02a4595cb5eeb6a6527b29393d8387ffaf3ff87d8d5defaa8370551b48f19835",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        770,
+        700
+      ],
+      "representativeCharacter": "금속배트",
+      "visibleCharacters": [
+        "금속배트"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": null,
+      "eventKeys": [],
+      "sourcePublicationSeason": null,
+      "costumeCompatibilityEvidence": "1기 10화 공식 스틸 ep10_3의 검은 교복과 붉은 상의를 확인. 후반 각성/다른 의상 없음.",
+      "cardIds": [
+        1363
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_metalbat_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "boros",
+      "character": "보로스",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_boros_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_boros_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        95,
+        15,
+        285,
+        205
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep11_6.jpg",
+      "sourceSha256": "c37054b80bfa5301246e344aa33ab4e79273467edfbb20615bd43c349fdeba95",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/11",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/11_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "56d7819fb52c7e8dac144e1c0b1b745306b040fe2412f899323b8c29028c5719",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "보로스",
+      "visibleCharacters": [
+        "보로스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 11,
+      "eventKeys": [],
+      "cardIds": [
+        1364
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_boros_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "boros",
+      "character": "보로스",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_boros_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_boros_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        70,
+        0,
+        295,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep11_6.jpg",
+      "sourceSha256": "c37054b80bfa5301246e344aa33ab4e79273467edfbb20615bd43c349fdeba95",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/11",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/11_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "0ca0008401323fe6a24f34781a9a7560712e258c45be0ff993ee081e275a671e",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "보로스",
+      "visibleCharacters": [
+        "보로스"
+      ],
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 11,
+      "eventKeys": [],
+      "cardIds": [
+        1364
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_boros_Art.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "ending_memorial",
+      "character": "내일도 히어로",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_XP_z_city_ending_memorial_Icon.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_ending_memorial_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        140,
+        15,
+        320,
+        195
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep12_6.jpg",
+      "sourceSha256": "b4a91417828c38b6f506cdfff8b7340ebe713f3911fe2a5a20fecb2ef14c45be",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/12",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/12_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "886a50aebc117801b55c62516fa72a801c90c9a7458eed8f847048fabd5b88cc",
+      "bytes": 65580,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "내일도 히어로",
+      "visibleCharacters": [
+        "사이타마"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 12,
+      "eventKeys": [],
+      "cardIds": [
+        1402
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_ending_memorial_Icon.tga"
+    },
+    {
+      "world": "z_city",
+      "characterKey": "ending_memorial",
+      "character": "내일도 히어로",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_XP_z_city_ending_memorial_Art.tga",
+      "file": "war3mapImported/UI_Card_XP_z_city_ending_memorial_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "displayAspect": 1,
+      "viewport": [
+        100,
+        0,
+        325,
+        225
+      ],
+      "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep12_6.jpg",
+      "sourceSha256": "b4a91417828c38b6f506cdfff8b7340ebe713f3911fe2a5a20fecb2ef14c45be",
+      "sourcePage": "https://onepunchman-anime.net/story/#/season1/12",
+      "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/12_06.jpg",
+      "sourceKind": "official-anime-episode-still",
+      "artist": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+      "copyrightPage": "https://onepunchman-anime.net/story/",
+      "sha256": "8d84f7d9c92d28e284b005225a9d154a4d4c67e653b4f0824e4a396c9eee3088",
+      "bytes": 1048620,
+      "nativeSourceSize": [
+        400,
+        225
+      ],
+      "representativeCharacter": "내일도 히어로",
+      "visibleCharacters": [
+        "사이타마"
+      ],
+      "semanticRole": "ending-memorial",
+      "exactStoryScene": false,
+      "season": 1,
+      "episode": 12,
+      "eventKeys": [],
+      "cardIds": [
+        1402
+      ],
+      "source": "war3mapImported/UI_Card_XP_z_city_ending_memorial_Art.tga"
     }
   ],
-  "catalogSha256": "8415220014bd3f9f51df2aa602b14bac8ecff670c490c888fa05348d1a8b331f",
-  "registrySha256": "9b60bfabde642876252ebcc58af1ceb37888beeb0a4d3b3b9172c59b3e23b3ae",
+  "catalogSha256": "d27527654a14a8e6df9b9cab9ffadfff80079714937061e2c4eafe16b5edfa30",
+  "registrySha256": "ae4b52b20a3db3a2d94731fb665315c1a729b3e32ee18d7f154abb7202d39f68",
   "runtimeTested": false
 }

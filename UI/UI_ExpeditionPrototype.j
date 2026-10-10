@@ -294,7 +294,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endloop
             call DzSyncData("ProtoCodex", packet)
         endif
-        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n머리 카드 최대 2장 · 머리 획득 비용 없음|n사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
+        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n머리 카드 기본 2장 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
         call ExpUIText(LobbyInfo, value)
         set value = "출발 장비|n|n출발 머리 · "
         if ProtoStartHead[pid] > 0 then

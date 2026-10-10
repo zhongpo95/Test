@@ -1,8 +1,8 @@
-// 우선 확장 여섯 작품의 보상 규칙과 한 런에서 가능한 사건 진행 경로를 검사한다.
+// 확장 작품의 보상 규칙과 한 런에서 가능한 사건 진행 경로를 검사한다.
 'use strict';
 const fs = require('node:fs'), path = require('node:path');
 const {inspect} = require('./check-content-candidates.cjs');
-const worldKeys = ['amphoreus','phantom_blood','madolche','tengu','ikebukuro','frieren'];
+const worldKeys = ['amphoreus','phantom_blood','madolche','tengu','ikebukuro','frieren','dungeon_meshi','hunter_exam','roswaal_mansion','z_city'];
 const defaultDirectory = path.resolve(__dirname,'../content/roguelite');
 const schema = JSON.parse(fs.readFileSync(path.join(__dirname,'content-schema.json'),'utf8'));
 const permittedStats = new Set(schema.$defs.effect.properties.stat.enum);
@@ -145,14 +145,21 @@ function inspectExpansion(data,expectedKey=data?.world?.key) {
         }
       }
     }
-    if (!event.mainStage) continue;
     const rewardCards = (event.choices||[]).map(choice=>cards.get(choice.card));
     const commonEnding = event.mainStage===data.world?.mainStory?.length && rewardCards.length===3 &&
-      rewardCards.every(card=>card?.endingCard===true) && new Set(rewardCards.map(card=>card.key)).size===1;
-    if (!event.dialogue?.enabled) fail(event.key,'메인 사건에는 다단계 대화가 필요함');
-    if (new Set(rewardCards.map(card=>card?.grade)).size!==1) fail(event.key,'메인 세 보상의 희귀도가 다름');
-    if (!commonEnding && rewardCards.every(Boolean) && new Set(rewardCards.map(effectVector)).size!==3) {
-      fail(event.key,'메인 세 보상 중 실제 효과 벡터가 같은 선택이 있음');
+      rewardCards.every(card=>card?.endingCard===true && effectVector(card)==='[]') &&
+      new Set(rewardCards.map(card=>card.key)).size===1 && event.choices.every(choice=>!choice.card2);
+    // 일반 사건의 보조 카드도 더해, 카드 이름이나 지급 묶음만 다른 같은 보상을 찾는다.
+    const vectors = event.choices.map(choice=>effectVector({effects:[choice.card,choice.card2]
+      .filter(Boolean).flatMap(key=>cards.get(key)?.effects||[])}));
+    if (!commonEnding && new Set(vectors).size!==vectors.length) {
+      const duplicates = vectors.map((vector,index)=>({choice:index+1,vector}))
+        .filter(item=>vectors.filter(vector=>vector===item.vector).length>1);
+      fail(event.key,'세 보상 중 실제 효과 벡터가 같은 선택이 있음. '+JSON.stringify(duplicates));
+    }
+    if (event.mainStage) {
+      if (!event.dialogue?.enabled) fail(event.key,'메인 사건에는 다단계 대화가 필요함');
+      if (new Set(rewardCards.map(card=>card?.grade)).size!==1) fail(event.key,'메인 세 보상의 희귀도가 다름');
     }
   }
   const planner = createPlanner(data);
@@ -257,13 +264,13 @@ function selfTest() {
         event('first',['a','b','c'],{mainStage:1,dialogue:{enabled:true,commonResult:'진행',nodes:[]}}),
         event('last',['ending','ending','ending'],{mainStage:2,dialogue:{enabled:true,commonResult:'',nodes:[{key:'ending',story:'끝',choices:[{label:'확인',result:'끝'}]}]}}),
         event('free_a',['a','b','c'],{actionCost:0}),event('free_b',['a','b','c'],{actionCost:0}),
-        event('source',['token','a','b']),event('capacity',['ap','ap','ap'])
+        event('source',['token','a','b']),event('capacity',['ap','a','b'])
       ]
     };
   }
   const baseline = fixture();
   assert.equal(inspectExpansion(baseline).errors.length,0);
-  assert.equal(inspectExpansion(baseline).capacityCards[0].duplicate,null,'같은 사건의 세 분기를 세 번 획득으로 세지 않음');
+  assert.equal(inspectExpansion(baseline).capacityCards[0].duplicate,null,'한 사건의 AP 보상은 중복 획득으로 세지 않음');
   function rejected(edit,pattern) {
     const data = fixture();edit(data);
     assert.ok(inspectExpansion(data).errors.some(issue=>pattern.test(issue.reason)),String(pattern));
@@ -273,6 +280,22 @@ function selfTest() {
   rejected(data=>{data.events[2].choices[0].potions=1;},/물약|potions/);
   rejected(data=>{data.events[2].choices[0].hpCost=1;},/체력/);
   rejected(data=>{data.cards.find(item=>item.key==='b').effects=effect(2);},/벡터/);
+  rejected(data=>{data.cards.find(item=>item.key==='token').effects=effect(2);},/벡터/);
+  rejected(data=>{data.events.push(event('same_epilogue',['entry','token','a'],{epilogue:true}));},/벡터/);
+  rejected(data=>{
+    const source=data.events.find(item=>item.key==='source');
+    source.choices[0].card2='b';source.choices[2].card='c';
+  },/벡터/);
+  rejected(data=>{data.events.push(event('not_final_memorial',['ending','ending','ending'],{epilogue:true}));},/벡터/);
+  const bundled = fixture();
+  bundled.events.find(item=>item.key==='source').choices.forEach(item=>{item.card='token';});
+  bundled.events.find(item=>item.key==='source').choices[1].card2='b';
+  bundled.events.find(item=>item.key==='source').choices[2].card2='c';
+  assert.deepEqual(inspectExpansion(bundled).errors,[],'같은 기본 카드에 서로 다른 보조 효과를 더한 세 보상은 허용함');
+  const repeatedCapacity = fixture();
+  repeatedCapacity.events.find(item=>item.key==='capacity').choices.forEach(item=>{item.card='ap';});
+  assert.equal(inspectExpansion(repeatedCapacity).capacityCards[0].duplicate,null,'같은 사건의 세 분기는 세 번의 AP 카드 획득이 아님');
+  assert.ok(inspectExpansion(repeatedCapacity).errors.some(issue=>issue.key==='capacity' && /벡터/.test(issue.reason)),'동일 사건의 AP 보상도 실제 선택 다양성 검사는 통과할 수 없음');
   rejected(data=>{data.cards.find(item=>item.key==='ending').name='a';},/엔딩 카드 이름/);
   rejected(data=>{data.events.find(item=>item.key==='source').requiredCard='token';},/진행 경로가 없음/);
   rejected(data=>{data.events[2].requiredCard='ending';},/진행 경로가 없음/);
@@ -291,7 +314,7 @@ function selfTest() {
   assert.equal(parseArgs([]).directory,defaultDirectory,'기본 검사는 실제 배포 카탈로그를 대상으로 함');
   assert.deepEqual(parseArgs(['--directory','content/expansion-drafts','--allow-missing']),{directory:path.resolve('content/expansion-drafts'),allowMissing:true,selfTest:false});
   assert.throws(()=>parseArgs(['--directory','--self-test']),/폴더를 지정/);
-  return {selfTests:18,passed:true,runtimeTested:false};
+  return {selfTests:25,passed:true,runtimeTested:false};
 }
 
 if (require.main===module) {

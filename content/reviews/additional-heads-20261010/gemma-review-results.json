@@ -1,0 +1,226 @@
+[
+  {
+    "file": "dungeon_meshi-main-01.json",
+    "sha256": "dd0d8f6a144adee67faf6a84cb6c00f2bfbd0e5cd0e46383996f384c48ae93f8",
+    "monitorRecordId": "fec0111e-bc5e-4de0-8e67-5bb6cd69d01f",
+    "started": "2026-10-10T10:23:54.024Z",
+    "finished": "2026-10-10T10:24:28.595Z",
+    "requestSha256": "03bd640cd26a0131b1be8d6d874f438a48e68ad5a730767c37d20a3102214e64",
+    "manuscriptSha256": "fcb59bef01b85f113161ccdf760de65026410f2a4b97fa4bccfcdfe4102f48f0",
+    "result": {
+      "issues": [
+        {
+          "key": "dm_main_14",
+          "issue": "모든 선택지의 보상이 동일함",
+          "fix": "선택지별로 고유한 카드나 효과를 부여하거나 결과 텍스트를 차별화할 것"
+        },
+        {
+          "key": "dm_main_13",
+          "issue": "실제 구현 없는 기능 약속",
+          "fix": "부활 시도 등 시스템 외적 요소는 묘사로만 제한하고 수치 보상과 분리할 것"
+        },
+        {
+          "key": "dm_main_09",
+          "issue": "인물 시점의 내부 모순",
+          "fix": "마르실의 기억과 파린의 경험이 충돌하는 지점을 인물의 감정선으로 정교하게 교정할 것"
+        }
+      ]
+    }
+  },
+  {
+    "file": "dungeon_meshi-side-01.json",
+    "sha256": "49ab18d8653f54ffd81a70d0eff1f4366687447f985e63b091bae22a217292c4",
+    "monitorRecordId": "17742476-3b83-4dd9-9d24-659641fc2ed2",
+    "started": "2026-10-10T10:24:28.667Z",
+    "finished": "2026-10-10T10:25:05.107Z",
+    "requestSha256": "c8b11483bf212638f51cb86b208244e6ed54e9994dd83b54ff0d8337311606eb",
+    "manuscriptSha256": "fcb59bef01b85f113161ccdf760de65026410f2a4b97fa4bccfcdfe4102f48f0",
+    "result": {
+      "issues": [
+        {
+          "key": "dm_question_followup",
+          "issue": "파린이 현재 일행에 있는 것으로 오인될 수 있음",
+          "fix": "파린이 현재 곁에 없음을 명시하며 기억 속의 대화로 한정함"
+        },
+        {
+          "key": "dm_separate_notes",
+          "issue": "카블루가 다른 파티임을 알면서도 정보 교환을 암시함",
+          "fix": "카블루가 타 파티의 기록을 직접 보지 못했음을 명시함"
+        },
+        {
+          "key": "dm_before_dragon_memory",
+          "issue": "특정 미래 전투가 이미 끝났음을 암시할 위험",
+          "fix": "전투 결과가 아닌 현재의 준비 과정에만 집중하도록 수정"
+        }
+      ]
+    }
+  },
+  {
+    "file": "dungeon_meshi-prose-02.json",
+    "sha256": "c7dfffcf8b836d61c26a0463c29e8ef95a7eb697dab03f838c1d2a6aa88aea43",
+    "monitorRecordId": "18b3a960-ea07-4402-9bdc-cf902a91069a",
+    "started": "2026-10-10T10:32:39.554Z",
+    "finished": "2026-10-10T10:33:59.941Z",
+    "requestSha256": "4c41dbc1c9f0363c54581b4ad07a6648164ee160f48c53f0c1a4634d91800d05",
+    "manuscriptSha256": "51ed30310ae230fea491f15dad35cde90a00ce1fc76a1b197d1ba08b8a26809e",
+    "result": {
+      "issues": [
+        {
+          "key": "dm_main_06",
+          "issue": "화자 모순. 본문에서 카블루가 동료의 표정을 살핀다고 했으나, 선택지에서는 칠책이 상자를 볼 위치를 떠올리는 내용이 포함되어 화자가 불분명함.",
+          "fix": "선택지에서 '칠책이라면'을 '카블루라면'으로 수정하거나, 카블루의 관점에 맞는 행동으로 변경."
+        },
+        {
+          "key": "dm_main_10",
+          "issue": "시점 모순. '이제 그녀는 다른 모험가 일행의 호위를 맡고 있다'는 현재 시점의 설명과 '예전 동료라는 마음'이라는 과거 회상적 맥락이 충돌함.",
+          "fix": "'이제 그녀는'을 '그녀는'으로 수정하여 현재 상황임을 명확히 하거나, 과거와 현재의 대비를 더 분명하게 기술."
+        },
+        {
+          "key": "dm_main_14",
+          "issue": "본문과 맞지 않는 행동. 본문은 파린과 재회하여 식탁에 모인 장면인데, 선택지 중 '파린에게 돌아와 줘서 고맙다고 말한다'는 재회 직후의 감정 표현과 '식탁의 남은 자리를 정리했다'는 행동이 시점상 어색하게 섞여 있음.",
+          "fix": "선택지의 결과 문구에서 '식탁의 남은 자리를 정리했다'를 '식탁에 마주 앉았다'로 수정하여 재회 상황에 집중."
+        }
+      ]
+    }
+  },
+  {
+    "file": "hunter_exam-main-01.json",
+    "sha256": "d7ec68f37eaa78f35190b7a0dc3a1b7c83a8d7398cf703921ed6c47e09a58746",
+    "monitorRecordId": "0a18ab74-9666-4e43-9ab6-7eeb053187d6",
+    "started": "2026-10-10T10:45:27.309Z",
+    "finished": "2026-10-10T10:45:58.342Z",
+    "requestSha256": "7847a71e71cb26a724be69593c33c261afec458a5a8ff5ab4641c060b2cefc99",
+    "manuscriptSha256": "ccc6b268ec37a2a1d9186d08d1fa31edfc3cf882a254aff7bca16b5233054f9e",
+    "result": {
+      "issues": [
+        {
+          "key": "hx_main_13",
+          "issue": "사토츠가 전한 탈락 경위에서 키르아가 보드로를 죽여 실격되었다는 내용이 포함되어 있으나, 원작에서 키르아는 보드로를 죽이지 않고 형 일루미와의 대결 중 실격 처리됨.",
+          "fix": "키르아가 보드로를 죽여 실격했다는 문장을 삭제하고, 일루미와의 대결로 인해 실격되었음을 명시할 것."
+        }
+      ]
+    }
+  },
+  {
+    "file": "hunter_exam-side-01.json",
+    "sha256": "e12b36355cfdb0b82363c915b359d52f826ec3b5c48cb6b415442662a0e64721",
+    "monitorRecordId": "43727e7b-5c2d-4c68-94ad-d19e88e2d792",
+    "started": "2026-10-10T10:45:58.408Z",
+    "finished": "2026-10-10T10:46:06.890Z",
+    "requestSha256": "b3b4c1a38cbf2758f69e66975e2f07b19380e8c3d6a8d83776ac1224c9cb8b77",
+    "manuscriptSha256": "ccc6b268ec37a2a1d9186d08d1fa31edfc3cf882a254aff7bca16b5233054f9e",
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "roswaal_mansion-main-01.json",
+    "sha256": "163648c63bda243530ba7aa8a4db340537c3216f96de8a40cbc1cba445dcf287",
+    "monitorRecordId": "52bf02c0-d784-43b2-90f7-76948896524f",
+    "started": "2026-10-10T10:49:08.267Z",
+    "finished": "2026-10-10T10:50:13.400Z",
+    "requestSha256": "3e47b0f8e56a11da4d077bc9cad34572e71ecac3101282a56fd5897a02639b8b",
+    "manuscriptSha256": "644333b95e339dfa8fe52b5fb0aa9e0693772e840ad11c4bcb8a388c98621530",
+    "result": {
+      "issues": [
+        {
+          "key": "rz_main_03",
+          "issue": "도입부의 시점과 본문의 시점이 불일치함. 도입은 '두 번째 회차'이나 본문은 '네 번째 밤'의 사건을 다룸.",
+          "fix": "본문의 '네 번째 밤'을 '두 번째 회차의 밤'으로 수정하거나 도입의 회차를 네 번째로 수정."
+        },
+        {
+          "key": "rz_main_05",
+          "issue": "사망한 인물에 대한 묘사 오류. 본문에서 렘이 숨진 채 발견되었다고 했으나, commonResult에서 람이 동생을 잃고 흔들린다고 표현하여 람이 사망한 것으로 오인될 수 있음.",
+          "fix": "commonResult의 주체를 람에서 렘으로 수정하거나, 렘의 죽음을 명확히 기술."
+        },
+        {
+          "key": "rz_main_13",
+          "issue": "로즈월의 가세 시점과 저주 해제 조건의 인과관계가 모호함. 로즈월의 불길이 어둠을 가른 직후 저주가 사라진다는 표현이 마수 처치와 저주 해제의 상관관계를 불분명하게 함.",
+          "fix": "로즈월의 가세로 마수를 저지하고, 그 과정에서 저주가 풀렸음을 명확히 연결."
+        }
+      ]
+    }
+  },
+  {
+    "file": "roswaal_mansion-side-01.json",
+    "sha256": "8aafd3a8fad09b2e8ac6f100e9267e3c239aab2ae0c2e65aab1ff91639234006",
+    "monitorRecordId": "c2e0d222-8d01-4a5d-a9eb-9f1f4e4b3698",
+    "started": "2026-10-10T10:50:13.473Z",
+    "finished": "2026-10-10T10:51:02.536Z",
+    "requestSha256": "36c315fd52831e1f34816c647c2ddad52c3ec855160ee817661f219292f37d7e",
+    "manuscriptSha256": "644333b95e339dfa8fe52b5fb0aa9e0693772e840ad11c4bcb8a388c98621530",
+    "result": {
+      "issues": [
+        {
+          "key": "rz_side_hall",
+          "issue": "스바루가 마지막 방을 놓치고 돌아왔다는 묘사와 '다음번에는 무엇부터 다르게 해 볼까?'라는 질문이 현재 시점의 행동과 충돌함.",
+          "fix": "'다음번에는 무엇부터 다르게 해 볼까?'를 '이번에는 무엇부터 다르게 해 볼까?'로 수정하거나, 이미 지나온 길을 되짚는 상황임을 명확히 할 것."
+        },
+        {
+          "key": "rz_side_garden",
+          "issue": "에밀리아가 책을 옮기려다 종이를 발견했다는 상황과 팩이 위에서 종이가 걸린 가지를 바라본다는 시선이 물리적으로 어색함.",
+          "fix": "팩이 '종이가 걸린 가지'를 가리키는 것으로 수정하여 시선의 방향을 명확히 할 것."
+        }
+      ]
+    }
+  },
+  {
+    "file": "additional-editor-delta-01.json",
+    "sha256": "ea4bf8fc590def996e0bf095c21de9a5f85db3a3a13249f9a78a31d8efe72525",
+    "monitorRecordId": "49e17713-c8a0-4faf-b63a-bc3a12c66337",
+    "started": "2026-10-10T10:55:17.270Z",
+    "finished": "2026-10-10T10:55:25.240Z",
+    "requestSha256": "3d3762cf862b8b01d0981babbfcf41445f27bf6b63f90182454a45836838f2ef",
+    "manuscriptSha256": null,
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "z_city-main-01.json",
+    "sha256": "4749b39126f15e8d53f4ae5794c0cfabe7faa5c990918995f3e3759e3d4fd258",
+    "monitorRecordId": "52c2b999-f1aa-4f48-8f87-47f1a0a1b3ff",
+    "started": "2026-10-10T10:57:40.761Z",
+    "finished": "2026-10-10T10:58:20.283Z",
+    "requestSha256": "e6df29bca5a2977f37b4d7a69e5488c74f041ffbf6ee591196888e3ce1f95627",
+    "manuscriptSha256": "4e576cd1b1a99455283b92eb4ea0dcc8ef88fce7cd1c1a5b2b6d3913c551bdeb",
+    "result": {
+      "issues": [
+        {
+          "key": "opm_main_02",
+          "issue": "제노스가 사이타마의 집을 찾아온 시점과 서사적 흐름의 모순.",
+          "fix": "제노스가 사이타마의 집을 찾아오는 시점을 모기 떼 전투 직후가 아닌, 이후의 활동이나 특정 사건 이후로 조정하거나, 방문 목적을 '힘의 정체에 대한 의문'으로 더 명확히 기술할 것."
+        },
+        {
+          "key": "opm_main_08",
+          "issue": "무면허 라이더의 위치와 이동 경로에 대한 묘사 부족.",
+          "fix": "무면허 라이더가 어느 지점에서 비를 가르고 오는지, 혹은 심해왕과 어느 정도 거리에서 접근 중인지 구체적인 위치 정보를 추가할 것."
+        }
+      ]
+    }
+  },
+  {
+    "file": "z_city-side-01.json",
+    "sha256": "84bd8fbed6dd07661c316610a5853289a9b0e82deec71c3a274f775b69759ea5",
+    "monitorRecordId": "0e1c1a70-aced-4ce3-8f31-4c74b9bcde43",
+    "started": "2026-10-10T10:58:20.352Z",
+    "finished": "2026-10-10T10:58:26.337Z",
+    "requestSha256": "f7000f8e13f0d3ee02cea734567b38eb718367b0502bef655b555209f8d77f70",
+    "manuscriptSha256": "4e576cd1b1a99455283b92eb4ea0dcc8ef88fce7cd1c1a5b2b6d3913c551bdeb",
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "opm-editor-delta-01.json",
+    "sha256": "0b75fd75c1b35bdcd459795e11cbc15d42c70c99be12fdcdb9ff453107ecc580",
+    "monitorRecordId": "5d7b44c8-e398-4b2b-9617-911c8709d17a",
+    "started": "2026-10-10T11:08:44.377Z",
+    "finished": "2026-10-10T11:08:53.647Z",
+    "requestSha256": "318b0fccd065c87fa92d678c8046e6079a18b72890c3007b0d4700a41919921a",
+    "manuscriptSha256": null,
+    "result": {
+      "issues": []
+    }
+  }
+]

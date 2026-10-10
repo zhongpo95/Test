@@ -61,10 +61,19 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         call RefreshHP(MainUnit[pid])
     endfunction
 
+    function ProtoHeadUnlocked takes integer pid, integer head returns boolean
+        local integer required
+        if head < 1 or head > PROTO_HEAD_COUNT then
+            return false
+        endif
+        set required = ProtoHeadRequiredMain[head]
+        return required == 0 or ProtoHeadCompleted[ExpKey(pid, required)]
+    endfunction
+
     function ProtoStartHeadReady takes integer pid returns boolean
         local integer head = ProtoStartHead[pid]
         // 머리 카드 없이 출발할 때는 도감 로드를 기다리지 않는다.
-        return head == 0 or (head >= 1 and head <= PROTO_HEAD_COUNT and ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, head)])
+        return head == 0 or (head >= 1 and head <= PROTO_HEAD_COUNT and ProtoHeadRequiredMain[head] == 0 and ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, head)])
     endfunction
 
     function ProtoCanDepart takes integer pid returns boolean
@@ -90,7 +99,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     endfunction
 
     function ProtoGrantHead takes integer pid, integer head returns nothing
-        if head < 1 or head > PROTO_HEAD_COUNT or ProtoHeadCount[pid] >= 2 or ProtoHeadOwned[ExpKey(pid, head)] then
+        if not ProtoHeadUnlocked(pid, head) or ProtoHeadCount[pid] >= ProtoHeadCapacity(pid) or ProtoHeadOwned[ExpKey(pid, head)] then
             return
         endif
         set ProtoHeadOwned[ExpKey(pid, head)] = true
@@ -170,7 +179,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             return false
         endif
         if ProtoEventKind[id] == 0 then
-            return choice == 1 and ProtoHeadCount[pid] < 2 and not ProtoHeadOwned[ExpKey(pid, ProtoEventHead[id])]
+            return choice == 1 and ProtoHeadUnlocked(pid, ProtoEventHead[id]) and ProtoHeadCount[pid] < ProtoHeadCapacity(pid) and not ProtoHeadOwned[ExpKey(pid, ProtoEventHead[id])]
         endif
         return ExpGold[pid] >= ProtoBranchCost[key] and ProtoLevel[pid] + ProtoBranchLevel[key] <= 5 and ProtoDensity[pid] + ProtoBranchDensity[key] <= 10
     endfunction
@@ -185,7 +194,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set head = ProtoEventHead[id]
         if ProtoEventKind[id] == 0 then
             // 입구 ID는 플레이어별로 하나씩 배정한다. 다른 사람의 머리 획득이 내 입구를 소진하지 않는다.
-            return id == ProtoHeadEntryEvent[head * 4 + pid] and ProtoHeadCount[pid] < 2 and not ProtoHeadOwned[ExpKey(pid, head)]
+            return id == ProtoHeadEntryEvent[head * 4 + pid] and ProtoHeadUnlocked(pid, head) and ProtoHeadCount[pid] < ProtoHeadCapacity(pid) and not ProtoHeadOwned[ExpKey(pid, head)]
         endif
         // 잠긴 지역의 사건은 분기 조건까지 검사하지 않는다.
         if head > 0 and not ProtoHeadOwned[ExpKey(pid, head)] then
@@ -588,6 +597,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n[메인 이야기 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[ProtoEventHead[id]]) + "]"
                 if ProtoEventMainStage[id] == ProtoHeadMainLength[ProtoEventHead[id]] then
                     set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|cff8042ad[이야기 완결] " + ProtoHeadName[ProtoEventHead[id]] + "|r"
+                    // 마지막 대화 정산 시 지역마다 한 번만 이번 런의 머리 한도를 늘린다.
+                    if not ProtoHeadCompleted[ExpKey(pid, ProtoEventHead[id])] then
+                        set ProtoHeadCompleted[ExpKey(pid, ProtoEventHead[id])] = true
+                        set ProtoCompletedHeadCount[pid] = ProtoCompletedHeadCount[pid] + 1
+                        set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|cff216548머리 카드 한도 +1 · 최대 " + I2S(ProtoHeadCapacity(pid)) + "장|r"
+                    endif
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 endif
             endif
@@ -818,6 +833,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer pid = ResetPid
         local integer id = 0
         local integer key
+        set ProtoCompletedHeadCount[pid] = 0
         loop
             exitwhen id > IMaxBJ(63, PROTO_CARD_LAST)
             set key = ExpKey(pid, id)
@@ -834,6 +850,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoCharacterGrade[key] = 0
             set ProtoMainProgress[key] = 0
             set ProtoHeadOwned[key] = false
+            set ProtoHeadCompleted[key] = false
             set ProtoCandidates[key] = 0
             set id = id + 1
         endloop
@@ -983,7 +1000,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 call ProtoTryStart()
             elseif action >= 2010 and action <= 2010 + PROTO_HEAD_COUNT and not ExpReady[pid] then
                 set id = action - 2010
-                if id == 0 or (ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, id)]) then
+                if id == 0 or (ProtoHeadRequiredMain[id] == 0 and ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, id)]) then
                     set ProtoStartHead[pid] = id
                 endif
             elseif action == 2001 then

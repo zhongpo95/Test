@@ -3504,5 +3504,559 @@
     "icon": "UI_Card_XP_frieren_head_Icon.tga",
     "art": "UI_Card_XP_frieren_head_Art.tga",
     "ending": true
+  },
+  {
+    "characterId": 1209,
+    "head": 20,
+    "name": "라이오스",
+    "rewardIds": [
+      1209,
+      1217,
+      1223,
+      1226,
+      1235,
+      1238,
+      1245,
+      1248,
+      1250,
+      1254
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_laios_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_laios_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1210,
+    "head": 20,
+    "name": "마르실",
+    "rewardIds": [
+      1210,
+      1219,
+      1221,
+      1224,
+      1228,
+      1230,
+      1236,
+      1239,
+      1241,
+      1246,
+      1251,
+      1253
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_marcille_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_marcille_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1211,
+    "head": 20,
+    "name": "칠책",
+    "rewardIds": [
+      1211,
+      1218,
+      1222,
+      1227,
+      1231,
+      1233,
+      1237,
+      1247
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_chilchuck_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_chilchuck_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1212,
+    "head": 20,
+    "name": "센시",
+    "rewardIds": [
+      1212,
+      1220,
+      1225,
+      1229,
+      1234,
+      1240,
+      1243,
+      1249,
+      1252,
+      1255
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_senshi_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_senshi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1213,
+    "head": 20,
+    "name": "파린",
+    "rewardIds": [
+      1213,
+      1242
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_falin_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_falin_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1214,
+    "head": 20,
+    "name": "나마리",
+    "rewardIds": [
+      1214,
+      1244
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_namari_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_namari_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1215,
+    "head": 20,
+    "name": "슈로",
+    "rewardIds": [
+      1215
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_shuro_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_shuro_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1216,
+    "head": 20,
+    "name": "카블루",
+    "rewardIds": [
+      1216,
+      1232
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_kabru_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_kabru_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1256,
+    "head": 20,
+    "name": "다시 마주 앉은 식탁",
+    "rewardIds": [
+      1256
+    ],
+    "icon": "UI_Card_XP_dungeon_meshi_head_Icon.tga",
+    "art": "UI_Card_XP_dungeon_meshi_head_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 1257,
+    "head": 21,
+    "name": "곤",
+    "rewardIds": [
+      1257,
+      1267,
+      1272,
+      1276,
+      1279,
+      1282,
+      1288,
+      1291,
+      1292,
+      1294,
+      1296,
+      1297,
+      1300,
+      1305
+    ],
+    "icon": "UI_Card_XP_hunter_exam_gon_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_gon_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1258,
+    "head": 21,
+    "name": "키르아",
+    "rewardIds": [
+      1258,
+      1274,
+      1280,
+      1284,
+      1287,
+      1304
+    ],
+    "icon": "UI_Card_XP_hunter_exam_killua_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_killua_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1259,
+    "head": 21,
+    "name": "크라피카",
+    "rewardIds": [
+      1259,
+      1269,
+      1270,
+      1277,
+      1283,
+      1285,
+      1289,
+      1298
+    ],
+    "icon": "UI_Card_XP_hunter_exam_kurapika_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_kurapika_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1260,
+    "head": 21,
+    "name": "레오리오",
+    "rewardIds": [
+      1260,
+      1265,
+      1268,
+      1271,
+      1275,
+      1278,
+      1286,
+      1290,
+      1299
+    ],
+    "icon": "UI_Card_XP_hunter_exam_leorio_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_leorio_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1261,
+    "head": 21,
+    "name": "히소카",
+    "rewardIds": [
+      1261,
+      1293,
+      1295
+    ],
+    "icon": "UI_Card_XP_hunter_exam_hisoka_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_hisoka_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1262,
+    "head": 21,
+    "name": "한조",
+    "rewardIds": [
+      1262,
+      1301
+    ],
+    "icon": "UI_Card_XP_hunter_exam_hanzo_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_hanzo_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1263,
+    "head": 21,
+    "name": "사토츠",
+    "rewardIds": [
+      1263,
+      1273,
+      1303
+    ],
+    "icon": "UI_Card_XP_hunter_exam_satotz_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_satotz_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1264,
+    "head": 21,
+    "name": "네테로",
+    "rewardIds": [
+      1264,
+      1281,
+      1302
+    ],
+    "icon": "UI_Card_XP_hunter_exam_netero_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_netero_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1266,
+    "head": 21,
+    "name": "합격증 너머의 친구",
+    "rewardIds": [
+      1266
+    ],
+    "icon": "UI_Card_XP_hunter_exam_ending_memorial_Icon.tga",
+    "art": "UI_Card_XP_hunter_exam_ending_memorial_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 1306,
+    "head": 22,
+    "name": "나츠키 스바루",
+    "rewardIds": [
+      1306,
+      1313,
+      1316,
+      1321,
+      1322,
+      1327,
+      1329,
+      1331,
+      1336,
+      1339,
+      1343,
+      1347,
+      1351,
+      1353
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_subaru_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_subaru_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1307,
+    "head": 22,
+    "name": "에밀리아",
+    "rewardIds": [
+      1307,
+      1318,
+      1330,
+      1334,
+      1341
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_emilia_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_emilia_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1308,
+    "head": 22,
+    "name": "렘",
+    "rewardIds": [
+      1308,
+      1314,
+      1317,
+      1320,
+      1325,
+      1333,
+      1340,
+      1344,
+      1348,
+      1349
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_rem_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_rem_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1309,
+    "head": 22,
+    "name": "람",
+    "rewardIds": [
+      1309,
+      1315,
+      1319,
+      1326,
+      1332,
+      1338,
+      1345,
+      1346,
+      1350
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_ram_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_ram_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1310,
+    "head": 22,
+    "name": "베아트리스",
+    "rewardIds": [
+      1310,
+      1323,
+      1328,
+      1337,
+      1354
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_beatrice_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_beatrice_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1311,
+    "head": 22,
+    "name": "로즈월 L. 메이더스",
+    "rewardIds": [
+      1311,
+      1352
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_roswaal_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_roswaal_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1312,
+    "head": 22,
+    "name": "팩",
+    "rewardIds": [
+      1312,
+      1324,
+      1335,
+      1342
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_puck_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_puck_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1355,
+    "head": 22,
+    "name": "모두가 있는 저택의 아침",
+    "rewardIds": [
+      1355
+    ],
+    "icon": "UI_Card_XP_roswaal_mansion_ending_memorial_Icon.tga",
+    "art": "UI_Card_XP_roswaal_mansion_ending_memorial_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 1356,
+    "head": 23,
+    "name": "사이타마",
+    "rewardIds": [
+      1356,
+      1366,
+      1367,
+      1368,
+      1370,
+      1373,
+      1376,
+      1379,
+      1381,
+      1386,
+      1392,
+      1395,
+      1398,
+      1400
+    ],
+    "icon": "UI_Card_XP_z_city_saitama_Icon.tga",
+    "art": "UI_Card_XP_z_city_saitama_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1357,
+    "head": 23,
+    "name": "제노스",
+    "rewardIds": [
+      1357,
+      1365,
+      1369,
+      1371,
+      1372,
+      1374,
+      1378,
+      1380,
+      1383,
+      1384,
+      1389,
+      1390,
+      1394
+    ],
+    "icon": "UI_Card_XP_z_city_genos_Icon.tga",
+    "art": "UI_Card_XP_z_city_genos_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1358,
+    "head": 23,
+    "name": "음속의 소닉",
+    "rewardIds": [
+      1358,
+      1375,
+      1377,
+      1382,
+      1387
+    ],
+    "icon": "UI_Card_XP_z_city_sonic_Icon.tga",
+    "art": "UI_Card_XP_z_city_sonic_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1359,
+    "head": 23,
+    "name": "무면허 라이더",
+    "rewardIds": [
+      1359,
+      1388,
+      1391
+    ],
+    "icon": "UI_Card_XP_z_city_mumen_Icon.tga",
+    "art": "UI_Card_XP_z_city_mumen_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1360,
+    "head": 23,
+    "name": "뱅",
+    "rewardIds": [
+      1360,
+      1385,
+      1393
+    ],
+    "icon": "UI_Card_XP_z_city_bang_Icon.tga",
+    "art": "UI_Card_XP_z_city_bang_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1361,
+    "head": 23,
+    "name": "전율의 타츠마키",
+    "rewardIds": [
+      1361,
+      1401
+    ],
+    "icon": "UI_Card_XP_z_city_tatsumaki_Icon.tga",
+    "art": "UI_Card_XP_z_city_tatsumaki_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1362,
+    "head": 23,
+    "name": "아토믹 사무라이",
+    "rewardIds": [
+      1362,
+      1396
+    ],
+    "icon": "UI_Card_XP_z_city_atomic_Icon.tga",
+    "art": "UI_Card_XP_z_city_atomic_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1363,
+    "head": 23,
+    "name": "금속배트",
+    "rewardIds": [
+      1363,
+      1397
+    ],
+    "icon": "UI_Card_XP_z_city_metalbat_Icon.tga",
+    "art": "UI_Card_XP_z_city_metalbat_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1364,
+    "head": 23,
+    "name": "보로스",
+    "rewardIds": [
+      1364,
+      1399
+    ],
+    "icon": "UI_Card_XP_z_city_boros_Icon.tga",
+    "art": "UI_Card_XP_z_city_boros_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1402,
+    "head": 23,
+    "name": "내일도 히어로",
+    "rewardIds": [
+      1402
+    ],
+    "icon": "UI_Card_XP_z_city_ending_memorial_Icon.tga",
+    "art": "UI_Card_XP_z_city_ending_memorial_Art.tga",
+    "ending": true
   }
 ]

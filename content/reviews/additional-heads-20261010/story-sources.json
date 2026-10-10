@@ -1,0 +1,2173 @@
+[
+  {
+    "world": "dungeon_meshi",
+    "checkedAt": "2026-10-10",
+    "scope": "메인 1기 1~12화와 13화 도입. 염룡전·파린 부활 후 재회 직후까지.",
+    "officialSources": [
+      {
+        "url": "https://delicious-in-dungeon.com/",
+        "publisher": "TV 애니메이션 던전밥 제작위원회",
+        "verified": "STORY 1~13화의 소개, CHARACTER 8명 소개를 열어 읽었다.",
+        "usedFor": [
+          "파린 구출 재진입과 센시 합류",
+          "바실리스크·움직이는 갑옷·골렘밭·보물벌레·그림·켈피·학교 기억·나마리 재회·큰 개구리·염룡전·부활의 순서",
+          "나마리·슈로 이전 파티 이탈, 카블루 별도 파티",
+          "파린 재회 이후에도 이야기가 이어진다는 경계"
+        ],
+        "notVerified": [
+          "애니 전체 회차 영상 직접 재생·시청",
+          "한국어 정식 자막의 고유명사 표기 대조"
+        ],
+        "method": "공식 웹 소개의 핵심 사건만 짧게 참고하고 새 행동·반응 대화를 작성했다. 원문 대사는 전재하지 않았다."
+      },
+      {
+        "url": "https://delicious-in-dungeon.com/en/",
+        "publisher": "Official Delicious in Dungeon anime",
+        "verified": "영문 소개 및 cast 이름을 읽었다.",
+        "usedFor": [
+          "출발 동기와 8인 캐릭터 이름 대조"
+        ],
+        "notVerified": [
+          "개별 일본어 대사와 한국어 번역 대조"
+        ]
+      }
+    ],
+    "episodeMapping": [
+      {
+        "stage": 1,
+        "episode": "1",
+        "fact": "파린을 구하러 다시 내려감"
+      },
+      {
+        "stage": 2,
+        "episode": "1",
+        "fact": "센시의 요리 담당 합류"
+      },
+      {
+        "stage": 3,
+        "episode": "2",
+        "fact": "바실리스크 조우"
+      },
+      {
+        "stage": 4,
+        "episode": "3",
+        "fact": "움직이는 갑옷의 보호 행동 관찰"
+      },
+      {
+        "stage": 5,
+        "episode": "4",
+        "fact": "골렘밭"
+      },
+      {
+        "stage": 6,
+        "episode": "5",
+        "fact": "별도 카블루 파티와 보물벌레"
+      },
+      {
+        "stage": 7,
+        "episode": "6",
+        "fact": "살아 있는 그림"
+      },
+      {
+        "stage": 8,
+        "episode": "7",
+        "fact": "켈피 제안과 위험 경고"
+      },
+      {
+        "stage": 9,
+        "episode": "8",
+        "fact": "마르실과 파린 학교 시절"
+      },
+      {
+        "stage": 10,
+        "episode": "9",
+        "fact": "나마리·탄스 파티와 조사 협력"
+      },
+      {
+        "stage": 11,
+        "episode": "10",
+        "fact": "큰 개구리·벽 함정"
+      },
+      {
+        "stage": 12,
+        "episode": "11",
+        "fact": "염룡전과 역린"
+      },
+      {
+        "stage": 13,
+        "episode": "12",
+        "fact": "파린의 뼈·고대 마법"
+      },
+      {
+        "stage": 14,
+        "episode": "12~13 도입",
+        "fact": "부활·재회 직후 식탁"
+      }
+    ],
+    "boundaries": {
+      "ending": "파린을 되찾은 순간을 기념한다. 안전한 지상 귀환이나 이후 사건 해결을 추가하지 않는다.",
+      "epilogues": "두 후일담은 동일한 재회 직후 식탁의 짧은 대화로 제한한다. 이후 날짜나 여행 경과를 쓰지 않는다.",
+      "originalScenes": "일반 사건·선택 문장·추가 대화는 인물 성향을 바탕으로 한 신작이다. 원작 장면 그대로라고 표기하지 않는다.",
+      "party": "슈로는 이탈 전 기억에만, 나마리는 이탈 전 기억·9화 재회에만 등장한다. 카블루 관점은 별도 파티이며 라이오스 일행과 현재 동행하지 않는다.",
+      "stats": "식사·치료·부활을 직접 HP 회복이나 체력 비용으로 구현하지 않는다. 보상은 관찰·준비와 관련한 기존 전투 능력치이며 모든 수치는 게임용 설계다."
+    },
+    "retained": [
+      {
+        "idea": "미궁 생활의 준비를 보상으로 연결",
+        "reason": "요리 자체가 즉시 회복 소모품과 경쟁하지 않으면서 작품의 탐색·관찰 성격을 살린다."
+      },
+      {
+        "idea": "갑옷·학교 기억·염룡전의 추가 대화",
+        "reason": "관찰과 관계, 큰 전투 준비가 단일 보상 버튼으로 끝나지 않게 한다."
+      },
+      {
+        "idea": "무료 일반 사건 두 개",
+        "keys": [
+          "dm_watch_before_meal",
+          "dm_tools_back"
+        ],
+        "reason": "짧은 경계·정리 장면을 통해 행동력 없이 관찰과 준비 보상을 고른다."
+      },
+      {
+        "idea": "보유 카드 후속 세 개",
+        "keys": [
+          "dm_sound_followup",
+          "dm_question_followup",
+          "dm_observation_followup"
+        ],
+        "reason": "칠책·마르실·라이오스의 기본 카드를 먼저 가진 뒤 배운 내용을 다시 활용한다."
+      },
+      {
+        "idea": "고유 이름의 엔딩 기념",
+        "key": "dungeon_meshi_ending_memorial",
+        "reason": "지역+인물 이름 성장 묶음이 일반 캐릭터와 충돌하지 않도록 ‘다시 마주 앉은 식탁’으로 분리한다."
+      }
+    ],
+    "discarded": [
+      {
+        "idea": "음식 선택으로 즉시 체력 회복",
+        "reason": "식사와 회복 소모품을 동일한 보상으로 만들지 말라는 이번 범위에 맞지 않아 제외했다."
+      },
+      {
+        "idea": "고대 마법 사용에 플레이어 체력 비용",
+        "reason": "체력 비용을 폐기한 현재 기획과 충돌한다."
+      },
+      {
+        "idea": "파린 부활을 실제 부활 스킬 카드로 지급",
+        "reason": "현행 카드 스탯에 없는 새로운 시스템이며 사건 소재와 보상 동작을 혼동시킨다."
+      },
+      {
+        "idea": "염룡전 뒤 슈로·카블루가 재회 식탁에 합류",
+        "reason": "선정한 범위의 현재 파티 구성을 바꿀 위험이 있어 제외했다."
+      },
+      {
+        "idea": "키메라 파린·이즈츠미·카나리아대·원작 최종 결말",
+        "reason": "13화 도입의 재회에서 끝내는 이번 연작 범위 밖이다."
+      },
+      {
+        "idea": "음식 재료를 골드나 물약 보상으로 환산",
+        "reason": "이번 추가 배치의 골드·물약 보상 금지와 충돌한다."
+      }
+    ],
+    "uncertainty": [
+      "영상 전편을 직접 검토한 것은 아니다. 캐릭터별 실제 발언은 인용하지 않고 선택 대화를 새로 작성했다.",
+      "세부 지명·재료 배합·마법 수치·정확한 시간 경과는 공식 소개만으로 확인하지 못해 작성하지 않았다.",
+      "현재 원고는 정적 검사 후 Gemma4 공동 검토 대상이며 사용자 플레이에서의 문장 길이·난이도·등장 빈도는 확인하지 않았다."
+    ],
+    "imagePlan": {
+      "worldKey": "dungeon_meshi",
+      "entryCard": "dm_senshi",
+      "characters": [
+        "dm_laios",
+        "dm_marcille",
+        "dm_chilchuck",
+        "dm_senshi",
+        "dm_falin",
+        "dm_namari",
+        "dm_shuro",
+        "dm_kabru"
+      ],
+      "falin": "초기 인간형 또는 부활 직후 인간형. 키메라 금지.",
+      "assignedTo": "priority_image_research",
+      "iconAssigned": false
+    }
+  },
+  {
+    "worldKey": "hunter_exam",
+    "checkedAt": "2026-10-10",
+    "status": "원고 초안·정적 검사 대상. Gemma 및 실제 게임 검토 전.",
+    "scope": {
+      "version": "2011년판 TV 애니메이션",
+      "episodes": "1~21화 중 본편 20화. 13화 총집편은 별도 장면으로 늘리지 않음.",
+      "endpoint": "21화에서 곤·크라피카·레오리오가 키르아를 찾아 떠나기로 하는 지점",
+      "excluded": [
+        "1999년판 군함섬 등 오리지널 시험",
+        "조르딕가 방문과 키르아 재회",
+        "천공격투장과 넨 수련",
+        "요크신·그리드 아일랜드·키메라 앤트·선거와 이후 원작"
+      ],
+      "verificationBoundary": "공식 NTV 각화 소개와 등장 인물 목록을 읽었다. 애니메이션 영상을 직접 재생하거나 원작 만화를 전권 대조한 검토가 아니다. 상세한 최종 시험 경위는 아래 보조자료를 함께 대조하고 그 지위를 분리했다."
+    },
+    "primarySources": [
+      {
+        "id": "ntv_001",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/001.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 1,
+        "read": true
+      },
+      {
+        "id": "ntv_002",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/002.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 2,
+        "read": true
+      },
+      {
+        "id": "ntv_003",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/003.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 3,
+        "read": true
+      },
+      {
+        "id": "ntv_004",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/004.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 4,
+        "read": true
+      },
+      {
+        "id": "ntv_005",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/005.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 5,
+        "read": true
+      },
+      {
+        "id": "ntv_006",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/006.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 6,
+        "read": true
+      },
+      {
+        "id": "ntv_007",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/007.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 7,
+        "read": true
+      },
+      {
+        "id": "ntv_008",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/008.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 8,
+        "read": true
+      },
+      {
+        "id": "ntv_009",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/009.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 9,
+        "read": true
+      },
+      {
+        "id": "ntv_010",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/010.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 10,
+        "read": true
+      },
+      {
+        "id": "ntv_011",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/011.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 11,
+        "read": true
+      },
+      {
+        "id": "ntv_012",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/012.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 12,
+        "read": true
+      },
+      {
+        "id": "ntv_014",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/014.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 14,
+        "read": true
+      },
+      {
+        "id": "ntv_015",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/015.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 15,
+        "read": true
+      },
+      {
+        "id": "ntv_016",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/016.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 16,
+        "read": true
+      },
+      {
+        "id": "ntv_017",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/017.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 17,
+        "read": true
+      },
+      {
+        "id": "ntv_018",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/018.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 18,
+        "read": true
+      },
+      {
+        "id": "ntv_019",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/019.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 19,
+        "read": true
+      },
+      {
+        "id": "ntv_020",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/020.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 20,
+        "read": true
+      },
+      {
+        "id": "ntv_021",
+        "url": "https://www.ntv.co.jp/hunterhunter/story/021.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_episode_synopsis",
+        "episode": 21,
+        "read": true
+      },
+      {
+        "id": "ntv_exam_characters",
+        "url": "https://www.ntv.co.jp/hunterhunter/character/other_01.html",
+        "publisher": "일본TV 공식 애니메이션 사이트",
+        "kind": "official_character_list",
+        "read": true,
+        "confirmed": "사토츠·한조·네테로·멘치·부하라·일루미·폰즈·바본·보드로 등 시험편 인물의 등장 및 일본어 표기. 이미지 링크 목록은 읽었으나 이미지 안의 소개문까지 읽었다고 주장하지 않는다."
+      }
+    ],
+    "supplementarySources": [
+      {
+        "id": "anna_019",
+        "url": "https://anna-movies.com/hunterhunter/anime-2011-episode-19",
+        "kind": "unofficial_episode_commentary",
+        "read": true,
+        "use": "한조가 항복을 거부하는 곤을 제압한 뒤 스스로 패배를 인정하는 순서만 보조 대조. 해설자의 심리 해석과 추측은 채택하지 않음."
+      },
+      {
+        "id": "anna_020",
+        "url": "https://anna-movies.com/hunterhunter/anime-2011-episode-20",
+        "kind": "unofficial_episode_commentary",
+        "read": true,
+        "use": "형 일루미와의 대결 뒤 키르아가 보드로를 살해해 실격되고, 잠에서 깬 곤이 사토츠에게 경위를 듣는 세부만 보조 대조. 후속편에 밝혀진 침을 동기로 단정하지 않음."
+      }
+    ],
+    "stageEvidence": [
+      {
+        "event": "hx_main_01",
+        "episodes": [
+          1
+        ],
+        "sources": [
+          "ntv_001"
+        ],
+        "confirmed": "곤의 출발, 배에서 레오리오·크라피카와의 만남.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_02",
+        "episodes": [
+          2,
+          3
+        ],
+        "sources": [
+          "ntv_002",
+          "ntv_003"
+        ],
+        "confirmed": "노파의 선택 질문을 거쳐 키리코의 안내로 시험장에 도착.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_03",
+        "episodes": [
+          3,
+          4,
+          5
+        ],
+        "sources": [
+          "ntv_003",
+          "ntv_004",
+          "ntv_005"
+        ],
+        "confirmed": "키르아 등 지원자와의 만남, 사토츠를 따라가는 장거리 달리기, 습지의 히소카.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_04",
+        "episodes": [
+          6,
+          7
+        ],
+        "sources": [
+          "ntv_006",
+          "ntv_007"
+        ],
+        "confirmed": "멘치·부하라의 요리 시험 이후 통과한 일행이 비행선에 탑승.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_05",
+        "episodes": [
+          7
+        ],
+        "sources": [
+          "ntv_007"
+        ],
+        "confirmed": "비행선 안에서 곤·키르아가 네테로의 공을 빼앗는 놀이에 도전.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_06",
+        "episodes": [
+          8,
+          9
+        ],
+        "sources": [
+          "ntv_008",
+          "ntv_009"
+        ],
+        "confirmed": "트릭 타워의 5인 진행과 다수결, 곤의 촛불 시합.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_07",
+        "episodes": [
+          9,
+          10,
+          11
+        ],
+        "sources": [
+          "ntv_009",
+          "ntv_010",
+          "ntv_011"
+        ],
+        "confirmed": "크라피카의 상대가 의식을 잃어 승부가 지연되고, 레오리오의 시간 내기가 불리해진 뒤 키르아에게 남은 승부가 넘어감.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_08",
+        "episodes": [
+          12,
+          14
+        ],
+        "sources": [
+          "ntv_012",
+          "ntv_014"
+        ],
+        "confirmed": "대기 이후 5명이 갈 수 있는 긴 길과 3명이 갈 수 있는 짧은 길의 선택. 이후 일행의 4차 시험 이동으로 3차 통과를 확인. 통로 돌파 도구의 세부는 본문에서 단정하지 않음.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_09",
+        "episodes": [
+          14,
+          15
+        ],
+        "sources": [
+          "ntv_014",
+          "ntv_015"
+        ],
+        "confirmed": "제빌섬의 번호표 규칙, 곤의 히소카 추적, 크라피카·레오리오의 협력.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_10",
+        "episodes": [
+          16,
+          17
+        ],
+        "sources": [
+          "ntv_016",
+          "ntv_017"
+        ],
+        "confirmed": "곤이 낚싯대로 히소카의 표를 뺏은 직후 다른 지원자에게 기습당함. 다음 화에 동료에게 합류. 번호표를 돌려받는 세부 대사와 거래는 초안에서 생략.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_11",
+        "episodes": [
+          17,
+          18
+        ],
+        "sources": [
+          "ntv_017",
+          "ntv_018"
+        ],
+        "confirmed": "폰즈를 쫓은 세 사람의 동굴 진입, 바본이 죽은 뒤 남은 독사 함정, 탈출과 4차 시험 통과, 최종 면담.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_12",
+        "episodes": [
+          18,
+          19,
+          20
+        ],
+        "sources": [
+          "ntv_018",
+          "ntv_019",
+          "ntv_020",
+          "anna_019"
+        ],
+        "confirmed": "네테로 면담 뒤 변칙 토너먼트, 살인 즉시 실격 규칙, 곤 대 한조, 곤의 항복 거부와 이후 합격 통보. 한조의 항복 세부는 보조자료 추가 대조.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_13",
+        "episodes": [
+          20,
+          21
+        ],
+        "sources": [
+          "ntv_020",
+          "ntv_021",
+          "anna_020"
+        ],
+        "confirmed": "병실에서 사토츠가 곤의 합격 및 키르아의 탈락을 설명. 키르아의 형 일루미와의 대결 뒤 사건은 곤에게 과거 사실로 전달됨. 보드로 살해 세부는 보조자료 추가 대조.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      },
+      {
+        "event": "hx_main_14",
+        "episodes": [
+          21
+        ],
+        "sources": [
+          "ntv_021"
+        ],
+        "confirmed": "곤이 일루미에게 항의하고 키르아를 찾기 위해 쿠쿠르 마운틴으로 가기로 결정. 재회 전에 종료.",
+        "originalParts": "행동 선택지, 짧은 반응, 대화 노드와 카드 수치. 공식 대사의 인용이나 분기 결말 재현이 아님."
+      }
+    ],
+    "finalSequence": [
+      "네 번째 시험 이후 네테로 면담을 진행한다.",
+      "최종 시험에서 승자부터 합격하고 패자는 다음 시합 기회를 가지며 살인은 즉시 실격이다.",
+      "곤은 한조와 싸우면서 항복을 거부하고, 한조가 스스로 패배를 인정한다. 곤이 실력으로 한조를 제압했다고 쓰지 않는다.",
+      "곤이 의식을 잃은 동안 다른 시합이 이어지고, 키르아는 일루미와 대면한 뒤 보드로 살해로 실격하여 떠난다.",
+      "병실에서 깬 곤은 사토츠로부터 자신의 합격과 키르아 탈락의 경위를 듣는다.",
+      "곤은 일루미에게 항의하고 크라피카·레오리오와 키르아를 찾으러 갈 결심을 한다.",
+      "엔딩은 출발 결심이다. 키르아의 합격이나 현장 재회로 바꾸지 않는다."
+    ],
+    "languageAndAdaptation": {
+      "koreanNames": "곤, 키르아, 크라피카, 레오리오, 히소카, 한조, 사토츠, 네테로. 일본어 공식 이름을 국내 통용 표기로 적었으며 한국판 크레디트를 별도 대조했다고 주장하지 않는다.",
+      "sideStoryTiming": "16개 일반 사건은 도입에서 회고임을 알리거나 과거 시점을 명시한다. 관련 메인 이전에는 previous로 막고, 최종 시험에서 떠난 키르아가 이후 사건의 현재 인물로 재등장한다고 쓰지 않는다. 현재 런타임의 previous는 정확한 선택 번호 일치 조건이므로 일반 사건은 관련 메인의 특정 선택 후속으로 연결한다. 완료 조건을 뜻하는 previousChoice 0을 사용하지 않는다.",
+      "productionText": "창작·구현·검토·원작 범위 설명은 canon 메타와 이 파일에만 둔다. 실제 획득 안내가 아닌 '기념 카드에 기록' 같은 제작 문장은 서사 본문에 사용하지 않는다.",
+      "abilityBoundary": "쟈잔권, 전기 능력, 사슬 능력, 넨 학습, 백식관음, 번지껌 습득을 보상으로 약속하지 않는다. 인물의 관찰·결심·몸놀림을 기존 전투 수치에 연결한다."
+    },
+    "rewardDesign": {
+      "cards": 49,
+      "mainEvents": 14,
+      "sideEvents": 16,
+      "epilogues": 2,
+      "entryCard": "hx_gon",
+      "headEffects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "mainGradeBands": "1~4장 grade 1, 5~9장 grade 2, 10~13장 grade 3, 14장 공통 grade 4 엔딩 기념.",
+      "threeChoices": "모든 사건의 첫 보상 선택은 세 개. 메인 1~13장과 모든 일반·후일담의 세 선택은 서로 다른 효과 벡터. 14장은 합의된 공통 엔딩 기념 예외.",
+      "combatAxes": [
+        "공격력 증가·차지 공격",
+        "치명 확률·치명 피해",
+        "신속·행동 속도",
+        "이동 속도·이동 조건 공격",
+        "관통·대미지 증가",
+        "보스 피해와 관통",
+        "최종 대미지와 고체력 조건",
+        "공격 옵션과 최대 체력·피해 감소를 함께 제공"
+      ],
+      "rules": [
+        "공격력·대미지·최종 대미지·보스 피해의 기존 독립 계산 분류 유지",
+        "골드·물약·체력 비용·직접 회복·몬스터 수·적 단계 보상 없음",
+        "흡수·재생 신규 값은 사용하지 않음. 기존 합산 최대 체력 10%/초 제한 변경 없음",
+        "엔딩 기념 이름은 일반 인물 카드와 겹치지 않음",
+        "기존 콘텐츠 스탯 재분배 없음"
+      ],
+      "freeEvents": [
+        "hx_small_rest",
+        "hx_board_wheels"
+      ],
+      "requiredCardEvents": [
+        {
+          "event": "hx_pack_followup",
+          "card": "hx_leorio"
+        },
+        {
+          "event": "hx_path_followup",
+          "card": "hx_satotz"
+        },
+        {
+          "event": "hx_signal_followup",
+          "card": "hx_killua"
+        }
+      ],
+      "capacity": {
+        "card": "hx_leorio_plan",
+        "base": 1,
+        "sources": [
+          {
+            "event": "hx_pack_followup",
+            "choice": 1,
+            "requires": {
+              "event": "hx_supply_sort",
+              "choice": 1,
+              "card": "hx_leorio"
+            }
+          },
+          {
+            "event": "hx_path_followup",
+            "choice": 1,
+            "requires": {
+              "event": "hx_supply_sort",
+              "choice": 2,
+              "card": "hx_satotz"
+            }
+          }
+        ],
+        "expected": "두 후속 사건은 동일 선행 사건의 1번/2번 선택을 각각 요구해 양립 불가. 다른 카드에서 action_capacity를 주지 않음. 반복 획득으로 최대치가 커지는 경로가 없어야 함.",
+        "check": "tools/check-priority-expansion.cjs의 inspectExpansion/createPlanner로 실제 초안 검사."
+      },
+      "sideBranchAccess": [
+        {
+          "event": "hx_rod_knot",
+          "previous": "hx_main_03",
+          "previousChoice": 2,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_start_line",
+          "previous": "hx_main_02",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_small_rest",
+          "previous": "hx_main_03",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_board_wheels",
+          "previous": "hx_main_02",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_cup_offer",
+          "previous": "hx_main_02",
+          "previousChoice": 2,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_hanzo_distance",
+          "previous": "hx_main_03",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_hisoka_glance",
+          "previous": "hx_main_03",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_supply_sort",
+          "previous": "hx_main_03",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_pack_followup",
+          "previous": "hx_supply_sort",
+          "previousChoice": 1,
+          "requiredCard": "hx_leorio"
+        },
+        {
+          "event": "hx_path_followup",
+          "previous": "hx_supply_sort",
+          "previousChoice": 2,
+          "requiredCard": "hx_satotz"
+        },
+        {
+          "event": "hx_signal_followup",
+          "previous": "hx_board_wheels",
+          "previousChoice": 1,
+          "requiredCard": "hx_killua"
+        },
+        {
+          "event": "hx_tower_vote",
+          "previous": "hx_main_08",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_netero_recall",
+          "previous": "hx_main_05",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_badge_weight",
+          "previous": "hx_main_09",
+          "previousChoice": 2,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_trap_marks",
+          "previous": "hx_main_11",
+          "previousChoice": 2,
+          "requiredCard": null
+        },
+        {
+          "event": "hx_rule_margin",
+          "previous": "hx_main_12",
+          "previousChoice": 2,
+          "requiredCard": null
+        }
+      ]
+    },
+    "imageHandoff": {
+      "worldKey": "hunter_exam",
+      "characters": [
+        {
+          "key": "hx_gon",
+          "name": "곤",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        },
+        {
+          "key": "hx_killua",
+          "name": "키르아",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        },
+        {
+          "key": "hx_kurapika",
+          "name": "크라피카",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        },
+        {
+          "key": "hx_leorio",
+          "name": "레오리오",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        },
+        {
+          "key": "hx_hisoka",
+          "name": "히소카",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        },
+        {
+          "key": "hx_hanzo",
+          "name": "한조",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        },
+        {
+          "key": "hx_satotz",
+          "name": "사토츠",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        },
+        {
+          "key": "hx_netero",
+          "name": "네테로",
+          "scope": "2011년 헌터시험편의 초기 복장"
+        }
+      ],
+      "preferredSceneMatches": [
+        {
+          "event": "hx_main_01",
+          "officialEpisode": 1,
+          "scene": "배 위의 곤·크라피카·레오리오",
+          "officialStill": "001_5"
+        },
+        {
+          "event": "hx_main_03",
+          "officialEpisode": 4,
+          "scene": "터널을 달리는 곤·키르아",
+          "officialStill": "004_1"
+        },
+        {
+          "event": "hx_main_05",
+          "officialEpisode": 7,
+          "scene": "네테로의 공을 노리는 두 소년",
+          "officialStill": "007_4"
+        }
+      ],
+      "endingCard": "hunter_exam_ending_memorial",
+      "warning": "엔딩 이미지에 키르아의 시험 합격이나 시험 후 4인 재회 장면을 사용하지 않음. 실제 텍스처 경로는 이미지 담당과 통합 단계에서 연결."
+    },
+    "retainedIdeas": [
+      {
+        "idea": "동료를 버리지 않는 탑의 판단",
+        "reason": "시험 과제의 특징을 드러내며 관찰·정밀·공격과 생존 보상을 분리할 수 있음."
+      },
+      {
+        "idea": "사냥 성공 직후 다른 사냥꾼에게 당하는 곤",
+        "reason": "큰 보스 한 명만 주시하는 것과 주변 경계를 나누는 전투 사고로 연결할 수 있음."
+      },
+      {
+        "idea": "행동력 최대치의 배타적인 두 준비 경로",
+        "reason": "서로 다른 준비 선택을 후속 사건으로 잇되 한 런의 중복 최대치 상승을 방지함."
+      },
+      {
+        "idea": "마지막 합격과 친구의 부재를 함께 남기는 엔딩",
+        "reason": "원작의 쓸쓸한 시험 결말과 다음 목적을 보존하고 거짓 전원 합격을 피함."
+      }
+    ],
+    "discardedIdeas": [
+      {
+        "idea": "곤·키르아·크라피카의 대표 넨 기술 획득",
+        "reason": "헌터시험편 시점보다 뒤의 학습이며 현재 엔진에서 원작 기술을 구현한다고 오해하게 만듦."
+      },
+      {
+        "idea": "1999년 애니메이션 군함섬 시험 추가",
+        "reason": "이번 원고는 2011년판 순서로 범위를 고정했으므로 다른 판본의 추가 시험을 섞지 않음."
+      },
+      {
+        "idea": "한조전의 부상을 플레이어 체력 비용으로 지불",
+        "reason": "사용자가 체력 비용 선택지를 폐기했으며 부상 서사를 실제 자원 비용으로 연결하지 않음."
+      },
+      {
+        "idea": "톤파의 음료에 독·물약 보상 부여",
+        "reason": "체력 소모·물약 보상은 금지되어 있고, 원작의 속임수 소재는 판단 장면으로만 사용."
+      },
+      {
+        "idea": "번호표를 골드로 교환",
+        "reason": "번호표 시험의 의미를 훼손하며 이번 확장에서는 골드 보상을 쓰지 않음."
+      },
+      {
+        "idea": "히소카의 친절한 전투 교습 사건",
+        "reason": "당시 관계를 과도하게 친밀하게 만들어 관찰과 위협 읽기 장면으로 교체."
+      },
+      {
+        "idea": "키르아도 합격하고 네 명이 함께 축하하는 결말",
+        "reason": "20~21화의 탈락·부재·친구를 찾을 결심이라는 흐름과 충돌."
+      },
+      {
+        "idea": "일루미의 침으로 보드로 살해가 자동 강제되었다고 확정",
+        "reason": "이 시점의 설명과 후속편의 정보를 섞는 단정이므로 채택하지 않음."
+      },
+      {
+        "idea": "엔딩 이후 조르딕가에서 키르아와 재회",
+        "reason": "시험편을 넘어가는 후속 장면으로 이번 범위에서 제외."
+      }
+    ],
+    "unresolved": [
+      {
+        "topic": "최종 시험의 상세 경위",
+        "status": "공식 synopsis와 비공식 상세 해설을 대조한 상태. 원본 영상 직접 검증은 미수행.",
+        "handling": "구체적인 상해 방식·조작 메커니즘·은밀한 대사 내용은 쓰지 않고 알려진 결과와 순서에 한정함."
+      }
+    ],
+    "review": {
+      "gemma": "root 담당 모니터링 API의 후속 검토 대기. 직접 Ollama 호출 없음.",
+      "runtime": "미수행",
+      "visual": "미수행"
+    },
+    "staticVerification": {
+      "cards": 49,
+      "events": 32,
+      "reachable": 32,
+      "errors": 0,
+      "warnings": 0,
+      "nonEndingRewardVectorsDistinct": true,
+      "crossCatalogKeyCollisions": 0,
+      "externalReferences": 0,
+      "capacityAcquisitionPaths": [
+        {
+          "card": "hx_leorio_plan",
+          "baseCapacity": 1,
+          "acquisitionSources": [
+            {
+              "event": "hx_pack_followup",
+              "outcome": 1
+            },
+            {
+              "event": "hx_path_followup",
+              "outcome": 1
+            }
+          ],
+          "duplicate": null
+        }
+      ],
+      "capacityPathsCoReachable": false,
+      "freeSideEvents": [
+        "hx_small_rest",
+        "hx_board_wheels"
+      ],
+      "requiredCardEvents": [
+        "hx_pack_followup",
+        "hx_path_followup",
+        "hx_signal_followup"
+      ],
+      "uiProductionTextLeaks": 0,
+      "manuscriptSha256": "ccc6b268ec37a2a1d9186d08d1fa31edfc3cf882a254aff7bca16b5233054f9e",
+      "runtimeTested": false,
+      "visualTested": false
+    }
+  },
+  {
+    "role": "로즈월 저택 추가 제작 초안의 원작 대조와 보상 경계 기록.",
+    "checkedAt": "2026-10-10",
+    "status": "draft_waiting_for_parent_gemma_review",
+    "draftFile": "content/expansion-drafts/roswaal_mansion.json",
+    "draftSha256": "644333b95e339dfa8fe52b5fb0aa9e0693772e840ad11c4bcb8a388c98621530",
+    "scope": "TV 애니메이션 1기 4~11화의 저택·마수편. 첫 저택 입성부터 울가름 사건 해결 및 일상 복귀까지.",
+    "exclusions": [
+      "왕선 본격 전개와 12화 이후",
+      "백경·마녀교 토벌·성역·대토·후대 렘의 상태",
+      "외전 Memory Snow의 축제·눈 관련 사건 자체",
+      "스바루의 사망회귀를 플레이어 런 초기화·자해 선택·부활 기능으로 구현",
+      "메인 회차를 바꾸거나 원작 결말을 선택에 따라 분기시키는 기능"
+    ],
+    "verificationBoundary": "공식 소개와 인물 설정, 당사자 인터뷰, 명시된 보조 전사·회차 요약을 웹 본문 또는 검색 캐시로 대조했다. 애니메이션을 직접 재생해 모든 컷·연출·한국어 공식 자막을 검증한 결과는 아니다. 인터뷰 당사자의 회상과 편집자 질문은 구분했으며, 공식 소개에서 생략된 내용은 보조 출처 표시를 유지한다.",
+    "sources": [
+      {
+        "id": "official_season1",
+        "url": "https://re-zero-anime.jp/tv/story/tv1r.html",
+        "kind": "official_episode_synopsis",
+        "access": "web_open_full_text",
+        "usedFor": "4~11화 회차별 진행과 다섯 번째 회차 시작, 11.5화 소개 첫 문장에서 마수 사건 해결 확인.",
+        "limits": "4~11화 소개문은 결말 세부 일부를 생략한다. 11.5화는 사건 해결 사실 대조에만 사용하고 외전 줄거리는 추가하지 않았다."
+      },
+      {
+        "id": "broadcaster_04_05",
+        "url": "https://www.tv-tokyo.co.jp/anime/re-zero/episodes/index_3.html",
+        "kind": "official_broadcaster_episode_synopsis",
+        "access": "web_open_full_text",
+        "usedFor": "4화 저택 도착, 5화 약속과 회귀."
+      },
+      {
+        "id": "broadcaster_06_11",
+        "url": "https://www.tv-tokyo.co.jp/anime/re-zero/episodes/index_2.html",
+        "kind": "official_broadcaster_episode_synopsis",
+        "access": "web_open_full_text",
+        "usedFor": "6화 세 번째 시작, 7화 습격자 인지, 8화 신뢰 쌓기, 9~11화 마수와 저주."
+      },
+      {
+        "id": "broadcaster_characters",
+        "url": "https://www.tv-tokyo.co.jp/anime/re-zero/chara/",
+        "kind": "official_broadcaster_character_profile",
+        "access": "web_open_full_text",
+        "usedFor": "스바루·에밀리아·팩·렘·람·베아트리스·로즈월의 역할과 관계."
+      },
+      {
+        "id": "official_original_characters",
+        "url": "https://www.re-zero.com/character/",
+        "kind": "official_original_character_profile",
+        "access": "web_search_text",
+        "usedFor": "쌍둥이의 저택 업무와 성격. 서브 일상 장면의 설정 기반.",
+        "limits": "서브의 작업표·쟁반·정원·사슬 거리 연습 등 개별 사건과 대사는 새로 쓴 각색이다."
+      },
+      {
+        "id": "cast_interview_11",
+        "url": "https://www.animatetimes.com/news/details.php?id=1466085974",
+        "kind": "first_person_cast_interview",
+        "access": "web_open_full_text",
+        "usedFor": "스바루·렘 배우의 6~7화 습격, 11화 렘의 죄책감과 웃음, 샤마크 및 에밀리아와의 약속에 대한 직접 설명.",
+        "limits": "스바루가 쌍둥이의 과거를 모두 아는 것은 아니라는 배우 설명을 반영. 인터뷰에 없는 전투 세부는 보조 자료로 분리."
+      },
+      {
+        "id": "director_interview_07",
+        "url": "https://www.animatetimes.com/news/details.php?id=1469700577",
+        "kind": "first_person_director_interview",
+        "access": "web_open_full_text",
+        "usedFor": "7화 끝 절벽 장면의 존재. 메인 6은 그 방법을 선택으로 재현하지 않고 회차 전환과 마음을 각색."
+      },
+      {
+        "id": "episode07_subtitle_archive",
+        "url": "https://subs.yakuaru.com/books/rezero-starting-life-in-another-world/page/e7-natsuki-subarus-restart",
+        "kind": "third_party_subtitle_transcription",
+        "access": "web_search_cached_text_open_failed_520",
+        "usedFor": "7화 14분대 렘의 사망 발견과 로즈월의 저주 추정, 베아트리스의 보호 약속.",
+        "limits": "페이지는 Crunchyroll을 전사 출처로 적지만 공식 배포 페이지가 아니다. 실제 영상·자막 파일을 대조하지 않았다. 이 출처의 문장을 그대로 게임에 옮기지 않았다."
+      },
+      {
+        "id": "episode11_supplement",
+        "url": "https://rezero.fandom.com/wiki/Episode_11",
+        "kind": "secondary_episode_summary",
+        "access": "web_search_cached_text",
+        "usedFor": "11화 말미 로즈월의 가세로 마수 소탕과 저주 해소. 공식 11.5화 소개의 울가름 해결 사실과 교차 확인.",
+        "limits": "누가 마지막 마수를 처리하는지 공식 공개 소개가 생략하여 보조 자료로 표시한다. 애니메이션 장면 시청 검증을 했다고 주장하지 않는다."
+      }
+    ],
+    "loopContinuity": [
+      {
+        "loop": 1,
+        "mainStages": [
+          1,
+          2
+        ],
+        "memoryHolder": "스바루",
+        "end": "첫 회차는 잠든 사이의 원인불명 사망으로 끝난다. 메인 2 공통 결과에서 두 번째 첫날로 전환.",
+        "sources": [
+          "broadcaster_04_05",
+          "official_season1"
+        ]
+      },
+      {
+        "loop": 2,
+        "mainStages": [
+          3
+        ],
+        "memoryHolder": "스바루",
+        "end": "두 번째 습격의 사슬 소리를 남기고 세 번째 첫날로 전환.",
+        "sources": [
+          "official_season1"
+        ]
+      },
+      {
+        "loop": 3,
+        "mainStages": [
+          4
+        ],
+        "memoryHolder": "스바루",
+        "end": "저택 밖 조사와 렘의 습격 뒤 네 번째 시작. 사망 집행의 세부는 본문에서 단정하지 않는다.",
+        "sources": [
+          "broadcaster_06_11",
+          "official_season1",
+          "cast_interview_11"
+        ]
+      },
+      {
+        "loop": 4,
+        "mainStages": [
+          5,
+          6
+        ],
+        "memoryHolder": "스바루",
+        "end": "베아트리스의 보호 아래 스바루가 다섯 번째 아침을 맞지만 렘을 잃는다. 회차가 끝난 뒤 다섯 번째 첫날로 전환.",
+        "sources": [
+          "official_season1",
+          "episode07_subtitle_archive",
+          "director_interview_07"
+        ]
+      },
+      {
+        "loop": 5,
+        "mainStages": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "memoryHolder": "스바루",
+        "end": "신뢰와 위로, 단서 확인, 아이들 구조, 겹친 저주, 렘 추적과 협력, 울가름 해결을 거쳐 일상 복귀.",
+        "sources": [
+          "official_season1",
+          "cast_interview_11",
+          "episode11_supplement"
+        ]
+      }
+    ],
+    "mainSources": [
+      {
+        "eventKey": "rz_main_01",
+        "episodes": [
+          4
+        ],
+        "sources": [
+          "broadcaster_04_05"
+        ],
+        "fact": "저택 도착과 보답의 제안."
+      },
+      {
+        "eventKey": "rz_main_02",
+        "episodes": [
+          5
+        ],
+        "sources": [
+          "broadcaster_04_05"
+        ],
+        "fact": "약속 후 첫날로 돌아옴."
+      },
+      {
+        "eventKey": "rz_main_03",
+        "episodes": [
+          5,
+          6
+        ],
+        "sources": [
+          "official_season1"
+        ],
+        "fact": "두 번째 습격과 사슬 소리."
+      },
+      {
+        "eventKey": "rz_main_04",
+        "episodes": [
+          6,
+          7
+        ],
+        "sources": [
+          "broadcaster_06_11",
+          "cast_interview_11"
+        ],
+        "fact": "세 번째 조사, 렘의 습격과 기억 불일치."
+      },
+      {
+        "eventKey": "rz_main_05",
+        "episodes": [
+          7
+        ],
+        "sources": [
+          "official_season1",
+          "episode07_subtitle_archive"
+        ],
+        "fact": "네 번째 보호와 렘의 사망."
+      },
+      {
+        "eventKey": "rz_main_06",
+        "episodes": [
+          7,
+          8
+        ],
+        "sources": [
+          "director_interview_07",
+          "official_season1"
+        ],
+        "fact": "네 번째 종료, 다섯 번째 시작."
+      },
+      {
+        "eventKey": "rz_main_07",
+        "episodes": [
+          8
+        ],
+        "sources": [
+          "broadcaster_06_11",
+          "official_season1"
+        ],
+        "fact": "무리한 웃음을 에밀리아가 알아챔."
+      },
+      {
+        "eventKey": "rz_main_08",
+        "episodes": [
+          9
+        ],
+        "sources": [
+          "official_season1"
+        ],
+        "fact": "마을 방문 뒤 금서고에서 단서 확인."
+      },
+      {
+        "eventKey": "rz_main_09",
+        "episodes": [
+          9,
+          10
+        ],
+        "sources": [
+          "broadcaster_06_11",
+          "official_season1"
+        ],
+        "fact": "아이들 구조 중 마수와 맞섬."
+      },
+      {
+        "eventKey": "rz_main_10",
+        "episodes": [
+          10
+        ],
+        "sources": [
+          "official_season1"
+        ],
+        "fact": "겹친 저주와 홀로 나선 렘."
+      },
+      {
+        "eventKey": "rz_main_11",
+        "episodes": [
+          10,
+          11
+        ],
+        "sources": [
+          "official_season1"
+        ],
+        "fact": "렘을 멈춘 일격 뒤 후퇴."
+      },
+      {
+        "eventKey": "rz_main_12",
+        "episodes": [
+          11
+        ],
+        "sources": [
+          "official_season1",
+          "cast_interview_11"
+        ],
+        "fact": "자매 과거 회상과 현재 렘의 죄책감."
+      },
+      {
+        "eventKey": "rz_main_13",
+        "episodes": [
+          11
+        ],
+        "sources": [
+          "episode11_supplement",
+          "cast_interview_11",
+          "official_season1"
+        ],
+        "fact": "샤마크 사용, 로즈월 가세로 위협 해소."
+      },
+      {
+        "eventKey": "rz_main_14",
+        "episodes": [
+          11
+        ],
+        "sources": [
+          "cast_interview_11"
+        ],
+        "fact": "렘의 웃음과 에밀리아와의 새 약속."
+      }
+    ],
+    "adaptationRules": [
+      "기본 사건과 결말은 고정하며 세 반응과 그 결과의 세부 행동은 창작이다.",
+      "메인 4에서 과거에 함께한 일상을 현재 렘이 기억하지 않는 점, 메인 7에서 에밀리아가 루프를 알고 위로하는 것이 아닌 점을 유지한다.",
+      "메인 12의 렘 과거는 회상으로 표시하고 당시 죽은 인물의 현재 등장이나 람의 뿔 복구를 쓰지 않는다.",
+      "보상 카드 이름이 그 장면에 실제 참여한 모든 인물의 명단은 아니다. 메인 9의 에밀리아·팩 카드는 구조에서 남긴 기억이며 두 사람이 숲에 동행했다는 문장을 쓰지 않는다.",
+      "보스 집중·차지·비방향·헤드백·추가 이동속도·고체력·공격 동반 생존을 서로 다른 보상 방향으로 배치했다.",
+      "shielded_damage는 기존 보호막 유지 조건이며 베아트리스 카드만으로 보호막을 생성하지 않는다. moving_damage는 이동 중 보너스가 아니라 추가 이동속도 비례 효과다.",
+      "일반 생존 카드는 공격 또는 조건부 대미지를 함께 준다. final_damage_percent는 후반 메인 한 장에만 둔다.",
+      "행동력 최대치 카드는 유료 일회 후속 rz_side_schedule_follow의 첫 선택 한 곳에서만 지급한다. 선행 rz_side_orders 첫 선택과 rz_subaru_plan 보유를 모두 요구한다.",
+      "머리카드 최대 2장과 선택 AP 0, 회복 합산 10%/초는 공통 시스템을 그대로 사용한다. 이 초안은 해당 코드를 변경하지 않는다."
+    ],
+    "portraitCharacters": [
+      "나츠키 스바루",
+      "에밀리아",
+      "렘",
+      "람",
+      "베아트리스",
+      "로즈월 L. 메이더스",
+      "팩"
+    ],
+    "imageBoundary": "이미지 경로를 임의로 추가하지 않았다. 4~11화 시점에 맞는 공식 인물·장면 연결과 크롭 시각 검수는 이미지 담당자의 별도 작업이다.",
+    "validation": {
+      "world": "roswaal_mansion",
+      "cards": 50,
+      "events": 32,
+      "main": 14,
+      "side": 16,
+      "epilogues": 2,
+      "reachable": 32,
+      "freeSideEvents": [
+        "rz_side_hall",
+        "rz_side_window"
+      ],
+      "freeEpilogues": [],
+      "requiredCards": [
+        {
+          "event": "rz_side_library_follow",
+          "card": "rz_beatrice",
+          "path": [
+            {
+              "event": "rz_side_tray",
+              "outcome": 3
+            },
+            {
+              "event": "rz_side_library_follow",
+              "outcome": 1
+            }
+          ]
+        },
+        {
+          "event": "rz_side_chain_follow",
+          "card": "rz_rem_spacing",
+          "path": [
+            {
+              "event": "rz_side_laundry",
+              "outcome": 1
+            },
+            {
+              "event": "rz_side_chain_follow",
+              "outcome": 1
+            }
+          ]
+        },
+        {
+          "event": "rz_side_schedule_follow",
+          "card": "rz_subaru_plan",
+          "path": [
+            {
+              "event": "rz_side_orders",
+              "outcome": 1
+            },
+            {
+              "event": "rz_side_tray",
+              "outcome": 2
+            },
+            {
+              "event": "rz_side_schedule_follow",
+              "outcome": 1
+            }
+          ]
+        }
+      ],
+      "capacityCards": [
+        {
+          "card": "rz_ram_schedule",
+          "baseCapacity": 1,
+          "acquisitionSources": [
+            {
+              "event": "rz_side_schedule_follow",
+              "outcome": 1
+            }
+          ],
+          "duplicate": null
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "allNonEndingThreeDistinctVectors": true,
+      "nonEndingEventsChecked": 31,
+      "endingRewardUniqueName": true,
+      "extraDialogueMainStages": [
+        4,
+        7,
+        10,
+        12
+      ],
+      "gemmaReview": false,
+      "productionModified": false,
+      "compile": false,
+      "mapBuilt": false,
+      "warcraftRuntime": false,
+      "visualInspection": false
+    }
+  },
+  {
+    "worldKey": "z_city",
+    "checkedAt": "2026-10-10",
+    "status": "작성 및 정적 검사 완료. Gemma·게임·시각 검토 전.",
+    "scope": {
+      "version": "2015년 TV 애니메이션 1기",
+      "episodes": "1~12화",
+      "endpoint": "보로스와 외계 침공의 결말 뒤 일상으로 돌아가는 짧은 후일담",
+      "excluded": [
+        "가로우와 괴인협회",
+        "2기 이후 무술대회·장비·기술·관계",
+        "OVA와 특전 드라마 CD",
+        "원작 후반부 및 결말"
+      ],
+      "verificationBoundary": "공식 방영사 각화 소개, 정식 배급사의 각화 소개, 공식 BD 4·6권의 본편 소개를 읽었다. 각화 소개가 생략한 운석전·심해왕전·보로스전의 종료는 방영 당시 리뷰를 보조 근거로 읽었다. 영상을 직접 재생한 전편 대조나 원작 전권 검토는 수행하지 않았다. 리뷰의 가치 판단과 댓글은 정사 근거로 사용하지 않는다."
+    },
+    "primarySources": [
+      {
+        "id": "bandai_01",
+        "url": "https://www.b-ch.com/titles/4888/001",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 1,
+        "read": true
+      },
+      {
+        "id": "bandai_02",
+        "url": "https://www.b-ch.com/titles/4888/002",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 2,
+        "read": true
+      },
+      {
+        "id": "bandai_03",
+        "url": "https://www.b-ch.com/titles/4888/003",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 3,
+        "read": true
+      },
+      {
+        "id": "bandai_04",
+        "url": "https://www.b-ch.com/titles/4888/004",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 4,
+        "read": true
+      },
+      {
+        "id": "bandai_05",
+        "url": "https://www.b-ch.com/titles/4888/005",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 5,
+        "read": true
+      },
+      {
+        "id": "bandai_06",
+        "url": "https://www.b-ch.com/titles/4888/006",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 6,
+        "read": true
+      },
+      {
+        "id": "bandai_07",
+        "url": "https://www.b-ch.com/titles/4888/007",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 7,
+        "read": true
+      },
+      {
+        "id": "bandai_09",
+        "url": "https://www.b-ch.com/titles/4888/009",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 9,
+        "read": true
+      },
+      {
+        "id": "bandai_10",
+        "url": "https://www.b-ch.com/titles/4888/010",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 10,
+        "read": true
+      },
+      {
+        "id": "bandai_11",
+        "url": "https://www.b-ch.com/titles/4888/011",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 11,
+        "read": true
+      },
+      {
+        "id": "bandai_12",
+        "url": "https://www.b-ch.com/titles/4888/012",
+        "publisher": "반다이채널",
+        "kind": "licensed_episode_synopsis",
+        "episode": 12,
+        "read": true
+      },
+      {
+        "id": "tv_tokyo",
+        "url": "https://www.tv-tokyo.co.jp/anime/onepunchman/episodes/",
+        "publisher": "TV도쿄",
+        "kind": "official_episode_index",
+        "read": true,
+        "note": "전체 사건의 방영 순서 확인용. 개별 상세의 근거는 회차별 반다이 소개에 분산했다."
+      },
+      {
+        "id": "official_bd4",
+        "url": "https://onepunchman-anime.net/goods/bd/bd_4.php",
+        "publisher": "원펀맨 애니메이션 공식",
+        "kind": "official_disc_synopsis",
+        "episodes": [
+          7,
+          8
+        ],
+        "read": true,
+        "note": "8화 소닉·심해왕 대치와 현장에 가는 무면허 라이더. 같은 페이지의 OVA는 제외."
+      },
+      {
+        "id": "official_bd6",
+        "url": "https://onepunchman-anime.net/goods/bd/bd_6.php",
+        "publisher": "원펀맨 애니메이션 공식",
+        "kind": "official_disc_synopsis",
+        "episodes": [
+          11,
+          12
+        ],
+        "read": true,
+        "note": "멜자르갈드 지상전과 함선 진입. 보로스가 첫 한 방으로 곧바로 끝나지 않는 상대임을 확인. OVA·CD 제외."
+      }
+    ],
+    "supplementalSources": [
+      {
+        "id": "lia_07",
+        "url": "https://lostinanime.com/2015/11/one-punch-man-07/",
+        "publisher": "Lost in Anime / Guardian Enzo",
+        "kind": "contemporary_independent_episode_review",
+        "episode": 7,
+        "read": true,
+        "supportedDetail": "사이타마가 운석을 깨뜨렸지만 파편 피해가 남는 결말."
+      },
+      {
+        "id": "lia_09",
+        "url": "https://lostinanime.com/2015/11/one-punch-man-09/",
+        "publisher": "Lost in Anime / Guardian Enzo",
+        "kind": "contemporary_independent_episode_review",
+        "episode": 9,
+        "read": true,
+        "supportedDetail": "제노스와 라이더의 저항 뒤 사이타마가 심해왕을 쓰러뜨리는 순서."
+      },
+      {
+        "id": "lia_12",
+        "url": "https://lostinanime.com/2015/12/one-punch-man-12-end-and-seies-review/",
+        "publisher": "Lost in Anime / Guardian Enzo",
+        "kind": "contemporary_independent_episode_review",
+        "episode": 12,
+        "read": true,
+        "supportedDetail": "보로스의 마지막 공격에 진심 펀치를 사용하고 보로스가 패배하는 결말. 원작 파괴력 비교나 뒤이은 시즌 추측은 사용하지 않음."
+      }
+    ],
+    "unavailableSources": [
+      {
+        "url": "https://www.b-ch.com/titles/4888/008",
+        "reason": "웹 도구에서 내부 오류. 같은 회차는 공식 BD 4권과 TV도쿄 소개로 확인했다."
+      }
+    ],
+    "characterPlan": [
+      {
+        "key": "opm_saitama",
+        "name": "사이타마",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "boss_damage_percent",
+          "attack_percent"
+        ],
+        "note": "기존 수치만 사용하며 원작의 초능력·기술 습득을 약속하지 않는다."
+      },
+      {
+        "key": "opm_genos",
+        "name": "제노스",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "charge_damage",
+          "damage_percent"
+        ],
+        "note": "기존 수치만 사용하며 원작의 초능력·기술 습득을 약속하지 않는다."
+      },
+      {
+        "key": "opm_sonic",
+        "name": "음속의 소닉",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "swift",
+          "crit_chance"
+        ],
+        "note": "기존 수치만 사용하며 원작의 초능력·기술 습득을 약속하지 않는다."
+      },
+      {
+        "key": "opm_mumen",
+        "name": "무면허 라이더",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "attack_percent",
+          "max_health_percent"
+        ],
+        "note": "기존 수치만 사용하며 원작의 초능력·기술 습득을 약속하지 않는다."
+      },
+      {
+        "key": "opm_bang",
+        "name": "뱅",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "penetration",
+          "damage_reduction"
+        ],
+        "note": "기존 수치만 사용하며 원작의 초능력·기술 습득을 약속하지 않는다."
+      },
+      {
+        "key": "opm_tatsumaki",
+        "name": "전율의 타츠마키",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "nondirectional_damage",
+          "damage_percent"
+        ],
+        "note": "원작의 포격 반사를 실제 반사 보상으로 지급하지 않는다."
+      },
+      {
+        "key": "opm_atomic",
+        "name": "아토믹 사무라이",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "crit_chance",
+          "crit_damage"
+        ],
+        "note": "기존 수치만 사용하며 원작의 초능력·기술 습득을 약속하지 않는다."
+      },
+      {
+        "key": "opm_metalbat",
+        "name": "금속배트",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "directional_damage",
+          "attack_percent"
+        ],
+        "note": "피격할수록 강해지는 신규 메커니즘은 지급하지 않는다."
+      },
+      {
+        "key": "opm_boros",
+        "name": "보로스",
+        "version": "2015년 1기 복장",
+        "combatAxis": [
+          "final_damage_percent",
+          "boss_damage_percent"
+        ],
+        "note": "원작의 재생을 플레이어의 무적 또는 직접 회복으로 연결하지 않는다."
+      }
+    ],
+    "eventEvidence": [
+      {
+        "eventKey": "opm_main_01",
+        "episode": 1,
+        "sourceIds": [
+          "bandai_01"
+        ],
+        "canonAnchor": "아동 구조를 계기로 히어로가 된 사이타마의 강함과 무료함.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_02",
+        "episode": 2,
+        "sourceIds": [
+          "bandai_02"
+        ],
+        "canonAnchor": "모스키토 소녀를 상대하던 제노스가 구원받고 스승을 찾아 방문함.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_03",
+        "episode": 3,
+        "sourceIds": [
+          "bandai_03"
+        ],
+        "canonAnchor": "아머드 고릴라의 설명 뒤 진화의 집에 찾아간 두 사람과 아수라 카부토.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_04",
+        "episode": 4,
+        "sourceIds": [
+          "bandai_04"
+        ],
+        "canonAnchor": "도원단의 F시 소동, 소닉의 경호 임무, 사이타마의 오해 걱정.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_05",
+        "episode": 5,
+        "sourceIds": [
+          "bandai_05"
+        ],
+        "canonAnchor": "사이타마의 C급 합격, 제노스의 S급 합격과 정식 제자 관계.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_06",
+        "episode": 6,
+        "sourceIds": [
+          "bandai_06"
+        ],
+        "canonAnchor": "주간 활동 보고 의무를 늦게 안 사이타마의 순찰과 소닉의 도발.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_07",
+        "episode": 7,
+        "sourceIds": [
+          "bandai_07",
+          "lia_07"
+        ],
+        "canonAnchor": "Z시의 운석 위협과 제노스·뱅의 대응, 사이타마의 파괴와 파편 피해.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_08",
+        "episode": 8,
+        "sourceIds": [
+          "official_bd4"
+        ],
+        "canonAnchor": "J시의 심해왕, 소닉의 대치, 현장으로 향하는 라이더와 흩어진 두 주인공.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_09",
+        "episode": 9,
+        "sourceIds": [
+          "bandai_09",
+          "lia_09"
+        ],
+        "canonAnchor": "제노스의 아이 보호, 무면허 라이더의 저항 뒤 사이타마가 승리함.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_10",
+        "episode": 10,
+        "sourceIds": [
+          "bandai_10"
+        ],
+        "canonAnchor": "도장 방문 뒤 비상 소집, 시바바와의 예언 설명 도중 A시 첫 포격.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_11",
+        "episode": 11,
+        "sourceIds": [
+          "bandai_11",
+          "official_bd6"
+        ],
+        "canonAnchor": "지상의 멜자르갈드전과 사이타마의 단독 함선 진입은 별도 전선.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_12",
+        "episode": 12,
+        "sourceIds": [
+          "bandai_12",
+          "lia_12",
+          "official_bd6"
+        ],
+        "canonAnchor": "타츠마키의 포격 반사와 지상 약점 공략, 사이타마·보로스전의 결말.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_main_13",
+        "episode": 12,
+        "sourceIds": [
+          "bandai_12",
+          "lia_12",
+          "official_bd6"
+        ],
+        "canonAnchor": "침공 뒤에도 도시 피해가 남으며 모든 미래 위기가 끝난 것은 아님.",
+        "originalLayer": "선택 문장·반응·관찰 관점은 새로 썼다. 최종 승패와 등장 순서를 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_threshold",
+        "episode": 2,
+        "sourceIds": [
+          "bandai_02"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_02",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_shopping",
+        "episode": 1,
+        "sourceIds": [
+          "bandai_01"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_report",
+        "episode": 6,
+        "sourceIds": [
+          "bandai_06"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_06",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_short_route",
+        "episode": 6,
+        "sourceIds": [
+          "bandai_06"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_side_report",
+          "previousChoice": 2,
+          "requiredCard": "opm_genos"
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_footprint",
+        "episode": 4,
+        "sourceIds": [
+          "bandai_04"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_04",
+          "previousChoice": 1,
+          "requiredCard": "opm_sonic"
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_bicycle",
+        "episode": 8,
+        "sourceIds": [
+          "official_bd4"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_08",
+          "previousChoice": 2,
+          "requiredCard": "opm_mumen"
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_interval",
+        "episode": 5,
+        "sourceIds": [
+          "bandai_05"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_05",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_clearance",
+        "episode": 6,
+        "sourceIds": [
+          "bandai_06"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_06",
+          "previousChoice": 2,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_dojo",
+        "episode": 10,
+        "sourceIds": [
+          "bandai_10"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_10",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_fragments",
+        "episode": 7,
+        "sourceIds": [
+          "bandai_07",
+          "lia_07"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_07",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_frontline",
+        "episode": 9,
+        "sourceIds": [
+          "bandai_09",
+          "lia_09"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_09",
+          "previousChoice": 2,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_repair_notes",
+        "episode": 9,
+        "sourceIds": [
+          "bandai_09",
+          "lia_09"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_09",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_cut",
+        "episode": 11,
+        "sourceIds": [
+          "bandai_11",
+          "official_bd6"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_11",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_sky",
+        "episode": 12,
+        "sourceIds": [
+          "bandai_12",
+          "lia_12",
+          "official_bd6"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_12",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_rival",
+        "episode": 12,
+        "sourceIds": [
+          "bandai_12",
+          "lia_12",
+          "official_bd6"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_12",
+          "previousChoice": 1,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_side_two_reports",
+        "episode": 11,
+        "sourceIds": [
+          "bandai_11",
+          "official_bd6"
+        ],
+        "kind": "original_side_scene_or_recollection",
+        "canonAnchor": "해당 회차의 인물과 상황을 바탕으로 한 준비 또는 회상.",
+        "originalLayer": "본문과 선택·반응은 창작이다. 공식 본편에 동일 대화나 별도 재회가 존재한다고 주장하지 않는다.",
+        "ordering": {
+          "previous": "opm_main_11",
+          "previousChoice": 3,
+          "requiredCard": null
+        },
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_epilogue_home",
+        "episode": 12,
+        "sourceIds": [
+          "bandai_12",
+          "official_bd6",
+          "lia_12"
+        ],
+        "kind": "original_epilogue",
+        "canonAnchor": "1기 침공 결말 이후의 일상과 전투 회고.",
+        "originalLayer": "새로 쓴 짧은 후일담. 다음 시즌의 사건을 시작하거나 모든 미래 위기가 사라졌다고 단정하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "eventKey": "opm_epilogue_names",
+        "episode": 12,
+        "sourceIds": [
+          "bandai_12",
+          "official_bd6",
+          "lia_12"
+        ],
+        "kind": "original_epilogue",
+        "canonAnchor": "1기 침공 결말 이후의 일상과 전투 회고.",
+        "originalLayer": "새로 쓴 짧은 후일담. 다음 시즌의 사건을 시작하거나 모든 미래 위기가 사라졌다고 단정하지 않는다.",
+        "uncertain": []
+      }
+    ],
+    "retainedIdeas": [
+      {
+        "idea": "13장 메인과 16개 일반 사건, 2개 후일담",
+        "reason": "한 머리카드에 다수의 사건을 연결하면서 원작의 순서와 지역 재방문의 변화를 유지한다."
+      },
+      {
+        "idea": "일반 사건의 준비·회상",
+        "reason": "개인 메인 진행 단계 사이에 등장해도 인물이 현재 현장에 갑자기 나타나지 않도록 구성했다."
+      },
+      {
+        "idea": "소닉·무면허 라이더·제노스 보유 카드 후속",
+        "reason": "이미 얻은 카드와 앞선 선택을 확인한 뒤 다른 관찰·준비 사건을 열어 준다."
+      },
+      {
+        "idea": "행동력 최대치 1과 공격력 2%의 단일 지급 경로",
+        "reason": "다음 순찰의 여백 사건 1번에서만 지급한다. 같은 카드를 다른 반복 경로에서 다시 얻어 최대치가 커지지 않게 했다."
+      },
+      {
+        "idea": "생존 보조와 공격의 결합",
+        "reason": "라이더의 체력, 뱅과 제노스의 피해 감소를 공격력·관통·대미지와 함께 배치했다."
+      }
+    ],
+    "discardedIdeas": [
+      {
+        "idea": "사이타마 카드의 모든 보스 즉사",
+        "reason": "원작의 위력을 직접 메커니즘으로 지급하면 보스전 중심의 게임 구조를 없애므로 제외."
+      },
+      {
+        "idea": "보로스 무한 재생·부활과 타츠마키 완전 반사",
+        "reason": "현재 지원하지 않는 기능이며 회복 상한과 물약 역할을 우회하므로 제외."
+      },
+      {
+        "idea": "금속배트의 피격 횟수에 따라 무한 공격 증가",
+        "reason": "새 피격 누적 엔진과 별도 상태 처리가 필요하다. 이번 원고는 기존 스탯만 사용."
+      },
+      {
+        "idea": "부상 선택에 체력 비용, 수리 선택에 직접 회복·물약",
+        "reason": "현재 체력 가치와 사건 보상 지침에 맞지 않는다."
+      },
+      {
+        "idea": "도시 피해를 선택으로 전부 없애기",
+        "reason": "운석 파편 피해와 A시 첫 포격을 지우면 원작의 결과가 달라지므로 제외."
+      },
+      {
+        "idea": "순찰 보상 골드와 사냥 몬스터 추가",
+        "reason": "이번 제작에서는 골드·몬스터 수 보상을 쓰지 않으며 공격 수치와 관찰 선택으로 치환."
+      },
+      {
+        "idea": "가로우·괴인협회와 이후 장비",
+        "reason": "1기 범위 밖이므로 후속 배치 검토 전에는 포함하지 않는다."
+      }
+    ],
+    "rewardRules": {
+      "headLimit": 2,
+      "headActionCost": 0,
+      "normalMainChoices": 3,
+      "mainRewardVectors": "엔딩 외 세 보상이 서로 다름",
+      "mainRewardGrades": "같은 사건 안에서 동급",
+      "baseAttack": "런 카드는 공격력 % 증가만 사용. 무기 공격력과 무기 공격력 %를 변경하지 않음",
+      "multipliers": "대미지·최종 대미지·보스·일반 피해는 기존 계산 정의 유지",
+      "healing": "흡수·재생 기존 합산 최대체력 10%/초 제한 유지. 이번 작품에는 직접 회복·흡수·재생 카드 없음",
+      "noRewards": [
+        "체력 비용",
+        "직접 회복",
+        "물약",
+        "골드",
+        "몬스터 수"
+      ],
+      "capacity": {
+        "card": "opm_genos_plan",
+        "soleEvent": "opm_side_short_route",
+        "choice": 1,
+        "requiredCard": "opm_genos",
+        "previous": "opm_side_report",
+        "previousChoice": 2,
+        "repeatableAcquisition": false
+      }
+    },
+    "staticVerification": {
+      "inspectExpansion": {
+        "cards": 47,
+        "events": 31,
+        "main": 13,
+        "side": 16,
+        "epilogues": 2,
+        "reachable": 31,
+        "freeSideEvents": [
+          "opm_side_shopping",
+          "opm_side_dojo"
+        ],
+        "requiredCardCount": 3,
+        "capacityCards": 1,
+        "duplicateCapacityPath": null,
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemma": "미실행. root의 모니터링 API 검토 대기.",
+      "build": "미실행. 생성 데이터 또는 맵을 만들지 않음.",
+      "runtime": "미실행",
+      "visual": "미실행. 이미지 담당의 매핑 후 검토 필요."
+    }
+  }
+]
