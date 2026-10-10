@@ -1,0 +1,14 @@
+// 사건 본문의 글꼴과 줄 간격을 정의한다.
+IncludeFile "UI\FrameDef\UI\EscMenuTemplates.fdf",
+Frame "TEXTAREA" "ArcanaEventStory" {
+    Width 0.274,
+    Height 0.242,
+    FrameFont "Fonts\DFHeiMd.ttf", 0.011, "",
+    TextAreaLineHeight 0.011,
+    TextAreaLineGap 0.002,
+    TextAreaInset 0.002,
+    TextAreaMaxLines 512,
+    TextAreaScrollBar "ArcanaEventStoryScrollBar",
+    Frame "SCROLLBAR" "ArcanaEventStoryScrollBar" INHERITS WITHCHILDREN "EscMenuScrollBarTemplate" {
+    }
+}
