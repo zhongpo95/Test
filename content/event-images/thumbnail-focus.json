@@ -1,0 +1,267 @@
+{
+  "defaultAnchor": [
+    0.5,
+    0.2
+  ],
+  "overrides": {
+    "war3mapImported\\UI_Head_Official_aincrad_Icon.tga": {
+      "anchor": [
+        0.5,
+        0.85
+      ],
+      "reason": "하단의 키리토와 아스나 얼굴을 함께 남긴다."
+    },
+    "war3mapImported\\UI_Head_Official_amestris_Icon.tga": {
+      "anchor": [
+        0.5,
+        0.8
+      ],
+      "reason": "알폰스 아래쪽의 에드워드 얼굴이 잘리지 않게 한다."
+    },
+    "war3mapImported\\UI_Head_Official_karakura_Icon.tga": {
+      "anchor": [
+        0.5,
+        0.55
+      ],
+      "reason": "하단의 이치고와 주변 인물들을 함께 남긴다."
+    },
+    "war3mapImported\\UI_Card_FTG_gildarts_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_FTG_laxus_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_FT_erza-scarlet_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_eugen_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_id_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_lancelot_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_lyria_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_percival_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_rolan_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_rosetta_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_KSB_mitsurugi_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_RGT_35_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_FTG_mirajane_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_GBF_rackam_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_KNYG_murata_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_KSB_luna_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_RGT_34_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_RGT_37_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_RGT_38_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_RGT_39_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_SAOFD_agil_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_SAOFD_argo_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_SAOFD_klein_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_SAOFD_lisbeth_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_SAOFD_sachi_Art.tga": {
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_BB_ragna-cf_Icon.tga": {
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_FMA_13_Art.tga": {
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_LW_nazrin-l1_Icon.tga": {
+      "anchor": [
+        0.5,
+        0.6
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_NRO1_yato_Icon.tga": {
+      "anchor": [
+        0.5,
+        0.7
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_SWO1_holo_Icon.tga": {
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Card_SWO1_lawrence_Icon.tga": {
+      "anchor": [
+        0.5,
+        0.8
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    },
+    "war3mapImported\\UI_Event_ABO_assault.tga": {
+      "anchor": [
+        0.5,
+        0.8
+      ],
+      "reason": "연락판 검토 후 얼굴과 머리 윤곽이 잘리지 않는 위치로 조정."
+    }
+  }
+}

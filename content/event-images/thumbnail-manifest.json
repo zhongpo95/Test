@@ -1,0 +1,6955 @@
+{
+  "schemaVersion": 1,
+  "displayAspect": 1.7777777777777777,
+  "encodedSize": [
+    256,
+    128
+  ],
+  "encoding": "uncompressed RGBA32 TGA; display at 16:9",
+  "assets": [
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_10000_Art.tga",
+      "sourceSha256": "9dfd480fb64e0658bbea4862cc01c85a4cbda7bf99d917db4e62740f35a0e2a8",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_10000_Art.tga",
+      "sha256": "4828e26b9477c86d39b7dd5e8862ebadf22c737f84bfe8ef9acc17554e7d8d45",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_10003_Art.tga",
+      "sourceSha256": "2771ef22c399fe50c0484df4394c48fb46e8e2d3b1c19d03879c96d9450665cc",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_10003_Art.tga",
+      "sha256": "7ed731daed9811b57c6aa092fe21490c8d770ea84ca7c776761a3e953cc5fb7c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_10005_Art.tga",
+      "sourceSha256": "57754ffa0fac68df7989532a75981ab65adfabfad61faf30cdfe9a981989a975",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.tga",
+      "sha256": "ba95a692126421fad03e3f035604633b73cf780a3b837755cbaace5196f48b67",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_13004_Art.tga",
+      "sourceSha256": "72453ec0903daf7a75e435429ed096f5b230c06f223c274f9e1d5e59294ef9b3",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_13004_Art.tga",
+      "sha256": "a232c6f460bc12c87626e1f39cc14dd9ae91b84134b3affcbd5a9977adc87a78",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_13005_Art.tga",
+      "sourceSha256": "709bdd5f3152c92f2c88835a2a44e489db71e63a0bbcabac45c20e81749bb4f9",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_13005_Art.tga",
+      "sha256": "2e6bc41c7e8c05961d709a7cd70db2b68464325f372c48f893b2ca3c9fdcf271",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_13006_Art.tga",
+      "sourceSha256": "06c0f21c3342d71718aad48dc97bcaf2d6a9e4ba89d4a10ebd0adb0f31c4b9ea",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_13006_Art.tga",
+      "sha256": "12f4c6b3ddcde86de1d3162c9b541774ae436253e5effef68d4ca57777ed2909",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_13008_Art.tga",
+      "sourceSha256": "e5875de949a5ca56a2443f07a23b5c4d70d14a627784566fa75e3a56127486c2",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.tga",
+      "sha256": "e06735f88d6db60b9fc717dc200c04e00ce606a4c4953399673ab11c9c36f59e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_16000_Art.tga",
+      "sourceSha256": "bc788bc3a0e7efea3fa58d3175cffdc738c7e81354d254b54782d273cb6e6315",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_16000_Art.tga",
+      "sha256": "2ab64908ec4be4d652f4967f98d7dc2c8cb4a7dfad17e7ac94b6ee46052cccb2",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAM1_23005_Art.tga",
+      "sourceSha256": "96b7a8f3b66479b746eb406fc2a3c9ef3ad8378e848c321ee08319402e5d6ee2",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAM1_23005_Art.tga",
+      "sha256": "4d69bf00afae748405428c0053fceba1bfecfe22bc25e03cfbd68b0db9c19c8c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BAS1_10010_Art.tga",
+      "sourceSha256": "a39de96014a2f692c380fb53800eeb9dc4262a2eb1d73d7ffb3d1a2ae37d22ed",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BAS1_10010_Art.tga",
+      "sha256": "07dd78c4d8bd5914ae9389f132513e12445d70c3b0418d1f2028277e3649271f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga",
+      "sourceSha256": "ff7ef72d54f0527230eac98dc711e5f703a9d868be1c093b9523d2ea0b7e7fd7",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.tga",
+      "sha256": "7abdcc336f74fc0ec476b3e6e4754aaa2937ce04bb10b672e97c70285f0d2468",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO1_renji_Art.tga",
+      "sourceSha256": "2c38c74fef31e2127df874334a8e69356ee354eebc6f6d8436e86f29fef6a6b1",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO1_renji_Art.tga",
+      "sha256": "75564625fea5de8a4f074253111b703a90c3c637282ea0d16fd65ef914cdb9fe",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO1_rukia_Art.tga",
+      "sourceSha256": "6d7177ddf7ff709cd0f82565cfdc7cf92cd3bf5f615c8c40f8c6cd9ea69416a8",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.tga",
+      "sha256": "14b965ac791492a68b3c9c79b26aec30f904363bfb40aecc44029f91601c798c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO1_uryu_Art.tga",
+      "sourceSha256": "6061435e62d0f31c3b0fa62d3ced9db3c850577b68324ac080675f6c0ca6a829",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO1_uryu_Art.tga",
+      "sha256": "2fb859b49892d4f025128de8814872fb05fc920c79ab197ef6e4870006eda325",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO2_isshin_Art.tga",
+      "sourceSha256": "61a1314d4fba84c8060a3396269fa2fc91d6a5af6561acd52cf0274f078e597d",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO2_isshin_Art.tga",
+      "sha256": "395690d0d8357058766c3c83cb2c0846423187dfb770a8b0de692009234f7b33",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO2_sado_Art.tga",
+      "sourceSha256": "12dba2d0697c70cf2241d7e694677754fb6855f28f92af769360905d32c2e32c",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO2_sado_Art.tga",
+      "sha256": "2406239940f5dcad965934b71ccf61a8320959fa7e6bbffa35ab42566090bcfb",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga",
+      "sourceSha256": "0bc996fe3e5acc9e4a55216eec3311635b8198bc6262f0ebe76c13a3a09827ce",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO2_urahara_Art.tga",
+      "sha256": "982a14a4d48e66ef6261624f575b64eafb05f85f031879b4268262467da6d44f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBO2_yoruichi_Art.tga",
+      "sourceSha256": "99aca8102c66c83b6539bb81c6cb5902e6a1ab7fe841399cf3fa5cbef17ab580",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBO2_yoruichi_Art.tga",
+      "sha256": "06c090e503e829c18f93c68f8bcea6caffef751ea50baf2f7873c9a4508c93d5",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBS_hanataro_Art.tga",
+      "sourceSha256": "a424db1354367744b0055e75b9dcb41d4956ecdc25b6dbaf4af7a05e6c31d87b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBS_hanataro_Art.tga",
+      "sha256": "e2b53f13ee8a132a7f09053ed7066f99fedfdba6ae23be2950dd558affdbbc86",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBS_kanonji_Art.tga",
+      "sourceSha256": "356649bb670fdf9da4a463160aec18b2a6e62364420b8336c6d6a0eaface7849",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBS_kanonji_Art.tga",
+      "sha256": "4b17f8477d8eb90c1a4d8363d0f96f1cddae5875e742a5103076b4852dff9c5e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBS_kon_Art.tga",
+      "sourceSha256": "a455f28c3ba72dc4bbeeecf04b5185affa6acd1287cd542c9c73acc6b47fb8f9",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBS_kon_Art.tga",
+      "sha256": "2793c633abeb57450b90113488c87f84c60e3bf414a5a35bc2163608c53c929e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BBS_ururu_Art.tga",
+      "sourceSha256": "79178189003ae2afe53a6162ff2c92aba794e0bedc8bee4a3dafdd8cdd20f56b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BBS_ururu_Art.tga",
+      "sha256": "390f099540bf66da451384a01de47d80927be64042e318badab71ee143c11932",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BB_ragna-cf_Icon.tga",
+      "sourceSha256": "66ce911b90a28bf41d3fd728b8c634cfc2aa5cbd78d7f1e684af38e2e8a2285e",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        56.0,
+        128.0,
+        128.0
+      ],
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BB_ragna-cf_Icon.tga",
+      "sha256": "4e6c7d63a89530f23a7e1b079fdf9de42fec04bd7a6b0f3cc8eac87336099a1c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_BKQ11_keigo_Art.tga",
+      "sourceSha256": "5f012130215a38bfe96cc75a710ee10c3afd5510541d315f19c2eac50141efbf",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_BKQ11_keigo_Art.tga",
+      "sha256": "416760e9664e962f8c6f864a802f9ea94375a72316a4e8c1ff760bc7a7176f8b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga",
+      "sourceSha256": "6002311d9f8ed35e1fd5f1f77b36a9113d22c957055c24924602247b18a6a466",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        6,
+        512,
+        505
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        48.2,
+        512.0,
+        336.2
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FCU8_alphonse_Art.tga",
+      "sha256": "824bed6bfb3051d2798a4339bdb46683e3e97f73fa57d463a5f2a9f3f8fe8915",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FCU8_edward_Art.tga",
+      "sourceSha256": "fc6dceb523ab27afcf4ed14cc62079c54f542ed7d763d6c54f37ae71f1c36550",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        44,
+        0,
+        467,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        44.0,
+        54.8125,
+        467.0,
+        292.75
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FCU8_edward_Art.tga",
+      "sha256": "ecefe7e72a3f129c6fa3e2fa824f0446af9a23e115ef0379d4bcfd7c2c2c27d9",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMA_13_Art.tga",
+      "sourceSha256": "707c8431a3cf555d85831c6f6e735efd093298dd784f104c6f281ccd331112a9",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        51,
+        0,
+        461,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        51.0,
+        140.6875,
+        461.0,
+        371.3125
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMA_13_Art.tga",
+      "sha256": "24ac3e987ca48c7b80b17b940559892b1e7e9f895e1c47dffb4f180c04aa3258",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMA_21_Art.tga",
+      "sourceSha256": "0b74e3a5cfc34eb5a37579578b5fd42c44423ac828da0bb5c02b3ee425a993f3",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        51,
+        0,
+        461,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        51.0,
+        56.275,
+        461.0,
+        286.9
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMA_21_Art.tga",
+      "sha256": "5930bc895386cc9cb37d1a9eb55b67964bd3ebde9fef3ccd0ac352465081b93a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMA_26_Art.tga",
+      "sourceSha256": "e751edaeab861986ab310139d16cf2019f79821f937e70441a70019629f44913",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        51,
+        0,
+        461,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        51.0,
+        56.275,
+        461.0,
+        286.9
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMA_26_Art.tga",
+      "sha256": "aa05941756c18890fb924bb0867b7d45d6340b4496fc8cc213e5347b14e37fe5",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga",
+      "sourceSha256": "894b1dd46749bd571da6b116dee5ed153e1e4a8db15557555820605d0503faeb",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMO1_hughes_Art.tga",
+      "sha256": "3114c9f85fb0aeae41ceda543c9334977a02cccdbc90c4a49c5399205e5d6197",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMO2_hohenheim_Art.tga",
+      "sourceSha256": "62ba785ed200c1300b92a5221bdc7d15b34a0b041979dcaa3190f6c713b31803",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMO2_hohenheim_Art.tga",
+      "sha256": "f12571bf2cd51499e732e9ed8deb4c4fd73ba5dd325797abd942ada754a4b455",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMO2_izumi_Art.tga",
+      "sourceSha256": "2a5d263d0f4664d5f063f236a4a3482be607a8b7a8fc1b2358f385e663dea2d6",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMO2_izumi_Art.tga",
+      "sha256": "5168ea1cc3ad75e2b410c9c39b68c75ba81eb47c80d3618034ac2f9e60556e8c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMO2_lin_Art.tga",
+      "sourceSha256": "9efca3c3e84ed0883a5fb646d1fa4400a4072f1ec042c3b3d5d0bf7b6b93cd32",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMO2_lin_Art.tga",
+      "sha256": "595cbbfed2635fe8aa9dd4cdbe7cf5bb002b0324d6d8640706897117a935ab59",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMO3_greed_Art.tga",
+      "sourceSha256": "b1986d28b580abc6d9622d83b9e31d7da194f122e9a8eee422f3481b38a4788b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMO3_greed_Art.tga",
+      "sha256": "71acfddaa783170ccdc3bc6f9a9ae78e15d1752e2000b648bf132ee5c71a0cfa",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMO3_riza_Art.tga",
+      "sourceSha256": "57489fadd99f207bceab1cfcb59e21c1d7f8bad834862faece300ba0fa4b962d",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMO3_riza_Art.tga",
+      "sha256": "7cf8d353d94ad39bfdd4a41f367f5581a94e54d8261a316f9ef97c5d74ceec30",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FMO3_winry_Art.tga",
+      "sourceSha256": "6e7f31bfa8402366a790e9a94add2e921ce3366cc5924bdd6a6f32ca0e9f055e",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.tga",
+      "sha256": "7209b4541b8f7df527727e26baaa2235904310ff0173cde455e0d20e59af23be",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FSN_ch09_Art.tga",
+      "sourceSha256": "4cf080800ad831eb518d5d521a0e8f7588a14f273f019f9d4827954c09e226fa",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FSN_ch09_Art.tga",
+      "sha256": "4da79e9b6f718aeeaab97caee7dcfeffc58d4b2c46e74ab45badb8343b3d7402",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FSN_ch14_Art.tga",
+      "sourceSha256": "7ed707b81a75ce8f3e0e6f9d0ff02cf8101ee5df012483357d17735c1d306460",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.tga",
+      "sha256": "42b054bd9e2a44264aa85059993ac73e4d157dcd56e02a249bf0a55afccb5772",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FSU6_shirou_Art.tga",
+      "sourceSha256": "6294a91365fae8d5fae250a73f90a22e0fe0b554bf40617459ddc6077ff7e80b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        53,
+        0,
+        459,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        53.0,
+        56.725,
+        459.0,
+        285.1
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FSU6_shirou_Art.tga",
+      "sha256": "aab32cad765798e1574384735b44fabdb9d7675eb03c227a92ab47e85bd1337a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FTG_gajeel_Art.tga",
+      "sourceSha256": "30ac0dc5e5e0a5921be93f4778152010977b1f1cdff8ee38ac3343a949edd5de",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FTG_gajeel_Art.tga",
+      "sha256": "d59b17d4ead6d8112271777c8da3cf16c69a7ba9c21ae894698f8f9a7f0fadf8",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FTG_gildarts_Art.tga",
+      "sourceSha256": "11c36e6322d22dfa88265f317fc77f300f27eb63a40ad8538a7449ebab590845",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FTG_gildarts_Art.tga",
+      "sha256": "7500690445522fd2263e9ec4f89f4919407548fdb897f8f26ed74506d125add2",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FTG_juvia_Art.tga",
+      "sourceSha256": "25c2016d887a529295efdd9a8d7fe480cb5c8c942eb342eabcbdc43692e9a9f1",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FTG_juvia_Art.tga",
+      "sha256": "dc01cd096cc763de89cfa9c7ddc672ac552f4eddc6fce794068b7420f78efb3e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FTG_laxus_Art.tga",
+      "sourceSha256": "37042b2c29a1ea3a0f33c106e386787303eb2b43f3b6807addef13ca71bcdc3a",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FTG_laxus_Art.tga",
+      "sha256": "6751e082456564ebc58a2f05c082730d2b3735491213f6ddacfadcbbd199f687",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FTG_mirajane_Art.tga",
+      "sourceSha256": "d3e7661c5a7ea6651dd8696ff02ba79b8126bb21a7469329289dc0cde0cfcf8a",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FTG_mirajane_Art.tga",
+      "sha256": "c74bff56353bdcaee577c8f656eee4218ded0e73aaed2c3f9136569b671abebb",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FT_erza-scarlet_Art.tga",
+      "sourceSha256": "1f68c8112851efe7f21826e7a90ab4ceaae8065cc7357eab37570364c96325a9",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FT_erza-scarlet_Art.tga",
+      "sha256": "7583aeaed2c3af5fb9785401ba55066f3ef0843848981e68193b829b4625f92a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FT_gray-fullbuster_Art.tga",
+      "sourceSha256": "28b81265768ac2801f46eb26cbf16a2f6755548ea1a926acb76cb5bf22affbf6",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FT_gray-fullbuster_Art.tga",
+      "sha256": "f2b34197262f02971150d02a538ff2f10e26246ed1b1b5d4dde992d86ef89e5d",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FT_happy_Art.tga",
+      "sourceSha256": "5d50587dbac8a4db12bc17fd64395342e3abe828cf0b9fcc31026f382d425202",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FT_happy_Art.tga",
+      "sha256": "25fff0702f6ae6eb3334496f062f089313c528b8641ffac58b63b16b9d86a135",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
+      "sourceSha256": "c01a2b6209b5397f675f3e27ee027e6e15999c573d56730d23e29193a860dcf1",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga",
+      "sha256": "0df67415784047ff186dc6bf0247bb875e503a23e8e57527af091bc7c982f863",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga",
+      "sourceSha256": "0864d4351a556312d0eeedb671ccc8570f594abd10b157dcfcf93aa8902f7e38",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FT_nastu-dragneel_Art.tga",
+      "sha256": "9679a18fce2aac4e0d12d4a7199ae0e5544ac600ea2bed1a2b062bf76e69b5e6",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FateCalm_archer_Art.tga",
+      "sourceSha256": "b747acd7b7b0f09a3714bbdf43b5062f44e9ef0d6cb3e498b9fc6d25365f24a9",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FateCalm_archer_Art.tga",
+      "sha256": "8a7ae871e3c3a4f3b490b5dbc5566d1efa560f126079adf769c5fc5535417b2c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FateCalm_assassin_Art.tga",
+      "sourceSha256": "83fe795fed80e2132a4d28c47711f99b31778a747a07e04c6c9267b2357ecb75",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FateCalm_assassin_Art.tga",
+      "sha256": "f3a8cd05e3224423708c2291065190857b5e9738de7b2b3129c85ca8e763737d",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FateCalm_lancer_Art.tga",
+      "sourceSha256": "38d89f7975560a3f9517ecc7b8915e3e6798bea223e122dd12c8327f3c57b999",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FateCalm_lancer_Art.tga",
+      "sha256": "60290ae8a0081ccb2230227cda8e5b1e8a0f3b692ae703d30e5d1f48d9725123",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FateCalm_rin_Art.tga",
+      "sourceSha256": "d417a913d82fd7570a3e2bff9ad7d807eb999818f13963077457b5a151c18c51",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga",
+      "sha256": "f28c716ffbc607364335c427494e43d2269fc81b6a0533e5f4f05182919acb66",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FateCalm_saber_Art.tga",
+      "sourceSha256": "55b1a1170d045dc76b2e73b564e6f56cd49b7bec8eb1713c678e35660ca25cff",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FateCalm_saber_Art.tga",
+      "sha256": "9bd0addb29aacb12efb3713a982ab89d71bb2105e5f91597f3222e81a0651219",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_FateCalm_sakura_Art.tga",
+      "sourceSha256": "99d841a99c1bad52a72cac77fb253ed7ced551df6d9dfe08a7a61e4d466fa0fe",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_FateCalm_sakura_Art.tga",
+      "sha256": "817d104291017ccbd2171af7a0a4435965cef98703d9abe9d5c85f22d4c14330",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_cagliostro_Art.tga",
+      "sourceSha256": "975d0b185c2fd6f2931a8da0ae1338df55d585b928198e297f9528ec3987f8fd",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_cagliostro_Art.tga",
+      "sha256": "d9dd93863c906f65d177560bb295c18702b0678ca55366cdc5503ff7617be0b1",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_eugen_Art.tga",
+      "sourceSha256": "28be17d841e95eb3f2752da54d01769e770dac1bc91c2905dfb55ae7b051290f",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_eugen_Art.tga",
+      "sha256": "dc44a792cf467985f05c4f59cf301fc38d0d2a92406a60d7c2a839e775bb2db2",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_id_Art.tga",
+      "sourceSha256": "50b1def39ddf1d833ee78263cae38a5ff7554c2df453802f806ad0197a3d914b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_id_Art.tga",
+      "sha256": "b6b79655e1e3e4675197b1e69c01cf9e429e9272c83e3795ed1713ec6e8a12b6",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_io_Art.tga",
+      "sourceSha256": "e1b251c3bb52ecc90303c871858a2f657b2018e90c897dff0660e493e7b58212",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_io_Art.tga",
+      "sha256": "ef569fdf265e5b81661b6708f9bf7ac0d5502cca870d09ec430d4d07b75f000b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_lancelot_Art.tga",
+      "sourceSha256": "da7d763b67937200d02c6b7f2b9bcca9a9e39c9d064bd3bee3c4b700dc6dc9e6",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_lancelot_Art.tga",
+      "sha256": "c8b921d53200fe7518d61cbffaddd6af72cccf23b5b9329a189f4203e5a035ab",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+      "sourceSha256": "7735eb9f904bb6f21f44708f0326a021eb2245a26517834e838b1009459dcfc4",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.tga",
+      "sha256": "0623a34a4e8081307c926ddc548b6492154d15f90eb0834c59b479ccd1f909b0",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_percival_Art.tga",
+      "sourceSha256": "73d5d07e53b597f9a0e0f0a4670cccef07966917141de05c40494b464f16a1ff",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_percival_Art.tga",
+      "sha256": "cc58ec3bc01a00291aeea0bac98bdc445e5afc56ce76378cf306750111dc079b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_rackam_Art.tga",
+      "sourceSha256": "95548be79c42ed72c28ff0195e58c881c01fe58012b2ccf9ace10ac31161a3b1",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_rackam_Art.tga",
+      "sha256": "333e38c18873ba89631452b29a8432c174d88a83976d65f4ce7fc41f951491d4",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+      "sourceSha256": "75eea5978d64518fe0ff112016d7821d8caa5f464d8448fa17347b4875d52eb6",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.tga",
+      "sha256": "afed3627ffbcee16d8b5f976c2456f06615d4bf25c550a7013f734597fca0253",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_rosetta_Art.tga",
+      "sourceSha256": "9479edf30de621f478d9309f1c166871ad82aea8aaa7debdfc84fdfb99afefb3",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_rosetta_Art.tga",
+      "sha256": "db47161b8edc7f31a82f7253031a71094ddec9ecf12fb024d760fb63ecbe8e9e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_yodarha_Art.tga",
+      "sourceSha256": "ea739e516200e04272a4949a5911fb320715c5d1f849ae1a9d8bd427bb5d94bc",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_yodarha_Art.tga",
+      "sha256": "fadf3322b94a60b7dd42a88b4162551862f6e044eb60a04d1d79725fac043f71",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_GBF_zeta_Art.tga",
+      "sourceSha256": "4f90ee41f123462b0d70f170f8793e13507bde98c7747b3377b634c0b89d4b64",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_GBF_zeta_Art.tga",
+      "sha256": "0df03a48b1b393287f2cd51968a2e82686b0282b019f2d11b9b84709db921449",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1301_Art.tga",
+      "sourceSha256": "6df96fd22523cdc8b5336efdb03a8fe675ae986be1bd0e0401a8fc5e62530ea1",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1301_Art.tga",
+      "sha256": "6e61319dc12bb8a95de816480cb39d75c4c54b1e8813103d42ff380dbc29a614",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1304_Art.tga",
+      "sourceSha256": "c97075b93c006050a953dac6a4a039abd84872d506e93dd6f785ac954179ccb2",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.tga",
+      "sha256": "bcd9c4e317ce5eb6b997fcd42d15fa313558ab2569b1503c02e2e34911691d25",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1306_Art.tga",
+      "sourceSha256": "5473421abf05e00395971642f3f88caad2ee5fcc679a17011af8a0ea4d5aeacb",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.tga",
+      "sha256": "a5039227f303f55127d560f681a3bff04b2fb060ce03170291cc2ef97ef60c8c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1307_Art.tga",
+      "sourceSha256": "08f98d48084b1153f8b6313f79860c078acba4cbe1a23bdbee73959183fbb156",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1307_Art.tga",
+      "sha256": "f0cc12711e7e63ded65841e5f1d66763c97df718af3c9215cf554f88e6ca3c95",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1308_Art.tga",
+      "sourceSha256": "4eeff805a1f70922030e475bbfbcb36a70eeb4011fb4cb042931c477924f8747",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1308_Art.tga",
+      "sha256": "9a1ee2d2d957bea3b539aeba446eb860a6c2dad57011f71b180b4223fd177618",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1309_Art.tga",
+      "sourceSha256": "fa5f9e53ecbc77f00800c1cd349d6f308126bdcd72de688a5210203e840377ca",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.tga",
+      "sha256": "af3e4d26ec0cfb2d60e25876103fe6daaf3d2334713ba9840ed86815a58c4599",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1310_Icon.tga",
+      "sourceSha256": "25427ad923c0f476c4aea2145dda620cfae63a8ca24048a02ca1ba115346c246",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        11.2,
+        128.0,
+        83.2
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1310_Icon.tga",
+      "sha256": "69d14095bef71efa6cd49d492467e8da73336ea2ac26d9f44b1445de7268b00a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1313_Art.tga",
+      "sourceSha256": "c0f00fd6fbba52a1e43de789ad1a198e06efa1ee2109f9d9616b1bf49e98e37a",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1313_Art.tga",
+      "sha256": "1b034716de0522a171de2125ce9f320fb6be37deccfb22d9fef47fe290bcdd5f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1314_Art.tga",
+      "sourceSha256": "13dd024337fd702fc0bc01de594d67f3a52ecc823d19751c5c3745df93a07d55",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1314_Art.tga",
+      "sha256": "e5680183946412c6d15e2c5ce9a67c99ce97351a8a23716050e70610a2f4e2aa",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_HSR_1315_Art.tga",
+      "sourceSha256": "fff0711bff612aa43588419c0d3af338522bd8df8b9edb40326caf6cbd86a7df",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_HSR_1315_Art.tga",
+      "sha256": "c15d49b20599a84fe0ac3db6b01d916f408f73e1154c0b6a6924f29f8a44927b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KMO1_nezuko_Art.tga",
+      "sourceSha256": "d622986a3cb03ba7feff7ffce99904011e3e88bc4585b05314aab0ffe869ec64",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KMO1_nezuko_Art.tga",
+      "sha256": "273bb1d17cd1a99c011d0378fbc08d37886f4ef6aae30197c40e113449a4c656",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "sourceSha256": "b09cd1c9fb248015f439049f6241b043a16d4f4d8e039a2e3e0fef2ebc8415d6",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga",
+      "sha256": "5eafe4b8fafe9544cdaf52b695fc38f0997bbf7fbfd8e1a15714de7eae89296a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga",
+      "sourceSha256": "583debf980f13784522d16b26876a96f89a0bb3c28b73abdaff7df448b299851",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KMO1_zenitsu_Art.tga",
+      "sha256": "290cd4a98057c19d5439413ba86e9d04813693bd11df6f283bddd90fb04617b4",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KMO2_inosuke_Art.tga",
+      "sourceSha256": "13f02b9c8141bd3d5d97cdaa83d49771ea537cee298bd8c687e20c25b9d1e371",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KMO2_inosuke_Art.tga",
+      "sha256": "4b5e8e12425123866972d7456ef7a275894bd3cd9ed1b340452da57278df35e7",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga",
+      "sourceSha256": "4d59336c5f75f4c07fa9c3834faed4f1d7a48182203c59f7744a4aada91a30bc",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KMO2_rengoku_Art.tga",
+      "sha256": "14fff495240dd1ca4f708835a3da69c82086d1da0b1288140caf4d193e580a04",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
+      "sourceSha256": "aafcdf9d2241891885accb802f29d8c5cd864e643277c0ab4012f824d5a7ad7e",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KMO2_shinobu_Art.tga",
+      "sha256": "4459f9080869346362f988bac1b6a61bb552d26b32e05e0a66ad474cd66ccaf0",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KNYG_murata_Art.tga",
+      "sourceSha256": "018a658377a57d3e90a9106b1627673ef26341f60d5cd3c1593a6611a19dd205",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KNYG_murata_Art.tga",
+      "sha256": "9abdce9d75f1eca59229f1a78a98a62db7dd09616fd78a091826cb558c1eff9f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
+      "sourceSha256": "e739726ef5c474c042eaadd5e93f0240c7c947d606ac76f91a6d49bd937e1e57",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.tga",
+      "sha256": "94349cf2a539fc4481d03e3b70c02e843868bd067947ddef3f45d099fac84e72",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga",
+      "sourceSha256": "a0798838ef0e7e11772867a824b48d1a1d67c808ab0e65de059bdbc931525ac3",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KNY_kanawo_Art.tga",
+      "sha256": "7dd6589ad0b0fb3f5d43cb9dde985252cc7bc5660f55469604b3567b5915d43b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSB_MST26_chris_Art.tga",
+      "sourceSha256": "a7e8ddc76606feb9606bdb7106b14aee9264db50c02e2ff0f8fec7cc39dc172a",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSB_MST26_chris_Art.tga",
+      "sha256": "2b718d6439c24ce9c2f353f46b7036b29e1c1a1a31475ca7546a52c8f176f303",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSB_MST26_yunyun_Art.tga",
+      "sourceSha256": "82f1f413f71449f5d1412455e47359234dfb903669bec52461ade609c6cca506",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSB_MST26_yunyun_Art.tga",
+      "sha256": "e4a8a2543b0f8059168dffcc3f16c5bb0f9faeaf54998f05bef9c0a759271f94",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSB_luna_Art.tga",
+      "sourceSha256": "78ec81d7646d1c00c8c176889924eecc2a50663cb819edd5cd555969b91c289a",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSB_luna_Art.tga",
+      "sha256": "c19466f76ae37d9be198a54cabfe2f9e18f81c2a9b0133bbc2f281a8c2898695",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSB_mitsurugi_Art.tga",
+      "sourceSha256": "ca7b32a430ac31e1a55cdbc1bca87608f554d737f666f910c97b0085f2e0cffd",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSB_mitsurugi_Art.tga",
+      "sha256": "afd4da2be2b01656eadd8db9ea119c57fea396602a4b35aa0b352c8eaf8b4276",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSO1_aqua_Art.tga",
+      "sourceSha256": "00aca77b7912126403ae068fad26975ddfc888ec1a7cb0f95357bd525352d2dc",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.tga",
+      "sha256": "699682c9401880a316cbe69b4231d6cad85fe4c571dd8466c6fea9dd560d3001",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSO1_darkness_Art.tga",
+      "sourceSha256": "93bbfb0edf0de6dfd006bacc12b50628dfc42552d4fbd55218948e5c382a6b6a",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSO1_darkness_Art.tga",
+      "sha256": "2e1a80df573b8d52a9afd47808140bca14b5525eaf6fd0b761a0136405d1038a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSO1_kazuma_Art.tga",
+      "sourceSha256": "e54a30568c868a63de4d6bc866533fdaba4fb4d1f74e2fe6e125aca80f7378af",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSO1_kazuma_Art.tga",
+      "sha256": "f73e6b57717354e88d13600642cad4833be6aa169d03b0ea5d5abd8bf5f29723",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSO1_megumin_Art.tga",
+      "sourceSha256": "e995dd7b41117ec62a34ce9af4272aac4a8c5907c3e728d57461b6efb8c15efb",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSO1_megumin_Art.tga",
+      "sha256": "549d5a18861abad5edbc40b02174a161e671dc323ce153ea4dbe06940e638219",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_KSO1_wiz_Art.tga",
+      "sourceSha256": "15e6ab405a6e08b000df584d71ca68c9d72e544cc42ac58069e843c6f2a0eada",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_KSO1_wiz_Art.tga",
+      "sha256": "d07805b9ae3f679362a811f3c8be66fdfb42165a21d641b05847d03500fd06a3",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_LW_nazrin-l1_Icon.tga",
+      "sourceSha256": "1166d963040bd180b7a59cc45814809dc394bad7861a6eaf90d60f0c7095e6b8",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        7,
+        128,
+        120
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        31.6,
+        128.0,
+        103.6
+      ],
+      "anchor": [
+        0.5,
+        0.6
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_LW_nazrin-l1_Icon.tga",
+      "sha256": "940eeb612cc7e2ff3646886e1e70267ba38c18c11a4f2bd260e42f5cbf60856b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_MEU10_homura_Art.tga",
+      "sourceSha256": "02964ae05891c6022ed05baba5a6e2775aec147ba054b1ba517a5f39ec701677",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        30,
+        512,
+        481
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        62.6,
+        512.0,
+        350.6
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_MEU10_homura_Art.tga",
+      "sha256": "8f55744f0a89b4af0dd7e4141b8592c5ec85f3e9fd8f8fd531d2ce6d6bb68375",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_MEU10_kyoko_Art.tga",
+      "sourceSha256": "66ae0a4148a1f572e189b7831cc2fb3ecd4500ebdae68d419bff653d534af813",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        40,
+        512,
+        472
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        68.8,
+        512.0,
+        356.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_MEU10_kyoko_Art.tga",
+      "sha256": "8b92ab091f56820b7089621780f3b4cb50339e19748ee3890d7b50a8839a5b9a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_MEU10_madoka_Art.tga",
+      "sourceSha256": "fc49ae6cedb01dde7e84f4d135a06574756f762ae1b1d30e00ea6b769ce8d090",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        40,
+        512,
+        472
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        68.8,
+        512.0,
+        356.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_MEU10_madoka_Art.tga",
+      "sha256": "a7e6b01c0f0f2dfd6cb9b2f08e62290a4f385ca2182ca45aa03baaa90b7e6166",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_MEU10_mami_Art.tga",
+      "sourceSha256": "418131458aceab89d3b5b6400031fc15ab393b6dec078311d5893249ddc51cf1",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        19,
+        512,
+        492
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        56.0,
+        512.0,
+        344.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_MEU10_mami_Art.tga",
+      "sha256": "704419f1c63858a967e4c820faac2b28f4acb2976128cfacaaa001b0f2c7f183",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_MEU10_sayaka_Art.tga",
+      "sourceSha256": "8f30d990eb38c29553768e49efb5e198f72222592787e57024d662aa2ad4b813",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        34,
+        512,
+        477
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        65.0,
+        512.0,
+        353.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_MEU10_sayaka_Art.tga",
+      "sha256": "2f16b8f26a83d7d56e04242ea6e01a3c206dd26e1afa04c0cc18df18ccf48f89",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_Misha.tga",
+      "sourceSha256": "54040c3be2f408f9856d91f12be49d96b4ab016fa42d7abb9eeb140b458da61d",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        11.2,
+        128.0,
+        83.2
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_Misha.tga",
+      "sha256": "167053b06955bbbd8749e485a87a92cf9a38d76248d6407817fc4fb2113e89ff",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_NRG_hiyori_Icon.tga",
+      "sourceSha256": "7117a2bfcff8a83aa7fecdd413b347f444df88bdc4d7548495fdaefb53aaa37d",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        11.2,
+        128.0,
+        83.2
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_NRG_hiyori_Icon.tga",
+      "sha256": "f9bbdf53dea6d143afd7c5b76172362f93c78b5b5a2aed93669d626aac4ac85b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_NRO1_yato_Icon.tga",
+      "sourceSha256": "a76ba9d899edefb5e0b36cad1d168c68c2fe8a5b3c5a30ad18ac146b21b1cf71",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        39.2,
+        128.0,
+        111.2
+      ],
+      "anchor": [
+        0.5,
+        0.7
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_NRO1_yato_Icon.tga",
+      "sha256": "86ae40944550a12e09e89f9e400d57275d4fbe0f7896f35a4a550524c1cc136c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_NSU9_nishida_Art.tga",
+      "sourceSha256": "fe8db978f5a3123c9555484f2e81c6cc200a8db74655420debe23f7dab0c4ff3",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        9,
+        0,
+        502,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        9.0,
+        46.9375,
+        502.0,
+        324.25
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_NSU9_nishida_Art.tga",
+      "sha256": "7d6f828e7395f87c2875efefd164bec9702ba610936c7ee7d5370248047edd50",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCRS_yuuki_Art.tga",
+      "sourceSha256": "c1627c72cc7b1988cbf5ca95c40dd65d240da736cd565564b07eb138a82d41f2",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        21,
+        512,
+        490
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        57.2,
+        512.0,
+        345.2
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCRS_yuuki_Art.tga",
+      "sha256": "d6f34eca5983dfcc5141aab0ccb035a263d8aaaf776886d41f4b44cfa309338e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_101431_Art.tga",
+      "sourceSha256": "63e079ed2b8eec8325e098463cc8efd65fcb4be79c86b6a27e61821296edb819",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_101431_Art.tga",
+      "sha256": "b5f64907af640a54d5fb080065e2401578e4e7f913bbd33f1372e69488096567",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_102931_Art.tga",
+      "sourceSha256": "aa441e12ad66f5f2372997a701fc3645c04b40c6a78955b950f4f9cfa4569399",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_102931_Art.tga",
+      "sha256": "03534b2e16e7fa0d93d112b7488f60f4e9314cc1d5402b6c67d81439a383e635",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_104031_Art.tga",
+      "sourceSha256": "73a2e850d5fabe449db2a5106d0240a73f958a622e9a2160e7a17a2b6bbbcbdc",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_104031_Art.tga",
+      "sha256": "3605144a820316ed9f457e0874a4de9e3dc94b13a060cfc833e51858c4522b3f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_105331_Art.tga",
+      "sourceSha256": "b7043a2884dcdd542891896da730a384d037bf995b5c4399000e1b4f528a2c88",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_105331_Art.tga",
+      "sha256": "a83e80bef8c88494509acda1a4d5dc07cccc9c634ea114b58ec65183ad347b89",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_105431_Art.tga",
+      "sourceSha256": "122258f4c9d9e1ad2d1ca41868064f8456edd503f141e2c850d406197a8720c2",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_105431_Art.tga",
+      "sha256": "ded6b58c1b70f0521321ece28a2d17e2455e3ba5c0811a1ad627f7e173eb5bac",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+      "sourceSha256": "a806dd7ea1ef3af40b0b7574b74c49816a0405db43c8417189e865d13cb6688e",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.tga",
+      "sha256": "cb7fc73150893ded600e8b6597e4ff9583883ce4e02443c73b2de16828a6596f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
+      "sourceSha256": "1739ed6116b4e5e116b30abfc3bb759f8f5761ea325cf5a2982750400df8e956",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_105931_Art.tga",
+      "sha256": "fe20b7e5d44684e0e98c91a06f6da551164f1452b60f540ed8dd0465125c4b93",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PCR_106031_Art.tga",
+      "sourceSha256": "381fe766dbe8941565c64b88b3a64015ba5088cfa54d8bdf69ad5b9045fc8608",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PCR_106031_Art.tga",
+      "sha256": "31b6d624906d197e9437054ef235adf816b8410b108f089bd1721131ac9f7fa4",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_PMM_kyube_Art.tga",
+      "sourceSha256": "6caef10d8464cd6492d7ae8515198fd794c03fa8d4eb41b3deed420de8577c0b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_PMM_kyube_Art.tga",
+      "sha256": "b9711475d9e195515a4ccc4dfae6c96b637f029fc41cd17679f79068cb7dda00",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_QU7_yuzu_Art.tga",
+      "sourceSha256": "0b28ebb826e8c5b8a5fc80c7e244f61f8322b612442cf1e2e70e3672a108502c",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        110,
+        0,
+        402,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        110.0,
+        69.55,
+        402.0,
+        233.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_QU7_yuzu_Art.tga",
+      "sha256": "0ffe606490217b9e19d937c4e2b92d15e7e9a749cb622b16e8b8aca1a8779b66",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGO1_kuroko_Art.tga",
+      "sourceSha256": "e0cf9e686045d864211ba2dd954cb13c4f14753499ad92201a38caca355f64cb",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGO1_kuroko_Art.tga",
+      "sha256": "dcfd5b9a80d9fd40440afef1e4d30ceaf0d958ca184d2881be05710eb1523d5c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGO1_mikoto_Art.tga",
+      "sourceSha256": "0ab295a1f604878d7ba3b4673cb13c4dca6b0a8a86a4897368c38f82633197ff",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga",
+      "sha256": "0e81cbf45f0f3057256b35b9304d8254012b204b69b4b8199ab49aae4cd55948",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGS_nunotaba_Art.tga",
+      "sourceSha256": "cc00e250d0965329f5d5f86e22141357f5957c1abc100bffc8cc67659fcd218e",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        112,
+        512,
+        400
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        112.0,
+        512.0,
+        400.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGS_nunotaba_Art.tga",
+      "sha256": "2335165637a5c77656d1e28a2e3a68be8e6cf1f09b9180f97773e321c810eccd",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGT_11_Art.tga",
+      "sourceSha256": "444530a137d24a333703f8bd1a27cb5f7f5c108e8928c8cb0b182d4b3afe89b1",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_11_Art.tga",
+      "sha256": "5639249da4c195958a0a518c801ba6a6eb379b233bad04708940d2c58c65f794",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGT_34_Art.tga",
+      "sourceSha256": "67f0d28bb22cd81de0f049fa9e3d674f509d5e788838002b9dee7720d4b92622",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_34_Art.tga",
+      "sha256": "2136c8ad3f520b452f72f029a5d7ec6bb05c421b6010d81704d295d54abe11db",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGT_35_Art.tga",
+      "sourceSha256": "16990276999860c307d459edfd5ff518b06f8afa4b279f39e9ba4be80ca5ad1b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_35_Art.tga",
+      "sha256": "072a99fed29c47586648bb77e412ec723d1226840e82949ab18e49388c05de7d",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGT_37_Art.tga",
+      "sourceSha256": "fceb17918a67be5a01b8e18f721c7c58c4000094dd3186fd50aaaa68a74d70f3",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_37_Art.tga",
+      "sha256": "e6f479d7bd0340b1076bd820252cfa53c336003422d3f36e5f5c7528524642b7",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGT_38_Art.tga",
+      "sourceSha256": "222ad0d660e70aedac11802aae8e033c505ca8102c4797b86d3b66248a854be5",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_38_Art.tga",
+      "sha256": "2e3b18c88e9b0bfaea2b42704183413a7145ea5f321cadb21323ecb555e72a64",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGT_39_Art.tga",
+      "sourceSha256": "d1a58c22491e0784ece305c4bbd3891edecb87070f720a947741d086495cdb7a",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_39_Art.tga",
+      "sha256": "a7f5ce9485213a62c5359faeeb5d51ad6f9ac1cc106e4b642467f53b27c1917f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RGT_IF_uiharu_Art.tga",
+      "sourceSha256": "9e4a2617a85c50b8ecb01746f65f734ade16cc99d0ca1ecabcecca52c75ec350",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.tga",
+      "sha256": "f291fe03599c4948428cc18d382650fea9768b192e9001d4dab4dabe542278c5",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_RMU12_roy_Art.tga",
+      "sourceSha256": "db698759ae09edd2677b088a4da471cec7af45c46937a74929c3c5b7de32b804",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        31,
+        512,
+        480
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        63.2,
+        512.0,
+        351.2
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_RMU12_roy_Art.tga",
+      "sha256": "1ab2a126938af3beac98c911b54cdc4645c12cdc5e550988ba43e90a215559b2",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAO1_asuna_Art.tga",
+      "sourceSha256": "431cfd5fc85a039d6b6bc0c5d7058756bb86dbea820dc13382b29a6d318680ae",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.tga",
+      "sha256": "8b35a9aa0d2e9c405f371cf2424494311f1d189c4c2c0f000cc97027e9b6a915",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAO1_kirito_Art.tga",
+      "sourceSha256": "0b1f371e18790d042cdd7208079fea8d5414fa7c5decdb235b37ed8d211b5488",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.tga",
+      "sha256": "596aaeea00f29a6224a7f965b25faa29faa18361c7ed7a414bbee2e671a83fb4",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAOFD_agil_Art.tga",
+      "sourceSha256": "6a78195d57a6396c452fde519f04d23e1f8c31ac0d78251ab702e9b97479e884",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAOFD_agil_Art.tga",
+      "sha256": "7db3ec6069fde9794348b386d2b6fc7f6dec2f159260d3d9b541d69b6d3cde25",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAOFD_argo_Art.tga",
+      "sourceSha256": "0021c9fe2487629db1e35a2daffc0fb7b8f4b85412cd80bf56d598bc2744de6f",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.tga",
+      "sha256": "09710b34218eee7451aa4262a372d57bd5e22b3f7654351ad1dbc3ad733090df",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAOFD_klein_Art.tga",
+      "sourceSha256": "224b822853cc6ab4aefa9e5830ef0fffbf77930f109da9927a6ce38e3c512727",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAOFD_klein_Art.tga",
+      "sha256": "3f984a228397678fccda17a1a1f54ddac8de7988705e519aa027546a20f8558c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAOFD_lisbeth_Art.tga",
+      "sourceSha256": "0e9fd5a2cf82610591ef0e894240b329bed6c7715afc2aafefc7d6070949a21d",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAOFD_lisbeth_Art.tga",
+      "sha256": "b28819fee3ce02071a8a0df487e93d8537d7b15d88b5aa6ef65d7b56274b2276",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAOFD_sachi_Art.tga",
+      "sourceSha256": "5b250cbb0bfe5fbab0131a5337262b897f2577cac497f215cce2c0b7f02db501",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        0.0,
+        512.0,
+        288.0
+      ],
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAOFD_sachi_Art.tga",
+      "sha256": "38468736911808e5e5ede0e0adaf6e0b5f2a44f1e4a324da7c4c784f8a73906c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SAOFD_silica_Art.tga",
+      "sourceSha256": "3128d67e179bff64e846081a8547bfd3cb98678c31aee57d139f20f61e96be42",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SAOFD_silica_Art.tga",
+      "sha256": "c9bcb8c28d73855ba450618bc480d11d6dbc13d04397be82087b2e20a4befaf3",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SUP5_hitomi_Art.tga",
+      "sourceSha256": "07fe4e1c0a6da308ee9b646c1b99c8cd0fa908d3f2494a78f37536da2d31d023",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        512.0,
+        332.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SUP5_hitomi_Art.tga",
+      "sha256": "96457afef6640931cdf449e99cf50840dc065892b7d380a637c248c7b1de503c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SUP5_junko_Art.tga",
+      "sourceSha256": "425e19e1044862693a0bf2b64b25970c14a604dbf1fd16b68784a2db42162f18",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        69,
+        0,
+        442,
+        512
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        69.0,
+        60.4375,
+        442.0,
+        270.25
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SUP5_junko_Art.tga",
+      "sha256": "e730cfca112959d5e8c818999e72cf02e3bf7a9ca9cc669a0d9b2035265ecd4f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SUP5_karin_Art.tga",
+      "sourceSha256": "9a0ea90b13797a1b1f779a4d81a3495e170f240a9ec2a8160d8a5ae639ceab7b",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        76,
+        512,
+        436
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        90.4,
+        512.0,
+        378.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SUP5_karin_Art.tga",
+      "sha256": "ee157424c45eeb091a2e73508ff816a3632b41853d0f92652fdb678d9b0c7fb3",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SUP5_tatsuki_Art.tga",
+      "sourceSha256": "fc71adc23b4f818cc2af7e36336aa426ab5d0108b2e7d63f0660a573a5daaec0",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        28,
+        512,
+        483
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        61.4,
+        512.0,
+        349.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SUP5_tatsuki_Art.tga",
+      "sha256": "629e15e71788dcf5481c7d0fc9191eef6b4c13a59766cf3f3176f8c5a164fd99",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SUP5_tessou_Art.tga",
+      "sourceSha256": "6c7ba5d15592a9b885be842ad0b1ec4408ac9f7cc2e58402dcefa8c7863234fa",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "contentBounds": [
+        0,
+        72,
+        512,
+        440
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        88.0,
+        512.0,
+        376.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SUP5_tessou_Art.tga",
+      "sha256": "e30e6584a21dab5429a91950d08e1263dd5ef649b03db13f3cf654f4e40ebd76",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SWO1_holo_Icon.tga",
+      "sourceSha256": "b9b2a958566455b8d80f4ffeacc23009b438e04b353f87bd409ad7e723cff5c1",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        56.0,
+        128.0,
+        128.0
+      ],
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SWO1_holo_Icon.tga",
+      "sha256": "6ba5e3be589834bf206b424e56b3efafb8603457295f8a12fa66befea013c787",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Card_SWO1_lawrence_Icon.tga",
+      "sourceSha256": "bdcd6536bd8bebf8c3601791db89c52357aae80be237c3687779dfbcb2f3ea80",
+      "sourceSize": [
+        128,
+        128
+      ],
+      "contentBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        44.8,
+        128.0,
+        116.8
+      ],
+      "anchor": [
+        0.5,
+        0.8
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Card_SWO1_lawrence_Icon.tga",
+      "sha256": "8b776e45e5fcd36720a411f42c6d4a0a4253b3741896346e351ca3d3fbe2a57e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABE_aquarium.tga",
+      "sourceSha256": "0dbfd84952f20134dfd8be6c526989daf55cfbb7441fbb9810dde4f318adb461",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.779359431,
+      "crop": [
+        0.113778,
+        0.0,
+        255.886222,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABE_aquarium.tga",
+      "sha256": "a98fbbc6d4a2a5fa8289b73141d5ec74f7d190a5fb884ecbd9b8f2ade6e9f20a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABE_classroom.tga",
+      "sourceSha256": "38f179f05a9b9cc3add8698c631fc3499e1d7a2985cea312a6851fab8eda9f65",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.779359431,
+      "crop": [
+        0.113778,
+        0.0,
+        255.886222,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABE_classroom.tga",
+      "sha256": "bfff980429369fedf912300401e16de7bcc6cbf9168a502c5031b931beb48eed",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABE_frontline.tga",
+      "sourceSha256": "2812cefca4471b4052b979c048d5fbbf6e9bdae9c2aa341625d7ad55d0054eeb",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.779359431,
+      "crop": [
+        0.113778,
+        0.0,
+        255.886222,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABE_frontline.tga",
+      "sha256": "dbcbed6738ccf43ddfbaedd17bb02e4d7d23988beb2e01ceabf0ec12ae2269e1",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABO_assault.tga",
+      "sourceSha256": "8682b3d4ca17ad61f2482d07ff0c320da5c14b3ce73833b997fb6fb6c3831f9c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        89.6,
+        256.0,
+        233.6
+      ],
+      "anchor": [
+        0.5,
+        0.8
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABO_assault.tga",
+      "sha256": "ee0c9cb0c4447a3138e7d6fc69a1a1195bb8131f1201b11e9bbe9b4ced2700b8",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABO_black_suit.tga",
+      "sourceSha256": "384b201a916e1c46ec5eea175e9e07960e486e2fbe5289bf02817605dddd14dd",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABO_black_suit.tga",
+      "sha256": "654ccb33bcddfe984b83910f47a519802866023563967ac60d30072c4615538d",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABO_letter.tga",
+      "sourceSha256": "eb0ae7d8ef3dc4c24a1e8182d621fde0f2325a300822f79951d960929325c9f9",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABO_letter.tga",
+      "sha256": "7c750105b9cec15709ade690ec7a97fcda444e15ceff0602263debbc8599e353",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABO_memory.tga",
+      "sourceSha256": "8c5abc4eef2e1ef7a428640377b5328430a478f7219bab5c866a68a4c7dbbe75",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.776198934,
+      "crop": [
+        0.0,
+        0.045471,
+        256.0,
+        255.818117
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABO_memory.tga",
+      "sha256": "d1d60226f64b89ae93952b224785ea6b1a0fb65ce2cce1153e77295712d6292b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ABO_rescue.tga",
+      "sourceSha256": "9b2b6a9b30d5d3cf21d818e7f91c4dd37fd9148f221e6d3cd701463a4b80efb1",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ABO_rescue.tga",
+      "sha256": "04ba1861da44e854b55f3d255002012b170415063b7887b6c100fc1bc3fdc5ab",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACE_dolls.tga",
+      "sourceSha256": "92230988c93994b47129ac6b18d5700a2e05c5201ae5d19235f58216d9763cbb",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACE_dolls.tga",
+      "sha256": "2f160eca73b578c33cbed2aa3992ebb3ddb24c28914a25e6fce120676c95af32",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACE_friends.tga",
+      "sourceSha256": "9251a357a8d082aaaaaa01facc47731e671e4ec3064b2d4183c15040089fd564",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACE_friends.tga",
+      "sha256": "4ad841fc97633bbe945ad1a0b0c205bdc9ac98d403fc05fd07ff1d6c374d04cd",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACE_resistance.tga",
+      "sourceSha256": "f8e0b22ee0a9ee5ba83a0675445871089b3f7cb6a631097597ac0fc5f0bd1bad",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACE_resistance.tga",
+      "sha256": "07dbfa66745edf293acabc009ba45b1147b3b4a4ff3155a013d81820e8458919",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACE_shinobu.tga",
+      "sourceSha256": "9079eb06f1cbcf152a741cf5f66f8409eae1d5d10f2b8b71cb3314b53b4f207d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACE_shinobu.tga",
+      "sha256": "fbe1f9df9151d9e02077b509f6b1f91b3566caae2c74dc95d46c1598c82837e1",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACE_sisters.tga",
+      "sourceSha256": "40edeb8d62c46ed6af1029de691b061fec4fed60f0c83e30ee786601624fe4c6",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACE_sisters.tga",
+      "sha256": "91e19a6ea1195b4adce769db87708e218e229b66e8c48e97f74b6d0ca719eddd",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACE_waiting.tga",
+      "sourceSha256": "401a78c17af1e8a27ff8333f2eb31bcb09e9b3591d2811faaa2bc7a1bd7ea7e6",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACE_waiting.tga",
+      "sha256": "876e055e1ff17fcabb09dd2a829496f2c7560978f9c275ebe5f09ae3a72e2b6a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACO_bridge.tga",
+      "sourceSha256": "23da71cb9515d4f12750d6c4a3a63f50afbf3c01b911ffa440ba336f4c99f82e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACO_bridge.tga",
+      "sha256": "430bce01d774e5e9e8e4a3af9499ea33bbf2aa5b761406e86adb64d47f163204",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACO_cat_memory.tga",
+      "sourceSha256": "cda65d9b94dfe34d31a98a34f7ff493244cdac84ec62c1f39e3655e5394b32db",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACO_cat_memory.tga",
+      "sha256": "0c8f626b70a76e05a80430ce6ad27d06512ce2d2a786a44ad21e0ac778f097e7",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACO_resolve.tga",
+      "sourceSha256": "15c9da5f0b4ac132a33cd831ac42799f7059fb1d0a072fe64ef0b05e11e6254c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACO_resolve.tga",
+      "sha256": "468656cc8ae958c80235aad8775759ed2381e812d1bf43db35e07f751f3ce4cb",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ACO_sisters.tga",
+      "sourceSha256": "92019bc58051c7eb0ed787bbcfcc761cadd1b84c8a2648f219cfd8d902a0ed80",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ACO_sisters.tga",
+      "sha256": "915f67fd7d2eec12f2f9b1a1c1065a35c2585eb7b9e88198ce66bc1aa36f5f5d",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AME_brothers.tga",
+      "sourceSha256": "a809fe3e7051bee97e32b2bd4e4a05a75162abae9b5f7796e5cdf17ab70bf491",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AME_brothers.tga",
+      "sha256": "4f7dbd075683ba834a1f8d60156852a70b9a2ae418f1f91006834475e0340eb9",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AME_nina.tga",
+      "sourceSha256": "8356c82bc73114a30844637d25eab6599553780357f45b0a82605154cd2ef705",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AME_nina.tga",
+      "sha256": "42e171bce28f48356c80f04348048ca33e87f45fb0f4376f7e6d220417c5738c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AME_training.tga",
+      "sourceSha256": "69ce18249ee086a2f7d6fd738c1b41ec4feaa0b9d1f7e8a9e6f347fa9caaca72",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AME_training.tga",
+      "sha256": "9b69ec130fcadd943aa79de798bf35227ae454e4ec6e2873da290523bb1222d1",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AME_winry.tga",
+      "sourceSha256": "1e7945ed7ec07adac04f8906718ecfc7cb9d0a2fbf7ae2132738de0bf8c5bffb",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AME_winry.tga",
+      "sha256": "6d3d6849d70e62eae9fcea29ac51e6a309d971ccf1d648b60591bfec70539898",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AMO_home.tga",
+      "sourceSha256": "63ce8974c917974267e0a4980333084b9d8d6fc5e574bb5c651a08c50266b0c1",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AMO_home.tga",
+      "sha256": "d9be1c9f1cce8e98bc72a414badf9b1971e7e24e2eda69a36c44dcebee4d6de9",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXE_beldia.tga",
+      "sourceSha256": "b294fd0c472bbaa976ce456624ca1aad1bb7f25880dce52abd24b288bcc9b498",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXE_beldia.tga",
+      "sha256": "14d2b65fbdfc2cf787b8a61fb215d582273bbb9a36166298239c9b875ed846bc",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXE_darkness.tga",
+      "sourceSha256": "d56097057544ea10193b6e19b3a6d8160ef5d0fe1370ee27134abbe7bdda8ded",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXE_darkness.tga",
+      "sha256": "9932c39a39a8700af01a7564ebc15c4342d8e714afa40634eb3c4f5e0e03dd5f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXE_megumin.tga",
+      "sourceSha256": "d66e0eed843959114d9b51b54d45bd4bc3e381c74bd286d1d67690cf1a4c9662",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXE_megumin.tga",
+      "sha256": "8e058fd337ab06a834492d9cd8966e1ab81ac00bfbbd40682d559fbb47740a33",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXE_practice.tga",
+      "sourceSha256": "926b3c75fdbdf64123f7b37458d823135efe36a67a4f74416f487f0a93312a8d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXE_practice.tga",
+      "sha256": "ba129d34be1724987566ba45c76dc1079e2948d18698b4ed87d9ff1c8bf81ee8",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXO_duel.tga",
+      "sourceSha256": "87ad2960f31471d9f00a2999e2411ecc6ab231722ffa4ed0d47d5d29b02a3012",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXO_duel.tga",
+      "sha256": "939279b3aab897e0c34cf2f369bf5e127e14b6c620203393821a6d22950a3eff",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXO_explosion.tga",
+      "sourceSha256": "cea5deb2d3e2d9c32769cf0b5b1425f92c2c93966eef4f38def47bb9586b00e7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXO_explosion.tga",
+      "sha256": "f750b1bbd10db51fe1cde80fb2d243c369cd099fee84c999fd1dff49aaf63932",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXO_home.tga",
+      "sourceSha256": "b39eb88c8118a3aed8d903422cd71cd667a2cc029b1be8488c90194f78ece5a1",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXO_home.tga",
+      "sha256": "efeb80b2320162088d6c43668111972853da5a60a26188d18b433f8c3a451959",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXO_lake.tga",
+      "sourceSha256": "44573999391244576198a688a03054664215c4b3099f5c036bbd3d0d8e16c2e5",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXO_lake.tga",
+      "sha256": "7d8ce15d54ba6ce7137647f195d55e25e52642f4a879c37ebb48a793d292f5ab",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXO_shop.tga",
+      "sourceSha256": "05fc80a205c49bb4237b29d7e13981470851e4a724d4ce3706e91912802b0d0b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXO_shop.tga",
+      "sha256": "5b4ddd6454d8e9fd0f778d14917d6ecba1f57ad2919365ab70753295f7913d0f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_AXO_winter.tga",
+      "sourceSha256": "e27cbcf5497a8f92ba2eb2889ea4990a67b2fedd085cba37a0249e2aaf5e6bf4",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775956284,
+      "crop": [
+        0.0,
+        0.052459,
+        256.0,
+        255.790164
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_AXO_winter.tga",
+      "sha256": "870fb1ac807a935d0be63db5d036a50904918d20e24ba123d77b0ab802388df0",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_BTE_kanao.tga",
+      "sourceSha256": "fbc8430354f1fabfa8b2db8bbaeea2644c0f6bd40438a3983c86ae048a62c229",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.776937618,
+      "crop": [
+        0.0,
+        0.024197,
+        256.0,
+        255.903214
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_BTE_kanao.tga",
+      "sha256": "ba98f55b8987b73d5fae9ff333846beeb6df6b668e954486cab1f056ac523a64",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_BTE_return.tga",
+      "sourceSha256": "be9aa0ecd67e0ae24460e2683bb4933a881a1fad04f7362d5aade4ada679b557",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.776937618,
+      "crop": [
+        0.0,
+        0.024197,
+        256.0,
+        255.903214
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_BTE_return.tga",
+      "sha256": "62e0375c6bc66662a5f167b3092628c9380fd0847249ea4e6c667a809cd2fa12",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_BTE_shinobu.tga",
+      "sourceSha256": "00ac5c63c1839fe2a656db8061c66972063dd5dcd8ba0d52726a4c814e0fa37d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.776937618,
+      "crop": [
+        0.0,
+        0.024197,
+        256.0,
+        255.903214
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_BTE_shinobu.tga",
+      "sha256": "4335a563e9cd3d7b99d0e6ed9fe71f6626f53dc9323946785cba974b57b2c5cc",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_BTO_awakening.tga",
+      "sourceSha256": "a969f6eb1d836c21f9c9682fb23ffcfd9bc66cdf0c6ced382b48a1d3d9caadd0",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_BTO_awakening.tga",
+      "sha256": "df3f6294466f4506ad822fc3238c10dfa72bae7761d0a779e0f0f0e88e4ba7ce",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_BTO_defenders.tga",
+      "sourceSha256": "79af0eb68b11f5a54ab1affe80e107306ebd9f734435240afdac94104eb4460f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_BTO_defenders.tga",
+      "sha256": "6dcc36a85b6ef4d114b5847a112cc36020ebb44583ad64b0d2a4a085071f0a19",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_BTO_flame.tga",
+      "sourceSha256": "d72756c1dc1df36fe18fbbd46d3249a5751d67a915b8e4862deb09b12db354b9",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_BTO_flame.tga",
+      "sha256": "988fdd749bdfb8e46cf1b89537ddef0054dddbe59bc1dcced6e4a3c4b6b271aa",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUE_berserker.tga",
+      "sourceSha256": "17eaa2ab37caec781c8d1d7085cd19448844a4b9dd4f7e532eee95f1b496b60a",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUE_berserker.tga",
+      "sha256": "1ed4ee8bfbc355e15e3b67d3f16f79a427667f664826da9b945697f2a90826ea",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUE_caster.tga",
+      "sourceSha256": "2837cf3b04540b812db8910ed4e70db5bb78738ba7ff798893f40ee1bb52be19",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUE_caster.tga",
+      "sha256": "589a8d7b8b88de5fb47342987cc894cdcb527c1e60cc41a2926cde071438241c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUE_hostage.tga",
+      "sourceSha256": "eac273065a49bfb49e5fff7b5c53298702cb534bd38315ec066e9ce3d77e125d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUE_hostage.tga",
+      "sha256": "1d74f34be5f392671fcdebd2a0a871c8e1f0e67013bd8723d7c307b3ab0ca638",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUE_kuzuki.tga",
+      "sourceSha256": "0db37b24ec9b9719a35f3f7653640e79cddf83e0bf387fa6f22b52569114c49f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUE_kuzuki.tga",
+      "sha256": "ad9eca923bf41d8458121ef5f5de32b89aade8570c919070faf992f045256ff6",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUE_school.tga",
+      "sourceSha256": "a0508a9371713c9f036985f27c5adf4ffe458c80edbe51921feafaca724e8874",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.775147929,
+      "crop": [
+        0.0,
+        0.07574,
+        256.0,
+        255.697041
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUE_school.tga",
+      "sha256": "92b53d0a31fa652b8d669b1799376c1b55b2660bf297dde048b2981010cfcea5",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUO_blades.tga",
+      "sourceSha256": "88285134215682eb3ace776ddb2444c8880a5e32ea3a2a97a578767c2dda9cf6",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUO_blades.tga",
+      "sha256": "8015a7a87dba2f9627c4beb3266660c6988b5b10d291f6167f0f1f3bf9f0347d",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUO_castle.tga",
+      "sourceSha256": "d8d76f873acaa5188cd0a20ef06df8f83df67cc71a1b99444a2813a59f49b503",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUO_castle.tga",
+      "sha256": "f77319ff3b7580daad1bb859852752dc4ac08f190b1c921638012bf9007fd7e5",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUO_clash.tga",
+      "sourceSha256": "530648c1760f6f72dd57108efd941229398fcfc3f51b43255291188a1a8a18a8",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUO_clash.tga",
+      "sha256": "954ce6b2079364043cb8a644bbb27a10499231e73171efe86a7967cfe68049da",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUO_identity.tga",
+      "sourceSha256": "a1683dcc07eedbb6674cd3837c3eb914e7e33ee575cd2fb0ceb1ba44297fc349",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUO_identity.tga",
+      "sha256": "e8e1f261fee53796e7e1582a261089c8dad92ec0bcfee92a68150142cc9b606b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUO_memory.tga",
+      "sourceSha256": "3829650088639eb223c87e1f3e26e40bbea15ed1760f15ba9451b26ace2cca95",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUO_memory.tga",
+      "sha256": "e0edea476889e5bcde3e077577dd237429c9c196386f454145611faba2a72ded",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_FUO_plan.tga",
+      "sourceSha256": "241788050baacc924fee1215e38ac994d1652aa17dc7906f3f6460c51a173049",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_FUO_plan.tga",
+      "sha256": "930bc86e8c9357209772f2795bf126584f2576ff26e44623a2a9abebd36dfc3c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRE_contest.tga",
+      "sourceSha256": "d713b7dd5a12b1636b0433a3916400b09b0588dbb2983595a81199512b3b0958",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.779661017,
+      "crop": [
+        0.13545,
+        0.0,
+        255.86455,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRE_contest.tga",
+      "sha256": "4fb894aeac6e162f522b22a9a8d6e9e2f37a1f51760c208910b53c50abe13fc0",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRE_house.tga",
+      "sourceSha256": "7d9f878b04a3c16fdbcde74e02ee6bf795ba97d8af2897130513b61aaa8d4736",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.779661017,
+      "crop": [
+        0.13545,
+        0.0,
+        255.86455,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRE_house.tga",
+      "sha256": "a1f1d9ed3cafb7522b7bb690a16107829179f80a1ded095021fc05570fb726fc",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRE_mushrooms.tga",
+      "sourceSha256": "6a56def7ed3f5d865304c02cd2c46a994a28f0783d4ce3e23560c24376cdc312",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.779661017,
+      "crop": [
+        0.13545,
+        0.0,
+        255.86455,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRE_mushrooms.tga",
+      "sha256": "0a702cf6809ff08de236718674d4726495b0caa9b647ea37e85a04693b6e9b3f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRE_restaurant.tga",
+      "sourceSha256": "269844abdcca43414a46d0d5de8793894d770be758cd302951aa38067eb5279f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.779661017,
+      "crop": [
+        0.13545,
+        0.0,
+        255.86455,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRE_restaurant.tga",
+      "sha256": "2ef94ff509f65f750a1d382e2e03db68be23e03dc6a05f3d4cec8de6bf39a58c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRO_bondage.tga",
+      "sourceSha256": "6bda921af84bb9586c9c347ba99d358ccafe0fd08ecd2d0048e62e3f9d87fefe",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777542373,
+      "crop": [
+        0.0,
+        0.00678,
+        256.0,
+        255.972881
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRO_bondage.tga",
+      "sha256": "1a62c8543fe2372fc1cb19f4e199f7c7ffd4f53c0d2e02271b77e7e21ece4660",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRO_return.tga",
+      "sourceSha256": "cb54ba5b7812d784f9fb482ac6529da06fb28dfa6ea07fe90ae04665b4284d86",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777542373,
+      "crop": [
+        0.0,
+        0.00678,
+        256.0,
+        255.972881
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRO_return.tga",
+      "sha256": "8759e833e2ea4dada76f0519e0532bf337797d1ed81f9dfd7752c7acff3fcc80",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRO_together.tga",
+      "sourceSha256": "2747fe4788bd493768810c1bb9399c2545d56f113433e6ac33e6026fa0f47497",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777542373,
+      "crop": [
+        0.0,
+        0.00678,
+        256.0,
+        255.972881
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRO_together.tga",
+      "sha256": "a2e17c68cf304b61dc5e0fc9e165cb230cb954a3bb086b5a3fb937570bc30125",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_GRO_visitors.tga",
+      "sourceSha256": "edef5c56aba6977d7216c5c16f45ff59938cb81c68826e0537817552796cee97",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777542373,
+      "crop": [
+        0.0,
+        0.00678,
+        256.0,
+        255.972881
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_GRO_visitors.tga",
+      "sha256": "a9a03674dd5eccad9c0a3514a58e603095672eeba2d7c9891bb9ea1c820e6cfd",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_KAE_cooperation.tga",
+      "sourceSha256": "f8008ada95d1bdaf876f76861ef6f0735742f85903505a66c7015c5087cebd68",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.307189542,
+      "crop": [
+        0.0,
+        13.552941,
+        256.0,
+        201.788235
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_KAE_cooperation.tga",
+      "sha256": "080b55bffcc1b5402c5ac7431c478a3b3c6fca747ca4d8936be8672fd391cd56",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_KAE_gate.tga",
+      "sourceSha256": "d1676b5f85dc84afba22a06e712e2454afd2c48c1a1ca2b467cc7a7ff840bc2e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.330434783,
+      "crop": [
+        0.0,
+        12.883478,
+        256.0,
+        204.466087
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_KAE_gate.tga",
+      "sha256": "16fee740875458f7904b9bf7f8668f272a8eaa7ede5861883151dab246b320c3",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_KAE_kenpachi.tga",
+      "sourceSha256": "fdfdc9ffd613f694937d7227d6808db4560fd2abbb8576715a7d19f42fc43cb6",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.307189542,
+      "crop": [
+        0.0,
+        13.552941,
+        256.0,
+        201.788235
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_KAE_kenpachi.tga",
+      "sha256": "ff1ddc8a8259c9cfde3ab5991ddf7a4a2681fc0621177e9f28726f449231eed9",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_KAE_lesson.tga",
+      "sourceSha256": "c7b6c9b77f9361923a03152703f901422eb63759e70380ce86cd322ffd71d280",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.307189542,
+      "crop": [
+        0.0,
+        13.552941,
+        256.0,
+        201.788235
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_KAE_lesson.tga",
+      "sha256": "6c2f3bf8deee5a22775b55136bddc364df5593515e564a7a611ab7d7a25b900a",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_KRO_answer.tga",
+      "sourceSha256": "bd386bb86045d57271d41b48d5d06bf9b474461e79d9d78fd0c3ae6731668f2c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.333333333,
+      "crop": [
+        0.0,
+        12.8,
+        256.0,
+        204.8
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_KRO_answer.tga",
+      "sha256": "d0235acbdf3a414490a893675a4fd7f9905d5434e611c8d1db930f040963bb15",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_KRO_memory.tga",
+      "sourceSha256": "3073a705d2805308edb93d9e3f2cacfd19c7fa4a4fe51af5cd52fb2d221f8908",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.33,
+      "crop": [
+        0.0,
+        12.896,
+        256.0,
+        204.416
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_KRO_memory.tga",
+      "sha256": "6eb65faa5b2c2b29c06ef244c5285e7969d8fbe2da24e26c99d0ba7b6ea76e9e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MGE_daybreak.tga",
+      "sourceSha256": "359c6eab7da3d1efa3053f770d106c1f762d6b4455388864230de3a2ea4fc43b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MGE_daybreak.tga",
+      "sha256": "c818be8d48ca6464dfff434df6c40a253b957f46306e9ac15b1c6800cf13f5ba",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MGE_guild.tga",
+      "sourceSha256": "6473146eae4bdb1f63e8f64b3a0e5ffc00622982d895f78434fa231bed87e389",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MGE_guild.tga",
+      "sha256": "673c297a15163b77a81a3d5f8c73694689960b56c80a6b7e25272ba8edbd5b3b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MGE_lullaby.tga",
+      "sourceSha256": "eaa701f1d0e0213d02ee5ac067497ca4c83e97afed379a95eee7b8dd1b41ae37",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MGE_lullaby.tga",
+      "sha256": "e1a91b8107289f017afb378666b2c667f1bf4972fdd54e4624aa115b3a00d58c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MGO_erza.tga",
+      "sourceSha256": "815a33dcee4a2eb5251616928cfcb11cd284a3d3c859373281d0fbc9a0cc1410",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MGO_erza.tga",
+      "sha256": "3d426fdf14757b3ac9cbbd0e726529a5481bf0c6308961b134328849bdfaf21f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MGO_fairylaw.tga",
+      "sourceSha256": "08fb1c890b947aab897a954a85344706b2f29b42dedea39eaf72517b18e37298",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MGO_fairylaw.tga",
+      "sha256": "40f8207419ccabee77d92c25c0ccca62dd7cc78059955eb47bbcc26bae2cbddb",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTE_difference.tga",
+      "sourceSha256": "75fc0c5987e66b31a8c87c34b814eb86210a4f5270256c846970305d63513dff",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTE_difference.tga",
+      "sha256": "827ce07efdf3d7019c37c24f3e1a88927d33debb3f5859cde64630b076588fb1",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTE_rain.tga",
+      "sourceSha256": "ab40c73ec148a298d5d398e3f2dd6696d7fb681cce4e5dd47424bb68a9fdce50",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTE_rain.tga",
+      "sha256": "ba8b772611147b0384e137081195e37c10f71decf443e2da9d68795585680a54",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTE_sunset.tga",
+      "sourceSha256": "b776b647baec4f64b3131099d8e7083b71d67cb27b782b681cfb7110affc40be",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTE_sunset.tga",
+      "sha256": "9fdde459cee61aa6f0fb30671c5b9b1a72e977e4a88995d811b1ba50ef49f4eb",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTE_tea.tga",
+      "sourceSha256": "ab75ee20a5279d577d7e9050e8507f4bbcdad7e8f577035d13bfdacd8ddf76ac",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTE_tea.tga",
+      "sha256": "35162ea5242e40c9e0857cefb065b748f188c114cfdf89d3be7ba8781d117054",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTE_warning.tga",
+      "sourceSha256": "bcfcfd8116c2012d89c95e7a039cf6cd1e36f689bfb7daea21b0ef681b3e196a",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTE_warning.tga",
+      "sha256": "699a313180ceb3fcf364ebde38f1e718931a6837cf374667851350779a5e2101",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTO_explanation.tga",
+      "sourceSha256": "7a6d9b1c9c1280a953ffced94067dc0f6029436943bd86e7387b06e2697d0775",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTO_explanation.tga",
+      "sha256": "0e78b85b05d7e0d2134db2cff9beed7e7ba755c69b36e6828228bed59fba865c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTO_meeting.tga",
+      "sourceSha256": "7f1e6694f2f5182bcfd42931d3d3332061f91c5978dda2e0a6ae8f7dce0eff91",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.392,
+      "crop": [
+        0.0,
+        11.1104,
+        256.0,
+        211.5584
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTO_meeting.tga",
+      "sha256": "b306689cda3fa137436c8a4893bd9804af88d72d14a7a17aee3d4054cc0acce8",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTO_struggle.tga",
+      "sourceSha256": "0f2aed88d7d0e0e9cb710564aeaefb71cbca6344a5e04579e8600c1c8d8d09a1",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.42578125,
+      "crop": [
+        0.0,
+        10.1375,
+        256.0,
+        215.45
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTO_struggle.tga",
+      "sha256": "34cdec03a40306b1c34d4b19330dff8f788becc4af3a2a6b04f0d9fa3334c4c6",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTO_wish.tga",
+      "sourceSha256": "fad3405ef1665e4abbce1339a17b793bf2e6ec6c744532145a83e25758c678ea",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTO_wish.tga",
+      "sha256": "e121b65d11a9671e46053d22aa9d45db78634378d16af233dbaf894fd209df42",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_MTV_companions.tga",
+      "sourceSha256": "d71df11b2968961ff831886f6868658b39eabf2f9b2aa5a3a18dce1e54c0fdd7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_MTV_companions.tga",
+      "sha256": "682642af321edc8c62d2dbab639db7ef5fd4217a6a015bb207d562152855053d",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_PEO_reef.tga",
+      "sourceSha256": "faa383f698e20a280f17f11e18b972c732a1c3d1e5c00f0ca98fb800f89f7b28",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_PEO_reef.tga",
+      "sha256": "a7445cd8d9ac2a12478e554e8f2cec16f3cd189c7c067089ca51bf050b23448e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_PEO_sunday.tga",
+      "sourceSha256": "5b4180cecf28c64d3962279b58e1c310304af30cfd9d215133acc879bb53b30f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.777777778,
+      "crop": [
+        0.0,
+        0.0,
+        256.0,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_PEO_sunday.tga",
+      "sha256": "7972ce659e0978a9d1f8ddf925c2c1b4f049d3827c57ddce5b7e4bdfde487072",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_PEO_theater.tga",
+      "sourceSha256": "3bdb49d114b674a2c55078f178ad40d6c8f4524e1bea8d8dd5cd9c3603d3b063",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_PEO_theater.tga",
+      "sha256": "4e170af35cc4906f6793c960be3d0d579b10fab4be274b7e55920b1c68777b7c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAE_declaration.tga",
+      "sourceSha256": "9bb4ee735c03901ea109cf8d7038b96a7c29dc2f66b6465d2f5dff552beebd97",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAE_declaration.tga",
+      "sha256": "c6bd07109a7b72a2375e3ec6a87cacbb2f3ce6422a66f08ef567c546ea9e99cc",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAE_feather.tga",
+      "sourceSha256": "b38639b7727e71b31be555ace3dc562bafd757efd51b76c816cf3d881509408c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAE_feather.tga",
+      "sha256": "ff30b1a1d09de66896f661cef46017950ab4c7e31d4eee46c51600c88be43935",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAE_guild.tga",
+      "sourceSha256": "3dec5999eed45f996e4da809800a975fb1758b9f097d3bd87131f7ae8c1073d2",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAE_guild.tga",
+      "sha256": "98424e5fadcb4d59caf83e81fa36d1597d62dcbf6c4e7e9d396ecc7f5e718132",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAE_rest.tga",
+      "sourceSha256": "826ed2b7930b1e50ef57e454f870243548532511a3f2cf46b2ae7784b110e3ac",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAE_rest.tga",
+      "sha256": "d169382d50916f74ce99dab2b891b21828fdcf8ece1c3fee4fdadf2fca26ac36",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAO1_cabin.tga",
+      "sourceSha256": "df57d3ff7f389a575b075f689f10da5ba2378b4a011836a7fc71cba763b531dd",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAO1_cabin.tga",
+      "sha256": "29dcac4192d0e5fa849ab732323becf353626b364a45fd16ce123a4a323a6eac",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAO1_door.tga",
+      "sourceSha256": "a6f6430fa86abe3c4ee831959149b503206997baefcbc464b3f5311875bf68f3",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAO1_door.tga",
+      "sha256": "8ec7dea67a58e9ddd17f28c0ec5c42d03d4139da888054be02addf06ccc21979",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAO1_heathcliff.tga",
+      "sourceSha256": "fb49faed051252ec7b4bdae3307b04deab3eb7f6c912d9b0a97154a0eea0a470",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAO1_heathcliff.tga",
+      "sha256": "cd954beb5fec76a531d445586bf6611a5b9f0474b5760026144c35471847dae1",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAO1_memory.tga",
+      "sourceSha256": "0b04f9709fbf695a6503ddbd6c5046c1f7bfc2546d007ab508748092dfb1b1b3",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAO1_memory.tga",
+      "sha256": "d6b94d7efc0bd02d39e5d4f96fbfbd3d02a665887d8c06c4ed78d2ea6b81a9fa",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAO1_return.tga",
+      "sourceSha256": "d821834a7045d297e223ac25fc59b40fec572edb09988739a6f82268934d1700",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAO1_return.tga",
+      "sha256": "990b4a32405fcba12a78270dbf68b1ef33d3c564f4e7ad016295cb4ddb210183",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_SAO1_yui.tga",
+      "sourceSha256": "6092bf37bb6304e724d27574cd97cc11dbc7c7849705a05ca53347e316a79fa0",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.78030303,
+      "crop": [
+        0.18156,
+        0.0,
+        255.81844,
+        256.0
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_SAO1_yui.tga",
+      "sha256": "554c67540137de358544a84251ca55a8547b7db393b509120a18eaf168faadf5",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Event_ZGE_folca.tga",
+      "sourceSha256": "cdadc948f75d67faf971121ed696aacd48eae884318a9cbf9d78865f9115c315",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Event_ZGE_folca.tga",
+      "sha256": "9547b70e5c8873c584140e4a666cd3826d34fcca6c037658abc8e47e070d6ea0",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_abydos_Icon.tga",
+      "sourceSha256": "d9bf94393de3c1a6ffb9a777b6d6d5139837734f1e0055f2676e266497babbaf",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.tga",
+      "sha256": "79ae63500a847132aafc347ad6d4b107af347045ec7982f43aba9e85314aa4b0",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_academy_Icon.tga",
+      "sourceSha256": "4b09e18fb52d151c8aa84704643dc8c6a780087420fd920d544e79a8be5ec6be",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.tga",
+      "sha256": "3b767e61cb7073a2a5f96517a6e09ff7fda6d1a5c887e2dec3db317f6cac5e5c",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_aincrad_Icon.tga",
+      "sourceSha256": "cf334e220107c40998d471da2661bc666ce4b785721e63d3cbd33a387f3132fc",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        95.2,
+        256.0,
+        239.2
+      ],
+      "anchor": [
+        0.5,
+        0.85
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.tga",
+      "sha256": "65211aeeef644081d87aa093925ee67a6b87ef01a6806738c71ab0e58041af83",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_amestris_Icon.tga",
+      "sourceSha256": "c0fed9c15baf589a00a0c1101ebc4e1a657adbf1b2da3fc5b6fb9f29181834db",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        89.6,
+        256.0,
+        233.6
+      ],
+      "anchor": [
+        0.5,
+        0.8
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga",
+      "sha256": "e7239c26248b471ec169a923353f4352fb9b3a14bc2127462475a8885994efcd",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_axel_Icon.tga",
+      "sourceSha256": "b01d79160d336d09297496136e3c6886da27b1838eb5822131ae32db6d762c4f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.tga",
+      "sha256": "257a20a4a2a7b88aeb558f84f322241a035c483504be2f4b633377a00cca016f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_butterfly_Icon.tga",
+      "sourceSha256": "a71919cc33568d1c917ad6cf90e74527d6c9642a2a07842d0936c0500331fbb8",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga",
+      "sha256": "f0046d11a4fccc8e07b23f01ca621476d2e275a6f26c749d6fed14f11d153bc2",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_fuyuki_Icon.tga",
+      "sourceSha256": "6ce52ef0579e8afcad03960d354816f7629a8f3c61e10c919c3c1acb9f091eb0",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.tga",
+      "sha256": "899b670f89b15a9a4d7dc9c9b6303d5ae977e189a4ee75656cb4fbf4ceffd89b",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_gourmet_Icon.tga",
+      "sourceSha256": "9c92135e43a2359850f4f5601209a6fc327c39e399002b0455ba135cdd18add2",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga",
+      "sha256": "15c99a302dfc1f558773031f7cc3dac331fed6d52602e9b0be181b1ea3d0c468",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_karakura_Icon.tga",
+      "sourceSha256": "f8e18a9ec8a2bf2987ae7605dfea9eea0f50bb6b227ad49ac7862af16fc7e1f4",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        61.6,
+        256.0,
+        205.6
+      ],
+      "anchor": [
+        0.5,
+        0.55
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga",
+      "sha256": "c90fe518203391ecfee4426a3fb1944b03cd1d7455ddec6d4207780050ba09ac",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_magnolia_Icon.tga",
+      "sourceSha256": "1470eace4ce472c99c323520d1afc4a272459fccd7b5523f722c57f249d3cf2a",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga",
+      "sha256": "69c4282f5a3fd80c2b09cc22a61281ab7712838d02849451b730c573100a2803",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_mitakihara_Icon.tga",
+      "sourceSha256": "34665747a9a7987470e87281bab4da00c97864aecea75842a1543e9df54211a7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.tga",
+      "sha256": "b58416d11ee482240a14d46ecedeabba3fa05cc7f95a9a8f2ff75bf03b63235f",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_penacony_Icon.tga",
+      "sourceSha256": "deb6980a92c8e357eefdd9aaa4d48261b72c038fb0e7099e84b725925fed31ca",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga",
+      "sha256": "3d2206bedd274c435d7a246717fd250637310062de7dc61fc4d23a5e6804592e",
+      "bytes": 131116
+    },
+    {
+      "source": "war3mapImported\\UI_Head_Official_zegagrande_Icon.tga",
+      "sourceSha256": "e362847e209a7b687be9a36f27aad72e64fd1d7b7aa3ce1188e654e61a53df60",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.0,
+      "crop": [
+        0.0,
+        22.4,
+        256.0,
+        166.4
+      ],
+      "anchor": [
+        0.5,
+        0.2
+      ],
+      "target": "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga",
+      "sha256": "d99b6c2d5479d35a2ed16c07ded6f29907d4a45a4211c4cd738be8dd0c08cea3",
+      "bytes": 131116
+    }
+  ]
+}
