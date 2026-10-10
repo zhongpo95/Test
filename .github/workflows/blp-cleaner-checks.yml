@@ -1,0 +1,32 @@
+# BLP 참조 분석과 Windows MPQ 복사본 정리 검사를 실행한다.
+name: BLP cleaner checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tools/blp-cleaner/**', '.github/workflows/blp-cleaner-checks.yml']
+  push:
+    branches: [main]
+    paths: ['tools/blp-cleaner/**', '.github/workflows/blp-cleaner-checks.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  blp-cleaner:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: 'x64'
+      - name: Install packaging tool
+        run: python -m pip install -r tools/blp-cleaner/requirements-build.txt
+      - name: Test and build portable executable
+        shell: pwsh
+        run: ./tools/blp-cleaner/build.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ArcanaBLPCleaner-Windows-x64
+          path: tools/blp-cleaner/dist/
