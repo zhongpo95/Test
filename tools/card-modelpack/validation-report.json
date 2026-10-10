@@ -1,59 +1,170 @@
 {
-  "asiFile": "Arcana_A.asi",
-  "textureFiles": 348,
-  "sourceBytes": 193870800,
-  "mpqBytes": 80819510,
-  "asiBytes": 80819510,
-  "mpqSha256": "b24ce32fce47861659d74c0ff24c239a0ca79389b67dcbd6db2cb9664b9e5426",
-  "asiSha256": "b24ce32fce47861659d74c0ff24c239a0ca79389b67dcbd6db2cb9664b9e5426",
-  "loaderFile": "Arcana_Loader.asi",
-  "loaderBytes": 3072,
-  "loaderSha256": "5b4ff4d0b3e9d5291b648780b69d468ab5373357902a5ca395b28abde8db565c",
-  "loaderSourceSha256": "b104f770de8ba10472b4deb007ec09a441f66b34cb64c25662cffe0185b5dfb4",
-  "stormlibSha256": "93321f6f030be5d7d79eb4cbf433d6ef7e83ce20d47d8963717f207d54afbe16",
-  "mpqOffset": 0,
-  "imageOnly": true,
-  "embeddedExecutable": false,
-  "archiveEntries": 349,
-  "internalMetadataEntries": [
-    "(listfile)"
-  ],
-  "archiveVersion": 0,
-  "compression": "zlib, 4KB sectors, lossless",
-  "allMemberHashesVerified": true,
-  "pathsUnchanged": true,
-  "mapCreated": false,
-  "installed": false,
-  "warcraftRuntimeTested": false,
-  "targetGameVersion": "1.28.5.7680 x86 JN",
+  "programFile": "ArcanaASIPackager.exe",
+  "programBytes": 12028909,
+  "programSha256": "3c1bc63bba2d2a500bba394f9c502d3b8bc386f2a81eee1d263b25952113d319",
+  "selfContainedWindowsExe": true,
+  "coreChecks": {
+    "all_extensions_nested_unicode_empty": true,
+    "pe_and_aligned_mpq": true,
+    "overwrite": true,
+    "output_in_source": true,
+    "existing_file_unchanged": true,
+    "empty_folder_rejected": true,
+    "bad_loader_rejected_no_output": true,
+    "bad_prefix_rejected": true,
+    "prefix_preserved": true
+  },
+  "guiHiddenWidgetChecks": {
+    "requestedSize": [
+      612,
+      530
+    ],
+    "successDialog": true,
+    "createdFile": true,
+    "errors": []
+  },
+  "frozenMixedFilesVerified": true,
+  "frozenCardPack": {
+    "asiFile": "Arcana_A.asi",
+    "files": 348,
+    "sourceBytes": 193870800,
+    "asiBytes": 80822070,
+    "asiSha256": "c32f06d0e7dfa7720c4b0a5da3ff6fe99b9c7fcb1684b4e5e8bde2c36118a27a",
+    "loaderBytes": 2560,
+    "loaderSha256": "f2cef2d21ac7585317b6691426c635926ee93c6bb931ab242cf4bd1e9b20632e",
+    "mpqOffset": 2560,
+    "mpqSha256": "51ea612ef82ede26c3b00f403ac14e3b1f85a8b57cc984008a264915208e5bd7",
+    "archiveVersion": 0,
+    "compression": "lossless zlib",
+    "allMemberHashesVerified": true,
+    "standaloneLoaderRequired": false,
+    "mapCreated": false,
+    "installed": false,
+    "warcraftRuntimeTested": false
+  },
+  "frozenCardBuildSeconds": 6.42,
+  "referenceFiles": {
+    "executed": false,
+    "headerReadBytesPerFile": 65536,
+    "files": [
+      {
+        "file": "A_WanHuaJing_mod_0.1.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 69819619
+      },
+      {
+        "file": "A_WanHuaJing_mod_0.2.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 48128,
+        "bytes": 478103388
+      },
+      {
+        "file": "FairyStory1.4.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53760,
+        "bytes": 354004602
+      },
+      {
+        "file": "mswywz01（整合版24.11.10）.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 1045211733
+      },
+      {
+        "file": "mswywz02（整合版25.03.08）.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 1105745799
+      },
+      {
+        "file": "mswywz03（整合版24.11.10）.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 777224379
+      },
+      {
+        "file": "mswywz（附加卷A26.03.24）.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 2058740308
+      },
+      {
+        "file": "mswywz（附加卷B26.10.04） (1).asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 1054239619
+      },
+      {
+        "file": "mswywz（附加卷B26.10.04）.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 1054239619
+      },
+      {
+        "file": "mswywz（附加卷C26.09.22）.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53248,
+        "bytes": 686548057
+      },
+      {
+        "file": "TLOC0.04.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53760,
+        "bytes": 943373123
+      },
+      {
+        "file": "TLOC0.04b.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53760,
+        "bytes": 508474464
+      },
+      {
+        "file": "TLOC0.04b2.asi",
+        "peHeaderOffset": 240,
+        "hasPE": true,
+        "mpqOffset": 53760,
+        "bytes": 810146809
+      }
+    ]
+  },
   "nativeStandardCryptoInitializedReadPassed": true,
   "nativeCheckedTextures": 348,
-  "nativeTestBoundary": "Standalone process only. Exact installed Storm.dll crypt table initialized to standard MPQ seed in diagnostic helper. Production loader does not change crypt table or game memory.",
-  "nativeMissingImagePackRejected": true,
-  "nativeInvalidImagePackRejected": true,
+  "nativeMpqMissingRejected": true,
+  "nativeTestBoundary": "Separate process only. Diagnostic standard MPQ crypto initialization only. Production loader contains no hardcoded address or game memory change.",
   "luaStandaloneChecks": [
-    "OK with standard-crypto initialized Storm",
+    "OK with standard-crypto Storm",
     "FAILED without Storm",
     "UNSUPPORTED without package.loadlib",
     "unload on lua_close"
   ],
-  "stormDllSha256": "d91c14ded215591f2ea9fd5baf5364f506ac1c127c4db622457924bffd753db4",
-  "luaDllSha256": "0e61ca1bbc3a3775be8440c4b50d8a60f5da9fed28ffb225cf614eb3106312ae",
   "jassCompile": {
-    "template": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\.tmp\\arcana-a\\template.j",
+    "template": "D:\\Work\\WC3Maps\\mm\\2\\카드_이미지팩_Arcana_A_20261010\\validation-work\\template.j",
     "template_sha256": "66b3210546341010bae31c285547aecb5a65b5adb4a440d3a58fdad2f381bf81",
     "compiler_exit": 0,
     "map_created": false,
     "pjass_exit": 0,
-    "script_sha256": "8dca1b1cb8dc4d1d2bb1fdfd1b0dfa9aadffa041f7d4881da347cb0309338223",
+    "script_sha256": "759a68f35d07d82e2223eaf56fa475c36e9f58192754e8be59c8f2db63b08403",
     "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   119797 lines: war3map.j\r\nParse successful:   131706 lines: <total>\r\n24 errors ignored\r\n",
     "existingIgnoredSemanticErrors": 24
   },
-  "playerInstallTargets": [
-    "C:\\Program Files (x86)\\war3\\Arcana_A.asi",
-    "C:\\Program Files (x86)\\war3\\Arcana_Loader.asi"
-  ],
-  "multiplayerTested": false,
+  "mapCreated": false,
+  "installed": false,
+  "warcraftRuntimeTested": false,
   "visualTested": false,
-  "sameImagesAsPreviousPureMpq": true
+  "multiplayerTested": false,
+  "sandboxOnefileBoundary": "Repeated bootloader child processes occurred in restricted execution only. All own diagnostic processes terminated; normal Windows executions passed.",
+  "buildSourceSha256": "c225f4cf94ecc0790c9b2dea09e6ac02161331b26155a53433fa70dae93703a5"
 }

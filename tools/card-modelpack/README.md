@@ -1,52 +1,72 @@
-# Arcana_A 이미지 전용 팩
+# ARCANA ASI 제작기
 
-`Arcana_A.asi`에는 카드 TGA 348개만 넣는다. MPQ의 내부 목록 파일을 제외하면 모든 항목이 기존 `war3mapImported\파일명.tga` 이미지이며, DLL·실행 코드·모델·스크립트를 포함하지 않는다. 파일 첫 바이트부터 MPQ v0 헤더가 시작한다. 확장자는 `.asi`지만 실행 가능한 DLL은 아니다.
+폴더를 선택하면 하위 폴더의 **모든 파일**을 실행 로더와 함께 하나의 ASI로 묶는 Windows 프로그램이다. 카드 수·확장자·manifest에 제한을 두지 않는다. Python·컴파일러·별도 DLL을 설치하지 않고 EXE를 실행한다.
 
-실행부는 `Arcana_Loader.asi`로 분리한다. 맵 초기화 때 기존 Lua 호출로 작은 로더를 로드하고, 로더가 **자기 파일과 같은 폴더**의 `Arcana_A.asi`를 Storm에 연결한다. A 파일의 이미지 요청 경로와 원본 바이트는 그대로다.
+## 사용법
+
+1. ZIP을 풀고 `ArcanaASIPackager.exe`를 실행한다.
+2. **입력 폴더**에서 넣을 파일이 있는 폴더를 선택한다.
+3. **저장 파일**에서 입력 폴더 밖의 저장 위치와 이름을 지정한다. 기본 이름은 `Arcana_A.asi`다.
+4. 미리보기의 경로가 맵 임포트 경로와 일치하는지 확인한다.
+5. **ASI 만들기**를 누른다. 압축과 원본 SHA-256 검증이 끝나면 완료를 표시한다.
+
+기존 ASI를 덮어쓰지 않고 입력 파일도 수정하지 않는다. 업데이트는 새 위치에 생성한 후 완성본을 교체한다. 모든 확장자를 포함하므로 이미지 전용 A 팩은 **이미지만 있는 폴더**를 선택한다.
+
+## 임포트 경로
+
+선택한 폴더 아래의 상대 경로를 그대로 보존한다.
+
+- 입력 폴더 안에 `war3mapImported`가 있으면 **경로 앞부분**을 비운다.
+- `war3mapImported` 폴더 자체를 골랐다면 **경로 앞부분**에 `war3mapImported`를 입력한다.
+- 일반 폴더에도 필요한 접두 폴더를 지정할 수 있다. 목록에서 최종 경로를 확인한다.
+
+예를 들어 최종 경로는 `war3mapImported\UI_Card_FateCalm_caster_Icon.tga`다. 팩 제작만으로 맵의 임포트 경로나 호출 코드가 바뀌지는 않는다.
+
+## 단일 ASI 구조
+
+앞쪽은 직접 작성한 x86 실행 로더다. 뒤쪽 512바이트 경계에 MPQ v0 아카이브를 붙인다. MPQ 항목은 선택한 폴더의 파일들과 내부 `(listfile)` 목록 하나다. 실행부는 MPQ 항목이 아니므로 MPQ 도구의 파일 목록에 별도 로더가 나타나지 않는다.
+
+맵이 ASI를 로드하면 실행부가 **자신의 ASI 파일**을 Storm에 연결한다. 특정 카드에 의존하지 않고 내부 목록을 읽을 수 있는지 확인한다. 설치할 파일은 생성된 ASI 하나이며 `Arcana_Loader.asi`는 필요 없다.
+
+`D:\Work\ARCANA\mix`의 ASI 13개를 읽기 전용으로 확인했다. 모두 MZ/PE 실행부 뒤 48,128~53,760바이트에 MPQ가 있다. 해당 파일은 실행하거나 수정하지 않았다.
+
+## 우리 맵에 적용
+
+`System/CardModelPack.j`가 맵 초기화 때 `Arcana_A.asi`를 기존 Lua 방식으로 한 번 로드한다. `DataPrototypeCardImages`는 이 초기화 뒤에 실행된다.
+
+생성된 `Arcana_A.asi`를 `C:\Program Files (x86)\war3\War3.exe` 옆에 둔다. 이 코드가 적용된 맵에서 호출한다. 파일명을 바꾸면 맵 호출도 맞춰 바꿔야 한다. 모든 플레이어가 같은 팩을 설치한다.
+
+실제 화면에서 확인한 뒤 기존 목록의 카드 TGA 348개만 맵 임포트에서 제거하면 맵 크기를 줄일 수 있다. 다른 UI 텍스처·모델은 제거 대상이 아니다. 이 작업에서는 맵을 만들거나 게임 폴더에 설치하지 않았다.
+
+대상은 Windows x86/JN, Game.dll 1.28.5.7680이다. Reforged에서는 호출하지 않는다. 설치 결과는 로컬 로그에만 기록하고 전투·보상·동기화 상태에 사용하지 않는다.
 
 ## 전달본
 
-`C:\Users\ctqho\OneDrive\Documents\Warcraft III\Maps\mm\2\카드_이미지팩_Arcana_A_20261010`
+`C:\Users\ctqho\OneDrive\Documents\Warcraft III\Maps\mm\2\ASI_제작기_20261010`
 
-| 파일 | 내용 | 크기 |
-| --- | --- | --- |
-| `Arcana_A.asi` | 이미지 348개와 MPQ 내부 목록 | 80,819,510바이트, 약 77.08MiB |
-| `Arcana_Loader.asi` | 이미지 팩을 연결하는 x86 실행부 | 3,072바이트 |
+- `Arcana_ASI_Packager_20261010.zip`. EXE·사용법·검증 요약·라이선스.
+- `ArcanaASIPackager.exe`. 압축 라이브러리·로더·Python/Tk 런타임을 내장한 단일 실행 파일.
+- `생성예제\Arcana_A.asi`. EXE로 만든 현재 카드 이미지 348개 팩. 프로그램 ZIP에는 큰 예제 팩을 포함하지 않는다.
 
-이전 실행부·그림 결합형 ASI와 원본 v6는 보존한다. 변경 전 코드는 `copy_archive/card_modelpack_combined_2026-10-10`에 있다.
+변경 전 분리형 코드는 `copy_archive/card_modelpack_split_2026-10-10`에, 이전 배포 폴더와 원본 TGA도 그대로 보존한다.
 
-## 설치와 호출
+## 검증 범위
 
-1. 워크래프트를 종료하고 **두 파일 모두** `War3.exe` 옆에 둔다. 이 PC의 위치는 `C:\Program Files (x86)\war3\Arcana_A.asi`와 `C:\Program Files (x86)\war3\Arcana_Loader.asi`다.
-2. 이 PR의 코드를 적용한 맵을 실행한다. `System/CardModelPack.j`는 `Arcana_Loader.asi`를 한 번 로드한다. 이미지 초기화는 `ArcanaCardModelPack` 이후 실행된다.
-3. 로더는 자신의 설치 폴더에서 `Arcana_A.asi`를 연다. 실제 TGA 헤더를 읽지 못하면 초기화를 실패 처리한다.
-4. I키 보유 카드, 카드 보상의 얼굴 아이콘과 큰 그림을 확인한다. 이후 그림만 업데이트할 때는 같은 경로의 A 파일을 교체하면 된다. 로더 동작을 변경한 경우는 로더도 교체한다.
+- 핵심 기능. 하위 폴더·한글 파일명·다른 확장자·빈 파일의 압축과 SHA-256 비교, 접두 경로 유지, 덮어쓰기 방지, 입력 폴더 안의 출력 거절, 빈 입력·잘못된 로더·잘못된 접두 경로 거절 통과.
+- 프로그램. 독립 EXE로 혼합 파일 4개와 카드 이미지 348개 생성 통과. GUI 폴더·출력 선택과 생성 버튼, 백그라운드 완료 표시를 숨긴 Tk 창에서 검사했다. 실제 화면 육안 확인은 미수행이다.
+- C/JASS. 로더 빌드, 현재 Import.j를 연결한 JassHelper/PJass 컴파일 통과. 기존 의미 검사 제외 24건을 보고서에 명시한다.
+- 별도 진단. 설치된 Storm.dll을 표준 MPQ 암호 테이블로 초기화한 환경에서 새 팩의 이미지 348개 읽기·비교·해제 통과. MPQ 없는 ASI 초기화 실패, 실제 Lua DLL의 성공·실패·미지원 및 종료 시 해제 검사 통과.
+- 한계. 표준 암호 테이블 초기화는 진단 코드에만 있고 배포 로더에는 없다. 실제 Warcraft 맵 진입·그림 표시·재입장·멀티플레이는 미수행이다. 별도 프로세스 검사를 인게임 성공으로 취급하지 않는다.
 
-모든 플레이어가 두 파일을 설치해야 한다. 대상은 Windows x86/JN 환경이며 Reforged에서는 호출하지 않는다. Lua API 미지원은 `UNSUPPORTED`, 파일 누락·DLL 초기화 실패는 `FAILED`, 성공은 `OK`로 로컬 로그에 기록한다. 설치 결과는 전투·보상·동기화된 게임 상태에 사용하지 않는다.
+제한된 Codex 실행 환경에서는 PyInstaller 단일 EXE의 자식 프로세스가 반복 실행되는 현상이 있었다. 해당 검증 프로세스를 종료한 후 일반 Windows 실행으로 재검증했으며 혼합 파일과 348개 카드 팩이 모두 정상 생성됐다.
 
-## 맵 임포트
+## 명령줄과 재빌드
 
-실제 맵에서 그림 표시를 확인한 뒤 `map-imports-to-remove.txt`에 있는 **카드 TGA 348개만** 가져오기 관리자에서 제거한다. 다른 UI 배경·프레임·모델은 대상이 아니다. 팩을 만드는 것만으로 기존 맵에 들어 있는 이미지가 제거되지는 않는다. 제거 전 맵과 원본 TGA는 보존한다.
+~~~powershell
+.\ArcanaASIPackager.exe --source "D:\입력폴더" --output "D:\배포\Arcana_A.asi"
+.\ArcanaASIPackager.exe --source "D:\카드\war3mapImported" --prefix war3mapImported --output "D:\배포\Arcana_A.asi"
+~~~
 
-이 작업에서는 W3X를 만들거나 게임 폴더에 파일을 설치하지 않았다. 기존 `D:\Work\GitHub\Test` 적용은 PR을 통해 진행한다.
+재빌드는 Python 3.12 x64, PyInstaller 6.16.0, TinyCC 0.9.27 x86, x64 Unicode StormLib DLL을 사용한다. `build-program.ps1`에 해당 경로를 전달한다. 출력은 기존 파일이 없는 새 폴더로 지정한다.
 
-## 검증
-
-- 정적·패키지 검사. A 파일이 MPQ 헤더로 시작하고 실행부를 포함하지 않는지, 항목이 이미지 348개와 내부 목록 하나인지 확인했다. 전체 이미지 SHA-256과 임포트 경로가 v6 원본과 일치한다. A 파일 전체 해시도 이전 전달본의 순수 MPQ와 같다.
-- 빌드·컴파일. 로더 C 빌드, 현재 Import.j를 연결한 JassHelper/PJass 스크립트 컴파일 통과. PJass의 기존 의미 검사 제외 24건은 보고서에 명시한다.
-- 별도 프로세스 검사. 설치된 Storm.dll을 표준 MPQ 암호 테이블로 초기화한 진단 환경에서 분리된 로더의 연결, 이미지 348개 바이트 비교, 해제를 통과했다. A 파일 누락·손상 시 초기화 실패도 확인했다. 설치된 Lua DLL로 같은 호출의 성공·실패·미지원 처리와 종료 시 해제를 검사했다.
-- 한계. 표준 암호 테이블 초기화는 진단 코드에만 있으며 배포 로더에는 하드코딩 주소·게임 메모리 변경을 넣지 않는다. 이 검사는 실제 맵 진입 성공을 증명하지 않는다.
-- 미수행. Warcraft 맵 실행, 실제 화면 표시, 재입장, 멀티플레이 및 Reforged.
-
-## 재생성
-
-TinyCC 0.9.27 x86 컴파일러와 Unicode StormLib DLL을 빌드에만 사용한다. 출력은 기존 파일이 없는 새 폴더로 지정한다. 플레이어에게는 컴파일러나 StormLib 설치가 필요하지 않다.
-
-```powershell
-& <tcc.exe> -shared tools/card-modelpack/loader.c -lkernel32 -o <card-loader.dll>
-& <python.exe> tools/card-modelpack/build.py --source <카드텍스처_v6> --output <새_출력_폴더> --loader <card-loader.dll> --stormlib <x64_StormLib.dll>
-```
-
-`probe.c`의 두 번째 인수는 실행부인 `Arcana_Loader.asi`다. 같은 폴더에 이미지 팩을 두어야 한다. 이 도구는 게임 초기화가 없는 독립 프로세스이므로 실패 결과만으로 인게임 호환성을 판단하지 않는다.
-
-외부 아카이브 연결은 [War3MpqOuter 구현](https://github.com/NameForTac/War3MpqOuter/blob/main/dllmain.cpp), Lua `'*'` 모드는 [Lua 공식 설명](https://www.lua.org/manual/5.3/manual.html#pdf-package.loadlib)을 참고했다. 로더는 직접 작성한 공개 소스이며 네트워크·후킹·레지스트리 변경을 수행하지 않는다. 이미지 출처는 `texture-manifest.json`에 보존한다.
+일반 폴더 제작과 검증은 `build.py`, 화면과 독립 EXE 진입점은 `packager.py`, 런타임 연결은 `loader.c`에 있다. 로더는 네트워크·후킹·레지스트리 변경을 수행하지 않는다.

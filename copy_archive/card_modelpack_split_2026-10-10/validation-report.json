@@ -1,0 +1,59 @@
+{
+  "asiFile": "Arcana_A.asi",
+  "textureFiles": 348,
+  "sourceBytes": 193870800,
+  "mpqBytes": 80819510,
+  "asiBytes": 80819510,
+  "mpqSha256": "b24ce32fce47861659d74c0ff24c239a0ca79389b67dcbd6db2cb9664b9e5426",
+  "asiSha256": "b24ce32fce47861659d74c0ff24c239a0ca79389b67dcbd6db2cb9664b9e5426",
+  "loaderFile": "Arcana_Loader.asi",
+  "loaderBytes": 3072,
+  "loaderSha256": "5b4ff4d0b3e9d5291b648780b69d468ab5373357902a5ca395b28abde8db565c",
+  "loaderSourceSha256": "b104f770de8ba10472b4deb007ec09a441f66b34cb64c25662cffe0185b5dfb4",
+  "stormlibSha256": "93321f6f030be5d7d79eb4cbf433d6ef7e83ce20d47d8963717f207d54afbe16",
+  "mpqOffset": 0,
+  "imageOnly": true,
+  "embeddedExecutable": false,
+  "archiveEntries": 349,
+  "internalMetadataEntries": [
+    "(listfile)"
+  ],
+  "archiveVersion": 0,
+  "compression": "zlib, 4KB sectors, lossless",
+  "allMemberHashesVerified": true,
+  "pathsUnchanged": true,
+  "mapCreated": false,
+  "installed": false,
+  "warcraftRuntimeTested": false,
+  "targetGameVersion": "1.28.5.7680 x86 JN",
+  "nativeStandardCryptoInitializedReadPassed": true,
+  "nativeCheckedTextures": 348,
+  "nativeTestBoundary": "Standalone process only. Exact installed Storm.dll crypt table initialized to standard MPQ seed in diagnostic helper. Production loader does not change crypt table or game memory.",
+  "nativeMissingImagePackRejected": true,
+  "nativeInvalidImagePackRejected": true,
+  "luaStandaloneChecks": [
+    "OK with standard-crypto initialized Storm",
+    "FAILED without Storm",
+    "UNSUPPORTED without package.loadlib",
+    "unload on lua_close"
+  ],
+  "stormDllSha256": "d91c14ded215591f2ea9fd5baf5364f506ac1c127c4db622457924bffd753db4",
+  "luaDllSha256": "0e61ca1bbc3a3775be8440c4b50d8a60f5da9fed28ffb225cf614eb3106312ae",
+  "jassCompile": {
+    "template": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\.tmp\\arcana-a\\template.j",
+    "template_sha256": "66b3210546341010bae31c285547aecb5a65b5adb4a440d3a58fdad2f381bf81",
+    "compiler_exit": 0,
+    "map_created": false,
+    "pjass_exit": 0,
+    "script_sha256": "8dca1b1cb8dc4d1d2bb1fdfd1b0dfa9aadffa041f7d4881da347cb0309338223",
+    "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   119797 lines: war3map.j\r\nParse successful:   131706 lines: <total>\r\n24 errors ignored\r\n",
+    "existingIgnoredSemanticErrors": 24
+  },
+  "playerInstallTargets": [
+    "C:\\Program Files (x86)\\war3\\Arcana_A.asi",
+    "C:\\Program Files (x86)\\war3\\Arcana_Loader.asi"
+  ],
+  "multiplayerTested": false,
+  "visualTested": false,
+  "sameImagesAsPreviousPureMpq": true
+}

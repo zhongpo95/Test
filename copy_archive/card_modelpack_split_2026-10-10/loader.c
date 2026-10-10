@@ -1,4 +1,4 @@
-// 단일 ASI 안에 통합한 리소스 MPQ를 클래식 워크래프트 Storm에 연결한다.
+// 별도 실행 로더와 같은 폴더의 이미지 전용 Arcana_A.asi를 Storm에 연결한다.
 #include <windows.h>
 
 typedef BOOL (WINAPI *OpenArchive)(const char *, DWORD, DWORD, HANDLE *);
@@ -20,7 +20,9 @@ BOOL WINAPI DllMain(HINSTANCE module, DWORD reason, LPVOID reserved)
 {
     if (reason == DLL_PROCESS_ATTACH) {
         char filename[MAX_PATH];
+        const char data_name[] = "Arcana_A.asi";
         DWORD length;
+        DWORD i;
         HMODULE storm = GetModuleHandleA("Storm.dll");
         OpenArchive open_archive;
         StormOpenFile open_file;
@@ -44,20 +46,26 @@ BOOL WINAPI DllMain(HINSTANCE module, DWORD reason, LPVOID reserved)
             pack_status = 3;
             return FALSE;
         }
-        // 현재 실행 중인 ASI 파일 뒤의 MPQ를 열어 별도 로더 파일 없이 사용한다.
+        // 실행 로더의 파일명만 바꿔 같은 폴더의 A 이미지 팩을 연다.
+        while (length && filename[length - 1] != '\\' && filename[length - 1] != '/') length--;
+        if (length + sizeof(data_name) > sizeof(filename)) {
+            pack_status = 3;
+            return FALSE;
+        }
+        for (i = 0; i < sizeof(data_name); i++) filename[length + i] = data_name[i];
         if (!open_archive(filename, 16, 0, &card_archive)) {
             pack_status = 4;
             return FALSE;
         }
-        // 특정 이미지에 의존하지 않고 실제 MPQ 목록을 읽을 수 있는지 확인한다.
+        // 열기 성공만으로 설치 완료를 판단하지 않고 실제 카드 TGA 헤더를 확인한다.
         {
             HANDLE file;
-            unsigned char header[1];
+            unsigned char header[18];
             DWORD count = 0;
             BOOL valid = FALSE;
-            if (open_file(card_archive, "(listfile)", 0, &file)) {
+            if (open_file(card_archive, "war3mapImported\\UI_Card_FateCalm_caster_Icon.tga", 0, &file)) {
                 valid = read_file(file, header, sizeof(header), &count, NULL)
-                    && count == sizeof(header);
+                    && count == sizeof(header) && header[2] == 2 && header[16] == 32;
                 close_file(file);
             }
             if (!valid) {
