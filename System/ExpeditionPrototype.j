@@ -185,7 +185,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set head = ProtoEventHead[id]
         if ProtoEventKind[id] == 0 then
             // 입구 ID는 플레이어별로 하나씩 배정한다. 다른 사람의 머리 획득이 내 입구를 소진하지 않는다.
-            return id == (head - 1) * 4 + pid + 1 and ProtoHeadCount[pid] < 2 and not ProtoHeadOwned[ExpKey(pid, head)]
+            return id == ProtoHeadEntryEvent[head * 4 + pid] and ProtoHeadCount[pid] < 2 and not ProtoHeadOwned[ExpKey(pid, head)]
         endif
         // 잠긴 지역의 사건은 분기 조건까지 검사하지 않는다.
         if head > 0 and not ProtoHeadOwned[ExpKey(pid, head)] then

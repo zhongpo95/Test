@@ -1,0 +1,116 @@
+{
+  "batch": "priority-six",
+  "issue": 164,
+  "worlds": [
+    {
+      "key": "amphoreus",
+      "name": "앰포리어스",
+      "cards": 58,
+      "main": 16,
+      "side": 14,
+      "epilogues": 2
+    },
+    {
+      "key": "phantom_blood",
+      "name": "죠죠 1부",
+      "cards": 40,
+      "main": 12,
+      "side": 12,
+      "epilogues": 2
+    },
+    {
+      "key": "madolche",
+      "name": "마돌체",
+      "cards": 42,
+      "main": 12,
+      "side": 12,
+      "epilogues": 2
+    },
+    {
+      "key": "tengu",
+      "name": "텐구시",
+      "cards": 43,
+      "main": 12,
+      "side": 12,
+      "epilogues": 2
+    },
+    {
+      "key": "ikebukuro",
+      "name": "이케부쿠로",
+      "cards": 43,
+      "main": 12,
+      "side": 12,
+      "epilogues": 2
+    },
+    {
+      "key": "frieren",
+      "name": "북쪽으로 가는 길",
+      "cards": 46,
+      "main": 12,
+      "side": 14,
+      "epilogues": 2
+    }
+  ],
+  "added": {
+    "heads": 6,
+    "cards": 272,
+    "events": 164,
+    "entryEvents": 24,
+    "images": 236
+  },
+  "catalog": {
+    "heads": 19,
+    "cards": 1196,
+    "events": 681,
+    "sha256": "8415220014bd3f9f51df2aa602b14bac8ecff670c490c888fa05348d1a8b331f",
+    "imageRegistrySha256": "9b60bfabde642876252ebcc58af1ceb37888beeb0a4d3b3b9172c59b3e23b3ae"
+  },
+  "compile": {
+    "template": "D:\\Work\\WC3Maps\\mm\\2\\카드_이미지팩_Arcana_A_20261010\\validation-work\\template.j",
+    "template_sha256": "66b3210546341010bae31c285547aecb5a65b5adb4a440d3a58fdad2f381bf81",
+    "compiler_exit": 0,
+    "map_created": false,
+    "pjass_exit": 0,
+    "script_sha256": "d5f37820bb3cdf924bafabaa412ea2dc3e28a9642f64c5af8eb5fcfad88ceab9",
+    "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   131830 lines: war3map.j\r\nParse successful:   143739 lines: <total>\r\n24 errors ignored\r\n"
+  },
+  "compileBoundary": "JASSHelper/PJass 스크립트 검사. 기존 기준과 같은 24 errors ignored 출력. W3X 생성이나 인게임 실행 아님.",
+  "pack": {
+    "asiFile": "Arcana_A.asi",
+    "files": 1145,
+    "sourceBytes": 454856318,
+    "asiBytes": 197440670,
+    "asiSha256": "c76dcdabfdcb6d5882677280a721f4cfc192eec0b9954a5c6b4a30091a103b8b",
+    "loaderBytes": 2560,
+    "loaderSha256": "f2cef2d21ac7585317b6691426c635926ee93c6bb931ab242cf4bd1e9b20632e",
+    "mpqOffset": 2560,
+    "mpqSha256": "d68555670709047356d7a67ed572c415843f946d553639deaf351d10516bd775",
+    "archiveVersion": 0,
+    "compression": "lossless zlib",
+    "allMemberHashesVerified": true,
+    "standaloneLoaderRequired": false,
+    "mapCreated": false,
+    "installed": false,
+    "warcraftRuntimeTested": false,
+    "path": "D:\\Work\\ARCANA\\builds\\asi\\20261010_priority_heads\\Arcana_A.asi",
+    "distributionPath": "D:\\Work\\ARCANA\\Arcana_A.asi",
+    "beforeBytes": 145355912,
+    "increaseBytes": 52084758,
+    "increasePercent": 35.83,
+    "oldFilesPreserved": 911
+  },
+  "visual": {
+    "contactSheetsInspected": 8,
+    "scope": "우선 여섯 작품 인물·대표 그림과 추가 장면 접촉표. 4개 공식 장면을 사건 시점과 대조. 저해상도 및 시점 불일치 장면은 보류.",
+    "warcraftInspected": false
+  },
+  "notTested": [
+    "실제 Warcraft/JN 화면",
+    "멀티플레이 동기화",
+    "서버 도감 저장·불러오기",
+    "플레이 중 사건 등장 빈도·밸런스",
+    "Warcraft VM 실행 한도·프레임 부하"
+  ],
+  "mapCreated": false,
+  "installed": false
+}

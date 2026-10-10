@@ -375,5 +375,119 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(935, "UI_Card_Ending_butterfly_Icon", "UI_Card_Ending_butterfly_Art")
         // 네 사람이 앉는 식탁
         call SetImages(936, "UI_Card_Ending_gourmet_Icon", "UI_Card_Ending_gourmet_Art")
+        // 트리비
+        call SetImages(937, "UI_Card_XP_amphoreus_tribbie_Icon", "UI_Card_XP_amphoreus_tribbie_Art")
+        // 파이논
+        call SetImages(938, "UI_Card_XP_amphoreus_phainon_Icon", "UI_Card_XP_amphoreus_phainon_Art")
+        // 아글라이아
+        call SetImages(939, "UI_Card_XP_amphoreus_aglaea_Icon", "UI_Card_XP_amphoreus_aglaea_Art")
+        // 마이데이
+        call SetImages(940, "UI_Card_XP_amphoreus_mydei_Icon", "UI_Card_XP_amphoreus_mydei_Art")
+        // 카스토리스
+        call SetImages(941, "UI_Card_XP_amphoreus_castorice_Icon", "UI_Card_XP_amphoreus_castorice_Art")
+        // 아낙사
+        call SetImages(942, "UI_Card_XP_amphoreus_anaxa_Icon", "UI_Card_XP_amphoreus_anaxa_Art")
+        // 히아킨
+        call SetImages(943, "UI_Card_XP_amphoreus_hyacine_Icon", "UI_Card_XP_amphoreus_hyacine_Art")
+        // 사이퍼
+        call SetImages(944, "UI_Card_XP_amphoreus_cipher_Icon", "UI_Card_XP_amphoreus_cipher_Art")
+        // 키레네
+        call SetImages(945, "UI_Card_XP_amphoreus_cyrene_Icon", "UI_Card_XP_amphoreus_cyrene_Art")
+        // 케리드라
+        call SetImages(946, "UI_Card_XP_amphoreus_cerydra_Icon", "UI_Card_XP_amphoreus_cerydra_Art")
+        // 히실렌스
+        call SetImages(947, "UI_Card_XP_amphoreus_hysilens_Icon", "UI_Card_XP_amphoreus_hysilens_Art")
+        // 미래에 남겨 둔 불씨
+        call SetImages(994, "UI_Card_XP_amphoreus_head_Icon", "UI_Card_XP_amphoreus_head_Art")
+        // 스피드왜건
+        call SetImages(995, "UI_Card_XP_phantom_blood_speedwagon_Icon", "UI_Card_XP_phantom_blood_speedwagon_Art")
+        // 죠나단 죠스타
+        call SetImages(996, "UI_Card_XP_phantom_blood_jonathan_Icon", "UI_Card_XP_phantom_blood_jonathan_Art")
+        // 디오 브란도
+        call SetImages(997, "UI_Card_XP_phantom_blood_dio_Icon", "UI_Card_XP_phantom_blood_dio_Art")
+        // 윌 A. 체펠리
+        call SetImages(998, "UI_Card_XP_phantom_blood_zeppeli_Icon", "UI_Card_XP_phantom_blood_zeppeli_Art")
+        // 에리나 펜들턴
+        call SetImages(999, "UI_Card_XP_phantom_blood_erina_Icon", "UI_Card_XP_phantom_blood_erina_Art")
+        // 톤페티
+        call SetImages(1000, "UI_Card_XP_phantom_blood_tonpetty_Icon", "UI_Card_XP_phantom_blood_tonpetty_Art")
+        // 마지막 파문
+        call SetImages(1034, "UI_Card_XP_phantom_blood_head_Icon", "UI_Card_XP_phantom_blood_head_Art")
+        // 마돌체 마죠레느
+        call SetImages(1035, "UI_Card_XP_madolche_magileine_Icon", "UI_Card_XP_madolche_magileine_Art")
+        // 마돌체 푸딩세스
+        call SetImages(1036, "UI_Card_XP_madolche_puddingcess_Icon", "UI_Card_XP_madolche_puddingcess_Art")
+        // 퀸마돌체 티아라미스
+        call SetImages(1037, "UI_Card_XP_madolche_tiaramisu_Icon", "UI_Card_XP_madolche_tiaramisu_Art")
+        // 마돌체 엔젤리
+        call SetImages(1038, "UI_Card_XP_madolche_anjelly_Icon", "UI_Card_XP_madolche_anjelly_Art")
+        // 마돌체 훗케이크
+        call SetImages(1039, "UI_Card_XP_madolche_hootcake_Icon", "UI_Card_XP_madolche_hootcake_Art")
+        // 마돌체 메신젤라또
+        call SetImages(1040, "UI_Card_XP_madolche_messengelato_Icon", "UI_Card_XP_madolche_messengelato_Art")
+        // 마돌체 푸팅세스루
+        call SetImages(1041, "UI_Card_XP_madolche_petingcessoeur_Icon", "UI_Card_XP_madolche_petingcessoeur_Art")
+        // 티처마돌체 글래스플레
+        call SetImages(1042, "UI_Card_XP_madolche_glassouffle_Icon", "UI_Card_XP_madolche_glassouffle_Art")
+        // 돌아올 자리가 있는 다과회
+        call SetImages(1076, "UI_Card_XP_madolche_head_Icon", "UI_Card_XP_madolche_head_Art")
+        // 이츠카 시도
+        call SetImages(1077, "UI_Card_XP_tengu_shido_Icon", "UI_Card_XP_tengu_shido_Art")
+        // 야토가미 토카
+        call SetImages(1078, "UI_Card_XP_tengu_tohka_Icon", "UI_Card_XP_tengu_tohka_Art")
+        // 토비이치 오리가미
+        call SetImages(1079, "UI_Card_XP_tengu_origami_Icon", "UI_Card_XP_tengu_origami_Art")
+        // 이츠카 코토리
+        call SetImages(1080, "UI_Card_XP_tengu_kotori_Icon", "UI_Card_XP_tengu_kotori_Art")
+        // 요시노
+        call SetImages(1081, "UI_Card_XP_tengu_yoshino_Icon", "UI_Card_XP_tengu_yoshino_Art")
+        // 토키사키 쿠루미
+        call SetImages(1082, "UI_Card_XP_tengu_kurumi_Icon", "UI_Card_XP_tengu_kurumi_Art")
+        // 텐구시의 기억
+        call SetImages(1119, "UI_Card_XP_tengu_head_Icon", "UI_Card_XP_tengu_head_Art")
+        // 류가미네 미카도
+        call SetImages(1120, "UI_Card_XP_ikebukuro_mikado_Icon", "UI_Card_XP_ikebukuro_mikado_Art")
+        // 셀티 스툴루손
+        call SetImages(1121, "UI_Card_XP_ikebukuro_celty_Icon", "UI_Card_XP_ikebukuro_celty_Art")
+        // 키다 마사오미
+        call SetImages(1122, "UI_Card_XP_ikebukuro_masaomi_Icon", "UI_Card_XP_ikebukuro_masaomi_Art")
+        // 소노하라 안리
+        call SetImages(1123, "UI_Card_XP_ikebukuro_anri_Icon", "UI_Card_XP_ikebukuro_anri_Art")
+        // 오리하라 이자야
+        call SetImages(1124, "UI_Card_XP_ikebukuro_izaya_Icon", "UI_Card_XP_ikebukuro_izaya_Art")
+        // 헤이와지마 시즈오
+        call SetImages(1125, "UI_Card_XP_ikebukuro_shizuo_Icon", "UI_Card_XP_ikebukuro_shizuo_Art")
+        // 키시타니 신라
+        call SetImages(1126, "UI_Card_XP_ikebukuro_shinra_Icon", "UI_Card_XP_ikebukuro_shinra_Art")
+        // 카도타 쿄헤이
+        call SetImages(1127, "UI_Card_XP_ikebukuro_kadota_Icon", "UI_Card_XP_ikebukuro_kadota_Art")
+        // 이케부쿠로의 기억
+        call SetImages(1162, "UI_Card_XP_ikebukuro_head_Icon", "UI_Card_XP_ikebukuro_head_Art")
+        // 페른
+        call SetImages(1163, "UI_Card_XP_frieren_fern_Icon", "UI_Card_XP_frieren_fern_Art")
+        // 프리렌
+        call SetImages(1164, "UI_Card_XP_frieren_frieren_Icon", "UI_Card_XP_frieren_frieren_Art")
+        // 슈타르크
+        call SetImages(1165, "UI_Card_XP_frieren_stark_Icon", "UI_Card_XP_frieren_stark_Art")
+        // 힘멜
+        call SetImages(1166, "UI_Card_XP_frieren_himmel_Icon", "UI_Card_XP_frieren_himmel_Art")
+        // 하이터
+        call SetImages(1167, "UI_Card_XP_frieren_heiter_Icon", "UI_Card_XP_frieren_heiter_Art")
+        // 아이젠
+        call SetImages(1168, "UI_Card_XP_frieren_eisen_Icon", "UI_Card_XP_frieren_eisen_Art")
+        // 자인
+        call SetImages(1169, "UI_Card_XP_frieren_sein_Icon", "UI_Card_XP_frieren_sein_Art")
+        // 플람메
+        call SetImages(1170, "UI_Card_XP_frieren_flamme_Icon", "UI_Card_XP_frieren_flamme_Art")
+        // 제리에
+        call SetImages(1171, "UI_Card_XP_frieren_serie_Icon", "UI_Card_XP_frieren_serie_Art")
+        // 덴켄
+        call SetImages(1172, "UI_Card_XP_frieren_denken_Icon", "UI_Card_XP_frieren_denken_Art")
+        // 라비네
+        call SetImages(1173, "UI_Card_XP_frieren_lawine_Icon", "UI_Card_XP_frieren_lawine_Art")
+        // 칸네
+        call SetImages(1174, "UI_Card_XP_frieren_kanne_Icon", "UI_Card_XP_frieren_kanne_Art")
+        // 프리렌 일행
+        call SetImages(1208, "UI_Card_XP_frieren_head_Icon", "UI_Card_XP_frieren_head_Art")
     endfunction
 endlibrary

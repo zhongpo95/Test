@@ -1,0 +1,2738 @@
+{
+  "world": {
+    "key": "frieren",
+    "name": "북쪽으로 가는 길",
+    "work": "장송의 프리렌",
+    "intro": "힘멜과의 작별 뒤, 프리렌은 페른과 슈타르크를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다.",
+    "effects": [
+      {
+        "stat": "penetration",
+        "value": 2
+      }
+    ],
+    "entryCard": "fr_fern_routine",
+    "icon": "war3mapImported\\UI_Card_XP_frieren_head_Icon.tga",
+    "mainStory": {
+      "title": "다시 만날 때의 이야기",
+      "length": 12,
+      "focus": [
+        "penetration",
+        "swift",
+        "boss_damage_percent"
+      ],
+      "source": "애니메이션 1기 1~28화",
+      "adaptation": "공식 인물·에피소드 흐름에 기반한 창작 선택 대화. 1기 여행 구간의 끝이며 원작 전체 완결을 의미하지 않는다."
+    },
+    "entryIcon": "war3mapImported\\UI_Event_XP_frieren_head.tga"
+  },
+  "sources": [
+    "https://frieren-anime.jp/story/1st/",
+    "https://frieren-anime.jp/story/ep01/",
+    "https://frieren-anime.jp/story/ep28/",
+    "https://frieren-anime.jp/special/map/",
+    "https://frieren-anime.jp/news/4575/",
+    "https://frieren-anime.jp/character/chara_group1/1-5/",
+    "https://frieren-anime.jp/character/chara_group1/1-7/",
+    "https://frieren-anime.jp/character/chara_group1/1-24/",
+    "https://frieren-anime.jp/character/chara_group2/2-2/"
+  ],
+  "canonBoundary": "애니메이션 1기 범위만 사용한다. 메인은 과거 회상과 현재 여행을 구분하고 프리렌의 전체 모험이 끝난다고 서술하지 않는다. 서브·후일담 대화는 원작 인물의 성격을 바탕으로 한 맵 창작이며 죽은 인물 카드는 기억이지 부활이 아니다. 전투 수치는 기술 지급·시험 합격 판정·동료 소환을 뜻하지 않는다.",
+  "cards": [
+    {
+      "key": "fr_fern_routine",
+      "name": "페른",
+      "effectName": "매일 같은 거리에서",
+      "keyword": "공격 · 행동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_frieren_margin",
+      "name": "프리렌",
+      "effectName": "모르는 것을 남겨 두기",
+      "keyword": "관통 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_stark_step",
+      "name": "슈타르크",
+      "effectName": "떨리는 발을 딛고",
+      "keyword": "보스 · 생존",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_himmel_small",
+      "name": "힘멜",
+      "effectName": "작은 부탁에 머무는 이유",
+      "keyword": "대미지 · 이동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 2
+        },
+        {
+          "stat": "move_speed",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_heiter_morning",
+      "name": "하이터",
+      "effectName": "다음 아침까지의 약속",
+      "keyword": "재생 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_eisen_guard",
+      "name": "아이젠",
+      "effectName": "뒤를 맡길 사람",
+      "keyword": "헤드 · 백 · 생존",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 4
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_sein_pause",
+      "name": "자인",
+      "effectName": "늦었다는 말 다음에",
+      "keyword": "고체력 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 3
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_flamme_patience",
+      "name": "플람메",
+      "effectName": "오래 숨겨 둔 기초",
+      "keyword": "비방향 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_serie_glance",
+      "name": "제리에",
+      "effectName": "흔들림을 보는 눈",
+      "keyword": "치명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_denken_return",
+      "name": "덴켄",
+      "effectName": "빈손으로도 한 걸음",
+      "keyword": "보스 · 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_lawine_signal",
+      "name": "라비네",
+      "effectName": "멈출 때 건네는 신호",
+      "keyword": "치명 · 행동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": 45
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_kanne_rain",
+      "name": "칸네",
+      "effectName": "기다리던 비의 방향",
+      "keyword": "이동 연계 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "moving_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_01_1",
+      "name": "힘멜",
+      "effectName": "기다림의 길이",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_01_2",
+      "name": "프리렌",
+      "effectName": "이름을 묻는 첫걸음",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_01_3",
+      "name": "힘멜",
+      "effectName": "마을에 남은 인사",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_02_1",
+      "name": "페른",
+      "effectName": "흐트러지지 않는 반복",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_02_2",
+      "name": "하이터",
+      "effectName": "남겨 둔 아침",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_02_3",
+      "name": "프리렌",
+      "effectName": "실패를 세는 다른 법",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_03_1",
+      "name": "페른",
+      "effectName": "방어 뒤의 한 호흡",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_03_2",
+      "name": "프리렌",
+      "effectName": "익숙해진 위협",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_03_3",
+      "name": "페른",
+      "effectName": "기초에 남은 역사",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": 45
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_04_1",
+      "name": "아이젠",
+      "effectName": "오래 걷는 준비",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 3
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_04_2",
+      "name": "플람메",
+      "effectName": "기록 사이의 길",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_04_3",
+      "name": "힘멜",
+      "effectName": "아직 전하지 못한 질문",
+      "keyword": "여행의 기억",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_05_1",
+      "name": "슈타르크",
+      "effectName": "첫 일격을 견디는 용기",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_05_2",
+      "name": "아이젠",
+      "effectName": "발밑에서 시작한 자세",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_05_3",
+      "name": "슈타르크",
+      "effectName": "함께 떠날 자리",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_06_1",
+      "name": "프리렌",
+      "effectName": "드러내지 않은 축적",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_06_2",
+      "name": "페른",
+      "effectName": "맡은 상대를 넘는 집중",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_06_3",
+      "name": "플람메",
+      "effectName": "오래 지킨 절제",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 6
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_07_1",
+      "name": "자인",
+      "effectName": "말을 끝까지 듣는 휴식",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_07_2",
+      "name": "자인",
+      "effectName": "미루지 않는 준비",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_07_3",
+      "name": "프리렌",
+      "effectName": "다시 권하는 용기",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_08_1",
+      "name": "자인",
+      "effectName": "다음 길에 남긴 안부",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_08_2",
+      "name": "페른",
+      "effectName": "빠뜨리지 않은 하루",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_08_3",
+      "name": "슈타르크",
+      "effectName": "먼저 걷는 동행",
+      "keyword": "여행의 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "moving_damage",
+          "value": 6
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_09_1",
+      "name": "라비네",
+      "effectName": "셋이 맞춘 한순간",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_09_2",
+      "name": "칸네",
+      "effectName": "환경을 기다리는 눈",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "moving_damage",
+          "value": 7
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_09_3",
+      "name": "프리렌",
+      "effectName": "시험의 바깥까지 읽기",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_10_1",
+      "name": "페른",
+      "effectName": "가까이서 보아 온 빈틈",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_10_2",
+      "name": "프리렌",
+      "effectName": "역할을 나눈 공세",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 8
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_10_3",
+      "name": "덴켄",
+      "effectName": "다시 모으는 힘",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_11_1",
+      "name": "페른",
+      "effectName": "자신의 눈으로 본 대답",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "swift",
+          "value": 135
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_11_2",
+      "name": "프리렌",
+      "effectName": "좋아하는 마음의 지속",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_main_11_3",
+      "name": "제리에",
+      "effectName": "작은 흔들림을 읽다",
+      "keyword": "여행의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기의 인물과 태도를 참고한 맵 고유의 기억 카드다. 수치는 원작 마법을 재현하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "fr_ending",
+      "name": "프리렌 일행",
+      "effectName": "다음에 만날 때까지",
+      "keyword": "기념",
+      "grade": 3,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "애니메이션 1기 28화의 마법도시 출발을 기념한다. 전체 원작의 결말이나 북쪽 목적지 도착을 의미하지 않는다.",
+      "uncertain": [],
+      "endingCard": true
+    }
+  ],
+  "events": [
+    {
+      "key": "fr_main_01",
+      "title": "돌아온 뒤에 시작되는 길",
+      "intro": "오십 년의 약속 뒤, 프리렌은 사람을 알아가는 여행을 시작한다.",
+      "story": "마왕을 쓰러뜨린 일행은 각자의 삶으로 돌아갔다. 다시 만난 힘멜의 시간은 프리렌의 시간과 달랐다. 작별을 겪은 프리렌은 함께 보낸 날들을 뒤늦게 묻기 시작한다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "그가 오래 기다린 약속을 떠올린다.",
+          "result": "힘멜에게 평범했던 시간이 프리렌에게는 이제야 무게를 갖는다.",
+          "card": "fr_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "앞으로 만날 사람의 이름부터 기억한다.",
+          "result": "모든 것을 알 수 없어도 묻는 일은 오늘부터 할 수 있다.",
+          "card": "fr_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지나쳤던 마을의 이야기를 듣는다.",
+          "result": "큰 승리 옆에 있던 작은 부탁들이 새로운 길의 이정표가 된다.",
+          "card": "fr_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "프리렌은 사람을 더 알고 싶다는 마음을 품고 다시 여행한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_himmel.tga"
+    },
+    {
+      "key": "fr_main_02",
+      "title": "하이터가 맡긴 시간",
+      "intro": "마법을 배우는 페른에게 필요한 것은 재능만이 아니다.",
+      "story": "하이터의 집에서 페른은 매일 마법을 연습한다. 프리렌은 오래 걸리는 일을 부탁받아 머무는 동안 아이의 성장을 지켜본다. 하이터가 남기려던 것은 책의 해답보다 함께 살아갈 다음 날이었다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페른의 반복 연습에 함께 선다.",
+          "result": "페른은 같은 주문도 날마다 다르게 다룰 수 있음을 배운다.",
+          "card": "fr_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "하이터가 부탁한 시간을 지켜 준다.",
+          "result": "머무른 시간만큼 작별 뒤에도 남을 준비가 생긴다.",
+          "card": "fr_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "실패한 날의 변화를 같이 찾는다.",
+          "result": "틀린 횟수보다 어제와 달라진 지점을 기록한다.",
+          "card": "fr_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "페른은 하이터와 작별한 뒤 프리렌과 함께 길을 나선다.",
+        "nodes": [
+          {
+            "key": "next_day",
+            "story": "페른이 내일도 같은 시간에 연습할지 묻는다. 하이터는 둘의 이야기를 조용히 듣는다.",
+            "choices": [
+              {
+                "label": "내일의 작은 목표를 같이 정하자.",
+                "result": "페른은 거창한 약속보다 지킬 수 있는 일 하나를 적는다."
+              },
+              {
+                "label": "오늘 잘된 부분도 기억해 두자.",
+                "result": "실패만 남기지 않으니 반복할 힘도 함께 남는다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_heiter.tga"
+    },
+    {
+      "key": "fr_main_03",
+      "title": "두려웠던 마법의 새 이름",
+      "intro": "한때 막지 못했던 마법을 인간들은 연구해 왔다.",
+      "story": "봉인되었던 크발을 앞두고 프리렌은 페른에게 방어를 맡긴다. 과거에 치명적이던 졸트라크는 오랜 연구 끝에 익숙한 공격 마법이 되었다. 한 사람의 힘보다 이어 온 배움의 시간이 드러난다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페른과 방어를 유지하는 순서를 맞춘다.",
+          "result": "막아 내는 시간을 정하니 다음 행동에 쓸 여유가 남는다.",
+          "card": "fr_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌이 읽는 공격의 빈틈을 본다.",
+          "result": "힘의 크기보다 언제 움직일지에 집중한다.",
+          "card": "fr_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이어받은 마법의 원리를 되짚는다.",
+          "result": "익숙한 기초에도 여러 세대의 시행착오가 담겨 있다.",
+          "card": "fr_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "위협을 넘긴 두 사람은 인간의 마법이 바꾼 시간을 확인한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga"
+    },
+    {
+      "key": "fr_main_04",
+      "title": "아직 묻지 못한 사람에게",
+      "intro": "아이젠이 오래된 기록을 찾아 북쪽의 목적지를 짚어 준다.",
+      "story": "프리렌은 아이젠과 플람메의 기록을 더듬는다. 영혼이 잠드는 땅에 닿으면 힘멜에게 하지 못했던 말을 전할 수 있을지도 모른다. 기억을 되짚는 여행에 이제 분명한 방향이 생긴다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아이젠과 길의 위험을 먼저 확인한다.",
+          "result": "먼 목적지만큼 오늘 넘을 길도 구체적으로 그린다.",
+          "card": "fr_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "플람메의 기록에서 단서를 읽는다.",
+          "result": "확실한 문장과 아직 모르는 부분을 나누어 기억한다.",
+          "card": "fr_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "힘멜에게 묻고 싶은 말을 적는다.",
+          "result": "답을 정해 두기보다 늦게 떠오른 질문을 남긴다.",
+          "card": "fr_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "일행은 북쪽의 목적지를 향해 걸음을 옮긴다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_flamme.tga"
+    },
+    {
+      "key": "fr_main_05",
+      "title": "무서운 사람도 앞에 선다",
+      "intro": "슈타르크는 두려움 때문에 마을을 떠나지 못하고 있다.",
+      "story": "아이젠의 제자 슈타르크는 강하지만 용을 앞두고 몸이 굳는다. 마을 사람들은 이미 그를 의지한다. 겁이 없기를 기다릴지, 두려운 채로 필요한 한 걸음을 낼지 고민한다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "슈타르크가 버틸 첫 순간을 함께 그린다.",
+          "result": "끝까지 잘할 자신보다 지금 할 한 번의 움직임이 선명해진다.",
+          "card": "fr_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "스승에게 배운 자세를 떠올리게 한다.",
+          "result": "두려움이 사라지지 않아도 몸에 남은 배움은 사라지지 않는다.",
+          "card": "fr_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "전투 뒤 함께 떠날 길을 이야기한다.",
+          "result": "혼자 남아야 한다는 부담 대신 돌아갈 동행을 생각한다.",
+          "card": "fr_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "용을 쓰러뜨린 슈타르크는 프리렌과 페른의 여정에 합류한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_scene_stark_courage.tga"
+    },
+    {
+      "key": "fr_main_06",
+      "title": "저울에 올리지 않은 세월",
+      "intro": "아우라와 맞서는 프리렌에게는 오래 지켜 온 가르침이 있다.",
+      "story": "마족의 말이 곧 인간과 같은 뜻은 아니었다. 도시의 위기를 두고 페른과 슈타르크가 각자의 상대를 맡는 동안 프리렌은 아우라를 마주한다. 드러난 힘만으로 상대를 재려는 판단에 오랜 수련이 답한다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "프리렌이 지켜 온 기초를 믿는다.",
+          "result": "순간의 과시보다 오래 쌓은 절제가 승부의 바탕이 된다.",
+          "card": "fr_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페른과 슈타르크가 맡은 역할을 기억한다.",
+          "result": "서로의 싸움을 대신하지 않기에 맡긴 자리를 끝까지 지킨다.",
+          "card": "fr_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "플람메의 오래된 가르침을 되짚는다.",
+          "result": "한 번의 속임수처럼 보인 일에 수많은 날의 훈련이 담겨 있다.",
+          "card": "fr_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "프리렌은 아우라를 제압하고 일행은 도시를 지킨 뒤 북쪽으로 향한다.",
+        "nodes": [
+          {
+            "key": "after_scale",
+            "story": "위기가 지나간 뒤에는 싸움이 남긴 흔적을 돌아볼 시간이 생긴다.",
+            "choices": [
+              {
+                "label": "살아남은 사람들이 돌아갈 곳을 살핀다.",
+                "result": "승리는 다시 평범한 하루를 보낼 자리를 남긴다."
+              },
+              {
+                "label": "맡겼던 동료들에게 안부를 전한다.",
+                "result": "각자의 싸움은 끝났고 함께 걸을 시간은 다시 시작된다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga"
+    },
+    {
+      "key": "fr_main_07",
+      "title": "늦었다고 말하던 사람",
+      "intro": "자인의 일상 옆에 오래 미뤄 둔 여행이 남아 있다.",
+      "story": "뛰어난 승려 자인은 친구와의 약속을 오래 미뤄 왔다며 이제는 늦었다고 말한다. 프리렌은 그 말을 듣고 자신이 놓쳤던 시간을 떠올린다. 과거를 대신 결정할 수는 없어도 지금 떠나고 싶은지 자인에게 직접 물을 수 있다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "자인이 미뤄 온 약속을 끝까지 듣는다.",
+          "result": "서둘러 답을 주지 않자 자인은 자신의 미련을 스스로 말한다.",
+          "card": "fr_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지금 필요한 준비를 같이 정리한다.",
+          "result": "막연한 후회를 오늘 할 수 있는 행동으로 나눈다.",
+          "card": "fr_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "그를 기다린 사람의 마음을 생각한다.",
+          "result": "남겨질 사람도 출발을 바랄 수 있음을 알아차린다.",
+          "card": "fr_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "자인은 친구를 찾기 위해 한동안 일행과 함께 여행한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_sein.tga"
+    },
+    {
+      "key": "fr_main_08",
+      "title": "갈림길의 짧은 인사",
+      "intro": "함께한 시간이 끝나도 같은 길을 걸었다는 사실은 남는다.",
+      "story": "추위를 지나 만난 갈림길에서 자인과 일행의 목적지가 갈라진다. 작별을 거창하게 준비하던 마음과 달리 내일도 걸어야 할 길은 평범하게 이어진다. 프리렌은 짧은 인사에도 다시 만날 여지가 있음을 배운다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "자인에게 다음 여행의 안부를 묻는다.",
+          "result": "언제 만날지 약속할 수 없어도 서로의 목적지를 기억한다.",
+          "card": "fr_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페른과 남은 물품을 점검한다.",
+          "result": "작별 뒤의 일상도 함께 돌볼 일이라는 것을 확인한다.",
+          "card": "fr_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "슈타르크와 다음 숙소를 찾는다.",
+          "result": "쓸쓸함을 감추기보다 오늘 걸을 만큼 먼저 걷는다.",
+          "card": "fr_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "자인과 헤어진 세 사람은 마법도시의 시험을 향해 이동한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_sein.tga"
+    },
+    {
+      "key": "fr_main_09",
+      "title": "셋이 잡아야 하는 작은 새",
+      "intro": "시험에서는 각자의 마법을 아는 것만으로 부족하다.",
+      "story": "1급 마법사 시험에서 프리렌은 라비네와 칸네와 한 조가 된다. 새를 잡아 지켜야 하는 과제 앞에서 두 사람의 다툼과 익숙한 호흡이 함께 드러난다. 강한 마법보다 서로가 움직일 조건을 이해하는 일이 필요하다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "라비네와 움직임을 멈출 신호를 정한다.",
+          "result": "익숙한 다툼도 행동을 맞추는 짧은 신호로 바뀐다.",
+          "card": "fr_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "칸네가 힘을 쓸 환경을 살핀다.",
+          "result": "없는 힘을 짜내기보다 주어진 환경이 바뀌는 순간을 기다린다.",
+          "card": "fr_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌과 다른 조의 의도를 읽는다.",
+          "result": "과제와 상대의 목적을 나눠 보니 불필요한 충돌이 줄어든다.",
+          "card": "fr_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "서로의 조건을 맞춘 조는 첫 시험을 넘어서 다음 과제로 향한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_lawine.tga"
+    },
+    {
+      "key": "fr_main_10",
+      "title": "자신을 닮은 가장 강한 상대",
+      "intro": "미궁의 복제체를 넘으려면 상대를 아는 기억이 필요하다.",
+      "story": "다음 시험의 미궁에는 응시자를 닮은 복제체가 나타난다. 프리렌의 복제체 앞에서 페른은 오래 함께 수련하며 보았던 짧은 빈틈을 떠올린다. 모두가 같은 해답을 갖지는 않아도 관찰을 모으면 길이 열린다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페른이 본 빈틈이 언제 생기는지 맞춘다.",
+          "result": "작은 관찰을 공격의 순서에 연결하니 한 번의 기회가 생긴다.",
+          "card": "fr_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌과 역할을 나눠 압박한다.",
+          "result": "가장 강한 한 사람이 모든 일을 맡지 않아도 된다는 답을 찾는다.",
+          "card": "fr_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "덴켄처럼 가능한 사람들의 힘을 모은다.",
+          "result": "시험의 경쟁자도 같은 위기를 넘는 동안에는 동료가 된다.",
+          "card": "fr_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "복제체의 위협을 넘기고 살아남은 응시자들은 마지막 시험으로 간다.",
+        "nodes": [
+          {
+            "key": "after_maze",
+            "story": "미궁을 빠져나온 뒤 페른은 짧은 빈틈 하나를 설명하기까지 얼마나 오래 지켜보았는지 깨닫는다.",
+            "choices": [
+              {
+                "label": "평소의 연습도 헛되지 않았네.",
+                "result": "똑같아 보이던 날들이 위기에서 쓸 수 있는 기억이 되었다."
+              },
+              {
+                "label": "다음에는 네가 가르쳐 줄 차례겠네.",
+                "result": "배우기만 했던 관계에도 서로에게 건넬 것이 생긴다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga"
+    },
+    {
+      "key": "fr_main_11",
+      "title": "보이는 흔들림과 보이지 않는 꿈",
+      "intro": "제리에의 눈앞에서 마법을 대하는 태도가 드러난다.",
+      "story": "제리에는 마지막 시험에서 응시자들을 직접 마주한다. 프리렌과 페른은 같은 스승과 제자여도 같은 평가를 받지 않는다. 어떤 마법사가 될지 상상하는 일은 강한 주문을 얼마나 아는가와 다르다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페른이 스스로 바라본 것을 믿는다.",
+          "result": "남의 기대를 빌리지 않은 관찰이 페른의 대답이 된다.",
+          "card": "fr_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌이 좋아하는 마법을 돌아본다.",
+          "result": "쓸모만으로 설명되지 않는 마법에도 배워 온 이유가 남아 있다.",
+          "card": "fr_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "제리에가 읽는 작은 흔들림을 관찰한다.",
+          "result": "압도적인 힘 앞에서도 세부를 살피는 태도를 놓지 않는다.",
+          "card": "fr_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "페른은 1급 마법사 시험에 합격하고 일행의 북쪽 여행은 계속될 수 있게 된다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_serie.tga"
+    },
+    {
+      "key": "fr_main_12",
+      "title": "끝내지 않는 작별",
+      "intro": "시험을 마친 사람들은 각자의 길로 돌아간다.",
+      "story": "마법도시에서 마주친 사람들과 작별할 때가 왔다. 프리렌은 짧은 만남도 나중의 자신을 바꿀 수 있음을 안다. 북쪽의 목적지는 아직 멀지만 함께 걷는 사람들의 표정은 처음과 달라져 있다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "다시 만났을 때 들려줄 이야기를 만들자.",
+          "result": "길은 갈라져도 만남의 의미까지 사라지지는 않는다.",
+          "card": "fr_ending",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 걷는 오늘의 속도를 기억하자.",
+          "result": "오래 남을 시간은 특별한 순간만으로 이루어지지 않는다.",
+          "card": "fr_ending",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아직 모르는 사람들을 더 만나러 가자.",
+          "result": "프리렌은 모르는 것을 남긴 채로도 앞으로 걸을 수 있게 되었다.",
+          "card": "fr_ending",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기 마지막은 시험을 마친 뒤 마법도시를 떠나는 구간이다. 원작의 전체 모험은 계속된다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "페른과 슈타르크가 다음 길을 확인한다. 프리렌은 한 번 뒤를 돌아본 뒤 두 사람의 걸음에 맞춰 걷는다. 사람을 알아가는 여행은 계속된다.",
+            "choices": [
+              {
+                "label": "다음 만남을 향해 출발한다.",
+                "result": "마법도시에서 만난 이들의 얼굴을 기억하며 북쪽으로 발걸음을 옮긴다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_frieren_scene_northward.tga"
+    },
+    {
+      "key": "fr_morning",
+      "title": "아침 식탁의 빈자리",
+      "intro": "페른이 잠든 프리렌과 식어 가는 식사를 번갈아 본다.",
+      "story": "오늘은 급한 의뢰가 없는 아침이다. 페른은 계획대로 출발하고 싶고 프리렌은 조금만 더 자겠다고 한다. 슈타르크는 두 사람 사이에서 짐을 먼저 정리한다.",
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페른과 짐부터 나누어 챙긴다.",
+          "result": "서두르라는 말 대신 할 일을 덜어 준다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌에게 오늘 가고 싶은 곳을 묻는다.",
+          "result": "잠결의 대답 속에서 길을 늦출 이유를 듣는다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "슈타르크와 아침을 따뜻하게 남겨 둔다.",
+          "result": "일어나면 앉을 자리를 마련하고 잠시 기다린다.",
+          "card": "fr_stark_step",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga"
+    },
+    {
+      "key": "fr_statue",
+      "title": "동상 아래 남은 이름",
+      "intro": "오래된 동상의 주인이 누구였는지 마을 아이가 묻는다.",
+      "story": "동상의 글자가 닳아 읽기 어렵다. 프리렌은 잘 아는 얼굴이지만 어디서부터 설명해야 할지 잠시 머뭇거린다. 아이는 큰 전쟁보다 이 사람이 마을에서 무엇을 했는지가 궁금하다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "힘멜이 도왔던 작은 부탁을 이야기한다.",
+          "result": "누군가의 하루를 돌본 일이 영웅의 이름 옆에 남는다.",
+          "card": "fr_himmel_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌에게 기억나는 표정을 묻는다.",
+          "result": "업적 대신 웃던 얼굴을 먼저 설명한다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아이와 동상 주변을 정리한다.",
+          "result": "긴 설명을 몰라도 기억을 돌보는 일은 함께할 수 있다.",
+          "card": "fr_eisen_guard",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_himmel.tga"
+    },
+    {
+      "key": "fr_routine",
+      "title": "어제와 같은 표적",
+      "intro": "페른이 연습의 차이를 찾지 못해 잠시 멈춘다.",
+      "story": "같은 거리, 같은 표적, 같은 자세가 이어진다. 페른은 더 어려운 주문을 배워야 할 때가 아닌지 묻는다. 프리렌은 오늘의 차이는 표적보다 쏘기 직전의 호흡에 있을지도 모른다고 한다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "한 번 더 쏘기 전에 호흡을 맞춘다.",
+          "result": "빠른 반복 사이에 정확하게 시작할 한순간을 둔다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌에게 기초를 다시 보여 달라고 한다.",
+          "result": "프리렌은 배웠던 자세를 천천히 보여 준다. 페른은 주문을 더 빠르게 외우는 것보다 힘을 흘리지 않는 기초를 다시 확인한다.",
+          "card": "fr_flamme_patience",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "쉬었다가 흔들리지 않는 상태에서 비교한다.",
+          "result": "하이터와 지내던 날처럼 쉬는 시간도 연습에 넣는다. 다시 표적 앞에 서자 무리할 때 놓치던 호흡이 돌아온다.",
+          "card": "fr_heiter_morning",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga"
+    },
+    {
+      "key": "fr_fear",
+      "title": "겁이 난다는 고백",
+      "intro": "슈타르크가 밤 경계에 앞서 솔직한 마음을 털어놓는다.",
+      "story": "아직 보이지 않는 적이 더 무섭다고 슈타르크가 말한다. 웃어넘겨 달라는 듯한 표정이지만 대답을 기다리고 있다. 두려움을 없애 주겠다는 약속보다 필요한 준비를 함께 정할 수 있다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "먼저 볼 곳과 물러날 곳을 정한다.",
+          "result": "두려운 장면을 구체적인 순서로 나눈다.",
+          "card": "fr_stark_step",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아이젠에게 배운 자세를 같이 되짚는다.",
+          "result": "몸이 기억하는 기본으로 돌아간다.",
+          "card": "fr_eisen_guard",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페른과 경계 신호를 짧게 맞춘다.",
+          "result": "혼자 모든 소리를 알아들을 필요가 없어진다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_stark.tga"
+    },
+    {
+      "key": "fr_wrong_book",
+      "title": "원하던 마법이 아닌 책",
+      "intro": "프리렌이 찾아낸 책은 전투와 거리가 멀어 보인다.",
+      "story": "낡은 책의 제목을 본 페른이 잠시 말이 없어진다. 프리렌은 이런 마법도 언젠가는 누군가를 기쁘게 할 수 있다고 말한다. 짐은 늘어나지만 이 책을 찾은 시간을 헛되다고 할지는 아직 모른다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "누구에게 도움이 될지 같이 생각한다.",
+          "result": "쓸모의 기준을 지금의 전투보다 조금 넓혀 본다.",
+          "card": "fr_himmel_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌에게 가장 마음에 든 부분을 묻는다.",
+          "result": "좋아하는 이유를 듣는 동안 그 사람도 조금 더 알게 된다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페른과 가방에서 안전한 자리를 찾는다.",
+          "result": "읽고 싶은 마음이 다음 여행을 방해하지 않도록 정리한다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga"
+    },
+    {
+      "key": "fr_rain",
+      "title": "비가 오기 전에",
+      "intro": "라비네와 칸네가 하늘을 보며 다른 준비를 말한다.",
+      "story": "칸네는 빗줄기가 내려오면 할 수 있는 일을 떠올린다. 라비네는 그때까지 서 있을 위치가 더 급하다고 한다. 둘의 말은 다투는 듯하지만 같은 순간을 준비하고 있다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "칸네와 물이 모일 방향을 살핀다.",
+          "result": "주어진 환경에서 힘을 쓰는 순서를 그린다.",
+          "card": "fr_kanne_rain",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "라비네와 서로 보이는 자리를 정한다.",
+          "result": "짧은 신호 하나로 같은 순간에 움직일 수 있다.",
+          "card": "fr_lawine_signal",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "둘이 준비하는 시간을 벌어 준다.",
+          "result": "빠른 판단이 언제나 먼저 공격하는 뜻은 아니다.",
+          "card": "fr_denken_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_kanne.tga"
+    },
+    {
+      "key": "fr_meal",
+      "title": "덴켄이 더 주문한 이유",
+      "intro": "시험 이야기가 끝났는데도 덴켄은 자리를 정리하지 않는다.",
+      "story": "식탁에는 서로 경쟁하던 사람들이 앉아 있다. 덴켄은 식사가 끝나기도 전에 승패를 따질 필요가 없다고 말한다. 낯선 동행의 버릇을 알게 되는 잠깐의 여유가 생긴다.",
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "덴켄에게 젊었을 때의 선택을 묻는다.",
+          "result": "지금의 여유에도 지나온 시간이 있음을 듣는다.",
+          "card": "fr_denken_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "말이 없던 사람에게 먼저 음식을 권한다.",
+          "result": "대단한 질문 없이도 대화가 시작된다.",
+          "card": "fr_himmel_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 일정 전에 모두가 쉴 시간을 챙긴다.",
+          "result": "서두르지 않고 돌아갈 힘을 마련한다.",
+          "card": "fr_sein_pause",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_denken.tga"
+    },
+    {
+      "key": "fr_imitation",
+      "title": "보여 주기와 따라 하기",
+      "intro": "페른이 설명하던 손짓을 프리렌이 말없이 바라본다.",
+      "story": "페른은 배운 그대로 했는데 결과가 달랐다고 말한다. 프리렌은 어디를 따라 했는지 먼저 묻는다. 겉으로 보이는 움직임과 그 전에 결정한 판단은 같은 것이 아니다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": "fr_fern_routine",
+      "choices": [
+        {
+          "label": "시작하기 직전의 판단을 설명한다.",
+          "result": "동작을 외우는 대신 이유를 자신의 말로 정리한다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "결과가 달라진 조건을 하나씩 바꾼다.",
+          "result": "급히 답을 고르기보다 작은 차이를 좁힌다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "잠깐 쉬며 서둘렀던 부분을 찾는다.",
+          "result": "집중이 흐트러진 순간도 기록할 수 있는 정보가 된다.",
+          "card": "fr_heiter_morning",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga"
+    },
+    {
+      "key": "fr_old_question",
+      "title": "여전히 답하지 못한 질문",
+      "intro": "동상에서 떠올린 말이 다음 마을까지 따라왔다.",
+      "story": "프리렌은 힘멜이라면 왜 그런 부탁에까지 응했을지 다시 생각한다. 그때는 너무 작은 일이라 묻지 않았다. 이제 정답을 만들어 넣기보다 자신이 기억하는 행동부터 돌아본다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": "fr_himmel_small",
+      "choices": [
+        {
+          "label": "힘멜이 실제로 했던 일을 먼저 적는다.",
+          "result": "추측으로 빈자리를 채우지 않고 기억의 모양을 지킨다.",
+          "card": "fr_himmel_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지금 만난 사람에게 같은 부탁을 들어준다.",
+          "result": "과거의 답 대신 오늘의 경험을 남긴다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페른이 느낀 이유도 들어 본다.",
+          "result": "같은 기억도 다른 사람의 눈에서는 새롭게 보인다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_himmel.tga"
+    },
+    {
+      "key": "fr_discipline",
+      "title": "강함을 보여 달라는 부탁",
+      "intro": "상대는 실력을 보고 싶지만 제리에는 질문을 돌려준다.",
+      "story": "원하는 주문을 말하라는 질문에 대답이 늦어진다. 강하다는 평가와 자신이 하고 싶은 일은 아직 같은 말이 아니다. 오늘 필요한 힘이 무엇인지 먼저 정해야 한다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "마주한 위협의 약점을 설명한다.",
+          "result": "크기보다 겨냥할 대상을 분명히 한다.",
+          "card": "fr_serie_glance",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "끝까지 지키고 싶은 일을 말한다.",
+          "result": "긴 수련을 이어갈 이유를 자신의 말로 정한다.",
+          "card": "fr_flamme_patience",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아직 모르는 부분을 솔직히 묻는다.",
+          "result": "모른다는 말이 배움의 시작을 막지는 않는다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_serie.tga"
+    },
+    {
+      "key": "fr_stitch",
+      "title": "소매 끝을 고치는 시간",
+      "intro": "페른이 여행 중 헤진 소매를 조용히 꿰맨다.",
+      "story": "급하지 않다는 이유로 미뤄 온 작은 수선이 많다. 슈타르크는 자기가 도울 수 있는 일이 있는지 묻는다. 프리렌은 기다리는 동안 다음 마을의 지도를 펼친다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페른이 손을 떼지 않아도 되게 짐을 정리한다.",
+          "result": "작은 방해를 줄여 일을 마칠 여유를 만든다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "슈타르크와 다음 야영 준비를 나눈다.",
+          "result": "무거운 일을 혼자 맡기지 않는다.",
+          "card": "fr_stark_step",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌과 돌아갈 수 있는 길도 살핀다.",
+          "result": "계획은 앞만 보는 일이 아니라는 것을 기억한다.",
+          "card": "fr_eisen_guard",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga"
+    },
+    {
+      "key": "fr_quiet_watch",
+      "title": "말 없는 경계 시간",
+      "intro": "아이젠의 짧은 조언이 밤의 소음 사이에서 떠오른다.",
+      "story": "너무 긴장하면 작은 소리도 모두 위협처럼 들린다. 슈타르크는 어깨의 힘을 조금 풀어 보지만 시선은 놓지 않는다. 오래 버티는 자세를 배웠다는 말의 뜻을 다시 생각한다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": "fr_stark_step",
+      "choices": [
+        {
+          "label": "움직여야 할 신호만 먼저 정한다.",
+          "result": "모든 소리에 반응하지 않아도 경계를 유지할 수 있다.",
+          "card": "fr_eisen_guard",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "교대할 동료와 짧게 상황을 나눈다.",
+          "result": "혼자 견디던 밤이 나누어 맡은 시간이 된다.",
+          "card": "fr_stark_step",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "일정한 호흡을 되찾고 주변을 살핀다.",
+          "result": "차분한 상태에서 놓친 부분을 다시 본다.",
+          "card": "fr_sein_pause",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_eisen.tga"
+    },
+    {
+      "key": "fr_unfamiliar_name",
+      "title": "지도에 없는 작은 마을",
+      "intro": "갈 길에서 조금 벗어난 이름이 프리렌의 눈에 걸린다.",
+      "story": "지도에는 큰 도시만 적혀 있지만 길가 표지에는 작은 마을이 있다. 프리렌은 전에 지나간 것 같다고 말하고 페른은 일정표를 본다. 한 번의 들름으로 무엇을 알게 될지는 아무도 모른다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "프리렌에게 기억나는 단서를 묻는다.",
+          "result": "불확실한 기억도 확인해 볼 질문으로 남긴다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페른과 돌아올 시간을 먼저 정한다.",
+          "result": "계획을 버리지 않고도 새 만남을 넣을 틈을 찾는다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "슈타르크와 마을 사람에게 길을 묻는다.",
+          "result": "먼저 말을 거니 짧은 인사가 안내가 된다.",
+          "card": "fr_himmel_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga"
+    },
+    {
+      "key": "fr_letter",
+      "title": "보내지 못한 안부",
+      "intro": "자인에게 전할 말을 쓰려니 평범한 이야기만 떠오른다.",
+      "story": "위대한 전투보다 오늘 먹은 음식과 늦잠 이야기가 먼저 나온다. 페른은 이런 이야기라도 괜찮을지 묻는다. 프리렌은 함께하지 못한 하루를 알려 주는 것도 안부라고 생각한다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "자인이 웃을 만한 작은 일을 적는다.",
+          "result": "대단한 소식이 없어도 기억하고 있다는 뜻은 전해진다.",
+          "card": "fr_sein_pause",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음에 만났을 때 물어볼 말을 남긴다.",
+          "result": "답을 서두르지 않고 다음 대화를 준비한다.",
+          "card": "fr_himmel_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "여행길에서 새로 배운 습관을 적는다.",
+          "result": "함께한 시간이 이후의 일상에 남았음을 알아차린다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_frieren_sein.tga"
+    },
+    {
+      "key": "fr_epilogue_road",
+      "title": "마법도시를 뒤로하고",
+      "intro": "도시를 벗어난 첫 길은 의외로 평범하다.",
+      "story": "시험장의 긴장은 멀어지고 다시 식사와 숙소를 정하는 시간이 온다. 페른은 얻은 자격보다 오늘 같이 걷는 속도가 먼저 눈에 들어온다. 프리렌과 슈타르크도 각자의 방식으로 새 출발을 준비한다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페른과 오늘 갈 거리를 맞춘다.",
+          "result": "성취 뒤에도 매일의 기본은 계속된다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "프리렌과 돌아보고 싶은 만남을 이야기한다.",
+          "result": "끝난 시험에서도 앞으로 쓸 기억을 골라 둔다.",
+          "card": "fr_frieren_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "슈타르크와 앞선 길의 안전을 살핀다.",
+          "result": "변한 것과 그대로인 일을 함께 챙긴다.",
+          "card": "fr_stark_step",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "epilogue": true,
+      "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga"
+    },
+    {
+      "key": "fr_epilogue_again",
+      "title": "다시 만날 때의 이야기",
+      "intro": "다음에 들려줄 이야기는 오늘부터 생긴다.",
+      "story": "북쪽으로 이어진 길가에서 세 사람은 잠시 쉰다. 아직 도착하지 않은 목적지를 결말처럼 말하지 않기로 한다. 지금 만난 사람들을 기억하며 다음 하루를 정한다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "힘멜에게 언젠가 묻고 싶은 말을 남긴다.",
+          "result": "마법도시를 떠난 지금도 힘멜에게 하고 싶은 질문은 남아 있다. 답을 서두르지 않고 다음 만남에서 배울 여지를 남긴다.",
+          "card": "fr_himmel_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페른에게 오늘 좋았던 일을 묻는다.",
+          "result": "페른은 자격증보다 함께 나눈 식사 이야기를 먼저 꺼낸다. 프리렌은 오늘의 사소한 대답을 나중으로 미루지 않고 듣는다.",
+          "card": "fr_fern_routine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "슈타르크와 다음 아침의 준비를 한다.",
+          "result": "슈타르크가 길을 확인하는 동안 서로의 짐을 나눈다. 마법도시에서의 성취는 끝난 기록이 되고 세 사람의 다음 하루가 시작된다.",
+          "card": "fr_stark_step",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+      "uncertain": [],
+      "epilogue": true,
+      "icon": "war3mapImported\\UI_Event_XP_frieren_head.tga"
+    }
+  ],
+  "storyChanges": [],
+  "reviewRecords": [
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\frieren-main-01.json",
+      "monitorRecordId": "43447bdc-4565-49ae-8103-5f948c15d27c"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\frieren-side-01.json",
+      "monitorRecordId": "ec44edb8-00a7-4649-97c4-e298028a76e4"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\editor-delta-01.json",
+      "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
+      "scope": "첫 검토 후 바꾼 5작품 14개 사건"
+    }
+  ]
+}

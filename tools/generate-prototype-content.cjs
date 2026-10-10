@@ -3,6 +3,8 @@
 const fs = require('node:fs'), path = require('node:path');
 const {inspect} = require('./check-content-candidates.cjs');
 const root = path.resolve(__dirname, '..');
+const registryPath = path.join(root,'content/roguelite-id-registry.json');
+const readRegistry = () => JSON.parse(fs.readFileSync(registryPath,'utf8'));
 const eventThumbnails = JSON.parse(fs.readFileSync(path.join(root,'content/event-images/thumbnail-manifest.json'),'utf8'));
 if (Math.abs(eventThumbnails.displayAspect-16/9)>0.000001) throw Error('사건 썸네일은 16:9 표시 규격이어야 합니다.');
 const eventImageTargets = new Map(eventThumbnails.assets.map(asset=>[asset.source,asset.target]));
@@ -10,6 +12,14 @@ if (eventImageTargets.size!==eventThumbnails.assets.length) throw Error('사건 
 const statNames = ['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity'];
 const q = x => '"' + String(x).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\r?\n/g,'|n') + '"';
 const highlightConfig = {"palette":{"person":"FF006B8F","clue":"FF865500"},"limits":{"story":4,"intro":2,"label":1,"result":2},"worlds":{"fuyuki":{"person":["에미야 시로","시로","세이버","토오사카 린","린","아처","랜서","캐스터","길가메시"],"clue":["성배","룰 브레이커","수호자","영주"]},"axel":{"person":["카즈마","아쿠아","메구밍","다크니스","위즈","베르디아"],"clue":["디스트로이어","동력원","폭렬 마법"]},"abydos":{"person":["호시노","시로코","세리카","아야네","노노미","선생","검은 양복"],"clue":["자퇴서","사막 기지","카이저론","학교 부지"]},"academy":{"person":["미코토","토우마","누노타바 시노부","시노부","일방통행","10032호","액셀러레이터"],"clue":["시스터즈","트리 다이어그램","레벨 6","미사카 네트워크","레벨6 시프트"]},"mitakihara":{"person":["마도카","호무라","마미","사야카","쿄코","큐베"],"clue":["소울젬","그리프 시드","발푸르기스의 밤","소울 젬"]},"aincrad":{"person":["키리토","아스나","유이","사치","카야바","히스클리프"],"clue":["너브기어","유이의 마음","이도류","시스템 관리자"]},"amestris":{"person":["에드","알","윈리","호엔하임","머스탱","린","그리드","스카"],"clue":["현자의 돌","인체 연성","국토 연성진","진리의 문"]},"karakura":{"person":["이치고","루키아","렌지","뱌쿠야","아이젠","요루이치","우라하라"],"clue":["붕옥","쌍극","만해","중앙 46실"]},"gourmet":{"person":["페코린느","캐르","콧코로","유우키","카이저","라비리스트","쥰"],"clue":["미식전","반지","열쇠","쉐도우"]},"butterfly":{"person":["탄지로","네즈코","시노부","카나오","렌고쿠","엔무","아카자"],"clue":["전집중 상중","정신의 핵","무한열차"]},"magnolia":{"person":["나츠","루시","엘자","그레이","마카로프","가질","조제"],"clue":["페어리 테일","팬텀 로드","주피터","엘리먼트 4"]},"penacony":{"person":["미샤","미하일","반디","선데이","로빈","아케론","어벤츄린","블랙 스완"],"clue":["은하열차","꿈의 주인","시계공","꿈의 경계"]},"zegagrande":{"person":["루리아","비","롤란","릴리스","이드"],"clue":["구속구","앙그라마이뉴","베르사","일지"]}}};
+Object.assign(highlightConfig.worlds, {
+  amphoreus: {person:['파이논','키레네','아글라이아','트리비','마이데이','카스토리스','아낙사','히아킨','사이퍼','케리드라','히실렌스','개척자','단항'],clue:['철묘','불씨','검은 물결','재창세']},
+  phantom_blood: {person:['죠나단','디오','체펠리','스피드왜건','에리나','톤페티','포코'],clue:['석가면','파문','식시귀 거리']},
+  madolche: {person:['마죠레느','푸딩세스','티아라미스','엔젤리','훗케이크','메신젤라또','푸팅세스루','글래스플레'],clue:['초대장','마돌체 샤토','이름표']},
+  tengu: {person:['시도','토카','요시노','쿠루미','코토리','오리가미','마나'],clue:['공간진','요시농','라타토스크','AST']},
+  ikebukuro: {person:['미카도','마사오미','안리','셀티','이자야','시즈오','신라','카도타'],clue:['다라즈','황건적','사이카','폐공장']},
+  frieren: {person:['프리렌','페른','슈타르크','힘멜','하이터','아이젠','자인','플람메','제리에','덴켄','라비네','칸네'],clue:['졸트라크','1급 마법사','복제체','아우라']},
+});
 // 원고는 평문으로 두고 생성 시점에만 짧은 인물·단서 강조를 추가한다.
 function highlight(text, world, field, config) {
   if (!config) return text;
@@ -37,12 +47,39 @@ function highlight(text, world, field, config) {
   for (const s of selected) {result+=source.slice(cursor,s.start)+'|c'+s.color+source.slice(s.start,s.end)+'|r';cursor=s.end;}
   return result+source.slice(cursor);
 }
+// 숫자 ID는 이미지 등록과 연결되므로 기존 키를 고정하고 새 키만 끝에 추가한다.
+function allocateIds(worlds, previous=readRegistry()) {
+  const registry=structuredClone(previous);
+  if (registry.version!==1 || registry.playerKeyStride!==2048 || registry.maximumEntityId!==2047) throw Error('지원하지 않는 콘텐츠 ID 레지스트리 규격.');
+  const keys={heads:[],cards:[],events:[]};
+  for (const w of worlds) {
+    if (w.world.key!=='common') {
+      keys.heads.push(w.world.key);
+      for (let pid=0;pid<4;pid++) keys.events.push(w.world.key+'_entry_'+pid);
+    }
+    keys.cards.push(...w.cards.map(c=>c.key));
+    keys.events.push(...w.events.map(e=>e.key));
+  }
+  for (const [kind, names] of Object.entries(keys)) {
+    const start=kind==='cards' ? 13 : 1, limit=kind==='heads' ? 80 : registry.maximumEntityId;
+    const existing=Object.entries(registry[kind]), ids=existing.map(([,id])=>id).sort((a,b)=>a-b);
+    if (new Set(names).size!==names.length) throw Error('작품 간 '+kind+' key 중복.');
+    if (ids.some((id,i)=>!Number.isInteger(id) || id!==start+i || id>limit)) throw Error('콘텐츠 ID 범위·연속성 오류. '+kind);
+    const active=new Set(names);
+    for (const [key] of existing) if (!active.has(key)) throw Error('등록된 콘텐츠 키를 제거할 수 없습니다. 원본 보존과 폐기 처리를 먼저 준비하세요. '+key);
+    let next=start+ids.length;
+    for (const key of names) if (!Object.hasOwn(registry[kind],key)) registry[kind][key]=next++;
+    if (next-1>limit) throw Error('플레이어별 JASS 키 공간을 초과합니다. '+kind+' 최대 '+limit+'번.');
+  }
+  return registry;
+}
 function generate(worlds, options={}) {
   const highlights=options.highlights===false ? null : highlightConfig;
-  const cards = new Map(), events = new Map(), lines = [];
+  const registry=allocateIds(worlds, options.registry || readRegistry());
+  const cards = new Map(Object.entries(registry.cards)), events = new Map(Object.entries(registry.events)), lines = [];
   const changeKeys = new Set(), eventFirst = new Map();
   let changeCount = 0;
-  let nextCard = 13, nextEvent = worlds.filter(w=>w.world.key!=='common').length * 4 + 1, head = 0;
+  const nextCard=Math.max(...cards.values())+1, nextEvent=Math.max(...events.values())+1, head=Object.keys(registry.heads).length;
   for (const w of worlds) {
     const report = inspect(w);
     if (report.errors.length) throw Error(JSON.stringify(report));
@@ -50,24 +87,10 @@ function generate(worlds, options={}) {
       if (changeKeys.has(change.key)) throw Error('작품 간 서사 변화 key 중복. '+change.key);
       changeKeys.add(change.key);changeCount++;
     }
-    w.head = w.world.key==='common' ? 0 : ++head;
-    for (const c of w.cards.filter(c=>!c.endingCard)) {
-      if (cards.has(c.key)) throw Error('작품 간 카드 key 중복. '+c.key);
-      cards.set(c.key,nextCard++);
-    }
-    for (const e of w.events) {
-      if (events.has(e.key)) throw Error('작품 간 사건 key 중복. '+e.key);
-      events.set(e.key,nextEvent++);
-    }
+    w.head = w.world.key==='common' ? 0 : registry.heads[w.world.key];
   }
-  // 엔딩 카드는 기존 작품별 카드의 숫자 ID를 유지하도록 전체 기존 카드 뒤에 배정한다.
-  for (const w of worlds) for (const c of w.cards.filter(c=>c.endingCard)) {
-    if (cards.has(c.key)) throw Error('작품 간 카드 key 중복. '+c.key);
-    cards.set(c.key,nextCard++);
-  }
-  if (nextCard>1024 || nextEvent>1024 || head>80) throw Error('플레이어별 JASS 키 공간을 초과합니다. 저장 구조를 확장한 뒤 다시 생성하세요.');
   const strings = ['ProtoCardDescription','ProtoEventCommonResult','ProtoDialogueStory','ProtoDialogueLabel','ProtoDialogueResult','ProtoStoryChangeKey','ProtoStoryChangeName','ProtoStoryChangeDescriptionText','ProtoHeadKey','ProtoHeadName','ProtoHeadIntro','ProtoHeadIcon','ProtoCardKey','ProtoCardName','ProtoCardEffectName','ProtoCardKeyword','ProtoEventKey','ProtoEventName','ProtoEventStory','ProtoEventIntro','ProtoEventIcon','ProtoEventFailure','ProtoBranchLabel','ProtoBranchResult'];
-  const integers = ['ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadMainLength','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
+  const integers = ['ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadEntryEvent','ProtoHeadMainLength','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
   lines.push('// 검토된 머리 카드, 캐릭터 카드와 사건 콘텐츠를 로드한다. 생성 도구로 갱신한다.', 'library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototypeStats','    globals',
     '        constant integer PROTO_HEAD_COUNT = '+head,
     '        constant integer PROTO_STORY_CHANGE_COUNT = '+changeCount,
@@ -103,7 +126,8 @@ function generate(worlds, options={}) {
         lines.push('        call SaveReal(ProtoHeadEffectData, '+h+', '+(statNames.indexOf(e.stat)+1)+', '+Number(e.value).toFixed(2)+')');
       }
       for (let p=0;p<4;p++) {
-        const id=(h-1)*4+p+1;
+        const id=events.get(w.world.key+'_entry_'+p);
+        set('ProtoHeadEntryEvent',h*4+p,id);
         set('ProtoEventKey',id,w.world.key+'_entry_'+p);set('ProtoEventName',id,w.world.name+' 방문'); set('ProtoEventHead',id,h); set('ProtoEventKind',id,0);set('ProtoEventChoices',id,1);
         set('ProtoEventAPCost',id,0);set('ProtoEventGrade',id,1);
         set('ProtoEventStory',id,marked(w.world.intro,'story')); set('ProtoEventIntro',id,marked(w.world.intro,'intro'));eventImage(id,w.world.entryIcon || w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNManual.blp');
@@ -151,7 +175,8 @@ function generate(worlds, options={}) {
     for (const change of w.storyChanges || []) {
       const id=++changeId, event=events.get(change.eventKey);
       const target=w.cards.find(c=>c.key===change.characterCardKey);
-      const character=cards.get(w.cards.find(c=>c.name===target.name).key);
+      // 런타임은 숫자 ID 오름차순으로 대표 캐릭터를 정하므로 원고 순서에 의존하지 않는다.
+      const character=Math.min(...w.cards.filter(c=>c.name===target.name).map(c=>cards.get(c.key)));
       set('ProtoStoryChangeKey',id,change.key);
       set('ProtoStoryChangeCharacter',id,character);set('ProtoStoryChangeForCharacter',character,id);
       // Unicode 문자 기준으로 계산해 JASS 바이트 길이에 의존하지 않는다.
@@ -170,11 +195,16 @@ function run() {
   const dir=path.join(root,'content/roguelite');
   const files=fs.readdirSync(dir).filter(f=>f.endsWith('.json')).sort();
   const worlds=files.map(f=>JSON.parse(fs.readFileSync(path.join(dir,f),'utf8')));
-  const text=generate(worlds), file=path.join(root,'Data/Data_PrototypeCatalog.j');
+  const previous=readRegistry(), registry=allocateIds(worlds,previous);
+  const text=generate(worlds,{registry}), file=path.join(root,'Data/Data_PrototypeCatalog.j');
   if (process.argv.includes('--check')) {
+    if (JSON.stringify(previous)!==JSON.stringify(registry)) throw Error('새 콘텐츠의 ID를 먼저 생성·등록해야 합니다.');
     if (fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n')!==text) throw Error('검토 JSON과 생성 JASS가 일치하지 않습니다.');
-  } else fs.writeFileSync(file,text);
+  } else {
+    fs.writeFileSync(registryPath,JSON.stringify(registry,null,2)+'\n');
+    fs.writeFileSync(file,text);
+  }
   console.log(JSON.stringify({worlds:worlds.filter(w=>w.world.key!=='common').length,cards:worlds.reduce((n,w)=>n+w.cards.length,0),events:worlds.reduce((n,w)=>n+w.events.length,0)}));
 }
-module.exports={generate,highlight,highlightConfig};
+module.exports={generate,allocateIds,highlight,highlightConfig};
 if (require.main===module) {try {run();} catch(e) {console.error(e.message);process.exitCode=1;}}

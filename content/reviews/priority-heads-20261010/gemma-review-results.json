@@ -1,0 +1,406 @@
+[
+  {
+    "file": "priority-scope-02.json",
+    "sha256": "b1fd382acc890ffa364c941b9af95c56fbc383957712bcb449feade2e900daf8",
+    "monitorRecordId": "6a30c881-ee24-4938-a4ff-713a7a0c10b2",
+    "started": "2026-10-10T09:57:55.563Z",
+    "finished": "2026-10-10T09:58:25.048Z",
+    "requestSha256": "89d71073f5805e4d466de8a743f9c7e29f4709b2f3948ea0b03b646daead2908",
+    "manuscriptSha256": null,
+    "result": {
+      "risks": [
+        {
+          "world": "all",
+          "issue": "반복 카드 획득 시 50% 강화로 인한 인플레이션",
+          "fix": "강화 수치 조정 및 상한선 설정으로 밸런스 유지"
+        },
+        {
+          "world": "all",
+          "issue": "재생/흡수 합산 상한 및 즉시 회복 오인",
+          "fix": "UI에 회복량과 상한을 명확히 표기하여 혼동 방지"
+        },
+        {
+          "world": "tengu",
+          "issue": "대화 선택이 실제 호감도나 능력으로 오인",
+          "fix": "보상은 게임 내 수치로만 제한하고 서사적 묘사로 분리"
+        }
+      ]
+    }
+  },
+  {
+    "file": "frieren-main-01.json",
+    "sha256": "d3eb1b097976121e55b001e05130ec72bc419ccb31df340fbd9626d75fa1f847",
+    "monitorRecordId": "43447bdc-4565-49ae-8103-5f948c15d27c",
+    "started": "2026-10-10T09:59:39.743Z",
+    "finished": "2026-10-10T10:00:32.985Z",
+    "requestSha256": "d16452d3f504462df92b9ec512a86f4cd0102078e8992f39914b5115e99eeee4",
+    "manuscriptSha256": "3e1ea601e4bfccf22d132af74e304b983dce89307b6bd6be9f2ce2bffb9774d8",
+    "result": {
+      "issues": [
+        {
+          "key": "fr_main_12",
+          "issue": "서로 다른 선택지임에도 동일한 보상(fr_ending)을 제공함",
+          "fix": "선택지에 따라 다른 효과를 가진 카드나 보상을 부여하거나, 보상을 분리할 것"
+        },
+        {
+          "key": "fr_main_07",
+          "issue": "자인의 행동에 대한 시점과 인물 행동의 인과관계가 모호함",
+          "fix": "자인의 내면 묘사와 프리렌의 관찰 시점을 명확히 구분하여 서술할 것"
+        },
+        {
+          "key": "fr_main_01",
+          "issue": "'기억한다'는 서술이 시스템상 구현되지 않은 기능으로 보임",
+          "fix": "기억하는 행위 대신 구체적인 대화나 행동으로 변화를 묘사할 것"
+        }
+      ]
+    }
+  },
+  {
+    "file": "frieren-side-01.json",
+    "sha256": "37e38138b22a70df40b575e2374f2d15f858d92b8205de23d561d601cb933ba7",
+    "monitorRecordId": "ec44edb8-00a7-4649-97c4-e298028a76e4",
+    "started": "2026-10-10T10:00:33.062Z",
+    "finished": "2026-10-10T10:01:32.859Z",
+    "requestSha256": "584be0cd1cf3a48ed340f8531475ee27d71ad1297cfbaff0c800385b2c94b6f1",
+    "manuscriptSha256": "3e1ea601e4bfccf22d132af74e304b983dce89307b6bd6be9f2ce2bffb9774d8",
+    "result": {
+      "issues": [
+        {
+          "key": "fr_routine",
+          "issue": "보상 카드(fr_flamme_patience, fr_heiter_morning)가 서로 다른 행동임에도 결과가 유사함",
+          "fix": "각 선택지의 결과 문구에 해당 카드의 고유한 특징(기초/호흡)을 더 명확히 구분해줘."
+        },
+        {
+          "key": "fr_fear",
+          "issue": "슈타르크의 공포를 해결하는 방식이 '신호 맞추기'로 이어져 인물 성격과 괴리됨",
+          "fix": "슈타르크의 성격에 맞춰 '함께 훈련하기'나 '심리적 안정'을 주는 방향으로 결과를 수정해줘."
+        },
+        {
+          "key": "fr_epilogue_again",
+          "issue": "마지막 에피소드에서 보상 카드가 이전과 중복되어 선택의 의미가 퇴색됨",
+          "fix": "에피로그의 특성을 살려 여행의 마무리를 상징하는 고유한 결과 문구로 차별화해줘."
+        }
+      ]
+    }
+  },
+  {
+    "file": "tengu-main-01.json",
+    "sha256": "74a9d5e89b30c933719344a664443c632b6b6ec725c8a7eca5c33797a05a4c06",
+    "monitorRecordId": "a5875717-f897-42de-8542-4b9b10fd50c3",
+    "started": "2026-10-10T10:01:32.933Z",
+    "finished": "2026-10-10T10:02:23.117Z",
+    "requestSha256": "7e307a6d7eb68842df30265e5d95ad77683d3c6a41aeb8ef94277c7696e137ea",
+    "manuscriptSha256": "695d4143aeba1c19e634b8a52314e3cc9f43d048259e50e91339c397a3d9b15e",
+    "result": {
+      "issues": [
+        {
+          "key": "tengu_main_02_1",
+          "issue": "동일한 보상 반복",
+          "fix": "tengu_main_02_1과 02_3의 보상이 동일함. 02_1의 보상을 다른 수치로 변경할 것."
+        },
+        {
+          "key": "tengu_main_09_2",
+          "issue": "동일한 보상 반복",
+          "fix": "tengu_main_09_2와 09_1의 보상이 동일함. 09_2의 보상을 다른 수치로 변경할 것."
+        },
+        {
+          "key": "tengu_main_11_1",
+          "issue": "동일한 보상 반복",
+          "fix": "tengu_main_11_1과 11_2의 보상이 동일함. 11_1의 보상을 다른 수치로 변경할 것."
+        }
+      ]
+    }
+  },
+  {
+    "file": "tengu-side-01.json",
+    "sha256": "40edcb0b58995192b33a4d9fa0d223d963ecf8b7ae6d8c38d2c9fba9c4846a36",
+    "monitorRecordId": "3fa44248-12c2-4e54-bc0d-a6353a105aa4",
+    "started": "2026-10-10T10:02:23.184Z",
+    "finished": "2026-10-10T10:02:59.966Z",
+    "requestSha256": "fb0a93ed3066c912d22e9256661c6b1f36b593cb90a1f7e8ff185db693c91512",
+    "manuscriptSha256": "695d4143aeba1c19e634b8a52314e3cc9f43d048259e50e91339c397a3d9b15e",
+    "result": {
+      "issues": [
+        {
+          "key": "dal_side_bakery",
+          "issue": "선택지 1, 2의 보상이 동일한 카드(dal_tohka)임",
+          "fix": "선택지 2의 보상을 다른 카드나 효과로 변경할 것"
+        },
+        {
+          "key": "dal_side_cat",
+          "issue": "쿠루미가 등장하나 요시노 보상으로 이어지는 인물 모순",
+          "fix": "요시노 보상을 쿠루미 관련 카드나 행동으로 수정할 것"
+        },
+        {
+          "key": "dal_side_schedule",
+          "issue": "선택지 2의 결과와 보상 카드가 다른 사건과 중복됨",
+          "fix": "결과 문구와 보상 카드를 해당 사건에 특화된 내용으로 수정할 것"
+        }
+      ]
+    }
+  },
+  {
+    "file": "ikebukuro-main-01.json",
+    "sha256": "8a62fa4a6704bda65bd9257e9672204f33b46d3eeee6eaeb6a3d2507bbacb82d",
+    "monitorRecordId": "58627ed5-41e7-44b8-9416-c41387a956af",
+    "started": "2026-10-10T10:03:15.967Z",
+    "finished": "2026-10-10T10:03:42.012Z",
+    "requestSha256": "50b9a2ec1f434babe118a01d7f4c74a5684ac369b0ceed2d450d2eda9eab3dd9",
+    "manuscriptSha256": "3944bd72427a99e7c4f96d466a3b09b5506bf60c144d58a0194bbd5a2099be6f",
+    "result": {
+      "issues": [
+        {
+          "key": "ikebukuro_main_01_2",
+          "issue": "보상 수치 중복",
+          "fix": "ikebukuro_main_01_2의 보상을 다른 수치나 효과로 변경할 것"
+        },
+        {
+          "key": "ikebukuro_main_04_2",
+          "issue": "보상 수치 중복",
+          "fix": "ikebukuro_main_04_2의 보상을 다른 수치나 효과로 변경할 것"
+        },
+        {
+          "key": "ikebukuro_main_10_3",
+          "issue": "보상 수치 중복",
+          "fix": "ikebukuro_main_10_3의 보상을 다른 수치나 효과로 변경할 것"
+        }
+      ]
+    }
+  },
+  {
+    "file": "ikebukuro-side-01.json",
+    "sha256": "3ae99dde299acc5db2bf3d850127754ce857952b00dc9abac1c893d3bcacc0ab",
+    "monitorRecordId": "655b1b54-c631-45fe-aeed-8785da4bb494",
+    "started": "2026-10-10T10:03:42.082Z",
+    "finished": "2026-10-10T10:04:27.165Z",
+    "requestSha256": "6c4044f56f0bd1375409b4c4fbcd39cfa891fd13741cea7e8c9551324a0ae045",
+    "manuscriptSha256": "3944bd72427a99e7c4f96d466a3b09b5506bf60c144d58a0194bbd5a2099be6f",
+    "result": {
+      "issues": [
+        {
+          "key": "drrr_side_crossing",
+          "issue": "선택지 1과 3의 보상 카드(drrr_masaomi, drrr_mikado)가 중복됨",
+          "fix": "선택지 3의 보상을 drrr_celty 또는 다른 카드로 변경하여 보상 다양성 확보"
+        },
+        {
+          "key": "drrr_side_lunch",
+          "issue": "선택지 1과 3의 보상 카드(drrr_anri, drrr_mikado)가 중복될 가능성 존재",
+          "fix": "선택지 3의 보상을 drrr_masaomi 또는 drrr_celty로 변경하여 보상 중복 방지"
+        },
+        {
+          "key": "drrr_side_strength",
+          "issue": "시즈오의 힘을 기대한다는 서술과 카도타의 행동이 시점상 모순",
+          "fix": "시즈오가 근처에 있거나 직전 상황에 대한 묘사를 추가하여 인물 행동의 개연성 확보"
+        }
+      ]
+    }
+  },
+  {
+    "file": "phantom_blood-main-01.json",
+    "sha256": "2adb6a6859d21653fd5bdee679bcb4a18a97f58190018e185840726f1f0e3ba0",
+    "monitorRecordId": "2c225d41-14a6-4549-bc56-01b9d0ee5892",
+    "started": "2026-10-10T10:08:07.522Z",
+    "finished": "2026-10-10T10:08:29.297Z",
+    "requestSha256": "25ee32a5092c4cf3d5001766ddc7c41e1fc4b193b07142cae077d28caf4f8b51",
+    "manuscriptSha256": "4599d85917e789ae920e4e356dace5c254a6febfabcfc64019a68867c634d613",
+    "result": {
+      "issues": [
+        {
+          "key": "phantom_blood_main_01_3",
+          "issue": "동일한 보상 반복",
+          "fix": "다른 효과를 부여하거나 보상 수치를 차별화할 것"
+        },
+        {
+          "key": "phantom_blood_main_03_2",
+          "issue": "의미가 모호한 선택",
+          "fix": "'돌봄을 놓치지 않으려 한다'는 내용을 구체적인 행동으로 수정"
+        },
+        {
+          "key": "phantom_blood_main_12",
+          "issue": "실제 구현 없는 기능",
+          "fix": "결말 선택지에서 '기념 카드에 새긴다'는 시스템적 표현 삭제"
+        }
+      ]
+    }
+  },
+  {
+    "file": "phantom_blood-side-01.json",
+    "sha256": "793f2716ce583bda089cda6353d77f79f9c8b1a36636286ed978c457c4d64d41",
+    "monitorRecordId": "3226e645-dc69-4135-b9e2-a112e9a6ce33",
+    "started": "2026-10-10T10:08:29.370Z",
+    "finished": "2026-10-10T10:08:58.827Z",
+    "requestSha256": "f085e4e39db78db392c8e5877e18349725890bfb6f1996acbbaf0fe08d984149",
+    "manuscriptSha256": "4599d85917e789ae920e4e356dace5c254a6febfabcfc64019a68867c634d613",
+    "result": {
+      "issues": [
+        {
+          "key": "phantom_blood_next_lesson",
+          "issue": "동일한 보상(pb_zeppeli)을 주는 선택지가 중복됨",
+          "fix": "두 번째 선택지의 보상을 pb_jonathan 또는 다른 카드로 변경"
+        },
+        {
+          "key": "phantom_blood_epilogue_teaching",
+          "issue": "죽은 인물(톤페티)의 보상 카드가 존재하지 않음",
+          "fix": "pb_tonpetty 카드를 추가하거나 보상을 pb_jonathan으로 변경"
+        },
+        {
+          "key": "phantom_blood_roadside_signal",
+          "issue": "에리나 선택 시 결과와 보상 카드가 불일치함",
+          "fix": "결과 문구의 주체를 스피드왜건으로 수정하거나 보상을 pb_speedwagon으로 변경"
+        }
+      ]
+    }
+  },
+  {
+    "file": "madolche-main-01.json",
+    "sha256": "a35bedac156bd7671e30b8eaa6f54c8d252afa69d597527bfe9efe6b794a6f23",
+    "monitorRecordId": "f8ef79cf-5a41-41f5-b7f7-26cb05108b27",
+    "started": "2026-10-10T10:08:58.900Z",
+    "finished": "2026-10-10T10:09:31.205Z",
+    "requestSha256": "0174b44c9e6b9925e4c2fec337ae773a9daa5d67848ac09d575688881f3967bb",
+    "manuscriptSha256": "877310f6a53c1fdef4be0bbca24eeb87557037e2f986a2c0071d3bd1e313cc9c",
+    "result": {
+      "issues": [
+        {
+          "key": "madolche_main_01",
+          "issue": "선택지 3개가 모두 동일한 보상(카드)을 제공함",
+          "fix": "선택지별로 서로 다른 카드나 보상을 배정하여 선택의 의미를 부여할 것"
+        },
+        {
+          "key": "madolche_main_12",
+          "issue": "선택지 3개가 모두 동일한 보상(카드)을 제공함",
+          "fix": "선택지별로 서로 다른 카드나 보상을 배정하여 선택의 의미를 부여할 것"
+        },
+        {
+          "key": "madolche_main_01_1",
+          "issue": "보상 카드 효과가 다른 선택지와 중복됨",
+          "fix": "선택지마다 고유한 효과를 가진 카드를 배치하여 전략적 차이를 생성할 것"
+        }
+      ]
+    }
+  },
+  {
+    "file": "madolche-side-01.json",
+    "sha256": "1ee67ab2e31f116998e74dfc84a0ddab776f13117d7b92bd3f7b41e3c021c8fd",
+    "monitorRecordId": "cc2c9824-339d-41dc-afde-c2a5f5f33e45",
+    "started": "2026-10-10T10:09:31.279Z",
+    "finished": "2026-10-10T10:10:06.217Z",
+    "requestSha256": "7ff0f2d730b872d2ded7a6604cd5f03b084e239fb7165349034d9881063a653b",
+    "manuscriptSha256": "877310f6a53c1fdef4be0bbca24eeb87557037e2f986a2c0071d3bd1e313cc9c",
+    "result": {
+      "issues": [
+        {
+          "key": "madolche_route_fold",
+          "issue": "선택지 1, 2, 3이 모두 '안내/지도'라는 동일한 주제의 반복임",
+          "fix": "선택지 중 하나를 '초대장 문구 수정'이나 '식탁 배치 변경' 등 다른 실무로 변경할 것"
+        },
+        {
+          "key": "madolche_search_again",
+          "issue": "마죠레느가 이미 준비했다는 설정과 모른다는 내용의 시점 모순",
+          "fix": "마죠레느가 '준비 과정에서 놓친 부분'을 발견했다는 흐름으로 수정할 것"
+        },
+        {
+          "key": "madolche_epilogue_return",
+          "issue": "보상 규칙상 금지된 '다음 사람을 위한 준비' 등 추상적 보상",
+          "fix": "보상을 명시된 ARCANA 스탯이나 카드 획득으로 한정하여 결과 문구 수정"
+        }
+      ]
+    }
+  },
+  {
+    "file": "editor-delta-01.json",
+    "sha256": "b9bd4a231d706e92ca7be8638f9292e20476c1da171935f613391e5c2135aa7b",
+    "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
+    "started": "2026-10-10T10:12:29.638Z",
+    "finished": "2026-10-10T10:12:34.727Z",
+    "requestSha256": "d93d4ce2306d92331b7c641d8703d57f1ded008e416243dd0c761cb67603bc02",
+    "manuscriptSha256": null,
+    "result": {
+      "issues": []
+    }
+  },
+  {
+    "file": "amphoreus-main-01.json",
+    "sha256": "1d0fb2fe1597f461198d7a0abdb15cd20d2982dae756dae8f56040f49563b1b1",
+    "monitorRecordId": "a942f417-13e9-4990-95ef-f43783cdae0f",
+    "started": "2026-10-10T10:16:40.696Z",
+    "finished": "2026-10-10T10:17:27.838Z",
+    "requestSha256": "20558f26ed3b364dfc4da59b3b143cac4df2a2b5d1e52388dcfeef56b2006c4a",
+    "manuscriptSha256": "0ea4504ed02557f9580046ff8b257e2a294bf4c18ab1820b8e471ff5ed6bcbc4",
+    "result": {
+      "issues": [
+        {
+          "key": "amphoreus_main_15",
+          "issue": "선택지 3개가 모두 동일한 보상(amphoreus_main_15_3)을 제공함",
+          "fix": "선택지별로 서로 다른 카드(예: 15_1, 15_2, 15_3)를 매칭하도록 수정"
+        },
+        {
+          "key": "amphoreus_main_16",
+          "issue": "선택지 3개가 모두 동일한 보상(amphoreus_main_ending_memorial)을 제공함",
+          "fix": "선택지별로 서로 다른 카드 혹은 고유한 보상 체계로 분리하여 수정"
+        },
+        {
+          "key": "amphoreus_main_01",
+          "issue": "선택지 3개가 모두 서로 다른 카드를 보상으로 제공함",
+          "fix": "규칙에 따라 세 행동은 같은 다음 장으로 이어지므로 보상을 통일하거나 조정"
+        }
+      ]
+    }
+  },
+  {
+    "file": "amphoreus-side-01.json",
+    "sha256": "d7fe9511f5ef8b77017ec42de6e398215f349862b6e0edd8bfa5cdb14ac0531b",
+    "monitorRecordId": "45b73552-c164-45d3-8b99-78eeba409281",
+    "started": "2026-10-10T10:17:27.906Z",
+    "finished": "2026-10-10T10:18:04.870Z",
+    "requestSha256": "4b974a0e64b1e2306f3f7c3c9d65922b2daf8dfd12a3f0488790a2010708364b",
+    "manuscriptSha256": "0ea4504ed02557f9580046ff8b257e2a294bf4c18ab1820b8e471ff5ed6bcbc4",
+    "result": {
+      "issues": [
+        {
+          "key": "amph_wayfinding",
+          "issue": "선택지 1, 2, 3이 모두 서로 다른 카드 보상",
+          "fix": "선택지별 보상을 중복되지 않는 고유 카드로 분리하거나 보상 체계 재검토"
+        },
+        {
+          "key": "amph_carry",
+          "issue": "트리비 카드를 보유한 상태에서 트리비 카드를 다시 보상",
+          "fix": "보유 중인 카드가 아닌 다른 인물의 카드나 새로운 효과를 보상으로 배치"
+        },
+        {
+          "key": "amph_preparation_follow",
+          "issue": "트리비 카드를 보유한 상태에서 트리비_route 카드를 보상",
+          "fix": "이미 획득한 트리비 카드의 효과와 중복되지 않는 새로운 카드나 보상으로 교체"
+        }
+      ]
+    }
+  },
+  {
+    "file": "amphoreus-prose-02.json",
+    "sha256": "ff232cf026f73d26064599c6e2019dd4c65ae5708f2d63c426e156ca8330cf25",
+    "monitorRecordId": "54285b6b-4769-4eae-b8ba-9e58a2b791a9",
+    "started": "2026-10-10T10:19:24.599Z",
+    "finished": "2026-10-10T10:20:57.717Z",
+    "requestSha256": "6f9e8580e65614c6c66728c1475ad3b57bce2352a6c757ab1abc13736e0cf399",
+    "manuscriptSha256": "0ea4504ed02557f9580046ff8b257e2a294bf4c18ab1820b8e471ff5ed6bcbc4",
+    "result": {
+      "issues": [
+        {
+          "key": "amphoreus_main_07",
+          "issue": "화자 및 인물 상태 모순. 아글라이아의 죽음 이후 파이논이 여정을 이끄는 상황에서, '하늘로 향한 히아킨'이 불씨를 돌려놓고 남는다는 묘사는 히아킨이 생존해 있는 것인지 혹은 죽은 자의 회상인지가 불분명함.",
+          "fix": "히아킨이 생존해 있는 상태라면 '하늘을 향해 나선 히아킨'으로, 희생된 상태라면 '하늘로 향한 히아킨의 의지' 등으로 명확히 수정."
+        },
+        {
+          "key": "amphoreus_main_13",
+          "issue": "시점 및 인물 존재 모순. '돌아온 단항'이 동료를 찾는다는 묘사와 '기억을 둘러싼 대면은 삼칠이가 돌아올 길로 이어진다'는 문장에서 삼칠이의 현재 위치(귀환 여부)가 불분명함.",
+          "fix": "삼칠이가 현재 귀환 중인지, 혹은 단항이 삼칠이를 찾으러 가는 중인지 시점을 명확히 수정."
+        },
+        {
+          "key": "amphoreus_main_15",
+          "issue": "행동 모순. '파이논이 붙잡아 둔 철묘를 끝낼 길을 연다'와 '파이논이 맡았던 무게를 함께 든다'는 묘사에서 파이논이 현재 전투에 참여 중인지, 아니면 이미 퇴장하여 그가 남긴 짐을 이어받는 상황인지가 모호함.",
+          "fix": "파이논이 현장에 잔류하여 함께 싸우는 것인지, 혹은 그의 역할을 계승하는 것인지 행동의 주체를 명확히 수정."
+        }
+      ]
+    }
+  }
+]

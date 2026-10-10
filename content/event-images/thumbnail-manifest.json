@@ -6950,6 +6950,2790 @@
       "target": "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga",
       "sha256": "d99b6c2d5479d35a2ed16c07ded6f29907d4a45a4211c4cd738be8dd0c08cea3",
       "bytes": 131116
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "phainon",
+      "character": "파이논",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_phainon.tga",
+      "sourceSha256": "8b4a8b83fbd588561c4906b28e08423bfbf780cb6374fed489e01f30f8914d5e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "621ffd126c37c43d819c2ac412eb414284f55fb59e3b317dc8caf7cb4c900306",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/157029/5a2d9757f4655bccc089d05e61804e27_7310391169525954032.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "파이논",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "cipher",
+      "character": "사이퍼",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_cipher.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_cipher.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_cipher.tga",
+      "sourceSha256": "9fe44dc46b1a5da820a9cc17a156c5bf6bba2023383dd82fa8dc999b6645149d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "083c918132b21f8119e4aaeb42683d112698289564ecb13cc7a7b6c261305109",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/155820/780b2c4c47d78cdae507070e58879737_7658197090758651873.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "사이퍼",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "hyacine",
+      "character": "히아킨",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_hyacine.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_hyacine.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_hyacine.tga",
+      "sourceSha256": "e4e72eb4f789a1dba8000deff92bb48b1a0ca969f68cc26c7b1f908568d53dd5",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "0753e03c7bdf7305a3b6028a44c210d53c2be15b2ccaa9ae1ac220742d449bb2",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/155819/027069aa7b55dc3014bfa1f252a61585_8078082097602776107.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "히아킨",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "anaxa",
+      "character": "아낙사",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_anaxa.tga",
+      "sourceSha256": "e1f4851c6be55329c87130934f7ad9306cbbc2ffa242e7c7531c19ed89e07fae",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "4ec342d4cf413918eb80a9c5b7457575457e6f351809f59d0566662b722342c9",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/155154/8f3cacb04649566ea44de13713a625d6_8817124027360453848.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "아낙사",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "castorice",
+      "character": "카스토리스",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_castorice.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_castorice.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_castorice.tga",
+      "sourceSha256": "be6ab454d720b3b7f1683095a90668b6a025b79b65d082bfb4197efe57169d7c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "2e59a51b1e64dd58f92e5b11b4a6aa218fe5d0bdb10d75d24badd43a5c6d3757",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/155153/5a1b2aadf803c47a60c908790245d72a_5890031517220776201.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "카스토리스",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "mydei",
+      "character": "마이데이",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_mydei.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_mydei.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_mydei.tga",
+      "sourceSha256": "aaa4798a5c4b66ae8548d0b0421ee23d42a7ae8a223ad89847237ac635306b90",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "6826be31bac226e51c5ab092455479c74db1af197b5297b92d601df666344331",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/154335/d5c507482674f37c60f474f661e57d4b_5190058877398002107.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "마이데이",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "tribbie",
+      "character": "트리비",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_tribbie.tga",
+      "sourceSha256": "4f351b7d6a2efeb1c53dc501b21a1fe2a7506870690f1f0335be15b85fcc9b6f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "21e868f36bb181f0045ae8c07264b62f1f2bbbf15e1acec599f3f7fada185f22",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/154334/2acf27f75b0467b926c9e1897524a694_8642336648267705694.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "트리비",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "aglaea",
+      "character": "아글라이아",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_aglaea.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_aglaea.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_aglaea.tga",
+      "sourceSha256": "990286851fbc618d5073f8ab3468fdd925130f8a75916b3a7cb7e84553cb207c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "492946248f714c8681106ac92bd0c37cced00495feafc0499320bb1ef5546aeb",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/127763/ca6a9c38fe3f0eb31c9089ad163535ba_819178167232337746.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "아글라이아",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "cyrene",
+      "character": "키레네",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_cyrene.tga",
+      "sourceSha256": "a37573c083553b41df852e3cc53fe90f315b11ad4c18937413fd1294c99ce903",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "ea8a0e3e24378e8c806ad36e9329f483f9c46575c34ca4ea0ae8c7ecd7e43d65",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/160346/5eee007a0dfed905de285d89e137c2f1_4676439374288781329.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "키레네",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "cerydra",
+      "character": "케리드라",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_cerydra.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_cerydra.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_cerydra.tga",
+      "sourceSha256": "70e605b7e4630cceb2cc7b8d36a5fb86e042f2e672a7a3b18d4b001f06178d45",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "8aa1951287932f2d18ccfa18c01cd2f8ea23e10c7938bec2f552ae8a8b4a6f27",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/158016/0454c3dc23fd33225e8645c5e92cd755_3849173472039034768.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "케리드라",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "hysilens",
+      "character": "히실렌스",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_hysilens.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_hysilens.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_hysilens.tga",
+      "sourceSha256": "340e0adf2994d1b0420e35c97e8987e93f1bceba0ba906bb123aed9a57378660",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "93b26228068e834b62bae2c906b354306b906d6b171c2dff21559828e46c1ee9",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/character",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/158011/d7f795ddcbf0dd483ae945ff76040fa3_677206521511714709.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "히실렌스",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 게임 캐릭터 일러스트. 사건 장면 자체가 아닌 등장인물 대표 그림."
+    },
+    {
+      "world": "phantom_blood",
+      "characterKey": "jonathan",
+      "character": "죠나단 죠스타",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "sourceSha256": "bcf0f02651c2ee0f47c15b3c3622ab4ede0a3bd21c536b16a01056d6d2e9dfa1",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "7a3562d7c63992c7366e89e6f0a895b117595c807e3e60b9222f8ae69eafa23d",
+      "bytes": 131116,
+      "sourcePage": "https://jojowiki.com/File:Jonathan_Infobox_Anime.png",
+      "sourceUrl": "https://static.jojowiki.com/images/3/34/latest/20200604060940/Jonathan_Infobox_Anime.png",
+      "sourceKind": "official-anime-mirror",
+      "representativeCharacter": "죠나단 죠스타",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "죠죠 1부 애니메이션판 인물 대표 그림. 2부 이후 모습 제외."
+    },
+    {
+      "world": "phantom_blood",
+      "characterKey": "dio",
+      "character": "디오 브란도",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
+      "sourceSha256": "8654c3dc2ec8d1d45fbe6d8b19ddf8e816448e9e5668ce37deff3fbfc47febc9",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "eda9491f5f06a12bfa59948f7ecd005d975344bb8c6709567d6da3a24ba10abd",
+      "bytes": 131116,
+      "sourcePage": "https://jojowiki.com/File:Dio_PB_Infobox_Anime.png",
+      "sourceUrl": "https://static.jojowiki.com/images/3/37/latest/20210315113740/Dio_PB_Infobox_Anime.png",
+      "sourceKind": "official-anime-mirror",
+      "representativeCharacter": "디오 브란도",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "죠죠 1부 애니메이션판 인물 대표 그림. 2부 이후 모습 제외."
+    },
+    {
+      "world": "phantom_blood",
+      "characterKey": "zeppeli",
+      "character": "윌 A. 체펠리",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
+      "sourceSha256": "081f0ed919adced127be2e86b2400ec3df9e19dd48e40d17d677616b23ba1384",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "16607e0ef8b0c1023af8a86fd28f23c04c5ae58865234186a97f9d082b76cae5",
+      "bytes": 131116,
+      "sourcePage": "https://jojowiki.com/File:Will_Zeppeli_Infobox_Anime.png",
+      "sourceUrl": "https://static.jojowiki.com/images/0/0e/latest/20210501153511/Will_Zeppeli_Infobox_Anime.png",
+      "sourceKind": "official-anime-mirror",
+      "representativeCharacter": "윌 A. 체펠리",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "죠죠 1부 애니메이션판 인물 대표 그림. 2부 이후 모습 제외."
+    },
+    {
+      "world": "phantom_blood",
+      "characterKey": "speedwagon",
+      "character": "스피드왜건",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga",
+      "sourceSha256": "db72b59bc861f0f4f53c10fc6c5300e7dc3a777e8b9ce5332a3c4730fbebeb83",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "573a3cd23509a7d4e1e9c1262b12e67dc06387d285db416cd299d4f82c4ec914",
+      "bytes": 131116,
+      "sourcePage": "https://jojowiki.com/File:SPW_PB_Infobox_Anime.png",
+      "sourceUrl": "https://static.jojowiki.com/images/e/e7/latest/20211009200001/SPW_PB_Infobox_Anime.png",
+      "sourceKind": "official-anime-mirror",
+      "representativeCharacter": "스피드왜건",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "죠죠 1부 애니메이션판 인물 대표 그림. 2부 이후 모습 제외."
+    },
+    {
+      "world": "phantom_blood",
+      "characterKey": "erina",
+      "character": "에리나 펜들턴",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_phantom_blood_erina.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_phantom_blood_erina.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_phantom_blood_erina.tga",
+      "sourceSha256": "6021a8b49f2eed94224f512fd10839ffe8984043f093a37112e1fb08e7007025",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "af459b2de4b111be3414957d5aafb129f2bf38965e56a16ce1f080ffa0e593ff",
+      "bytes": 131116,
+      "sourcePage": "https://jojowiki.com/File:Erina_PB_Infobox_Anime.png",
+      "sourceUrl": "https://static.jojowiki.com/images/0/08/latest/20220108061329/Erina_PB_Infobox_Anime.png",
+      "sourceKind": "official-anime-mirror",
+      "representativeCharacter": "에리나 펜들턴",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "죠죠 1부 애니메이션판 인물 대표 그림. 2부 이후 모습 제외."
+    },
+    {
+      "world": "phantom_blood",
+      "characterKey": "tonpetty",
+      "character": "톤페티",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_phantom_blood_tonpetty.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_phantom_blood_tonpetty.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_phantom_blood_tonpetty.tga",
+      "sourceSha256": "e4363f3f9ad879bd6c3ad36bfb972d266f1dda91c1768737ee2c729cf4cf12e4",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "46edf763145acfcf7454b924bb5326bee50e2114e4b93a4c79f853b2ee77c9e7",
+      "bytes": 131116,
+      "sourcePage": "https://jojowiki.com/File:Tonpetty_Infobox_Anime.png",
+      "sourceUrl": "https://static.jojowiki.com/images/e/e1/latest/20240227094625/Tonpetty_Infobox_Anime.png",
+      "sourceKind": "anime-frame-mirror",
+      "representativeCharacter": "톤페티",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "죠죠 1부 애니메이션판 인물 대표 그림. 2부 이후 모습 제외."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "magileine",
+      "character": "마돌체 마죠레느",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
+      "sourceSha256": "831f02f8cd9512c2554d9545e9cfafb547c4bb37fb208f53b88e22996a32369d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "4a8d3ed19660ae3603f2108b13a1a40e2dd1bc6ee03d15d487842b2a8a3ed03e",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10154&ope=2&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/11868731.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "마돌체 마죠레느",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "puddingcess",
+      "character": "마돌체 푸딩세스",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
+      "sourceSha256": "49aaf9721394a2ed198c20cfc9e76aebc55055322e71746356e34e7a96b40b80",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "b6c8b4c95345f677b109c3c21ac60f931857c90021888ee80f7442babdb457a7",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10156&ope=2&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/74641045.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "마돌체 푸딩세스",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "tiaramisu",
+      "character": "퀸마돌체 티아라미스",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_tiaramisu.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_tiaramisu.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_tiaramisu.tga",
+      "sourceSha256": "23539e2a13705760fd84266aea7ec328d8a87b17abc810a59500180f2c87b857",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "8cb39c385e92e05d9b99de30be0c4053b5d2cdc8635f1c495633378cee335139",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10270&ope=2&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/37164373.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "퀸마돌체 티아라미스",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "anjelly",
+      "character": "마돌체 엔젤리",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_anjelly.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_anjelly.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_anjelly.tga",
+      "sourceSha256": "60a25a848b3e80549aad4f5fd1045dfcca8afe0ed922201622e67a8166fdde78",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "dd24c6d7d89104da679f9bf0ee3e7c479cd591494befcd41fc999fbe15c94f74",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=11057&ope=2&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/34680482.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "마돌체 엔젤리",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "hootcake",
+      "character": "마돌체 훗케이크",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_hootcake.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
+      "sourceSha256": "7c863a967626e93a1641f11e97db92abce68e8f3459613360febef7cbeddb66f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "2f1769e89455584fc8712738df7484ee5e191f5897d8fdb3b537ad70dd8544e9",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10513&ope=2&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/91350799.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "마돌체 훗케이크",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "messengelato",
+      "character": "마돌체 메신젤라또",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_messengelato.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_messengelato.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga",
+      "sourceSha256": "3e032844bf3064f2452c65770f7b31b32f5f50957cd5617dd25de96de8a253f3",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "8bf2797d972a881d956ecf9cde726c48b8a7b49acc1879d4b0fec51d22163243",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10249&ope=2&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/52404456.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "마돌체 메신젤라또",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "petingcessoeur",
+      "character": "마돌체 푸팅세스루",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_petingcessoeur.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_petingcessoeur.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_petingcessoeur.tga",
+      "sourceSha256": "35f364444e79c22f249c2a17f58619a760cc4f37efd708d1cd5bc8af8b2ff47b",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "6a2edcccf8ac7e5133137c69a0383b4b4f0627c6758a2d76355b5e674573a20e",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=14100&ope=2&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/77848740.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "마돌체 푸팅세스루",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "glassouffle",
+      "character": "티처마돌체 글래스플레",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_glassouffle.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_glassouffle.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_glassouffle.tga",
+      "sourceSha256": "af1e70246fe8be792a99afc7781c6c84949dd12e30189920a387e629a7cf3b01",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5a0c94346d2fca454cfddd57dfa2437ec3cec33993a1376492729635bc1d59dc",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=%ED%8B%B0%EC%B2%98%EB%A7%88%EB%8F%8C%EC%B2%B4%20%EA%B8%80%EB%9E%98%EC%8A%A4%ED%94%8C%EB%A0%88&request_locale=ko",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/20343502.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "티처마돌체 글래스플레",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "KONAMI 카드 DB로 이름 확인, YGOPRODeck 미러의 원작 카드 아트. ARCANA 창작 사건의 인물 또는 상징."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "shido",
+      "character": "이츠카 시도",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_shido.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_tengu_shido.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_tengu_shido.tga",
+      "sourceSha256": "d2f79af3d704f1a2daec76dce60bc40f4cc732d863767055e0b6927771e8da15",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "97a9c0073a0835aa1af5022fae0c1a643990fc4191a2bb14b4a095b70f74f89e",
+      "bytes": 131116,
+      "sourcePage": "https://date-a-live5th-anime.com/character/shido.php",
+      "sourceUrl": "https://date-a-live5th-anime.com/common/images/character/thumb01.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "이츠카 시도",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 애니메이션 인물 대표 그림. 오리가미는 초기 교복, 나머지는 1기에 등장한 모습만 사용."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "tohka",
+      "character": "야토가미 토카",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_tohka.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_tengu_tohka.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_tengu_tohka.tga",
+      "sourceSha256": "062bcc474ab09f6ce49ed636a91dd91270a9b4e4d25c9f5ddb00ef655d370118",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "37abe6211e5da3174d9783b62bf32ac677c293645ba76f59e024c95ca5cc0f1a",
+      "bytes": 131116,
+      "sourcePage": "https://date-a-live5th-anime.com/character/tohka.php",
+      "sourceUrl": "https://date-a-live5th-anime.com/common/images/character/thumb02.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "야토가미 토카",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 애니메이션 인물 대표 그림. 오리가미는 초기 교복, 나머지는 1기에 등장한 모습만 사용."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "origami",
+      "character": "토비이치 오리가미",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_origami.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_tengu_origami.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_tengu_origami.tga",
+      "sourceSha256": "8c4789a51fa19333c4f92f6d0afeebd2cfe669d48785ac7cd8816a21bc7287c8",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "361fd893aaab28a0f396af92cb1d55650c6588deefb8f9c51ce530868b0034a7",
+      "bytes": 131116,
+      "sourcePage": "https://date-a-live-anime.com/character/character_origami.html",
+      "sourceUrl": "https://date-a-live-anime.com/common/images/2nd/character/character_origami.png",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "토비이치 오리가미",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 애니메이션 인물 대표 그림. 오리가미는 초기 교복, 나머지는 1기에 등장한 모습만 사용."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "kotori",
+      "character": "이츠카 코토리",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "sourceSha256": "ed0f23f1aa5e3b26d4f859fb818aab8346e682aa43de81380167f1548f8d0b79",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "c482f93119a85de64c15e0e2af428edaf02ca0a080f7f16a1fc9c8aab3516c8b",
+      "bytes": 131116,
+      "sourcePage": "https://date-a-live5th-anime.com/character/kotori.php",
+      "sourceUrl": "https://date-a-live5th-anime.com/common/images/character/thumb04.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "이츠카 코토리",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 애니메이션 인물 대표 그림. 오리가미는 초기 교복, 나머지는 1기에 등장한 모습만 사용."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "yoshino",
+      "character": "요시노",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_tengu_yoshino.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga",
+      "sourceSha256": "c04f586a78ad32ac7af068a8344c93c25414f9af70a6635b7389a036e1eb1b69",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "722e4c822b86fda270832c085bb0d1f2de5b51dbcb6e91044c6b9ad826d3d562",
+      "bytes": 131116,
+      "sourcePage": "https://date-a-live5th-anime.com/character/yoshino.php",
+      "sourceUrl": "https://date-a-live5th-anime.com/common/images/character/thumb05.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "요시노",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 애니메이션 인물 대표 그림. 오리가미는 초기 교복, 나머지는 1기에 등장한 모습만 사용."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "kurumi",
+      "character": "토키사키 쿠루미",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_kurumi.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_tengu_kurumi.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_tengu_kurumi.tga",
+      "sourceSha256": "840a273de4171017c2daa68ab078329b38c92ff192f09375b15efd5fac0f394c",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "86098450be60f05181c34d857d5e81bda830d03f8f7498471b0b1e1b98f721f2",
+      "bytes": 131116,
+      "sourcePage": "https://date-a-live5th-anime.com/character/kurumi.php",
+      "sourceUrl": "https://date-a-live5th-anime.com/common/images/character/thumb06.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "토키사키 쿠루미",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 애니메이션 인물 대표 그림. 오리가미는 초기 교복, 나머지는 1기에 등장한 모습만 사용."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "celty",
+      "character": "셀티 스툴루손",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_celty.tga",
+      "sourceSha256": "07d80eaf3298c32cfeea405e6a3c002dda697125b9b163ce830320139e148eff",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "12aa9214faabe87d29f129b4171112f4cf53151ae8c77912d73e52860bc07f22",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon051.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "셀티 스툴루손",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "mikado",
+      "character": "류가미네 미카도",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga",
+      "sourceSha256": "9cfd81ac993283fec03fc352e05f4fe3c5412d425a9203aafc8d9de48a42b570",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "9f9e2aa6c6f0900c601eca395e5c0dd6c82e75d07ab48cfe12b391ce36a005fe",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon082.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "류가미네 미카도",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "masaomi",
+      "character": "키다 마사오미",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_masaomi.tga",
+      "sourceSha256": "3cc27db3a7a6aafcfad91a560853812857d62ca08620bb49c7ed438a812735a5",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "82ac5737cb1d3c9f03c80be57f0ec61e19f39f3c651cf35ef07d58f565ac051e",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon058.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "키다 마사오미",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "anri",
+      "character": "소노하라 안리",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_anri.tga",
+      "sourceSha256": "b2f0dbd8496f1ca8b1924499987918af0be48894a9721f9f6b0c69241c8bf4d7",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "5c9ef9b5fb11c4ce912e2b767bb9a0cfad3aaadcdc409d5a2a58b6226ab45a48",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon048.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "소노하라 안리",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "izaya",
+      "character": "오리하라 이자야",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_izaya.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_izaya.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_izaya.tga",
+      "sourceSha256": "db616499b643238e8c0c0a446612bafb887a29c89f49d3157e3edee4ddf6d9c8",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "b124d52a5cb32b34ede50a1a99a2ebe8ad7050caa9f6ef04121288b7a3ae5357",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon094.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "오리하라 이자야",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "shizuo",
+      "character": "헤이와지마 시즈오",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_shizuo.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_shizuo.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_shizuo.tga",
+      "sourceSha256": "1071d22b85d897de0e1f9e61b80217c10f5ee09d75c0e67dff8dfc242b733816",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "3da87bd94926068cd2e04bd82cae30aaa3af7fd1c101189f55223f4b88025f59",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon056.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "헤이와지마 시즈오",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "shinra",
+      "character": "키시타니 신라",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_shinra.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_shinra.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_shinra.tga",
+      "sourceSha256": "3c814c9608ebccd6d7f1ca844810478be1e137052c8a5d86eb3012e544988905",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "ad10943b7028751f03f7f783feb888d9e7d39495a21343becb0818e23e6b35e4",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon057.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "키시타니 신라",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "kadota",
+      "character": "카도타 쿄헤이",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_kadota.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_kadota.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_kadota.tga",
+      "sourceSha256": "5142599b5de39a9dd25c7ab120c1ac2206af6867ec1e9d828bbeb243b8efb9ed",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "4a2e4ba50243cadf852886526bb698898c52e09cf0bcb57551c5e17e755e0d1f",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara.com/special/present-icon.html",
+      "sourceUrl": "https://www.durarara.com/special/img/present/icon/ketsu/drrr-icon066.jpg",
+      "sourceKind": "official-anime-still",
+      "representativeCharacter": "카도타 쿄헤이",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니 장면 아이콘. 256px 원본으로 512px 카드 그림은 확대본이며 게임 확인 필요."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "frieren",
+      "character": "프리렌",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_frieren.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_frieren.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_frieren.tga",
+      "sourceSha256": "524f936638e644c00ca96e42767de0a00a505e0e57263702fc8c33516c562e31",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "3b1b7448841a06ee7194ade1fc53a7d5b0f43f1c9019ea90cf200fa04d6fcd1c",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/001.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "프리렌",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "fern",
+      "character": "페른",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_fern.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_fern.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_fern.tga",
+      "sourceSha256": "8c4888ca8fbfc928fc35a6a7eaa301a6ae934b80b6bd221e92698ad771257053",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "dff659c74e784c95418807801b1044c850293281c71a11ae687db0b11e15f97e",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/002.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "페른",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "stark",
+      "character": "슈타르크",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_stark.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_stark.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_stark.tga",
+      "sourceSha256": "088c272fdccd7d42d01c2094c085d324f03448d9d1a8657a36af8a4a6a188ecb",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "7ecea25e5ed184aee9166cd0066fe5102d71e313f0d85535e29c3f926a9cd15a",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/003.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "슈타르크",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "himmel",
+      "character": "힘멜",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_himmel.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_himmel.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_himmel.tga",
+      "sourceSha256": "590c1f2a77cbabb23730fe0d05be7681b562fd8166a27d5201feebad88753c14",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "8853a91ea571ca73d6618275fc4fe2ccf6ee180bf5c498e6a06ad2acf56b3029",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/004.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "힘멜",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "heiter",
+      "character": "하이터",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_heiter.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_heiter.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_heiter.tga",
+      "sourceSha256": "5c4e002588ddde563421aefccb5da2a58f237afef1e5ae5600b25be194a7676d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "acf4a9505e238b62007a969e1a5547109201bb93d1ece2ed9caf32a6c180bc7d",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/005.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "하이터",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "eisen",
+      "character": "아이젠",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_eisen.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_eisen.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_eisen.tga",
+      "sourceSha256": "86bde8a754f4498529fe880a686bab744bacddad7c23a175bae39c0b44c9712d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "8925316459d2c5b7504699a24082102db2543a950b469e3360c7244a0022826d",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/006.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "아이젠",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "flamme",
+      "character": "플람메",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_flamme.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_flamme.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_flamme.tga",
+      "sourceSha256": "395c44385b615815c686b265d83483ce4c7d6c31c8111f6775e290f99360c90e",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "d5f383424077020e1b6afed0a0dca2879c9c4ae1ee5b56430bdc716a326fd318",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/007.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "플람메",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "sein",
+      "character": "자인",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_sein.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_sein.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_sein.tga",
+      "sourceSha256": "a44610530e92bd06493e990e2ff532bb3b58a1bdd47f40d4c981a198162496d9",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "bbfc44f0cf33af9cfd6e9dcdca82b4b71cb74e295c03086bfe0eea88fea5a3ba",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/008.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "자인",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "serie",
+      "character": "제리에",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_serie.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_serie.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_serie.tga",
+      "sourceSha256": "458e72945d7168375981d02747abfba574c12318dbcbded9dac133b39ae5f30d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "33093f819948fb5a170705910a149d411f93769b8b7b48e2627b149971812299",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/039.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "제리에",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "denken",
+      "character": "덴켄",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_denken.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_denken.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_denken.tga",
+      "sourceSha256": "c328b13be1a1e42ea75cfd8799f3e77d899d673188f8154e22935b20e5d34978",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "444891bc694de3050e891554a6a723fb0f6ebb5c25050b33b2c012c2752696dd",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/025.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "덴켄",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "lawine",
+      "character": "라비네",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_lawine.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_lawine.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_lawine.tga",
+      "sourceSha256": "ad0a03dcef907358fda36d98b0db0ec1a82fabf7a80a5c5604c990c73c98c2ff",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "aa0257f06dd35f3cde55258b568e8df2034b578ee87391c0477f9fc092d4ef83",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/023.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "라비네",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "kanne",
+      "character": "칸네",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_kanne.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_kanne.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_kanne.tga",
+      "sourceSha256": "2324acc230eac4cb65841f2e5bd67a38dcd38624218522f2d1f46aa2ad558d3a",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "7b02166cefa86204f569bf308efa6edb1dec9997ea46e5d80e1cb6a82f343192",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/special/icon/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/themes/frieren_2023/assets/img/special/icon/024.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "칸네",
+      "semanticRole": "representative-character",
+      "exactStoryScene": false,
+      "note": "공식 배포 애니메이션 장면 아이콘. 1기 인물 대표 그림."
+    },
+    {
+      "world": "amphoreus",
+      "characterKey": "head",
+      "character": "앰포리어스",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_amphoreus_head.tga",
+      "sourceSha256": "74620e5b8c960934e0ae81aebcc511fd530f807beacfcfc47c5f5c79a9842bb0",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "7a5cbf3ab18a21fbb059b61669f4963e868078ad4c6ec68af4935ae6dfd86cd6",
+      "bytes": 131116,
+      "sourcePage": "https://hsr.hoyoverse.com/ko-kr/world",
+      "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/127019/7bce155666cd119ba2983c6ca0359d4c_8493561400547789915.png",
+      "sourceKind": "official-game",
+      "representativeCharacter": "앰포리어스",
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "note": "작품 또는 지역 대표 표지. 실제 사건 장면/정사 장면의 직접 묘사로 간주하지 않음."
+    },
+    {
+      "world": "phantom_blood",
+      "characterKey": "head",
+      "character": "죠죠의 기묘한 모험 1부 팬텀 블러드",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_phantom_blood_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_phantom_blood_head.tga",
+      "sourceSha256": "ff87ad721816c1acc78352bc71a0f6a0c67537679e308877885024a428376454",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "f653d54237805ca20ca174555ad1d66b0c6634e2ea29b8ed9f94f126a3a20835",
+      "bytes": 131116,
+      "sourcePage": "https://mantan-web.jp/article/20120817dog00m200023000c/photopage/001.html",
+      "sourceUrl": "https://storage.mantan-web.jp/w=254,h=360,f=webp:auto/images/2012/08/17/20120817dog00m200023000c/001_size4.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "죠죠의 기묘한 모험 1부 팬텀 블러드",
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "note": "작품 또는 지역 대표 표지. 실제 사건 장면/정사 장면의 직접 묘사로 간주하지 않음."
+    },
+    {
+      "world": "madolche",
+      "characterKey": "head",
+      "character": "유희왕 마돌체",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_madolche_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_madolche_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_madolche_head.tga",
+      "sourceSha256": "07f7d5dcb036c800daf8d3e75c801d24054aae978578f94e2634616459270aba",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "06729a3f99c6aec3e3c6d76531d3a438054975f19d590008067149eafbad1b40",
+      "bytes": 131116,
+      "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=Madolche%20Chateau&request_locale=en",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/14001430.jpg",
+      "sourceKind": "official-card-art-mirror-ygoprodeck",
+      "representativeCharacter": "유희왕 마돌체",
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "note": "작품 또는 지역 대표 표지. 실제 사건 장면/정사 장면의 직접 묘사로 간주하지 않음."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "head",
+      "character": "데이트 어 라이브",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_tengu_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_tengu_head.tga",
+      "sourceSha256": "83e049346b2d90b80df5193239f2a705e0b1496753a68322304fc1700c0a8f85",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "c149a3321d9fea1ab3b9a586dc8aecbcb1ddb2e0d3af4191f9308d60a336368b",
+      "bytes": 131116,
+      "sourcePage": "https://en.wikipedia.org/wiki/File:Date_A_Live_poster.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/en/c/cc/Date_A_Live_poster.jpg",
+      "sourceKind": "official-anime-keyvisual-mirror",
+      "representativeCharacter": "데이트 어 라이브",
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "note": "작품 또는 지역 대표 표지. 실제 사건 장면/정사 장면의 직접 묘사로 간주하지 않음."
+    },
+    {
+      "world": "ikebukuro",
+      "characterKey": "head",
+      "character": "듀라라라",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_ikebukuro_head.tga",
+      "sourceSha256": "0b4773ac18925da0f8e96ab119fe0e1dc2bed45a819c71d6388a22424fbe24b0",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "b0166dccc322de822ec879b3d482d50769b749fe1f4071c01e55cbd117e34ca0",
+      "bytes": 131116,
+      "sourcePage": "https://www.durarara2usa.com/",
+      "sourceUrl": "https://www.durarara2usa.com/img/top/KV_ketsu.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "듀라라라",
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "note": "작품 또는 지역 대표 표지. 실제 사건 장면/정사 장면의 직접 묘사로 간주하지 않음."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "head",
+      "character": "장송의 프리렌",
+      "role": "eventThumbnail",
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_head.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\v3\\war3mapImported\\UI_EventThumb_XP_frieren_head.tga",
+      "size": [
+        256,
+        128
+      ],
+      "displayAspect": 1.7777777777777777,
+      "source": "war3mapImported\\UI_Event_XP_frieren_head.tga",
+      "sourceSha256": "4214e8ad502bd2420f67cc253ef2d77f14eb10e4ea47431ad10edc0b02a4108a",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "f392f5492dd1a8bfd8795ef421b8e4f76e5512ac8af791f257f5fd117686433b",
+      "bytes": 131116,
+      "sourcePage": "https://frieren-anime.jp/news/232/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2023/08/news0823.jpg",
+      "sourceKind": "official-anime",
+      "representativeCharacter": "장송의 프리렌",
+      "semanticRole": "world-cover",
+      "exactStoryScene": false,
+      "note": "작품 또는 지역 대표 표지. 실제 사건 장면/정사 장면의 직접 묘사로 간주하지 않음."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "scene_first_spirit",
+      "character": "토카와의 첫 만남",
+      "role": "eventThumbnail",
+      "source": "war3mapImported\\UI_Event_XP_tengu_scene_first_spirit.tga",
+      "sourceSha256": "db0d7b9caf3ca1d9cd782f37691757a246f4f3418e21ec67e6b4972882db6a97",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_spirit.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v3\\war3mapImported\\UI_EventThumb_XP_tengu_scene_first_spirit.tga",
+      "sha256": "8cc94d24db5cc0de29e84249d6e343197beac74b8adb72e8046d0118279214d2",
+      "bytes": 131116,
+      "size": [
+        256,
+        128
+      ],
+      "sourceKind": "official-anime-episode-still",
+      "sourcePage": "https://date-a-live-anime.com/1st-2nd/story/season1_01.html",
+      "sourceUrl": "https://date-a-live-anime.com/1st-2nd/common/images/story/st01/story_mainvisual.jpg",
+      "semanticRole": "exact-episode-scene",
+      "exactStoryScene": true,
+      "episode": 1,
+      "season": 1,
+      "eventKeys": [
+        "tengu_main_01"
+      ],
+      "note": "정령 복장의 토카가 경계하는 표정으로 정면을 바라보는 근접 장면.",
+      "mappingReviewDecision": "approve",
+      "mappingReviewFile": "content/expansion-drafts/scene-match-review.json",
+      "visibleCharacters": [
+        "야토가미 토카"
+      ],
+      "sceneMatchReason": "첫 대면 시점과 경계하는 인물 표정이 사건 도입 및 두 번째 선택의 관찰과 맞는다."
+    },
+    {
+      "world": "tengu",
+      "characterKey": "scene_first_date",
+      "character": "토카의 첫 데이트",
+      "role": "eventThumbnail",
+      "source": "war3mapImported\\UI_Event_XP_tengu_scene_first_date.tga",
+      "sourceSha256": "b32d4d8f54f45cd45ea3abedafd1bf00ed2cb63f2609a0b79d52319caf988c9a",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "target": "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_date.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v3\\war3mapImported\\UI_EventThumb_XP_tengu_scene_first_date.tga",
+      "sha256": "0b176e366c54568cf5170469acaffa58a6bb1a725cbf2be6039c0fdb8067c6b7",
+      "bytes": 131116,
+      "size": [
+        256,
+        128
+      ],
+      "sourceKind": "official-anime-episode-still",
+      "sourcePage": "https://date-a-live-anime.com/1st-2nd/story/season1_03.html",
+      "sourceUrl": "https://date-a-live-anime.com/1st-2nd/common/images/story/st03/story_mainvisual.jpg",
+      "semanticRole": "exact-episode-scene",
+      "exactStoryScene": true,
+      "episode": 3,
+      "season": 1,
+      "eventKeys": [
+        "tengu_main_03"
+      ],
+      "note": "교복 차림의 토카가 크레이프를 들고 웃으며 시도와 마주한다.",
+      "mappingReviewDecision": "approve",
+      "mappingReviewFile": "content/expansion-drafts/scene-match-review.json",
+      "visibleCharacters": [
+        "야토가미 토카",
+        "이츠카 시도"
+      ],
+      "sceneMatchReason": "거리의 가게와 먹거리를 처음 경험하는 사건 내용에 직접 대응한다."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "scene_stark_courage",
+      "character": "도끼를 든 슈타르크",
+      "role": "eventThumbnail",
+      "source": "war3mapImported\\UI_Event_XP_frieren_scene_stark_courage.tga",
+      "sourceSha256": "5de7d4a0c5acb6e594881f4057578c427580c5db4e445263fe04f177c27ef06f",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_scene_stark_courage.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v3\\war3mapImported\\UI_EventThumb_XP_frieren_scene_stark_courage.tga",
+      "sha256": "4be72230cf544388375bbf3571b11ac455907dce47b8034c7a14d2467bca0b05",
+      "bytes": 131116,
+      "size": [
+        256,
+        128
+      ],
+      "sourceKind": "official-anime-episode-still",
+      "sourcePage": "https://frieren-anime.jp/story/1st/ep06/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2023/10/01_01.jpg",
+      "semanticRole": "exact-episode-scene",
+      "exactStoryScene": true,
+      "episode": 6,
+      "season": 1,
+      "eventKeys": [
+        "fr_main_05"
+      ],
+      "note": "슈타르크가 숲속에서 도끼를 어깨에 걸치고 서 있다.",
+      "mappingReviewDecision": "approve",
+      "mappingReviewFile": "content/expansion-drafts/scene-match-review.json",
+      "visibleCharacters": [
+        "슈타르크"
+      ],
+      "sceneMatchReason": "슈타르크의 두려움과 출발 전 결심이라는 동일한 사건 범위에 속한다."
+    },
+    {
+      "world": "frieren",
+      "characterKey": "scene_northward",
+      "character": "세 사람이 이어가는 여행",
+      "role": "eventThumbnail",
+      "source": "war3mapImported\\UI_Event_XP_frieren_scene_northward.tga",
+      "sourceSha256": "5af4ae55e8f6e5203aca120470b9de6741bef85087e5b99b73c3b81e33e33f8d",
+      "sourceSize": [
+        256,
+        256
+      ],
+      "contentBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sourceAspect": 1.7777777777777777,
+      "crop": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "target": "war3mapImported\\UI_EventThumb_XP_frieren_scene_northward.tga",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v3\\war3mapImported\\UI_EventThumb_XP_frieren_scene_northward.tga",
+      "sha256": "3a37ae226d3801b09bfa2e183bc8289a2f4995f0700e1abd6c3b65a25bdf8eea",
+      "bytes": 131116,
+      "size": [
+        256,
+        128
+      ],
+      "sourceKind": "official-anime-episode-still",
+      "sourcePage": "https://frieren-anime.jp/story/1st/ep28/",
+      "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2024/03/01_04-5.jpg",
+      "semanticRole": "exact-episode-scene",
+      "exactStoryScene": true,
+      "episode": 28,
+      "season": 1,
+      "eventKeys": [
+        "fr_main_12"
+      ],
+      "note": "세 사람이 맑은 하늘 아래 길을 향해 등을 보인 채 나란히 서 있다.",
+      "mappingReviewDecision": "approve",
+      "mappingReviewFile": "content/expansion-drafts/scene-match-review.json",
+      "visibleCharacters": [
+        "슈타르크",
+        "프리렌",
+        "페른"
+      ],
+      "sceneMatchReason": "시험 뒤 작별하고 북쪽 길을 이어 가는 main_12 및 마지막 동행 묘사와 맞는다."
     }
   ]
 }

@@ -22,6 +22,40 @@ const assignments = ['first','second'].flatMap(part=>JSON.parse(fs.readFileSync(
   path.join(root,'content/event-images/character-assignment-'+part+'.json'),'utf8')));
 const eventByKey = new Map(worlds.flatMap(world=>world.events.map(event=>[event.key,event])));
 const assignedKeys = new Set(), assignedImages = new Set();
+const expansionAssignments = JSON.parse(fs.readFileSync(path.join(root,'content/event-images/expansion-assignments.json'),'utf8'));
+const sceneReviews = JSON.parse(fs.readFileSync(path.join(root,'content/event-images/expansion-scene-review.json'),'utf8'));
+const expansionEventKeys = new Set();
+for (const assignment of expansionAssignments) {
+  const world=worlds.find(w=>w.world.key===assignment.world);
+  const event=world?.events.find(e=>e.key===assignment.eventKey);
+  assert.ok(event,'추가 사건의 작품·키가 일치하지 않음 '+assignment.eventKey);
+  assert.ok(!expansionEventKeys.has(event.key),'추가 사건 그림 검토 중복 '+event.key);
+  expansionEventKeys.add(event.key);
+  assert.equal(event.icon,assignment.image,'검토한 추가 사건 그림과 다름 '+event.key);
+  const asset=manifest.assets.find(a=>a.target===assignment.image);
+  assert.ok(asset && asset.world===assignment.world,'다른 작품의 사건 그림 '+event.key);
+  assert.equal(asset.representativeCharacter,assignment.character,'대표 인물 기록 불일치 '+event.key);
+  if (assignment.kind==='official-episode-scene') {
+    const review=sceneReviews.decisions.find(r=>r.approvedEventKey===event.key && r.decision==='approve');
+    assert.ok(review && review.world===assignment.world,'승인된 회차 장면 검토 없음 '+event.key);
+    assert.equal(review.asset.target,assignment.image,'승인한 회차 장면과 다른 이미지 '+event.key);
+    assert.equal(review.asset.sha256,asset.newHash,'검토한 장면 파일 변경 '+event.key);
+    assert.equal(review.asset.episode,asset.episode,'다른 회차로 변경됨 '+event.key);
+    assert.equal(asset.sourceKind,'official-anime-episode-still');
+    assert.equal(assignment.exactStoryScene,true);
+    assert.ok(review.visualEvidence && review.officialEpisodeEvidence && review.decisionReason,'장면 검토 근거 누락');
+  } else {
+    assert.equal(assignment.exactStoryScene,false,'인물·표지를 실제 사건 장면으로 기록하면 안 됨');
+    assert.ok(['representative-character','world-keyvisual'].includes(assignment.kind),'추가 그림 분류 오류');
+    assert.equal(asset.characterKey==='head',assignment.kind==='world-keyvisual','인물 그림과 작품 표지 혼동 '+event.key);
+  }
+  assert.ok(assignment.evidence && (event.intro+'\n'+event.story).includes(assignment.evidence),'본문에 없는 추가 그림 선정 근거 '+event.key);
+  assert.ok(assignment.reason && assignment.sourcePage,'추가 그림 선정 이유·출처 누락 '+event.key);
+}
+for (const worldKey of new Set(expansionAssignments.map(row=>row.world))) {
+  const world=worlds.find(w=>w.world.key===worldKey);
+  assert.ok(world.events.every(e=>expansionEventKeys.has(e.key)),'추가 작품에서 그림 선정 검토가 빠진 사건 '+worldKey);
+}
 const regionalReview = JSON.parse(fs.readFileSync(path.join(root,'content/event-images/regional-fallback-review.json'),'utf8'));
 const regionalKeys = new Set(regionalReview.map(row=>row.eventKey));
 assert.equal(regionalKeys.size,regionalReview.length,'지역 대표 그림 검토 중복');
@@ -230,7 +264,7 @@ for (const [width,height] of [[0,0],[0,900],[1600,0]]) {
   assert.equal(current.h,lastImage.h, '클라이언트 크기가 0일 때 마지막 비율을 보존해야 함');
 }
 console.log(JSON.stringify({events:e.PROTO_EVENT_COUNT,entries,explicitImages,regionalImages,commonImages,
-  characterAssignments:assignments.length,characterTextureHashes:assignedImages.size,
+  characterAssignments:assignments.length,expansionAssignments:expansionAssignments.length,characterTextureHashes:assignedImages.size,
   uniqueTextures:images.size,eventTextureHashes:manifest.assets.length,thumbnailHashes:thumbnailTargets.size,sourceHashes:thumbnailBySource.size,
   mockScenes,candidateChecks,storyChecks,resolutions,zeroSizeChecks:3,textureRoot,
   checks:'source and thumbnail hashes, opaque 256x128 RGBA32, crop bounds and 16:9 aspect, event mapping, all candidates at 1-4 choices, consistent image dimensions, nonoverlapping frames, story frames, zero size guard',

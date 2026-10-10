@@ -245,5 +245,119 @@
       1884,
       1849
     ]
+  },
+  {
+    "cardId": 994,
+    "cardKey": "amphoreus_main_ending_memorial",
+    "cardName": "미래에 남겨 둔 불씨",
+    "world": "amphoreus",
+    "icon": "UI_Card_XP_amphoreus_head_Icon",
+    "art": "UI_Card_XP_amphoreus_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\amphoreus\\cover_bright_final.png",
+    "sourceSha256": "13f4ca22a7698d2dd29a7f9a71e06d6cd52e69950826b4ad439ecf817e95ed29",
+    "sourcePage": "https://hsr.hoyoverse.com/ko-kr/world",
+    "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/127019/7bce155666cd119ba2983c6ca0359d4c_8493561400547789915.png",
+    "credit": "HoYoverse / COGNOSPHERE. 개별 작가명은 공식 페이지에 확인되지 않음.",
+    "crop": [
+      145,
+      30,
+      434,
+      319
+    ]
+  },
+  {
+    "cardId": 1034,
+    "cardKey": "phantom_blood_ending_memorial",
+    "cardName": "마지막 파문",
+    "world": "phantom_blood",
+    "icon": "UI_Card_XP_phantom_blood_head_Icon",
+    "art": "UI_Card_XP_phantom_blood_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\phantom_blood\\cover_press.webp",
+    "sourceSha256": "d635bc40f1e36cb4a1dd0def399851382fdb8e3111cfdfa78974be222631be68",
+    "sourcePage": "https://mantan-web.jp/article/20120817dog00m200023000c/photopage/001.html",
+    "sourceUrl": "https://storage.mantan-web.jp/w=254,h=360,f=webp:auto/images/2012/08/17/20120817dog00m200023000c/001_size4.jpg",
+    "credit": "荒木飛呂彦 / 集英社 / ジョジョの奇妙な冒険製作委員会",
+    "crop": [
+      0,
+      106,
+      254,
+      360
+    ]
+  },
+  {
+    "cardId": 1076,
+    "cardKey": "madolche_ending_memorial",
+    "cardName": "돌아올 자리가 있는 다과회",
+    "world": "madolche",
+    "icon": "UI_Card_XP_madolche_head_Icon",
+    "art": "UI_Card_XP_madolche_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\madolche\\cover_portrait_v2.jpg",
+    "sourceSha256": "09d2e42a8310a9b323c4757439fbde5c517f02d4383a8e2a44f02197706b19a7",
+    "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=Madolche%20Chateau&request_locale=en",
+    "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/14001430.jpg",
+    "credit": "スタジオ・ダイス / 集英社・テレビ東京・KONAMI",
+    "crop": [
+      0,
+      0,
+      624,
+      624
+    ]
+  },
+  {
+    "cardId": 1119,
+    "cardKey": "tengu_main_ending_memorial",
+    "cardName": "텐구시의 기억",
+    "world": "tengu",
+    "icon": "UI_Card_XP_tengu_head_Icon",
+    "art": "UI_Card_XP_tengu_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\tengu\\cover_s1.jpg",
+    "sourceSha256": "7a6721780f0823b688c7ffeebdcc1d50a1a8fbf8ecaaac136c7c9e77f4f07bbd",
+    "sourcePage": "https://en.wikipedia.org/wiki/File:Date_A_Live_poster.jpg",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/en/c/cc/Date_A_Live_poster.jpg",
+    "credit": "©2023 橘公司・つなこ / KADOKAWA / デート・ア・ライブⅤ製作委員会",
+    "crop": [
+      0,
+      38.22,
+      273,
+      311.22
+    ]
+  },
+  {
+    "cardId": 1162,
+    "cardKey": "ikebukuro_main_ending_memorial",
+    "cardName": "이케부쿠로의 기억",
+    "world": "ikebukuro",
+    "icon": "UI_Card_XP_ikebukuro_head_Icon",
+    "art": "UI_Card_XP_ikebukuro_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\cover_portrait.jpg",
+    "sourceSha256": "69f3cf26e1138678be6941caa19f63ca695d52b886affa87e8e450a91acae3c6",
+    "sourcePage": "https://www.durarara2usa.com/",
+    "sourceUrl": "https://www.durarara2usa.com/img/top/KV_ketsu.jpg",
+    "credit": "©2014 Ryohgo Narita / KADOKAWA CORPORATION ASCII MEDIA WORKS / Ikebukuro Dollars",
+    "crop": [
+      0,
+      125.59999999999997,
+      704,
+      829.5999999999999
+    ]
+  },
+  {
+    "cardId": 1208,
+    "cardKey": "fr_ending",
+    "cardName": "프리렌 일행",
+    "world": "frieren",
+    "icon": "UI_Card_XP_frieren_head_Icon",
+    "art": "UI_Card_XP_frieren_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\frieren\\cover_portrait_v2.jpg",
+    "sourceSha256": "ee496b9a640c8d26d05f80fd7eaeb173522eef1139fd2d1d039334d598ac0ece",
+    "sourcePage": "https://frieren-anime.jp/news/232/",
+    "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2023/08/news0823.jpg",
+    "credit": "山田鐘人・アベツカサ / 小学館 / 葬送のフリーレン製作委員会",
+    "crop": [
+      0,
+      246,
+      600,
+      846
+    ]
   }
 ]

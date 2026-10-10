@@ -13,8 +13,8 @@ const registrations = [...registry.matchAll(/call SetImages\((\d+), "([^"]+)", "
 assert.equal(new Set(registrations.map(x=>x.id)).size, registrations.length, '중복 그림 등록 ID');
 const paths = new Set(manifest.assets.map(x=>x.target));
 assert.equal(paths.size, manifest.assets.length, '중복 맵 경로');
-assert.equal(sources.length, 13);
 const t = fresh(0, true), e = t.e;
+assert.equal(sources.length, Array.from({length:e.PROTO_CARD_LAST-e.PROTO_CARD_FIRST+1},(_,i)=>i+e.PROTO_CARD_FIRST).filter(id=>e.ProtoCardEnding[id]===1).length,'모든 엔딩 기념 카드의 그림 출처 필요');
 for (const x of registrations) e.SetImages(x.id, x.icon, x.art);
 const group = new Map();
 for (const x of index) {

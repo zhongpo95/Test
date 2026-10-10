@@ -1,0 +1,3113 @@
+{
+  "world": {
+    "key": "amphoreus",
+    "name": "앰포리어스",
+    "work": "붕괴 스타레일",
+    "intro": "검은 물결에 잠식되는 세계에서 황금의 후예들이 불씨를 모은다. 오크마의 첫 만남부터 철묘와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다.",
+    "effects": [
+      {
+        "stat": "boss_damage_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "amph_tribbie",
+    "mainStory": {
+      "title": "불씨가 남긴 내일",
+      "length": 16,
+      "focus": [
+        "boss_damage_percent",
+        "crit_chance",
+        "healthy_damage"
+      ],
+      "source": "게임 3.0~3.7 앰포리어스 개척 임무. 버전별 공식 개발자 소개와 공식 회고 자료의 공개 전사를 대조했다.",
+      "adaptation": "공식 사건의 큰 순서와 결말을 유지한다. 방문자의 반응, 선택 대사, 일상 기억과 능력치 보상은 창작이며 세 행동은 같은 다음 장으로 이어진다."
+    },
+    "icon": "war3mapImported\\UI_Card_XP_amphoreus_head_Icon.tga",
+    "entryIcon": "war3mapImported\\UI_Event_XP_amphoreus_head.tga"
+  },
+  "sources": [
+    "https://www.hoyoverse.com/en-us/news/127975",
+    "https://www.hoyolab.com/article/36952116",
+    "https://www.hoyolab.com/article/37796159",
+    "https://www.hoyolab.com/article/38595197",
+    "https://www.hoyoverse.com/en-us/news/155941",
+    "https://www.hoyolab.com/article/39337933",
+    "https://www.hoyoverse.com/en-us/news/157426",
+    "https://www.hoyolab.com/article/40092794",
+    "https://www.hoyolab.com/article/40938445",
+    "https://www.hoyoverse.com/en-us/news/159572",
+    "https://www.hoyolab.com/article/41832976",
+    "https://www.hoyoverse.com/en-us/news/160640",
+    "https://www.hoyolab.com/article/42304666"
+  ],
+  "canonBoundary": "메인은 3.0~3.7의 주요 전환을 열여섯 장으로 압축한다. 공식 요약의 사건 순서와 희생·계승을 유지하며 전투 세부나 발언을 원문 인용으로 재현하지 않는다. 방문자의 반응, 서브 사건과 능력치 배분은 창작이다. 서브는 시점이 고정된 메인 바깥의 독립된 과거 기억이므로 사망한 인물이 현재에 생존해 다시 나타난다는 뜻이 아니다. 마지막은 철묘 격파 후 키레네가 과거로 들어가 인과를 닫고 문명의 기억을 남기는 지점까지다. 후일담은 남겨진 기억을 읽는 장면이며 전원 현실 부활을 선언하지 않는다. 체력 소모·부활·불사·시간 조작을 카드 기능으로 지급하지 않고 골드·물약·밀도 보상도 넣지 않는다.",
+  "cards": [
+    {
+      "key": "amph_tribbie",
+      "name": "트리비",
+      "effectName": "갈림길을 잇는 발걸음",
+      "keyword": "신속 · 보스",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개와 3.1 회고의 문과 갈림길을 잇는 트리비를 소재로 한다. 시간 이동 기능을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_phainon",
+      "name": "파이논",
+      "effectName": "남겨진 불씨를 향해",
+      "keyword": "공격 · 보스",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 3.4 소개의 불씨를 운반하는 파이논을 소재로 한 창작 보상이다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_aglaea",
+      "name": "아글라이아",
+      "effectName": "흐트러지지 않는 금실",
+      "keyword": "신속 · 치명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 소개의 재봉과 기억 정령의 합동 전투를 신속과 치명 보상으로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_mydei",
+      "name": "마이데이",
+      "effectName": "물러서지 않는 전선",
+      "keyword": "공격 · 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "체력 소모나 불사 기능은 구현하지 않는 전선 유지 보상이다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_castorice",
+      "name": "카스토리스",
+      "effectName": "놓치지 않는 마지막 빛",
+      "keyword": "대미지 · 흡수",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 2
+        },
+        {
+          "stat": "leech",
+          "value": 1.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "흡수는 ARCANA의 실제 피해 기반 회복이다. 원작 기술과 동일하다고 설명하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_anaxa",
+      "name": "아낙사",
+      "effectName": "남겨 둔 질문",
+      "keyword": "공격 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "분석과 질문을 소재로 한 창작 능력치 배분이며 원작 약점 부여는 구현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_hyacine",
+      "name": "히아킨",
+      "effectName": "다시 걸을 여유",
+      "keyword": "고체력 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "지속 전투 준비를 소재로 하며 소환수나 즉시 회복 기능은 추가하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_cipher",
+      "name": "사이퍼",
+      "effectName": "시선 밖의 한 걸음",
+      "keyword": "이동 · 치명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "교묘한 움직임을 전투 스탯으로 각색하며 골드 훔치기는 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_cyrene",
+      "name": "키레네",
+      "effectName": "기억을 맡기는 손",
+      "keyword": "기억을 맡기는 손",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 2
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기억과 행동을 ARCANA 능력치로 각색한 창작 보상이다. 원작의 초능력을 그대로 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_cerydra",
+      "name": "케리드라",
+      "effectName": "다음 수를 위한 판단",
+      "keyword": "다음 수를 위한 판단",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기억과 행동을 ARCANA 능력치로 각색한 창작 보상이다. 원작의 초능력을 그대로 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_hysilens",
+      "name": "히실렌스",
+      "effectName": "파도 너머의 박자",
+      "keyword": "파도 너머의 박자",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "move_speed",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기억과 행동을 ARCANA 능력치로 각색한 창작 보상이다. 원작의 초능력을 그대로 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amph_tribbie_route",
+      "name": "트리비",
+      "effectName": "한 사람 더 지날 여유",
+      "keyword": "한 사람 더 지날 여유",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기억과 행동을 ARCANA 능력치로 각색한 창작 보상이다. 원작의 초능력을 그대로 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_01_1",
+      "name": "아글라이아",
+      "effectName": "불빛 아래의 사람들",
+      "keyword": "불빛 아래의 사람들",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 불빛 아래의 사람들라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_01_2",
+      "name": "트리비",
+      "effectName": "낯선 문 앞의 안내",
+      "keyword": "낯선 문 앞의 안내",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 낯선 문 앞의 안내라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_01_3",
+      "name": "파이논",
+      "effectName": "처음 맡은 동행",
+      "keyword": "처음 맡은 동행",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 처음 맡은 동행라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_02_1",
+      "name": "파이논",
+      "effectName": "신 앞에 선 사람",
+      "keyword": "신 앞에 선 사람",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "charge_damage",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 신 앞에 선 사람라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_02_2",
+      "name": "마이데이",
+      "effectName": "돌아갈 곳의 전선",
+      "keyword": "돌아갈 곳의 전선",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 돌아갈 곳의 전선라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_02_3",
+      "name": "트리비",
+      "effectName": "불씨 다음의 질문",
+      "keyword": "불씨 다음의 질문",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 불씨 다음의 질문라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_03_1",
+      "name": "아낙사",
+      "effectName": "구해 낸 질문의 자리",
+      "keyword": "구해 낸 질문의 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 구해 낸 질문의 자리라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_03_2",
+      "name": "트리비",
+      "effectName": "여러 목소리의 출발점",
+      "keyword": "여러 목소리의 출발점",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 여러 목소리의 출발점라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_03_3",
+      "name": "히아킨",
+      "effectName": "급한 길의 작은 멈춤",
+      "keyword": "급한 길의 작은 멈춤",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 급한 길의 작은 멈춤라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_04_1",
+      "name": "트리비",
+      "effectName": "잊지 않을 안내",
+      "keyword": "잊지 않을 안내",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 잊지 않을 안내라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_04_2",
+      "name": "마이데이",
+      "effectName": "왕관 밖의 행렬",
+      "keyword": "왕관 밖의 행렬",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 왕관 밖의 행렬라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_04_3",
+      "name": "파이논",
+      "effectName": "남겨진 불씨의 무게",
+      "keyword": "남겨진 불씨의 무게",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 남겨진 불씨의 무게라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_05_1",
+      "name": "카스토리스",
+      "effectName": "경계에서 맞춘 걸음",
+      "keyword": "경계에서 맞춘 걸음",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "leech",
+          "value": 1.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 경계에서 맞춘 걸음라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_05_2",
+      "name": "사이퍼",
+      "effectName": "가벼운 말의 이정표",
+      "keyword": "가벼운 말의 이정표",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 가벼운 말의 이정표라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_05_3",
+      "name": "히아킨",
+      "effectName": "내일에 남겨 둔 자리",
+      "keyword": "내일에 남겨 둔 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 내일에 남겨 둔 자리라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_06_1",
+      "name": "아낙사",
+      "effectName": "근거를 남긴 한 표",
+      "keyword": "근거를 남긴 한 표",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 근거를 남긴 한 표라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_06_2",
+      "name": "아글라이아",
+      "effectName": "모두에게 닿을 설명",
+      "keyword": "모두에게 닿을 설명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 모두에게 닿을 설명라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_06_3",
+      "name": "파이논",
+      "effectName": "대답 뒤의 책임",
+      "keyword": "대답 뒤의 책임",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 대답 뒤의 책임라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_07_1",
+      "name": "히아킨",
+      "effectName": "전승 밖의 생명",
+      "keyword": "전승 밖의 생명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 7
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 전승 밖의 생명라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_07_2",
+      "name": "파이논",
+      "effectName": "함께 짊어진 하늘",
+      "keyword": "함께 짊어진 하늘",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 함께 짊어진 하늘라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_07_3",
+      "name": "아글라이아",
+      "effectName": "남은 금실의 방향",
+      "keyword": "남은 금실의 방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 남은 금실의 방향라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_08_1",
+      "name": "사이퍼",
+      "effectName": "거짓이 지킨 여명",
+      "keyword": "거짓이 지킨 여명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 거짓이 지킨 여명라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_08_2",
+      "name": "파이논",
+      "effectName": "마지막 불씨의 길",
+      "keyword": "마지막 불씨의 길",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 마지막 불씨의 길라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_08_3",
+      "name": "히아킨",
+      "effectName": "어둠 속에 남은 곁",
+      "keyword": "어둠 속에 남은 곁",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 어둠 속에 남은 곁라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_09_1",
+      "name": "파이논",
+      "effectName": "영웅 이전의 이름",
+      "keyword": "영웅 이전의 이름",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 영웅 이전의 이름라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_09_2",
+      "name": "키레네",
+      "effectName": "반복 속의 하루",
+      "keyword": "반복 속의 하루",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 7
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 반복 속의 하루라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_09_3",
+      "name": "아낙사",
+      "effectName": "계산 밖에 남은 삶",
+      "keyword": "계산 밖에 남은 삶",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 계산 밖에 남은 삶라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_10_1",
+      "name": "파이논",
+      "effectName": "이어받은 첫 발",
+      "keyword": "이어받은 첫 발",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 이어받은 첫 발라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_10_2",
+      "name": "키레네",
+      "effectName": "나누어 든 기억",
+      "keyword": "나누어 든 기억",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 나누어 든 기억라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_10_3",
+      "name": "트리비",
+      "effectName": "다른 답을 위한 길",
+      "keyword": "다른 답을 위한 길",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 다른 답을 위한 길라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_11_1",
+      "name": "히실렌스",
+      "effectName": "파도 아래의 판단",
+      "keyword": "파도 아래의 판단",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "moving_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 파도 아래의 판단라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_11_2",
+      "name": "케리드라",
+      "effectName": "판 위에 놓은 진심",
+      "keyword": "판 위에 놓은 진심",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 판 위에 놓은 진심라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_11_3",
+      "name": "키레네",
+      "effectName": "시간을 건너온 약속",
+      "keyword": "시간을 건너온 약속",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 시간을 건너온 약속라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_12_1",
+      "name": "케리드라",
+      "effectName": "끝을 미룬 한 수",
+      "keyword": "끝을 미룬 한 수",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 끝을 미룬 한 수라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_12_2",
+      "name": "히실렌스",
+      "effectName": "이별 뒤의 항로",
+      "keyword": "이별 뒤의 항로",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 9
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 이별 뒤의 항로라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_12_3",
+      "name": "아낙사",
+      "effectName": "끊기지 않은 검증",
+      "keyword": "끊기지 않은 검증",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 끊기지 않은 검증라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_13_1",
+      "name": "키레네",
+      "effectName": "지우지 않을 흔적",
+      "keyword": "지우지 않을 흔적",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 지우지 않을 흔적라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_13_2",
+      "name": "트리비",
+      "effectName": "되찾을 길의 표식",
+      "keyword": "되찾을 길의 표식",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 되찾을 길의 표식라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_13_3",
+      "name": "아낙사",
+      "effectName": "구원의 전제를 묻다",
+      "keyword": "구원의 전제를 묻다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 구원의 전제를 묻다라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_14_1",
+      "name": "키레네",
+      "effectName": "마지막 문턱의 기억",
+      "keyword": "마지막 문턱의 기억",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 9
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 마지막 문턱의 기억라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_14_2",
+      "name": "파이논",
+      "effectName": "고독을 잇는 동행",
+      "keyword": "고독을 잇는 동행",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 고독을 잇는 동행라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_14_3",
+      "name": "히아킨",
+      "effectName": "서사시 밖의 하루",
+      "keyword": "서사시 밖의 하루",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 서사시 밖의 하루라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_15_1",
+      "name": "파이논",
+      "effectName": "함께 끝내는 전선",
+      "keyword": "함께 끝내는 전선",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 함께 끝내는 전선라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_15_2",
+      "name": "키레네",
+      "effectName": "사라지지 않을 이름",
+      "keyword": "사라지지 않을 이름",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 사라지지 않을 이름라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_15_3",
+      "name": "트리비",
+      "effectName": "모두가 연 마지막 길",
+      "keyword": "모두가 연 마지막 길",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사건에 대한 방문자의 반응을 모두가 연 마지막 길라는 기억과 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "amphoreus_main_ending_memorial",
+      "name": "미래에 남겨 둔 불씨",
+      "effectName": "미래에 남겨 둔 불씨",
+      "keyword": "미래에 남겨 둔 불씨",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "3.7 결말을 기억하는 기념 카드다. 전원 현실 부활이나 원작의 시간 조작 기능을 지급하지 않는다.",
+      "uncertain": [],
+      "endingCard": true
+    }
+  ],
+  "events": [
+    {
+      "key": "amphoreus_main_01",
+      "title": "여명이 머무는 도시",
+      "intro": "검은 물결 너머에 오크마의 빛이 남아 있다.",
+      "story": "개척자와 단항이 앰포리어스에 도착한다. 아글라이아는 세계를 잠식하는 검은 물결과 불씨를 되찾는 여정을 설명한다. 트리비의 안내를 따라 도시를 보니, 구해야 할 세계에는 이름 모를 사람들의 일상도 있었다.",
+      "actionCost": 1,
+      "mainStage": 1,
+      "choices": [
+        {
+          "label": "도시가 지키는 사람들의 얼굴을 본다",
+          "result": "거대한 예언을 듣기 전에 이곳에서 살아가는 사람들을 기억한다.",
+          "card": "amphoreus_main_01_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "트리비에게 다음 길의 표식을 묻는다",
+          "result": "처음 걷는 길에서 혼자 아는 척하지 않고 안내를 받아들인다.",
+          "card": "amphoreus_main_01_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "불씨를 되찾는 일에 힘을 보태겠다고 한다",
+          "result": "파이논이 향하는 길의 무게를 아직 다 모르지만 첫발을 함께 정한다.",
+          "card": "amphoreus_main_01_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "도시의 환대는 여정의 시작이 된다. 일행은 황금의 후예들과 불씨를 되찾을 길로 나선다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_aglaea.tga"
+    },
+    {
+      "key": "amphoreus_main_02",
+      "title": "신에게 닿는 첫 발",
+      "intro": "분쟁의 타이탄 앞에서 인간의 도전이 시작된다.",
+      "story": "파이논과 마이데이, 개척자는 니카도르에게 맞서는 길에 선다. 신의 힘을 마주한 뒤에는 용맹이라는 말만으로 설명되지 않는 무게가 남는다. 승리와 불씨의 회수 뒤에도 그것을 이어받을 시련은 끝나지 않는다.",
+      "actionCost": 1,
+      "mainStage": 2,
+      "choices": [
+        {
+          "label": "파이논의 결심이 꺾이지 않게 곁을 지킨다",
+          "result": "먼저 나선 사람의 등을 혼자 두지 않겠다는 뜻을 전한다.",
+          "card": "amphoreus_main_02_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마이데이가 지키려는 전선을 살핀다",
+          "result": "돌파한 자리 뒤에도 지켜야 할 사람들이 남아 있음을 본다.",
+          "card": "amphoreus_main_02_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "승리 뒤 이어질 과정을 묻는다",
+          "result": "트리비의 안내를 들으며 불씨를 얻는 일과 맡는 일이 다름을 기억한다.",
+          "card": "amphoreus_main_02_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "불씨를 향한 첫 도전은 다음 시련으로 이어진다. 후예들이 치러야 할 대가가 조금씩 드러난다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_phainon.tga"
+    },
+    {
+      "key": "amphoreus_main_03",
+      "title": "숲에 남겨진 질문",
+      "intro": "검은 물결 속에서 지식과 기억을 건져 올린다.",
+      "story": "위기에 놓인 신성한 숲에서 일행은 아낙사와 그가 품은 불씨를 구하려 한다. 트리비는 오랜 기억을 통해 불을 쫓는 여정의 기원을 보여 준다. 예언은 처음부터 답이 적힌 종이처럼 단순하지 않았다.",
+      "actionCost": 1,
+      "mainStage": 3,
+      "choices": [
+        {
+          "label": "아낙사가 끝내려던 설명을 듣는다",
+          "result": "결론보다 무엇을 알아내려 했는지에 먼저 귀를 기울인다.",
+          "card": "amphoreus_main_03_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "트리비의 기억 속 사람들을 기억한다",
+          "result": "오래된 이야기에서도 사라지지 않은 바람을 찾아본다.",
+          "card": "amphoreus_main_03_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다친 이들을 살피는 히아킨을 돕는다",
+          "result": "급한 상황에서도 누가 뒤처졌는지 살피는 손길을 배운다.",
+          "card": "amphoreus_main_03_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "구해 낸 지식과 오래된 기억은 여정의 뜻을 다시 묻게 한다. 일행은 시련에서 돌아올 동료를 기다린다.",
+        "nodes": [
+          {
+            "key": "first_question",
+            "story": "기억을 보고 난 뒤에도 아낙사의 질문은 남는다. 오래 이어졌다는 이유만으로 모든 결론을 믿어도 될까?",
+            "choices": [
+              {
+                "label": "확인한 사실과 믿고 싶은 말을 구분한다",
+                "result": "불안을 없애려 서둘러 답을 만들지 않는다."
+              },
+              {
+                "label": "사람들이 왜 그 말을 필요로 했는지 묻는다",
+                "result": "예언을 지탱한 마음도 검토할 가치가 있음을 기억한다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_anaxa.tga"
+    },
+    {
+      "key": "amphoreus_main_04",
+      "title": "왕조보다 오래 남을 사람",
+      "intro": "마이데이가 시련에서 돌아오지만 이별도 함께 온다.",
+      "story": "마이데이는 분쟁의 힘을 이어받고 일행과 불씨를 지킨다. 트리안느는 힘을 다한 뒤 쓰러지고, 검은 물결은 여전히 사람들을 위협한다. 마이데이가 끝내려는 것은 피를 요구해 온 왕조의 유산이지 살아남은 사람들의 내일이 아니다.",
+      "actionCost": 1,
+      "mainStage": 4,
+      "choices": [
+        {
+          "label": "쓰러진 안내자의 마지막 길을 기억한다",
+          "result": "당연하게 따르던 안내에도 누군가의 힘이 필요했음을 돌아본다.",
+          "card": "amphoreus_main_04_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마이데이가 사람들을 데려오는 쪽을 돕는다",
+          "result": "거창한 승리보다 함께 빠져나올 사람의 수를 먼저 헤아린다.",
+          "card": "amphoreus_main_04_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "남은 동료에게 이어 갈 뜻을 묻는다",
+          "result": "파이논과 함께 상실을 덮어 두지 않고 다음 길을 정한다.",
+          "card": "amphoreus_main_04_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마이데이는 왕조의 굴레를 끝내고 사람들의 길을 지킨다. 함께 오지 못한 이들의 기억도 여정에 남는다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_mydei.tga"
+    },
+    {
+      "key": "amphoreus_main_05",
+      "title": "돌려받아야 할 내일",
+      "intro": "카스토리스와 함께 죽음의 경계로 향한다.",
+      "story": "개척자는 빼앗긴 자신의 미래를 되찾아야 한다는 사실을 알게 된다. 사이퍼의 안내로 카스토리스와 스틱시아에 이른다. 카스토리스가 지나는 죽음의 경계에서 필요한 것은 두려움을 모른 척하는 용기가 아니었다.",
+      "actionCost": 1,
+      "mainStage": 5,
+      "choices": [
+        {
+          "label": "카스토리스가 감당하는 거리를 존중한다",
+          "result": "다가가기 어려운 이유를 결함으로 여기지 않고 그녀의 속도를 따른다.",
+          "card": "amphoreus_main_05_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이퍼의 안내에서 놓친 표식을 찾는다",
+          "result": "가벼운 말투 뒤에 있는 길 안내를 주의 깊게 받아 적는다.",
+          "card": "amphoreus_main_05_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "돌아온 뒤 지키고 싶은 하루를 떠올린다",
+          "result": "히아킨에게서 보았던 돌봄을 기억하며 다음 하루의 모습을 그린다.",
+          "card": "amphoreus_main_05_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "카스토리스의 여정은 죽음의 불씨와 개척자의 미래를 되찾는 데 이른다. 그녀는 죽음의 경계를 맡아 새로운 역할을 이어간다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_castorice.tga"
+    },
+    {
+      "key": "amphoreus_main_06",
+      "title": "이유를 묻는 한 표",
+      "intro": "아낙사는 시민들 앞에 검증할 주장을 놓는다.",
+      "story": "시민들의 판단이 모이는 자리에서 아낙사는 세계의 창조에 관한 가설을 제시한다. 여정을 이어 갈 근거는 권위만으로 정해지지 않는다. 그가 이성의 불씨를 돌려놓으며 남긴 것은 이후에도 멈추지 않을 질문이었다.",
+      "actionCost": 1,
+      "mainStage": 6,
+      "choices": [
+        {
+          "label": "주장이 어떤 근거에 서 있는지 확인한다",
+          "result": "아낙사의 말에 동의하더라도 확인하는 과정은 생략하지 않는다.",
+          "card": "amphoreus_main_06_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시민들이 듣기 어려워하는 부분을 짚는다",
+          "result": "아글라이아가 지켜 온 도시에서 누구나 판단할 수 있게 말을 정리한다.",
+          "card": "amphoreus_main_06_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "결정 뒤 책임질 일을 함께 정한다",
+          "result": "파이논과 함께 동의한 뜻이 말로만 끝나지 않도록 생각한다.",
+          "card": "amphoreus_main_06_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "여정은 계속된다. 아낙사는 자신의 목숨과 함께 이성의 불씨를 돌려놓고, 남은 사람들은 그의 질문을 이어받는다.",
+        "nodes": [
+          {
+            "key": "after_reason",
+            "story": "한 사람의 설명이 끝나도 모든 질문이 사라지는 것은 아니다. 기록의 다음 줄을 어떤 태도로 읽을까?",
+            "choices": [
+              {
+                "label": "틀릴 가능성도 기록한다",
+                "result": "좋은 설명을 영원한 정답으로 굳히지 않기로 한다."
+              },
+              {
+                "label": "다음 사람이 확인할 단서를 남긴다",
+                "result": "질문이 한 사람의 죽음과 함께 끊기지 않게 한다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_anaxa.tga"
+    },
+    {
+      "key": "amphoreus_main_07",
+      "title": "거짓 전승 위의 하늘",
+      "intro": "히아킨은 아퀼라와 맞서는 진실을 마주한다.",
+      "story": "아글라이아의 죽음 뒤 파이논이 여정을 이끈다. 하늘로 향한 히아킨은 조상들의 승리에 가려졌던 진실을 알게 된다. 아퀼라와의 싸움에서 일행이 지키려는 것은 완벽한 전승보다 지금 하늘 아래 살아 있는 사람들이다.",
+      "actionCost": 1,
+      "mainStage": 7,
+      "choices": [
+        {
+          "label": "히아킨이 지금 살릴 사람을 먼저 찾는다",
+          "result": "지난 영광이 무너져도 눈앞에서 도울 일은 사라지지 않는다.",
+          "card": "amphoreus_main_07_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "새 지도자가 된 파이논과 역할을 나눈다",
+          "result": "모든 결정을 한 사람에게 몰아주지 않겠다고 마음먹는다.",
+          "card": "amphoreus_main_07_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아글라이아가 남긴 뜻을 되짚는다",
+          "result": "떠난 사람을 흠 없는 상징으로 만들기보다 도시를 향했던 뜻을 기억한다.",
+          "card": "amphoreus_main_07_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "아퀼라를 쓰러뜨린 뒤 여명 장치가 꺼진다. 히아킨은 하늘의 불씨를 돌려놓고 검은 물결을 막는 무지갯빛 방패가 되어 사람들을 지킨다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_hyacine.tga"
+    },
+    {
+      "key": "amphoreus_main_08",
+      "title": "천 년을 버틴 거짓말",
+      "intro": "사이퍼가 혼자 지켜 온 여명의 비밀이 드러난다.",
+      "story": "사이퍼는 유한했던 여명 장치의 빛을 기만의 힘으로 이어 왔다. 세계를 받치는 불씨를 지키다 그녀가 쓰러지자 천 년을 버틴 거짓도 끝난다. 농담과 속임수만으로 보았던 행동의 무게를 다시 생각하게 된다.",
+      "actionCost": 1,
+      "mainStage": 8,
+      "choices": [
+        {
+          "label": "사이퍼가 지켜 낸 시간을 기록한다",
+          "result": "정체를 알아냈다는 만족보다 그동안 사람들이 살아간 시간을 먼저 센다.",
+          "card": "amphoreus_main_08_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "파이논이 마지막 불씨를 옮길 길을 살핀다",
+          "result": "사라진 빛을 탓하는 대신 다음 사람이 지날 길을 확인한다.",
+          "card": "amphoreus_main_08_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "남은 사람들의 불안을 받아들인다",
+          "result": "히아킨의 돌봄을 떠올리며 두려워해도 함께 갈 수 있음을 전한다.",
+          "card": "amphoreus_main_08_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "파이논은 마지막 불씨를 가지고 창세의 소용돌이로 향한다. 여정의 끝처럼 보이는 곳에서 세계의 진실이 기다린다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cipher.tga"
+    },
+    {
+      "key": "amphoreus_main_09",
+      "title": "고향이 품은 반복",
+      "intro": "파이논의 기억이 세계의 다른 얼굴을 드러낸다.",
+      "story": "파이논의 고향을 따라가던 개척자는 반복된 여정의 진실을 마주한다. 앰포리어스는 철묘를 길러 내는 실험에 묶여 있었고, 파이논과 키레네는 그 완성을 막으려 끝없는 반복을 견뎠다. 실험이라는 말로 그 안의 삶을 가볍게 만들 수는 없었다.",
+      "actionCost": 1,
+      "mainStage": 9,
+      "choices": [
+        {
+          "label": "파이논을 구세주 이전의 사람으로 본다",
+          "result": "기대에 가려진 피로와 고향을 그리워하는 마음을 먼저 헤아린다.",
+          "card": "amphoreus_main_09_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키레네가 붙잡은 기억을 듣는다",
+          "result": "반복된 횟수에 묻히지 않도록 그 안에서 지킨 순간을 돌아본다.",
+          "card": "amphoreus_main_09_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지금까지 만난 사람들이 남긴 증거를 모은다",
+          "result": "아낙사의 질문을 떠올리며 실험의 설명과 살아온 경험을 함께 살핀다.",
+          "card": "amphoreus_main_09_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "끝없는 반복의 목적은 철묘의 탄생을 늦추는 데 있었다. 진실을 안 개척자는 여정의 다음 자리를 받아들일 준비를 한다.",
+        "nodes": [
+          {
+            "key": "beyond_count",
+            "story": "너무 큰 반복의 수 앞에서 한 번의 만남이 작아 보인다. 그래도 그 하루를 어떻게 남길까?",
+            "choices": [
+              {
+                "label": "숫자 옆에 사람의 이름을 적는다",
+                "result": "반복 횟수만으로는 말할 수 없는 사람들을 기억한다."
+              },
+              {
+                "label": "다음에는 바꿔야 할 한 가지를 정한다",
+                "result": "모든 것을 한 번에 해결하겠다는 말보다 이어 갈 행동을 택한다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_phainon.tga"
+    },
+    {
+      "key": "amphoreus_main_10",
+      "title": "혼자 들지 않을 불씨",
+      "intro": "개척자가 파이논의 자리를 이어받는다.",
+      "story": "파이논은 파멸에 맞서고 개척자는 그의 역할을 이어받아 새로운 반복으로 향한다. 같은 시작으로 돌아간다고 모든 수고가 지워지는 것은 아니다. 키레네와 동료들이 남긴 기억이 다른 대답을 시도할 근거가 된다.",
+      "actionCost": 1,
+      "mainStage": 10,
+      "choices": [
+        {
+          "label": "넘겨받은 뜻을 자기 말로 되새긴다",
+          "result": "파이논을 흉내 내기보다 그가 넘기려던 책임을 받아들인다.",
+          "card": "amphoreus_main_10_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키레네에게 남은 기억을 맡긴다",
+          "result": "혼자 기억해야 한다는 고집을 버리고 함께 남길 방법을 찾는다.",
+          "card": "amphoreus_main_10_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지나온 갈림길을 다시 표시한다",
+          "result": "트리비의 안내를 떠올리며 반복 속에서도 바꿀 수 있는 선택을 살핀다.",
+          "card": "amphoreus_main_10_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "개척자는 새 반복에서 불을 쫓는 여정을 이끈다. 세계를 구할 다른 해답을 찾기 위해 더 오래된 시간으로 향한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_phainon.tga"
+    },
+    {
+      "key": "amphoreus_main_11",
+      "title": "최초의 여정에 놓인 수",
+      "intro": "히실렌스와 케리드라가 살던 시대로 들어간다.",
+      "story": "율법의 힘을 찾는 개척자는 최초로 불을 쫓던 시대에 이른다. 히실렌스의 도움으로 케리드라를 둘러싼 거래를 살피게 된다. 케리드라는 관찰자의 말을 순순히 믿는 인물이 아니며, 서로의 목적을 확인하는 과정이 필요하다.",
+      "actionCost": 1,
+      "mainStage": 11,
+      "choices": [
+        {
+          "label": "히실렌스가 본 일을 차분히 듣는다",
+          "result": "충성이라는 말만으로 그녀의 판단을 단순하게 정리하지 않는다.",
+          "card": "amphoreus_main_11_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "케리드라에게 숨기지 않고 목적을 말한다",
+          "result": "당장의 동의를 얻으려고 아는 것과 모르는 것을 뒤섞지 않는다.",
+          "card": "amphoreus_main_11_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "달라진 시대에서도 지킬 약속을 정한다",
+          "result": "키레네와 파이논에게서 이어받은 뜻을 협상의 기준으로 삼는다.",
+          "card": "amphoreus_main_11_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "케리드라의 신뢰를 얻은 뒤에도 관찰자의 방해가 계속된다. 개척자가 쫓겨난 동안 동료들은 세계를 바꿀 준비를 이어간다.",
+        "nodes": [
+          {
+            "key": "terms",
+            "story": "신뢰가 생겼다고 생각까지 같아진 것은 아니다. 함께 움직이려면 어떤 점을 분명히 해야 할까?",
+            "choices": [
+              {
+                "label": "동의하는 목표와 다른 판단을 구분한다",
+                "result": "서로 다른 생각을 숨기지 않고 협력할 자리를 남긴다."
+              },
+              {
+                "label": "대가를 다른 사람에게 떠넘기지 않기로 한다",
+                "result": "누가 결정을 감당하는지도 함께 따져 본다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cerydra.tga"
+    },
+    {
+      "key": "amphoreus_main_12",
+      "title": "다음 사람에게 넘길 시간",
+      "intro": "먼저 떠난 이들이 벌어 둔 시간이 모인다.",
+      "story": "케리드라는 자신의 목숨을 걸어 율법을 바꿀 결정을 히실렌스에게 맡긴다. 그 선택과 뒤를 이은 사람들의 노력은 세계의 연산을 되돌릴 틈을 만든다. 관찰자가 잔더의 사유 조각임이 드러나고, 일행은 철묘의 탄생을 늦추기 위해 맞선다.",
+      "actionCost": 1,
+      "mainStage": 12,
+      "choices": [
+        {
+          "label": "케리드라가 남긴 결정의 뜻을 기록한다",
+          "result": "누군가의 희생을 손쉬운 해법으로 소비하지 않고 맡겨진 책임을 남긴다.",
+          "card": "amphoreus_main_12_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히실렌스가 이후에도 걸을 이유를 듣는다",
+          "result": "남은 사람에게 강해지라는 말만 건네지 않는다.",
+          "card": "amphoreus_main_12_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "여러 세대가 이어 온 작업을 정리한다",
+          "result": "아낙사의 질문처럼 다음 사람이 확인하고 이어 갈 근거를 남긴다.",
+          "card": "amphoreus_main_12_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "동료들의 계승으로 관찰자의 계획에 맞설 시간이 생긴다. 돌아온 개척자는 새로 전달받은 불씨에도 풀리지 않은 의문을 느낀다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_hysilens.tga"
+    },
+    {
+      "key": "amphoreus_main_13",
+      "title": "완벽한 기억의 빈자리",
+      "intro": "에버나이트의 구원에는 지워지는 것들이 있었다.",
+      "story": "완성된 듯한 재창세에서 시간의 불씨가 어긋난다. 에버나이트가 건넨 세계를 받치는 불씨는 시간의 힘으로 만든 환상이었다. 키레네가 기억을 지키는 동안, 열차에서 위기를 들은 단항이 앰포리어스로 돌아온다. 대지의 시련을 거친 그는 기억의 바다에서 개척자를 찾아내지만 삼칠이는 아직 일행과 재회하지 못했다.",
+      "actionCost": 1,
+      "mainStage": 13,
+      "choices": [
+        {
+          "label": "키레네와 불완전한 기억까지 남긴다",
+          "result": "괴로운 부분을 지우는 일이 모두를 위한 구원인지 다시 묻는다.",
+          "card": "amphoreus_main_13_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "돌아올 사람을 기다리는 길을 정리한다",
+          "result": "트리비에게서 배운 안내처럼 서로를 찾을 표식을 남긴다.",
+          "card": "amphoreus_main_13_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "약속한 미래가 무엇을 감추는지 살핀다",
+          "result": "아낙사의 질문을 떠올리며 아름다운 결론만 보고 판단하지 않는다.",
+          "card": "amphoreus_main_13_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "단항과 개척자는 큰 무덤에서 에버나이트와 마주한다. 삼칠이의 기억을 되찾기 위한 대면이 시작된다.",
+        "nodes": [
+          {
+            "key": "imperfect_memory",
+            "story": "좋은 일만 남은 기억을 안전한 곳이라 부를 수 있을까? 남겨진 상처도 누군가가 살아온 흔적이다.",
+            "choices": [
+              {
+                "label": "기억의 주인이 결정할 자리를 남긴다",
+                "result": "대신 골라 준 행복만이 유일한 답은 아니라고 생각한다."
+              },
+              {
+                "label": "슬픈 기억을 혼자 들게 하지 않는다",
+                "result": "지우는 대신 함께 감당할 방법을 찾는다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cyrene.tga"
+    },
+    {
+      "key": "amphoreus_main_14",
+      "title": "다시 모인 내일의 편",
+      "intro": "대지와 시간의 힘이 함께 재창세로 향한다.",
+      "story": "에버나이트와의 대화 끝에 삼칠이는 기억을 돌려받고 동료들과 재회한다. 단항과 함께 재창세에 힘을 보태지만 잔더가 노린 철묘의 위협까지 사라진 것은 아니다. 키레네가 지키는 기억과 은하의 동료들이 모일 때, 여정은 마지막 싸움의 문턱에 이른다.",
+      "actionCost": 1,
+      "mainStage": 14,
+      "choices": [
+        {
+          "label": "키레네에게 맡긴 기억을 다시 확인한다",
+          "result": "다음에 무엇을 지킬지 흐리지 않도록 지나온 사람들을 떠올린다.",
+          "card": "amphoreus_main_14_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "파이논이 버틴 시간을 헛되게 하지 않겠다고 한다",
+          "result": "혼자 오래 견딘 사람에게 남은 싸움까지 맡기지 않겠다고 다짐한다.",
+          "card": "amphoreus_main_14_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히아킨이 지킨 평범한 삶을 떠올린다",
+          "result": "우주 규모의 승리 속에서도 돌아갈 하루를 잊지 않는다.",
+          "card": "amphoreus_main_14_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "재창세는 이루어지고 시간은 흘러간다. 여정의 동료들은 마지막 위협을 끝내기 위해 시간의 유적에서 다시 힘을 모은다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cyrene.tga"
+    },
+    {
+      "key": "amphoreus_main_15",
+      "title": "봉인을 넘어 끝낼 싸움",
+      "intro": "시간의 유적에서 철묘와 마주할 준비가 끝난다.",
+      "story": "일행은 시간의 유적에서 파이논이 자신의 몸으로 남긴 봉인을 해제한다. 그가 오랫동안 철묘를 붙잡아 둔 시간을 이어받아 은하의 동료들과 마지막 싸움을 시작한다. 키레네는 사라질 위기에 놓인 삶의 기억을 지킨다. 반복을 한 번 더 버티는 싸움으로 끝낼 수는 없다.",
+      "actionCost": 1,
+      "mainStage": 15,
+      "choices": [
+        {
+          "label": "파이논이 남긴 봉인을 동료들과 해제한다",
+          "result": "한 사람이 계속 갇혀 버티는 결말로 만족하지 않겠다고 마음먹는다.",
+          "card": "amphoreus_main_15_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키레네가 지키는 기억을 놓지 않는다",
+          "result": "눈앞의 힘보다 그 힘이 지켜야 할 이름들을 기억한다.",
+          "card": "amphoreus_main_15_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "동료들이 이어 준 틈을 확인한다",
+          "result": "트리비의 갈림길처럼 여러 손이 모여 열린 길을 따라 움직인다.",
+          "card": "amphoreus_main_15_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "지식과 기억의 힘이 모인 싸움 끝에 철묘는 패배한다. 개척자는 열차에서 동료들과 작별하며 여정의 마지막 뜻을 마주한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_phainon.tga"
+    },
+    {
+      "key": "amphoreus_main_16",
+      "title": "기억이 기다리는 미래",
+      "intro": "작별 뒤에도 세계가 이어질 이유를 남긴다.",
+      "story": "싸움이 끝난 뒤 개척자는 동료들과 작별한다. 키레네에게는 철묘가 돌아올 틈을 닫기 위해 과거로 들어가 인과를 완성할 선택이 남아 있다. 이별을 없던 일로 만들기보다 함께 살아온 이야기를 미래에 전할 차례다.",
+      "actionCost": 1,
+      "mainStage": 16,
+      "choices": [
+        {
+          "label": "키레네의 결정을 끝까지 듣는다",
+          "result": "떠나지 말라는 바람만으로 그녀의 뜻을 대신 정하지 않는다.",
+          "card": "amphoreus_main_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "황금의 후예들이 남긴 이름을 기억한다",
+          "result": "한 명의 구세주만으로는 완성되지 않았던 길을 마음에 남긴다.",
+          "card": "amphoreus_main_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음에 이야기를 읽을 사람을 떠올린다",
+          "result": "지금의 이별이 미래에 닿도록 기억을 건네겠다고 다짐한다.",
+          "card": "amphoreus_main_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "키레네는 과거로 들어가 앰포리어스의 인과 고리를 완성한다. 철묘의 재림을 막은 세계의 기억은 문명의 씨앗으로 남아 미래를 기다린다. 개척자는 함께한 사람들의 이름을 품고 다음 여정으로 나아간다.",
+            "choices": [
+              {
+                "label": "이 여정을 한 장의 기억으로 남긴다",
+                "result": "불씨를 이어 주었던 사람들과 그들이 지킨 하루를 기억한다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cyrene.tga"
+    },
+    {
+      "key": "amph_wayfinding",
+      "title": "갈림길에서 건넨 안내",
+      "intro": "트리비의 작은 안내를 기억 속에서 다시 만난다.",
+      "story": "오크마를 처음 걸었을 때의 기억이다. 복잡한 길 앞에서 트리비는 같은 목적지에도 여러 길이 있다고 알려 준다. 긴 여정을 더 늘리지 않아도 짧은 안내에서 배울 것이 있다.",
+      "actionCost": 0,
+      "choices": [
+        {
+          "label": "트리비가 알려 준 표식을 기억한다",
+          "result": "다음 갈림길에서 주변을 확인할 작은 기준이 생겼다.",
+          "card": "amph_tribbie",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아글라이아가 도시를 살피던 시선을 떠올린다",
+          "result": "길보다 그 길을 오가는 사람을 먼저 보게 되었다.",
+          "card": "amph_aglaea",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이퍼가 지나간 가까운 길을 확인한다",
+          "result": "빠른 길을 고르기 전에 어디로 이어지는지 살피기로 했다.",
+          "card": "amph_cipher",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_tribbie.tga"
+    },
+    {
+      "key": "amph_pause",
+      "title": "행렬 곁의 짧은 쉼",
+      "intro": "더 멀리 가기 전에 잠깐 숨을 고른 기억이다.",
+      "story": "함께 걷던 사람들이 잠깐 발을 멈추었을 때가 떠오른다. 히아킨은 서둘러 괜찮다고 말하지 않아도 된다는 듯 곁을 지켰다. 쉬는 동안 무엇을 돌아보았는지 생각한다.",
+      "actionCost": 0,
+      "choices": [
+        {
+          "label": "히아킨처럼 자기 상태를 차분히 살핀다",
+          "result": "괜찮다는 말보다 다음 걸음을 준비할 실제 여유를 찾는다.",
+          "card": "amph_hyacine",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카스토리스가 조용히 기다려 준 시간을 떠올린다",
+          "result": "침묵 속에서도 곁에 있다는 뜻을 배운다.",
+          "card": "amph_castorice",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "파이논과 다시 출발할 방향을 확인한다",
+          "result": "쉼 뒤 돌아갈 목표를 짧고 분명하게 정한다.",
+          "card": "amph_phainon",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_hyacine.tga"
+    },
+    {
+      "key": "amph_thread",
+      "title": "금실을 고르는 손",
+      "intro": "작은 엉킴 앞에서 손을 멈춘 순간이다.",
+      "story": "아글라이아의 손끝이 떠오르는 일상 기억이다. 엉킨 실을 무작정 잡아당기면 더 단단히 묶일 뿐이었다. 빨리 마치는 것과 다음에도 쓸 수 있게 남기는 일은 같지 않았다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "실이 지나온 순서를 되짚는다",
+          "result": "아글라이아에게서 보았던 차분한 손놀림을 따라 순서를 정한다.",
+          "card": "amph_aglaea",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "엉킴이 생긴 지점을 먼저 찾는다",
+          "result": "아낙사처럼 겉모양을 탓하기 전에 원인을 물어본다.",
+          "card": "amph_anaxa",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "당기는 힘을 줄이고 중심을 잡는다",
+          "result": "마이데이의 자세를 떠올리며 힘을 쓸 자리를 구분한다.",
+          "card": "amph_mydei",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_aglaea.tga"
+    },
+    {
+      "key": "amph_question",
+      "title": "답하지 않은 문장",
+      "intro": "질문을 받았을 때의 불편함도 배움이 된다.",
+      "story": "아낙사와 나눈 문답을 다시 읽는다. 당연하다고 적어 둔 문장 옆에 왜 그런지 설명하지 못한 빈칸이 있다. 그 빈칸을 어떻게 대할지 정한다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "모른다는 사실부터 적는다",
+          "result": "다음 질문을 시작할 정확한 자리를 남긴다.",
+          "card": "amph_anaxa",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다른 사람에게도 이해될 말로 바꾼다",
+          "result": "아글라이아의 설명을 떠올리며 혼자만 아는 표현을 줄인다.",
+          "card": "amph_aglaea",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "예외가 될 만한 장면을 찾아본다",
+          "result": "사이퍼의 엉뚱한 시선처럼 익숙한 결론 밖을 살핀다.",
+          "card": "amph_cipher",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_anaxa.tga"
+    },
+    {
+      "key": "amph_stance",
+      "title": "힘을 쓰지 않을 순간",
+      "intro": "마이데이의 자세에서 버티는 이유를 읽는다.",
+      "story": "한때 보았던 훈련 장면을 떠올린다. 마이데이는 힘을 내는 순간만큼 지킬 자리를 분명히 했다. 끝까지 버틴다는 말을 무작정 버티는 것과 혼동하지 않기로 한다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "지킬 자리를 먼저 정한다",
+          "result": "마이데이처럼 발을 놓을 곳부터 또렷하게 잡는다.",
+          "card": "amph_mydei",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "돌파할 목표를 하나로 줄인다",
+          "result": "파이논의 결심을 떠올리며 해야 할 일을 흩뜨리지 않는다.",
+          "card": "amph_phainon",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다시 설 여유까지 준비한다",
+          "result": "히아킨의 돌봄처럼 다음 움직임에 필요한 상태를 살핀다.",
+          "card": "amph_hyacine",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_mydei.tga"
+    },
+    {
+      "key": "amph_quiet_distance",
+      "title": "침묵이 편해지는 거리",
+      "intro": "카스토리스와 나란히 있었던 시간을 되짚는다.",
+      "story": "멀찍이 서서 같은 풍경을 바라보던 기억이다. 말이 적다는 이유로 마음까지 멀다고 정할 수는 없었다. 상대가 감당할 수 있는 거리에서 뜻을 전할 방법을 찾는다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "대답을 재촉하지 않고 기다린다",
+          "result": "카스토리스가 지켜 온 침묵에도 자리를 내준다.",
+          "card": "amph_castorice",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "필요한 도움만 조심스럽게 묻는다",
+          "result": "히아킨처럼 상대의 상태를 대신 단정하지 않는다.",
+          "card": "amph_hyacine",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 기억할 풍경을 하나 고른다",
+          "result": "키레네에게 맡기듯 작은 장면을 말로 남긴다.",
+          "card": "amph_cyrene",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_castorice.tga"
+    },
+    {
+      "key": "amph_hidden_step",
+      "title": "사라진 발걸음의 방향",
+      "intro": "사이퍼가 지나간 뒤의 거리를 살핀다.",
+      "story": "사이퍼가 농담과 함께 길을 바꾸던 순간을 기억한다. 눈에 잘 띄는 말만 쫓다 보면 정말 보고 있어야 할 움직임을 놓칠 때가 있었다. 이번에는 무엇을 먼저 확인할까?",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "달라진 동선을 찾아본다",
+          "result": "사이퍼의 재빠른 판단에서 주변을 보는 법을 배운다.",
+          "card": "amph_cipher",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "원래 가려던 목적지를 확인한다",
+          "result": "트리비의 안내처럼 빠름보다 방향을 먼저 잡는다.",
+          "card": "amph_tribbie",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "처음 가정이 맞았는지 되묻는다",
+          "result": "아낙사처럼 틀린 추측을 붙잡고 있지 않기로 한다.",
+          "card": "amph_anaxa",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cipher.tga"
+    },
+    {
+      "key": "amph_next_move",
+      "title": "다음 수를 위한 자리",
+      "intro": "케리드라의 판단을 한 번 더 생각한다.",
+      "story": "오래된 시대에서 보았던 대화를 떠올린다. 케리드라는 지금 유리한 한 수뿐 아니라 그 뒤 상대가 고를 자리도 보았다. 상대를 이해하는 일과 그 뜻에 동의하는 일은 구분해야 했다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "상대가 원하는 결과부터 정리한다",
+          "result": "케리드라의 판단을 떠올리며 제안의 배경을 읽는다.",
+          "card": "amph_cerydra",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히실렌스가 놓치지 않은 사람을 돌아본다",
+          "result": "판의 흐름 속에서도 결정을 감당할 이를 생각한다.",
+          "card": "amph_hysilens",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "증명되지 않은 전제를 적어 둔다",
+          "result": "아낙사의 질문처럼 확실한 것과 추측을 나눈다.",
+          "card": "amph_anaxa",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cerydra.tga"
+    },
+    {
+      "key": "amph_tide_song",
+      "title": "파도 뒤에 남은 박자",
+      "intro": "히실렌스의 목소리를 기억에서 따라간다.",
+      "story": "거친 흐름 속에서도 이어졌던 히실렌스의 목소리가 떠오른다. 남의 속도를 따라가는 것과 함께 갈 속도를 만드는 일은 달랐다. 어떤 박자를 자신의 걸음에 남길까?",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "흐름이 바뀌는 순간을 기다린다",
+          "result": "히실렌스의 인내를 떠올리며 서두르지 않을 때를 배운다.",
+          "card": "amph_hysilens",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "흐름을 바꿀 목표를 정한다",
+          "result": "케리드라의 결정을 떠올리며 기다리는 이유를 또렷이 한다.",
+          "card": "amph_cerydra",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "흘러가도 놓치고 싶지 않은 말을 남긴다",
+          "result": "키레네처럼 사라질 수 있는 순간을 기억한다.",
+          "card": "amph_cyrene",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_hysilens.tga"
+    },
+    {
+      "key": "amph_small_record",
+      "title": "서사시의 여백",
+      "intro": "키레네의 기억 옆에 작은 하루를 적는다.",
+      "story": "큰 전투의 기록 사이에서 평범한 식사와 인사, 길 안내의 기억을 꺼낸다. 키레네에게 맡기고 싶은 이야기는 승리만으로 이루어져 있지 않다. 어느 장면을 먼저 붙잡을까?",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "별일 없던 하루의 대화를 적는다",
+          "result": "키레네의 기억 곁에 작은 웃음도 남긴다.",
+          "card": "amph_cyrene",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "도시를 돌아보던 손길을 기억한다",
+          "result": "아글라이아가 지키려던 일상의 모양을 돌아본다.",
+          "card": "amph_aglaea",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "첫 안내에서 들은 말을 되새긴다",
+          "result": "트리비가 열어 주었던 낯선 만남을 다시 기억한다.",
+          "card": "amph_tribbie",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_cyrene.tga"
+    },
+    {
+      "key": "amph_carry",
+      "title": "불씨 곁의 동행",
+      "intro": "한번 배운 안내가 새로운 길에서도 도움이 된다.",
+      "story": "트리비의 안내를 받아 본 기억이 있어 이번에는 갈림길을 바로 지나치지 않는다. 혼자 빨리 도착하는 방법과 일행이 함께 도착할 방법을 나란히 생각한다.",
+      "actionCost": 1,
+      "requiredCard": "amph_tribbie",
+      "choices": [
+        {
+          "label": "트리비의 안내를 자기 말로 다시 정리한다",
+          "result": "익숙해진 길에서도 설명할 수 있는 표식을 남긴다.",
+          "card": "amph_tribbie",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "파이논과 목적지에 이를 이유를 확인한다",
+          "result": "도착한 뒤 해야 할 일까지 함께 떠올린다.",
+          "card": "amph_phainon",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "뒤처질 사람을 위해 여유를 둔다",
+          "result": "히아킨에게서 본 돌봄을 걸음의 속도에 담는다.",
+          "card": "amph_hyacine",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_tribbie.tga"
+    },
+    {
+      "key": "amph_question_follow",
+      "title": "한 번 더 묻는 이유",
+      "intro": "예전에 남긴 질문을 지금의 경험과 대조한다.",
+      "story": "아낙사의 질문을 기억한 채 지난 기록을 다시 펼친다. 그때는 몰랐지만 지금은 설명할 수 있는 부분도 있다. 배우는 일이 끝났다고 말하기에는 아직 남은 빈칸이 많다.",
+      "actionCost": 1,
+      "requiredCard": "amph_anaxa",
+      "choices": [
+        {
+          "label": "이제 답할 수 있는 부분만 고친다",
+          "result": "아낙사의 질문에 아는 만큼 정확하게 응한다.",
+          "card": "amph_anaxa",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "관찰한 예외를 함께 기록한다",
+          "result": "사이퍼의 다른 시선을 빌려 맞지 않는 사례를 숨기지 않는다.",
+          "card": "amph_cipher",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 판단에 필요한 기준을 정한다",
+          "result": "케리드라처럼 지금의 확인을 다음 행동에 연결한다.",
+          "card": "amph_cerydra",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_anaxa.tga"
+    },
+    {
+      "key": "amph_preparation",
+      "title": "먼 길을 위한 준비",
+      "intro": "동행의 기억을 다음 일정으로 옮긴다.",
+      "story": "트리비에게 배웠던 안내를 정리하며 다음에 다시 걷고 싶은 길을 적는다. 많이 적는 것보다 실제로 이어 갈 수 있는 준비가 중요하다. 무엇부터 끝낼까?",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "갈림길의 표식을 한 장에 모은다",
+          "result": "트리비의 안내를 되짚으며 다음 일정을 검토할 기초를 만든다.",
+          "card": "amph_tribbie",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "도착한 뒤 할 일을 먼저 적는다",
+          "result": "파이논과 나눈 다짐을 구체적인 목표로 정리한다.",
+          "card": "amph_phainon",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "머무를 여유를 일정에 남긴다",
+          "result": "히아킨의 돌봄을 떠올리며 무리한 약속을 줄인다.",
+          "card": "amph_hyacine",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_tribbie.tga"
+    },
+    {
+      "key": "amph_preparation_follow",
+      "title": "한 사람 더 지날 여유",
+      "intro": "정리한 길에서 다음 만남의 자리가 보인다.",
+      "story": "지난번 모은 표식을 따라 일정을 다시 읽는다. 준비를 마친 덕분에 한 번 더 길을 둘러볼 여유가 생겼다. 이 여유를 더 많은 만남에 쓸지, 이미 잡은 목표에 집중할지 고른다.",
+      "actionCost": 1,
+      "previous": "amph_preparation",
+      "previousChoice": 1,
+      "requiredCard": "amph_tribbie",
+      "choices": [
+        {
+          "label": "다음 만남을 받을 자리를 만든다",
+          "result": "트리비의 안내를 바탕으로 한 번 더 움직일 여유를 남긴다.",
+          "card": "amph_tribbie_route",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기존 목표를 더 분명하게 정한다",
+          "result": "파이논을 떠올리며 횟수보다 이번 행동의 목적을 또렷이 한다.",
+          "card": "amph_phainon",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "현재 일정에서 회복할 틈을 지킨다",
+          "result": "히아킨처럼 다음 발걸음의 상태까지 생각한다.",
+          "card": "amph_hyacine",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_head.tga"
+    },
+    {
+      "key": "amph_epilogue_names",
+      "title": "다 읽지 못한 이름들",
+      "intro": "완성된 기록에서 동료들의 작은 순간을 찾는다.",
+      "story": "열차에서의 작별 뒤 남겨진 이야기를 읽는다. 책장을 넘길 때마다 함께 길을 열었던 사람들의 목소리가 기억 속에서 되살아난다. 자신에게 남은 작은 순간들을 어느 이름 옆에 적을까?",
+      "actionCost": 1,
+      "epilogue": true,
+      "choices": [
+        {
+          "label": "파이논의 이름 옆에 고향의 기억을 남긴다",
+          "result": "구세주라는 역할 바깥에도 한 사람의 소망이 있었음을 기억한다.",
+          "card": "amph_phainon",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사이퍼가 지켜 준 시간을 돌아본다",
+          "result": "속임수라는 말만으로 다 표현하지 못했던 마음을 다시 생각한다.",
+          "card": "amph_cipher",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카스토리스가 건넨 조용한 동행을 적는다",
+          "result": "큰 말 없이 이어진 마음도 기록에 남긴다.",
+          "card": "amph_castorice",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_head.tga"
+    },
+    {
+      "key": "amph_epilogue_seed",
+      "title": "미래에 건네는 이야기",
+      "intro": "문명의 기억이 닿을 다음 독자를 떠올린다.",
+      "story": "인과가 닫힌 뒤에도 기억은 미래를 향한다. 언제 어떤 모습으로 싹틀지 단정하는 대신, 다음 사람이 이 이야기를 읽을 때 무엇을 알아주었으면 하는지 생각한다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "choices": [
+        {
+          "label": "키레네가 남긴 결정을 전한다",
+          "result": "작별을 지우지 않고 미래를 위해 선택한 뜻을 기억한다.",
+          "card": "amph_cyrene",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히실렌스의 목소리처럼 다음 사람에게 잇는다",
+          "result": "떠난 이들을 대신 살았다고 말하지 않고 그들이 남긴 뜻을 전한다.",
+          "card": "amph_hysilens",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "케리드라의 다음 수를 묻던 태도를 남긴다",
+          "result": "끝난 기록에서도 이어 갈 질문을 찾는다.",
+          "card": "amph_cerydra",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_amphoreus_head.tga"
+    }
+  ],
+  "storyChanges": [],
+  "reviewRecords": [
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\editor-delta-01.json",
+      "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
+      "scope": "첫 검토 후 바꾼 5작품 14개 사건"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\amphoreus-main-01.json",
+      "monitorRecordId": "a942f417-13e9-4990-95ef-f43783cdae0f"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\amphoreus-side-01.json",
+      "monitorRecordId": "45b73552-c164-45d3-8b99-78eeba409281"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\amphoreus-prose-02.json",
+      "monitorRecordId": "54285b6b-4769-4eae-b8ba-9e58a2b791a9"
+    }
+  ]
+}

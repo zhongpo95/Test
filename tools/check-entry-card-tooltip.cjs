@@ -59,9 +59,9 @@ function rect(t, id) {
   return {x:base.x + (f.x || 0), y:base.y + (f.y || 0), w:f.w || 0, h:f.h || 0};
 }
 
-check('13개 지역의 입문 카드 이미지와 보상 설명이 실제 지급 증분과 일치', () => {
+check('모든 지역의 입문 카드 이미지와 보상 설명이 실제 지급 증분과 일치', () => {
   const t = setup(), e = t.e;
-  assert.equal(t.entries.length, 13);
+  assert.equal(t.entries.length, t.e.PROTO_HEAD_COUNT);
   for (const event of t.entries) {
     offer(t, [event]); enter(t);
     const card = e.ProtoHeadEntryCard[e.ProtoEventHead[event]];

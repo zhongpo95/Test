@@ -2662,5 +2662,847 @@
     "icon": "UI_Card_Ending_gourmet_Icon.tga",
     "art": "UI_Card_Ending_gourmet_Art.tga",
     "ending": true
+  },
+  {
+    "characterId": 937,
+    "head": 14,
+    "name": "트리비",
+    "rewardIds": [
+      937,
+      948,
+      950,
+      954,
+      956,
+      958,
+      978,
+      986,
+      993
+    ],
+    "icon": "UI_Card_XP_amphoreus_tribbie_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_tribbie_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 938,
+    "head": 14,
+    "name": "파이논",
+    "rewardIds": [
+      938,
+      951,
+      952,
+      960,
+      966,
+      968,
+      971,
+      973,
+      976,
+      989,
+      991
+    ],
+    "icon": "UI_Card_XP_amphoreus_phainon_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_phainon_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 939,
+    "head": 14,
+    "name": "아글라이아",
+    "rewardIds": [
+      939,
+      949,
+      965,
+      969
+    ],
+    "icon": "UI_Card_XP_amphoreus_aglaea_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_aglaea_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 940,
+    "head": 14,
+    "name": "마이데이",
+    "rewardIds": [
+      940,
+      953,
+      959
+    ],
+    "icon": "UI_Card_XP_amphoreus_mydei_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_mydei_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 941,
+    "head": 14,
+    "name": "카스토리스",
+    "rewardIds": [
+      941,
+      961
+    ],
+    "icon": "UI_Card_XP_amphoreus_castorice_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_castorice_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 942,
+    "head": 14,
+    "name": "아낙사",
+    "rewardIds": [
+      942,
+      955,
+      964,
+      975,
+      984,
+      987
+    ],
+    "icon": "UI_Card_XP_amphoreus_anaxa_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_anaxa_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 943,
+    "head": 14,
+    "name": "히아킨",
+    "rewardIds": [
+      943,
+      957,
+      963,
+      967,
+      972,
+      990
+    ],
+    "icon": "UI_Card_XP_amphoreus_hyacine_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_hyacine_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 944,
+    "head": 14,
+    "name": "사이퍼",
+    "rewardIds": [
+      944,
+      962,
+      970
+    ],
+    "icon": "UI_Card_XP_amphoreus_cipher_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_cipher_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 945,
+    "head": 14,
+    "name": "키레네",
+    "rewardIds": [
+      945,
+      974,
+      977,
+      981,
+      985,
+      988,
+      992
+    ],
+    "icon": "UI_Card_XP_amphoreus_cyrene_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_cyrene_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 946,
+    "head": 14,
+    "name": "케리드라",
+    "rewardIds": [
+      946,
+      980,
+      982
+    ],
+    "icon": "UI_Card_XP_amphoreus_cerydra_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_cerydra_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 947,
+    "head": 14,
+    "name": "히실렌스",
+    "rewardIds": [
+      947,
+      979,
+      983
+    ],
+    "icon": "UI_Card_XP_amphoreus_hysilens_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_hysilens_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 994,
+    "head": 14,
+    "name": "미래에 남겨 둔 불씨",
+    "rewardIds": [
+      994
+    ],
+    "icon": "UI_Card_XP_amphoreus_head_Icon.tga",
+    "art": "UI_Card_XP_amphoreus_head_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 995,
+    "head": 15,
+    "name": "스피드왜건",
+    "rewardIds": [
+      995,
+      1011,
+      1012,
+      1020,
+      1023,
+      1025,
+      1029
+    ],
+    "icon": "UI_Card_XP_phantom_blood_speedwagon_Icon.tga",
+    "art": "UI_Card_XP_phantom_blood_speedwagon_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 996,
+    "head": 15,
+    "name": "죠나단 죠스타",
+    "rewardIds": [
+      996,
+      1001,
+      1003,
+      1005,
+      1007,
+      1008,
+      1009,
+      1010,
+      1013,
+      1015,
+      1018,
+      1019,
+      1022,
+      1024,
+      1027,
+      1030,
+      1031,
+      1032,
+      1033
+    ],
+    "icon": "UI_Card_XP_phantom_blood_jonathan_Icon.tga",
+    "art": "UI_Card_XP_phantom_blood_jonathan_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 997,
+    "head": 15,
+    "name": "디오 브란도",
+    "rewardIds": [
+      997,
+      1002,
+      1006,
+      1014
+    ],
+    "icon": "UI_Card_XP_phantom_blood_dio_Icon.tga",
+    "art": "UI_Card_XP_phantom_blood_dio_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 998,
+    "head": 15,
+    "name": "윌 A. 체펠리",
+    "rewardIds": [
+      998,
+      1016,
+      1021,
+      1026,
+      1028
+    ],
+    "icon": "UI_Card_XP_phantom_blood_zeppeli_Icon.tga",
+    "art": "UI_Card_XP_phantom_blood_zeppeli_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 999,
+    "head": 15,
+    "name": "에리나 펜들턴",
+    "rewardIds": [
+      999,
+      1004,
+      1017
+    ],
+    "icon": "UI_Card_XP_phantom_blood_erina_Icon.tga",
+    "art": "UI_Card_XP_phantom_blood_erina_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1000,
+    "head": 15,
+    "name": "톤페티",
+    "rewardIds": [
+      1000
+    ],
+    "icon": "UI_Card_XP_phantom_blood_tonpetty_Icon.tga",
+    "art": "UI_Card_XP_phantom_blood_tonpetty_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1034,
+    "head": 15,
+    "name": "마지막 파문",
+    "rewardIds": [
+      1034
+    ],
+    "icon": "UI_Card_XP_phantom_blood_head_Icon.tga",
+    "art": "UI_Card_XP_phantom_blood_head_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 1035,
+    "head": 16,
+    "name": "마돌체 마죠레느",
+    "rewardIds": [
+      1035,
+      1043,
+      1046,
+      1053,
+      1060,
+      1064
+    ],
+    "icon": "UI_Card_XP_madolche_magileine_Icon.tga",
+    "art": "UI_Card_XP_madolche_magileine_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1036,
+    "head": 16,
+    "name": "마돌체 푸딩세스",
+    "rewardIds": [
+      1036,
+      1045,
+      1055,
+      1059,
+      1065,
+      1073
+    ],
+    "icon": "UI_Card_XP_madolche_puddingcess_Icon.tga",
+    "art": "UI_Card_XP_madolche_puddingcess_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1037,
+    "head": 16,
+    "name": "퀸마돌체 티아라미스",
+    "rewardIds": [
+      1037,
+      1067,
+      1075
+    ],
+    "icon": "UI_Card_XP_madolche_tiaramisu_Icon.tga",
+    "art": "UI_Card_XP_madolche_tiaramisu_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1038,
+    "head": 16,
+    "name": "마돌체 엔젤리",
+    "rewardIds": [
+      1038,
+      1054,
+      1056,
+      1068,
+      1074
+    ],
+    "icon": "UI_Card_XP_madolche_anjelly_Icon.tga",
+    "art": "UI_Card_XP_madolche_anjelly_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1039,
+    "head": 16,
+    "name": "마돌체 훗케이크",
+    "rewardIds": [
+      1039,
+      1049,
+      1061,
+      1071
+    ],
+    "icon": "UI_Card_XP_madolche_hootcake_Icon.tga",
+    "art": "UI_Card_XP_madolche_hootcake_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1040,
+    "head": 16,
+    "name": "마돌체 메신젤라또",
+    "rewardIds": [
+      1040,
+      1044,
+      1047,
+      1050,
+      1057,
+      1062,
+      1070
+    ],
+    "icon": "UI_Card_XP_madolche_messengelato_Icon.tga",
+    "art": "UI_Card_XP_madolche_messengelato_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1041,
+    "head": 16,
+    "name": "마돌체 푸팅세스루",
+    "rewardIds": [
+      1041,
+      1048,
+      1052,
+      1063,
+      1069
+    ],
+    "icon": "UI_Card_XP_madolche_petingcessoeur_Icon.tga",
+    "art": "UI_Card_XP_madolche_petingcessoeur_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1042,
+    "head": 16,
+    "name": "티처마돌체 글래스플레",
+    "rewardIds": [
+      1042,
+      1051,
+      1058,
+      1066,
+      1072
+    ],
+    "icon": "UI_Card_XP_madolche_glassouffle_Icon.tga",
+    "art": "UI_Card_XP_madolche_glassouffle_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1076,
+    "head": 16,
+    "name": "돌아올 자리가 있는 다과회",
+    "rewardIds": [
+      1076
+    ],
+    "icon": "UI_Card_XP_madolche_head_Icon.tga",
+    "art": "UI_Card_XP_madolche_head_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 1077,
+    "head": 17,
+    "name": "이츠카 시도",
+    "rewardIds": [
+      1077,
+      1086,
+      1089,
+      1091,
+      1093,
+      1096,
+      1098,
+      1105,
+      1111,
+      1114,
+      1116,
+      1118
+    ],
+    "icon": "UI_Card_XP_tengu_shido_Icon.tga",
+    "art": "UI_Card_XP_tengu_shido_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1078,
+    "head": 17,
+    "name": "야토가미 토카",
+    "rewardIds": [
+      1078,
+      1083,
+      1087,
+      1092,
+      1101,
+      1107,
+      1110
+    ],
+    "icon": "UI_Card_XP_tengu_tohka_Icon.tga",
+    "art": "UI_Card_XP_tengu_tohka_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1079,
+    "head": 17,
+    "name": "토비이치 오리가미",
+    "rewardIds": [
+      1079,
+      1088,
+      1094,
+      1099,
+      1108,
+      1112,
+      1115
+    ],
+    "icon": "UI_Card_XP_tengu_origami_Icon.tga",
+    "art": "UI_Card_XP_tengu_origami_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1080,
+    "head": 17,
+    "name": "이츠카 코토리",
+    "rewardIds": [
+      1080,
+      1085,
+      1090,
+      1097,
+      1102,
+      1106,
+      1113,
+      1117
+    ],
+    "icon": "UI_Card_XP_tengu_kotori_Icon.tga",
+    "art": "UI_Card_XP_tengu_kotori_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1081,
+    "head": 17,
+    "name": "요시노",
+    "rewardIds": [
+      1081,
+      1084,
+      1095,
+      1100,
+      1103
+    ],
+    "icon": "UI_Card_XP_tengu_yoshino_Icon.tga",
+    "art": "UI_Card_XP_tengu_yoshino_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1082,
+    "head": 17,
+    "name": "토키사키 쿠루미",
+    "rewardIds": [
+      1082,
+      1104,
+      1109
+    ],
+    "icon": "UI_Card_XP_tengu_kurumi_Icon.tga",
+    "art": "UI_Card_XP_tengu_kurumi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1119,
+    "head": 17,
+    "name": "텐구시의 기억",
+    "rewardIds": [
+      1119
+    ],
+    "icon": "UI_Card_XP_tengu_head_Icon.tga",
+    "art": "UI_Card_XP_tengu_head_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 1120,
+    "head": 18,
+    "name": "류가미네 미카도",
+    "rewardIds": [
+      1120,
+      1129,
+      1135,
+      1138,
+      1143,
+      1151,
+      1156,
+      1159
+    ],
+    "icon": "UI_Card_XP_ikebukuro_mikado_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_mikado_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1121,
+    "head": 18,
+    "name": "셀티 스툴루손",
+    "rewardIds": [
+      1121,
+      1131,
+      1136,
+      1140,
+      1141,
+      1149,
+      1152,
+      1157,
+      1160
+    ],
+    "icon": "UI_Card_XP_ikebukuro_celty_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_celty_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1122,
+    "head": 18,
+    "name": "키다 마사오미",
+    "rewardIds": [
+      1122,
+      1128,
+      1130,
+      1134,
+      1139,
+      1145,
+      1153,
+      1158
+    ],
+    "icon": "UI_Card_XP_ikebukuro_masaomi_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_masaomi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1123,
+    "head": 18,
+    "name": "소노하라 안리",
+    "rewardIds": [
+      1123,
+      1132,
+      1146,
+      1150
+    ],
+    "icon": "UI_Card_XP_ikebukuro_anri_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_anri_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1124,
+    "head": 18,
+    "name": "오리하라 이자야",
+    "rewardIds": [
+      1124,
+      1133,
+      1137,
+      1144,
+      1155
+    ],
+    "icon": "UI_Card_XP_ikebukuro_izaya_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_izaya_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1125,
+    "head": 18,
+    "name": "헤이와지마 시즈오",
+    "rewardIds": [
+      1125,
+      1148
+    ],
+    "icon": "UI_Card_XP_ikebukuro_shizuo_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_shizuo_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1126,
+    "head": 18,
+    "name": "키시타니 신라",
+    "rewardIds": [
+      1126,
+      1142
+    ],
+    "icon": "UI_Card_XP_ikebukuro_shinra_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_shinra_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1127,
+    "head": 18,
+    "name": "카도타 쿄헤이",
+    "rewardIds": [
+      1127,
+      1147,
+      1154,
+      1161
+    ],
+    "icon": "UI_Card_XP_ikebukuro_kadota_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_kadota_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1162,
+    "head": 18,
+    "name": "이케부쿠로의 기억",
+    "rewardIds": [
+      1162
+    ],
+    "icon": "UI_Card_XP_ikebukuro_head_Icon.tga",
+    "art": "UI_Card_XP_ikebukuro_head_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 1163,
+    "head": 19,
+    "name": "페른",
+    "rewardIds": [
+      1163,
+      1178,
+      1181,
+      1183,
+      1191,
+      1197,
+      1202,
+      1205
+    ],
+    "icon": "UI_Card_XP_frieren_fern_Icon.tga",
+    "art": "UI_Card_XP_frieren_fern_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1164,
+    "head": 19,
+    "name": "프리렌",
+    "rewardIds": [
+      1164,
+      1176,
+      1180,
+      1182,
+      1190,
+      1195,
+      1201,
+      1203,
+      1206
+    ],
+    "icon": "UI_Card_XP_frieren_frieren_Icon.tga",
+    "art": "UI_Card_XP_frieren_frieren_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1165,
+    "head": 19,
+    "name": "슈타르크",
+    "rewardIds": [
+      1165,
+      1187,
+      1189,
+      1198
+    ],
+    "icon": "UI_Card_XP_frieren_stark_Icon.tga",
+    "art": "UI_Card_XP_frieren_stark_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1166,
+    "head": 19,
+    "name": "힘멜",
+    "rewardIds": [
+      1166,
+      1175,
+      1177,
+      1186
+    ],
+    "icon": "UI_Card_XP_frieren_himmel_Icon.tga",
+    "art": "UI_Card_XP_frieren_himmel_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1167,
+    "head": 19,
+    "name": "하이터",
+    "rewardIds": [
+      1167,
+      1179
+    ],
+    "icon": "UI_Card_XP_frieren_heiter_Icon.tga",
+    "art": "UI_Card_XP_frieren_heiter_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1168,
+    "head": 19,
+    "name": "아이젠",
+    "rewardIds": [
+      1168,
+      1184,
+      1188
+    ],
+    "icon": "UI_Card_XP_frieren_eisen_Icon.tga",
+    "art": "UI_Card_XP_frieren_eisen_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1169,
+    "head": 19,
+    "name": "자인",
+    "rewardIds": [
+      1169,
+      1193,
+      1194,
+      1196
+    ],
+    "icon": "UI_Card_XP_frieren_sein_Icon.tga",
+    "art": "UI_Card_XP_frieren_sein_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1170,
+    "head": 19,
+    "name": "플람메",
+    "rewardIds": [
+      1170,
+      1185,
+      1192
+    ],
+    "icon": "UI_Card_XP_frieren_flamme_Icon.tga",
+    "art": "UI_Card_XP_frieren_flamme_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1171,
+    "head": 19,
+    "name": "제리에",
+    "rewardIds": [
+      1171,
+      1207
+    ],
+    "icon": "UI_Card_XP_frieren_serie_Icon.tga",
+    "art": "UI_Card_XP_frieren_serie_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1172,
+    "head": 19,
+    "name": "덴켄",
+    "rewardIds": [
+      1172,
+      1204
+    ],
+    "icon": "UI_Card_XP_frieren_denken_Icon.tga",
+    "art": "UI_Card_XP_frieren_denken_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1173,
+    "head": 19,
+    "name": "라비네",
+    "rewardIds": [
+      1173,
+      1199
+    ],
+    "icon": "UI_Card_XP_frieren_lawine_Icon.tga",
+    "art": "UI_Card_XP_frieren_lawine_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1174,
+    "head": 19,
+    "name": "칸네",
+    "rewardIds": [
+      1174,
+      1200
+    ],
+    "icon": "UI_Card_XP_frieren_kanne_Icon.tga",
+    "art": "UI_Card_XP_frieren_kanne_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 1208,
+    "head": 19,
+    "name": "프리렌 일행",
+    "rewardIds": [
+      1208
+    ],
+    "icon": "UI_Card_XP_frieren_head_Icon.tga",
+    "art": "UI_Card_XP_frieren_head_Art.tga",
+    "ending": true
   }
 ]
