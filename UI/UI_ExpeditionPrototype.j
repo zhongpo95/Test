@@ -31,6 +31,15 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer array CandidateIntro
         private integer array CandidateBonus
         private integer array CandidateFooter
+        private integer EntryTooltip
+        private integer EntryTooltipIcon
+        private integer EntryTooltipBorder
+        private integer EntryTooltipTitle
+        private integer EntryTooltipText
+        private integer HoverCandidate = 0
+        private integer HoverCandidateEvent = 0
+        private integer HoverCandidateOffer = 0
+        private integer HoverCandidateRun = 0
         private integer array BranchButtons
         private integer array BranchAction
         private integer array BranchHeader
@@ -60,6 +69,47 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set value = JNStringReplace(value, "[카드 획득]", PAPER_GAIN + "[카드 획득]" + color)
         set value = JNStringReplace(value, "[효과 추가]", PAPER_GAIN + "[효과 추가]" + color)
         call DzFrameSetText(frame, color + JNStringReplace(value, "|r", color) + "|r")
+    endfunction
+
+    private function ClearCandidateHover takes nothing returns nothing
+        if HoverCandidate > 0 then
+            call ExpUISelectButton(CandidateButtons[HoverCandidate], false)
+        endif
+        set HoverCandidate = 0
+        set HoverCandidateEvent = 0
+        call DzFrameShow(EntryTooltip, false)
+    endfunction
+
+    private function CandidateEnter takes nothing returns nothing
+        local integer pid = GetPlayerId(GetLocalPlayer())
+        local integer i = 1
+        if DzGetTriggerUIEventPlayer() != GetLocalPlayer() or pid > 3 then
+            return
+        endif
+        call ClearCandidateHover()
+        if ExpUIPanel != 9 or ProtoStage[pid] != 1 then
+            return
+        endif
+        loop
+            exitwhen i > ProtoChoices[pid] or i > 4
+            if DzGetTriggerUIEventFrame() == ExpUIButtons[CandidateButtons[i]] then
+                set HoverCandidate = i
+                set HoverCandidateEvent = ProtoCandidates[ExpKey(pid, i)]
+                set HoverCandidateOffer = ExpOfferVersion[pid]
+                set HoverCandidateRun = ExpRun
+                call ExpUISelectButton(CandidateButtons[i], true)
+                return
+            endif
+            set i = i + 1
+        endloop
+    endfunction
+
+    private function CandidateLeave takes nothing returns nothing
+        if DzGetTriggerUIEventPlayer() == GetLocalPlayer() and HoverCandidate > 0 then
+            if DzGetTriggerUIEventFrame() == ExpUIButtons[CandidateButtons[HoverCandidate]] then
+                call ClearCandidateHover()
+            endif
+        endif
     endfunction
 
     private function BranchEnter takes nothing returns nothing
@@ -109,6 +159,44 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set imageHeight = imageWidth / aspect
         endif
         call PlaceCoverPart(frame, parent, x + (width - imageWidth) * 0.5, y + (height - imageHeight) * 0.5, imageWidth, imageHeight)
+    endfunction
+
+    private function RenderEntryTooltip takes integer pid returns nothing
+        local integer card
+        local integer grade
+        local real x
+        if HoverCandidate <= 0 then
+            return
+        endif
+        if ExpUIPanel != 9 or ProtoStage[pid] != 1 or F_UpgradeOnOff[pid] or not ExpPrototypeActive or not ExpMember[pid] or HoverCandidate > ProtoChoices[pid] or HoverCandidateOffer != ExpOfferVersion[pid] or HoverCandidateRun != ExpRun or HoverCandidateEvent != ProtoCandidates[ExpKey(pid, HoverCandidate)] then
+            call ClearCandidateHover()
+            return
+        endif
+        if HoverCandidateEvent <= 0 or ProtoEventKind[HoverCandidateEvent] != 0 then
+            call DzFrameShow(EntryTooltip, false)
+            return
+        endif
+        set card = ProtoHeadEntryCard[ProtoEventHead[HoverCandidateEvent]]
+        if card <= 0 then
+            call DzFrameShow(EntryTooltip, false)
+            return
+        endif
+        // 선택 중인 후보를 덮지 않고 옆에 띄워 마우스 진입/이탈이 반복되지 않게 한다.
+        set x = (0.8 - (0.174 * ProtoChoices[pid] + 0.012 * (ProtoChoices[pid] - 1))) * 0.5 + (HoverCandidate - 1) * 0.186
+        if x + 0.182 + 0.266 <= 0.788 then
+            set x = x + 0.182
+        else
+            set x = x - 0.274
+        endif
+        call PlaceCoverPart(EntryTooltip, EventRoot, x, 0.214, 0.266, 0.176)
+        call PlaceCoverPart(EntryTooltipIcon, EntryTooltip, 0.012, 0.044, 0.046, 0.046 * ImagePixelAspect)
+        call PlaceCoverPart(EntryTooltipBorder, EntryTooltip, 0.012, 0.044, 0.046, 0.046 * ImagePixelAspect)
+        set grade = ProtoRewardGrade(pid, card, false)
+        call DzFrameSetTexture(EntryTooltipIcon, ProtoCardArt(card), 0)
+        call DzFrameSetTexture(EntryTooltipBorder, ProtoCardFrame(grade), 0)
+        // 보관함의 누적 합산 대신 실제 입문 보상의 추가 효과를 미리 보여준다.
+        call DzFrameSetText(EntryTooltipText, "|cffe7edf3" + JNStringReplace(ProtoEventCardPreview(pid, card), "|r", "|cffe7edf3") + "|r")
+        call DzFrameShow(EntryTooltip, true)
     endfunction
 
     private function RenderCover takes integer pid, integer i, integer id returns nothing
@@ -186,11 +274,15 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         local integer clientWidth = JNGetLocalClientWidth()
         local integer clientHeight = JNGetLocalClientHeight()
         if LobbyRoot == 0 or pid > 3 or not PickCheck[pid] then
+            if EntryTooltip != 0 then
+                call ClearCandidateHover()
+            endif
             return
         endif
         if clientWidth > 0 and clientHeight > 0 then
             set ImagePixelAspect = 0.75 * I2R(clientWidth) / I2R(clientHeight)
         endif
+        call RenderEntryTooltip(pid)
         set lobby = ExpState == EXP_LOBBY or ExpState == EXP_RESULT
         if lobby and LoadedSlot != PlayerSlotNumber[pid] then
             set LoadedSlot = PlayerSlotNumber[pid]
@@ -405,6 +497,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set CandidateButtons[i] = ExpUICoverButton(EventRoot, 2100 + i)
             call ExpUIThemeButton(CandidateButtons[i], 2)
             set f = ExpUIButtons[CandidateButtons[i]]
+            call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_ENTER, function CandidateEnter, false)
+            call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_LEAVE, function CandidateLeave, false)
             set CandidateRegion[i] = CoverLabel(f, 0.011)
             set CandidateTitle[i] = CoverLabel(f, 0.014)
             set CandidateIcon[i] = ExpUITexture(f, 0, 0, 0.094, 0.094, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
@@ -458,6 +552,18 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set ResumeButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "확인 · 사냥 재개", 2400)
         call ExpUIThemeButton(RerollButton, 2)
         call ExpUIThemeButton(ResumeButton, 2)
+        // 장식 BACKDROP과 입력을 받지 않는 TEXT만 사용하며 후보 클릭 콜백은 그대로 둔다.
+        set EntryTooltip = ExpUITexture(EventRoot, 0, 0, 0.266, 0.176, "war3mapImported\\UI_Cards_Tooltip.tga")
+        call DzFrameSetPriority(EntryTooltip, 110)
+        set EntryTooltipIcon = ExpUITexture(EntryTooltip, 0.012, 0.044, 0.046, 0.0613, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+        set EntryTooltipBorder = ExpUITexture(EntryTooltip, 0.012, 0.044, 0.046, 0.0613, ProtoCardFrame(1))
+        call DzFrameSetPriority(EntryTooltipIcon, 110)
+        call DzFrameSetPriority(EntryTooltipBorder, 111)
+        set EntryTooltipTitle = ExpUILabel(EntryTooltip, 0.012, 0.012, 0.242, 0.024, 0.011, "")
+        call DzFrameSetText(EntryTooltipTitle, "|cff83e4e6입문 카드 · 머리 선택 시 함께 획득|r")
+        set EntryTooltipText = ExpUILabel(EntryTooltip, 0.072, 0.044, 0.180, 0.120, 0.011, "")
+        call JNFrameSetTextAlignment(EntryTooltipText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        call DzFrameShow(EntryTooltip, false)
         set HuntHUD = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetSize(HuntHUD, 0.40, 0.074)
         call DzFrameSetAbsolutePoint(HuntHUD, JN_FRAMEPOINT_TOPLEFT, 0.245, 0.600)
