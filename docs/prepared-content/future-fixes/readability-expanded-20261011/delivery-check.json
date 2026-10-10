@@ -1,0 +1,357 @@
+{
+  "events": 966,
+  "uniqueEventKeys": true,
+  "monitorRecords": [
+    {
+      "world": "fuyuki",
+      "recordId": "8f381cc2-3b8d-4ca1-a635-8b5ff8cc0525",
+      "status": "success"
+    },
+    {
+      "world": "axel",
+      "recordId": "04ea4708-235d-497c-9e0a-ba5022fa59d5",
+      "status": "success"
+    },
+    {
+      "world": "abydos",
+      "recordId": "931f98d6-e8f0-4578-ae3a-ee7251aae5f4",
+      "status": "success"
+    },
+    {
+      "world": "academy",
+      "recordId": "3121c331-d534-4f2a-bb5a-8e737c5f0b66",
+      "status": "success"
+    },
+    {
+      "world": "mitakihara",
+      "recordId": "d670c47d-7af0-497d-a264-7d3b52d12871",
+      "status": "success"
+    },
+    {
+      "world": "aincrad",
+      "recordId": "df3064cc-e85f-43f8-a9f3-e6d3a2727769",
+      "status": "success"
+    },
+    {
+      "world": "zegagrande",
+      "recordId": "12d9a688-492d-425c-bc80-9c87ce1d2431",
+      "status": "success"
+    },
+    {
+      "world": "common",
+      "recordId": "56f220e8-f4bd-4baa-aa53-ed2dbcb3a3ac",
+      "status": "success"
+    },
+    {
+      "world": "magnolia",
+      "recordId": "8880a097-6c58-4112-a15b-2e1cc8e4ca22",
+      "status": "success"
+    },
+    {
+      "world": "karakura",
+      "recordId": "7589fd48-5911-4211-8ef3-bd5ccb2ea7b0",
+      "status": "success"
+    },
+    {
+      "world": "penacony",
+      "recordId": "4a897304-1828-47ec-867b-17fcdf5fbc6a",
+      "status": "success"
+    },
+    {
+      "world": "amestris",
+      "recordId": "1054f146-677c-487c-af21-4e0956d9d4a3",
+      "status": "success"
+    },
+    {
+      "world": "butterfly",
+      "recordId": "13d6ef4b-d336-434d-a12d-2a96765ccea9",
+      "status": "success"
+    },
+    {
+      "world": "gourmet",
+      "recordId": "36a3acaa-cb74-4c63-9d12-9c724108b4bb",
+      "status": "success"
+    },
+    {
+      "world": "amphoreus",
+      "recordId": "60b9d5e2-a4fb-4069-b4fd-70d625f141b5",
+      "status": "success"
+    },
+    {
+      "world": "phantom_blood",
+      "recordId": "0b3dba6a-a13e-4a17-8cf8-d3baceb1e4b1",
+      "status": "success"
+    },
+    {
+      "world": "madolche",
+      "recordId": "0043ea08-77ec-4207-b012-fd57b4183b67",
+      "status": "success"
+    },
+    {
+      "world": "tengu",
+      "recordId": "45de1bc6-6399-4037-abba-e709b1a547c3",
+      "status": "success"
+    },
+    {
+      "world": "ikebukuro",
+      "recordId": "d7d1dea3-c7da-4c5e-bfbc-855bf011a35c",
+      "status": "success"
+    },
+    {
+      "world": "frieren",
+      "recordId": "1a30e060-04a1-4a68-bba8-be8d42ed6838",
+      "status": "success"
+    },
+    {
+      "world": "dungeon_meshi",
+      "recordId": "4237063f-cfb7-44f3-9b6a-3dda57db9236",
+      "status": "success"
+    },
+    {
+      "world": "hunter_exam",
+      "recordId": "5d53e6af-610f-4274-b6cd-837541e9a9d6",
+      "status": "success"
+    },
+    {
+      "world": "roswaal_mansion",
+      "recordId": "aeb15d1e-1788-47f7-b47d-a9d1e8b6a0d3",
+      "status": "success"
+    },
+    {
+      "world": "z_city",
+      "recordId": "c22871ec-9d05-4418-a49a-5061739d3b8f",
+      "status": "success"
+    },
+    {
+      "world": "witch_prison",
+      "recordId": "41b84793-d6b1-4abe-8f39-eaf9b5ae87ea",
+      "status": "success"
+    },
+    {
+      "world": "persona5",
+      "recordId": "8c8419e9-4d54-4b5d-a953-cabd5054b0bb",
+      "status": "success"
+    },
+    {
+      "world": "persona5_royal",
+      "recordId": "91613b14-d515-4bbe-becd-45b49b77acd3",
+      "status": "success"
+    },
+    {
+      "world": "hakugyokurou",
+      "recordId": "b09288f5-0b1b-41af-9d76-60af5f3bc811",
+      "status": "success"
+    },
+    {
+      "world": "scarlet_mist",
+      "recordId": "d5f96c63-a977-48b1-aeba-755988c9c9d6",
+      "status": "success"
+    },
+    {
+      "world": "inuyasha_well",
+      "recordId": "5e60ca31-22f9-47be-8f14-b5538f2580af",
+      "status": "success"
+    },
+    {
+      "world": "noragami",
+      "recordId": "fb10f1a7-3025-47a7-9f1b-ed223d190a83",
+      "status": "success"
+    },
+    {
+      "world": "spice_and_wolf",
+      "recordId": "07eefcbd-2e68-4a75-8186-581e6a30250b",
+      "status": "success"
+    }
+  ],
+  "scriptSyntaxValid": true,
+  "visualRendered": false,
+  "gameRuntimeTested": false,
+  "contrastRatios": {
+    "body": 11.54,
+    "clue": 6.07,
+    "emotion": 7.48,
+    "danger": 6.29
+  },
+  "hashes": {
+    "proposal": "6e484da49acd0b7a167af42c43a2b1290629b1eb574d95be5e8af97d0cc816b4",
+    "preview": "b93baba8b8901e68a5100661b49104f29ad8b69bebfe256b280cdcb653e54ec7"
+  },
+  "counts": {
+    "worldFiles": 32,
+    "headWorlds": 31,
+    "commonWorlds": 1,
+    "events": 966,
+    "reviewedWorlds": 32,
+    "paragraphCorrectionsAccepted": 707,
+    "formattedEvents": 332,
+    "highlightedEvents": 219,
+    "rejectedSuggestions": 203,
+    "nonWhitespaceCharactersPreserved": true,
+    "sourceHashesUnchanged": true,
+    "gameplayAndRewardFieldsUntouched": true,
+    "gameApplied": false,
+    "runtimeTested": false,
+    "records": [
+      {
+        "world": "fuyuki",
+        "recordId": "8f381cc2-3b8d-4ca1-a635-8b5ff8cc0525",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\01-fuyuki.json"
+      },
+      {
+        "world": "axel",
+        "recordId": "04ea4708-235d-497c-9e0a-ba5022fa59d5",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\02-axel.json"
+      },
+      {
+        "world": "abydos",
+        "recordId": "931f98d6-e8f0-4578-ae3a-ee7251aae5f4",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\03-abydos.json"
+      },
+      {
+        "world": "academy",
+        "recordId": "3121c331-d534-4f2a-bb5a-8e737c5f0b66",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\04-academy.json"
+      },
+      {
+        "world": "mitakihara",
+        "recordId": "d670c47d-7af0-497d-a264-7d3b52d12871",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\05-mitakihara.json"
+      },
+      {
+        "world": "aincrad",
+        "recordId": "df3064cc-e85f-43f8-a9f3-e6d3a2727769",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\06-aincrad.json"
+      },
+      {
+        "world": "zegagrande",
+        "recordId": "12d9a688-492d-425c-bc80-9c87ce1d2431",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\07-zegagrande.json"
+      },
+      {
+        "world": "common",
+        "recordId": "56f220e8-f4bd-4baa-aa53-ed2dbcb3a3ac",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\08-common.json"
+      },
+      {
+        "world": "magnolia",
+        "recordId": "8880a097-6c58-4112-a15b-2e1cc8e4ca22",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\09-magnolia.json"
+      },
+      {
+        "world": "karakura",
+        "recordId": "7589fd48-5911-4211-8ef3-bd5ccb2ea7b0",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\10-karakura.json"
+      },
+      {
+        "world": "penacony",
+        "recordId": "4a897304-1828-47ec-867b-17fcdf5fbc6a",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\11-penacony.json"
+      },
+      {
+        "world": "amestris",
+        "recordId": "1054f146-677c-487c-af21-4e0956d9d4a3",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\12-amestris.json"
+      },
+      {
+        "world": "butterfly",
+        "recordId": "13d6ef4b-d336-434d-a12d-2a96765ccea9",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\13-butterfly.json"
+      },
+      {
+        "world": "gourmet",
+        "recordId": "36a3acaa-cb74-4c63-9d12-9c724108b4bb",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\14-gourmet.json"
+      },
+      {
+        "world": "amphoreus",
+        "recordId": "60b9d5e2-a4fb-4069-b4fd-70d625f141b5",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\15-amphoreus.json"
+      },
+      {
+        "world": "phantom_blood",
+        "recordId": "0b3dba6a-a13e-4a17-8cf8-d3baceb1e4b1",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\16-phantom_blood.json"
+      },
+      {
+        "world": "madolche",
+        "recordId": "0043ea08-77ec-4207-b012-fd57b4183b67",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\17-madolche.json"
+      },
+      {
+        "world": "tengu",
+        "recordId": "45de1bc6-6399-4037-abba-e709b1a547c3",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\18-tengu.json"
+      },
+      {
+        "world": "ikebukuro",
+        "recordId": "d7d1dea3-c7da-4c5e-bfbc-855bf011a35c",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\19-ikebukuro.json"
+      },
+      {
+        "world": "frieren",
+        "recordId": "1a30e060-04a1-4a68-bba8-be8d42ed6838",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\20-frieren.json"
+      },
+      {
+        "world": "dungeon_meshi",
+        "recordId": "4237063f-cfb7-44f3-9b6a-3dda57db9236",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\21-dungeon_meshi.json"
+      },
+      {
+        "world": "hunter_exam",
+        "recordId": "5d53e6af-610f-4274-b6cd-837541e9a9d6",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\22-hunter_exam.json"
+      },
+      {
+        "world": "roswaal_mansion",
+        "recordId": "aeb15d1e-1788-47f7-b47d-a9d1e8b6a0d3",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\23-roswaal_mansion.json"
+      },
+      {
+        "world": "z_city",
+        "recordId": "c22871ec-9d05-4418-a49a-5061739d3b8f",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\24-z_city.json"
+      },
+      {
+        "world": "witch_prison",
+        "recordId": "41b84793-d6b1-4abe-8f39-eaf9b5ae87ea",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\25-witch_prison.json"
+      },
+      {
+        "world": "persona5",
+        "recordId": "8c8419e9-4d54-4b5d-a953-cabd5054b0bb",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\26-persona5.json"
+      },
+      {
+        "world": "persona5_royal",
+        "recordId": "91613b14-d515-4bbe-becd-45b49b77acd3",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\27-persona5_royal.json"
+      },
+      {
+        "world": "hakugyokurou",
+        "recordId": "b09288f5-0b1b-41af-9d76-60af5f3bc811",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\28-hakugyokurou.json"
+      },
+      {
+        "world": "scarlet_mist",
+        "recordId": "d5f96c63-a977-48b1-aeba-755988c9c9d6",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\29-scarlet_mist.json"
+      },
+      {
+        "world": "inuyasha_well",
+        "recordId": "5e60ca31-22f9-47be-8f14-b5538f2580af",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\30-inuyasha_well.json"
+      },
+      {
+        "world": "noragami",
+        "recordId": "fb10f1a7-3025-47a7-9f1b-ed223d190a83",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\31-noragami.json"
+      },
+      {
+        "world": "spice_and_wolf",
+        "recordId": "07eefcbd-2e68-4a75-8186-581e6a30250b",
+        "response": "D:\\Work\\ARCANA\\Arcana_B\\future-fixes\\readability-expanded-20261011\\structured-responses\\32-spice_and_wolf.json"
+      }
+    ]
+  }
+}

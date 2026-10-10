@@ -1,0 +1,686 @@
+{
+  "fuyuki_main_03": {
+    "text": "지난 성배전쟁의 여파",
+    "role": "clue"
+  },
+  "fuyuki_main_04": {
+    "text": "한 차례 쓰러뜨리지만",
+    "role": "clue"
+  },
+  "fuyuki_main_08": {
+    "text": "강제 명령을 내리는 령주",
+    "role": "clue"
+  },
+  "fuyuki_main_10": {
+    "text": "계약을 끊는 보구",
+    "role": "clue"
+  },
+  "axel_main_09": {
+    "text": "언데드인 리치",
+    "role": "clue"
+  },
+  "axel_main_11": {
+    "text": "고대의 이동 요새",
+    "role": "clue"
+  },
+  "axel_main_04": {
+    "text": "목 없는 기사 베르디아",
+    "role": "clue"
+  },
+  "axel_main_01": {
+    "text": "생활비를 어떻게 마련할지",
+    "role": "clue"
+  },
+  "abydos_main_02": {
+    "remove": true,
+    "reason": "낯선 경험은 사건을 구분하는 단서가 아니므로 강조 제외"
+  },
+  "abydos_main_05": {
+    "text": "암은행을 거친다는 정황",
+    "role": "clue"
+  },
+  "abydos_main_06": {
+    "text": "무기 자금으로 흘러갔음",
+    "role": "clue"
+  },
+  "academy_main_02": {
+    "text": "자신과 같은 전기적 기척",
+    "role": "clue"
+  },
+  "academy_main_03": {
+    "text": "최강의 능력자 액셀러레이터",
+    "role": "clue"
+  },
+  "academy_main_07": {
+    "text": "초능력을 지워",
+    "role": "clue"
+  },
+  "madoka_one_wish": {
+    "text": "감당할 준비",
+    "role": "emotion"
+  },
+  "mitakihara_main_03": {
+    "text": "방해꾼으로 여겨",
+    "role": "emotion"
+  },
+  "mitakihara_main_04": {
+    "remove": true,
+    "reason": "이상한 말이라는 모호한 표현보다 본문을 그대로 읽게 함"
+  },
+  "mitakihara_main_08": {
+    "text": "가족까지 잃었다고",
+    "role": "emotion"
+  },
+  "aincrad_main_03": {
+    "text": "죽음이 두려워",
+    "role": "emotion"
+  },
+  "aincrad_main_06": {
+    "text": "사람이 사라지는 광경",
+    "role": "clue"
+  },
+  "zegagrande_main_05": {
+    "role": "clue",
+    "text": "성정수의 힘을 다룰 수 있는 루리아"
+  },
+  "zegagrande_main_13": {
+    "text": "차원의 틈",
+    "role": "clue"
+  },
+  "common_shrine_work": {
+    "remove": true,
+    "reason": "요란한 일은 핵심 단서가 아니므로 제외"
+  },
+  "common_lost_address": {
+    "text": "주소가 틀렸다는",
+    "role": "clue"
+  },
+  "common_fur_scale": {
+    "text": "무엇을 숨기는지",
+    "role": "clue"
+  },
+  "common_other_buyer": {
+    "text": "손실을 숨기기보다",
+    "role": "emotion"
+  },
+  "common_good_receipt": {
+    "remove": true,
+    "reason": "문제가 된다는 일반 표현은 강조하지 않음"
+  },
+  "common_rain_cargo": {
+    "text": "상대가 믿지 않을",
+    "role": "emotion"
+  },
+  "common_torn_poster": {
+    "remove": true,
+    "reason": "짐이 쌓인 쪽은 문장 전체 없이 의미가 부족하여 제외"
+  },
+  "magnolia_main_13": {
+    "remove": true,
+    "reason": "힘이 달린다는 일반 표현은 강조 제외"
+  },
+  "magnolia_main_14": {
+    "text": "가문의 뜻대로",
+    "role": "clue"
+  },
+  "magnolia_main_07": {
+    "text": "건물을 망가뜨렸다",
+    "role": "clue"
+  },
+  "karakura_main_01": {
+    "remove": true,
+    "reason": "긴 정의 문장 전체 강조는 제외"
+  },
+  "karakura_main_04": {
+    "text": "인간에게 사신의 힘을 넘긴 죄",
+    "role": "clue"
+  },
+  "karakura_main_10": {
+    "text": "그녀를 보고 멈춰 선다.",
+    "role": "emotion"
+  },
+  "karakura_main_11": {
+    "text": "만해가 필요",
+    "role": "clue"
+  },
+  "karakura_main_hogyoku_escape": {
+    "text": "사신과 호로의 경계를 허무는 물건",
+    "role": "clue"
+  },
+  "hsr_main_15": {
+    "text": "현실로 돌아가겠느냐",
+    "role": "clue"
+  },
+  "hsr_dream_eye_gap": {
+    "text": "꿈 건축 경계의 막힌 입구",
+    "role": "clue"
+  },
+  "hsr_jade_unwritten_price": {
+    "remove": true,
+    "reason": "움직임이 무거워진다는 모호한 표현은 강조 제외"
+  },
+  "hsr_after_loss": {
+    "text": "다음 귀환 이야기",
+    "role": "emotion"
+  },
+  "amestris_main_01": {
+    "remove": true,
+    "reason": "과거 실패 전체를 현재 위험으로 강조하지 않음"
+  },
+  "amestris_main_05": {
+    "text": "도서관은 이미 불타 있다.",
+    "role": "clue"
+  },
+  "amestris_main_06": {
+    "text": "가짜일 수 있다고",
+    "role": "emotion"
+  },
+  "amestris_main_08": {
+    "text": "죽지 않는 몸을 원한다.",
+    "role": "emotion"
+  },
+  "amestris_main_09": {
+    "text": "이미 살해됐다는 소식",
+    "role": "emotion"
+  },
+  "amestris_main_12": {
+    "text": "부모를 죽였다는 사실",
+    "role": "clue"
+  },
+  "amestris_main_15": {
+    "remove": true,
+    "reason": "제약이라는 모호한 표현만으로는 강조 의미가 부족함"
+  },
+  "kny_night_path": {
+    "text": "주인 잃은 짐더미",
+    "role": "clue"
+  },
+  "kny_night_wrong": {
+    "text": "빈손으로 돌아온 기록지",
+    "role": "clue"
+  },
+  "kny_unread_bottles": {
+    "text": "병의 이름표가 번져 있다",
+    "role": "clue"
+  },
+  "kny_white_linen": {
+    "remove": true,
+    "reason": "일반 날씨 묘사는 기본색 유지"
+  },
+  "kny_midday_noise": {
+    "remove": true,
+    "reason": "일반 망설임은 강조 제외"
+  },
+  "kny_before_departure": {
+    "text": "바닥이 벌어져",
+    "role": "clue"
+  },
+  "butterfly_main_03": {
+    "text": "억눌린 분노",
+    "role": "emotion"
+  },
+  "gourmet_main_07": {
+    "text": "감시하라고 명령",
+    "role": "clue"
+  },
+  "gourmet_main_10": {
+    "text": "정체를 감추고",
+    "role": "clue"
+  },
+  "gourmet_main_01": {
+    "text": "기억을 잃은 소년",
+    "role": "clue"
+  },
+  "amphoreus_main_07": {
+    "text": "조상들의 승리에 가려졌던 진실",
+    "role": "clue"
+  },
+  "amphoreus_main_08": {
+    "text": "기만의 힘",
+    "role": "clue"
+  },
+  "amphoreus_main_09": {
+    "text": "실험이라는 말",
+    "role": "clue"
+  },
+  "amphoreus_main_12": {
+    "text": "철묘의 탄생을 늦추기 위해",
+    "role": "clue"
+  },
+  "amphoreus_main_13": {
+    "text": "시간의 힘으로 만든 환상",
+    "role": "clue"
+  },
+  "amphoreus_main_15": {
+    "text": "파이논이 자신의 몸으로 남긴 봉인",
+    "role": "clue"
+  },
+  "phantom_blood_main_03": {
+    "text": "낯익은 병세",
+    "role": "clue"
+  },
+  "madolche_main_01": {
+    "text": "받을 사람의 이름이 비었다.",
+    "role": "clue"
+  },
+  "madolche_main_03": {
+    "text": "바람에 뒤집혔다고",
+    "role": "clue"
+  },
+  "madolche_main_05": {
+    "text": "기다리던 사람의 흔적",
+    "role": "clue"
+  },
+  "madolche_main_08": {
+    "text": "식탁의 이름표를 섞어",
+    "role": "clue"
+  },
+  "madolche_main_10": {
+    "text": "교대 소식을 받지 못한",
+    "role": "clue"
+  },
+  "madolche_route_fold": {
+    "text": "지도가 틀렸다고 생각할",
+    "role": "clue"
+  },
+  "madolche_crumb_trail": {
+    "text": "급히 떨어뜨린 짐이",
+    "role": "clue"
+  },
+  "tengu_main_04": {
+    "text": "허밋이라 불리는 정령",
+    "role": "clue"
+  },
+  "tengu_main_07": {
+    "text": "자신이 정령이라고",
+    "role": "clue"
+  },
+  "phantom_blood_main_02": {
+    "text": "마음을 짓밟는 행위",
+    "role": "emotion"
+  },
+  "phantom_blood_main_08": {
+    "text": "원한만으로 설명할 수 없는",
+    "role": "emotion"
+  },
+  "tengu_main_01": {
+    "text": "낯선 시선을 경계한다.",
+    "role": "emotion"
+  },
+  "tengu_main_12": {
+    "text": "복수심과 지키려는 마음",
+    "role": "emotion"
+  },
+  "madolche_quiet_handover": {
+    "remove": true,
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  "tengu_main_05": {
+    "remove": true,
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  "tengu_main_10": {
+    "remove": true,
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  "dal_side_precision": {
+    "remove": true,
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  "ikebukuro_main_01": {
+    "text": "검은 바이크까지 마주친다",
+    "role": "clue"
+  },
+  "ikebukuro_main_05": {
+    "text": "머리를 이식한 결과가 아니다",
+    "role": "clue"
+  },
+  "ikebukuro_main_12": {
+    "text": "가려졌던 세 친구의 사정",
+    "role": "clue"
+  },
+  "dm_main_03": {
+    "text": "속지 말라고 손을 뻗는다.",
+    "role": "clue"
+  },
+  "dm_main_08": {
+    "text": "수상 보행 마법을 제안한다.",
+    "role": "clue"
+  },
+  "dm_main_12": {
+    "text": "역린에 닿을 기회",
+    "role": "clue"
+  },
+  "dm_main_04": {
+    "text": "갑옷이 모이는 방향",
+    "role": "clue"
+  },
+  "dm_main_07": {
+    "text": "살아 있는 그림",
+    "role": "clue"
+  },
+  "hx_main_12": {
+    "text": "상대를 죽이면 즉시 실격이다.",
+    "role": "clue"
+  },
+  "rz_main_12": {
+    "text": "그 뿔이 꺾인 날이 있다.",
+    "role": "clue"
+  },
+  "ikebukuro_main_03": {
+    "text": "자신을 기억하지 못한다는 말",
+    "role": "emotion"
+  },
+  "ikebukuro_main_08": {
+    "text": "타인의 욕망에 떠밀리는 대신",
+    "role": "emotion"
+  },
+  "fr_fear": {
+    "text": "아직 보이지 않는 적이 더 무섭다고",
+    "role": "emotion"
+  },
+  "fr_quiet_watch": {
+    "text": "작은 소리도 모두 위협처럼 들린다.",
+    "role": "emotion"
+  },
+  "fr_main_05": {
+    "text": "용을 앞두고 몸이 굳는다.",
+    "role": "emotion"
+  },
+  "fr_main_01": {
+    "text": "함께 보낸 날들",
+    "role": "emotion"
+  },
+  "dm_main_13": {
+    "text": "파린의 뼈 앞에서",
+    "role": "emotion"
+  },
+  "hx_main_02": {
+    "text": "소중한 사람을 버리게 만든다.",
+    "role": "emotion"
+  },
+  "hx_main_07": {
+    "text": "원칙을 꺾어야만",
+    "role": "emotion"
+  },
+  "ikebukuro_main_07": {
+    "remove": true,
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  "ikebukuro_main_09": {
+    "remove": true,
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  "dm_main_06": {
+    "remove": true,
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  "hx_main_09": {
+    "remove": true,
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  "hx_badge_weight": {
+    "remove": true,
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  "rz_main_11": {
+    "remove": true,
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  "fr_main_03": {
+    "text": "익숙한 공격 마법",
+    "role": "clue"
+  },
+  "fr_main_06": {
+    "text": "드러난 힘만으로",
+    "role": "clue"
+  },
+  "fr_main_11": {
+    "text": "어떤 마법사가 될지",
+    "role": "clue"
+  },
+  "opm_main_11": {
+    "text": "잘라 낸 몸은 다시 이어진다.",
+    "role": "clue"
+  },
+  "opm_side_cut": {
+    "text": "잘려 나간 몸이 다시 이어지는 상대",
+    "role": "clue"
+  },
+  "opm_side_two_reports": {
+    "text": "재생하는 적",
+    "role": "clue"
+  },
+  "wt_main_05": {
+    "text": "돌이킬 수 없는 선택",
+    "role": "clue"
+  },
+  "wt_main_16": {
+    "text": "마녀 인자를 거두어",
+    "role": "clue"
+  },
+  "p5_main_08": {
+    "text": "규칙조차 상대에게 유리하게 바뀐다.",
+    "role": "clue"
+  },
+  "p5_main_12": {
+    "text": "사람들의 바람이 만든 성배",
+    "role": "clue"
+  },
+  "p5_main_13": {
+    "text": "쌍둥이 간수들도 모순을 느낀다",
+    "role": "clue"
+  },
+  "p5r_main_05": {
+    "text": "자매의 과거를 드러낸다",
+    "role": "clue"
+  },
+  "opm_main_12": {
+    "text": "강함에 권태를 느낀 보로스",
+    "role": "emotion"
+  },
+  "wt_main_06": {
+    "text": "자신의 기억을 믿고 싶어도",
+    "role": "emotion"
+  },
+  "wt_main_15": {
+    "text": "인간을 향한 오래된 원한",
+    "role": "emotion"
+  },
+  "p5_main_10": {
+    "text": "자신의 적의와 복수를 드러낸다.",
+    "role": "emotion"
+  },
+  "p5r_main_10": {
+    "text": "지워진 관계가 남아 있다",
+    "role": "emotion"
+  },
+  "p5r_main_13": {
+    "text": "마지막 감정을 부딪친다",
+    "role": "emotion"
+  },
+  "p5r_side_not_equal": {
+    "text": "버려야만 자신이 되는 것",
+    "role": "emotion"
+  },
+  "opm_main_07": {
+    "remove": true,
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  "wt_main_04": {
+    "remove": true,
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  "p5r_main_07": {
+    "remove": true,
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  "p5r_main_12": {
+    "remove": true,
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  "p5r_side_records": {
+    "remove": true,
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  "opm_main_03": {
+    "text": "통제할 수 있는 상대조차 아니었다",
+    "role": "danger"
+  },
+  "opm_main_10": {
+    "text": "우주선의 공격",
+    "role": "danger"
+  },
+  "wt_main_01": {
+    "text": "일상을 빼앗는다",
+    "role": "danger"
+  },
+  "p5_main_01": {
+    "text": "보고만 있을 수 없다는",
+    "role": "emotion"
+  },
+  "p5_main_04": {
+    "text": "돈을 삼키는 은행",
+    "role": "clue"
+  },
+  "p5_main_05": {
+    "text": "자신을 탓하는 기억",
+    "role": "emotion"
+  },
+  "pcb_main_04": {
+    "role": "clue",
+    "text": "누군가 봄을 모으고 있다는 실마리"
+  },
+  "pcb_main_10": {
+    "role": "clue",
+    "text": "빼앗긴 봄을 돌려받는 것"
+  },
+  "pcb_main_12": {
+    "role": "clue",
+    "text": "봉인 아래 있는 것이 무엇이든"
+  },
+  "pcb_main_13": {
+    "role": "clue",
+    "text": "백옥루의 망령"
+  },
+  "pcb_side_unopened": {
+    "role": "clue",
+    "text": "열어도 된다는 뜻은 아니다"
+  },
+  "pcb_side_lastlight": {
+    "role": "clue",
+    "text": "다음 움직임을 가렸다"
+  },
+  "b_iy_main_06": {
+    "role": "clue",
+    "text": "눈코가 없다."
+  },
+  "b_iy_main_08": {
+    "role": "clue",
+    "text": "거대한 송곳니"
+  },
+  "b_iy_side_05": {
+    "role": "clue",
+    "text": "젖은 돌 하나가 기울어 있다."
+  },
+  "pcb_side_garden": {
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외",
+    "remove": true
+  },
+  "eosd_main_05": {
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외",
+    "remove": true
+  },
+  "eosd_main_07": {
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외",
+    "remove": true
+  },
+  "eosd_main_09": {
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외",
+    "remove": true
+  },
+  "b_iy_main_07": {
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외",
+    "remove": true
+  },
+  "b_iy_side_01": {
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외",
+    "remove": true
+  },
+  "b_iy_side_08": {
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외",
+    "remove": true
+  },
+  "eosd_main_01": {
+    "role": "clue",
+    "text": "붉은 안개"
+  },
+  "eosd_main_11": {
+    "role": "clue",
+    "text": "저택 밖의 여름까지"
+  },
+  "b_ng_main_01": {
+    "role": "clue",
+    "text": "영혼이 빠져나오는 일"
+  },
+  "b_ng_side_11": {
+    "role": "clue",
+    "text": "동쪽과 서쪽 출구"
+  },
+  "b_sw_main_04": {
+    "role": "clue",
+    "text": "은화 이야기의 빈틈"
+  },
+  "b_sw_side_03": {
+    "role": "clue",
+    "text": "비에 젖어 거래 숫자가 흐려졌다"
+  },
+  "b_sw_side_07": {
+    "role": "clue",
+    "text": "확실한 부분과 꾸며진 부분"
+  },
+  "b_sw_side_09": {
+    "role": "clue",
+    "text": "서로 다르게 들은 부분"
+  },
+  "b_sw_side_12": {
+    "role": "clue",
+    "text": "미확인 거래 목록"
+  },
+  "b_ng_main_06": {
+    "role": "emotion",
+    "text": "오래된 갈등"
+  },
+  "b_ng_main_07": {
+    "role": "emotion",
+    "text": "잘못을 숨기고"
+  },
+  "b_ng_side_06": {
+    "role": "emotion",
+    "text": "더 깊이 숨을 듯하다"
+  },
+  "b_sw_main_06": {
+    "role": "emotion",
+    "text": "구출할 동행의 자리"
+  },
+  "b_ng_main_08": {
+    "remove": true,
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  "b_ng_side_01": {
+    "remove": true,
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  "b_ng_side_05": {
+    "remove": true,
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  "b_sw_main_07": {
+    "remove": true,
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  "b_sw_main_01": {
+    "remove": true,
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  }
+}

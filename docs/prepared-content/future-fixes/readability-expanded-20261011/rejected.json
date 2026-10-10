@@ -1,0 +1,2290 @@
+[
+  {
+    "key": "fuyuki_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "도시의 대화재도 지난 성배전쟁의 여파였다는",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fuyuki_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "버서커를 한 차례 쓰러뜨리지만",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fuyuki_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "강제 명령을 내리는 령주",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fuyuki_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "계약을 끊는 보구로",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "axel_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "생활비를 어떻게 마련할지",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "axel_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "목 없는 기사 베르디아",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "axel_main_09",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "강한 언데드인 리치",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "axel_main_11",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "고대의 이동 요새",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "abydos_main_02",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "낯선 경험이다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "낯선 경험은 사건을 구분하는 단서가 아니므로 강조 제외"
+  },
+  {
+    "key": "abydos_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "암은행을 거친다는 정황",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "abydos_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "무기 자금으로 흘러갔음을",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "academy_main_05",
+    "type": "boundary",
+    "value": [
+      4
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "academy_main_02",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "자신과 같은 전기적 기척",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "academy_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "최강의 능력자 액셀러레이터",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "academy_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "초능력을 지워",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madoka_one_wish",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "감당할 준비",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "mitakihara_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "방해꾼으로 여겨",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "mitakihara_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "이상한 말을 하며",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "이상한 말이라는 모호한 표현보다 본문을 그대로 읽게 함"
+  },
+  {
+    "key": "mitakihara_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "가족까지 잃었다고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "aincrad_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "죽음이 두려워",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "aincrad_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "사람이 사라지는 광경",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "zegagrande_main_05",
+    "type": "emphasis",
+    "value": {
+      "text": "루리아를 다룰 수 있는",
+      "role": "danger",
+      "motion": "none"
+    },
+    "reason": "역할·길이·존재·중복 제한 위반"
+  },
+  {
+    "key": "zegagrande_main_05",
+    "type": "editor-change",
+    "value": [],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "zegagrande_main_13",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "차원의 틈으로 밀어내지만",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "common_shrine_work",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "가장 요란한 일을",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "요란한 일은 핵심 단서가 아니므로 제외"
+  },
+  {
+    "key": "common_lost_address",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "주소가 틀렸다는",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "common_fur_scale",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "무엇을 숨기는지",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "common_other_buyer",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "손실을 숨기기보다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "common_good_receipt",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "문제가 된다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "문제가 된다는 일반 표현은 강조하지 않음"
+  },
+  {
+    "key": "common_rain_cargo",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "상대가 믿지 않을",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "common_torn_poster",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "짐이 쌓인 쪽을",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "짐이 쌓인 쪽은 문장 전체 없이 의미가 부족하여 제외"
+  },
+  {
+    "key": "magnolia_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "건물을 망가뜨렸다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "magnolia_main_13",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "힘이 달린다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "힘이 달린다는 일반 표현은 강조 제외"
+  },
+  {
+    "key": "magnolia_main_14",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "가문의 뜻대로 정하려 한다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "bl_rooftop_marks",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "karakura_main_01",
+    "type": "emphasis",
+    "value": {
+      "text": "사신은 악한 혼인 호로를 정화하고 죽은 이의 혼을 저승으로 보내는 존재다.",
+      "role": "danger",
+      "motion": "none"
+    },
+    "reason": "역할·길이·존재·중복 제한 위반"
+  },
+  {
+    "key": "karakura_main_01",
+    "type": "editor-change",
+    "value": [],
+    "reason": "긴 정의 문장 전체 강조는 제외"
+  },
+  {
+    "key": "karakura_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "인간에게 사신의 힘을 넘긴 죄",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "karakura_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "그녀를 보고 멈춰 선다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "karakura_main_11",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "만해가 필요하다고 설명한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "karakura_main_hogyoku_escape",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "사신과 호로의 경계를 허무는 물건",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "hsr_after_loss",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "다음 놀이가 아닌 다음 귀환 이야기",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "hsr_dream_eye_gap",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "꿈 건축 경계의 막힌 입구",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "hsr_jade_unwritten_price",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "앞으로의 움직임도 무거워질 수 있다고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "움직임이 무거워진다는 모호한 표현은 강조 제외"
+  },
+  {
+    "key": "hsr_main_15",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "현실로 돌아가겠느냐는 선데이의 물음",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amestris_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "생명을 되돌리는 데 실패한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "과거 실패 전체를 현재 위험으로 강조하지 않음"
+  },
+  {
+    "key": "amestris_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "도서관은 이미 불타 있다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amestris_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "가짜일 수 있다고 말한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amestris_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "죽지 않는 몸을 원한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amestris_main_09",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "이미 살해됐다는 소식",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amestris_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "부모를 죽였다는 사실",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amestris_main_15",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "제약도 벗겨진다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "제약이라는 모호한 표현만으로는 강조 의미가 부족함"
+  },
+  {
+    "key": "kny_night_path",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "주인 잃은 짐더미만 덩그러니",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "kny_night_wrong",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "빈손으로 돌아온 기록지",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "kny_unread_bottles",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "병의 이름표가 번져 있다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "kny_white_linen",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "비가 그치지 않는다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 날씨 묘사는 기본색 유지"
+  },
+  {
+    "key": "kny_midday_noise",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "무엇을 먼저 확인할지 망설이는",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 망설임은 강조 제외"
+  },
+  {
+    "key": "kny_before_departure",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "바닥이 벌어져 준비한 것들이 떨어졌다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "butterfly_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "억눌린 분노를 느끼고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "gourmet_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "기억을 잃은 소년",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "gourmet_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "감시하라고 명령한 것",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "gourmet_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "정체를 감추고 있을 수 없다고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amph_carry",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "amph_epilogue_seed",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "amphoreus_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "조상들의 승리에 가려졌던 진실",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amphoreus_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "기만의 힘",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amphoreus_main_09",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "실험이라는 말",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amphoreus_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "철묘의 탄생을 늦추기 위해",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amphoreus_main_13",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "시간의 힘으로 만든 환상",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "amphoreus_main_15",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "파이논이 자신의 몸으로 남긴 봉인",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "phantom_blood_main_02",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "마음을 짓밟는 행위",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "phantom_blood_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "낯익은 병세",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "phantom_blood_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "원한만으로 설명할 수 없는",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "받을 사람의 이름이 비었다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "바람에 뒤집혔다고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "기다리던 사람의 흔적",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "식탁의 이름표를 섞어",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "교대 소식을 받지 못한",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_route_fold",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "지도가 틀렸다고 생각할",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_crumb_trail",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "급히 떨어뜨린 짐이",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "madolche_quiet_handover",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "설명이 길어질수록 빠뜨리기",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  {
+    "key": "tengu_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "낯선 시선을 경계한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "tengu_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "허밋이라 불리는 정령",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "tengu_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "오리가미의 집",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  {
+    "key": "tengu_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "자신이 정령이라고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "tengu_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "힘을 드러낸 그녀",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  {
+    "key": "tengu_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "복수심과 지키려는 마음",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "dal_side_precision",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "경계를 유지하면서",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 설명·장소 또는 모호한 구절은 강조 제외"
+  },
+  {
+    "key": "drrr_side_schedule_follow",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "ikebukuro_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "검은 바이크까지 마주친다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "ikebukuro_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "자신을 기억하지 못한다는 말",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "ikebukuro_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "머리를 이식한 결과가 아니다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "ikebukuro_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "공격자를 막았다고 생각한 순간",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  {
+    "key": "ikebukuro_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "타인의 욕망에 떠밀리는 대신",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "ikebukuro_main_09",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "사키에게 벌어진 일을 떠올리며",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  {
+    "key": "ikebukuro_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "가려졌던 세 친구의 사정",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fr_main_03",
+    "type": "emphasis",
+    "value": {
+      "text": "치명적이던 졸트라크는 오랜 연구 끝에 익숙한 공격 마법이 되었다.",
+      "role": "danger",
+      "motion": "none"
+    },
+    "reason": "역할·길이·존재·중복 제한 위반"
+  },
+  {
+    "key": "fr_main_11",
+    "type": "emphasis",
+    "value": {
+      "text": "어떤 마법사가 될지 상상하는 일은 강한 주문을 얼마나 아는가와 다르다.",
+      "role": "danger",
+      "motion": "none"
+    },
+    "reason": "역할·길이·존재·중복 제한 위반"
+  },
+  {
+    "key": "fr_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "함께 보낸 날들을 뒤늦게 묻기 시작한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fr_main_03",
+    "type": "editor-change",
+    "value": [],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fr_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "용을 앞두고 몸이 굳는다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fr_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "드러난 힘만으로 상대를 재려는 판단에 오랜 수련이 답한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fr_main_11",
+    "type": "editor-change",
+    "value": [],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fr_fear",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "아직 보이지 않는 적이 더 무섭다고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "fr_quiet_watch",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "작은 소리도 모두 위협처럼 들린다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "dm_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "속지 말라고 손을 뻗는다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "dm_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "갑옷이 모이는 방향",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "dm_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "미궁에서 모르는 것",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  {
+    "key": "dm_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "살아 있는 그림",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "dm_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "수상 보행 마법을 제안한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "dm_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "역린에 닿을 기회",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "dm_main_13",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "파린의 뼈 앞에서",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "hx_main_09",
+    "type": "boundary",
+    "value": [
+      4
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "hx_main_12",
+    "type": "boundary",
+    "value": [
+      4
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "hx_main_14",
+    "type": "boundary",
+    "value": [
+      4
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "hx_main_02",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "소중한 사람을 버리게 만든다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "hx_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "원칙을 꺾어야만",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "hx_main_09",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "히소카였다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  {
+    "key": "hx_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "상대를 죽이면 즉시 실격이다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "hx_badge_weight",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "히소카를 보고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  {
+    "key": "rz_main_11",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "거친 싸움 속에서",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "인물 이름만의 강조 또는 구체성이 부족한 표현은 제외"
+  },
+  {
+    "key": "rz_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "그 뿔이 꺾인 날이 있다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "opm_side_bicycle",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_clearance",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_dojo",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_fragments",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_frontline",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_repair_notes",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_cut",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_sky",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_rival",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_side_two_reports",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_epilogue_names",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "opm_main_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "아수라 카부토는 연구자가 통제할 수 있는 상대조차 아니었다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "opm_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "운석을 향해 전력을 쏟으려 하고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  {
+    "key": "opm_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "거대한 우주선의 공격이 도시를 덮친 것이다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "opm_main_11",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "잘라 낸 몸은 다시 이어진다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "opm_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "강함에 권태를 느낀 보로스",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "opm_side_cut",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "잘려 나간 몸이 다시 이어지는 상대",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "opm_side_two_reports",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "재생하는 적",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "wt_side_polite",
+    "type": "boundary",
+    "value": [
+      1
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "wt_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "마녀가 될 가능성만으로 모두의 일상을 빼앗는다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "wt_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "누구를 향한 위험과 이어지는지",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  {
+    "key": "wt_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "돌이킬 수 없는 선택",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "wt_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "자신의 기억을 믿고 싶어도 확인을 피할 수 없다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "wt_main_15",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "인간을 향한 오래된 원한",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "wt_main_16",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "마녀 인자를 거두어",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5_main_01",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "p5_side_haru_gloves",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "p5_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "더는 보고만 있을 수 없다는 생각이 가면 아래에서 솟는다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "거리 전체가 돈을 삼키는 은행처럼 변한 팰리스",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "자신을 탓하는 기억 때문에 방에 갇혀 있다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "규칙조차 상대에게 유리하게 바뀐다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "자신의 적의와 복수를 드러낸다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "사람들의 바람이 만든 성배",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5_main_13",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "처형 명령에 쌍둥이 간수들도 모순을 느낀다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5r_main_09",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "p5r_main_10",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "p5r_side_futaba_follow",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "p5r_side_akechi_follow",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "p5r_epilogue_paths",
+    "type": "boundary",
+    "value": [
+      2
+    ],
+    "reason": "마지막 문장 뒤 또는 유효 범위 밖 문단 경계 제외"
+  },
+  {
+    "key": "p5r_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "자매의 과거를 드러낸다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5r_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "걷잡을 수 없이 흔들린다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  {
+    "key": "p5r_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "지워진 관계가 남아 있다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5r_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "싸움이 사라지지는 않는다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  {
+    "key": "p5r_main_13",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "마지막 감정을 부딪친다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "p5r_side_records",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "사라진 관계가 같은 기록",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 행동·모호한 서술은 기본색으로 유지"
+  },
+  {
+    "key": "p5r_side_not_equal",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "버려야만 자신이 되는 것",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "pcb_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "누군가 봄을 모으고 있다는 실마리",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "pcb_main_10",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "빼앗긴 봄을 돌려받는 것",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "pcb_main_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "봉인 아래 있는 것이 무엇이든",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "pcb_main_13",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "백옥루의 망령",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "pcb_side_garden",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "검을 다루는 손",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외"
+  },
+  {
+    "key": "pcb_side_unopened",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "열어도 된다는 뜻은 아니다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "pcb_side_lastlight",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "다음 움직임을 가렸다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "eosd_main_01",
+    "type": "emphasis",
+    "value": {
+      "text": "붉은 안개을 한꺼번에 넘겨짚을 수는 없다.",
+      "role": "danger",
+      "motion": "none"
+    },
+    "reason": "역할·길이·존재·중복 제한 위반"
+  },
+  {
+    "key": "eosd_main_01",
+    "type": "editor-change",
+    "value": [],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "eosd_main_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "공격을 넓게 펼친다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외"
+  },
+  {
+    "key": "eosd_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "다음 변화를 맞는다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외"
+  },
+  {
+    "key": "eosd_main_09",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "달라진 배치를 마주한다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외"
+  },
+  {
+    "key": "eosd_main_11",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "붉은 안개는 저택 밖의 여름까지 덮었다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_iy_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "눈코가 없다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_iy_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "철쇄아를",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외"
+  },
+  {
+    "key": "b_iy_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "거대한 송곳니",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_iy_side_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "사라졌다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외"
+  },
+  {
+    "key": "b_iy_side_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "젖은 돌 하나가 기울어 있다.",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_iy_side_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "해가 어느 쪽에",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 동작·단독 이름·문맥 없는 짧은 구절의 강조 제외"
+  },
+  {
+    "key": "b_ng_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "영혼이 빠져나오는 일",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_ng_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "오래된 갈등",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_ng_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "잘못을 숨기고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_ng_main_08",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "상태는 더 나빠진다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  {
+    "key": "b_ng_side_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "전단이 접혀",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  {
+    "key": "b_ng_side_05",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "다른 대목을 듣고",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  {
+    "key": "b_ng_side_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "더 깊이 숨을 듯하다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_ng_side_11",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "동쪽과 서쪽 출구",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_sw_main_01",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "여행 계획이 달라진다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  {
+    "key": "b_sw_main_04",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "은화 이야기의 빈틈",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_sw_main_06",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "구출할 동행의 자리",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_sw_main_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "위기는 다시 깊어진다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "일반 상황 변화와 모호한 표현의 강조 제외"
+  },
+  {
+    "key": "b_sw_side_03",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "비에 젖어 거래 숫자가 흐려졌다",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_sw_side_07",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "확실한 부분과 꾸며진 부분",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_sw_side_09",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "서로 다르게 들은 부분",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  },
+  {
+    "key": "b_sw_side_12",
+    "type": "editor-change",
+    "value": [
+      {
+        "text": "미확인 거래 목록",
+        "role": "danger",
+        "motion": "none"
+      }
+    ],
+    "reason": "단서와 위험의 의미 구분을 수동 교정"
+  }
+]
