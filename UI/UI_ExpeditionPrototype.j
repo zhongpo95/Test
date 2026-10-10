@@ -102,7 +102,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if aspect <= 0.0 then
             set aspect = 1.0 / ImagePixelAspect
         endif
-        // 텍스처 저장 크기와 관계없이 원본 구도를 유지하고 빈 공간은 종이 배경으로 남긴다.
+        // 통일된 사건 썸네일을 화면 비율에 맞춰 표시하고 그림이 늘어나지 않게 한다.
         if imageWidth > imageHeight * aspect then
             set imageWidth = imageHeight * aspect
         else
@@ -124,13 +124,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call PlaceCoverPart(cover, EventRoot, x, 0.138, 0.174, 0.386)
         call ExpUIResizeCover(CandidateButtons[i], 0.174, 0.386)
         call PlaceCoverPart(CandidateRegion[i], cover, 0.012, 0.012, 0.150, 0.038)
-        call PlaceEventImage(CandidateIcon[i], cover, 0.012, 0.052, 0.150, 0.088, id)
-        call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.150, 0.150, 0.034)
+        call PlaceEventImage(CandidateIcon[i], cover, 0.012, 0.052, 0.150, 0.108, id)
+        call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.168, 0.150, 0.034)
         if opening or ProtoEventRequiredCard[id] > 0 then
-            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.194, 0.150, 0.076)
-            call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.278, 0.150, 0.060)
+            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.210, 0.150, 0.077)
+            call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.294, 0.150, 0.044)
         else
-            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.194, 0.150, 0.138)
+            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.210, 0.150, 0.128)
         endif
         if head > 0 then
             set tag = ProtoHeadName[head]
