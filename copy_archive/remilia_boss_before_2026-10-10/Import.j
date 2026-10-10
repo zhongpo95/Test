@@ -180,7 +180,6 @@
 //! import "D:\Work\GitHub\Test\Boss\BossAOESandbag.j"
 //! import "D:\Work\GitHub\Test\Boss\BossAggro.j"
 //! import "D:\Work\GitHub\Test\Boss\BossArcher.j"
-//! import "D:\Work\GitHub\Test\Boss\BossRemilia.j"
 
 // === System ===
 //! import "D:\Work\GitHub\Test\System\FileSave.j"

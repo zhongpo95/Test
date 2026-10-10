@@ -152,8 +152,6 @@ globals
     real array UnitCounterArc
     //아쳐 보스 유닛 rawcode (확정 필요: 오브젝트 에디터에서 만든 유닛 ID로 바꾼다)
     constant integer ARCHER_UNIT_ID = 'h0AR'
-    //레밀리아 보스 유닛 rawcode (맵 war3map.w3u 에 hpea 기반으로 추가, 모델 war3mapImported\Hero-Model_Remilia.mdx)
-    constant integer REMILIA_UNIT_ID = 'h0RM'
     
     integer array potion
 endglobals
@@ -218,8 +216,6 @@ function DataUnitIndex takes unit u returns integer
         return 26
     elseif i == ARCHER_UNIT_ID then
         return 27
-    elseif i == REMILIA_UNIT_ID then
-        return 28
     endif
     return 0
 endfunction
@@ -842,16 +838,6 @@ private function init takes nothing returns nothing
     // 체력바 8줄 = 영창 8번 (한 줄을 다 깎을 때마다 영창 하나, 마지막 줄을 다 깎으면 무한의 검제)
     set UnitSetHPx[27] = 8
     set UnitTier[27] = 5
-
-    //레밀리아 보스 (Boss/BossRemilia.j). 체력은 1인 기준, 인원당 +70%
-    set UnitAbilityIndex[28] = REMILIA_UNIT_ID
-    //테스트용 체력 (아쳐와 같음)
-    set UnitSetHP[28] = 4000
-    set UnitSetSD[28] = 100
-    set UnitSetArm[28] = 10000
-    // 체력바 10줄 = 한 줄 10%. 1단계는 1페이즈(100%→10%)만: 85% 햇빛 3줄, 70%·40% 기믹 자리, 10% 페이즈 끝
-    set UnitSetHPx[28] = 10
-    set UnitTier[28] = 5
 
     //지크프리트
     set UnitAbilityIndex[26] = 'H01S'
