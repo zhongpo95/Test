@@ -1,0 +1,154 @@
+[
+  {
+    "eventKeys": [
+      "amestris_main_01"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_brothers.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_brothers.png",
+    "importPath": "war3mapImported\\UI_Event_AME_brothers.tga",
+    "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story02.jpg",
+    "sourceSHA": "cd3bc59b6cddf967057d347581aea7cac2e4d8e7745bd750d5690fce5ce1a9d6",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\amestris\\originals\\page0-1.jpg",
+    "sourceSize": [
+      300,
+      169
+    ],
+    "crop": [
+      0,
+      0,
+      300,
+      169
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "2화의 어린 형제가 연금술을 배우던 시절. 신체 상실 직접 장면이 아닌 비극 이전의 형제 기억.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©荒川弘／鋼の錬金術師製作委員会・MBS",
+    "sourceEdition": "2009 FULLMETAL ALCHEMIST 공식 TV 회차 스틸. 2003판 아님.",
+    "tgaSHA256": "c0d064bd8422bb9a767a26fb29a9ef4dca6400df5d85fb4cdd799d417f2ec14b",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "amestris_main_03"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_nina.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_nina.png",
+    "importPath": "war3mapImported\\UI_Event_AME_nina.tga",
+    "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story04.jpg",
+    "sourceSHA": "a08f1462aaa6d74e13f5abc761908b39815bba6bd3ea3be9300a479d193e07d7",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\amestris\\originals\\page0-3.jpg",
+    "sourceSize": [
+      300,
+      169
+    ],
+    "crop": [
+      0,
+      0,
+      300,
+      169
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "4화 니나와 알렉산더. 비극 이전 함께 지낸 기억이며 키메라 변형 직접 컷 아님.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©荒川弘／鋼の錬金術師製作委員会・MBS",
+    "sourceEdition": "2009 FULLMETAL ALCHEMIST 공식 TV 회차 스틸. 2003판 아님.",
+    "tgaSHA256": "4115e154131dae9f6167b15b589065ef5e6ee7eeeffad61dfd8879da3ac86f30",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "amestris_main_06"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_winry.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_winry.png",
+    "importPath": "war3mapImported\\UI_Event_AME_winry.tga",
+    "sourcePage": "https://www.hagaren.jp/fa/about/story.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story09.jpg",
+    "sourceSHA": "757327500b25ede12ffce791e1cf87fd12952d2dbb947b4f0f70cb905edacb53",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\amestris\\originals\\page0-8.jpg",
+    "sourceSize": [
+      300,
+      169
+    ],
+    "crop": [
+      0,
+      0,
+      300,
+      169
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "9화 에드와 윈리. 알의 의심과 윈리 중재가 다뤄지는 회차의 장면이며 알의 발언 순간 자체는 아님.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©荒川弘／鋼の錬金術師製作委員会・MBS",
+    "sourceEdition": "2009 FULLMETAL ALCHEMIST 공식 TV 회차 스틸. 2003판 아님.",
+    "tgaSHA256": "5241af41fe6bba3c94b511ab374dc9aea4390969ff0cef84ce4051e8c5c49791",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "amestris_main_07"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_training.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-amestris\\UI_Event_AME_training.png",
+    "importPath": "war3mapImported\\UI_Event_AME_training.tga",
+    "sourcePage": "https://www.hagaren.jp/fa/about/story01.html",
+    "sourceUrl": "https://fullmetalalchemistusa.com/about/images/story/story12.jpg",
+    "sourceSHA": "2fcf7c0b4257a3c359934f28a862aa3fdaef1685610e3db9d6c074c4a966c9c3",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\amestris\\originals\\page0-11.jpg",
+    "sourceSize": [
+      300,
+      169
+    ],
+    "crop": [
+      0,
+      0,
+      300,
+      169
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "12화 어린 형제의 섬 수련 회상. 재회한 현재 시점의 모습으로 오인하지 않도록 회상으로 명시.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©荒川弘／鋼の錬金術師製作委員会・MBS",
+    "sourceEdition": "2009 FULLMETAL ALCHEMIST 공식 TV 회차 스틸. 2003판 아님.",
+    "tgaSHA256": "b8c98761e0db54de27b9b1e40b196263c405396126f139d91c67aaf54f08b096",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

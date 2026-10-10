@@ -1,0 +1,154 @@
+[
+  {
+    "eventKeys": [
+      "axel_main_02"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_megumin.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_megumin.png",
+    "importPath": "war3mapImported\\UI_Event_AXE_megumin.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/02/4.jpg",
+    "sourceSHA": "58a36c4b247f211a1a48f1e27c12a3a99bd7e443ff73949017f7f074b68e9b64",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\originals\\02-4.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "2화 카즈마와 새 동료 메구밍.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "2016 코노스바 TV 1기 공식 스틸. 후속 시즌 아님.",
+    "tgaSHA256": "892acf550f8cc357445bce865634f67f2d0e20820d53ca49f582d61d42fb53b8",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_03"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_darkness.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_darkness.png",
+    "importPath": "war3mapImported\\UI_Event_AXE_darkness.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/03/5.jpg",
+    "sourceSHA": "732ed5ee138bee99cef102c6138702222b54ba8284abe861bfeabe80a0f81b5d",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\originals\\03-5.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "3화 다크니스와 아쿠아·메구밍. 파티 합류 구간.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "2016 코노스바 TV 1기 공식 스틸. 후속 시즌 아님.",
+    "tgaSHA256": "d106fb578e59a2af7fb2ec7c46478c54728fa96a1e403280c1bedfd49e7d25a7",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_04"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_practice.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_practice.png",
+    "importPath": "war3mapImported\\UI_Event_AXE_practice.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/04/6.jpg",
+    "sourceSHA": "a94071cd18ffb9ef917c38422315d548fcb6ec54ba15f1176fd63838e27b04c1",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\originals\\04-6.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "4화 숲에서 폭렬을 준비하는 메구밍. 매일 이어지는 연습 구간.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "2016 코노스바 TV 1기 공식 스틸. 후속 시즌 아님.",
+    "tgaSHA256": "b099cb2a0d1cb6c274141264b2bfc1f28639ad8e8dc75da528716e54214c5cc4",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_05"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_beldia.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\UI_Event_AXE_beldia.png",
+    "importPath": "war3mapImported\\UI_Event_AXE_beldia.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/04/3.jpg",
+    "sourceSHA": "e3195abf0d1e739eac48a26bfb77ccc7d565186d9e95a6f2c8a2891bd509f352",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-axel\\originals\\04-3.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "4화 베르디아의 첫 방문. 6화 재방문 결전 이미지를 앞당겨 쓰지 않음.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "2016 코노스바 TV 1기 공식 스틸. 후속 시즌 아님.",
+    "tgaSHA256": "8bccf01a7de8fd9d52956f664f517a4647fc44ded589fd5197b90d23a5b355eb",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

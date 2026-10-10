@@ -1,0 +1,192 @@
+[
+  {
+    "key": "letter",
+    "eventKeys": [
+      "abydos_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_letter.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_letter.png",
+    "importPath": "war3mapImported\\UI_Event_ABO_letter.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep10/img_story-10_a09.jpg",
+    "sourceSHA": "3db6602dd8815b36df40ab18fdfb01441fe0fec3257fc85b6767673bd400d17b",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\originals\\ep10_img_story-10_a09.jpg",
+    "sourceSize": [
+      1000,
+      562
+    ],
+    "crop": [
+      270,
+      0,
+      832,
+      562
+    ],
+    "fitMode": "cover",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "호시노가 글을 남기는 10화 공식 스틸. 현재 편지를 읽는 사건에서 편지의 작성 기억을 보여 준다. 읽는 장면 그 자체라고 주장하지 않는다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "tgaBytes": 262188,
+    "pngBytes": 77915,
+    "activeModified": false,
+    "tgaSHA256": "eb0ae7d8ef3dc4c24a1e8182d621fde0f2325a300822f79951d960929325c9f9",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true
+  },
+  {
+    "key": "assault",
+    "eventKeys": [
+      "abydos_main_11"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_assault.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_assault.png",
+    "importPath": "war3mapImported\\UI_Event_ABO_assault.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep10/img_story-10_a13.jpg",
+    "sourceSHA": "47c5b8a7e3f35fd63ffd5f6361242a3adb9c7585486b84e0e9bd9b079282fa68",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\originals\\ep10_img_story-10_a13.jpg",
+    "sourceSize": [
+      1000,
+      562
+    ],
+    "crop": [
+      100,
+      0,
+      662,
+      562
+    ],
+    "fitMode": "cover",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "10화 공격자 공식 스틸. 학교를 압박하는 카이저의 공격을 시각화한다. 교실 안의 세리카 장면을 직접 재현한 그림은 아니다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "tgaBytes": 262188,
+    "pngBytes": 88090,
+    "activeModified": false,
+    "tgaSHA256": "8682b3d4ca17ad61f2482d07ff0c320da5c14b3ce73833b997fb6fb6c3831f9c",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true
+  },
+  {
+    "key": "black_suit",
+    "eventKeys": [
+      "abydos_main_12"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_black_suit.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_black_suit.png",
+    "importPath": "war3mapImported\\UI_Event_ABO_black_suit.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep11/img_story-11_a10.jpg",
+    "sourceSHA": "b220d3255294546444fb40f6e6397c269a0f473a414d2f77894b40ed5d155c87",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\originals\\ep11_img_story-11_a10.jpg",
+    "sourceSize": [
+      1000,
+      562
+    ],
+    "crop": [
+      190,
+      0,
+      752,
+      562
+    ],
+    "fitMode": "cover",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "11화 검은 양복과 선생의 독대 스틸. 사건 첫 문장과 직접 대응하며 두 사람의 얼굴을 함께 남긴다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "tgaBytes": 262188,
+    "pngBytes": 73322,
+    "activeModified": false,
+    "tgaSHA256": "384b201a916e1c46ec5eea175e9e07960e486e2fbe5289bf02817605dddd14dd",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true
+  },
+  {
+    "key": "rescue",
+    "eventKeys": [
+      "abydos_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_rescue.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_rescue.png",
+    "importPath": "war3mapImported\\UI_Event_ABO_rescue.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep12/img_story-12_a05.jpg",
+    "sourceSHA": "de979bf1a1d605a6a87e69b3db2a428ac0ef0dce688b6be0be5a87679770a697",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\originals\\ep12_img_story-12_a05.jpg",
+    "sourceSize": [
+      1000,
+      563
+    ],
+    "crop": [
+      215,
+      0,
+      778,
+      563
+    ],
+    "fitMode": "cover",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "12화 사막 구출전에 나선 시로코 스틸. 구출에 임하는 표정과 배경을 유지한다. 호시노가 이미 구출된 모습으로 표시하지 않는다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "tgaBytes": 262188,
+    "pngBytes": 83959,
+    "activeModified": false,
+    "tgaSHA256": "9b2b6a9b30d5d3cf21d818e7f91c4dd37fd9148f221e6d3cd701463a4b80efb1",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true
+  },
+  {
+    "key": "memory",
+    "eventKeys": [
+      "abydos_epilogue_memory"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_memory.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\UI_Event_ABO_memory.png",
+    "importPath": "war3mapImported\\UI_Event_ABO_memory.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep12/img_story-12_a13.jpg",
+    "sourceSHA": "971dbb51790cf7180f48ffbe0ec0c4190497f02a80a08f662683a96733c39877",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\abydos\\originals\\ep12_img_story-12_a13.jpg",
+    "sourceSize": [
+      1000,
+      563
+    ],
+    "crop": [
+      0,
+      0,
+      1000,
+      563
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "12화 공개 스틸 속 이전 단체사진. 후일담의 추억 회상에 대응한다. 귀환 뒤 새 교실 사진으로 단정하지 않는다. 인물을 잘라내지 않도록 원본 전체를 정사각 캔버스에 맞춘다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "tgaBytes": 262188,
+    "pngBytes": 46483,
+    "activeModified": false,
+    "tgaSHA256": "6c0b6bfb2f274fb8ca4714ddb0d33d5f3b145722a7f6413f46dd3cbfeaa98e80",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "eventKeys": [
+      "abydos_main_01"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\UI_Event_ABE_classroom.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\UI_Event_ABE_classroom.png",
+    "importPath": "war3mapImported\\UI_Event_ABE_classroom.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep1/img_story-01_a07-amih24k9.jpg",
+    "sourceSHA": "b97d849d5d51c1546868ddf722d9b12f0e9708e3813983658a642630eba7d34e",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\originals\\ep1_img_story-01_a07-amih24k9.jpg",
+    "sourceSize": [
+      1000,
+      562
+    ],
+    "crop": [
+      0,
+      0,
+      1000,
+      562
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "1화 교실에 모인 노노미·세리카·아야네. 다섯 명 전원이 한 프레임에 있다는 뜻은 아님.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "sourceEdition": "2024 TV 블루아카이브 The Animation 공식 회차 스틸",
+    "tgaSHA256": "efc7e5d0f699465fd4ec55148e079d7e7a677f2b16accf594fb9065112de96be",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "abydos_main_05"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\UI_Event_ABE_frontline.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\UI_Event_ABE_frontline.png",
+    "importPath": "war3mapImported\\UI_Event_ABE_frontline.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep1/img_story-01_b02-dn8y4h91.jpg",
+    "sourceSHA": "af4e211424bcbf13c9e2c9544ebf214cd69368e36bea432b08f44a35b5602363",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\originals\\ep1_img_story-01_b02-dn8y4h91.jpg",
+    "sourceSize": [
+      1000,
+      562
+    ],
+    "crop": [
+      0,
+      0,
+      1000,
+      562
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "1화 호시노가 다른 학생보다 앞에서 사격하는 장면. 후배를 지키는 선배의 역할과 대응.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "sourceEdition": "2024 TV 블루아카이브 The Animation 공식 회차 스틸",
+    "tgaSHA256": "e9fec61f987bcb8f66503d316c416c1e81d85b638535036cb509bc2fd2be26c0",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "abydos_main_08"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\UI_Event_ABE_aquarium.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\UI_Event_ABE_aquarium.png",
+    "importPath": "war3mapImported\\UI_Event_ABE_aquarium.tga",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/story/ep8/img_story-08_a05.jpg",
+    "sourceSHA": "c19920561c3e5f7da314e1590037cf6cacfcd59dfa09f209547d4667e57e626e",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-abydos\\originals\\ep8_img_story-08_a05.jpg",
+    "sourceSize": [
+      1000,
+      562
+    ],
+    "crop": [
+      0,
+      0,
+      1000,
+      562
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "8화 수족관에서 물고기를 구경하는 아야네와 세리카. 호시노의 숨은 사정을 먼저 노출하지 않는 실제 외출 장면.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "© NEXON Games／アビドス商店街",
+    "sourceEdition": "2024 TV 블루아카이브 The Animation 공식 회차 스틸",
+    "tgaSHA256": "df88b2ad8a2a0deb5b09baf98a018d61e380df274c8f1b824d691908ea733d50",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "eventKeys": [
+      "mitakihara_main_03"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara03-v2\\UI_Event_MTV_companions.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara03-v2\\UI_Event_MTV_companions.png",
+    "importPath": "war3mapImported\\UI_Event_MTV_companions.tga",
+    "sourcePage": "https://www.madoka-magica.com/tv/youtube-streaming/story/?id=ep03",
+    "sourceUrl": "https://www.madoka-magica.com/tv/youtube-streaming/story/SYS/CONTENTS/story_1140_photo_1737358905312167630",
+    "sourceSHA": "8e339e596445cba624fdc2982b628d9d57697be6d7768794f1070c1d86a4b347",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\mitakihara03-v2\\originals\\3-3.jpg",
+    "sourceSize": [
+      1200,
+      675
+    ],
+    "crop": [
+      0,
+      0,
+      1200,
+      675
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "공식 3화의 마미와 마도카·사야카 동행 장면. 사망 직접 장면은 쓰지 않으며 이 컷을 마지막 공격 장면이라고 주장하지 않음.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©Magica Quartet／Aniplex・Madoka Partners・MBS",
+    "sourceEdition": "2011 원작 TV 3화 공식 HD 재방영 공개 스틸. 극장판 TV edition 아님.",
+    "tgaSHA256": "cd90951f5692048194ad82cc4d56e3f8b81014b4376c68ec7b3eddc70a4063f6",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

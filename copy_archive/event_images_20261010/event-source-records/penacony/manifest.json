@@ -1,0 +1,116 @@
+[
+  {
+    "eventKeys": [
+      "hsr_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\UI_Event_PEO_reef.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\UI_Event_PEO_reef.png",
+    "importPath": "war3mapImported\\UI_Event_PEO_reef.tga",
+    "sourcePage": "https://blog.de.playstation.com/?p=178594",
+    "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/17ad58597ee0283cd03eab8d89180d05e394ba67.png",
+    "sourceSHA": "33d7b0d9fe6e172908483803d603b5d1b50df164214296adb870253e550beb7f",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\originals\\article0-0.png",
+    "sourceSize": [
+      3840,
+      2160
+    ],
+    "crop": [
+      840,
+      0,
+      3000,
+      2160
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "cover",
+    "reason": "꿈이흐르는암초 공식지역화면. 새로들어간마을자체에대응하며 황금의순간을재사용하지않음.",
+    "artist": "개별아티스트미확인; HoYoverse 공식개발팀제공",
+    "credit": "©COGNOSPHERE / HoYoverse",
+    "sourceEdition": "Honkai Star Rail 2.2 official developer preview",
+    "tgaSHA256": "faa383f698e20a280f17f11e18b972c732a1c3d1e5c00f0ca98fb800f89f7b28",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256 실제크기에서 지역·무대·대면구도 식별, 시점과 스포일러 배치 점검"
+  },
+  {
+    "eventKeys": [
+      "hsr_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\UI_Event_PEO_sunday.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\UI_Event_PEO_sunday.png",
+    "importPath": "war3mapImported\\UI_Event_PEO_sunday.tga",
+    "sourcePage": "https://blog.de.playstation.com/?p=178594",
+    "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/626f19c60819d0329144a48fcf0990a7d616ae48.png",
+    "sourceSHA": "056baa0a2f28f8bb9f9de11675374b3ce056ae74f2e166948b3d54340ac09f3a",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\originals\\article0-3.png",
+    "sourceSize": [
+      3840,
+      2160
+    ],
+    "crop": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "선데이가개척자일행과마주한공식2.2스토리프리뷰. 영원한안식에답하는대면을표현하되 정체공개이전사건에는미사용.",
+    "artist": "개별아티스트미확인; HoYoverse 공식개발팀제공",
+    "credit": "©COGNOSPHERE / HoYoverse",
+    "sourceEdition": "Honkai Star Rail 2.2 official developer preview",
+    "tgaSHA256": "0b9dcd8bbe1f794bd303a59d77d02a4571436f170d9b30c54d1d11edc5e02222",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256 실제크기에서 지역·무대·대면구도 식별, 시점과 스포일러 배치 점검"
+  },
+  {
+    "eventKeys": [
+      "hsr_main_14"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\UI_Event_PEO_theater.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\UI_Event_PEO_theater.png",
+    "importPath": "war3mapImported\\UI_Event_PEO_theater.tga",
+    "sourcePage": "https://blog.de.playstation.com/?p=178594",
+    "sourceUrl": "https://blog.de.playstation.com/uploads/sites/13/2024/04/f44956aa77ef1623c0ab28b9224702c328cccb32.png",
+    "sourceSHA": "942b1bf6ed86652918ef15195b8e29fa4c8c0cf33670c095d748143d4e837435",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\penacony\\originals\\article0-10.png",
+    "sourceSize": [
+      3840,
+      2160
+    ],
+    "crop": [
+      840,
+      0,
+      3000,
+      2160
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "cover",
+    "reason": "공식페나코니대극장내부. 최종무대의공간을표현하며 실제결전이나현실귀환순간을캡처했다고주장하지않음.",
+    "artist": "개별아티스트미확인; HoYoverse 공식개발팀제공",
+    "credit": "©COGNOSPHERE / HoYoverse",
+    "sourceEdition": "Honkai Star Rail 2.2 official developer preview",
+    "tgaSHA256": "3bdb49d114b674a2c55078f178ad40d6c8f4524e1bea8d8dd5cd9c3603d3b063",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "pass: 256 실제크기에서 지역·무대·대면구도 식별, 시점과 스포일러 배치 점검"
+  }
+]

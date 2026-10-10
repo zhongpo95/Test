@@ -1,0 +1,224 @@
+[
+  {
+    "key": "castle",
+    "eventKeys": [
+      "fuyuki_main_11"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_castle.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_castle.png",
+    "importPath": "war3mapImported\\UI_Event_FUO_castle.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/16.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/16/01.jpg",
+    "sourceSHA": "f60fdec96ee3673bb6560a1461cfdcf1b98962f5ec124ad615c13a9a7adb3339",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\originals\\16-01.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      100,
+      0,
+      438,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "reason": "성에 도착한 시점의 장소를 보여 준다. 전투 결과나 일리야의 상해 장면을 미리 노출하지 않는다.",
+    "artist": "개별 원화 담당자 미확인. ufotable 공식 애니메이션 스틸.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC",
+    "tgaSHA256": "d8d76f873acaa5188cd0a20ef06df8f83df67cc71a1b99444a2813a59f49b503",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 후보표/최종256정사각 육안검수 완료. main13 얼굴을 보존하도록 크롭 재조정."
+  },
+  {
+    "key": "identity",
+    "eventKeys": [
+      "fuyuki_main_12"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_identity.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_identity.png",
+    "importPath": "war3mapImported\\UI_Event_FUO_identity.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/19.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/19/03.jpg",
+    "sourceSHA": "79039c526b3f2b01e076f4bca6a755b1b54f13104aff8fbc06b3fc7f1b7f88a5",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\originals\\19-03.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      130,
+      0,
+      468,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "reason": "아처의 정체를 묻는 18화 구간의 공식 스틸. 얼굴은 보여 주되 미래의 결말 장면을 끌어오지 않는다.",
+    "artist": "개별 원화 담당자 미확인. ufotable 공식 애니메이션 스틸.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC",
+    "tgaSHA256": "a1683dcc07eedbb6674cd3837c3eb914e7e33ee575cd2fb0ceb1ba44297fc349",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 후보표/최종256정사각 육안검수 완료. main13 얼굴을 보존하도록 크롭 재조정."
+  },
+  {
+    "key": "clash",
+    "eventKeys": [
+      "fuyuki_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_clash.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_clash.png",
+    "importPath": "war3mapImported\\UI_Event_FUO_clash.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/21.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/21/01.jpg",
+    "sourceSHA": "3c27c5b8761af498926935232f6ee68c0918c7edbdde5a1598e2e1e2f80c41e5",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\originals\\21-01.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      100,
+      0,
+      438,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "reason": "20화 시로와 아처의 검이 맞선 장면. 아처의 표정과 검을 함께 남긴다. 부상 클로즈업은 피했다.",
+    "artist": "개별 원화 담당자 미확인. ufotable 공식 애니메이션 스틸.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC",
+    "tgaSHA256": "530648c1760f6f72dd57108efd941229398fcfc3f51b43255291188a1a8a18a8",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 후보표/최종256정사각 육안검수 완료. main13 얼굴을 보존하도록 크롭 재조정."
+  },
+  {
+    "key": "plan",
+    "eventKeys": [
+      "fuyuki_main_14"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_plan.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_plan.png",
+    "importPath": "war3mapImported\\UI_Event_FUO_plan.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/23.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/23/02.jpg",
+    "sourceSHA": "065d0488741f5b8c4588978aa040a977120d0f95cc1b6151a0c8fdaff1349a65",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\originals\\23-02.jpg",
+    "sourceSize": [
+      600,
+      337
+    ],
+    "crop": [
+      170,
+      0,
+      507,
+      337
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "reason": "22화 작전을 준비하는 린의 실내 모습. 아직 싸움을 시작하지 않은 사건 시점과 맞춘다.",
+    "artist": "개별 원화 담당자 미확인. ufotable 공식 애니메이션 스틸.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC",
+    "tgaSHA256": "241788050baacc924fee1215e38ac994d1652aa17dc7906f3f6460c51a173049",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 후보표/최종256정사각 육안검수 완료. main13 얼굴을 보존하도록 크롭 재조정."
+  },
+  {
+    "key": "blades",
+    "eventKeys": [
+      "fuyuki_main_15"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_blades.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_blades.png",
+    "importPath": "war3mapImported\\UI_Event_FUO_blades.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/25.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/25/01.jpg",
+    "sourceSHA": "4dfe95adfb727b09eeeea82dbfa324a1b3d263cfac1a470de81ab090f907f81d",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\originals\\25-01.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      130,
+      0,
+      468,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "reason": "24화 최종전의 검 이미지. 전투 승패나 인물 퇴장 장면을 사건 선택 전에 보여 주지 않는다.",
+    "artist": "개별 원화 담당자 미확인. ufotable 공식 애니메이션 스틸.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC",
+    "tgaSHA256": "88285134215682eb3ace776ddb2444c8880a5e32ea3a2a97a578767c2dda9cf6",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 후보표/최종256정사각 육안검수 완료. main13 얼굴을 보존하도록 크롭 재조정."
+  },
+  {
+    "key": "memory",
+    "eventKeys": [
+      "fuyuki_epilogue_memory"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_memory.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\UI_Event_FUO_memory.png",
+    "importPath": "war3mapImported\\UI_Event_FUO_memory.tga",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/06.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/06/05.jpg",
+    "sourceSHA": "8b6e4ee6a2765119ea7ab9e8383d2329d637aa464013434b9ef9ee5abce39cea",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\fuyuki\\originals\\06-05.jpg",
+    "sourceSize": [
+      600,
+      338
+    ],
+    "crop": [
+      160,
+      0,
+      498,
+      338
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "reason": "5화의 따뜻한 실내에서 손을 내미는 시로. 후일담 본문이 회상하는 일상으로 사용한다. 전쟁 직후의 새 장면으로 주장하지 않는다.",
+    "artist": "개별 원화 담당자 미확인. ufotable 공식 애니메이션 스틸.",
+    "credit": "©TYPE-MOON・ufotable・FSNPC",
+    "tgaSHA256": "3829650088639eb223c87e1f3e26e40bbea15ed1760f15ba9451b26ace2cca95",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false,
+    "visualReview": "원본 후보표/최종256정사각 육안검수 완료. main13 얼굴을 보존하도록 크롭 재조정."
+  }
+]

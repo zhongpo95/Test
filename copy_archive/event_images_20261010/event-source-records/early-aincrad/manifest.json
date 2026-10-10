@@ -1,0 +1,154 @@
+[
+  {
+    "eventKeys": [
+      "aincrad_main_01"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_declaration.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_declaration.png",
+    "importPath": "war3mapImported\\UI_Event_SAE_declaration.tga",
+    "sourcePage": "https://www.swordart-online.net/sp/aincrad/story/story01.html",
+    "sourceUrl": "https://www.swordart-online.net/sp/aincrad/story/img/img_story01.jpg",
+    "sourceSHA": "d925b287651cbd338020ead2502fb7fb382e96c641de270a1fc7c5f7bbcb00c8",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\originals\\01-collage.jpg",
+    "sourceSize": [
+      470,
+      396
+    ],
+    "crop": [
+      235,
+      132,
+      470,
+      264
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "공식 1화 모바일 6컷 묶음 중 카야바 선언 컷만 경계대로 추출.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "sourceEdition": "2012 TV Sword Art Online Aincrad 공식 스틸. Progressive 영화/후속편 아님.",
+    "tgaSHA256": "b7cd4bc6b630e63f4b74d975952da0f7413423d8e2e5ecd128142f670228e194",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "공식 원본 컷 235x132 전체 contain. 가로 약 1.09배만 확대하며 얼굴 추가 확대 없음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "aincrad_main_03"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_guild.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_guild.png",
+    "importPath": "war3mapImported\\UI_Event_SAE_guild.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/03.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/3_pic1.jpg",
+    "sourceSHA": "199674943ba92190b5f6aa2849d99076d4a2c6f53f2ecc369c3aa9cf5edf606b",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\originals\\03_3_pic1.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "3화 달밤의 검은 고양이단과 함께 앉은 키리토. 길드의 따뜻한 분위기.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "sourceEdition": "2012 TV Sword Art Online Aincrad 공식 스틸. Progressive 영화/후속편 아님.",
+    "tgaSHA256": "16af02396454eb05012567eafbddf35c9fa91a5a6f33c0f2b8b274c74410940a",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "공식 원본 컷 235x132 전체 contain. 가로 약 1.09배만 확대하며 얼굴 추가 확대 없음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "aincrad_main_05"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_feather.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_feather.png",
+    "importPath": "war3mapImported\\UI_Event_SAE_feather.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/04.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/4_pic5.jpg",
+    "sourceSHA": "0ca0baf6d408d0a050fdca83a93ccabef389d9a015f6689af616f673118bc75c",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\originals\\04_4_pic5.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "4화 피나를 잃고 남은 깃털. 인간 사망의 부활 장면이 아님.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "sourceEdition": "2012 TV Sword Art Online Aincrad 공식 스틸. Progressive 영화/후속편 아님.",
+    "tgaSHA256": "57647baa9e47a7be0e1135bef0017acc88b15f2ddbf654257d2db56ee8f19c48",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "공식 원본 컷 235x132 전체 contain. 가로 약 1.09배만 확대하며 얼굴 추가 확대 없음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "aincrad_main_08"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_rest.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\UI_Event_SAE_rest.png",
+    "importPath": "war3mapImported\\UI_Event_SAE_rest.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/05.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/5_pic3.jpg",
+    "sourceSHA": "85028f00d76c4fb684e21f134ad9f2732f64b0c0ef3300a16b7f54242e9da440",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-aincrad\\originals\\05_5_pic3.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "5화 풀밭의 키리토 휴식. 사건08의 명시적 회상에 한정하며 이후 시점의 새 사건으로 쓰지 않음.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "sourceEdition": "2012 TV Sword Art Online Aincrad 공식 스틸. Progressive 영화/후속편 아님.",
+    "tgaSHA256": "fc83f54093552efe24e1d37d47243fb4d4af24a90dfa81eb4296c7a92e01e039",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "공식 원본 컷 235x132 전체 contain. 가로 약 1.09배만 확대하며 얼굴 추가 확대 없음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

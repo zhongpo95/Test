@@ -1,0 +1,230 @@
+[
+  {
+    "eventKeys": [
+      "axel_main_06"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_lake.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_lake.png",
+    "importPath": "war3mapImported\\UI_Event_AXO_lake.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/05/3.jpg",
+    "sourceSHA": "e61281c5ae23461a12ef325e6889d4051e6bf14f5cec569eff251737be8ae831",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\originals\\05-3.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "정화 의뢰에서 철창 안에 웅크린 아쿠아. 철창과 호수 배경을 함께 보존.",
+    "artist": "스튜디오 딘 제작. 회차 작화감독 명단은 공식 페이지에 있으나 개별 스틸 원화 담당자 미확인.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "KonoSuba TV Season 1 / 2016",
+    "tgaSHA256": "7372a33dd31f54b1e8c3e32230094676b1329735b16fbcafbd8b6dd6044061b5",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "650×366 전체를 축소하여 256 정사각에 배치. 인물 및 사건 맥락 경계 보존.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_07"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_duel.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_duel.png",
+    "importPath": "war3mapImported\\UI_Event_AXO_duel.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/06/3.jpg",
+    "sourceSHA": "cd793a3e0cb4581c59e387bf44eccb64dda87bdb6c4e2573d255acceea6bab50",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\originals\\06-3.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "재전에서 베르디아의 검을 받아 내는 다크니스. 첫 등장인 4화와 구분.",
+    "artist": "스튜디오 딘 제작. 회차 작화감독 명단은 공식 페이지에 있으나 개별 스틸 원화 담당자 미확인.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "KonoSuba TV Season 1 / 2016",
+    "tgaSHA256": "c340aa5c3eb798088a49dab5e4d3828eaa5d00e1459f211e42de73e03853e52f",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "650×366 전체를 축소하여 256 정사각에 배치. 인물 및 사건 맥락 경계 보존.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_08"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_winter.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_winter.png",
+    "importPath": "war3mapImported\\UI_Event_AXO_winter.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/07/4.jpg",
+    "sourceSHA": "fade12568b8ea362cf905069d1ab3b8cb5868c8a514ace6c9e5bf428b69eb6f5",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\originals\\07-4.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "아쿠아가 눈정령을 병에 잡는 의뢰 장면. 사건 도입의 손쉬운 수입 기대를 표현하며 겨울장군 자체가 나온다고 주장하지 않음.",
+    "artist": "스튜디오 딘 제작. 회차 작화감독 명단은 공식 페이지에 있으나 개별 스틸 원화 담당자 미확인.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "KonoSuba TV Season 1 / 2016",
+    "tgaSHA256": "e0914f6ccaeea41355c6cfb17b0b0f31ef3fe55bf2953c405c159cb04334d360",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "650×366 전체를 축소하여 256 정사각에 배치. 인물 및 사건 맥락 경계 보존.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_09"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_shop.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_shop.png",
+    "importPath": "war3mapImported\\UI_Event_AXO_shop.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/08/3.jpg",
+    "sourceSHA": "9dc5cdf32ed67b87f0190a6afa85fe6f2673814b218f98b830f2b3e11e9a33d3",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\originals\\08-3.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "위즈 마도구 가게에서 리치를 공격하려는 아쿠아와 위즈. 해당 기술 습득 방문의 소란.",
+    "artist": "스튜디오 딘 제작. 회차 작화감독 명단은 공식 페이지에 있으나 개별 스틸 원화 담당자 미확인.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "KonoSuba TV Season 1 / 2016",
+    "tgaSHA256": "1d8b5ab2f64d342f842e1be87799d266b09a483f4ad9a3a7313563f8e308c347",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "650×366 전체를 축소하여 256 정사각에 배치. 인물 및 사건 맥락 경계 보존.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_home.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_home.png",
+    "importPath": "war3mapImported\\UI_Event_AXO_home.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/08/6.jpg",
+    "sourceSHA": "9860bf68ea219203ac14de4a1261fe4a7e97093d855f8624385689d8e59754fe",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\originals\\08-6.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "유령 저택 사건 이후 짐을 든 일행의 입주 장면. 9화 고급 게 만찬과 구분.",
+    "artist": "스튜디오 딘 제작. 회차 작화감독 명단은 공식 페이지에 있으나 개별 스틸 원화 담당자 미확인.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "KonoSuba TV Season 1 / 2016",
+    "tgaSHA256": "c3598c9da7e0219123b16eeebf46bdfd718f8b1446533284e1a1b205c8f65019",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "650×366 전체를 축소하여 256 정사각에 배치. 인물 및 사건 맥락 경계 보존.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "axel_main_11"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_explosion.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\UI_Event_AXO_explosion.png",
+    "importPath": "war3mapImported\\UI_Event_AXO_explosion.tga",
+    "sourcePage": "https://konosuba.com/1st/story/",
+    "sourceUrl": "https://konosuba.com/1st/story/img/10/3.jpg",
+    "sourceSHA": "25707ad55d763060b0b52d643ac5a55af50154ac918067b1950b946a2f037596",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\axel\\originals\\10-3.jpg",
+    "sourceSize": [
+      650,
+      366
+    ],
+    "crop": [
+      0,
+      0,
+      650,
+      366
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "디스트로이어 작전에서 폭렬 마법을 준비하는 위즈. 승리 뒤 장면으로 주장하지 않음.",
+    "artist": "스튜디오 딘 제작. 회차 작화감독 명단은 공식 페이지에 있으나 개별 스틸 원화 담당자 미확인.",
+    "credit": "©2016 暁なつめ・三嶋くろね／KADOKAWA／このすば製作委員会",
+    "sourceEdition": "KonoSuba TV Season 1 / 2016",
+    "tgaSHA256": "3c4d49dd25caf39f7aa5664d4fcf2d2f9da37e34ff8b30db1dab6daa90fbd695",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "650×366 전체를 축소하여 256 정사각에 배치. 인물 및 사건 맥락 경계 보존.",
+    "activeModified": false
+  }
+]

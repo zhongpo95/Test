@@ -1,0 +1,236 @@
+[
+  {
+    "key": "door",
+    "eventKeys": [
+      "aincrad_main_09"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_door.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_door.png",
+    "importPath": "war3mapImported\\UI_Event_SAO1_door.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/09.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/9_pic2.jpg",
+    "sourceSHA": "29d63f3e2f15cc8bdc774c088c4c2c9a9fc0b873ceb68aee7400c3179457cb38",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\originals\\9_pic2.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "보스방 앞 키리토와 아스나. 이후 대결 장면 대신 위험을 함께 살피는 두 사람을 사용한다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "tgaBytes": 262188,
+    "pngBytes": 58797,
+    "activeModified": false,
+    "tgaSHA256": "b123c934b6146ded32c1ac0a5c530a8482879054b04b0a6b8921809f172c4155",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true,
+    "qualityNote": "공식 원본 235×132. 전체 가로 구도 유지, 약1.09배 리사이즈. 카드 대형 일러스트로 전용 금지."
+  },
+  {
+    "key": "cabin",
+    "eventKeys": [
+      "aincrad_main_10"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_cabin.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_cabin.png",
+    "importPath": "war3mapImported\\UI_Event_SAO1_cabin.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/11.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/11_pic2.jpg",
+    "sourceSHA": "83b4c6241c4b2e92e2ca1ec79f7b1a1e991e6a657e84d464997e86433f9ec7d5",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\originals\\11_pic2.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "22층에서 생활하는 두 사람. 식탁의 정확한 행동 재현이 아니라 호숫가 생활을 나타내는 컷이다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "tgaBytes": 262188,
+    "pngBytes": 68683,
+    "activeModified": false,
+    "tgaSHA256": "066979f8156e2fa15d0505b286842fd83a8548a675a1997a0d8b15ce8a4546b8",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true,
+    "qualityNote": "공식 원본 235×132. 전체 가로 구도 유지, 약1.09배 리사이즈. 카드 대형 일러스트로 전용 금지."
+  },
+  {
+    "key": "yui",
+    "eventKeys": [
+      "aincrad_main_11"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_yui.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_yui.png",
+    "importPath": "war3mapImported\\UI_Event_SAO1_yui.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/12.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/12_pic4.jpg",
+    "sourceSHA": "c470af2fde4e146a5c30b3a7c1a16c646b3636d974a3e8cafdae38b35c7f076a",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\originals\\12_pic4.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "유이 정체를 다루는 12화의 유이. 작별 뒤 기억을 회상하는 상징 컷으로 쓰며 현재 곁에 돌아왔다는 뜻이 아니다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "tgaBytes": 262188,
+    "pngBytes": 50101,
+    "activeModified": false,
+    "tgaSHA256": "d9e7a3aaab1f18f733a17ae89c93c20dee01f7bad3043b2ed07e7b559f437fd7",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true,
+    "qualityNote": "공식 원본 235×132. 전체 가로 구도 유지, 약1.09배 리사이즈. 카드 대형 일러스트로 전용 금지."
+  },
+  {
+    "key": "heathcliff",
+    "eventKeys": [
+      "aincrad_main_13"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_heathcliff.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_heathcliff.png",
+    "importPath": "war3mapImported\\UI_Event_SAO1_heathcliff.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/14.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/14_pic1.jpg",
+    "sourceSHA": "1b0d73f8e997c316535cd41904e4cd11dfd4ec312c8ce59d1e7da519c75bd803",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\originals\\14_pic1.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "14화 최종 대결 시점 히스클리프. 다른 시대나 다른 게임의 외형을 사용하지 않는다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "tgaBytes": 262188,
+    "pngBytes": 60142,
+    "activeModified": false,
+    "tgaSHA256": "c69e9f98f9d6afaa8f6d0a6b011bdee20e073900b5ec4dc1b7b00daf7b3d7f81",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true,
+    "qualityNote": "공식 원본 235×132. 전체 가로 구도 유지, 약1.09배 리사이즈. 카드 대형 일러스트로 전용 금지."
+  },
+  {
+    "key": "return",
+    "eventKeys": [
+      "aincrad_main_14"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_return.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_return.png",
+    "importPath": "war3mapImported\\UI_Event_SAO1_return.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/14.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/14_pic6.jpg",
+    "sourceSHA": "f7d354db2e544de94d66dbec4195941d44592301172e749b0d07730f66e77c55",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\originals\\14_pic6.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "현실 병실에서 홀로 깨어난 키리토. 아스나와 즉시 재회하는 장면은 사용하지 않는다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "tgaBytes": 262188,
+    "pngBytes": 46287,
+    "activeModified": false,
+    "tgaSHA256": "fc3517c248d813f30c37586b3cf82ee8d503196c52fbb04504e5d6b08fc38f6f",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true,
+    "qualityNote": "공식 원본 235×132. 전체 가로 구도 유지, 약1.09배 리사이즈. 카드 대형 일러스트로 전용 금지."
+  },
+  {
+    "key": "memory",
+    "eventKeys": [
+      "aincrad_epilogue_memory"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_memory.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\UI_Event_SAO1_memory.png",
+    "importPath": "war3mapImported\\UI_Event_SAO1_memory.tga",
+    "sourcePage": "https://www.swordart-online.net/aincrad/story/13.html",
+    "sourceUrl": "https://www.swordart-online.net/aincrad/story/img/pic/13_pic3.jpg",
+    "sourceSHA": "2a37fd7214ac1a12bcb487686b4dfad3d05628964c8da9608d90545b96bb55d8",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\aincrad\\originals\\13_pic3.jpg",
+    "sourceSize": [
+      235,
+      132
+    ],
+    "crop": [
+      0,
+      0,
+      235,
+      132
+    ],
+    "fitMode": "contain",
+    "size": [
+      256,
+      256
+    ],
+    "reason": "호숫가에서 함께 보낸 두 사람의 시간을 기록하는 회상 컷. 현재 재회나 게임 재공략을 뜻하지 않는다.",
+    "artist": "개별 원화·작화 담당자 미확인. 공식 애니메이션 공개 스틸.",
+    "credit": "©川原 礫／アスキー・メディアワークス／SAO Project",
+    "tgaBytes": 262188,
+    "pngBytes": 84638,
+    "activeModified": false,
+    "tgaSHA256": "1bc950e43821e388caa291c0d125959ea6f97d156bee73b1a5c98218d79a9caf",
+    "tgaFormat": "uncompressed RGBA 32-bit",
+    "pngTgaPixelsIdentical": true,
+    "cropWithinSource": true,
+    "qualityNote": "공식 원본 235×132. 전체 가로 구도 유지, 약1.09배 리사이즈. 카드 대형 일러스트로 전용 금지."
+  }
+]

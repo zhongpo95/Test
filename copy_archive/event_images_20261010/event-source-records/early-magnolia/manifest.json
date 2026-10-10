@@ -1,0 +1,116 @@
+[
+  {
+    "eventKeys": [
+      "magnolia_main_02"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\UI_Event_MGE_daybreak.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\UI_Event_MGE_daybreak.png",
+    "importPath": "war3mapImported\\UI_Event_MGE_daybreak.tga",
+    "sourcePage": "https://www.b-ch.com/titles/4189/004",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189004a.jpg",
+    "sourceSHA": "3df9a92a044c283053eda41862f7179e8bca0efd6b4126466f9d70b5df403301",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\originals\\4-1.jpg",
+    "sourceSize": [
+      1920,
+      1080
+    ],
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "4화 루시가 DAYBREAK 책을 들고 성령 열쇠를 사용하는 저택 장면. 책의 비밀을 지키는 사건과 직접 대응.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©真島ヒロ／講談社・フェアリーテイル製作ギルド・テレビ東京",
+    "sourceEdition": "2009 FAIRY TAIL 구작 TV. 정식 배급 Bandai Channel 공개 회차 스틸.",
+    "tgaSHA256": "e4611477a83facccbfe9c925d5be32f96f1c3adb2234d96ba69c3f81ac2ac25c",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "magnolia_main_05"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\UI_Event_MGE_lullaby.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\UI_Event_MGE_lullaby.png",
+    "importPath": "war3mapImported\\UI_Event_MGE_lullaby.tga",
+    "sourcePage": "https://www.b-ch.com/titles/4189/008",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189008a.jpg",
+    "sourceSHA": "6dd6cd02ec75cd3fe11e47f7c328f6a008766e6d84560ef03ba1e90fb92371d9",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\originals\\8-1.jpg",
+    "sourceSize": [
+      1920,
+      1080
+    ],
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "8화 라라바이 결전 구간의 엘자. 후반 아리아와의 대결26화와 구분.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©真島ヒロ／講談社・フェアリーテイル製作ギルド・テレビ東京",
+    "sourceEdition": "2009 FAIRY TAIL 구작 TV. 정식 배급 Bandai Channel 공개 회차 스틸.",
+    "tgaSHA256": "99eb0e33952085b3bb8e3e58ccf7d86eaf7d7512d91d5f0563846acf758874c1",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  },
+  {
+    "eventKeys": [
+      "magnolia_main_07"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\UI_Event_MGE_guild.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\UI_Event_MGE_guild.png",
+    "importPath": "war3mapImported\\UI_Event_MGE_guild.tga",
+    "sourcePage": "https://www.b-ch.com/titles/4189/021",
+    "sourceUrl": "https://image2.b-ch.com/ttl2/4189/4189021a.jpg",
+    "sourceSHA": "5742c5a27e14c723554b9214c7948eb9903e9ad81c01e69e1f7a707683bb0aee",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-magnolia\\originals\\21-1.jpg",
+    "sourceSize": [
+      1920,
+      1080
+    ],
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "fitMode": "contain",
+    "reason": "21화 공격받은 길드 앞에 모인 동료들. 팬텀 로드 습격의 피해를 확인하는 장면.",
+    "artist": "개별 컷 작화 담당은 미확인. 공식 페이지에 회차별 스태프 표기.",
+    "credit": "©真島ヒロ／講談社・フェアリーテイル製作ギルド・テレビ東京",
+    "sourceEdition": "2009 FAIRY TAIL 구작 TV. 정식 배급 Bandai Channel 공개 회차 스틸.",
+    "tgaSHA256": "08d63123d441454df18c74958eec9893af91ad41c614a6524dd27c98203b939f",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "visualReview": "원본 전체를 보존하여 인물과 장면 문맥을 자르지 않음. 256 표시 검토.",
+    "activeModified": false
+  }
+]

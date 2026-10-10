@@ -1,0 +1,40 @@
+[
+  {
+    "eventKeys": [
+      "zegagrande_main_02"
+    ],
+    "file": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-zegagrande\\UI_Event_ZGE_folca.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-zegagrande\\UI_Event_ZGE_folca.png",
+    "importPath": "war3mapImported\\UI_Event_ZGE_folca.tga",
+    "sourcePage": "https://cgworld.jp/special-feature/202403-relink1.html",
+    "sourceUrl": "https://cgworld.jp/interview/images/202403-relink/202403-relink-k2.png",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-event-wave-20261005\\early-zegagrande\\folca-street.png",
+    "sourceSHA": "9e2eaa2b3a231d127a2058bd04df64d9fcaa4825b68b4d591a8835d1d794abbf",
+    "sourceSize": [
+      1000,
+      563
+    ],
+    "crop": [
+      115,
+      75,
+      440,
+      400
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "reason": "2024년 Cygames 개발진 PR 인터뷰에서 PS5판 폴카로 명시된 본편 게임 장면. main02의 장소 배경만 대응. 기공단 재집결/정비/특정 대화 순간을 직접 증명하는 컷은 아님.",
+    "recommended": true,
+    "matchType": "공식 제공 본편 장소 맥락",
+    "credit": "© Cygames, Inc.",
+    "artist": "개별 원화/환경 담당자 미확인",
+    "sourceEdition": "2024 GRANBLUE FANTASY: Relink 본편",
+    "tgaSHA256": "cdadc948f75d67faf971121ed696aacd48eae884318a9cbf9d78865f9115c315",
+    "tgaBytes": 262188,
+    "tgaFormat": "uncompressed RGBA32",
+    "cropWithinSource": true,
+    "pngTgaPixelsIdentical": true,
+    "activeModified": false
+  }
+]
