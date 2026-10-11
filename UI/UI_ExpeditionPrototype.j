@@ -45,7 +45,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private real OutcomeCachedAspect = 0.0
         private constant real OUTCOME_LINE_GAP = 0.015
         private integer array OutcomeLineFrames
-        // 1~4 소개, 5~8 보상 조건, 9~12 행동, 13 입문 카드 툴팁.
+        // 1~4 소개, 5~8 보상 조건, 9~12 행동, 13 입문 카드 툴팁, 14~17 후보 입문 보상.
         private integer array DetailLines
         private string array DetailCached
         private real array DetailHeight
@@ -57,6 +57,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer array CandidateTitle
         private integer array CandidateIcon
         private integer array CandidateIntro
+        private integer array CandidateEntry
         private integer array CandidateBonus
         private integer array CandidateFooter
         private integer EntryTooltip
@@ -371,15 +372,15 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         local string action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 사건 만나기"
         local real introHeight = 0.128
         local string entryReward
-        call PlaceCoverPart(cover, EventRoot, x, 0.138, 0.174, 0.386)
-        call ExpUIResizeCover(CandidateButtons[i], 0.174, 0.386)
+        call PlaceCoverPart(cover, EventRoot, x, 0.138, 0.174, 0.406)
+        call ExpUIResizeCover(CandidateButtons[i], 0.174, 0.406)
         call PlaceCoverPart(CandidateRegion[i], cover, 0.012, 0.012, 0.150, 0.038)
         call PlaceEventImage(CandidateIcon[i], cover, 0.012, 0.052, 0.150, 0.108, id)
         call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.168, 0.150, 0.034)
         if opening or ProtoEventRequiredCard[id] > 0 then
             set introHeight = 0.077
             call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.210, 0.150, 0.077)
-            call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.294, 0.150, 0.044)
+            call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.302, 0.150, 0.044)
         else
             call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.210, 0.150, 0.128)
         endif
@@ -395,7 +396,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             else
                 set entryReward = entryReward + " 획득"
             endif
-            call SetDetailLines(4 + i, CandidateBonus[i], "머리 효과 · " + ProtoHeadEffectText(head) + "|n" + entryReward, PAPER_GAIN, 0.150, 0.044, 0.011)
+            // 머리 효과 두 줄 뒤의 고정 위치에서 입문 보상을 시작한다.
+            call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.302, 0.150, 0.030)
+            call SetDetailLines(4 + i, CandidateBonus[i], "머리 효과 · " + ProtoHeadEffectText(head), PAPER_GAIN, 0.150, 0.030, 0.011)
+            call PlaceCoverPart(CandidateEntry[i], cover, 0.012, 0.332, 0.150, 0.030)
+            call SetDetailLines(13 + i, CandidateEntry[i], entryReward, PAPER_GAIN, 0.150, 0.030, 0.011)
         elseif ProtoEventMainStage[id] > 0 then
             set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
         elseif ProtoEventEpilogue[id] > 0 then
@@ -411,6 +416,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call SetDetailLines(i, CandidateIntro[i], ProtoEventIntro[id], PAPER_BODY, 0.150, introHeight, 0.012)
         call DzFrameSetTexture(CandidateIcon[i], ProtoEventIcon[id], 0)
         call DzFrameShow(CandidateBonus[i], opening or ProtoEventRequiredCard[id] > 0)
+        call DzFrameShow(CandidateEntry[i], opening)
         if not eligible then
             set action = "선택 불가 · 후보 갱신 대기"
         endif
@@ -887,12 +893,14 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set CandidateIcon[i] = ExpUITexture(f, 0, 0, 0.094, 0.094, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
             set CandidateIntro[i] = CoverLabel(f, 0.012)
             set CandidateBonus[i] = CoverLabel(f, 0.011)
+            set CandidateEntry[i] = CoverLabel(f, 0.011)
             call CreateDetailLines(i, CandidateIntro[i], 0.012)
             call CreateDetailLines(4 + i, CandidateBonus[i], 0.011)
-            set CandidateFooter[i] = ExpUITexture(f, 0.007, 0.346, 0.160, 0.027, "war3mapImported\\UI_Arcana_Paper.tga")
+            call CreateDetailLines(13 + i, CandidateEntry[i], 0.011)
+            set CandidateFooter[i] = ExpUITexture(f, 0.007, 0.366, 0.160, 0.027, "war3mapImported\\UI_Arcana_Paper.tga")
             // 하단 배경보다 나중에 글자를 생성해 버튼 문구가 배경 뒤에 가려지지 않게 한다.
             call DzFrameShow(ExpUIButtonLabels[CandidateButtons[i]], false)
-            set ExpUIButtonLabels[CandidateButtons[i]] = ExpUILabel(f, 0.012, 0.350, 0.150, 0.022, 0.0105, "")
+            set ExpUIButtonLabels[CandidateButtons[i]] = ExpUILabel(f, 0.012, 0.370, 0.150, 0.022, 0.0105, "")
             // 모든 장식은 표지 버튼의 자식이며 글자는 클릭을 가로채지 않는다.
             call JNFrameSetTextAlignment(ExpUIButtonLabels[CandidateButtons[i]], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
             set i = i + 1
