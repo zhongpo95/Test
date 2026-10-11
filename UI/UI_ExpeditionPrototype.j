@@ -690,8 +690,16 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
 
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
+        local integer i = 0
         call TriggerRegisterTimerEventSingle(t, 0.04)
         call TriggerAddAction(t, function Build)
+        set t = CreateTrigger()
+        loop
+            exitwhen i >= 4
+            call TriggerRegisterPlayerChatEvent(t, Player(i), "-줄테스트", true)
+            set i = i + 1
+        endloop
+        call TriggerAddAction(t, function LineTest)
         set t = null
     endfunction
 endlibrary
