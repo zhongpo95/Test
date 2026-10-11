@@ -15,3 +15,15 @@ const count=logs.length;e[p+'LineTest']();assert.equal(logs.length,count);assert
 e[p+'LineTest']();e.eventPlayer=1;e[p+'LineTestClose']();assert.equal(e[p+'LineTestVisible'],true);e.eventPlayer=0;e[p+'LineTestClose']();assert.equal(e[p+'LineTestVisible'],false);
 e.ExpUIPanel=0;e[p+'LineTest']();assert.equal(reads,2);assert(logs.some(s=>s.includes('T2는 사건')));
 console.log('PASS 로컬 격리, 진단 문자열, 본문 읽기, 토글/닫기, 비사건 안내. 실제 게임 표시 미검증.');
+// 함수를 직접 호출하는 검사와 별도로 Init의 실제 채팅 등록을 실행한다.
+const registrations=[];let timerTrigger,triggerId=0;
+const {env:init}=environment(['UI/UI_ExpeditionPrototype.j'],{
+ CreateTrigger:()=>({id:++triggerId}),TriggerRegisterTimerEventSingle:t=>{timerTrigger=t;},
+ TriggerAddAction:(t,fn)=>{t.action=fn;},TriggerRegisterPlayerChatEvent:(t,player,text,exact)=>registrations.push({t,player,text,exact})
+},[p+'Init']);
+init[p+'Build']=()=>{};init[p+'LineTest']=()=>{};
+init[p+'Init']();assert.equal(registrations.length,4);
+assert.deepEqual(registrations.map(r=>r.player),[0,1,2,3]);
+for(const r of registrations){assert.equal(r.text,'-줄테스트');assert.equal(r.exact,true);assert.equal(r.t.action,init[p+'LineTest']);assert.notEqual(r.t,timerTrigger);}
+assert.equal(timerTrigger.action,init[p+'Build']);
+console.log('PASS Init에서 4명 채팅 명령과 LineTest 액션 연결, Build 타이머 분리.');
