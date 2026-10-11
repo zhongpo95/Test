@@ -10,7 +10,7 @@ const {env:u}=environment(['UI/UI_StoryLineLayout.j','UI/UI_ExpeditionPrototype.
  DzFrameSetText:(f,s)=>calls.push(['text',f,s]),DzFrameShow:(f,v)=>calls.push(['show',f,v]),
  DzFrameClearAllPoints:()=>{},DzFrameSetPoint:(f,a,p,b,x,y)=>places.push([f,x,-y]),DzFrameSetSize:()=>{},
  JN_FRAMEPOINT_TOPLEFT:0,JNStringReplace:(s,a,b)=>s.split(a).join(b),ExpUILabel:()=>23
-},['StoryLineLayout','StoryLineLayout_ByteUnits','StoryLineLayout_PushLine','StoryLineLayout_FlushWord','StoryLineLayout_StartWord',q+'PaperText',q+'PlaceCoverPart',q+'SetStoryText',q+'SetOutcomeText',q+'CreateStoryText']);
+},['StoryLineLayout','StoryLineLayout_ByteUnits','StoryLineLayout_PushLine','StoryLineLayout_FlushWord','StoryLineLayout_StartWord',q+'PaperText',q+'PlaceCoverPart',q+'SetStoryText',q+'SetOutcomeText',q+'CreateStoryText',q+'DetailText',q+'SetDetailLines']);
 u.StoryLineLayout_CharBytes=3;for(const c of narrow)u.Narrow.set(c+':0',true);
 u[q+'StoryPanel']=9;assert.equal(u[q+'CreateStoryText'](),23);
 u[q+'StoryText']=2;for(let i=0;i<u.STORY_LINE_MAX;i++)u[q+'StoryLineFrames'][i]=100+i;
@@ -59,3 +59,28 @@ for(const bad of [Array(22).fill('보상').join('|n'),'가'.repeat(100)]){
 calls.length=0;u[q+'SetOutcomeText']('짧은 결과');assert(calls.some(c=>c[0]==='show'&&c[1]===200&&c[2]));
 calls.length=0;u[q+'ImagePixelAspect']=1;u[q+'SetOutcomeText']('짧은 결과');assert(calls.length>0);
 console.log('PASS 결과 행간 0.015, 보상색, 캐시, 넘침/긴 단어 대체, 결과 전환과 화면 비율 재배치.');
+
+// 후보/선택지/툴팁의 좁은 영역은 넘치면 원본을 유지하고 갱신 때 중복을 막는다.
+for(let slot=1;slot<=13;slot++)for(let i=0;i<u.STORY_LINE_MAX;i++)u[q+'DetailLines'][slot*u.STORY_LINE_MAX+i]=1000+slot*24+i;
+u[q+'ImagePixelAspect']=4/3;calls.length=0;places.length=0;
+const detail=(text,height=.128,color='|cff50584d')=>u[q+'SetDetailLines'](1,4,text,color,.150,height,.012);
+detail('첫째 줄|n둘째 줄');
+assert.equal(calls[0][1],4);assert.equal(calls.at(-1)[2],'');
+assert.equal(places.length,2);assert(Math.abs(places[1][2]-.015)<1e-9);
+// 매 갱신에 버튼 원문이 다시 쓰여도 캐시 경로에서 비워 겹침을 막는다.
+calls.length=0;detail('첫째 줄|n둘째 줄');assert.deepEqual(calls,[['text',4,'']]);
+calls.length=0;detail('첫째 줄|n둘째 줄',.020);
+assert(!calls.some(c=>c[0]==='show'&&c[2]));assert(calls[0][2].includes('첫째'));
+calls.length=0;detail('첫째 줄|n둘째 줄',.128,'|cff687062');
+assert(calls.some(c=>c[0]==='text'&&c[1]>=1000&&c[2].startsWith('|cff687062')));
+assert(calls.filter(c=>c[0]==='show').every(c=>c[1]>=1024&&c[1]<1048),'다른 슬롯을 숨기지 않음');
+calls.length=0;detail('가'.repeat(100));assert(!calls.some(c=>c[0]==='show'&&c[2]));
+calls.length=0;
+u[q+'SetDetailLines'](13,5,'|cff80ff80Normal|r|nBonus +3%', '|cffe7edf3',.180,.164,.011);
+assert(calls.some(c=>c[0]==='text'&&c[1]>=1312&&c[2].includes('|cff80ff80Normal|cffe7edf3')),'어두운 툴팁 등급 색 유지');
+// 네 후보와 네 선택지, 툴팁이 모두 생성/표시 경로에 연결되어 있는지 확인한다.
+const source=require('node:fs').readFileSync('UI/UI_ExpeditionPrototype.j','utf8');
+for(const slot of ['i, CandidateIntro[i]','4 + i, CandidateBonus[i]','8 + i, ExpUIButtonLabels[BranchButtons[i]]','13, EntryTooltipText']){
+ assert(source.includes('call CreateDetailLines('+slot));assert(source.includes('call SetDetailLines('+slot));
+}
+console.log('PASS 후보·선택지·툴팁 행간, 원본 복원, 캐시 중복 방지, 색상 변경, 슬롯 격리, 어두운 툴팁 색상과 연결 검사.');
