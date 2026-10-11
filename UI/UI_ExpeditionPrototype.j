@@ -41,6 +41,10 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer StoryText
         private integer OutcomePanel
         private integer OutcomeHeading
+        private string OutcomeCached = ""
+        private real OutcomeCachedAspect = 0.0
+        private constant real OUTCOME_LINE_GAP = 0.015
+        private integer array OutcomeLineFrames
         private integer OutcomeText
         private integer array CandidateButtons
         private integer array CandidateRegion
@@ -202,6 +206,36 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set i = i + 1
         endloop
         call DzFrameShow(StoryText, false)
+    endfunction
+
+    private function SetOutcomeText takes string value returns nothing
+        local integer i = 0
+        if value == OutcomeCached and ImagePixelAspect == OutcomeCachedAspect then
+            return
+        endif
+        set OutcomeCached = value
+        set OutcomeCachedAspect = ImagePixelAspect
+        call PaperText(OutcomeText, value, PAPER_BODY)
+        call DzFrameShow(OutcomeText, true)
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            call DzFrameShow(OutcomeLineFrames[i], false)
+            set i = i + 1
+        endloop
+        // 와이드 화면에서는 UI 가로 단위가 늘어나므로 글자 폭을 화면 비율로 보정한다.
+        set StoryLineEm = STORY_EM_43 / ImagePixelAspect
+        if not StoryLineLayout(value, 0.376, 0.012) or StoryLineCount * OUTCOME_LINE_GAP > 0.314 then
+            return
+        endif
+        set i = 0
+        loop
+            exitwhen i >= StoryLineCount
+            call PlaceCoverPart(OutcomeLineFrames[i], OutcomePanel, 0.018, 0.056 + i * OUTCOME_LINE_GAP, 0.386, 0.017)
+            call PaperText(OutcomeLineFrames[i], StoryLines[i], PAPER_BODY)
+            call DzFrameShow(OutcomeLineFrames[i], true)
+            set i = i + 1
+        endloop
+        call DzFrameShow(OutcomeText, false)
     endfunction
 
     private function PlaceEventImage takes integer frame, integer parent, real x, real y, real width, real height, integer id returns nothing
@@ -432,7 +466,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             else
                 call PaperText(OutcomeHeading, "사건 결과 · 획득과 변화", PAPER_TITLE)
             endif
-            call PaperText(OutcomeText, ProtoOutcome[pid], PAPER_BODY)
+            call SetOutcomeText(ProtoOutcome[pid])
         endif
         if ProtoStage[pid] == 2 or ProtoStage[pid] == 3 then
             set id = ProtoSelected[pid]
@@ -835,6 +869,14 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set OutcomeHeading = ExpUILabel(OutcomePanel, 0.018, 0.016, 0.376, 0.026, 0.013, "선택 결과 · 획득과 변화")
         set OutcomeText = ExpUILabel(OutcomePanel, 0.018, 0.056, 0.376, 0.314, 0.012, "")
         call JNFrameSetTextAlignment(OutcomeText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        set i = 0
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            set OutcomeLineFrames[i] = ExpUILabel(OutcomePanel, 0.018, 0.056, 0.386, 0.017, 0.012, "")
+            call JNFrameSetTextAlignment(OutcomeLineFrames[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+            call DzFrameShow(OutcomeLineFrames[i], false)
+            set i = i + 1
+        endloop
         set RerollButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "사건 리롤", 2300)
         set ResumeButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "확인 · 사냥 재개", 2400)
         call ExpUIThemeButton(RerollButton, 2)
