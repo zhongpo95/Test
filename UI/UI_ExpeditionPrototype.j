@@ -45,6 +45,12 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private real OutcomeCachedAspect = 0.0
         private constant real OUTCOME_LINE_GAP = 0.015
         private integer array OutcomeLineFrames
+        // 1~4 소개, 5~8 보상 조건, 9~12 행동, 13 입문 카드 툴팁.
+        private integer array DetailLines
+        private string array DetailCached
+        private real array DetailHeight
+        private real array DetailAspect
+        private boolean array DetailSpaced
         private integer OutcomeText
         private integer array CandidateButtons
         private integer array CandidateRegion
@@ -238,6 +244,68 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameShow(OutcomeText, false)
     endfunction
 
+    private function DetailText takes integer frame, string value, string color returns nothing
+        if color == "|cffe7edf3" then
+            call DzFrameSetText(frame, color + JNStringReplace(value, "|r", color) + "|r")
+        else
+            call PaperText(frame, value, color)
+        endif
+    endfunction
+
+    private function CreateDetailLines takes integer slot, integer parent, real size returns nothing
+        local integer i = 0
+        local integer f
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            set f = ExpUILabel(parent, 0, 0, 0.150, size + 0.005, size, "")
+            set DetailLines[slot * STORY_LINE_MAX + i] = f
+            call JNFrameSetTextAlignment(f, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+            call DzFrameShow(f, false)
+            set i = i + 1
+        endloop
+    endfunction
+
+    // 원본 TEXT의 자식이므로 후보 숨김/버튼 비활성 상태를 그대로 따른다.
+    private function SetDetailLines takes integer slot, integer frame, string value, string color, real width, real height, real size returns nothing
+        local integer i = 0
+        local integer f
+        local real gap = size + 0.003
+        local string key = color + value
+        if DetailCached[slot] == key and DetailHeight[slot] == height and DetailAspect[slot] == ImagePixelAspect then
+            // 버튼 갱신이 원본 글자를 다시 넣으므로 캐시 경로에서도 지운다.
+            if DetailSpaced[slot] then
+                call DzFrameSetText(frame, "")
+            else
+                call DetailText(frame, value, color)
+            endif
+            return
+        endif
+        call DetailText(frame, value, color)
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            call DzFrameShow(DetailLines[slot * STORY_LINE_MAX + i], false)
+            set i = i + 1
+        endloop
+        set DetailSpaced[slot] = false
+        set StoryLineEm = STORY_EM_43 / ImagePixelAspect
+        if StoryLineLayout(value, width, size) and StoryLineCount * gap + 0.002 <= height then
+            set i = 0
+            loop
+                exitwhen i >= StoryLineCount
+                set f = DetailLines[slot * STORY_LINE_MAX + i]
+                call PlaceCoverPart(f, frame, 0, i * gap, width, size + 0.005)
+                call DetailText(f, StoryLines[i], color)
+                call DzFrameShow(f, true)
+                set i = i + 1
+            endloop
+            call DzFrameSetText(frame, "")
+            set DetailSpaced[slot] = true
+        endif
+        set DetailCached[slot] = key
+        set DetailHeight[slot] = height
+        set DetailAspect[slot] = ImagePixelAspect
+    endfunction
+
     private function PlaceEventImage takes integer frame, integer parent, real x, real y, real width, real height, integer id returns nothing
         local real aspect = ProtoEventImageAspect[id] / ImagePixelAspect
         local real imageWidth = width
@@ -288,7 +356,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameSetTexture(EntryTooltipIcon, ProtoCardArt(card), 0)
         call DzFrameSetTexture(EntryTooltipBorder, ProtoCardFrame(grade), 0)
         // 보관함의 누적 합산 대신 실제 입문 보상의 추가 효과를 미리 보여준다.
-        call DzFrameSetText(EntryTooltipText, "|cffe7edf3" + JNStringReplace(ProtoEventCardPreview(pid, card), "|r", "|cffe7edf3") + "|r")
+        call SetDetailLines(13, EntryTooltipText, ProtoEventCardPreview(pid, card), "|cffe7edf3", 0.180, 0.164, 0.011)
         call DzFrameShow(EntryTooltip, true)
     endfunction
 
@@ -301,6 +369,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         local real x = (0.8 - (0.174 * ProtoChoices[pid] + 0.012 * (ProtoChoices[pid] - 1))) * 0.5 + (i - 1) * 0.186
         local string tag = "공통 사건"
         local string action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 사건 만나기"
+        local real introHeight = 0.128
         local string entryReward
         call PlaceCoverPart(cover, EventRoot, x, 0.138, 0.174, 0.386)
         call ExpUIResizeCover(CandidateButtons[i], 0.174, 0.386)
@@ -308,6 +377,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call PlaceEventImage(CandidateIcon[i], cover, 0.012, 0.052, 0.150, 0.108, id)
         call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.168, 0.150, 0.034)
         if opening or ProtoEventRequiredCard[id] > 0 then
+            set introHeight = 0.077
             call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.210, 0.150, 0.077)
             call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.294, 0.150, 0.044)
         else
@@ -325,7 +395,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             else
                 set entryReward = entryReward + " 획득"
             endif
-            call PaperText(CandidateBonus[i], "머리 효과 · " + ProtoHeadEffectText(head) + "|n" + entryReward, PAPER_GAIN)
+            call SetDetailLines(4 + i, CandidateBonus[i], "머리 효과 · " + ProtoHeadEffectText(head) + "|n" + entryReward, PAPER_GAIN, 0.150, 0.044, 0.011)
         elseif ProtoEventMainStage[id] > 0 then
             set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
         elseif ProtoEventEpilogue[id] > 0 then
@@ -334,11 +404,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set tag = tag + " · 후속"
         endif
         if not opening and ProtoEventRequiredCard[id] > 0 then
-            call PaperText(CandidateBonus[i], "보유 조건|n" + ProtoDisplayCardName(pid, ProtoEventRequiredCard[id]) + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]], PAPER_META)
+            call SetDetailLines(4 + i, CandidateBonus[i], "보유 조건|n" + ProtoDisplayCardName(pid, ProtoEventRequiredCard[id]) + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]], PAPER_META, 0.150, 0.044, 0.011)
         endif
         call PaperText(CandidateRegion[i], tag + "|n" + ProtoGradeColor(ProtoEventGrade[id]) + ExpEventGradeName(ProtoEventGrade[id]) + " 보상 가능|r", PAPER_META)
         call PaperText(CandidateTitle[i], ProtoEventName[id], PAPER_TITLE)
-        call PaperText(CandidateIntro[i], ProtoEventIntro[id], PAPER_BODY)
+        call SetDetailLines(i, CandidateIntro[i], ProtoEventIntro[id], PAPER_BODY, 0.150, introHeight, 0.012)
         call DzFrameSetTexture(CandidateIcon[i], ProtoEventIcon[id], 0)
         call DzFrameShow(CandidateBonus[i], opening or ProtoEventRequiredCard[id] > 0)
         if not eligible then
@@ -525,10 +595,10 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                 call ExpUISetButton(BranchButtons[i], value, ProtoDialogueChoiceAllowed(pid, i))
                 call DzFrameSetAlpha(ExpUIButtons[BranchButtons[i]], 255)
                 if ProtoDialogueChoiceAllowed(pid, i) then
-                    call PaperText(ExpUIButtonLabels[BranchButtons[i]], value, PAPER_BODY)
+                    call SetDetailLines(8 + i, ExpUIButtonLabels[BranchButtons[i]], value, PAPER_BODY, 0.380, branchHeight - 0.052, 0.011)
                     call PaperText(BranchAction[i], "이 행동을 선택", PAPER_GAIN)
                 else
-                    call PaperText(ExpUIButtonLabels[BranchButtons[i]], value, PAPER_META)
+                    call SetDetailLines(8 + i, ExpUIButtonLabels[BranchButtons[i]], value, PAPER_META, 0.380, branchHeight - 0.052, 0.011)
                     call PaperText(BranchAction[i], "조건 미충족 · 선택 불가", PAPER_COST)
                 endif
             endif
@@ -817,6 +887,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set CandidateIcon[i] = ExpUITexture(f, 0, 0, 0.094, 0.094, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
             set CandidateIntro[i] = CoverLabel(f, 0.012)
             set CandidateBonus[i] = CoverLabel(f, 0.011)
+            call CreateDetailLines(i, CandidateIntro[i], 0.012)
+            call CreateDetailLines(4 + i, CandidateBonus[i], 0.011)
             set CandidateFooter[i] = ExpUITexture(f, 0.007, 0.346, 0.160, 0.027, "war3mapImported\\UI_Arcana_Paper.tga")
             // 하단 배경보다 나중에 글자를 생성해 버튼 문구가 배경 뒤에 가려지지 않게 한다.
             call DzFrameShow(ExpUIButtonLabels[CandidateButtons[i]], false)
@@ -852,6 +924,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_LEAVE, function BranchLeave, false)
             call PlaceCoverPart(f, EventRoot, 0.356, 0.138 + (i - 1) * 0.200, 0.412, 0.186)
             call ExpUIResizeCover(BranchButtons[i], 0.412, 0.186)
+            call CreateDetailLines(8 + i, ExpUIButtonLabels[BranchButtons[i]], 0.011)
             set BranchHeader[i] = ExpUILabel(f, 0.016, 0.008, 0.380, 0.016, 0.008, "행동 " + I2S(i))
             call PaperText(BranchHeader[i], "행동 " + I2S(i), PAPER_META)
             set f = ExpUIButtons[BranchButtons[i]]
@@ -892,6 +965,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameSetText(EntryTooltipTitle, "|cff83e4e6입문 카드 · 머리 선택 시 함께 획득|r")
         set EntryTooltipText = ExpUILabel(EntryTooltip, 0.072, 0.044, 0.180, 0.164, 0.011, "")
         call JNFrameSetTextAlignment(EntryTooltipText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        call CreateDetailLines(13, EntryTooltipText, 0.011)
         call DzFrameShow(EntryTooltip, false)
         set HuntHUD = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetSize(HuntHUD, 0.40, 0.074)
