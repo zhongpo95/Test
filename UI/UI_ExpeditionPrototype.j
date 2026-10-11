@@ -75,9 +75,30 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
     endfunction
 
     // 본문 전체를 한 번에 전달하고 갱신 틱에서는 텍스트 영역을 다시 초기화하지 않는다.
+    // 긴 본문은 기존 배치를 유지하고 짧은 본문에만 문단 여백을 추가한다.
+    private function SpaceStoryParagraphs takes string value returns string
+        local integer i = 0
+        local integer n = StringLength(value)
+        if n > 900 or JNStringCount(value, "|n") >= 6 then
+            return value
+        endif
+        if JNStringCount(value, "|n|n") > 0 then
+            return JNStringReplace(value, "|n|n", "|n|n|n")
+        endif
+        // 문단이 없는 소개는 첫 문장 뒤만 나눈다. 소수점과 색상 태그는 건드리지 않는다.
+        loop
+            exitwhen i + 1 >= n
+            if SubString(value, i, i + 2) == ". " then
+                return SubString(value, 0, i + 1) + "|n|n" + SubString(value, i + 2, n)
+            endif
+            set i = i + 1
+        endloop
+        return value
+    endfunction
+
     private function SetStoryText takes string value returns nothing
         if value != StoryCached then
-            call PaperText(StoryText, value, PAPER_BODY)
+            call PaperText(StoryText, SpaceStoryParagraphs(value), PAPER_BODY)
             set StoryCached = value
         endif
     endfunction
