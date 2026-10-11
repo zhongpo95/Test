@@ -1,4 +1,12 @@
 library AttackAngle
+    globals
+        // 마지막으로 카운터를 성공시킨 영웅과 그 피해의 스킬 코드 (보스 패턴이 카운터 성공 순간에 읽는다)
+        unit LastCounterSource = null
+        integer LastCounterSkill = 0
+        // 유닛마다 마지막으로 때린 플레이어(pid+1, 0 = 없음)와 그 피해의 스킬 코드 (보스 기믹이 "한 스킬 = 한 대"를 셀 때 읽는다)
+        integer array UnitLastHitPid
+        integer array UnitLastHitSkill
+    endglobals
     
     function AngleTrue takes real A,real A2,real R returns boolean
         local boolean n

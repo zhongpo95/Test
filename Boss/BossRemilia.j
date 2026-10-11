@@ -13,7 +13,7 @@
     - 2페이즈: 붉은 안개 농도 게이지(100 시작, 체력바 아래). 카운터·대형·기믹 성공으로 걷히고, 시간·피격으로 다시 찬다.
       농도 70 이하 햇빛 1줄, 40 이하 2줄, 10 이하 3줄. 짤패턴(하트브레이크 2연, 배드 레이디 스크램블, 홍색의 명계, 박쥐 떼,
       박쥐 산개, 날개 치기), 대형(스피어 더 궁니르, 미저러블 페이트 87.5%~, 드라큘라 크레이들 햇빛 있을 때),
-      기믹 75% 운명 예지 · 50% 퀸 오브 미드나잇(어둠) · 25% 홍색의 환상향(전멸기). 기믹이 끝날 때까지 체력은 그 줄에서 멈춘다.
+      기믹 75% 운명 예지 · 50% 퀸 오브 미드나잇(어둠) · 25% 불야성 레드(전멸기). 기믹이 끝날 때까지 체력은 그 줄에서 멈춘다.
       10% 아래는 마지막 발악 (대형 패턴 간격 짧아짐).
 
     ※ 이펙트는 임시(기본 게임 모델·맵에 이미 있는 ArcanaFX). 실제 선택은 이펙트 뷰어로 나중에.
@@ -33,6 +33,13 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         private constant string TELE_LINE = "[I0]Attack2.mdx"
         private constant real TELE_LINE_W = 78
         private constant real TELE_LEN = 384
+        private constant integer TELE_MAX = 256
+        // 가운데가 원점인 직선 예고 ([I0]Attack2 를 -192 ~ +192 로 옮긴 것, 같은 텍스처). 보스 공용
+        private constant string TELE_LINE_C = "war3mapImported\\[I0]Attack2_C.mdx"
+        // 부채꼴 예고: 원형 예고(Etc Boss AOE2)를 10도 간격으로 자른 모델 BossFan_010 ~ BossFan_350 (빨강, +X 가 가운데).
+        // 크기 1 일 때 가장자리 반경 약 105. stand 1초 동안 안쪽이 차오른다
+        private constant string FAN_DIR = "war3mapImported\\BossFan_"
+        private constant real FAN_UNIT_R = 105
 
         // ===== 이펙트 (임시) =====
         // 맵에 이미 있는 아쳐용 ArcanaFX 를 임시로 쓴다
@@ -183,7 +190,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         // 2페이즈 기믹 (선택되지 않고 체력 줄에서 강제)
         private constant integer PAT_FATE = 16
         private constant integer PAT_NIGHT = 17
-        private constant integer PAT_GENSO = 18
+        private constant integer PAT_FUYAJOU = 18
         private constant integer PAT_MAX = 18
 
         // ===== 10% 전환·2페이즈 (기획서 표의 수치) =====
@@ -198,7 +205,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         // 기획서에 수치가 없어 정함: 4초마다 +1, 영웅이 맞을 때마다 +2
         private constant real FOG_TIME_EVERY = 4.0
         private constant real FOG_HIT = 2
-        private constant real FOG_AFTER_GENSO = 50
+        private constant real FOG_AFTER_FUYA = 50
         // 2페이즈 짤패턴
         private constant real HEART2_GAP = 0.6
         private constant real SCRAMBLE_LEN = 700
@@ -215,7 +222,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         private constant real GUNGNIR_CHARGE = 2.0
         private constant real GUNGNIR_W = 260
         private constant real GUNGNIR_LOCK = 0.8
-        private constant real GUNGNIR_COUNTER = 1.0
+        private constant real GUNGNIR_COUNTER = 1.5
         private constant real GUNGNIR_BOOM_R = 300
         private constant real GUNGNIR_GROGGY = 4.5
         // 미저러블 페이트: 영웅에게서 300 떨어진 말뚝, 사슬 400, 6초, 말뚝은 3타, 성공 기절 3초, 실패 반경 250 폭발
@@ -231,14 +238,25 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         private constant real DRACULA_SLAM_R = 300
         // 기믹 그로기
         private constant real GIMMICK_GROGGY = 6.0
-        // 75% 운명 예지: 예고 3초, 1.2초 간격, 0.6초 전 번쩍, 5개 → 4개, 맞으면 최대 체력 25% + 안개 +5, 2번 미만이면 성공
-        private constant real FATE_SHOW = 3.0
-        private constant real FATE_GAP = 1.2
-        private constant real FATE_FLASH = 0.6
+        // 75% 운명 예지 (세르카 2관 능지장판 방식): 전장 전체 줄무늬 5번, 순서 고정
+        // 세로 → 세로(반 칸 이동) → 가로 → 가로(반 칸 이동) → 세로(1번과 같음). 방향은 레밀리아가 바라보는 쪽 기준.
+        // 매 회차 1.0초 보여 주고 터짐, 곧바로 다음 회차. 맞으면 최대 체력 25% + 안개 +5.
+        // 5번째 뒤 카운터 1.5초: 성공 그로기 6초·안개 -25, 실패 전장 전체 장판(예고 1.5초, 최대 체력 70%·기절)·안개 +20
+        private constant real FATE_CAST = 1.5
+        private constant real FATE_TELL = 1.0
+        private constant real FATE_W = 250
+        // 줄무늬 한 줄을 이 길이 조각으로 나눠 그린다 (한 줄을 길게 늘이면 시작점이 화면 밖이라 게임이 안 그린다)
+        private constant real FATE_SEG = 500
+        // 띠가 터질 때: 붉은 일자 섬광(가운데 기준, 길이 620·폭 54, Birth 0.4초)을 조각 크기로 늘린다
+        private constant string FX_STRIPE = "ArcanaFX\\F3021.mdx"
+        private constant real FX_STRIPE_LEN = 620
+        private constant real FX_STRIPE_W = 54
         private constant real FATE_DMG = 0.25
-        private constant real FATE_CROSS_W = 240
-        private constant real FATE_LINE_W = 220
-        private constant real FATE_CIRCLE_R = 200
+        private constant integer FATE_WAVES = 5
+        private constant real FATE_COUNTER = 1.5
+        private constant real FATE_WIPE_TELL = 1.5
+        private constant real FATE_WIPE_DMG = 0.70
+        private constant real FOG_FATE_FAIL = 20
         // 50% 퀸 오브 미드나잇(어둠): 5번 돌진, 예고 1.0초(마지막 0.6초 카운터), 돌진 뒤 1.5초 보임, 돌진 사이 3초 이상,
         // 카운터+작열 3번이면 성공. 실패하면 안개 +20 뒤 앞쪽 반원 반경 800(예고 2초) 최대 체력 70%
         private constant integer NIGHT_DASHES = 5
@@ -250,11 +268,33 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         private constant real NIGHT_FINAL_R = 800
         private constant real NIGHT_FINAL_TELL = 2.0
         private constant real NIGHT_FINAL_DMG = 0.70
-        // 25% 홍색의 환상향: 무적 10초 시전, 3단계로 가장자리부터 붉은 빛, 마지막엔 햇빛 안만 안전
-        private constant real GENSO_CAST = 10.0
-        private constant real GENSO_RING_TELL = 1.5
-        private constant real GENSO_TICK_DMG = 0.10
-        private constant real GENSO_NARROW_W = 60
+        // 25% 불야성 레드 (전멸기, 약 13초): 날개를 펴고 몸에서 붉은 십자. 1.5초 예고 → 십자 기둥 4개가 돌며(초당 25도,
+        // 5.25초에 반대로) 닿으면 최대 체력 30% + 넉백, 1.5초마다 붉은 탄 고리(맞으면 20%).
+        // 고리는 십자와 함께 돌고, 십자 사이 네 칸마다 빈틈이 하나씩 (칸 가운데에서 ±FUYA_GAP_JITTER 어긋남)
+        // 9초부터 3초 모으기(카운터 가능, 햇빛이 이때 나타남) → 카운터 성공 그로기 6초·안개 -25,
+        // 실패하면 햇빛 밖 전부 즉사(최대 체력 200%), 버틴 뒤 그로기 6초·안개 50
+        private constant real FUYA_TELL = 1.5
+        private constant real FUYA_W = 300
+        private constant real FUYA_SEG = 500
+        private constant real FUYA_SPEED = 25
+        private constant real FUYA_REVERSE = 5.25
+        private constant real FUYA_ROT_END = 9.0
+        private constant real FUYA_PILLAR_DMG = 0.30
+        private constant real FUYA_PILLAR_CD = 1.0
+        private constant real FUYA_KNOCK = 250
+        private constant real FUYA_RING_FIRST = 2.5
+        private constant real FUYA_RING_LAST = 7.0
+        private constant real FUYA_RING_EVERY = 1.5
+        private constant real FUYA_RING_SPEED = 450
+        private constant real FUYA_RING_MAX = 1400
+        private constant real FUYA_RING_HALF = 60
+        private constant real FUYA_RING_GAP = 15
+        private constant real FUYA_GAP_JITTER = 25
+        private constant integer FUYA_RING_DOTS = 36
+        private constant real FUYA_RING_DMG = 0.20
+        private constant real FUYA_CHARGE = 3.0
+        private constant real FUYA_WIPE_DMG = 2.0
+        private constant real FUYA_NARROW_W = 60
         private constant real LAST_STRUGGLE = 0.10
         private constant real DMG_HEART2 = 200
         private constant real DMG_SCRAMBLE = 250
@@ -271,6 +311,8 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         private constant string LZ_CHAIN = "DRAL"
         // 안개 게이지 화면 (체력바 바로 아래)
         private integer FogBack = 0
+        // 영웅마다 마지막으로 시전한 스킬 (나이트메어 카운터 성공 때 쿨타임 초기화용)
+        private integer array LastCastAbil
         private integer FogFill = 0
         private integer FogText = 0
         private constant real FOG_UI_X = 330.0
@@ -436,7 +478,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         // 전환·2페이즈
         real transStart = 0
         integer transStep = 0
-        // 무적 (전환·홍색의 환상향)
+        // 무적 (전환·불야성 레드)
         boolean invuln = false
         // 붉은 안개 농도 0~100
         real fog = 100
@@ -460,6 +502,9 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         lightning array chain[6]
         real array stakeHP[6]
         integer array stakeHits[6]
+        // 말뚝 i·플레이어 p 마다 마지막으로 센 스킬 코드와 시각 (스킬 한 번 = 한 대, 다단 히트는 한 번)
+        integer array stkCode[72]
+        real array stkAt[72]
         // 운명 예지 (공격 종류·위치·방향·번호 글자·예고)
         integer array fK[8]
         real array fX[8]
@@ -468,8 +513,9 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         texttag array fTag[8]
         integer fN = 0
         integer fFlash = 0
-        real array fcX[6]
-        real array fcY[6]
+        real array fcX[48]
+        real array fcY[48]
+        integer array fcC[8]
         integer fcN = 0
         integer fRound = 0
         real fRoundAt = 0
@@ -479,11 +525,23 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         integer nDash = 0
         integer nGood = 0
         real nAt = 0
-        // 홍색의 환상향: 붉은 빛이 덮은 반경, 다음 피해·탄 시각
-        real gCover = 0
-        real gTickAt = 0
-        real gShootAt = 0
+        // 불야성 레드: 마지막 빛줄 중 칸이 없어 미뤄 둔 수 (음수)
         integer gStage = 0
+        // 불야성 레드: 십자 기둥 조각(이펙트·중심에서 거리·팔 번호), 회전 각도·방향, 탄 고리, 영웅별 기둥 피격 대기
+        effect array fyFx[32]
+        real array fyD[32]
+        integer array fyArm[32]
+        integer fyN = 0
+        real fyAng = 0
+        real fyDir = 1
+        boolean fyRev = false
+        real fyRingAt = 0
+        effect array rgFx[180]
+        real array rgR[5]
+        real array rgGap[5]
+        boolean array rgOn[5]
+        boolean array rgHit[30]
+        real array fyHitAt[6]
         // 선 예고(따라오는 것) 폭
         real cTeleW = 220
         boolean slam = false
@@ -516,7 +574,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         real array sbA[4]
         integer array sbState[4]
         real array sbT[4]
-        // 띠의 반폭 (보통 125, 홍색의 환상향의 좁은 빛줄은 60)
+        // 띠의 반폭 (보통 125, 불야성 레드의 좁은 빛줄은 60)
         real array sbW[4]
         unit array sbU[32]
         real sbMoveAt = 0
@@ -541,8 +599,8 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         boolean array pstun[16]
         party array phit[16]
 
-        effect array tele[24]
-        real array teleEnd[24]
+        effect array tele[256]
+        real array teleEnd[256]
         effect array fxe[32]
         real array fxEnd[32]
         lightning array lz[6]
@@ -644,10 +702,18 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call Anim(f, AN_READY, 1.0)
     endfunction
 
+    // 방향만 바꾼다. 예전에는 화면 갱신용으로 제자리 SetUnitPosition 을 같이 불렀는데,
+    // 돌 때마다(대상 추적 중 매 틱) 위치를 다시 잡으면서 붙어 있는 영웅 쪽에서 밀려 보스가 뒤로 미끄러졌다.
+    // EXSetUnitFacing 이 바로 돌려 주므로 위치는 건드리지 않는다
+    // 보스 이동은 SetUnitPosition 으로만 한다. 메뚜기(Aloc) 유닛은 SetUnitX/Y 로 옮기면 화면·판정 위치가 안 바뀌어
+    // 보스가 안 움직이고 영웅 스킬도 안 맞는다 (시험 확인). 회전할 때는 위치를 다시 잡지 않는다 (ApplyFacing)
+    private function BossMoveTo takes RemiliaFight f, real x, real y returns nothing
+        call SetUnitPosition(f.boss, x, y)
+    endfunction
+
     private function ApplyFacing takes RemiliaFight f returns nothing
         call SetUnitFacing(f.boss, f.face)
         call EXSetUnitFacing(f.boss, f.face)
-        call SetUnitPosition(f.boss, GetUnitX(f.boss), GetUnitY(f.boss))
     endfunction
 
     // 바라보는 방향 고정 (헤드·백·카운터 판정 기준). 0.5도 이상 바뀔 때만 적용
@@ -941,7 +1007,8 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
     // 직선 위에 원형 데칼을 이어 붙인다 (from ~ to 구간)
     private function DecalSeg takes RemiliaFight f, real x, real y, real a, real from, real to, real width, real time, integer types returns nothing
         local real r = width * 0.5
-        local real step = width * 0.8
+        // 간격 0.5배: 원 사이 오목한 곳도 폭의 87% 이상 덮인다 (0.8배일 때는 60%라 범위 밖처럼 보이는 곳이 맞았다)
+        local real step = width * 0.5
         local real d = from + r
         if to - from <= width then
             set d = (from + to) * 0.5
@@ -974,7 +1041,60 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call EXEffectMatScale(e, len / TELE_LEN, width / TELE_LINE_W, 1)
         call EXEffectMatRotateZ(e, a)
         loop
-            exitwhen i >= 24
+            exitwhen i >= TELE_MAX
+            if f.tele[i] == null then
+                set f.tele[i] = e
+                set f.teleEnd[i] = f.now + time
+                set e = null
+                return
+            endif
+            set i = i + 1
+        endloop
+        call DestroyEffect(e)
+        set e = null
+    endfunction
+
+    // 직선 범위 예고 (가운데 기준): (x, y) 가 줄의 가운데, a 방향으로 길이 len, 폭 width
+    private function TeleLineC takes RemiliaFight f, real x, real y, real a, real len, real width, real time returns nothing
+        local integer i = 0
+        local effect e = AddSpecialEffect(TELE_LINE_C, x, y)
+        call EXEffectMatScale(e, len / TELE_LEN, width / TELE_LINE_W, 1)
+        call EXEffectMatRotateZ(e, a)
+        loop
+            exitwhen i >= TELE_MAX
+            if f.tele[i] == null then
+                set f.tele[i] = e
+                set f.teleEnd[i] = f.now + time
+                set e = null
+                return
+            endif
+            set i = i + 1
+        endloop
+        call DestroyEffect(e)
+        set e = null
+    endfunction
+
+    // 부채꼴 예고 (판정 HitFan 과 같은 반경·반각): 각도(2 x half)에 가장 가까운 10도 모델, time 동안 안쪽이 차오른다
+    private function DecalFan takes RemiliaFight f, real x, real y, real a, real r, real half, real time returns nothing
+        local integer deg = R2I(half * 2 / 10.0 + 0.5) * 10
+        local string id
+        local effect e
+        local integer i = 0
+        if deg < 10 then
+            set deg = 10
+        elseif deg > 350 then
+            set deg = 350
+        endif
+        set id = I2S(deg)
+        if deg < 100 then
+            set id = "0" + id
+        endif
+        set e = AddSpecialEffect(FAN_DIR + id + ".mdx", x, y)
+        call EXSetEffectSize(e, r / FAN_UNIT_R)
+        call EXEffectMatRotateZ(e, a)
+        call EXSetEffectSpeed(e, 1.0 / time)
+        loop
+            exitwhen i >= TELE_MAX
             if f.tele[i] == null then
                 set f.tele[i] = e
                 set f.teleEnd[i] = f.now + time
@@ -1003,8 +1123,22 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
     private function TeleUpdate takes RemiliaFight f, boolean all returns nothing
         local integer i = 0
         loop
-            exitwhen i >= 24
+            exitwhen i >= TELE_MAX
             if f.tele[i] != null and (all or f.now >= f.teleEnd[i]) then
+                call DestroyEffect(f.tele[i])
+                set f.tele[i] = null
+            endif
+            set i = i + 1
+        endloop
+    endfunction
+
+    // 예고 줄을 사라지는 동작 없이 바로 없앤다 (땅 아래로 내린 뒤 제거)
+    private function TeleKillNow takes RemiliaFight f returns nothing
+        local integer i = 0
+        loop
+            exitwhen i >= TELE_MAX
+            if f.tele[i] != null then
+                call EXSetEffectZ(f.tele[i], -5000)
                 call DestroyEffect(f.tele[i])
                 set f.tele[i] = null
             endif
@@ -1030,7 +1164,15 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
     // ======================================================================
     // 피해 판정 (이 전투 참가자만)
     // ======================================================================
+    // 무적 상태(소모품 3번 무적 물약, 일부 스킬의 BuffNoDM): 즉사 판정을 뺀 보스 공격은 모두 면역 (피해·기절·넉백)
+    private function Immune takes unit u returns boolean
+        return BuffNoDM.Exists(u)
+    endfunction
+
     private function Deal takes RemiliaFight f, unit u, real dmg, boolean stun returns nothing
+        if Immune(u) then
+            return
+        endif
         call BossDeal(f.boss, u, dmg, stun)
         // 2페이즈: 영웅이 맞을 때마다 안개가 조금 다시 찬다 (게이지 갱신은 틱에서)
         if f.state == REMILIA_PHASE2 and dmg > 0 then
@@ -1044,7 +1186,12 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
     endfunction
 
     // 최대 체력의 rate 만큼 피해 (기믹)
+    // 최대 체력의 100% 이상(즉사 판정: 운명 예지 실패, 불야성 레드 등)은 무적이어도 들어간다
     private function DealPct takes RemiliaFight f, unit u, real rate, boolean stun returns nothing
+        if rate >= 1.0 and Immune(u) then
+            call BossDeal(f.boss, u, GetUnitState(u, UNIT_STATE_MAX_LIFE) * rate, stun)
+            return
+        endif
         call Deal(f, u, GetUnitState(u, UNIT_STATE_MAX_LIFE) * rate, stun)
     endfunction
 
@@ -1118,9 +1265,13 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                         // 선분의 왼쪽이면 왼쪽으로, 오른쪽이면 오른쪽으로
                         set side = (x2 - x1) * (GetUnitY(u) - y1) - (y2 - y1) * (GetUnitX(u) - x1)
                         if side >= 0 then
-                            call Knockback(u, a + 90, knock, 0.3)
+                            if not Immune(u) then
+                                call Knockback(u, a + 90, knock, 0.3)
+                            endif
                         else
-                            call Knockback(u, a - 90, knock, 0.3)
+                            if not Immune(u) then
+                                call Knockback(u, a - 90, knock, 0.3)
+                            endif
                         endif
                     endif
                 endif
@@ -1153,7 +1304,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                         call GroupAddUnit(g.super, u)
                     endif
                     call Deal(f, u, dmg, stun)
-                    if stunT > 0 then
+                    if stunT > 0 and not Immune(u) then
                         call CustomStun.Stun2(u, stunT)
                     endif
                 endif
@@ -1468,6 +1619,10 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             endif
             set k = k + 1
         endloop
+        // 불야성 레드 중에는 띠를 옮기지 않는다 (마지막 빛줄이 다른 자리·폭으로 바뀌지 않게)
+        if f.now >= f.sbMoveAt and f.pat == PAT_FUYAJOU then
+            set f.sbMoveAt = f.now + SB_MOVE_EVERY
+        endif
         if f.now >= f.sbMoveAt then
             set f.sbMoveAt = f.now + SB_MOVE_EVERY
             // 켜져 있는 띠 중 하나(돌아가며)를 사라지게 하고, 동시에 빈 칸에 새 띠를 나타나게 한다
@@ -1629,7 +1784,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
     endfunction
 
     private function IsGimmick takes integer id returns boolean
-        return id == PAT_FATE or id == PAT_NIGHT or id == PAT_GENSO
+        return id == PAT_FATE or id == PAT_NIGHT or id == PAT_FUYAJOU
     endfunction
 
     private function PatternEnd takes RemiliaFight f, real rest returns nothing
@@ -1694,8 +1849,8 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             return "운명 예지"
         elseif id == PAT_NIGHT then
             return "퀸 오브 미드나이트"
-        elseif id == PAT_GENSO then
-            return "홍색의 환상향"
+        elseif id == PAT_FUYAJOU then
+            return "불야성 레드"
         endif
         return ""
     endfunction
@@ -1836,7 +1991,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call Decal(f, f.tx, f.ty, BAT_RADIUS, BAT_TELL, 0)
             set f.step = 3
         elseif f.step == 3 and el >= BAT_HIDE + BAT_TRAVEL then
-            call SetUnitPosition(f.boss, f.tx, f.ty)
+            call BossMoveTo(f, f.tx, f.ty)
             call ShowBoss(f, true)
             if MemAlive(f.target) then
                 set f.face = AngleWBW(f.boss, f.target) + 10
@@ -1862,7 +2017,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             // 한 팔 할퀴기: 휘두름(약 0.45초)이 0.9초 판정에 맞도록 절반 속도
             call Anim(f, AN_ATTACK, 0.45 / CLAW_TELL)
             call FxWindup(f)
-            call TeleFan(f, bx, by, f.ang, CLAW_R, CLAW_HALF, CLAW_TELL)
+            call DecalFan(f, bx, by, f.ang, CLAW_R, CLAW_HALF, CLAW_TELL)
             set f.step = 1
         elseif f.step == 1 and el >= CLAW_TELL then
             call HitFan(f, bx, by, f.ang, CLAW_R, CLAW_HALF, DMG_CLAW, false)
@@ -1875,7 +2030,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                 call Face(f, f.ang)
             endif
             call Anim(f, AN_SPELL1, 0.55 / CLAW_TELL2)
-            call TeleFan(f, bx, by, f.ang, CLAW_R, CLAW_HALF, CLAW_TELL2)
+            call DecalFan(f, bx, by, f.ang, CLAW_R, CLAW_HALF, CLAW_TELL2)
             set f.step = 2
         elseif f.step == 2 and el >= CLAW_TELL + CLAW_TELL2 then
             call HitFan(f, bx, by, f.ang, CLAW_R, CLAW_HALF, DMG_CLAW, false)
@@ -2009,7 +2164,9 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                 set u = f.mem[i]
                 if MemAlive(u) and IsUnitInRangeXY(u, bx, by, FLAP_R) then
                     call Deal(f, u, DMG_FLAP, false)
-                    call Knockback(u, AnglePBP(bx, by, GetUnitX(u), GetUnitY(u)), FLAP_KNOCK, 0.3)
+                    if not Immune(u) then
+                        call Knockback(u, AnglePBP(bx, by, GetUnitX(u), GetUnitY(u)), FLAP_KNOCK, 0.3)
+                    endif
                 endif
                 set f.behindT[i] = 0
                 set i = i + 1
@@ -2114,7 +2271,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set step = RMinBJ(f.dashLeft, f.dashSpeed * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
-            call SetUnitPosition(f.boss, nx, ny)
+            call BossMoveTo(f, nx, ny)
             call HitSweep(f, bx, by, nx, ny, CRADLE_W * 0.5, DMG_CRADLE, true, f.hit, CRADLE_KNOCK)
             set f.dashLeft = f.dashLeft - step
             if f.now >= f.nextFx then
@@ -2216,7 +2373,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         elseif f.step == 1 then
             if f.dashLeft > 0 then
                 set step = RMinBJ(f.dashLeft, f.dashSpeed * TICK)
-                call SetUnitPosition(f.boss, ClampX(f, bx + PolarX(step, f.ax)), ClampY(f, by + PolarY(step, f.ax)))
+                call BossMoveTo(f, ClampX(f, bx + PolarX(step, f.ax)), ClampY(f, by + PolarY(step, f.ax)))
                 set f.dashLeft = f.dashLeft - step
             endif
             if el >= 0.75 then
@@ -2232,9 +2389,9 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                 call AnimThen(f, AN_WINDUP, 1.0, AN_WINDUP_HOLD)
                 call UnitAddAbility(f.boss, 'A00V')
                 call SetUnitVertexColorBJ(f.boss, 70, 70, 100, 0)
-                set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 3)
-                set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 3)
-                set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 3)
+                set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 6)
+                set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 6)
+                set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 6)
                 call DestroyEffect(AddSpecialEffectTarget(FX_COUNTER_READY, f.boss, "origin"))
                 set f.eyeFx = AddSpecialEffectTarget(FX_EYES, f.boss, "head")
                 call FxWindup(f)
@@ -2249,22 +2406,19 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                 set f.patStart = f.now
                 set f.step = 2
             endif
+        elseif (f.step == 2 or f.step == 3) and GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
+            // 카운터 성공 (창 동안 또는 찌르기 돌진이 맞히기 전)
+            call ClearDecals(f)
+            call CueClear(f)
+            call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
+            call Sound3D(f.boss, 'A00U')
+            call VoiceSlot(f, VO_COUNTERHIT, true)
+            call AnimDown(f)
+            set f.patStart = f.now
+            set f.step = 6
         elseif f.step == 2 then
-            if GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
-                // 카운터 성공
-                call ClearDecals(f)
-                call CueClear(f)
-                call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
-                call Sound3D(f.boss, 'A00U')
-                call VoiceSlot(f, VO_COUNTERHIT, true)
-                call AnimDown(f)
-                set f.patStart = f.now
-                set f.step = 6
-            elseif el >= QUEEN_WINDOW then
-                // 실패: 빠르게 찌르며 돌진
-                call UnitRemoveAbility(f.boss, 'A00V')
-                call CueClear(f)
-                call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
+            if el >= QUEEN_WINDOW then
+                // 빠르게 찌르며 돌진 (카운터는 맞히는 순간까지 열려 있다)
                 call Anim(f, AN_LUNGE, 1.0)
                 set f.ax = bx
                 set f.ay = by
@@ -2279,10 +2433,13 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
             if step > 0 then
-                call SetUnitPosition(f.boss, nx, ny)
+                call BossMoveTo(f, nx, ny)
             endif
             set f.dashLeft = f.dashLeft - step
             if f.dashLeft <= 0 or el >= 0.3 then
+                call UnitRemoveAbility(f.boss, 'A00V')
+                call CueClear(f)
+                call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
                 call HitRect(f, f.ax, f.ay, f.ang, DistancePBP(f.ax, f.ay, nx, ny) + QUEEN_REACH, QUEEN_W, DMG_QUEEN, false, 0, QUEEN_STUN)
                 call FxClaw(nx, ny, f.ang, 20, QUEEN_REACH + 150)
                 call FxClaw(nx, ny, f.ang, -20, QUEEN_REACH + 150)
@@ -2613,7 +2770,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
             if step > 0 then
-                call SetUnitPosition(f.boss, nx, ny)
+                call BossMoveTo(f, nx, ny)
             endif
             call HitSweep(f, bx, by, nx, ny, SCRAMBLE_W * 0.5, DMG_SCRAMBLE, true, f.hit, CRADLE_KNOCK)
             set f.dashLeft = f.dashLeft - step
@@ -2675,6 +2832,27 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
     // ======================================================================
     // 스피어 더 궁니르: 2.0초 모음(폭 260 선 예고, 던지기 0.8초 전 고정), 마지막 1.0초 카운터.
     // 카운터하면 창이 부서지고 그로기 4.5초·안개 -15. 아니면 던진 창이 끝에 꽂혀 1초 뒤 반경 300 폭발
+    // 궁니르 카운터 성공: 창이 부서진다 (날아가던 창도 없앤다)
+    private function GungnirCounterOk takes RemiliaFight f, real bx, real by returns nothing
+        if f.step == 4 and f.ax >= 0 then
+            call ProjKill(f, R2I(f.ax))
+            set f.ax = -1
+        endif
+        call CradleTeleClear(f)
+        call ClearDecals(f)
+        call CueClear(f)
+        call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
+        call Sound3D(f.boss, 'A00U')
+        call FxAt(FX_SPARKS, bx + PolarX(80, f.ang), by + PolarY(80, f.ang), 1.5, f.ang)
+        call FxAt(FX_FLASH_WHITE, bx + PolarX(80, f.ang), by + PolarY(80, f.ang), 4.0, f.ang)
+        call VoiceSlot(f, VO_COUNTERHIT, true)
+        call AnimDown(f)
+        call FogAdd(f, -FOG_COUNTER)
+        call MsgAll(f, "|cFFFFD040창이 부서졌다! 붉은 안개가 걷힌다|r", 2.5)
+        set f.patStart = f.now
+        set f.step = 6
+    endfunction
+
     private function RunGungnir takes RemiliaFight f, real el returns nothing
         local real bx = GetUnitX(f.boss)
         local real by = GetUnitY(f.boss)
@@ -2696,36 +2874,23 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             endif
             call CradleTele(f, len)
             if f.step == 1 and el >= GUNGNIR_CHARGE - GUNGNIR_COUNTER then
-                // 카운터 구간 (마지막 1.0초): 아쳐와 같은 신호·판정
+                // 카운터 구간: 여기서부터 던진 창이 끝에 꽂힐 때까지 (아쳐와 같은 신호·판정)
                 call UnitAddAbility(f.boss, 'A00V')
                 call SetUnitVertexColorBJ(f.boss, 70, 70, 100, 0)
-                set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 3)
-                set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 3)
-                set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 3)
+                set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 6)
+                set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 6)
+                set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 6)
                 call DestroyEffect(AddSpecialEffectTarget(FX_COUNTER_READY, f.boss, "origin"))
                 set f.step = 2
             elseif f.step == 2 and GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
-                // 카운터 성공: 창이 부서진다
-                call CradleTeleClear(f)
-                call ClearDecals(f)
-                call CueClear(f)
-                call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
-                call Sound3D(f.boss, 'A00U')
-                call FxAt(FX_SPARKS, bx + PolarX(80, f.ang), by + PolarY(80, f.ang), 1.5, f.ang)
-                call FxAt(FX_FLASH_WHITE, bx + PolarX(80, f.ang), by + PolarY(80, f.ang), 4.0, f.ang)
-                call VoiceSlot(f, VO_COUNTERHIT, true)
-                call AnimDown(f)
-                call FogAdd(f, -FOG_COUNTER)
-                call MsgAll(f, "|cFFFFD040창이 부서졌다! 붉은 안개가 걷힌다|r", 2.5)
-                set f.patStart = f.now
-                set f.step = 6
+                call GungnirCounterOk(f, bx, by)
             elseif f.step == 2 and el >= GUNGNIR_CHARGE - 0.15 then
-                call UnitRemoveAbility(f.boss, 'A00V')
-                call CueClear(f)
-                call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
                 call Anim(f, AN_SPEAR_THROW, 1.0)
                 set f.step = 3
             endif
+        elseif (f.step == 3 or f.step == 4) and GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
+            // 던지는 중이거나 날아가는 중에도 카운터하면 창이 부서진다
+            call GungnirCounterOk(f, bx, by)
         elseif f.step == 3 and el >= GUNGNIR_CHARGE then
             set len = EdgeDist(f, bx, by, f.ang) - 60
             call CradleTeleClear(f)
@@ -2741,7 +2906,11 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call CameraShaker.setShake(5)
             set f.step = 4
         elseif f.step == 4 and el >= GUNGNIR_CHARGE + f.dashLen then
-            // 끝에 꽂힘 → 1초 뒤 반경 300 폭발
+            // 끝에 꽂힘: 카운터 창 닫힘 → 1초 뒤 반경 300 폭발
+            call UnitRemoveAbility(f.boss, 'A00V')
+            call CueClear(f)
+            call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
+            set f.ax = -1
             call FxKeep(f, FX_SPEAR, f.tx, f.ty, 2.0, f.ang, 1.0)
             call Decal(f, f.tx, f.ty, GUNGNIR_BOOM_R, 1.0, 0)
             set f.step = 5
@@ -2782,7 +2951,40 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         endloop
     endfunction
 
-    // 말뚝이 맞은 횟수 (체력이 줄어든 틱마다 1타), 사슬 길이 제한, 사슬 그리기
+    // 말뚝 i 에 들어온 피해가 새 한 대인가: 아쳐 꽃잎과 같은 규칙. 같은 플레이어의 같은 스킬이 이어서 맞히는 동안
+    // (간격 1초 이내, 기본 공격처럼 능력 코드가 아닌 번호는 0.3초)은 한 번만 센다. 맞힐 때마다 창을 늘린다
+    private function StakeNewHit takes RemiliaFight f, integer i, integer pid, integer skill returns boolean
+        local integer k
+        local real gap = 1.0
+        local boolean fresh
+        if pid < 0 or pid >= 12 then
+            return true
+        endif
+        set k = i * 12 + pid
+        if skill < 1000 then
+            set gap = 0.3
+        endif
+        set fresh = skill != f.stkCode[k] or f.now - f.stkAt[k] > gap
+        set f.stkCode[k] = skill
+        set f.stkAt[k] = f.now
+        return fresh
+    endfunction
+
+    // 말뚝을 때렸을 때 머리 위에 "n/3"
+    private function StakeHitTag takes unit s, integer n returns nothing
+        local texttag tt = CreateTextTag()
+        call SetTextTagText(tt, I2S(IMinBJ(n, MISERY_HITS)) + "/" + I2S(MISERY_HITS), 0.026)
+        call SetTextTagPos(tt, GetUnitX(s) - 20, GetUnitY(s), 220)
+        call SetTextTagColor(tt, 255, 150, 40, 255)
+        call SetTextTagVelocityBJ(tt, 40.00, 90.00)
+        call SetTextTagFadepoint(tt, 0.6)
+        call SetTextTagLifespan(tt, 1.0)
+        call SetTextTagPermanent(tt, false)
+        call SetTextTagVisibility(tt, true)
+        set tt = null
+    endfunction
+
+    // 말뚝이 맞은 횟수 (스킬 한 번 = 한 대, StakeNewHit), 사슬 길이 제한, 사슬 그리기
     private function StakesUpdate takes RemiliaFight f returns integer
         local integer i = 0
         local integer left = 0
@@ -2796,8 +2998,11 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             if f.stake[i] != null then
                 set idx = IndexUnit(f.stake[i])
                 if UnitHP[idx] < f.stakeHP[i] - 0.5 then
-                    set f.stakeHits[i] = f.stakeHits[i] + 1
-                    call FxAt(FX_SPARKS, GetUnitX(f.stake[i]), GetUnitY(f.stake[i]), 0.7, 0)
+                    if StakeNewHit(f, i, UnitLastHitPid[idx] - 1, UnitLastHitSkill[idx]) then
+                        set f.stakeHits[i] = f.stakeHits[i] + 1
+                        call FxAt(FX_SPARKS, GetUnitX(f.stake[i]), GetUnitY(f.stake[i]), 0.7, 0)
+                        call StakeHitTag(f.stake[i], f.stakeHits[i])
+                    endif
                 endif
                 set UnitHP[idx] = 1000000
                 set f.stakeHP[i] = 1000000
@@ -2843,23 +3048,45 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                 set f.stakeFx[i] = null
                 set f.chain[i] = null
                 set f.stakeHits[i] = 0
+                set idx = 0
+                loop
+                    exitwhen idx >= 12
+                    set f.stkCode[i * 12 + idx] = 0
+                    set f.stkAt[i * 12 + idx] = -100
+                    set idx = idx + 1
+                endloop
                 if MemAlive(f.mem[i]) then
                     set a = GetRandomReal(0, 360)
                     set x = ClampX(f, GetUnitX(f.mem[i]) + PolarX(MISERY_DIST, a))
                     set y = ClampY(f, GetUnitY(f.mem[i]) + PolarY(MISERY_DIST, a))
                     // 맞힐 수 있는 보이지 않는 유닛 + 붉은 창 모양 말뚝 이펙트
+                    // 보스 본체와 같은 방식: 메뚜기(Aloc)는 그대로, 이동 능력(Amov)을 빼고 멈춘 뒤 SetUnitPosition.
+                    // 이렇게 하면 선택은 안 되지만 영웅 스킬의 범위 검색에는 잡힌다
                     set f.stake[i] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), REMILIA_UNIT_ID, x, y, 270)
+                    set idx = IndexUnit(f.stake[i])
+                    set Unitstate[idx] = 0
                     call UnitRemoveAbility(f.stake[i], 'Amov')
                     call SetUnitPathing(f.stake[i], false)
                     call PauseUnit(f.stake[i], true)
+                    call SetUnitPosition(f.stake[i], x, y)
                     call SetUnitVertexColor(f.stake[i], 255, 255, 255, 0)
                     call SetUnitScale(f.stake[i], 0.4, 0.4, 0.4)
-                    set idx = IndexUnit(f.stake[i])
                     set UnitHPMAX[idx] = 1000000
                     set UnitHP[idx] = 1000000
                     set UnitHPFloorOn[idx] = false
                     set UnitDamageLock[idx] = false
+                    // 재사용된 유닛 번호에 남아 있을 수 있는 다른 보스·원정의 표시를 지운다 (피해 처리에서 막힘)
+                    set ProtoHuntOwner[idx] = 0
+                    set ExpEnemy[idx] = false
+                    set UnitFrontGuard[idx] = false
+                    set UnitPullTarget[idx] = false
+                    set UnitCasting[idx] = false
+                    set UnitArm[idx] = 0
+                    set UnitSD[idx] = 0
+                    set UnitCounterArc[idx] = 0
                     set f.stakeHP[i] = 1000000
+                    // 발밑 붉은 원: 때릴 곳 표시
+                    call DecalFree(f, x, y, 90, MISERY_TIME)
                     set f.stakeFx[i] = AddSpecialEffect(FX_STAKE, x, y)
                     call EXSetEffectSize(f.stakeFx[i], 1.6)
                     call EXEffectMatRotateY(f.stakeFx[i], -90)
@@ -2926,7 +3153,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set f.g75 = 2
         elseif id == PAT_NIGHT then
             set f.g50 = 2
-        elseif id == PAT_GENSO then
+        elseif id == PAT_FUYAJOU then
             set f.g25 = 2
         endif
         if f.g75 != 2 then
@@ -2941,147 +3168,109 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call PatternDone(f, rest)
     endfunction
 
-    // 운명 예지 공격 하나 정하기: 0 십자 기둥, 1 영웅 발밑 원, 2 직선, 3 전장 절반
-    private function FatePick takes RemiliaFight f, integer k returns nothing
-        local integer kind = ModuloInteger(k + GetRandomInt(0, 3), 4)
-        local unit u = PickTarget(f)
-        local integer i = GetRandomInt(0, IMaxBJ(0, f.memN - 1))
-        if MemAlive(f.mem[i]) then
-            set u = f.mem[i]
+    // 운명 예지 회차 n(0~4)의 줄무늬 방향: 0·1·4 세로(바라보는 방향과 나란히), 2·3 가로
+    private function FateAxis takes RemiliaFight f, integer n returns real
+        if n == 2 or n == 3 then
+            return f.fA[0] + 90
         endif
-        set f.fK[k] = kind
-        set f.fX[k] = f.arenaCX()
-        set f.fY[k] = f.arenaCY()
-        set f.fA[k] = GetRandomInt(0, 1) * 45.0
-        if u != null then
-            set f.fX[k] = GetUnitX(u)
-            set f.fY[k] = GetUnitY(u)
-            if kind == 2 then
-                set f.fA[k] = AnglePBP(GetUnitX(f.boss), GetUnitY(f.boss), GetUnitX(u), GetUnitY(u))
-            endif
-        endif
-        if kind == 3 then
-            // 0 왼쪽 절반, 1 오른쪽 절반
-            set f.fA[k] = GetRandomInt(0, 1)
-        endif
-        set u = null
+        return f.fA[0]
     endfunction
 
-    // 운명 예지 공격 하나를 그린다 (dim 이면 흐린 미리 보기 FATE_SHOW 초, 아니면 0.6초 번쩍)
-    private function FateDraw takes RemiliaFight f, integer k, boolean dim returns nothing
-        local rect r = MapRectReturn(f.rect)
-        local real t = FATE_FLASH
-        local integer ty = 0
-        local integer i
-        local real x
-        local real y
-        local real len = 3000
-        if dim then
-            set t = FATE_SHOW
-            set ty = 4
+    // 빨간 띠 위치: 0 이면 중앙선이 빈 띠(안전), 1 이면 중앙선이 빨간 띠
+    private function FatePhase takes integer n returns integer
+        if n == 1 or n == 2 then
+            return 0
         endif
-        if f.fK[k] == 0 then
-            // 십자: 지점을 지나는 두 직선
-            call DecalSeg(f, f.fX[k] - PolarX(len * 0.5, f.fA[k]), f.fY[k] - PolarY(len * 0.5, f.fA[k]), f.fA[k], 0, len, FATE_CROSS_W, t, ty)
-            call DecalSeg(f, f.fX[k] - PolarX(len * 0.5, f.fA[k] + 90), f.fY[k] - PolarY(len * 0.5, f.fA[k] + 90), f.fA[k] + 90, 0, len, FATE_CROSS_W, t, ty)
-        elseif f.fK[k] == 1 then
-            // 모든 영웅의 발밑: 미리 보기는 지금 자리, 번쩍일 때는 그 순간의 자리를 기억해 그곳이 터진다
-            set i = 0
-            if not dim then
-                set f.fcN = 0
-            endif
+        return 1
+    endfunction
+
+    // (x, y) 가 회차 n 의 빨간 띠 안인가 (영웅 중심 기준)
+    private function FateRed takes RemiliaFight f, integer n, real x, real y returns boolean
+        local real a = FateAxis(f, n) * bj_DEGTORAD
+        local real d = -(x - f.arenaCX()) * Sin(a) + (y - f.arenaCY()) * Cos(a)
+        if FatePhase(n) == 0 then
+            set d = d - FATE_W
+        endif
+        return ModuloReal(d + FATE_W * 0.5, FATE_W * 2) < FATE_W
+    endfunction
+
+    // 전장 대각선 절반 (줄무늬가 전장을 다 덮는 길이)
+    private function FateReach takes RemiliaFight f returns real
+        local rect r = MapRectReturn(f.rect)
+        local real w = GetRectMaxX(r) - GetRectMinX(r)
+        local real h = GetRectMaxY(r) - GetRectMinY(r)
+        set r = null
+        return SquareRoot(w * w + h * h) * 0.5
+    endfunction
+
+    // 회차 n 의 빨간 띠: fire 가 false 면 예고 줄, true 면 띠를 따라 붉은 폭발
+    private function FateWave takes RemiliaFight f, integer n, boolean fire, real time returns nothing
+        local rect r = MapRectReturn(f.rect)
+        local real a = FateAxis(f, n)
+        local real reach = FateReach(f)
+        local real d = 0
+        local real px
+        local real py
+        local real t
+        local real mx
+        local real my
+        local effect e
+        if fire then
+            // 예고 줄은 터지는 순간 바로 없앤다 (사라지는 동작 0.5초가 다음 예고와 겹쳐 바닥 전체가 빨갛게 보였다)
+            call TeleKillNow(f)
+        endif
+        if FatePhase(n) == 0 then
+            set d = FATE_W
+        endif
+        // 가운데 띠에서 2칸 간격으로 양쪽 끝까지
+        loop
+            exitwhen d - FATE_W * 2 < -reach - FATE_W
+            set d = d - FATE_W * 2
+        endloop
+        loop
+            exitwhen d > reach + FATE_W
+            set px = f.arenaCX() + PolarX(d, a + 90)
+            set py = f.arenaCY() + PolarY(d, a + 90)
+            // 띠 한 줄을 FATE_SEG 조각으로: 조각 가운데가 전장 안일 때만
+            set t = -reach
             loop
-                exitwhen i >= f.memN
-                if MemAlive(f.mem[i]) then
-                    call Decal(f, GetUnitX(f.mem[i]), GetUnitY(f.mem[i]), FATE_CIRCLE_R, t, ty)
-                    if not dim and f.fcN < 6 then
-                        set f.fcX[f.fcN] = GetUnitX(f.mem[i])
-                        set f.fcY[f.fcN] = GetUnitY(f.mem[i])
-                        set f.fcN = f.fcN + 1
+                exitwhen t >= reach
+                set mx = px + PolarX(t + FATE_SEG * 0.5, a)
+                set my = py + PolarY(t + FATE_SEG * 0.5, a)
+                if mx >= GetRectMinX(r) and mx <= GetRectMaxX(r) and my >= GetRectMinY(r) and my <= GetRectMaxY(r) then
+                    if fire then
+                        set e = AddSpecialEffect(FX_STRIPE, mx, my)
+                        call EXEffectMatScale(e, FATE_SEG * 1.7 / FX_STRIPE_LEN, FATE_W * 1.6 / FX_STRIPE_W, 1)
+                        call EXEffectMatRotateZ(e, a)
+                        call DestroyEffect(e)
+                    else
+                        call TeleLineC(f, mx, my, a, FATE_SEG, FATE_W, time)
                     endif
                 endif
-                set i = i + 1
+                set t = t + FATE_SEG
             endloop
-        elseif f.fK[k] == 2 then
-            call DecalSeg(f, GetUnitX(f.boss), GetUnitY(f.boss), f.fA[k], 0, len * 0.5, FATE_LINE_W, t, ty)
-        else
-            // 전장 절반: 큰 원 여러 개로 덮는다
-            set y = GetRectMinY(r) + 250
-            loop
-                exitwhen y > GetRectMaxY(r)
-                if f.fA[k] < 0.5 then
-                    set x = GetRectMinX(r) + 250
-                else
-                    set x = f.arenaCX() + 250
-                endif
-                loop
-                    exitwhen (f.fA[k] < 0.5 and x > f.arenaCX()) or (f.fA[k] >= 0.5 and x > GetRectMaxX(r))
-                    call Decal(f, x, y, 300, t, ty)
-                    set x = x + 450
-                endloop
-                set y = y + 450
-            endloop
-        endif
+            set d = d + FATE_W * 2
+        endloop
         set r = null
+        set e = null
     endfunction
 
-    // 운명 예지 공격 하나가 터진다. 맞은 영웅: 최대 체력 25% + 안개 +5, 맞은 횟수 +1
-    private function FateFire takes RemiliaFight f, integer k returns nothing
+    // 회차 n 이 터진다: 빨간 띠 안의 영웅은 최대 체력 25% + 안개 +5
+    private function FateFire takes RemiliaFight f, integer n returns nothing
         local integer i = 0
-        local integer j
         local unit u
-        local boolean hit
-        local real ux
-        local real uy
-        local real c
-        local real s
         loop
             exitwhen i >= f.memN
             set u = f.mem[i]
-            if MemAlive(u) then
-                set ux = GetUnitX(u)
-                set uy = GetUnitY(u)
-                set hit = false
-                if f.fK[k] == 0 then
-                    set c = Cos(f.fA[k] * bj_DEGTORAD)
-                    set s = Sin(f.fA[k] * bj_DEGTORAD)
-                    set hit = RAbsBJ(-(ux - f.fX[k]) * s + (uy - f.fY[k]) * c) <= FATE_CROSS_W * 0.5 or RAbsBJ((ux - f.fX[k]) * c + (uy - f.fY[k]) * s) <= FATE_CROSS_W * 0.5
-                elseif f.fK[k] == 1 then
-                    set j = 0
-                    loop
-                        exitwhen j >= f.fcN or hit
-                        set hit = IsUnitInRangeXY(u, f.fcX[j], f.fcY[j], FATE_CIRCLE_R)
-                        set j = j + 1
-                    endloop
-                elseif f.fK[k] == 2 then
-                    set hit = SegDist(ux, uy, GetUnitX(f.boss), GetUnitY(f.boss), GetUnitX(f.boss) + PolarX(3000, f.fA[k]), GetUnitY(f.boss) + PolarY(3000, f.fA[k])) <= FATE_LINE_W * 0.5
-                else
-                    set hit = (f.fA[k] < 0.5 and ux <= f.arenaCX()) or (f.fA[k] >= 0.5 and ux >= f.arenaCX())
-                endif
-                if hit then
-                    call DealPct(f, u, FATE_DMG, false)
-                    call FogAdd(f, FOG_FATE_HIT)
-                    set f.memHits[i] = f.memHits[i] + 1
-                    call FxHitSmall(ux, uy, 0)
-                endif
+            if MemAlive(u) and FateRed(f, n, GetUnitX(u), GetUnitY(u)) then
+                call DealPct(f, u, FATE_DMG, false)
+                call FogAdd(f, FOG_FATE_HIT)
+                call FxHitSmall(GetUnitX(u), GetUnitY(u), 0)
             endif
             set i = i + 1
         endloop
         set u = null
-        if f.fTag[k] != null then
-            call DestroyTextTag(f.fTag[k])
-            set f.fTag[k] = null
-        endif
-        if f.fK[k] == 1 then
-            set j = 0
-            loop
-                exitwhen j >= f.fcN
-                call FxAt(FX_FLASH_RED, f.fcX[j], f.fcY[j], 2.0, 0)
-                set j = j + 1
-            endloop
-        else
-            call FxAt(FX_FLASH_RED, f.fX[k], f.fY[k], 3.0, f.fA[k])
-        endif
+        call FateWave(f, n, true, 0)
         call CameraShaker.setShake(3)
     endfunction
 
@@ -3097,90 +3286,97 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         endloop
     endfunction
 
-    // 한 라운드 시작: n 개 공격을 정하고 3초 동안 흐린 예고 + 큰 번호
-    private function FateRound takes RemiliaFight f, integer n returns nothing
-        local integer k = 0
-        set f.fN = n
-        set f.fDone = 0
-        set f.fFlash = 0
-        set f.fcN = 0
-        set f.fRoundAt = f.now
-        loop
-            exitwhen k >= n
-            call FatePick(f, k)
-            call FateDraw(f, k, true)
-            set f.fTag[k] = CreateTextTag()
-            call SetTextTagText(f.fTag[k], I2S(k + 1), 0.06)
-            call SetTextTagColor(f.fTag[k], 255, 70, 70, 255)
-            call SetTextTagPos(f.fTag[k], f.fX[k] - 20, f.fY[k], 120)
-            call SetTextTagPermanent(f.fTag[k], true)
-            call SetTextTagVisibility(f.fTag[k], true)
-            set k = k + 1
-        endloop
-    endfunction
-
-    // 75% 운명 예지 (약 15초): 5개 → 4개. 모든 영웅이 2번 미만으로 맞으면 그로기 6초·안개 -25
+    // 75% 운명 예지 (약 10초): 줄무늬 5번(순서 고정) → 카운터. 성공 그로기 6초·안개 -25, 실패 그림자 잡기·안개 +20
     private function RunFate takes RemiliaFight f, real el returns nothing
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
         local integer i = 0
-        local real t
-        local boolean ok
+        local unit u
         if f.step == 0 then
-            // 중앙으로 박쥐처럼 옮겨 가서 멈춰 선다
-            call FxAt(FX_BATS_HIT, GetUnitX(f.boss), GetUnitY(f.boss), 1.5, 0)
-            call SetUnitPosition(f.boss, f.arenaCX(), f.arenaCY())
+            // 중앙으로 박쥐처럼 옮겨 가서 한 방향(0·45·90·135도)을 보고 몸을 떤다
+            call FxAt(FX_BATS_HIT, bx, by, 1.5, 0)
+            call BossMoveTo(f, f.arenaCX(), f.arenaCY())
             call FxAt(FX_BATS_HIT, f.arenaCX(), f.arenaCY(), 1.5, 0)
+            set f.fA[0] = GetRandomInt(0, 3) * 45.0
+            call Face(f, f.fA[0])
             call AnimThen(f, AN_BIG_CAST, 1.0, AN_WINDUP_HOLD)
             call VoiceSlot(f, VO_FATE, true)
-            loop
-                exitwhen i >= 6
-                set f.memHits[i] = 0
-                set i = i + 1
-            endloop
-            set f.fRound = 1
-            call FateRound(f, 5)
+            set f.fRound = 0
+            set f.fFlash = 0
+            set f.fRoundAt = f.now + FATE_CAST - FATE_TELL
             set f.step = 1
         elseif f.step == 1 then
-            // 0.6초 전 번쩍 → 1.2초 간격으로 순서대로 터짐
-            set t = f.now - f.fRoundAt - FATE_SHOW
-            if f.fFlash < f.fN and f.fFlash == f.fDone and t >= FATE_GAP * f.fFlash then
-                call FateDraw(f, f.fFlash, false)
-                set f.fFlash = f.fFlash + 1
+            if f.fFlash == f.fRound and f.now >= f.fRoundAt then
+                call FateWave(f, f.fRound, false, FATE_TELL + 0.05)
+                set f.fFlash = f.fRound + 1
             endif
-            if f.fDone < f.fFlash and t >= FATE_GAP * f.fDone + FATE_FLASH then
-                call FateFire(f, f.fDone)
-                set f.fDone = f.fDone + 1
-            endif
-            if f.fDone >= f.fN and t >= FATE_GAP * f.fN then
-                if f.fRound == 1 then
-                    set f.fRound = 2
-                    call Anim(f, AN_CAST, 1.0)
-                    call FateRound(f, 4)
-                else
+            if f.fFlash > f.fRound and f.now >= f.fRoundAt + FATE_TELL then
+                call FateFire(f, f.fRound)
+                set f.fRound = f.fRound + 1
+                set f.fRoundAt = f.now
+                if f.fRound >= FATE_WAVES then
                     set f.step = 2
                 endif
             endif
         elseif f.step == 2 then
-            set ok = true
+            // 카운터 구간: 궁니르와 같은 신호·판정
+            call AnimThen(f, AN_WINDUP, 1.0, AN_WINDUP_HOLD)
+            call UnitAddAbility(f.boss, 'A00V')
+            call SetUnitVertexColorBJ(f.boss, 70, 70, 100, 0)
+            set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 6)
+            set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 6)
+            set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 6)
+            call DestroyEffect(AddSpecialEffectTarget(FX_COUNTER_READY, f.boss, "origin"))
+            set f.nAt = f.now
+            set f.step = 3
+        elseif (f.step == 3 or f.step == 5) and GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
+            // 카운터 성공 (전장 전체 폭발 직전까지 가능)
+            call TeleKillNow(f)
+            call CueClear(f)
+            call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
+            call Sound3D(f.boss, 'A00U')
+            call FxAt(FX_FLASH_WHITE, bx, by, 4.0, 0)
+            call MsgAll(f, "|cFFFFD040운명을 거슬렀다! 붉은 안개가 걷힌다|r", 3.0)
+            call FogAdd(f, -FOG_GIMMICK)
+            call VoiceSlot(f, VO_COUNTERHIT, true)
+            call AnimDown(f)
+            set f.patStart = f.now
+            set f.step = 4
+        elseif f.step == 3 then
+            if f.now - f.nAt >= FATE_COUNTER then
+                // 전장 전체가 붉게 물든다 (두 줄무늬를 겹쳐 바닥 전체 예고). 카운터는 터지기 직전까지 열려 있다
+                call AnimThen(f, AN_BIG_CAST, 1.0, AN_WINDUP_HOLD)
+                call MsgAll(f, "|cFFFF4040운명대로 되려 한다… 터지기 전에 카운터하세요!|r", 2.5)
+                call FateWave(f, 0, false, FATE_WIPE_TELL)
+                call FateWave(f, 1, false, FATE_WIPE_TELL)
+                set f.nAt = f.now
+                set f.step = 5
+            endif
+        elseif f.step == 4 and el >= GIMMICK_GROGGY then
+            call GimmickEnd(f, PAT_FATE, RestBig())
+        elseif f.step == 5 and f.now - f.nAt >= FATE_WIPE_TELL then
+            call UnitRemoveAbility(f.boss, 'A00V')
+            call CueClear(f)
+            call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
+            call FogAdd(f, FOG_FATE_FAIL)
+            call MsgAll(f, "|cFFFF4040운명대로 되었다… 전장 전체가 붉게 물든다|r", 2.5)
             loop
                 exitwhen i >= f.memN
-                if MemAlive(f.mem[i]) and f.memHits[i] >= 2 then
-                    set ok = false
+                set u = f.mem[i]
+                if MemAlive(u) then
+                    call DealPct(f, u, FATE_WIPE_DMG, true)
+                    call FxHitSmall(GetUnitX(u), GetUnitY(u), 0)
                 endif
                 set i = i + 1
             endloop
-            call FateTagsClear(f)
+            set u = null
+            call FateWave(f, 0, true, 0)
+            call FateWave(f, 1, true, 0)
+            call FxAt(FX_FLASH_RED, f.arenaCX(), f.arenaCY(), 10.0, 0)
+            call CameraShaker.setShake(8)
             set f.patStart = f.now
-            if ok then
-                call MsgAll(f, "|cFFFFD040운명을 거슬렀다! 붉은 안개가 걷힌다|r", 3.0)
-                call FogAdd(f, -FOG_GIMMICK)
-                call VoiceSlot(f, VO_COUNTERHIT, true)
-                call AnimDown(f)
-                set f.step = 3
-            else
-                call MsgAll(f, "|cFFFF4040운명대로 되었다|r", 2.5)
-                call GimmickEnd(f, PAT_FATE, RestBig())
-            endif
-        elseif f.step == 3 and el >= GIMMICK_GROGGY then
+            set f.step = 6
+        elseif f.step == 6 and el >= 1.2 then
             call GimmickEnd(f, PAT_FATE, RestBig())
         endif
     endfunction
@@ -3202,6 +3398,53 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call CueClear(f)
         call BurnClear(f)
         call UnitRemoveAbility(f.boss, 'A00V')
+    endfunction
+
+    // 나이트메어 중 카운터 성공: 카운터를 친 영웅의 그 스킬 쿨타임을 초기화하고 머리 위에 글자를 띄운다.
+    // 피해 처리(HeroDeal)가 넘긴 스킬 코드가 영웅의 실제 능력이면 그것, 아니면 그 영웅이 마지막으로 시전한 스킬
+    private function NightCooldownReset takes RemiliaFight f returns nothing
+        local unit u = LastCounterSource
+        local integer abil = LastCounterSkill
+        local texttag tt
+        if u == null or not IsUnitInGroup(u, f.ul.super) then
+            set u = null
+            return
+        endif
+        if abil == 0 or GetUnitAbilityLevel(u, abil) == 0 then
+            set abil = LastCastAbil[GetPlayerId(GetOwningPlayer(u))]
+        endif
+        if abil != 0 and GetUnitAbilityLevel(u, abil) > 0 then
+            call JNEndUnitAbilityCooldown(u, abil)
+            set tt = CreateTextTag()
+            call SetTextTagText(tt, "쿨타임 초기화!", 0.024)
+            call SetTextTagPos(tt, GetUnitX(u) - 60, GetUnitY(u), 180)
+            call SetTextTagColor(tt, 80, 200, 255, 255)
+            call SetTextTagVelocityBJ(tt, 50.00, 90.00)
+            call SetTextTagFadepoint(tt, 1.0)
+            call SetTextTagLifespan(tt, 1.5)
+            call SetTextTagPermanent(tt, false)
+            call SetTextTagVisibility(tt, true)
+            set tt = null
+        endif
+        set LastCounterSource = null
+        set u = null
+    endfunction
+
+    // 나이트메어 돌진 하나를 카운터: 이번 돌진은 취소, 1.5초 모습을 드러냄
+    private function NightCounterOk takes RemiliaFight f, real bx, real by returns nothing
+        call ClearDecals(f)
+        call CueClear(f)
+        call NightShow(f, true)
+        call Sound3D(f.boss, 'A00U')
+        call FxAt(FX_FLASH_WHITE, bx, by, 4.0, 0)
+        set f.nGood = f.nGood + 1
+        call MsgAll(f, "|cFFFFD040카운터! (" + I2S(f.nGood) + "/" + I2S(NIGHT_NEED) + ")|r", 1.5)
+        call NightCooldownReset(f)
+        if f.step == 3 then
+            call Anim(f, AN_FLY_LAND, 1.0)
+        endif
+        set f.nAt = f.now
+        set f.step = 4
     endfunction
 
     private function RunNight takes RemiliaFight f, real el returns nothing
@@ -3244,41 +3487,36 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set f.step = 2
         elseif f.step == 2 then
             set t = f.now - f.nAt
-            if t >= NIGHT_TELL - NIGHT_COUNTER and GetUnitAbilityLevel(f.boss, 'A00V') == 0 and f.cue[0] == null then
+            if GetUnitAbilityLevel(f.boss, 'A00V') == 0 and f.cue[0] == null then
                 call UnitAddAbility(f.boss, 'A00V')
-                set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 3)
-                set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 3)
-                set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 3)
+                set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 6)
+                set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 6)
+                set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 6)
             elseif f.cue[0] != null and GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
-                // 카운터 성공: 이번 돌진은 취소, 1.5초 모습을 드러냄
-                call ClearDecals(f)
-                call CueClear(f)
-                call NightShow(f, true)
-                call Sound3D(f.boss, 'A00U')
-                call FxAt(FX_FLASH_WHITE, bx, by, 4.0, 0)
-                set f.nGood = f.nGood + 1
-                call MsgAll(f, "|cFFFFD040카운터! (" + I2S(f.nGood) + "/" + I2S(NIGHT_NEED) + ")|r", 1.5)
-                set f.nAt = f.now
-                set f.step = 4
+                call NightCounterOk(f, bx, by)
             elseif t >= NIGHT_TELL then
-                call UnitRemoveAbility(f.boss, 'A00V')
-                call CueClear(f)
+                // 돌진 (카운터는 돌진이 끝날 때까지 열려 있다)
                 call NightShow(f, true)
                 call GroupClear(f.hit.super)
                 set f.dashLeft = f.dashLen
                 call AnimThen(f, AN_FLY_START, 1.5, AN_FLY_LOOP)
                 set f.step = 3
             endif
+        elseif f.step == 3 and f.cue[0] != null and GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
+            // 돌진 중 카운터: 그 자리에서 멈춘다
+            call NightCounterOk(f, bx, by)
         elseif f.step == 3 then
             set step = RMinBJ(f.dashLeft, CRADLE_SPEED * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
             if step > 0 then
-                call SetUnitPosition(f.boss, nx, ny)
+                call BossMoveTo(f, nx, ny)
             endif
             call HitSweep(f, bx, by, nx, ny, CRADLE_W * 0.5, DMG_NIGHT_DASH, true, f.hit, CRADLE_KNOCK)
             set f.dashLeft = f.dashLeft - step
             if f.dashLeft <= 0 or (nx == bx and ny == by) then
+                call UnitRemoveAbility(f.boss, 'A00V')
+                call CueClear(f)
                 call Anim(f, AN_FLY_LAND, 1.0)
                 if f.burn then
                     set f.nGood = f.nGood + 1
@@ -3313,7 +3551,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                 endif
                 call Face(f, f.ang)
                 call AnimThen(f, AN_WINDUP, 1.0, AN_WINDUP_HOLD)
-                call TeleFan(f, GetUnitX(f.boss), GetUnitY(f.boss), f.ang, NIGHT_FINAL_R, 90, NIGHT_FINAL_TELL)
+                call DecalFan(f, GetUnitX(f.boss), GetUnitY(f.boss), f.ang, NIGHT_FINAL_R, 90, NIGHT_FINAL_TELL)
                 call MsgAll(f, "|cFFFF4040어둠 속 일격이 온다! 뒤로 돌아가세요|r", 2.0)
                 set f.patStart = f.now
                 set f.step = 5
@@ -3338,46 +3576,275 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         endif
     endfunction
 
-    // 25% 홍색의 환상향 (전멸기, 약 14초): 붉은 달 아래로 올라가 무적 10초 시전. 붉은 빛이 가장자리에서 3단계로 차오르고
-    // (단계마다 링 예고), 마지막에는 햇빛 안을 빼고 전부. 햇빛은 안개 농도로: 10 이하 3줄, 40 이하 2줄, 70 이하 1줄,
-    // 그 위는 폭 120 좁은 빛줄 1줄. 시전 중 스칼렛 슛. 버티면 떨어져 그로기 6초, 안개 50
-    private function GensoRadius takes RemiliaFight f returns real
+    // 25% 불야성 레드 (전멸기, 약 13초) — 상수 설명 참고
+    private function FuyaReach takes RemiliaFight f returns real
         local rect r = MapRectReturn(f.rect)
         local real d = SquareRoot((GetRectMaxX(r) - GetRectMinX(r)) * (GetRectMaxX(r) - GetRectMinX(r)) + (GetRectMaxY(r) - GetRectMinY(r)) * (GetRectMaxY(r) - GetRectMinY(r))) * 0.5
         set r = null
         return d
     endfunction
 
-    // 반지름 rad 의 원 둘레에 붉은 링 예고
-    private function GensoRing takes RemiliaFight f, real rad returns nothing
+    // 십자 예고: 레밀리아에서 네 방향으로 전장 끝까지 (가운데 기준 직선 예고 조각)
+    private function FuyaCrossTele takes RemiliaFight f, real time returns nothing
         local integer k = 0
-        local integer n = R2I(rad * 6.283 / 220) + 1
+        local real d
+        local real a
+        local real reach = FuyaReach(f)
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
         loop
-            exitwhen k >= n
-            call Decal(f, ClampX(f, f.arenaCX() + PolarX(rad, 360.0 * k / n)), ClampY(f, f.arenaCY() + PolarY(rad, 360.0 * k / n)), 130, GENSO_RING_TELL, 0)
+            exitwhen k >= 4
+            set a = f.fyAng + 90 * k
+            set d = FUYA_SEG * 0.5
+            loop
+                exitwhen d > reach
+                call TeleLineC(f, bx + PolarX(d, a), by + PolarY(d, a), a, FUYA_SEG, FUYA_W, time)
+                set d = d + FUYA_SEG
+            endloop
             set k = k + 1
         endloop
     endfunction
 
-    private function GensoSun takes RemiliaFight f returns nothing
+    // 십자 기둥 만들기: 팔마다 FUYA_SEG 조각 (화면 밖 시작점 문제를 피하려고 조각마다 가운데 기준)
+    private function FuyaPillarsOn takes RemiliaFight f returns nothing
+        local integer k = 0
+        local real d
+        local real a
+        local real reach = FuyaReach(f)
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
+        local effect e
+        set f.fyN = 0
+        loop
+            exitwhen k >= 4
+            set a = f.fyAng + 90 * k
+            set d = FUYA_SEG * 0.5
+            loop
+                exitwhen d > reach or f.fyN >= 32
+                set e = AddSpecialEffect(TELE_LINE_C, bx + PolarX(d, a), by + PolarY(d, a))
+                call EXEffectMatScale(e, FUYA_SEG / TELE_LEN, FUYA_W / TELE_LINE_W, 1)
+                call EXEffectMatRotateZ(e, a)
+                set f.fyFx[f.fyN] = e
+                set f.fyD[f.fyN] = d
+                set f.fyArm[f.fyN] = k
+                set f.fyN = f.fyN + 1
+                set d = d + FUYA_SEG
+            endloop
+            set k = k + 1
+        endloop
+        set e = null
+    endfunction
+
+    // 기둥을 delta 도 돌린다 (회전 행렬은 누적되므로 바뀐 만큼만 돌린다)
+    private function FuyaPillarsTurn takes RemiliaFight f, real delta returns nothing
+        local integer i = 0
+        local real a
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
+        set f.fyAng = ModuloReal(f.fyAng + delta, 360)
+        loop
+            exitwhen i >= f.fyN
+            if f.fyFx[i] != null then
+                set a = f.fyAng + 90 * f.fyArm[i]
+                call EXSetEffectXY(f.fyFx[i], bx + PolarX(f.fyD[i], a), by + PolarY(f.fyD[i], a))
+                call EXEffectMatRotateZ(f.fyFx[i], delta)
+            endif
+            set i = i + 1
+        endloop
+    endfunction
+
+    private function FuyaPillarsOff takes RemiliaFight f returns nothing
+        local integer i = 0
+        loop
+            exitwhen i >= 32
+            if f.fyFx[i] != null then
+                call DestroyEffect(f.fyFx[i])
+                set f.fyFx[i] = null
+            endif
+            set i = i + 1
+        endloop
+        set f.fyN = 0
+    endfunction
+
+    // 기둥 피격: 팔 방향 앞쪽(along >= 0)이고 팔에서 FUYA_W/2 안. 영웅마다 FUYA_PILLAR_CD 초에 한 번, 팔 바깥쪽으로 넉백
+    private function FuyaPillarsHit takes RemiliaFight f returns nothing
+        local integer i = 0
+        local integer k
+        local unit u
+        local real dx
+        local real dy
+        local real a
+        local real along
+        local real perp
+        loop
+            exitwhen i >= f.memN
+            set u = f.mem[i]
+            if MemAlive(u) and f.now >= f.fyHitAt[i] then
+                set dx = GetUnitX(u) - GetUnitX(f.boss)
+                set dy = GetUnitY(u) - GetUnitY(f.boss)
+                set k = 0
+                loop
+                    exitwhen k >= 4
+                    set a = (f.fyAng + 90 * k) * bj_DEGTORAD
+                    set along = dx * Cos(a) + dy * Sin(a)
+                    set perp = -dx * Sin(a) + dy * Cos(a)
+                    if along >= 0 and RAbsBJ(perp) <= FUYA_W * 0.5 then
+                        call DealPct(f, u, FUYA_PILLAR_DMG, false)
+                        call DestroyEffect(AddSpecialEffectTarget(FX_BURN_HIT, u, "origin"))
+                        if perp >= 0 then
+                            if not Immune(u) then
+                                call Knockback(u, f.fyAng + 90 * k + 90, FUYA_KNOCK, 0.3)
+                            endif
+                        else
+                            if not Immune(u) then
+                                call Knockback(u, f.fyAng + 90 * k - 90, FUYA_KNOCK, 0.3)
+                            endif
+                        endif
+                        set f.fyHitAt[i] = f.now + FUYA_PILLAR_CD
+                        set k = 4
+                    endif
+                    set k = k + 1
+                endloop
+            endif
+            set i = i + 1
+        endloop
+        set u = null
+    endfunction
+
+    // 고리 r 에서 십자 기준 각도 rel 이 빈틈 안인가 (십자 사이 네 칸마다 하나)
+    private function FuyaInGap takes RemiliaFight f, integer r, real rel returns boolean
+        local integer k = 0
+        loop
+            exitwhen k >= 4
+            if AngDiff(rel, 45 + 90 * k + f.rgGap[r]) <= FUYA_RING_GAP then
+                return true
+            endif
+            set k = k + 1
+        endloop
+        return false
+    endfunction
+
+    // 탄 고리 하나 쏘기: 십자와 함께 도는 고리, 십자 사이 네 칸에 빈틈 하나씩
+    private function FuyaRingSpawn takes RemiliaFight f returns nothing
+        local integer r = 0
+        local integer j = 0
+        local real a
+        loop
+            exitwhen r >= 5 or not f.rgOn[r]
+            set r = r + 1
+        endloop
+        if r >= 5 then
+            return
+        endif
+        set f.rgOn[r] = true
+        set f.rgR[r] = 60
+        set f.rgGap[r] = GetRandomReal(-FUYA_GAP_JITTER, FUYA_GAP_JITTER)
+        loop
+            exitwhen j >= 6
+            set f.rgHit[r * 6 + j] = false
+            set j = j + 1
+        endloop
+        set j = 0
+        loop
+            exitwhen j >= FUYA_RING_DOTS
+            set a = 360.0 * j / FUYA_RING_DOTS
+            if not FuyaInGap(f, r, a) then
+                set f.rgFx[r * FUYA_RING_DOTS + j] = AddSpecialEffect(FX_ORB, GetUnitX(f.boss) + PolarX(60, f.fyAng + a), GetUnitY(f.boss) + PolarY(60, f.fyAng + a))
+                call EXSetEffectSize(f.rgFx[r * FUYA_RING_DOTS + j], 1.2)
+                call EXSetEffectZ(f.rgFx[r * FUYA_RING_DOTS + j], 50)
+            else
+                set f.rgFx[r * FUYA_RING_DOTS + j] = null
+            endif
+            set j = j + 1
+        endloop
+        call FxAt(FX_FLASH_RED, GetUnitX(f.boss), GetUnitY(f.boss), 2.5, 0)
+    endfunction
+
+    private function FuyaRingOff takes RemiliaFight f, integer r returns nothing
+        local integer j = 0
+        loop
+            exitwhen j >= FUYA_RING_DOTS
+            if f.rgFx[r * FUYA_RING_DOTS + j] != null then
+                call DestroyEffect(f.rgFx[r * FUYA_RING_DOTS + j])
+                set f.rgFx[r * FUYA_RING_DOTS + j] = null
+            endif
+            set j = j + 1
+        endloop
+        set f.rgOn[r] = false
+    endfunction
+
+    // 고리 퍼뜨리기 + 피격 (반지름 ±FUYA_RING_HALF, 빈틈 각도 밖이면 맞음, 고리마다 한 번)
+    private function FuyaRingsUpdate takes RemiliaFight f returns nothing
+        local integer r = 0
+        local integer j
+        local integer i
+        local unit u
+        local real a
+        local real d
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
+        loop
+            exitwhen r >= 5
+            if f.rgOn[r] then
+                set f.rgR[r] = f.rgR[r] + FUYA_RING_SPEED * TICK
+                if f.rgR[r] > FUYA_RING_MAX then
+                    call FuyaRingOff(f, r)
+                else
+                    set j = 0
+                    loop
+                        exitwhen j >= FUYA_RING_DOTS
+                        if f.rgFx[r * FUYA_RING_DOTS + j] != null then
+                            set a = f.fyAng + 360.0 * j / FUYA_RING_DOTS
+                            call EXSetEffectXY(f.rgFx[r * FUYA_RING_DOTS + j], bx + PolarX(f.rgR[r], a), by + PolarY(f.rgR[r], a))
+                        endif
+                        set j = j + 1
+                    endloop
+                    set i = 0
+                    loop
+                        exitwhen i >= f.memN
+                        set u = f.mem[i]
+                        if MemAlive(u) and not f.rgHit[r * 6 + i] then
+                            set d = DistancePBP(bx, by, GetUnitX(u), GetUnitY(u))
+                            set a = AnglePBP(bx, by, GetUnitX(u), GetUnitY(u))
+                            if RAbsBJ(d - f.rgR[r]) <= FUYA_RING_HALF and not FuyaInGap(f, r, a - f.fyAng) then
+                                set f.rgHit[r * 6 + i] = true
+                                call DealPct(f, u, FUYA_RING_DMG, false)
+                                call FxHitSmall(GetUnitX(u), GetUnitY(u), a)
+                            endif
+                        endif
+                        set i = i + 1
+                    endloop
+                endif
+            endif
+            set r = r + 1
+        endloop
+        set u = null
+    endfunction
+
+    // 십자·고리 모두 치우기 (끝·취소·종료)
+    private function FuyaClear takes RemiliaFight f returns nothing
+        local integer r = 0
+        call FuyaPillarsOff(f)
+        loop
+            exitwhen r >= 5
+            call FuyaRingOff(f, r)
+            set r = r + 1
+        endloop
+    endfunction
+
+    // 마지막 모으기 때 햇빛: 안개 농도대로 (0 줄이면 폭 120 좁은 빛줄 1줄)
+    private function FuyaSun takes RemiliaFight f returns nothing
         local integer k = 0
         local integer want = FogSun(f)
         local integer i = 0
-        // 지금 있는 빛을 걷고 새로 놓는다
-        loop
-            exitwhen k >= SB_MAX
-            call StripFade(f, k)
-            set k = k + 1
-        endloop
         if want == 0 then
             set want = 1
         endif
-        set k = 0
         loop
             exitwhen k >= SB_MAX or i >= want
             if f.sbState[k] == 0 then
                 if FogSun(f) == 0 then
-                    call StripSpawnW(f, k, -1, GENSO_NARROW_W)
+                    call StripSpawnW(f, k, -1, FUYA_NARROW_W)
                 else
                     call StripSpawn(f, k, -1)
                 endif
@@ -3385,80 +3852,93 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             endif
             set k = k + 1
         endloop
-        // 사라지는 칸이 다 차 있으면 나머지는 사라진 뒤 채운다
         if i < want then
             set f.gStage = -want + i
         endif
     endfunction
 
-    private function RunGenso takes RemiliaFight f, real el returns nothing
-        local real full = GensoRadius(f)
+    private function RunFuyajou takes RemiliaFight f, real el returns nothing
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
         local integer i = 0
         local unit u
         if f.step == 0 then
-            call FxAt(FX_BATS_HIT, GetUnitX(f.boss), GetUnitY(f.boss), 1.5, 0)
-            call SetUnitPosition(f.boss, f.arenaCX(), f.arenaCY())
+            // 중앙으로 박쥐처럼 옮겨 날개를 편다. 햇빛은 모두 걷는다 (마지막에만 나타남)
+            call FxAt(FX_BATS_HIT, bx, by, 1.5, 0)
+            call BossMoveTo(f, f.arenaCX(), f.arenaCY())
             set f.invuln = true
             call UpdateLock(f)
-            call AnimThen(f, AN_LEAP, 1.0, AN_HOVER)
-            call VoiceSlot(f, VO_GENSOKYO, true)
+            call AnimThen(f, AN_WING_BURST, 1.0, AN_WINDUP_HOLD)
+            call VoiceSlot(f, VO_FUYAJOU, true)
             call PlayerFilter(f, 3)
+            loop
+                exitwhen i >= SB_MAX
+                call StripFade(f, i)
+                set i = i + 1
+            endloop
+            set i = 0
+            loop
+                exitwhen i >= 6
+                set f.fyHitAt[i] = 0
+                set i = i + 1
+            endloop
             set f.gStage = 0
-            call GensoSun(f)
-            set f.gCover = full + 1000
-            set f.gTickAt = f.now + 0.5
-            set f.gShootAt = f.now + 1.5
-            call GensoRing(f, full * 0.66)
-            call MsgAll(f, "|cFFFF4040붉은 빛이 차오른다! 마지막엔 햇빛 안만 안전합니다|r", 4.0)
+            set f.fyAng = GetRandomInt(0, 8) * 10.0
+            set f.fyDir = 1
+            set f.fyRev = false
+            if GetRandomInt(0, 1) == 0 then
+                set f.fyDir = -1
+            endif
+            set f.fyRingAt = FUYA_RING_FIRST
+            call FuyaCrossTele(f, FUYA_TELL)
+            call MsgAll(f, "|cFFFF4040불야성 레드! 도는 십자 기둥과 탄 고리의 빈틈을 피하세요|r", 4.0)
             set f.step = 1
-        elseif f.step >= 1 and f.step <= 4 then
-            // 단계: 2.5초 0.66, 5.0초 0.33, 7.5초 전부. 링 예고는 1.5초 앞
-            if f.step == 1 and el >= 2.5 then
-                set f.gCover = full * 0.66
-                call GensoRing(f, full * 0.33)
-                set f.step = 2
-            elseif f.step == 2 and el >= 5.0 then
-                set f.gCover = full * 0.33
-                call GensoRing(f, 150)
+        elseif f.step == 1 and el >= FUYA_TELL then
+            // 십자가 터진다
+            call FuyaPillarsOn(f)
+            call FxAt(FX_FLASH_RED, bx, by, 6.0, 0)
+            call CameraShaker.setShake(6)
+            set f.step = 2
+        elseif f.step == 2 then
+            if not f.fyRev and el >= FUYA_REVERSE then
+                // 한 번 반대로 돈다
+                set f.fyDir = -f.fyDir
+                set f.fyRev = true
+            endif
+            call FuyaPillarsTurn(f, f.fyDir * FUYA_SPEED * TICK)
+            call FuyaPillarsHit(f)
+            if el >= f.fyRingAt and f.fyRingAt <= FUYA_RING_LAST then
+                set f.fyRingAt = f.fyRingAt + FUYA_RING_EVERY
+                call FuyaRingSpawn(f)
+            endif
+            call FuyaRingsUpdate(f)
+            if el >= FUYA_ROT_END then
+                // 마지막 모으기: 십자·고리 정리, 햇빛 등장, 카운터 창 (터지기 직전까지)
+                call FuyaClear(f)
+                call FuyaSun(f)
+                call AnimThen(f, AN_BIG_CAST, 1.0, AN_WINDUP_HOLD)
+                // 무적을 풀어야 카운터가 들어간다 (피해 잠금 중에는 피해 처리에서 카운터 판정까지 건너뛴다)
+                set f.invuln = false
+                call UpdateLock(f)
+                call UnitAddAbility(f.boss, 'A00V')
+                call SetUnitVertexColorBJ(f.boss, 70, 70, 100, 0)
+                set f.cue[0] = UnitEffectTimeEX('e00F', bx, by, 0, 6)
+                set f.cue[1] = UnitEffectTimeEX('e00G', bx, by, 0, 6)
+                set f.cue[2] = UnitEffectTimeEX('e01S', bx, by, 0, 6)
+                call DestroyEffect(AddSpecialEffectTarget(FX_COUNTER_READY, f.boss, "origin"))
+                call DestroyEffect(AddSpecialEffectTarget(FX_GATHER, f.boss, "chest"))
+                call MsgAll(f, "|cFFFF4040진홍의 일격을 모은다! 카운터하거나 햇빛 안으로!|r", 3.0)
+                set f.nAt = f.now
                 set f.step = 3
-            elseif f.step == 3 and el >= 7.5 then
-                set f.gCover = 0
-                call FxAt(FX_FLASH_RED, f.arenaCX(), f.arenaCY(), 8.0, 0)
-                set f.step = 4
             endif
-            // 덮인 곳(중심에서 gCover 밖)에 있고 햇빛 밖이면 0.5초마다 최대 체력 10%
-            if f.now >= f.gTickAt then
-                set f.gTickAt = f.now + 0.5
-                set i = 0
-                loop
-                    exitwhen i >= f.memN
-                    set u = f.mem[i]
-                    if MemAlive(u) and not IsUnitInRangeXY(u, f.arenaCX(), f.arenaCY(), f.gCover) and InAnyStrip(f, GetUnitX(u), GetUnitY(u), 0) < 0 then
-                        call DealPct(f, u, GENSO_TICK_DMG, false)
-                        call DestroyEffect(AddSpecialEffectTarget(FX_BURN_HIT, u, "origin"))
-                    endif
-                    set i = i + 1
-                endloop
-                set u = null
-            endif
-            // 시전 중에도 스칼렛 슛
-            if f.now >= f.gShootAt and el < GENSO_CAST - 0.5 then
-                set f.gShootAt = f.now + 1.6
-                set u = PickTarget(f)
-                if u != null then
-                    set f.ang = AngleWBW(f.boss, u)
-                    call ShootWave(f, GetRandomReal(-SHOOT_GAP * 0.5, SHOOT_GAP * 0.5), true)
-                endif
-                set u = null
-            endif
-            // 칸이 비어 미뤄 둔 빛줄 채우기
+        elseif f.step == 3 then
+            // 늦게 빈 칸에 빛줄 채우기
             if f.gStage < 0 then
-                set i = 0
                 loop
                     exitwhen i >= SB_MAX or f.gStage >= 0
                     if f.sbState[i] == 0 then
                         if FogSun(f) == 0 then
-                            call StripSpawnW(f, i, -1, GENSO_NARROW_W)
+                            call StripSpawnW(f, i, -1, FUYA_NARROW_W)
                         else
                             call StripSpawn(f, i, -1)
                         endif
@@ -3466,26 +3946,46 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                     endif
                     set i = i + 1
                 endloop
-            endif
-            if el >= GENSO_CAST then
-                // 마지막: 햇빛 밖은 모두
                 set i = 0
+            endif
+            if GetUnitAbilityLevel(f.boss, 'A00V') == 0 then
+                // 카운터 성공: 일격 취소
+                call CueClear(f)
+                call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
+                call Sound3D(f.boss, 'A00U')
+                call FxAt(FX_FLASH_WHITE, bx, by, 4.0, 0)
+                set f.invuln = false
+                call UpdateLock(f)
+                call PlayerFilter(f, 1)
+                call MsgAll(f, "|cFFFFD040불야성을 끊었다! 붉은 안개가 걷힌다|r", 3.0)
+                call FogAdd(f, -FOG_GIMMICK)
+                call VoiceSlot(f, VO_COUNTERHIT, true)
+                call AnimDown(f)
+                set f.patStart = f.now
+                set f.step = 6
+            elseif f.now - f.nAt >= FUYA_CHARGE then
+                // 불야성: 햇빛 밖은 모두
+                call UnitRemoveAbility(f.boss, 'A00V')
+                call CueClear(f)
+                call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
                 loop
                     exitwhen i >= f.memN
                     set u = f.mem[i]
                     if MemAlive(u) and InAnyStrip(f, GetUnitX(u), GetUnitY(u), 0) < 0 then
-                        call DealPct(f, u, 2.0, true)
+                        call DealPct(f, u, FUYA_WIPE_DMG, true)
                     endif
                     set i = i + 1
                 endloop
                 set u = null
-                call FxHitBig(f, f.arenaCX(), f.arenaCY(), 0, 2.5)
+                call FxAt(FX_FLASH_RED, bx, by, 12.0, 0)
+                call FxHitBig(f, bx, by, 0, 2.5)
+                call CameraShaker.setShake(9)
                 // 버텼다: 지쳐 떨어진다
                 set f.invuln = false
                 call UpdateLock(f)
                 call PlayerFilter(f, 1)
                 call Anim(f, AN_PLUNGE, 1.0)
-                set f.fog = FOG_AFTER_GENSO
+                set f.fog = FOG_AFTER_FUYA
                 call MsgAll(f, "|cFFFFD040버텼다! 레밀리아가 지쳐 떨어진다|r", 3.0)
                 set f.patStart = f.now
                 set f.step = 5
@@ -3494,8 +3994,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call AnimDown(f)
             set f.step = 6
         elseif f.step == 6 and el >= GIMMICK_GROGGY then
-            // 띠 수는 틱에서 안개 50 에 맞춘다 (좁은 빛줄도 그때 정리)
-            call GimmickEnd(f, PAT_GENSO, RestBig())
+            call GimmickEnd(f, PAT_FUYAJOU, RestBig())
         endif
     endfunction
 
@@ -3763,8 +4262,8 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call RunFate(f, el)
         elseif f.pat == PAT_NIGHT then
             call RunNight(f, el)
-        elseif f.pat == PAT_GENSO then
-            call RunGenso(f, el)
+        elseif f.pat == PAT_FUYAJOU then
+            call RunFuyajou(f, el)
         endif
     endfunction
 
@@ -3773,6 +4272,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call CancelAttacks(f)
         call StakesClear(f)
         call FateTagsClear(f)
+        call FuyaClear(f)
         set f.mkN = 0
         if f.invuln then
             set f.invuln = false
@@ -3799,7 +4299,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         set f.transStep = 0
         call UpdateLock(f)
         call FxAt(FX_BATS_HIT, GetUnitX(f.boss), GetUnitY(f.boss), 1.5, 0)
-        call SetUnitPosition(f.boss, f.arenaCX(), f.arenaCY())
+        call BossMoveTo(f, f.arenaCX(), f.arenaCY())
         call Face(f, 270)
         call AnimThen(f, AN_BIG_CAST, 1.0, AN_WINDUP_HOLD)
         call VoiceSlot(f, VO_TRANSITION, true)
@@ -3864,7 +4364,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         endif
     endfunction
 
-    // 2페이즈 체력 줄: 75% 운명 예지, 50% 퀸 오브 미드나잇, 25% 홍색의 환상향(무엇을 하던 끼어든다), 10% 마지막 발악
+    // 2페이즈 체력 줄: 75% 운명 예지, 50% 퀸 오브 미드나잇, 25% 불야성 레드(무엇을 하던 끼어든다), 10% 마지막 발악
     private function HpEvents2 takes RemiliaFight f returns nothing
         local integer idx = IndexUnit(f.boss)
         local real pct = UnitHP[idx] / UnitHPMAX[idx]
@@ -3880,7 +4380,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             elseif f.g50 == 2 and f.g25 == 0 and pct <= 0.2505 then
                 set f.g25 = 1
                 call CancelAll(f)
-                call StartPattern(f, PAT_GENSO)
+                call StartPattern(f, PAT_FUYAJOU)
             endif
         endif
         if not f.lastStruggle and f.g25 == 2 and pct <= LAST_STRUGGLE then
@@ -3889,6 +4389,68 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call VoiceSlot(f, VO_SCARLETDEVIL, true)
             call MsgAll(f, "|cFFFF4040마지막 발악! 대형 패턴이 더 자주 온다|r", 3.0)
         endif
+    endfunction
+
+    // 테스트: 어느 단계에서든 2페이즈 50% 퀸 오브 미드나잇(나이트메어)으로 바로 넘어간다 (채팅 "-패턴")
+    private function TestNight takes RemiliaFight f, integer which returns nothing
+        local integer idx = IndexUnit(f.boss)
+        local integer k = 0
+        call CancelAll(f)
+        if f.state != REMILIA_PHASE2 then
+            // 전환 연출을 건너뛰고 2페이즈 상태로 만든다
+            set f.state = REMILIA_PHASE2
+            set f.transStep = 6
+            call PlayerFilter(f, 1)
+            set f.fog = 100
+            call FogUiShow(f, true)
+            set f.fillN = 0
+            set f.bigEvery = GetRandomInt(2, 3)
+            set f.lastFill = 0
+            set f.lastBig = 0
+            loop
+                exitwhen k >= 20
+                set f.readyAt[k] = 0
+                set k = k + 1
+            endloop
+        endif
+        set f.fogAt = f.now + FOG_TIME_EVERY
+        call UpdateLock(f)
+        if which == PAT_MISERY then
+            // 미저러블 페이트(말뚝) 시험: 75% 줄 위에서 바로 시작
+            set UnitHP[idx] = UnitHPMAX[idx] * 0.90
+            set UnitHPFloorOn[idx] = true
+            set UnitHPFloor[idx] = UnitHPMAX[idx] * 0.75
+            set f.g75 = 0
+            set f.g50 = 0
+            set f.g25 = 0
+            set f.lastStruggle = false
+            call FogUiUpdate(f)
+            call StartPattern(f, PAT_MISERY)
+            return
+        endif
+        if which == PAT_FUYAJOU then
+            // 불야성 레드 시험: 75%·50% 기믹은 끝난 것으로 치고 25% 줄에서 시작
+            set UnitHP[idx] = UnitHPMAX[idx] * 0.25
+            set UnitHPFloorOn[idx] = true
+            set UnitHPFloor[idx] = UnitHPMAX[idx] * 0.25
+            set f.g75 = 2
+            set f.g50 = 2
+            set f.g25 = 1
+            set f.lastStruggle = false
+            call FogUiUpdate(f)
+            call StartPattern(f, PAT_FUYAJOU)
+            return
+        endif
+        // 75% 운명 예지는 끝난 것으로 치고 50% 줄에서 시작
+        set UnitHP[idx] = UnitHPMAX[idx] * 0.50
+        set UnitHPFloorOn[idx] = true
+        set UnitHPFloor[idx] = UnitHPMAX[idx] * 0.50
+        set f.g75 = 2
+        set f.g50 = 1
+        set f.g25 = 0
+        set f.lastStruggle = false
+        call FogUiUpdate(f)
+        call StartPattern(f, PAT_NIGHT)
     endfunction
 
     private function HpEvents takes RemiliaFight f returns nothing
@@ -4133,9 +4695,9 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                     call FogAdd(f, 1)
                 endif
             endif
-            // 0.5초마다: 햇빛 줄 수를 안개에 맞추고 게이지 갱신 (홍색의 환상향은 빛을 스스로 정한다)
+            // 0.5초마다: 햇빛 줄 수를 안개에 맞추고 게이지 갱신 (불야성 레드는 빛을 스스로 정한다)
             if ModuloInteger(R2I(f.now / TICK + 0.5), 25) == 0 then
-                if f.pat != PAT_GENSO then
+                if f.pat != PAT_FUYAJOU then
                     call SunRefill(f)
                 endif
                 call FogUiUpdate(f)
@@ -4185,7 +4747,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call UnitRemoveAbility(f.boss, 'Amov')
         call SetUnitPathing(f.boss, false)
         call PauseUnit(f.boss, true)
-        call SetUnitPosition(f.boss, f.arenaCX(), f.arenaCY())
+        call BossMoveTo(f, f.arenaCX(), f.arenaCY())
         set f.face = 0
         call Face(f, 270)
         set UnitCounterArc[idx] = COUNTER_ARC
@@ -4476,6 +5038,48 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         endif
     endfunction
 
+    // 영웅이 시전한 스킬 기록 (나이트메어 쿨타임 초기화용)
+    private function OnSpellCast takes nothing returns nothing
+        local unit u = GetTriggerUnit()
+        local integer pid = GetPlayerId(GetOwningPlayer(u))
+        if pid >= 0 and pid < 12 and u == MainUnit[pid] then
+            set LastCastAbil[pid] = GetSpellAbilityId()
+        endif
+        set u = null
+    endfunction
+
+    // 테스트: 채팅 "-패턴" → 내가 들어가 있는 레밀리아 전투를 2페이즈 50% 퀸 오브 미드나잇(나이트메어)으로
+    private function ChatPattern takes nothing returns nothing
+        local player p = GetTriggerPlayer()
+        local unit u = MainUnit[GetPlayerId(p)]
+        local RemiliaFight f
+        local integer i = 0
+        loop
+            exitwhen i >= 100
+            set f = RemiliaFightAt[i]
+            if f != 0 and u != null and IsUnitInGroup(u, f.ul.super) then
+                if f.state == REMILIA_PHASE1 or f.state == REMILIA_TRANSITION or f.state == REMILIA_PHASE2 then
+                    if GetEventPlayerChatString() == "-말뚝" then
+                        call TestNight(f, PAT_MISERY)
+                        call DisplayTextToPlayer(p, 0, 0, "|cFFFFD040[테스트] 레밀리아 미저러블 페이트(말뚝) 시작|r")
+                    else
+                        call TestNight(f, PAT_FUYAJOU)
+                        call DisplayTextToPlayer(p, 0, 0, "|cFFFFD040[테스트] 레밀리아 25% 불야성 레드 시작|r")
+                    endif
+                else
+                    call DisplayTextToPlayer(p, 0, 0, "[테스트] 레밀리아 전투가 시작된 뒤에 -패턴 을 입력하세요")
+                endif
+                set p = null
+                set u = null
+                return
+            endif
+            set i = i + 1
+        endloop
+        call DisplayTextToPlayer(p, 0, 0, "[테스트] 먼저 -레밀 로 레밀리아 전투에 들어가세요")
+        set p = null
+        set u = null
+    endfunction
+
     // ======================================================================
     // 데이터
     // ======================================================================
@@ -4489,6 +5093,18 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                 set i = i + 1
             endloop
             call TriggerAddAction(t, function ChatEnter)
+            set t = CreateTrigger()
+            set i = 0
+            loop
+                exitwhen i >= 12
+                call TriggerRegisterPlayerChatEvent(t, Player(i), "-패턴", true)
+                call TriggerRegisterPlayerChatEvent(t, Player(i), "-말뚝", true)
+                set i = i + 1
+            endloop
+            call TriggerAddAction(t, function ChatPattern)
+            set t = CreateTrigger()
+            call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+            call TriggerAddAction(t, function OnSpellCast)
             set t = null
 
             // Hero-Model_Remilia.mdx 애니메이션 길이(초)와 반복 여부 (SEQS)
@@ -4566,7 +5182,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set PatCool[PAT_DRACULA] = 14
             set PatCool[PAT_FATE] = 0
             set PatCool[PAT_NIGHT] = 0
-            set PatCool[PAT_GENSO] = 0
+            set PatCool[PAT_FUYAJOU] = 0
             set PatWeight[PAT_HEART2] = 30
             set PatWeight[PAT_SCRAMBLE] = 25
             set PatWeight[PAT_MEIKAI] = 25
@@ -4576,7 +5192,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set PatWeight[PAT_DRACULA] = 40
             set PatWeight[PAT_FATE] = 0
             set PatWeight[PAT_NIGHT] = 0
-            set PatWeight[PAT_GENSO] = 0
+            set PatWeight[PAT_FUYAJOU] = 0
 
             call PreloadAdd(FX_FLASH_RED)
             call PreloadAdd(FX_FLASH_WHITE)
@@ -4596,8 +5212,12 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call PreloadAdd(FX_SPIN)
             call PreloadAdd(FX_EYES)
             call PreloadAdd(TELE_LINE)
+            call PreloadAdd(TELE_LINE_C)
+            call PreloadAdd(FAN_DIR + "140.mdx")
+            call PreloadAdd(FAN_DIR + "180.mdx")
             call PreloadAdd(FX_FOG)
             call PreloadAdd(FX_STAKE)
+            call PreloadAdd(FX_STRIPE)
             call Preload(FX_STOMP)
             // 음성 표 (칸마다 무작위 하나). make_remilia_sounds.py 의 final.json 에서 만든 목록
             set i = 0
@@ -4657,7 +5277,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call VoAdd(VO_FATE, "Remilia_Fate2.mp3", 1.48)
             // 나이트메어: 誰も止められないわ
             call VoAdd(VO_NIGHTMARE, "Remilia_Nightmare.mp3", 1.54)
-            // 홍색의 환상향: 楽しませなさい!
+            // (쓰지 않음: 25% 기믹이 불야성 레드로 바뀜) 楽しませなさい!
             call VoAdd(VO_GENSOKYO, "Remilia_Gensokyo.mp3", 1.47)
             // 스칼렛 데빌: まだまだ足りないわよ!
             call VoAdd(VO_SCARLETDEVIL, "Remilia_ScarletDevil.mp3", 2.06)

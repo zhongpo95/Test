@@ -183,6 +183,10 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             return false
         endif
 
+        // 마지막으로 때린 플레이어·스킬 기록 (레밀리아 말뚝처럼 "스킬 한 번 = 한 대"를 세는 기믹용)
+        set UnitLastHitPid[UnitIndex] = pid + 1
+        set UnitLastHitSkill[UnitIndex] = SkillCode
+
         //방어력10000
         set ArmVelue = UnitArm[UnitIndex]
 
@@ -386,6 +390,8 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         if counter == true then
             if GetUnitAbilityLevel(target, 'A00V') == 1 then
                 if (UnitCounterArc[UnitIndex] <= 0 and HeadTrue(AngleWBW(source,target), GetUnitFacing(target))) or (UnitCounterArc[UnitIndex] > 0 and CounterFront(source, target, UnitCounterArc[UnitIndex])) then
+                    set LastCounterSource = source
+                    set LastCounterSkill = SkillCode
                     call UnitRemoveAbility(target,'A00V')
                     call CounterTag(target)
                     set CounterBoolean = true

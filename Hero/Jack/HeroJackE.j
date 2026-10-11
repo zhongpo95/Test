@@ -45,6 +45,8 @@ private function splashD takes nothing returns nothing
             call SetTextTagLifespan(ttag, 0.8)
             call SetTextTagPermanent(ttag, false)
             call SetTextTagVisibility(ttag, true)
+            set LastCounterSource = splash.source
+            set LastCounterSkill = 'A008'
             call UnitRemoveAbility(GetEnumUnit(), 'A00V')
         endif
     endif

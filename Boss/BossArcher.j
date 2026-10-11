@@ -672,10 +672,16 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     endfunction
 
     // 방향 고정: 다른 보스와 같이 SetUnitFacing + EXSetUnitFacing 뒤 제자리 SetUnitPosition 으로 반영한다
+    // 보스 이동은 SetUnitPosition 으로만 한다. 메뚜기(Aloc) 유닛은 SetUnitX/Y 로 옮기면 화면·판정 위치가 안 바뀌어
+    // 보스가 안 움직이고 영웅 스킬도 안 맞는다 (시험 확인). 회전할 때는 위치를 다시 잡지 않는다 (ApplyFacing)
+    private function BossMoveTo takes ArcherFight f, real x, real y returns nothing
+        call SetUnitPosition(f.boss, x, y)
+    endfunction
+
+    // 방향만 바꾼다. 예전에는 제자리 SetUnitPosition 을 같이 불러서, 대상을 따라 돌 때 붙어 있는 영웅 반대쪽으로 보스가 밀렸다
     private function ApplyFacing takes ArcherFight f returns nothing
         call SetUnitFacing(f.boss, f.face)
         call EXSetUnitFacing(f.boss, f.face)
-        call SetUnitPosition(f.boss, GetUnitX(f.boss), GetUnitY(f.boss))
     endfunction
 
     private function Face takes ArcherFight f, real a returns nothing
@@ -1965,7 +1971,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set step = RMinBJ(f.dashLeft, f.dashSpeed * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
-            call SetUnitPosition(f.boss, nx, ny)
+            call BossMoveTo(f, nx, ny)
             set f.dashLeft = f.dashLeft - step
             if f.dashLeft <= 0 or (nx == bx and ny == by) then
                 if MemAlive(f.target) then
@@ -2020,7 +2026,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set step = RMinBJ(f.dashLeft, f.dashSpeed * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
-            call SetUnitPosition(f.boss, nx, ny)
+            call BossMoveTo(f, nx, ny)
             // 시작점부터 지금 위치 + 베기 거리까지 (뒤쪽은 맞지 않음)
             call HitRect(f, f.ax, f.ay, f.ang, DistancePBP(f.ax, f.ay, nx, ny) + DASH_REACH, DASH_WIDTH, DMG_DASH, true, f.hit)
             set f.dashLeft = f.dashLeft - step
@@ -2183,7 +2189,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set step = RMinBJ(f.dashLeft, f.dashSpeed * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
-            call SetUnitPosition(f.boss, nx, ny)
+            call BossMoveTo(f, nx, ny)
             // 카운터를 노릴 수 있도록 심안 돌진은 기절 없이 피해만 준다
             call HitRect(f, f.ax, f.ay, f.ang, DistancePBP(f.ax, f.ay, nx, ny) + DASH_REACH, DASH_WIDTH, DMG_DASH, false, f.hit)
             set f.dashLeft = f.dashLeft - step
@@ -2995,7 +3001,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set step = RMinBJ(f.dashLeft, f.dashSpeed * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
-            call SetUnitPosition(f.boss, nx, ny)
+            call BossMoveTo(f, nx, ny)
             call HitRect(f, f.ax, f.ay, f.ang, DistancePBP(f.ax, f.ay, nx, ny) + DASH_REACH, DASH_WIDTH, DMG_DASH, true, f.hit)
             set f.dashLeft = f.dashLeft - step
             if f.dashLeft <= 0 then
@@ -3915,7 +3921,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set step = RMinBJ(f.dashLeft, f.dashSpeed * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.ang))
             set ny = ClampY(f, by + PolarY(step, f.ang))
-            call SetUnitPosition(f.boss, nx, ny)
+            call BossMoveTo(f, nx, ny)
             call HitRect(f, f.ax, f.ay, f.ang, DistancePBP(f.ax, f.ay, nx, ny) + DASH_REACH, DASH_WIDTH, DMG_TRACE, true, f.hit)
             set f.dashLeft = f.dashLeft - step
             if f.dashLeft <= 0 then
@@ -4016,7 +4022,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         call CancelAttacks(f)
         call SetProtect(f, true, true)
         // 전장 중앙으로
-        call SetUnitPosition(f.boss, f.arenaCX(), f.arenaCY())
+        call BossMoveTo(f, f.arenaCX(), f.arenaCY())
         call Face(f, 270)
         // 선언: 빈손을 앞으로 내밀며 "Unlimited Blade Works!" (대사 0~2.2초, 뒤는 결계 전개 효과음)
         call Anim(f, AN_SPELL_ONE, 1.0)
@@ -4291,7 +4297,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set step = RMinBJ(f.stepLeft, f.stepSpd * TICK)
             set nx = ClampX(f, bx + PolarX(step, f.stepAng))
             set ny = ClampY(f, by + PolarY(step, f.stepAng))
-            call SetUnitPosition(f.boss, nx, ny)
+            call BossMoveTo(f, nx, ny)
             set f.stepLeft = f.stepLeft - step
             if f.stepLeft <= 0 or (nx == bx and ny == by) then
                 set f.walking = false
@@ -4442,7 +4448,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         call UnitRemoveAbility(f.boss, 'Amov')
         call SetUnitPathing(f.boss, false)
         call PauseUnit(f.boss, true)
-        call SetUnitPosition(f.boss, f.arenaCX(), f.arenaCY())
+        call BossMoveTo(f, f.arenaCX(), f.arenaCY())
         call Face(f, 270)
         set UnitCounterArc[idx] = COUNTER_ARC
         // 뽑은 검 공격을 받는 보스
