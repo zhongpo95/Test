@@ -6,6 +6,7 @@
 //! import "D:\Work\GitHub\Test\System\CardRecovery.j"
 //! import "D:\Work\GitHub\Test\Data\Data_Prototype.j"
 //! import "D:\Work\GitHub\Test\System\ExpeditionPrototype.j"
+//! import "D:\Work\GitHub\Test\UI\UI_StoryLineLayout.j"
 //! import "D:\Work\GitHub\Test\UI\UI_ExpeditionPrototype.j"
 //! import "D:\Work\GitHub\Test\Data\Data_Expedition.j"
 //! import "D:\Work\GitHub\Test\Data\Data_ExpeditionEvents.j"

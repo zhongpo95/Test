@@ -21,9 +21,10 @@ const {env:init}=environment(['UI/UI_ExpeditionPrototype.j'],{
  CreateTrigger:()=>({id:++triggerId}),TriggerRegisterTimerEventSingle:t=>{timerTrigger=t;},
  TriggerAddAction:(t,fn)=>{t.action=fn;},TriggerRegisterPlayerChatEvent:(t,player,text,exact)=>registrations.push({t,player,text,exact})
 },[p+'Init']);
-init[p+'Build']=()=>{};init[p+'LineTest']=()=>{};
-init[p+'Init']();assert.equal(registrations.length,4);
-assert.deepEqual(registrations.map(r=>r.player),[0,1,2,3]);
-for(const r of registrations){assert.equal(r.text,'-줄테스트');assert.equal(r.exact,true);assert.equal(r.t.action,init[p+'LineTest']);assert.notEqual(r.t,timerTrigger);}
+init[p+'Build']=()=>{};init[p+'LineTest']=()=>{};init[p+'PitchCommand']=()=>{};
+init[p+'Init']();const lineTests=registrations.filter(r=>r.text==='-줄테스트');assert.equal(lineTests.length,4);
+assert.deepEqual(lineTests.map(r=>r.player),[0,1,2,3]);
+const pitch=registrations.filter(r=>r.text==='-행간');assert.equal(pitch.length,4);for(const r of pitch){assert.equal(r.exact,false);assert.equal(r.t.action,init[p+'PitchCommand']);}
+for(const r of lineTests){assert.equal(r.text,'-줄테스트');assert.equal(r.exact,true);assert.equal(r.t.action,init[p+'LineTest']);assert.notEqual(r.t,timerTrigger);}
 assert.equal(timerTrigger.action,init[p+'Build']);
 console.log('PASS Init에서 4명 채팅 명령과 LineTest 액션 연결, Build 타이머 분리.');
