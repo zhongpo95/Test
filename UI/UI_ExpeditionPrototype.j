@@ -91,40 +91,6 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameSetText(frame, color + JNStringReplace(value, "|r", color) + "|r")
     endfunction
 
-    // 자동 줄바꿈 행간을 넓히려고 본문을 미리 줄로 나눠 줄마다 TEXT로 배치한다.
-    // 원본 TEXT를 먼저 채우고, 분할과 높이 검사가 모두 통과한 뒤에만 줄 TEXT로 바꾼다.
-    // 분할 실패, 넘침 또는 계산 도중 중단 시에는 원본 TEXT가 그대로 보인다.
-    private function SetStoryText takes string value, real top, real available returns nothing
-        local integer i = 0
-        if value == StoryCached and top == StoryCachedTop and ImagePixelAspect == StoryCachedAspect then
-            return
-        endif
-        set StoryCached = value
-        set StoryCachedTop = top
-        set StoryCachedAspect = ImagePixelAspect
-        call PaperText(StoryText, value, PAPER_BODY)
-        call DzFrameShow(StoryText, true)
-        loop
-            exitwhen i >= STORY_LINE_MAX
-            call DzFrameShow(StoryLineFrames[i], false)
-            set i = i + 1
-        endloop
-        // 와이드 화면에서는 UI 가로 단위가 늘어나므로 글자 폭을 화면 비율로 보정한다.
-        set StoryLineEm = STORY_EM_43 / ImagePixelAspect
-        if not StoryLineLayout(value, 0.274, 0.011) or StoryLineCount * STORY_LINE_GAP > available then
-            return
-        endif
-        set i = 0
-        loop
-            exitwhen i >= StoryLineCount
-            call PlaceCoverPart(StoryLineFrames[i], StoryPanel, 0.018, top + i * STORY_LINE_GAP, 0.284, 0.016)
-            call PaperText(StoryLineFrames[i], StoryLines[i], PAPER_BODY)
-            call DzFrameShow(StoryLineFrames[i], true)
-            set i = i + 1
-        endloop
-        call DzFrameShow(StoryText, false)
-    endfunction
-
     private function CreateStoryText takes nothing returns integer
         // TEXTAREA의 검은 그림자를 피하고 결과 영역과 같은 TEXT 표시를 사용한다.
         return ExpUILabel(StoryPanel, 0.018, 0.126, 0.274, 0.242, 0.011, "")
@@ -202,6 +168,40 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameClearAllPoints(frame)
         call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetSize(frame, width, height)
+    endfunction
+
+    // 자동 줄바꿈 행간을 넓히려고 본문을 미리 줄로 나눠 줄마다 TEXT로 배치한다.
+    // 원본 TEXT를 먼저 채우고, 분할과 높이 검사가 모두 통과한 뒤에만 줄 TEXT로 바꾼다.
+    // 분할 실패, 넘침 또는 계산 도중 중단 시에는 원본 TEXT가 그대로 보인다.
+    private function SetStoryText takes string value, real top, real available returns nothing
+        local integer i = 0
+        if value == StoryCached and top == StoryCachedTop and ImagePixelAspect == StoryCachedAspect then
+            return
+        endif
+        set StoryCached = value
+        set StoryCachedTop = top
+        set StoryCachedAspect = ImagePixelAspect
+        call PaperText(StoryText, value, PAPER_BODY)
+        call DzFrameShow(StoryText, true)
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            call DzFrameShow(StoryLineFrames[i], false)
+            set i = i + 1
+        endloop
+        // 와이드 화면에서는 UI 가로 단위가 늘어나므로 글자 폭을 화면 비율로 보정한다.
+        set StoryLineEm = STORY_EM_43 / ImagePixelAspect
+        if not StoryLineLayout(value, 0.274, 0.011) or StoryLineCount * STORY_LINE_GAP > available then
+            return
+        endif
+        set i = 0
+        loop
+            exitwhen i >= StoryLineCount
+            call PlaceCoverPart(StoryLineFrames[i], StoryPanel, 0.018, top + i * STORY_LINE_GAP, 0.284, 0.016)
+            call PaperText(StoryLineFrames[i], StoryLines[i], PAPER_BODY)
+            call DzFrameShow(StoryLineFrames[i], true)
+            set i = i + 1
+        endloop
+        call DzFrameShow(StoryText, false)
     endfunction
 
     private function PlaceEventImage takes integer frame, integer parent, real x, real y, real width, real height, integer id returns nothing
