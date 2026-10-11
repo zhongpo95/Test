@@ -1,5 +1,5 @@
 // 개인 사냥 준비, 머리 도감, 사건 후보와 준비 완료 버튼을 표시한다.
-library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, ExpeditionPrototype
+library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, ExpeditionPrototype, StoryLineLayout
     globals
         private constant string PAPER_TITLE = "|cff30382f"
         private constant string PAPER_BODY = "|cff485047"
@@ -23,6 +23,14 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private string StoryCached = ""
         private integer LineTestRoot
         private boolean LineTestVisible = false
+        private integer PitchRoot
+        private integer PitchOriginal
+        private integer PitchRight
+        private integer PitchInfo
+        private integer array PitchLines
+        private boolean PitchVisible = false
+        private real PitchGap = 0.015
+        private integer PitchEvent = 534
         private integer StoryText
         private integer OutcomePanel
         private integer OutcomeHeading
@@ -570,6 +578,149 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameShow(LineTestRoot, false)
     endfunction
 
+    // 행간 비교 샘플: 왼쪽은 기존 TEXT 한 개, 오른쪽은 미리 나눈 줄을 줄마다 TEXT로 배치한다.
+    // 오른쪽도 원본 TEXT를 먼저 채우고, 줄 분할과 높이 검사가 모두 통과한 뒤에만 줄 TEXT로 바꾼다.
+    private function PitchArg takes string value, integer index returns string
+        local integer i = 0
+        local integer n = StringLength(value)
+        local integer k = 0
+        local integer start = 0
+        loop
+            exitwhen i > n
+            if i == n or SubString(value, i, i + 1) == " " then
+                if i > start then
+                    if k == index then
+                        return SubString(value, start, i)
+                    endif
+                    set k = k + 1
+                endif
+                set start = i + 1
+            endif
+            set i = i + 1
+        endloop
+        return ""
+    endfunction
+
+    private function PitchRender takes nothing returns nothing
+        local string value = ProtoEventStory[PitchEvent]
+        local string state = "원본 유지"
+        local integer i = 0
+        local boolean ok
+        call PaperText(PitchOriginal, value, PAPER_BODY)
+        call PaperText(PitchRight, value, PAPER_BODY)
+        call DzFrameShow(PitchRight, true)
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            call DzFrameShow(PitchLines[i], false)
+            set i = i + 1
+        endloop
+        set ok = StoryLineLayout(value, 0.274, 0.011)
+        if not ok then
+            set state = "분할 실패"
+        elseif StoryLineCount * PitchGap > 0.300 then
+            set ok = false
+            set state = "높이 넘침"
+        endif
+        if ok then
+            set i = 0
+            loop
+                exitwhen i >= StoryLineCount
+                call PlaceCoverPart(PitchLines[i], PitchRoot, 0.400, 0.070 + i * PitchGap, 0.284, 0.016)
+                call PaperText(PitchLines[i], StoryLines[i], PAPER_BODY)
+                call DzFrameShow(PitchLines[i], true)
+                set i = i + 1
+            endloop
+            // 줄 TEXT를 모두 채운 다음에 원본을 숨긴다.
+            call DzFrameShow(PitchRight, false)
+            set state = "줄 배치"
+        endif
+        call PaperText(PitchInfo, "사건 " + I2S(PitchEvent) + " · 행간 " + R2SW(PitchGap, 1, 4) + " · em " + R2SW(StoryLineEm, 1, 2) + " · 가=" + I2S(StringLength("가")) + "|n줄 " + I2S(StoryLineCount) + " · " + state + "|n눈금 줄 첫 줄 글자 수 N → em = 0.274 / (N × 0.011)", PAPER_META)
+        set i = 0
+        loop
+            exitwhen i >= StoryLineCount or not ok
+            call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 120, "행간 줄 " + I2S(i + 1) + ": " + StoryLines[i])
+            set i = i + 1
+        endloop
+    endfunction
+
+    private function PitchClose takes nothing returns nothing
+        if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+            set PitchVisible = false
+            call DzFrameShow(PitchRoot, false)
+        endif
+    endfunction
+
+    // -행간 [행간] [em] [사건ID]. 인자 없이 다시 입력하면 닫는다.
+    private function PitchCommand takes nothing returns nothing
+        local string value = GetEventPlayerChatString()
+        local string gap = PitchArg(value, 1)
+        local string em = PitchArg(value, 2)
+        local string id = PitchArg(value, 3)
+        if GetTriggerPlayer() != GetLocalPlayer() or PitchRoot == 0 or PitchArg(value, 0) != "-행간" then
+            return
+        endif
+        if gap == "" and PitchVisible then
+            set PitchVisible = false
+            call DzFrameShow(PitchRoot, false)
+            return
+        endif
+        if gap != "" and S2R(gap) >= 0.010 and S2R(gap) <= 0.030 then
+            set PitchGap = S2R(gap)
+        endif
+        if em != "" and S2R(em) >= 0.6 and S2R(em) <= 1.6 then
+            set StoryLineEm = S2R(em)
+        endif
+        if id != "" and S2I(id) > 0 and S2I(id) < 8192 then
+            if ProtoEventStory[S2I(id)] != "" then
+                set PitchEvent = S2I(id)
+            endif
+        endif
+        set PitchVisible = true
+        call DzFrameShow(PitchRoot, true)
+        call PitchRender()
+    endfunction
+
+    private function BuildPitchSample takes nothing returns nothing
+        local integer f
+        local integer i = 0
+        set PitchRoot = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
+        call DzFrameSetSize(PitchRoot, 0.74, 0.46)
+        call DzFrameSetAbsolutePoint(PitchRoot, JN_FRAMEPOINT_TOPLEFT, 0.03, 0.57)
+        call DzFrameSetPriority(PitchRoot, 200)
+        set f = ExpUITexture(PitchRoot, 0, 0, 0.74, 0.46, "war3mapImported\\UI_Arcana_Paper.tga")
+        set f = ExpUITexture(PitchRoot, 0.012, 0.040, 0.310, 0.340, "war3mapImported\\UI_Arcana_Sheet.tga")
+        set f = ExpUITexture(PitchRoot, 0.382, 0.040, 0.310, 0.340, "war3mapImported\\UI_Arcana_Sheet.tga")
+        set f = ExpUILabel(PitchRoot, 0.015, 0.012, 0.60, 0.024, 0.012, "")
+        call PaperText(f, "행간 비교 샘플", PAPER_TITLE)
+        set f = ExpUILabel(PitchRoot, 0.030, 0.048, 0.274, 0.018, 0.010, "")
+        call PaperText(f, "기본 · TEXT 한 개 자동 줄바꿈", PAPER_META)
+        set f = ExpUILabel(PitchRoot, 0.400, 0.048, 0.274, 0.018, 0.010, "")
+        call PaperText(f, "넓힘 · 줄마다 TEXT", PAPER_META)
+        set PitchOriginal = ExpUILabel(PitchRoot, 0.030, 0.070, 0.274, 0.300, 0.011, "")
+        call JNFrameSetTextAlignment(PitchOriginal, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        set PitchRight = ExpUILabel(PitchRoot, 0.400, 0.070, 0.274, 0.300, 0.011, "")
+        call JNFrameSetTextAlignment(PitchRight, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            set PitchLines[i] = ExpUILabel(PitchRoot, 0.400, 0.070, 0.284, 0.016, 0.011, "")
+            call JNFrameSetTextAlignment(PitchLines[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+            call DzFrameShow(PitchLines[i], false)
+            set i = i + 1
+        endloop
+        // 눈금 줄: 폭 0.274 배경 위에 10글자씩 색을 바꾼 30글자를 두고 첫 줄 글자 수로 em을 보정한다.
+        set f = ExpUITexture(PitchRoot, 0.030, 0.390, 0.274, 0.040, "war3mapImported\\UI_Arcana_Sheet.tga")
+        set f = ExpUILabel(PitchRoot, 0.030, 0.392, 0.274, 0.040, 0.011, "")
+        call JNFrameSetTextAlignment(f, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        call PaperText(f, PAPER_COST + "가나다라마바사아자차|r가나다라마바사아자차" + PAPER_COST + "가나다라마바사아자차|r", PAPER_BODY)
+        set PitchInfo = ExpUILabel(PitchRoot, 0.330, 0.390, 0.390, 0.060, 0.009, "")
+        call JNFrameSetTextAlignment(PitchInfo, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        set f = DzCreateFrameByTagName("GLUETEXTBUTTON", "", PitchRoot, "ScriptDialogButton", FrameCount())
+        call PlaceCoverPart(f, PitchRoot, 0.64, 0.008, 0.085, 0.028)
+        call DzFrameSetText(f, "닫기")
+        call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_UP, function PitchClose, false)
+        call DzFrameShow(PitchRoot, false)
+    endfunction
+
     private function Build takes nothing returns nothing
         local integer f
         local integer i = 0
@@ -685,6 +836,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set HuntReady = ExpUIButton(HuntHUD, 0.125, 0.052, 0.164, 0.020, "준비 완료", 2500)
         call DzFrameShow(HuntHUD, false)
         call BuildLineTest()
+        call BuildPitchSample()
         call TriggerAddAction(ExpRefresh, function Render)
     endfunction
 
@@ -700,6 +852,14 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set i = i + 1
         endloop
         call TriggerAddAction(t, function LineTest)
+        set t = CreateTrigger()
+        set i = 0
+        loop
+            exitwhen i >= 4
+            call TriggerRegisterPlayerChatEvent(t, Player(i), "-행간", false)
+            set i = i + 1
+        endloop
+        call TriggerAddAction(t, function PitchCommand)
         set t = null
     endfunction
 endlibrary
