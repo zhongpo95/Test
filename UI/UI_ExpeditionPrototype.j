@@ -21,6 +21,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer StoryTitle
         private integer StoryIcon
         private string StoryCached = ""
+        private real StoryCachedTop = -1.0
+        private real StoryCachedAspect = 0.0
+        // 사건 본문 자동 줄바꿈 행간. 기본 TEXT의 행간은 글자 크기와 같은 약 0.011이다.
+        private constant real STORY_LINE_GAP = 0.014
+        // 4:3 화면에서 한글 한 글자 폭 / 글자 크기. 와이드 화면은 화면 비율로 나눠 보정한다.
+        private constant real STORY_EM_43 = 1.03
+        private integer array StoryLineFrames
         private integer LineTestRoot
         private boolean LineTestVisible = false
         private integer PitchRoot
@@ -29,7 +36,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer PitchInfo
         private integer array PitchLines
         private boolean PitchVisible = false
-        private real PitchGap = 0.015
+        private real PitchGap = 0.014
         private integer PitchEvent = 534
         private integer StoryText
         private integer OutcomePanel
@@ -84,33 +91,38 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameSetText(frame, color + JNStringReplace(value, "|r", color) + "|r")
     endfunction
 
-    // 본문 전체를 한 번에 전달하고 갱신 틱에서는 텍스트 영역을 다시 초기화하지 않는다.
-    // 긴 본문은 기존 배치를 유지하고 짧은 본문에만 문단 여백을 추가한다.
-    private function SpaceStoryParagraphs takes string value returns string
+    // 자동 줄바꿈 행간을 넓히려고 본문을 미리 줄로 나눠 줄마다 TEXT로 배치한다.
+    // 원본 TEXT를 먼저 채우고, 분할과 높이 검사가 모두 통과한 뒤에만 줄 TEXT로 바꾼다.
+    // 분할 실패, 넘침 또는 계산 도중 중단 시에는 원본 TEXT가 그대로 보인다.
+    private function SetStoryText takes string value, real top, real available returns nothing
         local integer i = 0
-        local integer n = StringLength(value)
-        if n > 900 or JNStringCount(value, "|n") >= 6 then
-            return value
+        if value == StoryCached and top == StoryCachedTop and ImagePixelAspect == StoryCachedAspect then
+            return
         endif
-        if JNStringCount(value, "|n|n") > 0 then
-            return JNStringReplace(value, "|n|n", "|n|n|n")
-        endif
-        // 문단이 없는 소개는 첫 문장 뒤만 나눈다. 소수점과 색상 태그는 건드리지 않는다.
+        set StoryCached = value
+        set StoryCachedTop = top
+        set StoryCachedAspect = ImagePixelAspect
+        call PaperText(StoryText, value, PAPER_BODY)
+        call DzFrameShow(StoryText, true)
         loop
-            exitwhen i + 1 >= n
-            if SubString(value, i, i + 2) == ". " then
-                return SubString(value, 0, i + 1) + "|n|n" + SubString(value, i + 2, n)
-            endif
+            exitwhen i >= STORY_LINE_MAX
+            call DzFrameShow(StoryLineFrames[i], false)
             set i = i + 1
         endloop
-        return value
-    endfunction
-
-    private function SetStoryText takes string value returns nothing
-        if value != StoryCached then
-            call PaperText(StoryText, SpaceStoryParagraphs(value), PAPER_BODY)
-            set StoryCached = value
+        // 와이드 화면에서는 UI 가로 단위가 늘어나므로 글자 폭을 화면 비율로 보정한다.
+        set StoryLineEm = STORY_EM_43 / ImagePixelAspect
+        if not StoryLineLayout(value, 0.274, 0.011) or StoryLineCount * STORY_LINE_GAP > available then
+            return
         endif
+        set i = 0
+        loop
+            exitwhen i >= StoryLineCount
+            call PlaceCoverPart(StoryLineFrames[i], StoryPanel, 0.018, top + i * STORY_LINE_GAP, 0.284, 0.016)
+            call PaperText(StoryLineFrames[i], StoryLines[i], PAPER_BODY)
+            call DzFrameShow(StoryLineFrames[i], true)
+            set i = i + 1
+        endloop
+        call DzFrameShow(StoryText, false)
     endfunction
 
     private function CreateStoryText takes nothing returns integer
@@ -317,6 +329,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         local string value
         local string packet
         local real branchHeight
+        local real storyTop = 0.126
+        local real storyHeight = 0.242
         local string clockColor = PAPER_GOLD
         local integer clientWidth = JNGetLocalClientWidth()
         local integer clientHeight = JNGetLocalClientHeight()
@@ -439,6 +453,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                 call PlaceEventImage(StoryIcon, StoryPanel, 0.018, 0.045, 0.044, 0.044, id)
                 call PlaceCoverPart(StoryTitle, StoryPanel, 0.076, 0.048, 0.216, 0.044)
                 call PlaceCoverPart(StoryText, StoryPanel, 0.018, 0.104, 0.274, 0.264)
+                set storyTop = 0.104
+                set storyHeight = 0.264
             else
                 call PlaceEventImage(StoryIcon, StoryPanel, 0.018, 0.045, 0.070, 0.070, id)
                 call PlaceCoverPart(StoryTitle, StoryPanel, 0.112, 0.048, 0.180, 0.070)
@@ -485,11 +501,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set i = i + 1
         endloop
         if ProtoStage[pid] == 2 and not ProtoDialogueFollowing(pid) and HoverBranch > 0 and HoverBranch <= ProtoDialogueChoiceCount(pid) then
-            call SetStoryText("[행동 상세 · 커서를 옮기면 사건 설명]|n|n" + ProtoDialogueChoiceText(pid, HoverBranch, false))
+            call SetStoryText("[행동 상세 · 커서를 옮기면 사건 설명]|n|n" + ProtoDialogueChoiceText(pid, HoverBranch, false), storyTop, storyHeight)
         else
             set HoverBranch = 0
             if ProtoStage[pid] == 2 or ProtoStage[pid] == 3 then
-                call SetStoryText(ProtoDialogueStoryText(pid))
+                call SetStoryText(ProtoDialogueStoryText(pid), storyTop, storyHeight)
             endif
         endif
         call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1)
@@ -535,9 +551,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endif
         call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 120, "줄 진단 v1 · panel=" + I2S(ExpUIPanel) + " stage=" + I2S(ProtoStage[pid]) + " event=" + I2S(ProtoSelected[pid]) + " hover=" + I2S(HoverBranch))
         call LineTestLog("T1 534 원문", ProtoEventStory[534])
-        call LineTestLog("T1 534 처리", SpaceStoryParagraphs(ProtoEventStory[534]))
         call LineTestLog("T1 133 원문", ProtoEventStory[133])
-        call LineTestLog("T1 133 처리", SpaceStoryParagraphs(ProtoEventStory[133]))
         if ExpUIPanel == 9 and (ProtoStage[pid] == 2 or ProtoStage[pid] == 3) then
             call LineTestLog("T2 현재 원문", ProtoDialogueStoryText(pid))
             call LineTestLog("T2 프레임 스냅샷", DzFrameGetText(StoryText))
@@ -667,6 +681,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if gap != "" and S2R(gap) >= 0.010 and S2R(gap) <= 0.030 then
             set PitchGap = S2R(gap)
         endif
+        // em을 주지 않으면 실제 본문과 같은 화면 비율 보정값을 쓴다.
+        set StoryLineEm = STORY_EM_43 / ImagePixelAspect
         if em != "" and S2R(em) >= 0.6 and S2R(em) <= 1.6 then
             set StoryLineEm = S2R(em)
         endif
@@ -782,6 +798,14 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set StoryIcon = ExpUITexture(StoryPanel, 0.018, 0.045, 0.080, 0.080, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
         set StoryTitle = ExpUILabel(StoryPanel, 0.112, 0.048, 0.180, 0.070, 0.014, "")
         set StoryText = CreateStoryText()
+        set i = 0
+        loop
+            exitwhen i >= STORY_LINE_MAX
+            set StoryLineFrames[i] = ExpUILabel(StoryPanel, 0.018, 0.126, 0.284, 0.016, 0.011, "")
+            call JNFrameSetTextAlignment(StoryLineFrames[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+            call DzFrameShow(StoryLineFrames[i], false)
+            set i = i + 1
+        endloop
         call JNFrameSetTextAlignment(StoryTitle, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         call JNFrameSetTextAlignment(StoryText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set i = 1
