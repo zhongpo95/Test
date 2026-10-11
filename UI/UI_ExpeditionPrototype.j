@@ -21,6 +21,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer StoryTitle
         private integer StoryIcon
         private string StoryCached = ""
+        private integer LineTestRoot
+        private boolean LineTestVisible = false
         private integer StoryText
         private integer OutcomePanel
         private integer OutcomeHeading
@@ -500,6 +502,74 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endif
     endfunction
 
+    // 진단은 글을 읽고 로컬 비교 창만 표시한다. 사건 상태나 본문은 변경하지 않는다.
+    private function LineTestClose takes nothing returns nothing
+        if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+            set LineTestVisible = false
+            call DzFrameShow(LineTestRoot, false)
+        endif
+    endfunction
+
+    private function LineTestLog takes string label, string value returns nothing
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 120, label + " bytes=" + I2S(StringLength(value)) + " n=" + I2S(JNStringCount(value, "|n")))
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 120, JNStringReplace(value, "|n", "/N/"))
+    endfunction
+
+    private function LineTest takes nothing returns nothing
+        local integer pid = GetPlayerId(GetTriggerPlayer())
+        if GetTriggerPlayer() != GetLocalPlayer() or LineTestRoot == 0 then
+            return
+        endif
+        if LineTestVisible then
+            set LineTestVisible = false
+            call DzFrameShow(LineTestRoot, false)
+            return
+        endif
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 120, "줄 진단 v1 · panel=" + I2S(ExpUIPanel) + " stage=" + I2S(ProtoStage[pid]) + " event=" + I2S(ProtoSelected[pid]) + " hover=" + I2S(HoverBranch))
+        call LineTestLog("T1 534 원문", ProtoEventStory[534])
+        call LineTestLog("T1 534 처리", SpaceStoryParagraphs(ProtoEventStory[534]))
+        call LineTestLog("T1 133 원문", ProtoEventStory[133])
+        call LineTestLog("T1 133 처리", SpaceStoryParagraphs(ProtoEventStory[133]))
+        if ExpUIPanel == 9 and (ProtoStage[pid] == 2 or ProtoStage[pid] == 3) then
+            call LineTestLog("T2 현재 원문", ProtoDialogueStoryText(pid))
+            call LineTestLog("T2 프레임 스냅샷", DzFrameGetText(StoryText))
+        else
+            call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 120, "T2는 사건의 행동 선택 또는 결과 화면에서 다시 확인하세요.")
+        endif
+        set LineTestVisible = true
+        call DzFrameShow(LineTestRoot, true)
+    endfunction
+
+    private function BuildLineTest takes nothing returns nothing
+        local integer f
+        local integer i = 0
+        local string value = "가나다라|n마바사아"
+        set LineTestRoot = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
+        call DzFrameSetSize(LineTestRoot, 0.74, 0.24)
+        call DzFrameSetAbsolutePoint(LineTestRoot, JN_FRAMEPOINT_TOPLEFT, 0.03, 0.38)
+        call DzFrameSetPriority(LineTestRoot, 200)
+        set f = ExpUITexture(LineTestRoot, 0, 0, 0.74, 0.24, "war3mapImported\\UI_Arcana_Sheet.tga")
+        set f = ExpUILabel(LineTestRoot, 0.015, 0.012, 0.60, 0.024, 0.012, "")
+        call PaperText(f, "줄 진단 v1 · T3 빈 줄 비교", PAPER_TITLE)
+        set f = DzCreateFrameByTagName("GLUETEXTBUTTON", "", LineTestRoot, "ScriptDialogButton", FrameCount())
+        call PlaceCoverPart(f, LineTestRoot, 0.64, 0.008, 0.085, 0.028)
+        call DzFrameSetText(f, "닫기")
+        call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_UP, function LineTestClose, false)
+        loop
+            exitwhen i >= 3
+            set f = ExpUILabel(LineTestRoot, 0.015 + i * 0.24, 0.054, 0.22, 0.024, 0.011, "")
+            call PaperText(f, "빈 줄 " + I2S(i) + "개", PAPER_META)
+            set f = ExpUILabel(LineTestRoot, 0.015 + i * 0.24, 0.090, 0.22, 0.10, 0.011, "")
+            call JNFrameSetTextAlignment(f, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+            call PaperText(f, value, PAPER_BODY)
+            set value = JNStringReplace(value, "마바사아", "|n마바사아")
+            set i = i + 1
+        endloop
+        set f = ExpUILabel(LineTestRoot, 0.015, 0.205, 0.70, 0.025, 0.009, "")
+        call PaperText(f, "T1·T2는 F12 로그 확인 · 닫기 또는 -줄테스트 재입력 · 사냥 시간은 계속 흐릅니다.", PAPER_META)
+        call DzFrameShow(LineTestRoot, false)
+    endfunction
+
     private function Build takes nothing returns nothing
         local integer f
         local integer i = 0
@@ -614,6 +684,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set HuntStatus = ExpUILabel(HuntHUD, 0.012, 0.006, 0.376, 0.044, 0.0085, "")
         set HuntReady = ExpUIButton(HuntHUD, 0.125, 0.052, 0.164, 0.020, "준비 완료", 2500)
         call DzFrameShow(HuntHUD, false)
+        call BuildLineTest()
         call TriggerAddAction(ExpRefresh, function Render)
     endfunction
 
