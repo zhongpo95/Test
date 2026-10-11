@@ -1,4 +1,10 @@
 library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, DataPrototypeStats, JNCommon
+    globals
+        // 테스트 명령어 "-신속 숫자"로 고정한 신속 값. 켜져 있으면 재계산 때마다 장비 합산값을 덮어쓴다.
+        boolean array TestSwiftnessOn
+        real array TestSwiftness
+    endglobals
+
     function SkillSpeed takes integer pid returns real
         if ExpPrototypeActive and ExpMember[pid] then
             return RMinBJ(40.0, RMaxBJ(-80.0, Equip_Swiftness[pid] / 45.0 + Hero_BuffAttackSpeed[pid] + ProtoStat(pid, PROTO_STAT_ACTION)))
@@ -460,6 +466,10 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             endloop
         endif
 
+        if TestSwiftnessOn[pid] then
+            set Equip_Swiftness[pid] = TestSwiftness[pid]
+        endif
+
         //보석 피해증가
         set GemDamageRate = GemDamageRate * (1.0 + Equip_GemDamage[pid] / 100.0)
         set Equip_DP[pid] = Equip_DP[pid] * GemDamageRate
@@ -736,8 +746,32 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
     endfunction
     
     
+    // 테스트: 채팅 "-신속 숫자"로 신속을 그 값으로 고정, "-신속"만 치면 해제한다.
+    private function TestSwiftnessChat takes nothing returns nothing
+        local integer pid = GetPlayerId(GetTriggerPlayer())
+        local string s = GetEventPlayerChatString()
+        local string arg = JNStringSplit(s, " ", 1)
+        if JNStringSplit(s, " ", 0) != "-신속" then
+            return
+        endif
+        if arg == null or arg == "" then
+            set TestSwiftnessOn[pid] = false
+        else
+            set TestSwiftnessOn[pid] = true
+            set TestSwiftness[pid] = RMaxBJ(0.0, S2R(arg))
+        endif
+        call PlayerStatsSet(pid)
+        call ItemUIStatsSet(pid)
+        if TestSwiftnessOn[pid] then
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "[테스트] 신속 " + I2S(R2I(TestSwiftness[pid])) + " 고정 · 공격속도 " + I2S(R2I(100 + SkillSpeed(pid))) + "% · 쿨감 " + R2SW((1.0 - CooldownRate(pid)) * 100.0, 1, 2) + "%")
+        else
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "[테스트] 신속 고정 해제 · 장비 신속 " + I2S(R2I(Equip_Swiftness[pid])))
+        endif
+    endfunction
+
     private function init takes nothing returns nothing
         local trigger t
+        local integer i = 0
         //리셋 싱크
         set t = CreateTrigger()
         call DzTriggerRegisterSyncData(t, "리셋",false)
@@ -752,5 +786,14 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         set t = CreateTrigger()
         call DzTriggerRegisterSyncData(t, "해제",false)
         call TriggerAddAction(t,function EquipOFF)
+
+        set t = CreateTrigger()
+        set i = 0
+        loop
+            exitwhen i >= 12
+            call TriggerRegisterPlayerChatEvent(t, Player(i), "-신속", false)
+            set i = i + 1
+        endloop
+        call TriggerAddAction(t, function TestSwiftnessChat)
     endfunction
 endlibrary
