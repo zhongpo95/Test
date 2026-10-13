@@ -4,16 +4,27 @@ import hashlib
 import io
 import json
 import math
+import re
 import shutil
 import struct
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageChops
+from PIL import Image, ImageChops, ImageOps
 
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def normalize_card_art(image):
+    # 완전히 투명한 바깥 여백만 제거하고 얼굴이 있는 위쪽을 우선해 정사각형을 채운다.
+    box = image.getchannel('A').getbbox()
+    if box is None:
+        raise ValueError('Empty card illustration')
+    cropped = image.crop(box)
+    fitted = ImageOps.fit(cropped, (512, 512), Image.Resampling.LANCZOS, centering=(0.5, 0.0))
+    return fitted, list(box)
 
 
 def levels(image):
@@ -126,7 +137,10 @@ def main():
     p.add_argument('--source', type=Path, action='append', required=True)
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--quality', type=int, default=90)
+    p.add_argument('--normalize-card-art', action='store_true')
     args = p.parse_args()
+    registry = (Path(__file__).resolve().parents[1] / 'Data/Data_PrototypeCardImages.j').read_text(encoding='utf8') if args.normalize_card_art else ''
+    registered_art = set(re.findall(r'call SetImages\(\d+, "[^"]+", "([^"]+)"', registry))
     args.output.mkdir(parents=True, exist_ok=False)
     target = args.output / 'images' / 'war3mapImported'
     target.mkdir(parents=True)
@@ -151,6 +165,9 @@ def main():
         else:
             with Image.open(path) as im:
                 original = im.convert('RGBA')
+            if args.normalize_card_art and (path.stem in registered_art or (path.name.startswith('UI_Card_') and path.stem.endswith('_Art'))):
+                original, box = normalize_card_art(original)
+                row['cardArtCrop'] = box
             data = encode(original, args.quality)
             decoded, psnr, mip_count = decode_verify(data, original)
             out.write_bytes(data)

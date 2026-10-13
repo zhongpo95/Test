@@ -40,3 +40,14 @@ alpha = Image.new('RGBA', (16, 16), (20, 80, 160, 127))
 decoded, _, _ = converter.decode_verify(converter.encode(alpha, 90), alpha)
 assert decoded.getchannel('A').tobytes() == alpha.getchannel('A').tobytes()
 print('PASS: raw BGRA colors, four components, metadata, mipmaps, YCbCr rejection, alpha preservation')
+
+# 가로·세로 여백 제거와 정사각형 채우기, 여백 없는 그림의 보존을 확인한다.
+for box in [(0, 40, 512, 472), (100, 0, 412, 512)]:
+    padded = Image.new('RGBA', (512, 512))
+    padded.paste((255, 0, 0, 255), box)
+    fitted, crop = converter.normalize_card_art(padded)
+    assert crop == list(box) and fitted.size == (512, 512)
+    assert fitted.getchannel('A').getextrema() == (255, 255)
+unchanged = Image.new('RGBA', (512, 512), (10, 30, 50, 255))
+assert converter.normalize_card_art(unchanged)[0].tobytes() == unchanged.tobytes()
+print('PASS: card art transparent padding removal, square fill, unchanged full artwork')
