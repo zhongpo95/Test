@@ -7,10 +7,13 @@ globals
     //엔피씨
     unit array NPCUnit
     unit array NPCRoleDummy
-    private constant real NPC_TOWN_LEFT = -27840.00
-    private constant real NPC_TOWN_RIGHT = -24896.00
-    private constant real NPC_TOWN_BOTTOM = 24896.00
-    private constant real NPC_TOWN_TOP = 27840.00
+    //마을(로비) 방 범위. 이 안에서 걸을 수 있는 칸에만 NPC를 만든다
+    private constant real NPC_TOWN_LEFT = -28672.00
+    private constant real NPC_TOWN_RIGHT = -24064.00
+    private constant real NPC_TOWN_BOTTOM = 24448.00
+    private constant real NPC_TOWN_TOP = 28288.00
+    private real NPCSpawnX = 0.00
+    private real NPCSpawnY = 0.00
     //영웅타입
     boolean array UnitHeroCheck
     //대쉬모션번호
@@ -222,6 +225,30 @@ function DataUnitIndex takes unit u returns integer
         return 28
     endif
     return 0
+endfunction
+
+private function NPCTownWalkable takes real x, real y returns boolean
+    return not IsTerrainPathable(x, y, PATHING_TYPE_WALKABILITY) and GetTerrainType(x, y) != 'Oaby'
+endfunction
+
+//심연(Oaby)이나 못 걷는 칸을 피해 마을 안 임의 위치를 NPCSpawnX/Y 에 넣는다. 주변 96도 걸을 수 있어야 함
+private function NPCTownPickSpawn takes nothing returns nothing
+    local integer n = 0
+    local real x
+    local real y
+    loop
+        set x = GetRandomReal(NPC_TOWN_LEFT + 128.00, NPC_TOWN_RIGHT - 128.00)
+        set y = GetRandomReal(NPC_TOWN_BOTTOM + 128.00, NPC_TOWN_TOP - 128.00)
+        if NPCTownWalkable(x, y) and NPCTownWalkable(x + 96.00, y) and NPCTownWalkable(x - 96.00, y) and NPCTownWalkable(x, y + 96.00) and NPCTownWalkable(x, y - 96.00) then
+            set NPCSpawnX = x
+            set NPCSpawnY = y
+            return
+        endif
+        set n = n + 1
+        exitwhen n >= 200
+    endloop
+    set NPCSpawnX = (NPC_TOWN_LEFT + NPC_TOWN_RIGHT) / 2
+    set NPCSpawnY = (NPC_TOWN_BOTTOM + NPC_TOWN_TOP) / 2
 endfunction
 
 private function NPCRoleDummyFollowPeriodic takes nothing returns nothing
@@ -443,13 +470,15 @@ private function init takes nothing returns nothing
     //히마리 카드부여
     set UnitAbilityIndex[5] = 'h005'
     set UnitHeroCheck[5] = false
-    set NPCUnit[5]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h005', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 319)
+    call NPCTownPickSpawn()
+    set NPCUnit[5]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h005', NPCSpawnX, NPCSpawnY, 319)
     set NPCRoleDummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01M',GetUnitX(NPCUnit[5]), GetUnitY(NPCUnit[5]), 270)
     
     //유즈 장비강화
     set UnitAbilityIndex[6] = 'h006'
     set UnitHeroCheck[6] = false
-    set NPCUnit[6]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h006', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 335)
+    call NPCTownPickSpawn()
+    set NPCUnit[6]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h006', NPCSpawnX, NPCSpawnY, 335)
     set NPCRoleDummy[6] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01K', GetUnitX(NPCUnit[6]), GetUnitY(NPCUnit[6]), 270)
     
     //라이자 보스이동
@@ -469,14 +498,16 @@ private function init takes nothing returns nothing
     //유우카 창고
     set UnitAbilityIndex[9] = 'h00A'
     set UnitHeroCheck[9] = false
-    set NPCUnit[9]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00A', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 344)
+    call NPCTownPickSpawn()
+    set NPCUnit[9]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00A', NPCSpawnX, NPCSpawnY, 344)
     set NPCRoleDummy[9] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01N',GetUnitX(NPCUnit[9]), GetUnitY(NPCUnit[9]), 270)
     
     //미야코
     set UnitAbilityIndex[10] = 'h00C'
     set UnitHeroCheck[10] = false
     //set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', -27500, 27900, 244)
-    set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', NPCSpawnX, NPCSpawnY, 244)
     //set NPCRoleDummy[10] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01P',GetUnitX(NPCUnit[10]), GetUnitY(NPCUnit[10]), 270)
     
     //하나코
@@ -484,7 +515,8 @@ private function init takes nothing returns nothing
     set UnitHeroCheck[11] = false
     //set NPCUnit[11]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00D', -25733+1000, 28486-3565, 228)
     //call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01O',-25733+1000, 28486-3565, 270)
-    set NPCUnit[11]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00D', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 228)
+    call NPCTownPickSpawn()
+    set NPCUnit[11]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00D', NPCSpawnX, NPCSpawnY, 228)
     //set NPCRoleDummy[11] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01O',GetUnitX(NPCUnit[11]), GetUnitY(NPCUnit[11]), 270)
     
     //미카
@@ -492,7 +524,8 @@ private function init takes nothing returns nothing
     set UnitHeroCheck[12] = false
     //set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', -27500+1000, 27900-3565, 244)
     //call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',-27500+1000, 27900-3565, 270)
-    set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', NPCSpawnX, NPCSpawnY, 244)
     //set NPCRoleDummy[12] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',GetUnitX(NPCUnit[12]), GetUnitY(NPCUnit[12]), 270)
 
     //유유코
@@ -801,35 +834,43 @@ private function init takes nothing returns nothing
     //마리
     set UnitAbilityIndex[18] = 'h00V'
     set UnitHeroCheck[18] = false
-    set NPCUnit[18]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00V', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[18]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00V', NPCSpawnX, NPCSpawnY, 244)
     //미유
     set UnitAbilityIndex[19] = 'h00U'
     set UnitHeroCheck[19] = false
-    set NPCUnit[19]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00U', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[19]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00U', NPCSpawnX, NPCSpawnY, 244)
     //아리스
     set UnitAbilityIndex[20] = 'h00E'
     set UnitHeroCheck[20] = false
-    set NPCUnit[20]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[20]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', NPCSpawnX, NPCSpawnY, 244)
     //아즈사
     set UnitAbilityIndex[21] = 'h00Y'
     set UnitHeroCheck[21] = false
-    set NPCUnit[21]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00Y', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[21]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00Y', NPCSpawnX, NPCSpawnY, 244)
     //카요코
     set UnitAbilityIndex[22] = 'h00S'
     set UnitHeroCheck[22] = false
-    set NPCUnit[22]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00S', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[22]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00S', NPCSpawnX, NPCSpawnY, 244)
     //코코나
     set UnitAbilityIndex[23] = 'h00R'
     set UnitHeroCheck[23] = false
-    set NPCUnit[23]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00R', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[23]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00R', NPCSpawnX, NPCSpawnY, 244)
     //호시노
     set UnitAbilityIndex[24] = 'h00W'
     set UnitHeroCheck[24] = false
-    set NPCUnit[24]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00W', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[24]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00W', NPCSpawnX, NPCSpawnY, 244)
     //히나
     set UnitAbilityIndex[25] = 'h00X'
     set UnitHeroCheck[25] = false
-    set NPCUnit[25]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00X', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    call NPCTownPickSpawn()
+    set NPCUnit[25]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00X', NPCSpawnX, NPCSpawnY, 244)
     
 
 

@@ -1,0 +1,74 @@
+library BGMSound
+    globals
+        // 초기값 필수: 한 번도 PSound 를 부르지 않은 상태에서 읽으면 그 스레드가 멈춘다 (아쳐 종료 처리가 끊기던 원인)
+        string BGMSound = ""
+    endglobals
+    function PSound takes string s returns nothing
+        call StopMusic(false)
+        call PlayMusic(s)
+        set BGMSound = s
+    endfunction
+endlibrary
+
+library PSound requires Tick
+
+    private struct FxSt
+        unit caster
+        integer i
+        real r
+        method stop takes nothing returns nothing
+            set caster = null
+            set i = 0
+            set r = 0
+            call this.destroy()
+        endmethod
+    endstruct
+
+    globals
+        private constant integer NeutralCode = PLAYER_NEUTRAL_PASSIVE
+        //더미
+        private constant integer DummyCode = 'h001'
+    endglobals
+    function Sound3D takes unit u, integer s returns nothing
+        local unit A = CreateUnit(Player(NeutralCode),DummyCode,GetWidgetX(u),GetWidgetY(u),0)
+        call UnitAddAbility(A,s)
+        call IssueImmediateOrder( A, "berserk" )
+        call UnitApplyTimedLife(A, 'BHwe', 1)
+        set A = null
+    endfunction
+    function Sound3DXY takes real x, real y, integer s returns nothing
+        local unit A = CreateUnit(Player(NeutralCode),DummyCode,x,y,0)
+        call UnitAddAbility(A,s)
+        call IssueImmediateOrder( A, "berserk" )
+        call UnitApplyTimedLife(A, 'BHwe', 1)
+        set A = null
+    endfunction
+
+
+    private function EffectFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local FxSt fx = t.data
+        local unit A = CreateUnit(Player(NeutralCode),DummyCode,GetWidgetX(fx.caster),GetWidgetY(fx.caster),0)
+
+        call UnitAddAbility(A,fx.i)
+        call IssueImmediateOrder( A, "berserk" )
+        call UnitApplyTimedLife(A, 'BHwe', 1)
+        set A = null
+
+        call fx.stop()
+        call t.destroy()
+    endfunction
+
+    function Sound3DT takes unit u, integer s, real r returns nothing
+        local tick t
+        local FxSt fx
+
+        set t = tick.create(0)
+        set fx = FxSt.create()
+        set fx.caster = u
+        set fx.i = s
+        set t.data = fx
+
+        call t.start( r, false, function EffectFunction )
+    endfunction
+endlibrary

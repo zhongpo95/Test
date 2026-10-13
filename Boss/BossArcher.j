@@ -192,7 +192,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         // 2페이즈 템포: 쿨다운·패턴 사이 휴식 배율
         private constant real PHASE2_COOL_RATE = 0.8
         // 패턴 사이 휴식은 영웅 스킬 묶임(1~3초)을 고려해 줄이지 않는다
-        private constant real PHASE2_REST_RATE = 1.0
+        // 2페이즈는 쉬지 않는다: 휴식 1.2/2.5초 → 0.6/1.25초
+        private constant real PHASE2_REST_RATE = 0.5
         // 패턴 뒤 휴식: 짧은 패턴 / 큰 패턴. 영웅이 0.4~0.8초 뒤 맞히고 1~3초 묶이는 것을 기준으로 잡았다
         private constant real REST_SHORT = 1.2
         private constant real REST_BIG = 2.5
@@ -200,7 +201,53 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         private constant real COMBO_GAP = 1.5
         // 카운터 판정 정면 각도 (돌진형 카운터 스킬이 빗나가지 않게 기본 ±45 보다 넓힌다)
         private constant real COUNTER_ARC = 60
-        private constant integer PAT_MAX = 14
+        // 원정 프로토타입 시험 보스 체력 (1명당, 예전 세리아와 같음)
+        private constant real EXP_TEST_BOSS_HP = 12000
+        private timer ExpChainTimer = CreateTimer()
+        private constant integer PAT_MAX = 22
+        // ===== 1페이즈: 진지하지 않은 궁수 (영령 에미야) =====
+        // 1페이즈 최대 체력 = 2페이즈의 이 비율. 결계 전개 때 2페이즈 최대 체력으로 가득 채운다
+        private constant real P1_HP_RATE = 0.5
+        // 1페이즈 피해 배율 / 패턴 사이 휴식 배율 (여유)
+        private constant real P1_DMG_RATE = 0.7
+        private constant real P1_REST_RATE = 1.6
+        // 이 거리 안에 붙으면 쌍검으로 받아친 뒤 뒤로 도약
+        private constant real P1_CLOSE = 350
+        // 후퇴 도약: 거리, 시간, 최고 높이
+        private constant real LEAP_DIST = 600
+        private constant real LEAP_TIME = 0.45
+        private constant real LEAP_HEIGHT = 220
+        // 조준 사격 (빠른 단발)
+        private constant real AIM_TELL = 0.7
+        private constant real DMG_AIMED = 200
+        // 화살 비: 대상 주변 원 3개 (반경), 예고, 피해
+        private constant real ARAIN_R = 160
+        private constant real ARAIN_TELL = 1.2
+        private constant real DMG_ARAIN = 160
+        // ===== 2페이즈: 무한의 검제 (냉정한 섬멸) =====
+        // 체력 구간 기믹: 75% 로 아이아스(제한 시간), 50% 칼라드볼그 II(전장 끝 장거리 저격), 25% 전검 사출. 기믹이 풀릴 때까지 그 줄에서 체력이 멈춘다
+        private constant real RHO_TIME_P1 = 4.0
+        private constant real RHO_TIME_G = 10.0
+        private constant real RHO_GROGGY_G = 6.0
+        private constant real CAL2_MOVE = 0.7
+        private constant real CAL2_AIM = 3.0
+        private constant real CAL2_LOCK = 0.5
+        private constant real CAL2_GROGGY = 5.0
+        private constant real DMG_CAL2 = 600
+        // 10% 아래 마지막 발악: 휴식·재사용 대기 배율
+        private constant real LAST_RATE = 0.6
+        // 결계 장식 검 (줍거나 쓰지 않는 검, 전장을 빽빽하게 보이게)
+        private constant integer DECOR_COUNT = 24
+        // 꽂힌 검이 핵심 (2페이즈): AMB_EVERY ± 2초마다 아쳐가 플레이어 가까이 꽂힌 검(엄폐물)을 부서진 환상으로 터뜨린다.
+        // 붉은 원 예고(PHANTASM_WARN 초, 원 = 판정 반경 PHANTASM_RADIUS) → 폭발. 엄폐물이 바뀌므로 매번 "어느 검 뒤에 설지"를 다시 고른다.
+        // 터진 뒤 AMB_CHAIN 초에 붉은 사냥개나 검의 사출이 이어진다 (남은 검 뒤로 숨기). 검의 강하가 새 검(새 엄폐물)을 꽂는다
+        private constant real AMB_EVERY = 12.0
+        private constant real AMB_NEAR = 700
+        private constant integer AMB_EXTRA = 2
+        private constant real AMB_CHAIN = 0.5
+        // 2페이즈 환경 패턴(검의 비·부서진 환상·검의 사출·검의 강하) 중에도 아쳐가 직접 쏘는 견제 화살: 간격, 예고
+        private constant real SIDE_EVERY = 2.2
+        private constant real SIDE_TELL = 0.6
 
         // ===== 무한의 검제: 고유 결계 규칙 =====
         // 결계는 2페이즈 내내 유지된다 (깨지는 기믹 없음)
@@ -423,6 +470,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         unit entrance = null
         party ul
         integer rect = 0
+        // 원정 프로토타입 시험 보스로 열렸는가 (결과 화면 대신 원정에 결과를 넘긴다)
+        boolean exp = false
         integer state = ARCHER_READY
         real now = 0
         tick t
@@ -450,10 +499,43 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         real patStart = 0
         real nextSelect = 0
         integer lastPat = 0
+        // 그 전 패턴 (같은 패턴·거의 같은 흐름이 이어지지 않게 최근 2개를 피한다)
+        integer lastPat2 = 0
         integer introIdx = 0
         integer combo = 0
         integer rainUsed = 0
-        real array readyAt[18]
+        real array readyAt[24]
+        // 꽂힌 검 폭발 주기·이어 쓰기 시각·번갈아 쓸 패턴
+        real ambAt = 0
+        real ambFire = 0
+        boolean ambAlt = false
+        boolean ambHint = false
+        // 견제 화살 (예고 시각·발사 시각·방향·출발점), 도약 방식 (0 뒤로, 1 옆으로 자리 바꾸기)
+        real sideAt = 0
+        real sideFire = 0
+        real sideAng = 0
+        real sideX = 0
+        real sideY = 0
+        integer leapMode = 0
+        // 결계 전개 불꽃 고리 (발밑에서 전장 끝까지 퍼진다), 장식 검
+        effect ringFx = null
+        effect array decor[24]
+        // 체력 구간 기믹 단계(0~3)·진행 중 기믹(0 없음, 1 로 아이아스, 2 칼라드볼그 II, 3 전검 사출)·마지막 발악
+        integer gStage = 0
+        integer gimmick = 0
+        boolean desperate = false
+        boolean calBreak = false
+        real rhoTime = 6.0
+        // 근접 연격 뒤 이어 쓸 패턴 (학익삼련)
+        integer chainNext = 0
+        // 빛나는 검 줍기 자막 (사람마다 30초에 한 번)
+        real array pickMsg[6]
+        // 2페이즈 최대 체력 (1페이즈는 그 절반)
+        real fullHP = 0
+        // 1페이즈 칼라드볼그 경고 사격 횟수, 근접 대응 뒤 도약 예약, 연사 직선 모드
+        integer caladP1 = 0
+        boolean leapNext = false
+        boolean vLine = false
         // 무한의 검제 상태
         boolean ubw = false
         // 전검 사출을 이미 썼는지
@@ -671,17 +753,79 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         endif
     endfunction
 
-    // 방향 고정: 다른 보스와 같이 SetUnitFacing + EXSetUnitFacing 뒤 제자리 SetUnitPosition 으로 반영한다
     // 보스 이동은 SetUnitPosition 으로만 한다. 메뚜기(Aloc) 유닛은 SetUnitX/Y 로 옮기면 화면·판정 위치가 안 바뀌어
-    // 보스가 안 움직이고 영웅 스킬도 안 맞는다 (시험 확인). 회전할 때는 위치를 다시 잡지 않는다 (ApplyFacing)
+    // 보스가 안 움직이고 영웅 스킬도 안 맞는다 (시험 확인)
+    // 전장 바닥은 사각형이 아니라 모서리가 계단처럼 잘린 팔각형이다 (월드 에디터 경로 표시: 바깥은 걸을 수 없음).
+    // 보스는 비행 유닛이라 경로에 막히지 않으므로, 점과 그 둘레 150 네 점이 모두 걸을 수 있는 땅인지 직접 본다
+    globals
+        private real ArenaPX = 0
+        private real ArenaPY = 0
+    endglobals
+
+    private function ArenaOK takes real x, real y returns boolean
+        if IsTerrainPathable(x, y, PATHING_TYPE_WALKABILITY) then
+            return false
+        endif
+        if IsTerrainPathable(x + 150, y, PATHING_TYPE_WALKABILITY) or IsTerrainPathable(x - 150, y, PATHING_TYPE_WALKABILITY) then
+            return false
+        endif
+        if IsTerrainPathable(x, y + 150, PATHING_TYPE_WALKABILITY) or IsTerrainPathable(x, y - 150, PATHING_TYPE_WALKABILITY) then
+            return false
+        endif
+        return true
+    endfunction
+
+    // (x, y) 가 바닥 밖이면 전장 가운데 쪽으로 32 씩 당겨 바닥 안 가장 가까운 점을 ArenaPX/ArenaPY 에 넣는다
+    private function ArenaPull takes ArcherFight f, real x, real y returns nothing
+        local real cx = f.arenaCX()
+        local real cy = f.arenaCY()
+        local real d = SquareRoot((x - cx) * (x - cx) + (y - cy) * (y - cy))
+        local real a = Atan2(y - cy, x - cx)
+        if ArenaOK(x, y) then
+            set ArenaPX = x
+            set ArenaPY = y
+            return
+        endif
+        loop
+            exitwhen d <= 0 or ArenaOK(cx + d * Cos(a), cy + d * Sin(a))
+            set d = d - 32
+        endloop
+        if d < 0 then
+            set d = 0
+        endif
+        set ArenaPX = cx + d * Cos(a)
+        set ArenaPY = cy + d * Sin(a)
+    endfunction
+
     private function BossMoveTo takes ArcherFight f, real x, real y returns nothing
+        // 전장 바닥 안으로: 사각형(가장자리 150)으로 자른 뒤 잘린 모서리는 ArenaPull 로 당긴다. 모든 보스 이동이 이 함수를 지난다
+        local rect r = MapRectReturn(f.rect)
+        if r != null then
+            if x < GetRectMinX(r) + 150 then
+                set x = GetRectMinX(r) + 150
+            elseif x > GetRectMaxX(r) - 150 then
+                set x = GetRectMaxX(r) - 150
+            endif
+            if y < GetRectMinY(r) + 150 then
+                set y = GetRectMinY(r) + 150
+            elseif y > GetRectMaxY(r) - 150 then
+                set y = GetRectMaxY(r) - 150
+            endif
+            // 잘린 모서리(걸을 수 없는 땅)면 가운데 쪽으로 당긴다
+            call ArenaPull(f, x, y)
+            set x = ArenaPX
+            set y = ArenaPY
+        endif
+        set r = null
         call SetUnitPosition(f.boss, x, y)
     endfunction
 
-    // 방향만 바꾼다. 예전에는 제자리 SetUnitPosition 을 같이 불러서, 대상을 따라 돌 때 붙어 있는 영웅 반대쪽으로 보스가 밀렸다
+    // 방향 바꾸기: 멈춘(Pause) 유닛은 방향만 바꾸면 화면이 안 돌아가서 제자리 SetUnitPosition 으로 바로 돌린다.
+    // 보스가 비행 유닛(높이 0)이라 지상 영웅과 몸 충돌이 없어, 붙어 있는 영웅 쪽으로 밀리지 않는다
     private function ApplyFacing takes ArcherFight f returns nothing
         call SetUnitFacing(f.boss, f.face)
         call EXSetUnitFacing(f.boss, f.face)
+        call SetUnitPosition(f.boss, GetUnitX(f.boss), GetUnitY(f.boss))
     endfunction
 
     private function Face takes ArcherFight f, real a returns nothing
@@ -1080,6 +1224,10 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     // 피해 판정 (이 전투 참가자만 대상)
     // ======================================================================
     private function Deal takes ArcherFight f, unit u, real dmg, boolean stun returns nothing
+        // 1페이즈는 진지하지 않다: 피해를 줄인다
+        if f.state == ARCHER_PHASE1 then
+            set dmg = dmg * P1_DMG_RATE
+        endif
         call BossDeal(f.boss, u, dmg, stun)
     endfunction
 
@@ -1285,8 +1433,29 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                     set f.py[i] = oy + PolarY(step, f.pdir[i])
                     set f.ptrav[i] = f.ptrav[i] + step
                     call EXSetEffectXY(f.pe[i], f.px[i], f.py[i])
+                    // 칼라드볼그 II: 꽂힌 검이 화살을 막는다 (검도 부서짐)
+                    if f.pat == 21 and f.pk[i] == 2 then
+                        set wi = 0
+                        loop
+                            exitwhen wi >= UBW_STUCK_COUNT
+                            if f.stuck[wi] != null and DistancePBP(f.px[i], f.py[i], f.sx[wi], f.sy[wi]) <= 80 then
+                                call FxAt(FX_SNIPE_BOOM, f.sx[wi], f.sy[wi], 1.0, f.pdir[i])
+                                call FxAt(FX_FLASH_WHITE, f.sx[wi], f.sy[wi], 5.0, 0)
+                                call FxAt(FX_SPARKS, f.sx[wi], f.sy[wi], 1.4, 0)
+                                call SwordFxRemove(f.stuck[wi])
+                                set f.stuck[wi] = null
+                                if f.sGlow[wi] != null then
+                                    call DestroyEffect(f.sGlow[wi])
+                                    set f.sGlow[wi] = null
+                                endif
+                                call ProjKill(f, i)
+                                set wi = UBW_STUCK_COUNT
+                            endif
+                            set wi = wi + 1
+                        endloop
+                    endif
                     // 칼날의 숲 벽에 닿은 화살·저격탄은 막힌다 (벽 뒤에 숨기)
-                    if f.forestOn and f.pk[i] != 1 then
+                    if f.forestOn and f.pk[i] != 1 and f.pk[i] != 0 then
                         set wi = 0
                         loop
                             exitwhen wi >= f.kn
@@ -1421,7 +1590,11 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set f.combo = 0
         set f.dashLeft = 0
         set f.rainSnipe = false
+        if f.boss != null then
+            call SetUnitFlyHeight(f.boss, 0, 0)
+        endif
         set f.forestOn = false
+        set f.sideFire = 0
         set f.kn = 0
         set f.target = null
         if f.boss != null then
@@ -1569,7 +1742,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         endloop
     endfunction
 
-    // 하늘의 톱니바퀴 4개: 전장 네 귀퉁이 위 높이 900, 비스듬히 기울여 천천히 돈다
+    // 하늘의 톱니바퀴 4개: 카메라는 남쪽에서 북쪽을 보므로, 전장 바닥 위나 남쪽에 두면 화면을 가린다.
+    // 바닥 북쪽 끝 너머(바깥) 하늘 높이에 나란히 걸어 배경으로만 보이게 한다
     private function GearsCreate takes ArcherFight f returns nothing
         local rect r = MapRectReturn(f.rect)
         local integer i = 0
@@ -1578,14 +1752,14 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         loop
             exitwhen i >= 4
             if f.gear[i] == null then
-                set x = f.arenaCX() + PolarX((GetRectMaxX(r) - GetRectMinX(r)) * 0.35, 45 + 90 * i)
-                set y = f.arenaCY() + PolarY((GetRectMaxY(r) - GetRectMinY(r)) * 0.35, 45 + 90 * i)
+                set x = f.arenaCX() + (i - 1.5) * (GetRectMaxX(r) - GetRectMinX(r)) * 0.3
+                set y = GetRectMaxY(r) + 500 + 250 * ModuloInteger(i, 2)
                 set f.gear[i] = AddSpecialEffect(FX_GEAR, x, y)
-                call EXSetEffectSize(f.gear[i], 6.0 + i)
-                call EXEffectMatRotateX(f.gear[i], 60)
-                call EXEffectMatRotateZ(f.gear[i], 45 + 90 * i)
+                call EXSetEffectSize(f.gear[i], 4.5 + 0.5 * i)
+                call EXEffectMatRotateX(f.gear[i], 70)
+                call EXEffectMatRotateZ(f.gear[i], -15 + 10 * i)
                 call MoveLocation(TmpLoc, x, y)
-                call EXSetEffectZ(f.gear[i], GetLocationZ(TmpLoc) + 900)
+                call EXSetEffectZ(f.gear[i], GetLocationZ(TmpLoc) + 1100 + 150 * i)
             endif
             set i = i + 1
         endloop
@@ -1607,6 +1781,19 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     private function StuckSwordsDestroy takes ArcherFight f returns nothing
         local integer i = 0
         call GearsDestroy(f)
+        loop
+            exitwhen i >= DECOR_COUNT
+            if f.decor[i] != null then
+                call SwordFxRemove(f.decor[i])
+                set f.decor[i] = null
+            endif
+            set i = i + 1
+        endloop
+        set i = 0
+        if f.ringFx != null then
+            call DestroyEffect(f.ringFx)
+            set f.ringFx = null
+        endif
         loop
             exitwhen i >= UBW_STUCK_COUNT
             call StuckSwordRemove(f, i)
@@ -1650,8 +1837,15 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     // 패턴 시작·종료
     // ======================================================================
     private function PatternEnd takes ArcherFight f, real rest returns nothing
+        // 도약 중 끊겨도 공중에 떠 있지 않게
+        call SetUnitFlyHeight(f.boss, 0, 0)
         if f.state == ARCHER_PHASE2 then
             set rest = rest * PHASE2_REST_RATE
+            if f.desperate then
+                set rest = rest * LAST_RATE
+            endif
+        elseif f.state == ARCHER_PHASE1 and not f.leapNext then
+            set rest = rest * P1_REST_RATE
         endif
         call ClearDecals(f)
         call ClearMark(f)
@@ -1667,10 +1861,15 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     // 패턴 이름 (보스 머리 위에 표시)
     private function PatName takes ArcherFight f, integer id returns string
         if id == 1 then
-            if f.state == ARCHER_PHASE2 then
-                return "연사"
-            endif
+            return "연사"
+        elseif id == 15 then
+            return "조준 사격"
+        elseif id == 17 then
+            return "화살 비"
+        elseif id == 18 then
             return "간장·막야 연격"
+        elseif id == 21 then
+            return "칼라드볼그 II"
         elseif id == 2 then
             return "회귀하는 쌍검"
         elseif id == 3 then
@@ -1714,10 +1913,10 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             call DestroyTextTag(f.patTag)
         endif
         set f.patTag = CreateTextTag()
-        if id == 16 then
+        if id == 16 or id == 21 or (id == 8 and f.gimmick == 1) then
             call SetTextTagText(f.patTag, n, 0.036)
             call SetTextTagColor(f.patTag, 255, 60, 60, 255)
-        elseif id == 4 or id == 5 or id == 6 or id >= 8 then
+        elseif id == 4 or id == 5 or id == 6 or (id >= 8 and id <= 14) then
             call SetTextTagText(f.patTag, n, 0.030)
             call SetTextTagColor(f.patTag, 255, 150, 40, 255)
             if id == 4 or id == 6 or id == 11 or id == 12 or id == 14 then
@@ -1749,6 +1948,20 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
 
     private function StartPattern takes ArcherFight f, integer id returns nothing
         local real a
+        if id == 3 and f.state == ARCHER_PHASE1 then
+            set f.caladP1 = f.caladP1 + 1
+        endif
+        set f.leapMode = 0
+        if id == 22 then
+            set f.leapMode = 1
+        endif
+        if id == 8 then
+            if f.state == ARCHER_PHASE1 then
+                set f.rhoTime = RHO_TIME_P1
+            else
+                set f.rhoTime = RHO_TIME
+            endif
+        endif
         if f.walking then
             set f.walking = false
             call AnimIdle(f)
@@ -1758,19 +1971,20 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set f.patStart = f.now
         call ShowPatName(f, id)
         if f.combo == 0 then
-            if f.state == ARCHER_PHASE2 then
+            if f.state == ARCHER_PHASE2 and f.desperate then
+                set f.readyAt[id] = f.now + PatCool[id] * PHASE2_COOL_RATE * LAST_RATE
+            elseif f.state == ARCHER_PHASE2 then
                 set f.readyAt[id] = f.now + PatCool[id] * PHASE2_COOL_RATE
             else
                 set f.readyAt[id] = f.now + PatCool[id]
             endif
+        endif
+        if f.combo == 0 and id != f.lastPat then
+            set f.lastPat2 = f.lastPat
             set f.lastPat = id
         endif
         set f.snipeLeft = 0
         set f.wave = 0
-        if f.state == ARCHER_PHASE2 and not f.saidKeepUp and f.now >= f.voiceUntil then
-            set f.saidKeepUp = true
-            call Voice(f, VO_KEEPUP, VO_KEEPUP_T)
-        endif
         if f.hit == 0 then
             set f.hit = party.create()
         endif
@@ -1786,6 +2000,9 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     // 대상 거리에 맞춘 가중치: 바로 앞 대상에게 저격하거나, 아무도 없는 곳에 검의 포위를 펼치지 않게
     private function PatWeightAt takes ArcherFight f, integer i, real d returns integer
         local integer w = PatWeight[i]
+        if f.desperate and i == 11 then
+            set w = w * 3
+        endif
         if i == 3 and d < 350 then
             // 칼라드볼그: 붙어 있으면 거의 쓰지 않는다
             return w / 4
@@ -1802,6 +2019,48 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         return w
     endfunction
 
+    // 페이즈별 사용 패턴
+    //  1페이즈(궁수): 연사 1, 회귀 쌍검 2, 칼라드볼그 경고 사격 3(중반 이후 2번까지), 조준 사격 15, 화살 비 17,
+    //                 붙었을 때만: 심안·역습 4, 로 아이아스 8, 간장·막야 연격 18 (끝나면 뒤로 도약 19)
+    //  2페이즈(무한의 검제): 1·2·3·5~13, 붙었을 때 4·18. 투영 복제 14 는 쓰지 않는다(코드만 둠)
+    private function PatAllowed takes ArcherFight f, integer i, real d returns boolean
+        local integer idx = IndexUnit(f.boss)
+        if i == 19 or (i == 22 and f.state != ARCHER_PHASE2) then
+            return false
+        endif
+        if f.state == ARCHER_PHASE1 then
+            if i == 1 or i == 2 or i == 15 or i == 17 then
+                return true
+            elseif i == 3 then
+                return f.caladP1 < 2 and UnitHP[idx] <= UnitHPMAX[idx] * 0.55
+            elseif i == 4 or i == 8 or i == 18 then
+                return d < P1_CLOSE
+            endif
+            return false
+        endif
+        // 로 아이아스(8)는 2페이즈 순환에서 뺀다 (75% 체력 기믹으로만 나온다)
+        if i == 8 or i == 14 or i == 17 or i == 20 or i == 21 then
+            return false
+        endif
+        // 2페이즈 몸으로 싸우기: 멀면 빠른 조준 사격, 자리 바꾸기 도약(22), 붙으면 쌍검·심안
+        if i == 15 then
+            return d > 600
+        endif
+        if i == 22 then
+            return true
+        endif
+        if i == 4 or i == 18 then
+            return d < P1_CLOSE
+        endif
+        if not f.ubw and (i == 5 or i == 7 or i == 9 or i >= 11) then
+            return false
+        endif
+        if i == 7 and UnitHP[idx] > UnitHPMAX[idx] * 0.30 then
+            return false
+        endif
+        return true
+    endfunction
+
     // 다음 패턴 선택: 상태·전환 예약·쿨다운 확인 → 직전 패턴 제외 → 가중치 추첨 (대상 거리 반영)
     private function SelectPattern takes ArcherFight f returns nothing
         local integer i = 1
@@ -1809,6 +2068,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         local integer n = 0
         local integer roll
         local integer last = f.lastPat
+        local integer last2 = f.lastPat2
+        local integer n2 = 0
         local boolean ok
         local unit u
         local real d = 500
@@ -1831,10 +2092,28 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             return
         endif
 
-        // 첫 전투 첫 바퀴는 A1 → A2 → A3 순서로 보여 준다
+        if f.chainNext != 0 then
+            set i = f.chainNext
+            set f.chainNext = 0
+            call StartPattern(f, i)
+            return
+        endif
+        // 1페이즈 근접 대응 뒤, 또는 코앞에 붙었을 때: 뒤로 도약
+        if f.leapNext or (d < 200 and f.now >= f.readyAt[19] and f.lastPat != 19) then
+            set f.leapNext = false
+            call StartPattern(f, 19)
+            return
+        endif
+        // 첫 바퀴는 궁수답게 조준 사격 → 연사 → 화살 비 순서로 보여 준다
         if f.state == ARCHER_PHASE1 and f.introIdx < 3 then
             set f.introIdx = f.introIdx + 1
-            call StartPattern(f, f.introIdx)
+            if f.introIdx == 1 then
+                call StartPattern(f, 15)
+            elseif f.introIdx == 2 then
+                call StartPattern(f, 1)
+            else
+                call StartPattern(f, 17)
+            endif
             return
         endif
 
@@ -1842,37 +2121,31 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         loop
             exitwhen i > PAT_MAX
             set ok = f.now >= f.readyAt[i]
-            if i >= 5 and f.state != ARCHER_PHASE2 then
+            if ok and not PatAllowed(f, i, d) then
                 set ok = false
             endif
-            // 결계가 있어야 쓰는 패턴 (검의 비, 검제 연속 공격, 부서진 환상, 학익삼련, 검의 사출, 칼날의 숲, 투영 복제)
-            if not f.ubw and (i == 5 or i == 7 or i == 9 or i >= 11) then
-                set ok = false
-            endif
-            if i == 7 and UnitHP[IndexUnit(f.boss)] > UnitHPMAX[IndexUnit(f.boss)] * 0.30 then
-                set ok = false
-            endif
-            if ok then
+            if ok and i != last then
                 set n = n + 1
+                if i != last2 then
+                    set n2 = n2 + 1
+                endif
             endif
             set i = i + 1
         endloop
-        if n <= 1 then
+        // 최근 두 패턴을 빼고 남는 게 없으면 직전 하나만, 그것도 없으면 제한 없이
+        if n2 == 0 then
+            set last2 = 0
+        endif
+        if n == 0 then
             set last = 0
+            set last2 = 0
         endif
 
         set i = 1
         loop
             exitwhen i > PAT_MAX
-            set ok = f.now >= f.readyAt[i] and i != last
-            if i >= 5 and f.state != ARCHER_PHASE2 then
-                set ok = false
-            endif
-            // 결계가 있어야 쓰는 패턴 (검의 비, 검제 연속 공격, 부서진 환상, 학익삼련, 검의 사출, 칼날의 숲, 투영 복제)
-            if not f.ubw and (i == 5 or i == 7 or i == 9 or i >= 11) then
-                set ok = false
-            endif
-            if i == 7 and UnitHP[IndexUnit(f.boss)] > UnitHPMAX[IndexUnit(f.boss)] * 0.30 then
+            set ok = f.now >= f.readyAt[i] and i != last and i != last2
+            if ok and not PatAllowed(f, i, d) then
                 set ok = false
             endif
             if ok then
@@ -1888,15 +2161,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set i = 1
         loop
             exitwhen i > PAT_MAX
-            set ok = f.now >= f.readyAt[i] and i != last
-            if i >= 5 and f.state != ARCHER_PHASE2 then
-                set ok = false
-            endif
-            // 결계가 있어야 쓰는 패턴 (검의 비, 검제 연속 공격, 부서진 환상, 학익삼련, 검의 사출, 칼날의 숲, 투영 복제)
-            if not f.ubw and (i == 5 or i == 7 or i == 9 or i >= 11) then
-                set ok = false
-            endif
-            if i == 7 and UnitHP[IndexUnit(f.boss)] > UnitHPMAX[IndexUnit(f.boss)] * 0.30 then
+            set ok = f.now >= f.readyAt[i] and i != last and i != last2
+            if ok and not PatAllowed(f, i, d) then
                 set ok = false
             endif
             if ok and PatWeightAt(f, i, d) > 0 then
@@ -1921,7 +2187,33 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     endfunction
 
     // 패턴 하나가 끝났을 때. A7 진행 중이면 다음 단계로 넘긴다
+    // 체력 구간 기믹: 그 줄에서 체력이 멈추게 한다 / 풀어 준다 (기믹이 풀리는 순간 바로 푼다)
+    private function GimmickFloor takes ArcherFight f, real rate returns nothing
+        local integer idx = IndexUnit(f.boss)
+        set UnitHPFloorOn[idx] = true
+        set UnitHPFloor[idx] = UnitHPMAX[idx] * rate
+        if UnitHP[idx] < UnitHPFloor[idx] then
+            set UnitHP[idx] = UnitHPFloor[idx]
+        endif
+    endfunction
+
+    private function GimmickRelease takes ArcherFight f returns nothing
+        local integer idx = IndexUnit(f.boss)
+        if f.state == ARCHER_PHASE2 then
+            set UnitHPFloorOn[idx] = false
+        endif
+        set f.gimmick = 0
+    endfunction
+
     private function PatternDone takes ArcherFight f, real rest returns nothing
+        if f.gimmick != 0 then
+            call GimmickRelease(f)
+        endif
+        // 2페이즈: 쌍검 연격 뒤 학익삼련으로 잇는다
+        if f.state == ARCHER_PHASE2 and f.pat == 18 and f.now >= f.readyAt[11] and f.ubw then
+            set f.chainNext = 11
+            set rest = 0.5
+        endif
         if f.combo == 1 then
             // 다음 단계(저격)는 COMBO_GAP 뒤 SelectPattern 에서 시작
             set f.combo = 2
@@ -1936,6 +2228,11 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             call AnimDown(f)
             set f.holdUntil = f.now + 3.0
         else
+            // 1페이즈: 쌍검으로 받아친 뒤에는 곧바로 뒤로 도약해 거리를 벌린다
+            if f.state == ARCHER_PHASE1 and (f.pat == 18 or f.pat == 4 or f.pat == 8) then
+                set f.leapNext = true
+                set rest = 0.3
+            endif
             call PatternEnd(f, rest)
         endif
     endfunction
@@ -2002,6 +2299,12 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         elseif f.step == 2 and el >= 1.8 then
             call HitFan(f, bx, by, f.ang, SLASH_RANGE, SLASH_HALF, DMG_SLASH, false)
             call FxCut(bx, by, f.ang, 0, -15, SLASH_RANGE, true)
+            if f.state == ARCHER_PHASE2 then
+                // 쌍검이 부서지고 곧바로 새로 투영한다 (파편 + 푸른 빛)
+                call FxAt(FX_SPARKS, bx + PolarX(80, f.ang), by + PolarY(80, f.ang), 1.2, f.ang)
+                call FxAt(FX_FLASH_WHITE, bx + PolarX(60, f.ang), by + PolarY(60, f.ang), 3.0, 0)
+                call FxAt(FX_TRACE_CAST, bx, by, 0.35, 0)
+            endif
             call FxHitSmall(bx + PolarX(260, f.ang), by + PolarY(260, f.ang), f.ang)
             // 마지막 돌진 방향 고정. 이후 대상을 추적하지 않는다
             if MemAlive(f.target) then
@@ -2530,16 +2833,28 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             call DestroyEffect(AddSpecialEffectTarget(FX_GATHER, f.boss, "chest"))
             set f.ax = bx
             set f.ay = by
-            // 화살은 전장 끝까지 날아간다 (판정 반경 60, 폭 120). 각 줄은 자기 화살이 나갈 때까지 보인다
-            call TeleLine(f, bx, by, f.ang - 15, EdgeDist(f, bx, by, f.ang - 15), 120, 1.0)
-            call TeleLine(f, bx, by, f.ang, EdgeDist(f, bx, by, f.ang), 120, 1.3)
-            call TeleLine(f, bx, by, f.ang + 15, EdgeDist(f, bx, by, f.ang + 15), 120, 1.6)
+            // 투영: 활과 화살이 푸른 빛으로 나타난다
+            call FxAt(FX_TRACE_CAST, bx, by, 0.4, 0)
+            // 1페이즈는 부채꼴과 같은 줄 3연발을 번갈아 쓴다
+            set f.vLine = f.state == ARCHER_PHASE1 and GetRandomInt(0, 1) == 0
+            if f.vLine then
+                call TeleLine(f, bx, by, f.ang, EdgeDist(f, bx, by, f.ang), 120, 1.6)
+            else
+                // 화살은 전장 끝까지 날아간다 (판정 반경 60, 폭 120). 각 줄은 자기 화살이 나갈 때까지 보인다
+                call TeleLine(f, bx, by, f.ang - 15, EdgeDist(f, bx, by, f.ang - 15), 120, 1.0)
+                call TeleLine(f, bx, by, f.ang, EdgeDist(f, bx, by, f.ang), 120, 1.3)
+                call TeleLine(f, bx, by, f.ang + 15, EdgeDist(f, bx, by, f.ang + 15), 120, 1.6)
+            endif
             set f.step = 1
         elseif f.step == 1 and el >= 1.0 + 0.3 * f.wave then
             // spell channel five 첫 프레임에 시위를 놓는다
             call Anim(f, AN_CHANNEL_FIVE, 1.0)
             call FxMuzzle(f, f.ang)
-            call ProjSpawn(f, 3, FX_SNIPE_BOLT, f.ax, f.ay, f.ang + (f.wave - 1) * 15, 2500, EdgeDist(f, f.ax, f.ay, f.ang + (f.wave - 1) * 15), 60, DMG_VOLLEY, 1.0)
+            if f.vLine then
+                call ProjSpawn(f, 3, FX_SNIPE_BOLT, f.ax, f.ay, f.ang, 2500, EdgeDist(f, f.ax, f.ay, f.ang), 60, DMG_VOLLEY, 1.0)
+            else
+                call ProjSpawn(f, 3, FX_SNIPE_BOLT, f.ax, f.ay, f.ang + (f.wave - 1) * 15, 2500, EdgeDist(f, f.ax, f.ay, f.ang + (f.wave - 1) * 15), 60, DMG_VOLLEY, 1.0)
+            endif
             set f.wave = f.wave + 1
             if f.wave >= 3 then
                 set f.step = 2
@@ -2547,6 +2862,303 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         elseif f.step == 2 and ProjCount(f, 3) == 0 and el >= 2.2 then
             call PatternDone(f, REST_SHORT)
         endif
+    endfunction
+
+    // ======================================================================
+    // 15. 조준 사격: 빠른 단발 (예고 0.7초, 전장 끝까지)
+    // ======================================================================
+    private function RunAimed takes ArcherFight f, real el returns nothing
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
+        if f.step == 0 then
+            call Anim(f, AN_CHANNEL_FOUR, 1.0)
+            call FxAt(FX_TRACE_CAST, bx, by, 0.4, 0)
+            call DestroyEffect(AddSpecialEffectTarget(FX_GATHER, f.boss, "chest"))
+            set f.ax = bx
+            set f.ay = by
+            call TeleLine(f, bx, by, f.ang, EdgeDist(f, bx, by, f.ang), 140, AIM_TELL)
+            set f.step = 1
+        elseif f.step == 1 and el >= AIM_TELL then
+            call Anim(f, AN_CHANNEL_FIVE, 1.0)
+            call Grunt(f)
+            call FxMuzzle(f, f.ang)
+            call ProjSpawn(f, 3, FX_SNIPE_BOLT, f.ax, f.ay, f.ang, 3500, EdgeDist(f, f.ax, f.ay, f.ang), 70, DMG_AIMED, 1.1)
+            set f.step = 2
+        elseif f.step == 2 and ProjCount(f, 3) == 0 and el >= AIM_TELL + 0.4 then
+            call PatternDone(f, REST_SHORT)
+        endif
+    endfunction
+
+    // ======================================================================
+    // 17. 화살 비: 하늘로 쏜 화살이 대상 주변 원 3곳에 떨어진다. 두 번 (두 번째는 그때 위치로 다시 조준)
+    // ======================================================================
+    private function ArrowRainMark takes ArcherFight f returns nothing
+        local unit u = PickTarget(f)
+        local real a = GetRandomReal(0, 360)
+        local integer k = 0
+        local real x
+        local real y
+        if u == null then
+            return
+        endif
+        set x = GetUnitX(u)
+        set y = GetUnitY(u)
+        loop
+            exitwhen k >= 3
+            if k == 0 then
+                set f.kx[k] = ClampX(f, x)
+                set f.ky[k] = ClampY(f, y)
+            else
+                set f.kx[k] = ClampX(f, x + PolarX(220, a + 120 * k))
+                set f.ky[k] = ClampY(f, y + PolarY(220, a + 120 * k))
+            endif
+            call Decal(f, f.kx[k], f.ky[k], ARAIN_R, ARAIN_TELL, 0)
+            set k = k + 1
+        endloop
+        set u = null
+    endfunction
+
+    private function ArrowRainHit takes ArcherFight f returns nothing
+        local integer k = 0
+        call GroupClear(f.hit.super)
+        loop
+            exitwhen k >= 3
+            call HitCircle(f, f.kx[k], f.ky[k], ARAIN_R, DMG_ARAIN, false, f.hit)
+            call FxAt(FX_FLASH_RED, f.kx[k], f.ky[k], 1.4, 0)
+            call FxAt(FX_SPARKS, f.kx[k], f.ky[k], 1.0, 0)
+            call FxAt(FX_BURST, f.kx[k], f.ky[k], 0.6, GetRandomReal(0, 360))
+            set k = k + 1
+        endloop
+    endfunction
+
+    private function RunArrowRain takes ArcherFight f, real el returns nothing
+        if f.step == 0 then
+            // 하늘로 시위를 당긴다
+            call Anim(f, AN_CHANNEL_FOUR, 1.0)
+            call FxAt(FX_TRACE_CAST, GetUnitX(f.boss), GetUnitY(f.boss), 0.4, 0)
+            call Voice(f, VO_DODGE, VO_DODGE_T)
+            call ArrowRainMark(f)
+            set f.step = 1
+        elseif f.step == 1 and el >= 0.5 then
+            call Anim(f, AN_CHANNEL_FIVE, 1.0)
+            call FxAt(FX_FLASH_RED, GetUnitX(f.boss), GetUnitY(f.boss), 1.2, f.face)
+            set f.step = 2
+        elseif f.step == 2 and el >= ARAIN_TELL then
+            call ArrowRainHit(f)
+            // 두 번째: 지금 위치로 다시
+            call Anim(f, AN_CHANNEL_FOUR, 1.0)
+            call ArrowRainMark(f)
+            set f.step = 3
+        elseif f.step == 3 and el >= ARAIN_TELL + 0.5 then
+            call Anim(f, AN_CHANNEL_FIVE, 1.0)
+            set f.step = 4
+        elseif f.step == 4 and el >= ARAIN_TELL * 2 then
+            call ArrowRainHit(f)
+            set f.step = 5
+        elseif f.step == 5 and el >= ARAIN_TELL * 2 + 0.6 then
+            call PatternDone(f, REST_SHORT)
+        endif
+    endfunction
+
+    // ======================================================================
+    // 19. 후퇴 도약 (1페이즈 고유 이동): 대상 반대쪽으로 크게 뛰어 거리를 벌린 뒤 착지하며 활을 든다
+    // ======================================================================
+    private function RunLeap takes ArcherFight f, real el returns nothing
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
+        local real a
+        local real nx
+        local real ny
+        local integer k
+        local real t
+        if f.step == 0 then
+            // 대상 반대쪽, 벽에 막히면 옆으로 비껴 뛴다. 자리 바꾸기(22)는 대상 옆으로 크게 돈다
+            set a = f.ang + 180
+            if f.leapMode == 1 then
+                if GetRandomInt(0, 1) == 0 then
+                    set a = f.ang + 110
+                else
+                    set a = f.ang - 110
+                endif
+            endif
+            set k = 0
+            loop
+                exitwhen k >= 5
+                set nx = ClampX(f, bx + PolarX(LEAP_DIST, a))
+                set ny = ClampY(f, by + PolarY(LEAP_DIST, a))
+                exitwhen DistancePBP(bx, by, nx, ny) >= LEAP_DIST * 0.7
+                if ModuloInteger(k, 2) == 0 then
+                    set a = f.ang + 180 + 50 * (k / 2 + 1)
+                else
+                    set a = f.ang + 180 - 50 * (k / 2 + 1)
+                endif
+                set k = k + 1
+            endloop
+            call ArenaPull(f, nx, ny)
+            set f.ax = bx
+            set f.ay = by
+            set f.tx = ArenaPX
+            set f.ty = ArenaPY
+            call FxDash(f)
+            call Anim(f, AN_STAND_READY, 1.0)
+            set f.step = 1
+        elseif f.step == 1 then
+            set t = RMinBJ(1.0, el / LEAP_TIME)
+            call BossMoveTo(f, f.ax + (f.tx - f.ax) * t, f.ay + (f.ty - f.ay) * t)
+            call SetUnitFlyHeight(f.boss, LEAP_HEIGHT * 4 * t * (1 - t), 0)
+            // 잔상
+            if ModuloInteger(R2I(f.now / TICK + 0.5), 4) == 0 then
+                call FxAt(FX_FLASH_RED, bx, by, 0.6, f.face)
+            endif
+            if t >= 1.0 then
+                call SetUnitFlyHeight(f.boss, 0, 0)
+                // 착지: 고리 + 파편 (땅이 파이는 모델은 쓰지 않는다)
+                call FxAt(FX_BURST, f.tx, f.ty, 1.0, f.face)
+                call FxAt(FX_SPARKS, f.tx, f.ty, 0.8, 0)
+                set f.target = PickTarget(f)
+                if MemAlive(f.target) then
+                    set f.ang = AngleWBW(f.boss, f.target)
+                    call Face(f, f.ang)
+                endif
+                // 착지하며 활을 든다: 짧은 예고 뒤 한 발
+                call Anim(f, AN_CHANNEL_FOUR, 1.0)
+                call TeleLine(f, f.tx, f.ty, f.ang, EdgeDist(f, f.tx, f.ty, f.ang), 140, 0.6)
+                set f.patStart = f.now
+                set f.step = 2
+            endif
+        elseif f.step == 2 and el >= 0.6 then
+            call Anim(f, AN_CHANNEL_FIVE, 1.0)
+            call FxMuzzle(f, f.ang)
+            call ProjSpawn(f, 3, FX_SNIPE_BOLT, bx, by, f.ang, 3500, EdgeDist(f, bx, by, f.ang), 70, DMG_AIMED, 1.1)
+            set f.step = 3
+        elseif f.step == 3 and el >= 1.0 then
+            call PatternDone(f, REST_SHORT)
+        endif
+    endfunction
+
+    // ======================================================================
+    // 21. 칼라드볼그 II (2페이즈 50% 기믹): 전장 끝으로 물러나 3초 조준 (붉은 조준선이 대상을 따라감, 마지막 0.5초 고정)
+    //   파훼: 꽂힌 검 뒤에 숨기(검이 화살을 막음) 또는 뽑은 검으로 아쳐를 쳐서 조준 끊기(그로기). 실패하면 큰 피해
+    // ======================================================================
+    private function RunCalad2 takes ArcherFight f, real el returns nothing
+        local rect r = MapRectReturn(f.rect)
+        local real bx = GetUnitX(f.boss)
+        local real by = GetUnitY(f.boss)
+        local real x
+        local real y
+        local real best = -1
+        local integer k
+        local real t
+        if f.step == 0 then
+            // 대상에서 가장 먼 모서리 (안쪽 250)
+            set f.ax = bx
+            set f.ay = by
+            set k = 0
+            loop
+                exitwhen k >= 4
+                if k == 0 then
+                    set x = GetRectMinX(r) + 500
+                    set y = GetRectMinY(r) + 500
+                elseif k == 1 then
+                    set x = GetRectMaxX(r) - 500
+                    set y = GetRectMinY(r) + 500
+                elseif k == 2 then
+                    set x = GetRectMinX(r) + 500
+                    set y = GetRectMaxY(r) - 500
+                else
+                    set x = GetRectMaxX(r) - 500
+                    set y = GetRectMaxY(r) - 500
+                endif
+                // 잘린 모서리는 바닥 안으로 당긴 점을 후보로
+                call ArenaPull(f, x, y)
+                set x = ArenaPX
+                set y = ArenaPY
+                if MemAlive(f.target) and DistancePBP(x, y, GetUnitX(f.target), GetUnitY(f.target)) > best then
+                    set best = DistancePBP(x, y, GetUnitX(f.target), GetUnitY(f.target))
+                    set f.tx = x
+                    set f.ty = y
+                endif
+                set k = k + 1
+            endloop
+            if best < 0 then
+                set f.tx = bx
+                set f.ty = by
+            endif
+            call MsgAll(f, "|cFFFF4040칼라드볼그 II|r - 꽂힌 검 뒤에 숨거나, 뽑은 검으로 아쳐를 쳐서 조준을 끊으세요.", 4.0)
+            call FxDash(f)
+            set f.calBreak = false
+            set f.step = 1
+        elseif f.step == 1 then
+            set t = RMinBJ(1.0, el / CAL2_MOVE)
+            call BossMoveTo(f, f.ax + (f.tx - f.ax) * t, f.ay + (f.ty - f.ay) * t)
+            call SetUnitFlyHeight(f.boss, LEAP_HEIGHT * 1.5 * 4 * t * (1 - t), 0)
+            if t >= 1.0 then
+                call SetUnitFlyHeight(f.boss, 0, 0)
+                call FxAt(FX_BURST, f.tx, f.ty, 1.2, f.face)
+                call Anim(f, AN_CHANNEL_FOUR, 1.0)
+                set f.voiceUntil = 0
+                call Voice(f, VO_BONE, VO_BONE_T)
+                call DestroyEffect(AddSpecialEffect(FX_CHARGE, f.tx, f.ty))
+                call FxAt(FX_BOW_CHARGE, f.tx, f.ty, 0.8, f.face)
+                if MemAlive(f.target) then
+                    set f.hLight = AddLightningEx("DRAL", true, f.tx, f.ty, 60, GetUnitX(f.target), GetUnitY(f.target), 60)
+                endif
+                set f.patStart = f.now
+                set f.step = 2
+            endif
+        elseif f.step == 2 then
+            if f.calBreak then
+                // 끊었다: 조준선이 끊기고 쓰러진다
+                call HrClear(f)
+                call GimmickRelease(f)
+                call Sound3D(f.boss, 'A00U')
+                call VoiceHit(f)
+                call AnimDown(f)
+                call MsgAll(f, "|cFFFFD040조준을 끊었습니다!|r 지금이 기회입니다.", 2.0)
+                set f.patStart = f.now
+                set f.step = 5
+            else
+                if el < CAL2_AIM - CAL2_LOCK and MemAlive(f.target) then
+                    set f.ang = AngleWBW(f.boss, f.target)
+                    call Face(f, f.ang)
+                    set f.ax = GetUnitX(f.target)
+                    set f.ay = GetUnitY(f.target)
+                    if f.hLight != null then
+                        call MoveLightningEx(f.hLight, true, bx, by, 60, f.ax, f.ay, 60)
+                    endif
+                endif
+                if el >= CAL2_AIM then
+                    call HrClear(f)
+                    call Anim(f, AN_CHANNEL_FIVE, 1.0)
+                    call VoiceCalad(f)
+                    call FxMuzzle(f, f.ang)
+                    call ProjSpawn(f, 2, FX_SNIPE_BOLT, bx, by, f.ang, 4000, DistancePBP(bx, by, f.ax, f.ay) + 200, 110, DMG_CAL2, 1.8)
+                    call GimmickRelease(f)
+                    set f.step = 3
+                endif
+            endif
+        elseif f.step == 3 and ProjCount(f, 2) == 0 then
+            // 쏜 뒤 전장 가운데 쪽으로 다시 도약해 돌아온다
+            set f.ax = bx
+            set f.ay = by
+            set f.tx = f.arenaCX() + GetRandomReal(-300, 300)
+            set f.ty = f.arenaCY() + GetRandomReal(-300, 300)
+            call FxDash(f)
+            set f.patStart = f.now
+            set f.step = 4
+        elseif f.step == 4 then
+            set t = RMinBJ(1.0, el / CAL2_MOVE)
+            call BossMoveTo(f, f.ax + (f.tx - f.ax) * t, f.ay + (f.ty - f.ay) * t)
+            call SetUnitFlyHeight(f.boss, LEAP_HEIGHT * 4 * t * (1 - t), 0)
+            if t >= 1.0 then
+                call SetUnitFlyHeight(f.boss, 0, 0)
+                call FxAt(FX_BURST, f.tx, f.ty, 1.0, f.face)
+                call PatternDone(f, REST_BIG)
+            endif
+        elseif f.step == 5 and el >= CAL2_GROGGY then
+            call PatternDone(f, REST_SHORT)
+        endif
+        set r = null
     endfunction
 
     // ======================================================================
@@ -2581,6 +3193,11 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         call Sound3D(f.boss, 'A00U')
         call AnimDown(f)
         call MsgAll(f, "|cFFFFD040방패 파괴!|r", 2.0)
+        set f.groggy = RHO_GROGGY
+        if f.gimmick == 1 then
+            set f.groggy = RHO_GROGGY_G
+            call GimmickRelease(f)
+        endif
         call VoiceHit(f)
         set f.patStart = f.now
         set f.step = 4
@@ -2607,7 +3224,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         local real along
         if f.step == 0 then
             // spell one: 빈손을 앞으로 내미는 동작을 방패 시간 동안 늘여 재생
-            call Anim(f, AN_SPELL_ONE, 1.333 / RHO_TIME)
+            call Anim(f, AN_SPELL_ONE, 1.333 / f.rhoTime)
             set f.voiceUntil = 0
             call Voice(f, VO_RHO + I2S(GetRandomInt(1, 2)) + ".mp3", VO_RHO_T)
             call FxWindup(f)
@@ -2642,7 +3259,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                 return
             endif
             // 재조준: 신호 → RHO_REAIM_DELAY 뒤 한 번에 돌아섬. 그 밖에는 방향 고정
-            if ModuloInteger(f.wave, 2) == 0 and el >= RHO_REAIM * (f.wave / 2 + 1) and el < RHO_TIME then
+            if ModuloInteger(f.wave, 2) == 0 and el >= RHO_REAIM * (f.wave / 2 + 1) and el < f.rhoTime then
                 call SetUnitVertexColor(f.boss, 255, 150, 220, 255)
                 call DestroyEffect(AddSpecialEffectTarget(FX_COUNTER_READY, f.boss, "origin"))
                 set f.wave = f.wave + 1
@@ -2655,7 +3272,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                 endif
                 set f.wave = f.wave + 1
             endif
-            if el >= RHO_TIME then
+            if el >= f.rhoTime then
                 // 못 깸: 방패가 걷히고 충격파 예고 (방향 고정, 예고 = 판정)
                 call RhoClear(f)
                 call SetUnitVertexColor(f.boss, 255, 255, 255, 255)
@@ -2665,7 +3282,10 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                 call DestroyEffect(AddSpecialEffectTarget(FX_GATHER, f.boss, "chest"))
                 set f.step = 2
             endif
-        elseif f.step == 2 and el >= RHO_TIME + RHO_WAVE_TELL then
+        elseif f.step == 2 and el >= f.rhoTime + RHO_WAVE_TELL then
+            if f.gimmick == 1 then
+                call GimmickRelease(f)
+            endif
             call HitFan(f, bx, by, f.ang, RHO_WAVE_R, 90, DMG_RHO_WAVE, true)
             // 맞은 플레이어를 보스에게서 바깥으로 밀어낸다
             set c = Cos(f.ang * bj_DEGTORAD)
@@ -2697,7 +3317,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set f.step = 3
         elseif f.step == 3 and el >= 1.0 then
             call PatternDone(f, REST_BIG)
-        elseif f.step == 4 and el >= RHO_GROGGY then
+        elseif f.step == 4 and el >= f.groggy then
             // 방패 파괴 그로기 뒤
             call PatternDone(f, REST_SHORT)
         endif
@@ -2716,7 +3336,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             // 빛나는 검(주울 수 있는 검)은 터뜨리지 않는다
             if f.stuck[i] != null and f.sExp[i] == 0 and f.sGlow[i] == null then
                 set f.sExp[i] = f.now + PHANTASM_WARN
-                call Decal(f, f.sx[i], f.sy[i], PHANTASM_RADIUS, PHANTASM_WARN, 0)
+                call DecalFree(f, f.sx[i], f.sy[i], PHANTASM_RADIUS, PHANTASM_WARN)
                 call DestroyEffect(AddSpecialEffect(FX_COUNTER_READY, f.sx[i], f.sy[i]))
                 set n = n + 1
             endif
@@ -3084,9 +3704,60 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         endif
     endfunction
 
+    // 꽂힌 검 폭발 (패턴과 따로): 플레이어마다 가장 가까운 엄폐물 검 하나 + 무작위 AMB_EXTRA 자루. 빛나는 검(주울 수 있는 검)은 고르지 않는다
+    private function AmbientPhantasm takes ArcherFight f returns nothing
+        local integer k = 0
+        local integer i
+        local integer best
+        local real bd
+        local real d
+        local unit u
+        loop
+            exitwhen k >= f.memN
+            set u = f.mem[k]
+            if MemAlive(u) then
+                set best = -1
+                set bd = AMB_NEAR
+                set i = 0
+                loop
+                    exitwhen i >= UBW_STUCK_COUNT
+                    if f.stuck[i] != null and f.sExp[i] == 0 and f.sGlow[i] == null then
+                        set d = DistancePBP(GetUnitX(u), GetUnitY(u), f.sx[i], f.sy[i])
+                        if d < bd then
+                            set bd = d
+                            set best = i
+                        endif
+                    endif
+                    set i = i + 1
+                endloop
+                if best >= 0 then
+                    set f.sExp[best] = f.now + PHANTASM_WARN
+                    call DecalFree(f, f.sx[best], f.sy[best], PHANTASM_RADIUS, PHANTASM_WARN)
+                    call DestroyEffect(AddSpecialEffect(FX_COUNTER_READY, f.sx[best], f.sy[best]))
+                    call FxAt(FX_FLASH_RED, f.sx[best], f.sy[best], 1.4, 0)
+                endif
+            endif
+            set k = k + 1
+        endloop
+        set u = null
+        call PhantasmMark(f, AMB_EXTRA)
+        // 손짓 (패턴 중이 아니면)
+        if f.pat == 0 then
+            call Anim(f, AN_SPELL_ALT_THREE, 1.0)
+        endif
+        call DestroyEffect(AddSpecialEffectTarget(FX_GATHER, f.boss, "chest"))
+        if not f.ambHint then
+            set f.ambHint = true
+            call MsgAll(f, "|cFFFF8040부서진 환상|r - 붉게 빛나는 검이 터집니다. 다른 검 뒤로 옮기세요.", 3.0)
+        endif
+    endfunction
+
     private function UbwBegin takes ArcherFight f returns nothing
         call UbwMusic(f, true)
         set f.ubw = true
+        set f.ambAt = f.now + 8.0
+        set f.ambFire = 0
+        set f.ambHint = false
         set f.restockAt = f.now + RESTOCK_EVERY
         set f.glowAt = f.now + 3.0
         set f.dropWave = 0
@@ -3208,6 +3879,11 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                 set pid = GetPlayerId(GetOwningPlayer(f.mem[k]))
                 if HeroPullHit[pid] then
                     set HeroPullHit[pid] = false
+                    // 칼라드볼그 II 조준 중: 뽑은 검으로 치면 조준이 끊긴다 (검 하나 소모)
+                    if f.pat == 21 and f.step == 2 and HeroPulledSword[pid] > 0 then
+                        set HeroPulledSword[pid] = HeroPulledSword[pid] - 1
+                        set f.calBreak = true
+                    endif
                     if f.rho != null and f.petals > 0 and HeroPulledSword[pid] > 0 and f.now >= PullUseAt[pid] then
                         set PullUseAt[pid] = f.now + 0.5
                         set HeroPulledSword[pid] = HeroPulledSword[pid] - 1
@@ -3252,6 +3928,11 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                             set pid = GetPlayerId(GetOwningPlayer(u))
                             if HeroPulledSword[pid] < PULL_MAX then
                                 set HeroPulledSword[pid] = HeroPulledSword[pid] + 1
+                                // 아쳐가 일부러 내어 준 검 (녹음 없음, 자막만)
+                                if f.now >= f.pickMsg[k] then
+                                    set f.pickMsg[k] = f.now + 30.0
+                                    call DisplayTimedTextToPlayer(GetOwningPlayer(u), 0, 0, 3.0, "|cFFFFD080아쳐|r: 쓸 수 있다면 써 봐라.")
+                                endif
                                 call FxAt(FX_FLASH_WHITE, f.sx[i], f.sy[i], 5.0, 0)
                                 call StuckSwordRemove(f, i)
                                 set k = f.memN
@@ -3329,14 +4010,68 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set f.dropNext = f.now + DROP_GAP
         endif
         call DropUpdate(f)
+        // 꽂힌 검 폭발: 기믹·검 우리·전검 사출·부서진 환상·로 아이아스·그로기·검의 강하 중에는 미룬다
+        if f.now >= f.ambAt then
+            if f.gimmick != 0 or f.pat == 8 or f.pat == 9 or f.pat == 13 or f.pat == 16 or f.pat == 21 or f.dropWave > 0 or f.now < f.holdUntil or (f.pat == 4 and f.step == 6) or (f.pat == 11 and f.step == 8) then
+                set f.ambAt = f.now + 1.0
+            else
+                set f.ambAt = f.now + AMB_EVERY + GetRandomReal(-2.0, 2.0)
+                call AmbientPhantasm(f)
+                set f.ambFire = f.now + PHANTASM_WARN + AMB_CHAIN
+            endif
+        endif
+        // 터진 직후: 남은 검 뒤로 숨어야 하는 붉은 사냥개 / 검의 사출을 번갈아 잇는다 (쉬는 중일 때만)
+        if f.ambFire > 0 and f.now >= f.ambFire then
+            set f.ambFire = 0
+            if f.pat == 0 and f.chainNext == 0 and f.gimmick == 0 then
+                set f.ambAlt = not f.ambAlt
+                if f.ambAlt and f.now >= f.readyAt[10] and f.lastPat != 10 and f.lastPat2 != 10 then
+                    set f.chainNext = 10
+                elseif f.now >= f.readyAt[12] and f.lastPat != 12 and f.lastPat2 != 12 then
+                    set f.chainNext = 12
+                elseif f.now >= f.readyAt[10] and f.lastPat != 10 and f.lastPat2 != 10 then
+                    set f.chainNext = 10
+                endif
+                if f.chainNext != 0 then
+                    set f.nextSelect = f.now
+                endif
+            endif
+        endif
+        call PhantasmUpdate(f)
     endfunction
 
     // 체력 25% 에서 전검 사출 (한 번)
+    // 2페이즈 체력 구간: 75% 로 아이아스, 50% 칼라드볼그 II, 25% 전검 사출 (무엇을 하던 끼어든다), 10% 아래 마지막 발악
     private function AllBladeCheck takes ArcherFight f returns nothing
         local integer idx = IndexUnit(f.boss)
-        if f.state == ARCHER_PHASE2 and f.ubw and not f.ubwSecond and f.pat != 16 and UnitHP[idx] <= UnitHPMAX[idx] * ALLBLADE_HP then
+        local real pct = UnitHP[idx] / UnitHPMAX[idx]
+        if f.state != ARCHER_PHASE2 or not f.ubw or f.gimmick != 0 then
+            return
+        endif
+        if f.gStage == 0 and pct <= 0.75 then
+            set f.gStage = 1
+            set f.gimmick = 1
+            call GimmickFloor(f, 0.75)
+            call ForcePattern(f, 8)
+            set f.rhoTime = RHO_TIME_G
+            call MsgAll(f, "|cFFFF80C0로 아이아스|r - 10초 안에 꽃잎 일곱 장을 깨거나 뒤로 돌아 깨세요.", 4.0)
+        elseif f.gStage == 1 and pct <= 0.50 then
+            set f.gStage = 2
+            set f.gimmick = 2
+            call GimmickFloor(f, 0.50)
+            call ForcePattern(f, 21)
+        elseif f.gStage == 2 and pct <= ALLBLADE_HP and f.pat != 16 then
+            set f.gStage = 3
             set f.ubwSecond = true
+            set f.gimmick = 3
+            call GimmickFloor(f, ALLBLADE_HP)
             call ForcePattern(f, 16)
+        elseif f.gStage >= 3 and not f.desperate and pct <= 0.10 then
+            // 마지막 발악: "따라올 수 있겠나" (ついてこれるか, Archer_KeepUp)
+            set f.desperate = true
+            set f.voiceUntil = 0
+            call Voice(f, VO_KEEPUP, VO_KEEPUP_T)
+            call MsgAll(f, "|cFFFFD080아쳐|r: ついてこれるか (따라올 수 있겠나)", 4.0)
         endif
     endfunction
 
@@ -3386,6 +4121,9 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                 call VoiceHit(f)
                 call AnimDown(f)
                 set f.groggy = ALLBLADE_GROGGY
+                if f.gimmick == 3 then
+                    call GimmickRelease(f)
+                endif
                 set f.patStart = f.now
                 set f.step = 2
                 return
@@ -3841,8 +4579,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             call FxWindup(f)
             call FxAt(FX_FLASH_WHITE, bx, by, 8.0, 0)
             call FxAt(FX_TRACE_CAST, bx, by, 1.0, 0)
-            set f.voiceUntil = 0
-            call Voice(f, VO_TRACE, VO_TRACE_T)
+            // "Trace on" 대사는 쓰지 않는다 (에미야 시로의 대사)
             // 머리 위 '투영: 기술 이름'
             set tt = CreateTextTag()
             call SetTextTagText(tt, TraceName(f.wave), 0.026)
@@ -3940,11 +4677,17 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
     private function RunPattern takes ArcherFight f returns nothing
         local real el = f.now - f.patStart
         if f.pat == 1 then
-            if f.state == ARCHER_PHASE2 then
-                call RunVolley(f, el)
-            else
-                call RunA1(f, el)
-            endif
+            call RunVolley(f, el)
+        elseif f.pat == 15 then
+            call RunAimed(f, el)
+        elseif f.pat == 17 then
+            call RunArrowRain(f, el)
+        elseif f.pat == 18 then
+            call RunA1(f, el)
+        elseif f.pat == 19 or f.pat == 22 then
+            call RunLeap(f, el)
+        elseif f.pat == 21 then
+            call RunCalad2(f, el)
         elseif f.pat == 2 then
             call RunA2(f, el)
         elseif f.pat == 3 then
@@ -3999,10 +4742,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             endif
             set f.chantReserved = f.chantReserved + 1
         endloop
-        if f.chantReserved >= 8 and f.state == ARCHER_PHASE1 then
-            // 마지막 영창 예약: 새 패턴 선택 보류
-            set f.state = ARCHER_TRANSITION_PENDING
-        endif
+        // 영창이 밀려 있어도 패턴은 계속한다. 패턴을 멈추는 건 마지막 줄(결계 전개, StartTransition)뿐이다
     endfunction
 
     private function PlayChant takes ArcherFight f, integer k returns nothing
@@ -4033,12 +4773,23 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         call DestroyEffect(AddSpecialEffectTarget(FX_TRANSITION, f.boss, "origin"))
         call DestroyEffect(AddSpecialEffectTarget(FX_GATHER, f.boss, "chest"))
         call DestroyEffect(AddSpecialEffect(FX_CHARGE, f.arenaCX(), f.arenaCY()))
+        // 발밑에서 불길이 번진다: 불꽃 고리가 선언 동안 전장 끝까지 커진다
+        if f.ringFx != null then
+            call DestroyEffect(f.ringFx)
+        endif
+        set f.ringFx = AddSpecialEffect(FX_FIRE_RING, f.arenaCX(), f.arenaCY())
+        call EXSetEffectSize(f.ringFx, 0.05)
         call LocalFilter(f, true, TRANS_DEPLOY * 0.5)
     endfunction
 
     private function UpdateTransition takes ArcherFight f returns nothing
         local real el = f.now - f.transStart
         local integer idx = IndexUnit(f.boss)
+        local integer k
+        local rect r
+        if f.ringFx != null and f.transStep <= 1 then
+            call EXSetEffectSize(f.ringFx, 0.05 + 1.05 * RMinBJ(1.0, el / TRANS_DEPLOY))
+        endif
         if f.transStep == 0 and el >= 1.4 then
             // 선언 중 빈손 자세 유지 (stand slam 반복)
             call Anim(f, AN_STAND_SLAM, 1.0)
@@ -4047,8 +4798,25 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             // 전장 타일·배경을 검의 황야로. morph: 쌍검이 사라지고 활이 나타난다
             call TerrainApply(f)
             call StuckSwordsCreate(f)
-            // 전개 연출: 불꽃 고리가 전장 중심에서 퍼지고, 하늘에 톱니바퀴가 걸린다
-            call FxKeep(f, FX_FIRE_RING, f.arenaCX(), f.arenaCY(), 1.2, 0, 1.0)
+            // 불길이 전장 끝에 닿는 순간 세계가 한꺼번에 덮어쓰인다: 고리가 걷히며(Death) 검의 황야가 나타난다
+            if f.ringFx != null then
+                call DestroyEffect(f.ringFx)
+                set f.ringFx = null
+            endif
+            // 장식 검: 줍거나 쓰지 않는 검으로 황야를 빽빽하게
+            set r = MapRectReturn(f.rect)
+            set k = 0
+            loop
+                exitwhen k >= DECOR_COUNT
+                if f.decor[k] != null then
+                    call SwordFxRemove(f.decor[k])
+                endif
+                set f.decor[k] = AddSpecialEffect(FX_SWORD_STUCK, GetRandomReal(GetRectMinX(r) + 120, GetRectMaxX(r) - 120), GetRandomReal(GetRectMinY(r) + 120, GetRectMaxY(r) - 120))
+                call EXEffectMatRotateZ(f.decor[k], GetRandomReal(0, 360))
+                call EXSetEffectSize(f.decor[k], GetRandomReal(0.8, 1.1))
+                set k = k + 1
+            endloop
+            set r = null
             call FxAt(FX_FLASH_WHITE, f.arenaCX(), f.arenaCY(), 12.0, 0)
             call FxAt(FX_BURST, f.arenaCX(), f.arenaCY(), 3.0, 0)
             call FxAt(FX_FLASH_RED, f.arenaCX(), f.arenaCY(), 4.0, 0)
@@ -4067,13 +4835,16 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             // 결계 전개 완료: 최대 체력까지 회복
             set f.chantPlaying = false
             set f.chantDone = 8
+            // 2페이즈: 최대 체력을 원래대로 (체력바는 최대 체력이 바뀌면 줄 수를 다시 맞춘다)
+            if f.fullHP > 0 then
+                set UnitHPMAX[idx] = f.fullHP
+            endif
             set UnitHP[idx] = UnitHPMAX[idx]
             call MsgAll(f, "|cFFFF4040무한의 검제|r", 4.0)
             call Anim(f, AN_STANDREADY_ALT, 1.0)
             set f.transStep = 3
         elseif f.transStep == 3 and el >= TRANS_DEPLOY + 2.0 then
-            // 2페이즈 시작: 보호 해제, 쿨다운 초기화
-            call LocalFilter(f, false, 0)
+            // 2페이즈 시작: 보호 해제, 쿨다운 초기화. 붉은 황혼 화면은 결계가 있는 동안 유지
             call SetProtect(f, false, false)
             set f.readyAt[1] = f.now
             set f.readyAt[2] = f.now
@@ -4092,6 +4863,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             // 결계 규칙 시작 (전장 변경·검·톱니바퀴는 영창 중 이미 펼쳐짐). 결계는 끝까지 유지
             call UbwBegin(f)
             set f.lastPat = 0
+            set f.lastPat2 = 0
             set f.nextSelect = f.now
             set f.state = ARCHER_PHASE2
             call Anim(f, AN_STAND_ALT, 1.0)
@@ -4191,8 +4963,20 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
 
     // 종료: 보스 처치·대사를 먼저 하고, 무거운 정리(전장 타일 복구, 효과·검 제거)는 각각 새 스레드에서 한다.
     // 한 스레드에서 모두 하다 명령 수 한도에 걸려 중간에 멈추면 보스가 죽지 않고 HP 가 음수로 남았다
+    // 원정: 아처 다음 레밀리아. 레밀리아를 못 열면 아처 승리로 원정에 넘긴다
+    private function ExpChainRemilia takes nothing returns nothing
+        set ExpBossExternal = true
+        call TriggerExecute(ExpBossStartRemilia)
+        if not ExpBossExternal then
+            set ExpWon = true
+            set ExpProgress = 1.0
+            call TriggerExecute(ExpBattleFinished)
+        endif
+    endfunction
+
     private function Finish takes ArcherFight f, boolean win returns nothing
         local integer i = 0
+        local boolean exp
         local integer idx = IndexUnit(f.boss)
         set f.state = ARCHER_ENDED
         call SetProtect(f, false, false)
@@ -4206,6 +4990,27 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             call SetUnitTimeScale(f.boss, 1.0)
             call PlaySoundPath(f, VO_DEATH)
             call SetUnitAnimationByIndex(f.boss, 20)
+            // 결계가 걷힌다: 불길이 물러나고(불꽃 고리 Death), 꽂힌 검이 빛으로 흩어진다
+            if f.ubw then
+                call DestroyEffect(AddSpecialEffect(FX_FIRE_RING, f.arenaCX(), f.arenaCY()))
+                set i = 0
+                loop
+                    exitwhen i >= UBW_STUCK_COUNT
+                    if f.stuck[i] != null then
+                        call FxAt(FX_FLASH_WHITE, f.sx[i], f.sy[i], 3.0, 0)
+                    endif
+                    set i = i + 1
+                endloop
+                set i = 0
+                loop
+                    exitwhen i >= DECOR_COUNT
+                    if f.decor[i] != null then
+                        call FxAt(FX_FLASH_RED, EXGetEffectX(f.decor[i]), EXGetEffectY(f.decor[i]), 1.2, 0)
+                    endif
+                    set i = i + 1
+                endloop
+                set i = 0
+            endif
             // 쓰러짐: 흰 섬광 + 빛기둥 파편 + 퍼지는 고리 + 파편 (한 번)
             call FxAt(FX_FLASH_WHITE, GetUnitX(f.boss), GetUnitY(f.boss), 8.0, 0)
             call FxAt(FX_SHATTER, GetUnitX(f.boss), GetUnitY(f.boss), 0.6, f.face)
@@ -4220,7 +5025,9 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         loop
             exitwhen i >= f.memN
             if f.mem[i] != null then
-                if win then
+                if f.exp then
+                    // 원정: 결과 화면·귀환은 원정 쪽이 한다
+                elseif win then
                     call SuccessStart(f.mem[i])
                 else
                     call FailedStart(f.mem[i])
@@ -4272,7 +5079,24 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         endloop
         set f.boss = null
         set f.target = null
+        set exp = f.exp
         call f.destroy()
+        if exp and win and ExpBossRemiliaReady then
+            // 원정: 아처를 이기면 3초 뒤 레밀리아가 바로 이어서 나온다 (사냥 없음)
+            call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 3.0, "|cFFFF6060붉은 달이 뜬다… 레밀리아 스칼렛이 나타난다|r")
+            call TimerStart(ExpChainTimer, 3.0, false, function ExpChainRemilia)
+            return
+        endif
+        if exp then
+            // 원정에 결과를 넘긴다: 패배면 원정 종료
+            set ExpWon = win
+            set ExpProgress = 0.0
+            if win then
+                set ExpProgress = 1.0
+            endif
+            set ExpBossExternal = false
+            call TriggerExecute(ExpBattleFinished)
+        endif
     endfunction
 
     // ======================================================================
@@ -4316,9 +5140,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         if f.now < f.holdUntil then
             return
         endif
-        // 패턴 사이: 전투 대기 자세로 대상을 향해 돌아본다
-        call TurnToward(f, a, IDLE_TURN * TICK)
-        if f.now < f.nextStepAt or AngDiff(a, f.face) > 20 then
+        // 패턴 사이에는 대상을 따라 돌지 않는다 (패턴을 시작할 때와 조준 중에만 바라본다)
+        if f.now < f.nextStepAt then
             return
         endif
         // 거리가 크게 어긋났을 때만 짧게 한 번 움직인다 (계속 걷지 않음)
@@ -4328,16 +5151,6 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set f.stepLeft = STEP_BACK
             set f.stepSpd = STEP_BACK / 0.4
             call FxDash(f)
-        elseif (f.state == ARCHER_PHASE2 and d > STEP_FAR2) or (f.state == ARCHER_PHASE1 and d > STEP_FAR1) then
-            // 멀면 앞으로 걷는다: 바라보는 방향 = 걷는 방향
-            set f.stepAng = f.face
-            set f.stepLeft = RMinBJ(STEP_FWD, d - STEP_FAR1 * 0.6)
-            set f.stepSpd = STEP_FWD_SPEED
-            if f.state == ARCHER_PHASE2 then
-                call Anim(f, AN_WALK_ALT, STEP_FWD_SPEED / STEP_WALK_SPEED)
-            else
-                call Anim(f, AN_WALK, STEP_FWD_SPEED / STEP_WALK_SPEED)
-            endif
         else
             return
         endif
@@ -4352,6 +5165,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         local tick t = tick.getExpired()
         local ArcherFight f = t.data
         local integer idx
+        local unit su
 
         if f.state == ARCHER_ENDED then
             return
@@ -4371,6 +5185,12 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         call FxUpdate(f, false)
         call TeleUpdate(f, false)
         call PatNameFollow(f)
+        // 안전장치: 0.1초마다 경계 밖이면 안으로 (BossMoveTo 가 잘라 준다)
+        if ModuloInteger(R2I(f.now / TICK + 0.5), 5) == 0 then
+            if not ArenaOK(GetUnitX(f.boss), GetUnitY(f.boss)) then
+                call BossMoveTo(f, GetUnitX(f.boss), GetUnitY(f.boss))
+            endif
+        endif
         // 1페이즈 보호는 피해 경로(HeroDeal/CutInDeal)에서 즉시 처리. 여기서는 한 번 더 보정만 한다
         if (f.state == ARCHER_PHASE1 or f.state == ARCHER_TRANSITION_PENDING or f.state == ARCHER_TRANSITION) and UnitHP[idx] < 1 then
             set UnitHP[idx] = 1
@@ -4398,6 +5218,29 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             call SetUnitTimeScale(f.boss, 0)
         endif
         call ProjUpdate(f)
+        // 2페이즈: 하늘·땅의 검이 쏟아지는 동안에도 아쳐가 직접 견제 화살을 쏜다 (예고 SIDE_TELL 초 = 판정 직선)
+        if f.state == ARCHER_PHASE2 and (f.pat == 5 or f.pat == 9 or f.pat == 12 or f.dropWave > 0) then
+            if f.sideFire == 0 and f.now >= f.sideAt then
+                set su = PickTarget(f)
+                if MemAlive(su) then
+                    set f.sideX = GetUnitX(f.boss)
+                    set f.sideY = GetUnitY(f.boss)
+                    set f.sideAng = AnglePBP(f.sideX, f.sideY, GetUnitX(su), GetUnitY(su))
+                    call Face(f, f.sideAng)
+                    call Anim(f, AN_CHANNEL_FOUR, 1.5)
+                    call TeleLine(f, f.sideX, f.sideY, f.sideAng, EdgeDist(f, f.sideX, f.sideY, f.sideAng), 140, SIDE_TELL)
+                    set f.sideFire = f.now + SIDE_TELL
+                endif
+                set f.sideAt = f.now + SIDE_EVERY
+                set su = null
+            endif
+        endif
+        if f.sideFire > 0 and f.now >= f.sideFire then
+            set f.sideFire = 0
+            call Anim(f, AN_CHANNEL_FIVE, 1.0)
+            call FxMuzzle(f, f.sideAng)
+            call ProjSpawn(f, 3, FX_SNIPE_BOLT, f.sideX, f.sideY, f.sideAng, 3500, EdgeDist(f, f.sideX, f.sideY, f.sideAng), 70, DMG_AIMED, 1.1)
+        endif
         if f.state == ARCHER_PHASE2 then
             call UbwTick(f)
             call AllBladeCheck(f)
@@ -4462,6 +5305,36 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set hpRate = 1.0 + PARTY_HP_BONUS * (n - 1)
         set UnitHPMAX[idx] = UnitSetHP[ARCHER_DATA_INDEX] * hpRate
         set UnitHP[idx] = UnitHPMAX[idx]
+        // 원정 시험 보스: 원정 보스 체력 기준(예전 세리아와 같은 12000 x 인원). 원정 표시가 남아 있으면 피해가 막혀 지운다
+        if f.exp then
+            set UnitHPMAX[idx] = EXP_TEST_BOSS_HP * n
+            set UnitHP[idx] = UnitHPMAX[idx]
+        endif
+        // 1페이즈는 2페이즈 최대 체력의 절반으로 싸운다 (결계 전개 때 전부로 채운다)
+        set f.fullHP = UnitHPMAX[idx]
+        set UnitHPMAX[idx] = f.fullHP * P1_HP_RATE
+        set UnitHP[idx] = UnitHPMAX[idx]
+        set f.caladP1 = 0
+        set f.leapNext = false
+        set f.gStage = 0
+        set f.gimmick = 0
+        set f.desperate = false
+        set f.chainNext = 0
+        set f.ringFx = null
+        set n = 0
+        loop
+            exitwhen n >= DECOR_COUNT
+            set f.decor[n] = null
+            set n = n + 1
+        endloop
+        set n = 0
+        loop
+            exitwhen n >= 6
+            set f.pickMsg[n] = 0
+            set n = n + 1
+        endloop
+        set ProtoHuntOwner[idx] = 0
+        set ExpEnemy[idx] = false
 
         // 구조체 배열은 재사용 시 초기화되지 않으므로 직접 비운다
         set n = 0
@@ -4500,6 +5373,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set f.readyAt[14] = 0
         set f.readyAt[15] = 0
         set f.readyAt[16] = 0
+        // 1페이즈 로 아이아스는 시작 30초 뒤부터 (첫 근접 대응으로 나오지 않게)
+        set f.readyAt[8] = 30.0
         set f.readyAt[17] = 0
         set f.ubw = false
         set f.ubwSecond = false
@@ -4716,6 +5591,55 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set r2 = null
     endfunction
 
+    // 원정 프로토타입 시험 보스로 시작: "-아처"·"-레밀" 입장과 같다. 원정 참가자 전원을 정비소(입장 구역)로 옮기고,
+    // 모두 정비소를 나가면 보스전이 시작된다 (EntranceTick). 끝나면 결과를 원정에 넘긴다
+    private function ExpStart takes nothing returns nothing
+        local integer mapNumber = GetMap(ARENA_THEMA)
+        local ArcherFight f
+        local integer pid = 0
+        local rect r
+        local real x
+        local real y
+        local tick t
+        if mapNumber == 0 or ArcherFightAt[mapNumber] != 0 then
+            // 빈 전장이 없으면 예전 원정 전투로
+            set ExpBossExternal = false
+            return
+        endif
+        set f = ArcherFight.create()
+        set f.rect = mapNumber
+        set f.ul = party.create()
+        set f.hit = 0
+        set f.exp = true
+        set ArcherFightAt[mapNumber] = f
+        set r = MapRectReturn2(mapNumber)
+        call PreloadFx(GetRectCenterX(MapRectReturn(mapNumber)), GetRectCenterY(MapRectReturn(mapNumber)))
+        set f.entrance = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), ENTRANCE_DUMMY, GetRectCenterX(r), GetRectCenterY(r), 270)
+        loop
+            exitwhen pid == 4
+            if ExpMember[pid] and MainUnit[pid] != null then
+                set x = GetRectCenterX(r) - 150 + pid * 100
+                set y = GetRectCenterY(r)
+                if IsUnitDeadVJ(MainUnit[pid]) then
+                    call ReviveHero(MainUnit[pid], x, y, false)
+                endif
+                call SetUnitPosition(MainUnit[pid], x, y)
+                call SetUnitState(MainUnit[pid], UNIT_STATE_LIFE, GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE))
+                call PauseUnit(MainUnit[pid], false)
+                call GroupAddUnit(f.ul.super, MainUnit[pid])
+                if GetLocalPlayer() == Player(pid) then
+                    call SetCameraBoundsToRectForPlayerBJ(Player(pid), MapRectReturn(mapNumber))
+                    call SetCameraPosition(x, y)
+                    call DzFrameShow(BossTip, true)
+                endif
+            endif
+            set pid = pid + 1
+        endloop
+        set r = null
+        set t = tick.create(f)
+        call t.start(1.00, true, function EntranceTick)
+    endfunction
+
     // 테스트 입장: 채팅 "-아처"
     private function ChatEnter takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())
@@ -4737,6 +5661,9 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                 set i = i + 1
             endloop
             call TriggerAddAction(t, function ChatEnter)
+            // 원정 프로토타입 시험 보스로 쓸 수 있게 등록
+            call TriggerAddAction(ExpBossStartArcher, function ExpStart)
+            set ExpBossArcherReady = true
             set t = null
 
             // Archer.mdx 애니메이션 길이(초). 반복 동작은 AnimLoop
@@ -4868,7 +5795,6 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             call PreloadAddSnd(VO_CALAD + "1.mp3")
             call PreloadAddSnd(VO_CALAD + "2.mp3")
             call PreloadAddSnd(VO_HRUNT)
-            call PreloadAddSnd(VO_TRACE)
             call PreloadAddSnd(VO_DODGE)
             call PreloadAddSnd(VO_ASIDE)
             call PreloadAddSnd(VO_GOTYOU)
@@ -4909,11 +5835,12 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set PatWeight[6] = 20
             set PatWeight[7] = 25
             // 2페이즈 신규: 로 아이아스, 부서진 환상, 흐룬팅, 학익삼련
-            set PatCool[8] = 16
+            // 로 아이아스: 재미가 덜해 자주 나오지 않게 (16초 → 45초, 가중치 20 → 8)
+            set PatCool[8] = 45
             set PatCool[9] = 20
             set PatCool[10] = 18
             set PatCool[11] = 20
-            set PatWeight[8] = 20
+            set PatWeight[8] = 8
             set PatWeight[9] = 15
             set PatWeight[10] = 20
             set PatWeight[11] = 20
@@ -4926,6 +5853,18 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
             set PatWeight[14] = 20
             // 강제 패턴 (선택되지 않음)
             set PatCool[16] = 0
+            // 1페이즈 궁수 패턴
+            set PatCool[15] = 4
+            set PatWeight[15] = 30
+            set PatCool[17] = 9
+            set PatWeight[17] = 25
+            set PatCool[18] = 5
+            set PatWeight[18] = 40
+            set PatCool[19] = 4
+            set PatWeight[19] = 0
+            // 2페이즈 자리 바꾸기 도약 + 착지 사격
+            set PatCool[22] = 6
+            set PatWeight[22] = 25
         endmethod
     endmodule
 

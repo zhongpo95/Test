@@ -6,6 +6,8 @@ library AttackAngle
         // 유닛마다 마지막으로 때린 플레이어(pid+1, 0 = 없음)와 그 피해의 스킬 코드 (보스 기믹이 "한 스킬 = 한 대"를 셀 때 읽는다)
         integer array UnitLastHitPid
         integer array UnitLastHitSkill
+        // 유닛이 받는 영웅 피해 가감 (0 = 그대로, 0.5 = +50%, -0.5 = -50%). 레밀리아 붉은 안개처럼 보스 기믹이 정한다
+        real array UnitTakenBonus
     endglobals
     
     function AngleTrue takes real A,real A2,real R returns boolean

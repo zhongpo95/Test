@@ -421,6 +421,10 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set ArcanaRate = 1.0
         endif
         set dmg = ad * rate * DMGRate * DP * WDP * LastDamage * ArcanaRate
+        // 보스 기믹이 정한 받는 피해 가감 (레밀리아 붉은 안개 등)
+        if UnitTakenBonus[UnitIndex] != 0 then
+            set dmg = dmg * RMaxBJ(0.0, 1.0 + UnitTakenBonus[UnitIndex])
+        endif
 
         //미터기
         loop

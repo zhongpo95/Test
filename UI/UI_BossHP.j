@@ -146,6 +146,11 @@ library UIBossHP initializer init requires FrameCount, DataUnit
             return
         endif
 
+        // Max HP can change mid-fight (Archer: phase 1 is half, phase 2 refills to full) -> recompute HP per line
+        if fx.BHPx > 0 and UnitHPMAX[fx.index] > 0 then
+            set fx.BHPxV = I2R(R2I(UnitHPMAX[fx.index] / fx.BHPx))
+        endif
+
         set p = Player(fx.playerId)
         set isLocalPlayer = (GetLocalPlayer() == p)
 

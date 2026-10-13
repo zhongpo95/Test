@@ -809,7 +809,19 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ExpStep = 4
         set ExpNode = 2
         set ExpRevision = ExpRevision + 1
-        call ExpCombatStart(true)
+        // 시험 보스: 아처부터 (아처를 이기면 아처 쪽이 바로 레밀리아를 연다). 못 열면 예전 세리아 전투
+        set ExpBossExternal = false
+        if ExpBossArcherReady then
+            set ExpBossExternal = true
+            call TriggerExecute(ExpBossStartArcher)
+        endif
+        if not ExpBossExternal and ExpBossRemiliaReady then
+            set ExpBossExternal = true
+            call TriggerExecute(ExpBossStartRemilia)
+        endif
+        if not ExpBossExternal then
+            call ExpCombatStart(true)
+        endif
     endfunction
 
     // 보스 승리 뒤 같은 런의 다음 사냥을 연다. 카드·메인 진행·사건 기록은 초기화하지 않는다.
