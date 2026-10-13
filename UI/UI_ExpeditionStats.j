@@ -163,15 +163,15 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIProtot
     private function Build takes nothing returns nothing
         local integer f
         set Root = ExpUIRoot(EXP_UI_STATS, 0.52, 0.435, 0.540, false)
-        set LegacyBackground = ExpUITexture(Root, 0, 0, 0.52, 0.435, "war3mapImported\\UI_Upgrade_Background.tga")
+        set LegacyBackground = ExpUITexture(Root, 0, 0, 0.52, 0.435, "war3mapImported\\UI_Upgrade_Background.blp")
         set f = ExpUIHeader(Root, 0.52, "원정 성장·카드")
         set LegacyPanel = DzCreateFrameByTagName("FRAME", "", Root, "", FrameCount())
         call DzFrameSetPoint(LegacyPanel, JN_FRAMEPOINT_TOPLEFT, Root, JN_FRAMEPOINT_TOPLEFT, 0, 0)
         set Points = ExpUILabel(LegacyPanel, 0.024, 0.062, 0.47, 0.030, 0.013, "")
-        set f = ExpUITexture(LegacyPanel, 0.020, 0.103, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.tga")
+        set f = ExpUITexture(LegacyPanel, 0.020, 0.103, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.blp")
         set Crit = ExpUILabel(LegacyPanel, 0.037, 0.114, 0.30, 0.046, 0.011, "")
         set AddCrit = ExpUIButton(LegacyPanel, 0.358, 0.120, 0.125, 0.028, "+1 포인트", 101)
-        set f = ExpUITexture(LegacyPanel, 0.020, 0.174, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.tga")
+        set f = ExpUITexture(LegacyPanel, 0.020, 0.174, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.blp")
         set Swift = ExpUILabel(LegacyPanel, 0.037, 0.185, 0.30, 0.046, 0.011, "")
         set AddSwift = ExpUIButton(LegacyPanel, 0.358, 0.191, 0.125, 0.028, "+1 포인트", 102)
         set f = ExpUILabel(LegacyPanel, 0.024, 0.251, 0.46, 0.020, 0.011, "이번 원정에서 획득한 효과")

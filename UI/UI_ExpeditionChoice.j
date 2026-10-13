@@ -52,16 +52,16 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         local integer grade = CardGrade[i]
         if not CardEnabled[i] then
             call DzFrameSetAlpha(CardButton[i], 155)
-            call DzFrameSetTexture(CardActionBackground[i], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+            call DzFrameSetTexture(CardActionBackground[i], "war3mapImported\\UI_Upgrade_Disabled.blp", 0)
         elseif CardHovered == i then
             if grade == 1 then
                 set grade = 2
             endif
             call DzFrameSetAlpha(CardButton[i], 255)
-            call DzFrameSetTexture(CardActionBackground[i], "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+            call DzFrameSetTexture(CardActionBackground[i], "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
         else
             call DzFrameSetAlpha(CardButton[i], 240)
-            call DzFrameSetTexture(CardActionBackground[i], "war3mapImported\\UI_Upgrade_Action.tga", 0)
+            call DzFrameSetTexture(CardActionBackground[i], "war3mapImported\\UI_Upgrade_Action.blp", 0)
         endif
         call DzFrameSetTexture(CardBorder[i], BorderPath(grade), 0)
     endfunction
@@ -112,7 +112,7 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         call DzFrameSetSize(CardButton[i], width, height)
         set CardBorder[i] = ExpUITexture(CardButton[i], 0, 0, width, height, BorderPath(1))
         // 원본 테두리 안에 강화 UI의 밝은 패널을 넣는다. 이미지와 글자는 클릭을 가로채지 않는다.
-        set face = ExpUITexture(CardButton[i], 0.003, 0.004, width - 0.006, height - 0.008, "war3mapImported\\UI_Upgrade_Panel.tga")
+        set face = ExpUITexture(CardButton[i], 0.003, 0.004, width - 0.006, height - 0.008, "war3mapImported\\UI_Upgrade_Panel.blp")
         if height < 0.23 then
             set CardIcon[i] = ExpUITexture(CardButton[i], 0.014, 0.014, 0.028, 0.034, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
             set CardTitle[i] = ExpUILabel(CardButton[i], 0.051, 0.016, width - 0.060, 0.035, 0.010, "")
@@ -124,7 +124,7 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
             set CardTitle[i] = ExpUILabel(CardButton[i], 0.009, 0.096, width - 0.018, 0.044, 0.010, "")
             set CardDescription[i] = ExpUILabel(CardButton[i], 0.009, 0.143, width - 0.018, height - 0.186, 0.009, "")
         endif
-        set CardActionBackground[i] = ExpUITexture(CardButton[i], 0.008, height - 0.034, width - 0.016, 0.025, "war3mapImported\\UI_Upgrade_Action.tga")
+        set CardActionBackground[i] = ExpUITexture(CardButton[i], 0.008, height - 0.034, width - 0.016, 0.025, "war3mapImported\\UI_Upgrade_Action.blp")
         set CardActionText[i] = ExpUILabel(CardButton[i], 0.015, height - 0.028, width - 0.030, 0.020, 0.009, "")
         call DzFrameSetScriptByCode(CardButton[i], JN_FRAMEEVENT_MOUSE_ENTER, function HoverCard, false)
         call DzFrameSetScriptByCode(CardButton[i], JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveCard, false)
@@ -339,10 +339,10 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         local integer f
         local integer root
         set ChoiceRoot = ExpUIRoot(EXP_UI_CHOICE, 0.78, 0.375, 0.523, false)
-        set f = ExpUITexture(ChoiceRoot, 0.625, 0, 0.079, 0.028, "war3mapImported\\UI_Upgrade_Header.tga")
+        set f = ExpUITexture(ChoiceRoot, 0.625, 0, 0.079, 0.028, "war3mapImported\\UI_Upgrade_Header.blp")
         set ChoiceClock = ExpUILabel(ChoiceRoot, 0.643, 0.007, 0.06, 0.020, 0.011, "")
         set f = ExpUIPanelToggle(ChoiceRoot, 0.710, 0, 0.053, 0.028)
-        set ChoiceGoldBackground = ExpUITexture(ChoiceRoot, 0.255, 0.340, 0.14, 0.030, "war3mapImported\\UI_Upgrade_Header.tga")
+        set ChoiceGoldBackground = ExpUITexture(ChoiceRoot, 0.255, 0.340, 0.14, 0.030, "war3mapImported\\UI_Upgrade_Header.blp")
         set ChoiceGold = ExpUILabel(ChoiceRoot, 0.27, 0.347, 0.12, 0.022, 0.011, "")
         set Reroll = ExpUIButton(ChoiceRoot, 0.43, 0.340, 0.210, 0.030, "다시 뽑기", 100)
         loop
@@ -369,7 +369,7 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         set ShopRoot = ExpUIRoot(EXP_UI_SHOP, 0.72, 0.375, 0.523, true)
         set ShopTitle = ExpUIHeader(ShopRoot, 0.72, "상점")
         call DzFrameSetSize(ShopTitle, 0.30, 0.026)
-        set f = ExpUITexture(ShopRoot, 0.38, 0.007, 0.268, 0.030, "war3mapImported\\UI_Upgrade_Card.tga")
+        set f = ExpUITexture(ShopRoot, 0.38, 0.007, 0.268, 0.030, "war3mapImported\\UI_Upgrade_Card.blp")
         set ShopGold = ExpUILabel(ShopRoot, 0.39, 0.014, 0.25, 0.022, 0.012, "")
         set ShopClock = ExpUILabel(ShopRoot, 0.45, 0.339, 0.070, 0.023, 0.011, "")
         set i = 1

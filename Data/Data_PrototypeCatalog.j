@@ -91,7 +91,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[1] = 1
         set ProtoEventStory[1] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 |cFF865500성배|r전쟁이 들이닥친다. |cFF006B8F린|r, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
         set ProtoEventIntro[1] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 성배전쟁이 들이닥친다. 린, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
-        set ProtoEventIcon[1] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.tga"
+        set ProtoEventIcon[1] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.blp"
         set ProtoEventImageAspect[1] = 1.777778
         set ProtoHeadEntryEvent[5] = 2
         set ProtoEventKey[2] = "fuyuki_entry_1"
@@ -103,7 +103,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[2] = 1
         set ProtoEventStory[2] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 |cFF865500성배|r전쟁이 들이닥친다. |cFF006B8F린|r, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
         set ProtoEventIntro[2] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 성배전쟁이 들이닥친다. 린, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
-        set ProtoEventIcon[2] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.tga"
+        set ProtoEventIcon[2] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.blp"
         set ProtoEventImageAspect[2] = 1.777778
         set ProtoHeadEntryEvent[6] = 3
         set ProtoEventKey[3] = "fuyuki_entry_2"
@@ -115,7 +115,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[3] = 1
         set ProtoEventStory[3] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 |cFF865500성배|r전쟁이 들이닥친다. |cFF006B8F린|r, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
         set ProtoEventIntro[3] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 성배전쟁이 들이닥친다. 린, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
-        set ProtoEventIcon[3] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.tga"
+        set ProtoEventIcon[3] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.blp"
         set ProtoEventImageAspect[3] = 1.777778
         set ProtoHeadEntryEvent[7] = 4
         set ProtoEventKey[4] = "fuyuki_entry_3"
@@ -127,7 +127,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[4] = 1
         set ProtoEventStory[4] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 |cFF865500성배|r전쟁이 들이닥친다. |cFF006B8F린|r, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
         set ProtoEventIntro[4] = "학교에서 싸움을 목격한 |cFF006B8F시로|r의 일상에 성배전쟁이 들이닥친다. 린, |cFF006B8F세이버|r와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?"
-        set ProtoEventIcon[4] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.tga"
+        set ProtoEventIcon[4] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.blp"
         set ProtoEventImageAspect[4] = 1.777778
         set ProtoCardKey[13] = "shiro_analysis"
         set ProtoCardName[13] = "에미야 시로"
@@ -852,7 +852,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[53] = 1
         set ProtoEventStory[53] = "수업이 끝난 복도에 학생들이 주저앉아 있다. |cFF006B8F린|r은 바닥에 남은 술식의 흔적을 짚고, 먼저 발동을 막을지 근원을 추적할지 묻는다. |cFF006B8F시로|r는 흩어진 학생부터 내보내려 한다."
         set ProtoEventIntro[53] = "|cFF006B8F린|r과 |cFF006B8F시로|r가 학교의 술식 앞에서 서로 다른 준비를 제안한다."
-        set ProtoEventIcon[53] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga"
+        set ProtoEventIcon[53] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.blp"
         set ProtoEventImageAspect[53] = 1.777778
         set ProtoEventRequired[53] = 0
         set ProtoEventRequiredChoice[53] = 0
@@ -899,7 +899,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[54] = 1
         set ProtoEventStory[54] = "학교의 |cFF80560C기록|r을 정리한 |cFF006B8F린|r이 가스 누출 사고 현장에 남은 다른 마력 흔적을 보여 준다. |cFF006B8F아처|r는 그 흔적에 이끌려 깊이 들어가기보다 다음 큰 전투에 대비하라고 한다. 현장을 더 살필지, 아처에게 상대를 관찰할 자리를 물을지 정한다."
         set ProtoEventIntro[54] = "학교 조사 뒤 |cFF006B8F린|r이 따로 찾아낸 흔적. 추적과 다음 전투의 준비 중 하나를 맡는다."
-        set ProtoEventIcon[54] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga"
+        set ProtoEventIcon[54] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.blp"
         set ProtoEventImageAspect[54] = 1.777778
         set ProtoEventRequired[54] = 53
         set ProtoEventRequiredChoice[54] = 1
@@ -946,7 +946,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[55] = 1
         set ProtoEventStory[55] = "아침 수련에서 |cFF006B8F세이버|r는 네 발이 검보다 먼저 나가는 버릇을 지적한다. 방어 자세부터 고칠 수도 있고, 상대의 검끝을 지나치는 순간을 연습할 수도 있다. 옆에서 |cFF006B8F시로|r가 수련에 필요한 준비물을 챙긴다."
         set ProtoEventIntro[55] = "|cFF006B8F세이버|r의 수련에서 버틸 자세와 공격할 간격을 고른다."
-        set ProtoEventIcon[55] = "war3mapImported\\UI_EventThumb_Card_FateCalm_saber_Art.tga"
+        set ProtoEventIcon[55] = "war3mapImported\\UI_EventThumb_Card_FateCalm_saber_Art.blp"
         set ProtoEventImageAspect[55] = 1.777778
         set ProtoEventRequired[55] = 0
         set ProtoEventRequiredChoice[55] = 0
@@ -993,7 +993,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[56] = 1
         set ProtoEventStory[56] = "류도사의 돌계단 끝에서 어새신이 칼을 낮게 든다. |cFF006B8F세이버|r는 이 계단에서 무작정 돌진하면 간격을 잃는다고 경고한다. 검술가의 발을 읽으며 다가갈지, 세이버와 통과할 틈을 만들지 결정해야 한다."
         set ProtoEventIntro[56] = "류도사 산문에서 |cFF80560C검|r의 간격을 읽거나 통과할 준비를 한다."
-        set ProtoEventIcon[56] = "war3mapImported\\UI_EventThumb_Card_FateCalm_assassin_Art.tga"
+        set ProtoEventIcon[56] = "war3mapImported\\UI_EventThumb_Card_FateCalm_assassin_Art.blp"
         set ProtoEventImageAspect[56] = 1.777778
         set ProtoEventRequired[56] = 0
         set ProtoEventRequiredChoice[56] = 0
@@ -1040,7 +1040,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[57] = 1
         set ProtoEventStory[57] = "타이가는 부실의 상자를 손가락으로 세다가 목록을 다시 편다. 한 상자에는 가져온 사람의 이름이 없다. |cFF006B8F시로|r는 먼저 학생들에게 물어보자고 한다."
         set ProtoEventIntro[57] = "누락된 상자의 주인을 찾을지, 다른 구역의 확인을 도울지 결정한다."
-        set ProtoEventIcon[57] = "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.tga"
+        set ProtoEventIcon[57] = "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.blp"
         set ProtoEventImageAspect[57] = 1.777778
         set ProtoEventRequired[57] = 0
         set ProtoEventRequiredChoice[57] = 0
@@ -1087,7 +1087,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[58] = 1
         set ProtoEventStory[58] = "|cFF006B8F린|r이 빈 연락 |cFF80560C기록|r을 |cFF006B8F시로|r 앞에 놓는다. 시로는 다른 사람의 일을 돕다 잊었다고 한다. |cFF006B8F세이버|r는 확인할 곳을 나누면 될지 묻는다."
         set ProtoEventIntro[58] = "빠진 연락을 확인할지, 맡을 구역을 줄일지 정한다."
-        set ProtoEventIcon[58] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga"
+        set ProtoEventIcon[58] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.blp"
         set ProtoEventImageAspect[58] = 1.777778
         set ProtoEventRequired[58] = 0
         set ProtoEventRequiredChoice[58] = 0
@@ -1134,7 +1134,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[59] = 1
         set ProtoEventStory[59] = "신지는 자신이 라이더의 마스터라는 말을 먼저 꺼내고 협력을 제안한다. |cFF006B8F린|r은 원하는 조건이 빠져 있다고 지적한다. |cFF006B8F시로|r는 받아들일지보다 먼저 무엇을 확인할지 망설인다."
         set ProtoEventIntro[59] = "제안의 근거를 찾을지, |cFF006B8F아처|r와 요구사항을 파악할지 결정한다."
-        set ProtoEventIcon[59] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.tga"
+        set ProtoEventIcon[59] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.blp"
         set ProtoEventImageAspect[59] = 1.777778
         set ProtoEventRequired[59] = 0
         set ProtoEventRequiredChoice[59] = 0
@@ -1181,7 +1181,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[60] = 1
         set ProtoEventStory[60] = "|cFF006B8F린|r이 오늘은 잠깐 바깥을 둘러보자고 한다. |cFF006B8F세이버|r는 낯선 길에서 자꾸 주위를 살피고 |cFF006B8F시로|r의 걸음이 앞서간다. 준비할 물건과 걸을 범위를 골라야 한다."
         set ProtoEventIntro[60] = "|cFF006B8F세이버|r와 보폭을 맞출지, |cFF006B8F린|r과 기록을 정리할지 결정한다."
-        set ProtoEventIcon[60] = "war3mapImported\\UI_EventThumb_Card_FateCalm_saber_Art.tga"
+        set ProtoEventIcon[60] = "war3mapImported\\UI_EventThumb_Card_FateCalm_saber_Art.blp"
         set ProtoEventImageAspect[60] = 1.777778
         set ProtoEventRequired[60] = 0
         set ProtoEventRequiredChoice[60] = 0
@@ -1228,7 +1228,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[61] = 1
         set ProtoEventStory[61] = "잇세이의 진술에는 직접 본 일과 들은 일이 같은 줄에 적혀 있다. |cFF006B8F린|r은 어느 말이 어느 쪽인지 다시 묻고 싶어 한다. |cFF006B8F시로|r는 같은 학교 선생님이라는 이유만으로 결론 내릴 수 없다고 말한다."
         set ProtoEventIntro[61] = "더 넓은 구역을 확인해 사실을 파악할지, |cFF006B8F시로|r와 구조를 살필지 선택한다."
-        set ProtoEventIcon[61] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.tga"
+        set ProtoEventIcon[61] = "war3mapImported\\UI_EventThumb_Head_Official_fuyuki_Icon.blp"
         set ProtoEventImageAspect[61] = 1.777778
         set ProtoEventRequired[61] = 0
         set ProtoEventRequiredChoice[61] = 0
@@ -1275,7 +1275,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[62] = 1
         set ProtoEventStory[62] = "|cFF006B8F시로|r와 |cFF006B8F아처|r는 다음 싸움에서 무엇을 먼저 맡을지 다르게 생각한다. 시로는 놓치게 될 사람을, 아처는 감당할 결과를 짚는다. 누구에게 맞추더라도 둘의 의견 차이는 남는다."
         set ProtoEventIntro[62] = "|cFF006B8F시로|r의 뜻에 따라 강한 상대를 맡을지, |cFF006B8F아처|r의 뜻에 따라 전장의 부담을 나눌지 결정한다."
-        set ProtoEventIcon[62] = "war3mapImported\\UI_EventThumb_Card_FSU6_shirou_Art.tga"
+        set ProtoEventIcon[62] = "war3mapImported\\UI_EventThumb_Card_FSU6_shirou_Art.blp"
         set ProtoEventImageAspect[62] = 1.777778
         set ProtoEventRequired[62] = 0
         set ProtoEventRequiredChoice[62] = 0
@@ -1322,7 +1322,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[63] = 1
         set ProtoEventStory[63] = "좁은 길 끝에 선 |cFF006B8F랜서|r가 창을 한쪽으로 돌리자 너는 빈 쪽으로 지나갈 수 있다고 생각한다. 뒤에서 지켜보던 |cFF006B8F세이버|r는 창끝이 비었다고 발을 둘 자리까지 빈 것은 아니라고 말한다.|n|n랜서는 겁을 주려는지 길을 열어 준 것인지 답하지 않고 네가 먼저 고를 쪽을 본다."
         set ProtoEventIntro[63] = "창이 비킨 쪽을 택할지 발을 둘 간격부터 볼지 정한다."
-        set ProtoEventIcon[63] = "war3mapImported\\UI_EventThumb_Card_FateCalm_lancer_Art.tga"
+        set ProtoEventIcon[63] = "war3mapImported\\UI_EventThumb_Card_FateCalm_lancer_Art.blp"
         set ProtoEventImageAspect[63] = 1.777778
         set ProtoEventRequired[63] = 0
         set ProtoEventRequiredChoice[63] = 0
@@ -1369,7 +1369,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[64] = 1
         set ProtoEventStory[64] = "타이가와 사쿠라가 묵을 준비를 하는데 |cFF006B8F시로|r의 손에 펼치지 않은 이불 하나가 남아 있다. |cFF006B8F세이버|r는 사라져 자리를 비울 수 없고 타이가는 네가 아직 외투를 벗지 않은 것을 본다.|n|n사쿠라가 이불 끝을 받아 들자 너는 자기 외투와 아직 남은 한 사람 몫을 번갈아 본다."
         set ProtoEventIntro[64] = "내 이불을 펼칠까, 외투를 챙길까?"
-        set ProtoEventIcon[64] = "war3mapImported\\UI_EventThumb_Card_FateCalm_sakura_Art.tga"
+        set ProtoEventIcon[64] = "war3mapImported\\UI_EventThumb_Card_FateCalm_sakura_Art.blp"
         set ProtoEventImageAspect[64] = 1.777778
         set ProtoEventRequired[64] = 0
         set ProtoEventRequiredChoice[64] = 0
@@ -1416,7 +1416,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[65] = 1
         set ProtoEventStory[65] = "네가 놓은 화살이 표적에 닿기 전에 바닥에 내려앉자 타이가는 다음 화살보다 네 손부터 보라고 한다. |cFF006B8F시로|r가 화살을 가져오지만 너는 이미 다시 쏠 자세를 잡고 있다.|n|n타이가는 가져온 화살을 아직 받지도 않았는데 무엇부터 서두르는지 묻는다."
         set ProtoEventIntro[65] = "다음 화살을 받기 전에 무엇을 물을까?"
-        set ProtoEventIcon[65] = "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.tga"
+        set ProtoEventIcon[65] = "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.blp"
         set ProtoEventImageAspect[65] = 1.777778
         set ProtoEventRequired[65] = 0
         set ProtoEventRequiredChoice[65] = 0
@@ -1463,7 +1463,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[66] = 1
         set ProtoEventStory[66] = "교회에서 키레이가 보호를 설명하자 너는 문 안에 있으면 다음 위험도 사라질 것이라 생각한다. |cFF006B8F린|r은 감독자가 말한 범위에 네 다음 사냥까지 들어 있었냐고 묻는다. 키레이는 먼저 네가 무엇을 보호받으려는지 말하라며 대답을 기다린다."
         set ProtoEventIntro[66] = "이 말에 내 다음 사냥도 들어 있었을까?"
-        set ProtoEventIcon[66] = "war3mapImported\\UI_EventThumb_Card_FSN_ch09_Art.tga"
+        set ProtoEventIcon[66] = "war3mapImported\\UI_EventThumb_Card_FSN_ch09_Art.blp"
         set ProtoEventImageAspect[66] = 1.777778
         set ProtoEventRequired[66] = 0
         set ProtoEventRequiredChoice[66] = 0
@@ -1510,7 +1510,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[67] = 1
         set ProtoEventStory[67] = "|cFF006B8F아처|r가 막아낸 다음에도 상대의 손을 보는 사이 너는 대응이 끝났다고 한 발을 내놓는다. |cFF006B8F랜서|r는 창을 고쳐 쥐며 그 발자리도 다음 움직임 안에 들어갈 수 있다고 말한다.|n|n아처는 눈을 상대의 손에서 떼지 않은 채 네가 어디에 발을 둘 것인지 묻는다."
         set ProtoEventIntro[67] = "막아 냈다고 이 발자리도 안전할까?"
-        set ProtoEventIcon[67] = "war3mapImported\\UI_EventThumb_Card_FateCalm_archer_Art.tga"
+        set ProtoEventIcon[67] = "war3mapImported\\UI_EventThumb_Card_FateCalm_archer_Art.blp"
         set ProtoEventImageAspect[67] = 1.777778
         set ProtoEventRequired[67] = 0
         set ProtoEventRequiredChoice[67] = 0
@@ -1557,7 +1557,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[68] = 1
         set ProtoEventStory[68] = "타이가에게 성급한 동작을 물었던 네 앞에 |cFF006B8F시로|r가 다음 화살을 놓는다. 타이가는 아직 줄을 당기지 않았는데 네 눈이 벌써 표적에 가 있다고 말한다.|n|n시로가 가져온 화살은 손 닿을 곳에 있지만 네 손은 그것을 받기 전에 다시 앞을 향한다."
         set ProtoEventIntro[68] = "놓지 않은 손보다 결과가 먼저 앞서갔다."
-        set ProtoEventIcon[68] = "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.tga"
+        set ProtoEventIcon[68] = "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.blp"
         set ProtoEventImageAspect[68] = 1.777778
         set ProtoEventRequired[68] = 65
         set ProtoEventRequiredChoice[68] = 1
@@ -1604,7 +1604,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[69] = 1
         set ProtoEventStory[69] = "후유키의 학생 |cFF006B8F토오사카 린|r은 마술 가문의 후계자다. 무엇이든 이룬다는 성배를 얻기 위해 일곱 마술사가 과거 영웅인 영령을 소환해 싸우는 전쟁에 참가한다. 린이 부른 영령은 궁병 |cFF006B8F아처|r다.|n|n학교에서 아처와 적 영령 랜서가 싸우던 밤, 동급생 |cFF006B8F에미야 시로|r가 이를 목격한다. 랜서는 비밀을 감추려고 |cFFA53528시로를 죽이고 떠난다.|r|n|n뒤늦게 돌아온 린의 발이 쓰러진 학생 앞에서 멎는다."
         set ProtoEventIntro[69] = "싸움을 목격한 학생 앞에서 |cFF006B8F린|r이 걸음을 멈춘다."
-        set ProtoEventIcon[69] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga"
+        set ProtoEventIcon[69] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.blp"
         set ProtoEventImageAspect[69] = 1.777778
         set ProtoEventRequired[69] = 0
         set ProtoEventRequiredChoice[69] = 0
@@ -1654,7 +1654,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[70] = 1
         set ProtoEventStory[70] = "어린 시절 대화재에서 구조된 |cFF006B8F시로|r는 자신도 남을 구하는 사람이 되겠다고 살아왔다. 그러나 집까지 쫓아온 |cFF006B8F랜서|r를 막을 힘은 없다.|n|n창고로 몰린 순간 |cFF80560C검|r을 든 영령이 나타나 공격을 막는다. 자신을 |cFF006B8F세이버|r라고 밝힌 영령은 시로가 자신을 부른 계약자인지 확인하려 한다.|n|n시로는 방금 목숨을 구한 검과 자신의 손을 번갈아 본다."
         set ProtoEventIntro[70] = "창고에 나타난 검사가 소환자를 확인하려 한다."
-        set ProtoEventIcon[70] = "war3mapImported\\UI_EventThumb_Card_FateCalm_saber_Art.tga"
+        set ProtoEventIcon[70] = "war3mapImported\\UI_EventThumb_Card_FateCalm_saber_Art.blp"
         set ProtoEventImageAspect[70] = 1.777778
         set ProtoEventRequired[70] = 0
         set ProtoEventRequiredChoice[70] = 0
@@ -1711,7 +1711,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[71] = 1
         set ProtoEventStory[71] = "교회의 신부 코토미네 키레이는 |cFF865500성배|r전쟁의 감독자다. 그는 |cFF006B8F시로|r에게 마스터가 되었다는 사실과 참가자의 처지를 설명한다.|n|n시로가 어릴 때 겪은 도시의 대화재도 |cFF865500지난 성배전쟁의 여파|r였다는 말을 듣는다. 가족과 삶을 빼앗긴 기억이 이 전쟁으로 이어진 것이다.|n|n시로는 개인적으로 성배에 빌 소원은 없다고 한다. 곁에 있던 |cFF006B8F린|r이 그렇다면 무엇 때문에 위험을 감수하려는지 살핀다."
         set ProtoEventIntro[71] = "교회에서 들은 과거가 |cFF006B8F시로|r의 결심을 묻는다."
-        set ProtoEventIcon[71] = "war3mapImported\\UI_EventThumb_Card_FSN_ch09_Art.tga"
+        set ProtoEventIcon[71] = "war3mapImported\\UI_EventThumb_Card_FSN_ch09_Art.blp"
         set ProtoEventImageAspect[71] = 1.777778
         set ProtoEventRequired[71] = 0
         set ProtoEventRequiredChoice[71] = 0
@@ -1761,7 +1761,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[72] = 2
         set ProtoEventStory[72] = "귀갓길을 막은 은발 소녀 이리야는 거구의 영령 버서커를 거느린 마스터다. |cFF006B8F세이버|r가 싸움 끝에 버서커를 |cFF865500한 차례 쓰러뜨리지만|r, 쓰러진 몸이 다시 움직인다.|n|n|cFF006B8F시로|r에게는 영령들의 힘을 정면으로 받아낼 수단이 없다. 린은 그가 전장으로 뛰어들까 경계하며 세이버와 거리를 지키라고 한다.|n|n시로는 멀리서 날아오는 |cFF006B8F아처|r의 강력한 화살이 세이버까지 휩쓸 것임을 알아챈다."
         set ProtoEventIntro[72] = "다시 일어나는 적과 멀리서 날아오는 화살."
-        set ProtoEventIcon[72] = "war3mapImported\\UI_EventThumb_Event_FUE_berserker.tga"
+        set ProtoEventIcon[72] = "war3mapImported\\UI_EventThumb_Event_FUE_berserker.blp"
         set ProtoEventImageAspect[72] = 1.777778
         set ProtoEventRequired[72] = 0
         set ProtoEventRequiredChoice[72] = 0
@@ -1811,7 +1811,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[73] = 2
         set ProtoEventStory[73] = "|cFF006B8F시로|r의 집에는 그를 누나처럼 돌봐온 교사 후지무라 타이가와 후배 마토 사쿠라가 찾아온다. 시로는 전쟁을 숨긴 채 |cFF006B8F세이버|r가 함께 지내는 사정을 둘러대며 식탁의 평화를 지키려 한다.|n|n한편 도시에는 사람들의 마력을 빼앗는 |cFF006B8F캐스터|r의 흔적이 늘고 있다. 그런데도 세이버 없이 학교로 향한 시로를 |cFF006B8F린|r이 가로막는다.|n|n그는 평소처럼 다니려 하지만 린은 적 마스터들이 돌아다니는 상황을 알고 있다."
         set ProtoEventIntro[73] = "평소의 등굣길에서 |cFF006B8F린|r이 |cFF006B8F시로|r를 가로막는다."
-        set ProtoEventIcon[73] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga"
+        set ProtoEventIcon[73] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.blp"
         set ProtoEventImageAspect[73] = 1.777778
         set ProtoEventRequired[73] = 0
         set ProtoEventRequiredChoice[73] = 0
@@ -1861,7 +1861,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[74] = 2
         set ProtoEventStory[74] = "|cFF006B8F세이버|r 없이 학교에 온 |cFF006B8F시로|r와 |cFF006B8F린|r이 맞서던 중 학생의 비명이 들린다. 두 사람은 싸움을 멈추고 학교 안에서 또 다른 참가자가 학생들을 노리고 있음을 확인한다.|n|n서로를 공격하는 동안 무관한 사람들이 다칠 수 있다. 린이 시로를 보며 적대를 잠시 멈추고 함께 대응하자고 제안하려 한다."
         set ProtoEventIntro[74] = "두 사람의 충돌을 학생의 비명이 끊는다."
-        set ProtoEventIcon[74] = "war3mapImported\\UI_EventThumb_Event_FUE_school.tga"
+        set ProtoEventIcon[74] = "war3mapImported\\UI_EventThumb_Event_FUE_school.blp"
         set ProtoEventImageAspect[74] = 1.777778
         set ProtoEventRequired[74] = 0
         set ProtoEventRequiredChoice[74] = 0
@@ -1918,7 +1918,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[75] = 2
         set ProtoEventStory[75] = "류도사로 끌려온 |cFF006B8F시로|r를 붙잡은 것은 영령 |cFF006B8F캐스터|r다. |cFFA53528사람들의 마력을 빼앗는 그녀|r는 이 절을 거점으로 삼고 있다.|n|n시로를 쫓아온 |cFF006B8F세이버|r는 산문을 지키는 검객 어새신에게 막힌다. 안으로 들어와 시로를 구한 이는 린의 영령 아처다.|n|n그러나 아처는 시로의 모두를 구하려는 이상을 비판한다. 시로도 사람을 희생시키는 방식을 받아들일 수 없다고 맞서며 두 사람의 대화가 날카로워진다."
         set ProtoEventIntro[75] = "|cFF006B8F시로|r를 구한 |cFF006B8F아처|r가 그의 이상에 검을 겨눈다."
-        set ProtoEventIcon[75] = "war3mapImported\\UI_EventThumb_Event_FUE_caster.tga"
+        set ProtoEventIcon[75] = "war3mapImported\\UI_EventThumb_Event_FUE_caster.blp"
         set ProtoEventImageAspect[75] = 1.777778
         set ProtoEventRequired[75] = 0
         set ProtoEventRequiredChoice[75] = 0
@@ -1968,7 +1968,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[76] = 2
         set ProtoEventStory[76] = "학교에 설치된 마법진이 발동하자 학생들이 쓰러지기 시작한다. |cFF006B8F시로|r는 마스터가 영령에게 |cFF865500강제 명령을 내리는 령주|r로 |cFF006B8F세이버|r를 불러낸다.|n|n|cFF006B8F린|r과 함께 결계를 멈추기 위해 신지를 찾지만 예상한 상황이 아니다. 라이더는 이미 다른 적에게 패해 사라졌고 신지 쪽도 공격받았다.|n|n린은 교실과 쓰러진 학생들을 살피며 학교 안에 자신들이 놓친 상대가 있다고 판단한다."
         set ProtoEventIntro[76] = "학생들이 쓰러지는 학교에 다른 적의 흔적이 있다."
-        set ProtoEventIcon[76] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga"
+        set ProtoEventIcon[76] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.blp"
         set ProtoEventImageAspect[76] = 1.777778
         set ProtoEventRequired[76] = 0
         set ProtoEventRequiredChoice[76] = 0
@@ -2018,7 +2018,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[77] = 2
         set ProtoEventStory[77] = "친구 류도 이세이의 이야기가 교사 쿠즈키 소이치로와 |cFF006B8F캐스터|r의 관계를 의심하게 한다. |cFF006B8F시로|r와 린이 그를 확인하러 나서자 캐스터가 지원하고, 쿠즈키가 마스터임이 드러난다.|n|n|cFFA53528강화된 그의 맨손 공격|r은 |cFF006B8F세이버|r마저 위협한다. 평범한 교사라는 인상만 믿고 상대할 수 없었다.|n|n시로는 자신이 본 무기의 구조를 떠올리며 투영 마술로 맞설 방법을 찾는다."
         set ProtoEventIntro[77] = "의심했던 교사가 |cFF006B8F세이버|r를 위협한다."
-        set ProtoEventIcon[77] = "war3mapImported\\UI_EventThumb_Event_FUE_kuzuki.tga"
+        set ProtoEventIcon[77] = "war3mapImported\\UI_EventThumb_Event_FUE_kuzuki.blp"
         set ProtoEventImageAspect[77] = 1.777778
         set ProtoEventRequired[77] = 0
         set ProtoEventRequiredChoice[77] = 0
@@ -2068,7 +2068,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[78] = 2
         set ProtoEventStory[78] = "|cFF006B8F캐스터|r는 타이가를 인질로 잡고 |cFF006B8F시로|r를 굴복시키려 한다. |cFF006B8F세이버|r가 시로를 지키려 하지만 캐스터는 |cFF865500계약을 끊는 보구|r로 둘의 연결을 빼앗아 자신의 영령으로 만든다.|n|n타이가는 구했어도 함께 싸우던 세이버가 적에게 넘어갔다. 린은 전력을 잃은 시로를 전쟁에서 떼어 놓으려 한다.|n|n시로는 구해 낸 가족과 빼앗긴 영령을 떠올리며 린의 말을 듣는다."
         set ProtoEventIntro[78] = "적에게 넘어간 |cFF006B8F세이버|r를 두고 린과 |cFF006B8F시로|r가 맞선다."
-        set ProtoEventIcon[78] = "war3mapImported\\UI_EventThumb_Event_FUE_hostage.tga"
+        set ProtoEventIcon[78] = "war3mapImported\\UI_EventThumb_Event_FUE_hostage.blp"
         set ProtoEventImageAspect[78] = 1.777778
         set ProtoEventRequired[78] = 0
         set ProtoEventRequiredChoice[78] = 0
@@ -2125,7 +2125,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[79] = 2
         set ProtoEventStory[79] = "아인츠베른 성에 도착한 |cFF006B8F시로|r와 |cFF006B8F린|r은 이리야와 버서커가 금빛 영령 |cFF006B8F길가메시|r에게 공격받는 모습을 본다. 이번 일곱 영령에 속하지 않는 그가 수많은 보구를 꺼내 버서커를 쓰러뜨리고 이리야까지 살해한다.|n|n도움을 청하러 온 둘은 그녀를 구하지 못했다. 시로가 분노해 나서려 하자 린이 붙든다.|n|n구할 사람을 놓친 뒤 더 희생되는 것을 막아야 하는 순간이다."
         set ProtoEventIntro[79] = "성에서 벌어진 참극 앞에 |cFF006B8F린|r이 |cFF006B8F시로|r를 붙든다."
-        set ProtoEventIcon[79] = "war3mapImported\\UI_EventThumb_Event_FUO_castle.tga"
+        set ProtoEventIcon[79] = "war3mapImported\\UI_EventThumb_Event_FUO_castle.blp"
         set ProtoEventImageAspect[79] = 1.777778
         set ProtoEventRequired[79] = 0
         set ProtoEventRequiredChoice[79] = 0
@@ -2175,7 +2175,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[80] = 3
         set ProtoEventStory[80] = "랜서의 도움으로 교회에 들어간 |cFF006B8F시로|r와 린은 |cFF006B8F캐스터|r와 맞선다. 교전 중 |cFF006B8F아처|r가 쿠즈키를 공격하자 캐스터는 그를 감싸다 죽는다.|n|n쿠즈키도 아처에게 살해되고 |cFF006B8F세이버|r를 묶던 계약이 사라진다. 자유로워진 세이버를 앞에 두고 린이 새로운 계약을 맺으려 한다.|n|n그러나 아처가 왜 캐스터에게 돌아섰다가 다시 공격했는지는 아직 설명되지 않았다."
         set ProtoEventIntro[80] = "계약에서 풀린 |cFF006B8F세이버|r 앞에 |cFF006B8F린|r이 나선다."
-        set ProtoEventIcon[80] = "war3mapImported\\UI_EventThumb_Event_FUO_identity.tga"
+        set ProtoEventIcon[80] = "war3mapImported\\UI_EventThumb_Event_FUO_identity.blp"
         set ProtoEventImageAspect[80] = 1.777778
         set ProtoEventRequired[80] = 0
         set ProtoEventRequiredChoice[80] = 0
@@ -2225,7 +2225,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[81] = 3
         set ProtoEventStory[81] = "린을 구하러 성에 온 |cFF006B8F시로|r와 |cFF006B8F세이버|r, |cFF006B8F랜서|r는 각자의 상대를 향한다. 시로 앞을 막은 |cFF006B8F아처|r는 자신이 소년에게 유독 냉담했던 이유를 이야기하려 한다.|n|n두 사람이 쓰는 무기와 닮은 이상은 우연이 아니다. 시로는 린의 구출을 멈추지 않으면서도 자신에게 검을 겨누는 영령의 말을 들어야 한다.|n|n아처가 사람을 구하려는 이상이 어디로 이어지는지 알고 있느냐고 묻는다."
         set ProtoEventIntro[81] = "|cFF006B8F시로|r에게 냉담했던 영령이 자신의 이야기를 꺼낸다."
-        set ProtoEventIcon[81] = "war3mapImported\\UI_EventThumb_Event_FUO_clash.tga"
+        set ProtoEventIcon[81] = "war3mapImported\\UI_EventThumb_Event_FUO_clash.blp"
         set ProtoEventImageAspect[81] = 1.777778
         set ProtoEventRequired[81] = 0
         set ProtoEventRequiredChoice[81] = 0
@@ -2287,7 +2287,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[82] = 3
         set ProtoEventStory[82] = "대결 뒤 |cFF006B8F길가메시|r가 나타나 |cFF006B8F아처|r를 공격하고 |cFFA53528오염된 성배의 재앙|r으로 인류를 솎아내겠다는 목적을 밝힌다. 이리야의 심장을 신지에게 넣어 성배의 그릇으로 삼은 것이다. 소원을 이루는 도구를 얻으려던 전쟁이 사람들을 희생시킬 계획으로 바뀌었다.|n|n|cFF006B8F린|r은 의식의 장소가 류도사임을 알아낸다. 일행은 길가메시와 싸우는 것뿐 아니라 성배를 없애고 신지도 꺼내야 한다.|n|n린이 각자 맡을 일을 나누려 한다."
         set ProtoEventIntro[82] = "류도사로 향하기 전에 세 사람이 역할을 나눈다."
-        set ProtoEventIcon[82] = "war3mapImported\\UI_EventThumb_Event_FUO_plan.tga"
+        set ProtoEventIcon[82] = "war3mapImported\\UI_EventThumb_Event_FUO_plan.blp"
         set ProtoEventImageAspect[82] = 1.777778
         set ProtoEventRequired[82] = 0
         set ProtoEventRequiredChoice[82] = 0
@@ -2337,7 +2337,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[83] = 3
         set ProtoEventStory[83] = "류도사에서 |cFF006B8F세이버|r는 산문을 지키는 어새신과 다시 맞선다. |cFF006B8F시로|r는 린의 마력을 바탕으로 수많은 검을 펼치는 고유결계, 무한의 검제를 준비한다. |cFF006B8F길가메시|r가 보구를 꺼내기 전에 이미 펼쳐진 검으로 맞서려는 것이다.|n|n영령보다 힘이 약한 시로가 투영의 특성을 살릴 싸움이 시작된다. 그 사이 린은 |cFF865500성배|r의 그릇이 된 신지에게 다가간다.|n|n역할을 나누었던 모두가 자기 앞의 위험을 넘으려 한다."
         set ProtoEventIntro[83] = "각자 맡은 전장 앞에서 마지막 싸움을 준비한다."
-        set ProtoEventIcon[83] = "war3mapImported\\UI_EventThumb_Event_FUO_blades.tga"
+        set ProtoEventIcon[83] = "war3mapImported\\UI_EventThumb_Event_FUO_blades.blp"
         set ProtoEventImageAspect[83] = 1.777778
         set ProtoEventRequired[83] = 0
         set ProtoEventRequiredChoice[83] = 0
@@ -2387,7 +2387,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[84] = 4
         set ProtoEventStory[84] = "린은 |cFF865500성배|r의 그릇에 접근해 신지를 붙잡는다. |cFF006B8F시로|r는 |cFF006B8F길가메시|r를 막고 |cFF006B8F세이버|r는 성배를 파괴할 준비를 하지만, 린이 신지와 함께 빠져나올 길도 필요하다.|n|n재앙을 끝내기 위한 역할은 나뉘었어도 누구도 혼자 모든 일을 마칠 수 없다. 린이 신지를 놓치지 않으려 힘을 주는 동안 마지막 위험이 다가온다."
         set ProtoEventIntro[84] = "|cFF865500성배|r의 그릇에 닿은 |cFF006B8F린|r에게 탈출할 길이 필요하다."
-        set ProtoEventIcon[84] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.tga"
+        set ProtoEventIcon[84] = "war3mapImported\\UI_EventThumb_Card_FateCalm_rin_Art.blp"
         set ProtoEventImageAspect[84] = 1.777778
         set ProtoEventRequired[84] = 0
         set ProtoEventRequiredChoice[84] = 0
@@ -2442,7 +2442,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[85] = 1
         set ProtoEventStory[85] = "후유키의 |cFF80560C기록|r을 다시 펼친다. 처음 마주친 |cFF80560C검|r, 식탁에 모였던 |cFF80560C목소리|r, 끝내 풀리지 않은 질문이 서로 다른 쪽에 남아 있다.|n|n이미 끝난 전쟁의 결말을 바꾸려는 것은 아니다. 다음 길에 가져갈 대목을 고르고 그 옆의 빈칸에 말을 더한다."
         set ProtoEventIntro[85] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[85] = "war3mapImported\\UI_EventThumb_Event_FUO_memory.tga"
+        set ProtoEventIcon[85] = "war3mapImported\\UI_EventThumb_Event_FUO_memory.blp"
         set ProtoEventImageAspect[85] = 1.777778
         set ProtoEventRequired[85] = 0
         set ProtoEventRequiredChoice[85] = 0
@@ -2508,7 +2508,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[5] = 1
         set ProtoEventStory[5] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 |cFF80560C마을|r을 지켜야 할 싸움으로 번져 간다."
         set ProtoEventIntro[5] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 마을을 지켜야 할 싸움으로 번져 간다."
-        set ProtoEventIcon[5] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.tga"
+        set ProtoEventIcon[5] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.blp"
         set ProtoEventImageAspect[5] = 1.777778
         set ProtoHeadEntryEvent[9] = 6
         set ProtoEventKey[6] = "axel_entry_1"
@@ -2520,7 +2520,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[6] = 1
         set ProtoEventStory[6] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 |cFF80560C마을|r을 지켜야 할 싸움으로 번져 간다."
         set ProtoEventIntro[6] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 마을을 지켜야 할 싸움으로 번져 간다."
-        set ProtoEventIcon[6] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.tga"
+        set ProtoEventIcon[6] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.blp"
         set ProtoEventImageAspect[6] = 1.777778
         set ProtoHeadEntryEvent[10] = 7
         set ProtoEventKey[7] = "axel_entry_2"
@@ -2532,7 +2532,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[7] = 1
         set ProtoEventStory[7] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 |cFF80560C마을|r을 지켜야 할 싸움으로 번져 간다."
         set ProtoEventIntro[7] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 마을을 지켜야 할 싸움으로 번져 간다."
-        set ProtoEventIcon[7] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.tga"
+        set ProtoEventIcon[7] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.blp"
         set ProtoEventImageAspect[7] = 1.777778
         set ProtoHeadEntryEvent[11] = 8
         set ProtoEventKey[8] = "axel_entry_3"
@@ -2544,7 +2544,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[8] = 1
         set ProtoEventStory[8] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 |cFF80560C마을|r을 지켜야 할 싸움으로 번져 간다."
         set ProtoEventIntro[8] = "|cFF006B8F카즈마|r와 |cFF006B8F아쿠아|r가 액셀에서 모험가의 생활을 시작한다. 일거리를 찾고 동료를 모으는 동안 작은 소동은 마을을 지켜야 할 싸움으로 번져 간다."
-        set ProtoEventIcon[8] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.tga"
+        set ProtoEventIcon[8] = "war3mapImported\\UI_EventThumb_Head_Official_axel_Icon.blp"
         set ProtoEventImageAspect[8] = 1.777778
         set ProtoCardKey[84] = "axel_luna"
         set ProtoCardName[84] = "루나"
@@ -3220,7 +3220,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[86] = 1
         set ProtoEventStory[86] = "루나가 손님이 몰리는 시간에 의뢰서를 놓쳤다. 약한 몬스터 무리가 방치된 길과 강한 몬스터가 남은 길을 모두 정리해야 하지만, 한 사람이 두 곳을 맡기는 어렵다.|n|n|cFF006B8F카즈마|r는 보수가 큰 쪽을, |cFF006B8F다크니스|r는 맞아 줄 일이 많은 쪽을 가리킨다."
         set ProtoEventIntro[86] = "길드 의뢰 두 개가 겹쳤다. 어느 쪽을 맡을까?"
-        set ProtoEventIcon[86] = "war3mapImported\\UI_EventThumb_Card_KSB_luna_Art.tga"
+        set ProtoEventIcon[86] = "war3mapImported\\UI_EventThumb_Card_KSB_luna_Art.blp"
         set ProtoEventImageAspect[86] = 1.777778
         set ProtoEventRequired[86] = 0
         set ProtoEventRequiredChoice[86] = 0
@@ -3267,7 +3267,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[87] = 1
         set ProtoEventStory[87] = "처리한 의뢰의 보수 명세서가 보이지 않는다. |cFF006B8F카즈마|r가 주머니를 뒤지자 크리스가 도적에게는 물건을 찾는 방법도 중요하다며 웃는다. 급히 사냥을 다시 시작할지, 그녀와 흔적을 찾을지 정해야 한다."
         set ProtoEventIntro[87] = "완료한 의뢰의 보수 명세서가 사라졌다."
-        set ProtoEventIcon[87] = "war3mapImported\\UI_EventThumb_Card_KSB_MST26_chris_Art.tga"
+        set ProtoEventIcon[87] = "war3mapImported\\UI_EventThumb_Card_KSB_MST26_chris_Art.blp"
         set ProtoEventImageAspect[87] = 1.777778
         set ProtoEventRequired[87] = 86
         set ProtoEventRequiredChoice[87] = 1
@@ -3324,7 +3324,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[88] = 1
         set ProtoEventStory[88] = "|cFF006B8F메구밍|r이 오늘 사용할 |cFF865500폭렬 마법|r의 장소를 찾는다. 당신의 사냥터 근처에는 무너져도 되는 빈 암벽이 있지만, 큰 소리에 강한 몬스터까지 접근할 수 있다. |cFF006B8F위즈|r는 안전 거리를 계산해 주겠다고 한다."
         set ProtoEventIntro[88] = "|cFF865500폭렬 마법|r을 쓸 장소를 확보해 달라는 부탁."
-        set ProtoEventIcon[88] = "war3mapImported\\UI_EventThumb_Card_KSO1_megumin_Art.tga"
+        set ProtoEventIcon[88] = "war3mapImported\\UI_EventThumb_Card_KSO1_megumin_Art.blp"
         set ProtoEventImageAspect[88] = 1.777778
         set ProtoEventRequired[88] = 0
         set ProtoEventRequiredChoice[88] = 0
@@ -3371,7 +3371,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[89] = 1
         set ProtoEventStory[89] = "|cFF006B8F위즈|r의 장부에는 물건이 팔렸는데도 적자가 남아 있다. 바니르는 원가를 세는 방식부터 잘못됐다며 장부를 내민다. 고장 난 마도구를 확인하는 일과 물건의 가치를 가려내는 일을 한꺼번에 할 수는 없다."
         set ProtoEventIntro[89] = "|cFF006B8F위즈|r의 마도구 가게에서 장부와 불량품이 엉켰다."
-        set ProtoEventIcon[89] = "war3mapImported\\UI_EventThumb_Card_KSO1_wiz_Art.tga"
+        set ProtoEventIcon[89] = "war3mapImported\\UI_EventThumb_Card_KSO1_wiz_Art.blp"
         set ProtoEventImageAspect[89] = 1.777778
         set ProtoEventRequired[89] = 0
         set ProtoEventRequiredChoice[89] = 0
@@ -3418,7 +3418,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[90] = 1
         set ProtoEventStory[90] = "|cFF006B8F아쿠아|r가 맛있는 음식과 특이한 돌을 골랐다가 소모품 예산을 다 썼다. 마침 사냥 전 보급을 준비하던 당신에게 축복을 해 주겠다며 도움을 청한다. 지금 회복 수단을 늘릴지, 앞으로 조금씩 회복할지 고민할 때다."
         set ProtoEventIntro[90] = "|cFF006B8F아쿠아|r가 보급 예산을 써 버렸다."
-        set ProtoEventIcon[90] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.tga"
+        set ProtoEventIcon[90] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.blp"
         set ProtoEventImageAspect[90] = 1.777778
         set ProtoEventRequired[90] = 0
         set ProtoEventRequiredChoice[90] = 0
@@ -3465,7 +3465,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[91] = 1
         set ProtoEventStory[91] = "길에서 만난 몬스터들이 유독 |cFF006B8F다크니스|r의 갑옷으로 달려든다. 그녀는 버틸 수 있다고 하지만, 당신이 공격할 공간까지 사라지고 있다. 한곳에 더 모아 쓰러뜨릴지, 통로부터 비울지 판단해야 한다."
         set ProtoEventIntro[91] = "몬스터들이 |cFF006B8F다크니스|r에게 몰려 공격할 틈이 없다."
-        set ProtoEventIcon[91] = "war3mapImported\\UI_EventThumb_Card_KSO1_darkness_Art.tga"
+        set ProtoEventIcon[91] = "war3mapImported\\UI_EventThumb_Card_KSO1_darkness_Art.blp"
         set ProtoEventImageAspect[91] = 1.777778
         set ProtoEventRequired[91] = 0
         set ProtoEventRequiredChoice[91] = 0
@@ -3512,7 +3512,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[92] = 1
         set ProtoEventStory[92] = "|cFF006B8F아쿠아|r가 물을 쓰는 연회 재주를 보여 주겠다며 자리를 잡는다. |cFF006B8F카즈마|r는 바로 옆에 모험가들의 짐이 쌓였는데도 박수부터 바라느냐고 타박하고, 루나는 젖으면 곤란한 짐을 먼저 나누자고 한다.|n|n아쿠아는 자리를 비우면 더 멋진 것을 보여 줄 수 있다고 물러서지 않는다."
         set ProtoEventIntro[92] = "공연 자리를 도울지, 밖의 일을 맡을지 정한다."
-        set ProtoEventIcon[92] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.tga"
+        set ProtoEventIcon[92] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.blp"
         set ProtoEventImageAspect[92] = 1.777778
         set ProtoEventRequired[92] = 0
         set ProtoEventRequiredChoice[92] = 0
@@ -3559,7 +3559,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[93] = 1
         set ProtoEventStory[93] = "|cFF006B8F다크니스|r가 귀여운 진열품 앞에서 멈추는 바람에 뒤의 사람들이 지나가지 못한다. 크리스가 슬쩍 옆으로 비키라고 하자 다크니스는 관심 없는 척하다가 같은 물건을 다시 본다.|n|n|cFF006B8F카즈마|r는 갑옷을 입고 서 있으면 작은 물건보다 네가 더 눈에 띈다고 말한다."
         set ProtoEventIntro[93] = "작은 진열품 앞의 정체를 풀어 보자."
-        set ProtoEventIcon[93] = "war3mapImported\\UI_EventThumb_Card_KSO1_darkness_Art.tga"
+        set ProtoEventIcon[93] = "war3mapImported\\UI_EventThumb_Card_KSO1_darkness_Art.blp"
         set ProtoEventImageAspect[93] = 1.777778
         set ProtoEventRequired[93] = 0
         set ProtoEventRequiredChoice[93] = 0
@@ -3606,7 +3606,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[94] = 1
         set ProtoEventStory[94] = "융융이 여러 공격을 연습할 표적을 가져왔는데 |cFF006B8F메구밍|r은 |cFF865500폭렬 마법|r 하나로 끝낼 수 있는 자리를 고른다. 융융은 먼저 작은 표적의 간격도 보자고 하고 메구밍은 큰 자리부터 보자고 맞선다.|n|n|cFF006B8F카즈마|r는 연습 전에 둘이 같은 표적을 노리지 않도록 네가 맡을 쪽을 정하라고 한다."
         set ProtoEventIntro[94] = "한 번의 큰 공격과 여러 공격의 간격을 비교한다."
-        set ProtoEventIcon[94] = "war3mapImported\\UI_EventThumb_Card_KSB_MST26_yunyun_Art.tga"
+        set ProtoEventIcon[94] = "war3mapImported\\UI_EventThumb_Card_KSB_MST26_yunyun_Art.blp"
         set ProtoEventImageAspect[94] = 1.777778
         set ProtoEventRequired[94] = 0
         set ProtoEventRequiredChoice[94] = 0
@@ -3653,7 +3653,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[95] = 1
         set ProtoEventStory[95] = "미츠루기가 |cFF006B8F아쿠아|r에게 마검 그람의 이름부터 설명하려는데 크리스는 검보다 먼저 어느 쪽을 맡을지 묻는다. |cFF006B8F카즈마|r는 소개를 듣는 동안 바깥 길목은 누가 볼 것이냐고 끼어든다.|n|n아쿠아가 자기를 위한 설명이 얼마나 남았냐고 묻자 미츠루기는 다시 자세를 고쳐 선다."
         set ProtoEventIntro[95] = "|cFF80560C검|r의 이름을 듣기 전에 맡을 자리를 정한다."
-        set ProtoEventIcon[95] = "war3mapImported\\UI_EventThumb_Card_KSB_mitsurugi_Art.tga"
+        set ProtoEventIcon[95] = "war3mapImported\\UI_EventThumb_Card_KSB_mitsurugi_Art.blp"
         set ProtoEventImageAspect[95] = 1.777778
         set ProtoEventRequired[95] = 0
         set ProtoEventRequiredChoice[95] = 0
@@ -3700,7 +3700,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[96] = 1
         set ProtoEventStory[96] = "새 모험가가 루나에게 어느 길로 나가야 하냐고 묻다가, 적을 만나면 누구에게 물어야 하냐고 다시 묻는다. 길드에서 늘 모험가를 맞는 거친 남자는 일단 들어올 자리부터 비우자고 한다.|n|n|cFF006B8F카즈마|r는 창구에서 답을 듣는 일과 바깥의 강한 적을 확인하는 일을 한 사람이 전부 맡지 말자고 한다."
         set ProtoEventIntro[96] = "신참의 다음 질문까지 맡을지, 바깥을 맡을지 정한다."
-        set ProtoEventIcon[96] = "war3mapImported\\UI_EventThumb_Card_KSB_luna_Art.tga"
+        set ProtoEventIcon[96] = "war3mapImported\\UI_EventThumb_Card_KSB_luna_Art.blp"
         set ProtoEventImageAspect[96] = 1.777778
         set ProtoEventRequired[96] = 0
         set ProtoEventRequiredChoice[96] = 0
@@ -3747,7 +3747,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[97] = 1
         set ProtoEventStory[97] = "호숫가에서 |cFF006B8F아쿠아|r가 든 우리를 보던 구경꾼이 사람을 버리는 것 아니냐며 네 앞을 막는다. |cFF006B8F카즈마|r는 정화 의뢰라고 해명하는 동안 줄을 잡아 줄 손을 찾고, 우리 안의 아쿠아는 해명보다 끌어올리는 때를 놓치지 말라고 외친다.|n|n너는 구경꾼과 줄 사이에서 지금 자기 손을 어디에 쓸지 정한다."
         set ProtoEventIntro[97] = "해명하는 말과 끌어올리는 손 중 어디에 힘을 보탤까?"
-        set ProtoEventIcon[97] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.tga"
+        set ProtoEventIcon[97] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.blp"
         set ProtoEventImageAspect[97] = 1.777778
         set ProtoEventRequired[97] = 0
         set ProtoEventRequiredChoice[97] = 0
@@ -3794,7 +3794,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[98] = 1
         set ProtoEventStory[98] = "눈의 정령을 쫓던 |cFF006B8F카즈마|r가 저쪽에도 더 있다며 손가락을 뻗는다. 뒤돌아보니 네가 남긴 |cFF80560C발자국|r은 겹쳐 있어 어디서 내려왔는지 바로 보이지 않고, |cFF006B8F아쿠아|r는 쉬운 의뢰라도 돌아갈 길을 놓치지 말라고 말한다.|n|n너는 더 멀리 쫓을 발걸음과 지금 확보할 보급 중 자기 몫을 정한다."
         set ProtoEventIntro[98] = "더 쫓아갈 발걸음과 돌아올 보급 중 무엇을 맡을까?"
-        set ProtoEventIcon[98] = "war3mapImported\\UI_EventThumb_Card_KSO1_kazuma_Art.tga"
+        set ProtoEventIcon[98] = "war3mapImported\\UI_EventThumb_Card_KSO1_kazuma_Art.blp"
         set ProtoEventImageAspect[98] = 1.777778
         set ProtoEventRequired[98] = 0
         set ProtoEventRequiredChoice[98] = 0
@@ -3841,7 +3841,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[99] = 1
         set ProtoEventStory[99] = "|cFF006B8F위즈|r가 |cFF006B8F카즈마|r의 질문에 답하려는데 |cFF006B8F아쿠아|r가 제령 의뢰가 왔다며 말을 끊는다. 카즈마는 아직 질문이 끝나지 않았다고 하고 위즈는 답하던 손을 멈춘 채 너도 무엇을 물으러 왔는지 묻는다.|n|n네가 마치려던 질문은 아직 남았고 문밖에는 옮겨야 할 보급품도 기다리고 있다."
         set ProtoEventIntro[99] = "남은 질문을 마칠까, 밖의 준비를 맡을까?"
-        set ProtoEventIcon[99] = "war3mapImported\\UI_EventThumb_Card_KSO1_wiz_Art.tga"
+        set ProtoEventIcon[99] = "war3mapImported\\UI_EventThumb_Card_KSO1_wiz_Art.blp"
         set ProtoEventImageAspect[99] = 1.777778
         set ProtoEventRequired[99] = 0
         set ProtoEventRequiredChoice[99] = 0
@@ -3888,7 +3888,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[100] = 1
         set ProtoEventStory[100] = "제령 의뢰의 저택 앞에서 |cFF006B8F아쿠아|r가 기운이 난다는 창문을 가리키자 |cFF006B8F카즈마|r는 먼저 의뢰인을 만나야 하지 않냐고 묻는다. |cFF006B8F위즈|r는 두 사람이 서로 다른 문턱에 서 있는 동안에도 의뢰받은 집인지 다시 확인하고 있다.|n|n너는 아직 열리지 않은 문과 바깥에 남은 |cFF80560C발자국|r 사이에서 자기 일을 고른다."
         set ProtoEventIntro[100] = "아직 열린 문이 없다. 먼저 무엇을 확인할까?"
-        set ProtoEventIcon[100] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.tga"
+        set ProtoEventIcon[100] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.blp"
         set ProtoEventImageAspect[100] = 1.777778
         set ProtoEventRequired[100] = 0
         set ProtoEventRequiredChoice[100] = 0
@@ -3935,7 +3935,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[101] = 1
         set ProtoEventStory[101] = "줄을 붙들었던 네 앞에 우리를 올려놓을 자리가 마련되었는데도 구경꾼이 이제 놓아도 되냐고 묻는다. |cFF006B8F카즈마|r는 먼저 발 디딜 자리를 보자고 하고 |cFF006B8F아쿠아|r는 밖에 나와도 다시 물속에 넣지 말라며 손을 뻗는다.|n|n너는 손을 떼기 전의 짧은 준비와 돌아올 보급 중 무엇을 맡을지 정한다."
         set ProtoEventIntro[101] = "우리를 내려놓기 전, 손을 언제 뗄 수 있을까?"
-        set ProtoEventIcon[101] = "war3mapImported\\UI_EventThumb_Card_KSO1_kazuma_Art.tga"
+        set ProtoEventIcon[101] = "war3mapImported\\UI_EventThumb_Card_KSO1_kazuma_Art.blp"
         set ProtoEventImageAspect[101] = 1.777778
         set ProtoEventRequired[101] = 97
         set ProtoEventRequiredChoice[101] = 1
@@ -3982,7 +3982,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[102] = 1
         set ProtoEventStory[102] = "|cFF006B8F카즈마|r는 죽은 뒤 물의 여신 |cFF006B8F아쿠아|r에게 이세계에서 다시 살 기회를 받는다. 마왕 토벌의 특전을 고르라는 말에 자신을 놀리던 아쿠아를 지목해 그녀까지 동행하게 했다. 도착한 곳은 초보 모험가의 |cFF80560C마을|r 액셀이다.|n|n그러나 여신이 곁에 있다고 먹고 잘 곳이 생기지는 않는다. 두 사람은 당장 |cFF865500생활비를 어떻게 마련할지|r부터 부딪힌다."
         set ProtoEventIntro[102] = "빈손으로 도착한 두 사람에게 생활비가 필요하다."
-        set ProtoEventIcon[102] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.tga"
+        set ProtoEventIcon[102] = "war3mapImported\\UI_EventThumb_Card_KSO1_aqua_Art.blp"
         set ProtoEventImageAspect[102] = 1.777778
         set ProtoEventRequired[102] = 0
         set ProtoEventRequiredChoice[102] = 0
@@ -4032,7 +4032,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[103] = 1
         set ProtoEventStory[103] = "마법사를 모집하는 |cFF006B8F카즈마|r 앞에 홍마족 소녀 |cFF006B8F메구밍|r이 나타난다. 그녀는 최상급 마법사인 아크위저드이며 |cFF865500폭렬 마법|r을 자신 있게 소개한다.|n|n카즈마가 바라는 것은 의뢰에서 꾸준히 싸워 줄 화력이다. 메구밍은 자신의 한 방을 보여 주겠다고 나서지만 다른 마법 이야기는 하지 않는다."
         set ProtoEventIntro[103] = "새 마법사가 자신의 한 방을 보여 주려 한다."
-        set ProtoEventIcon[103] = "war3mapImported\\UI_EventThumb_Event_AXE_megumin.tga"
+        set ProtoEventIcon[103] = "war3mapImported\\UI_EventThumb_Event_AXE_megumin.blp"
         set ProtoEventImageAspect[103] = 1.777778
         set ProtoEventRequired[103] = 0
         set ProtoEventRequiredChoice[103] = 0
@@ -4082,7 +4082,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[104] = 1
         set ProtoEventStory[104] = "두꺼운 갑옷을 입은 크루세이더 |cFF006B8F다크니스|r가 파티에 지원한다. 튼튼한 몸은 |cFF006B8F메구밍|r을 지켜 줄 전위에 어울리지만, 그녀의 |cFF80560C검|r은 적에게 제대로 맞지 않는다.|n|n더구나 위험한 상황을 오히려 반기는 태도가 |cFF006B8F카즈마|r를 당황하게 한다. 다크니스는 그래도 동료 앞에서 공격을 받아내는 일만큼은 맡을 수 있다고 한다."
         set ProtoEventIntro[104] = "튼튼한 전위의 뜻밖의 약점을 마주한다."
-        set ProtoEventIcon[104] = "war3mapImported\\UI_EventThumb_Event_AXE_darkness.tga"
+        set ProtoEventIcon[104] = "war3mapImported\\UI_EventThumb_Event_AXE_darkness.blp"
         set ProtoEventImageAspect[104] = 1.777778
         set ProtoEventRequired[104] = 0
         set ProtoEventRequiredChoice[104] = 0
@@ -4132,7 +4132,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[105] = 2
         set ProtoEventStory[105] = "마왕군 간부의 세력이 근처에 자리 잡자 약한 몬스터가 사라져 일거리가 줄었다. |cFF006B8F메구밍|r은 매일 아무도 살지 않는다고 생각한 성에 폭렬을 쏘고, |cFF006B8F카즈마|r는 쓰러진 그녀를 업어 돌아왔다.|n|n그러던 어느 날 길드의 긴급 소집이 울린다. 성에서 온 |cFF865500목 없는 기사 베르디아|r가 폭격한 범인을 찾는다. 카즈마와 메구밍은 어느 성 이야기인지 곧 알아챈다."
         set ProtoEventIntro[105] = "매일 연습하던 성에서 항의가 찾아왔다."
-        set ProtoEventIcon[105] = "war3mapImported\\UI_EventThumb_Event_AXE_practice.tga"
+        set ProtoEventIcon[105] = "war3mapImported\\UI_EventThumb_Event_AXE_practice.blp"
         set ProtoEventImageAspect[105] = 1.777778
         set ProtoEventRequired[105] = 0
         set ProtoEventRequiredChoice[105] = 0
@@ -4182,7 +4182,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[106] = 2
         set ProtoEventStory[106] = "|cFF006B8F베르디아|r가 메구밍을 위협하자 |cFF006B8F다크니스|r가 동료를 감싸다가 |cFFA53528죽음의 저주를 받는다|r. 그는 살리고 싶으면 자신의 성으로 오라고 요구한 뒤 떠난다.|n|n일행이 저주에 대응해야 하는 상황에서 |cFF006B8F아쿠아|r가 나선다. 치유와 정화는 여신이 자신 있어 하는 분야다."
         set ProtoEventIntro[106] = "저주를 받은 동료 앞에서 |cFF006B8F아쿠아|r가 나선다."
-        set ProtoEventIcon[106] = "war3mapImported\\UI_EventThumb_Event_AXE_beldia.tga"
+        set ProtoEventIcon[106] = "war3mapImported\\UI_EventThumb_Event_AXE_beldia.blp"
         set ProtoEventImageAspect[106] = 1.777778
         set ProtoEventRequired[106] = 0
         set ProtoEventRequiredChoice[106] = 0
@@ -4232,7 +4232,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[107] = 2
         set ProtoEventStory[107] = "호수를 정화하면 생활비를 벌 수 있지만 물속에는 |cFFA53528거대한 악어형 몬스터|r가 산다. |cFF006B8F카즈마|r는 |cFF006B8F아쿠아|r를 철창 안에 넣어 보호하며 물로 내려보내는 방법을 준비한다.|n|n정화는 아쿠아의 능력이지만, 위험한 이빨 앞에서 버티는 일까지 편해지는 것은 아니다. 아쿠아가 철창을 보며 항의한다."
         set ProtoEventIntro[107] = "정화할 호수에 위험한 몬스터가 산다."
-        set ProtoEventIcon[107] = "war3mapImported\\UI_EventThumb_Event_AXO_lake.tga"
+        set ProtoEventIcon[107] = "war3mapImported\\UI_EventThumb_Event_AXO_lake.blp"
         set ProtoEventImageAspect[107] = 1.777778
         set ProtoEventRequired[107] = 0
         set ProtoEventRequiredChoice[107] = 0
@@ -4282,7 +4282,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[108] = 2
         set ProtoEventStory[108] = "|cFF006B8F베르디아|r는 저주를 건 뒤 아무도 성에 오지 않고 폭격까지 계속되자 다시 액셀을 찾아온다. 초보 모험가들에게 그의 공격은 버겁다.|n|n|cFF006B8F카즈마|r는 언데드인 상대가 물에 약하다는 점을 이용하려 한다. |cFF006B8F아쿠아|r가 대량의 물을 불러낼 준비를 하고 다른 동료들도 버틸 방법을 찾는다."
         set ProtoEventIntro[108] = "|cFF80560C마을|r로 돌아온 |cFF006B8F베르디아|r와 다시 맞선다."
-        set ProtoEventIcon[108] = "war3mapImported\\UI_EventThumb_Event_AXO_duel.tga"
+        set ProtoEventIcon[108] = "war3mapImported\\UI_EventThumb_Event_AXO_duel.blp"
         set ProtoEventImageAspect[108] = 1.777778
         set ProtoEventRequired[108] = 0
         set ProtoEventRequiredChoice[108] = 0
@@ -4332,7 +4332,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[109] = 2
         set ProtoEventStory[109] = "빚과 추위를 견디던 일행은 눈정령 사냥에 나선다. 쉬운 수입처럼 보였지만 눈정령을 지키는 |cFFA53528겨울장군이 나타난다|r.|n|n|cFF006B8F아쿠아|r는 싸울 상대가 아니라며 무기를 버리고 사과하라고 한다. |cFF006B8F카즈마|r는 갑자기 바뀐 상황에서 무기를 놓지 못한다."
         set ProtoEventIntro[109] = "쉬운 사냥 앞에 이길 수 없는 상대가 나타났다."
-        set ProtoEventIcon[109] = "war3mapImported\\UI_EventThumb_Event_AXO_winter.tga"
+        set ProtoEventIcon[109] = "war3mapImported\\UI_EventThumb_Event_AXO_winter.blp"
         set ProtoEventImageAspect[109] = 1.777778
         set ProtoEventRequired[109] = 0
         set ProtoEventRequiredChoice[109] = 0
@@ -4389,7 +4389,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[110] = 3
         set ProtoEventStory[110] = "|cFF006B8F카즈마|r는 실전에 도움이 될 기술을 배우려고 마도구 상인 |cFF006B8F위즈|r를 찾아간다. 온순한 상인으로 보이는 그녀는 강한 |cFF865500언데드인 리치|r이며 마왕군 간부다.|n|n|cFF006B8F아쿠아|r는 정화 대상이라며 공격하려 하고 카즈마는 수업을 받기 위해 막는다. 위즈는 접촉한 상대와 힘을 주고받는 드레인 터치를 가르치려 한다."
         set ProtoEventIntro[110] = "|cFF006B8F카즈마|r가 기술을 배우려는 상인을 |cFF006B8F아쿠아|r가 막는다."
-        set ProtoEventIcon[110] = "war3mapImported\\UI_EventThumb_Event_AXO_shop.tga"
+        set ProtoEventIcon[110] = "war3mapImported\\UI_EventThumb_Event_AXO_shop.blp"
         set ProtoEventImageAspect[110] = 1.777778
         set ProtoEventRequired[110] = 0
         set ProtoEventRequiredChoice[110] = 0
@@ -4439,7 +4439,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[111] = 3
         set ProtoEventStory[111] = "유령이 출몰하는 저택에서 일행은 밤새 소동을 겪는다. |cFF006B8F아쿠아|r가 정화에 나서지만, 왜 이렇게 유령이 몰렸는지부터 알아야 한다.|n|n마구간을 벗어날 거처를 기대했던 |cFF006B8F카즈마|r에게는 편안한 밤과 거리가 멀다. 아쿠아가 자신이 묘지에 해 둔 일을 떠올리기 시작한다."
         set ProtoEventIntro[111] = "첫 거처가 될 저택에 유령들이 몰려 있다."
-        set ProtoEventIcon[111] = "war3mapImported\\UI_EventThumb_Event_AXO_home.tga"
+        set ProtoEventIcon[111] = "war3mapImported\\UI_EventThumb_Event_AXO_home.blp"
         set ProtoEventImageAspect[111] = 1.777778
         set ProtoEventRequired[111] = 0
         set ProtoEventRequiredChoice[111] = 0
@@ -4496,7 +4496,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[112] = 3
         set ProtoEventStory[112] = "|cFF865500고대의 이동 요새|r |cFF865500디스트로이어|r가 액셀로 향한다. 길드는 주민을 대피시키고 모험가들을 모은다. |cFF006B8F카즈마|r는 도망치려는 동료들에게 이제 지킬 집도 있다고 설득한다. 요새를 멈추려면 |cFF006B8F아쿠아|r가 결계를 깨고 메구밍과 위즈가 폭렬을 쏘아야 한다.|n|n평소 불편했던 편향된 능력들이 이번에는 필요한 역할로 맞물린다. 공격을 시작하기 전 일행이 준비를 확인한다."
         set ProtoEventIntro[112] = "|cFF80560C마을|r을 지킬 공격 순서를 확인한다."
-        set ProtoEventIcon[112] = "war3mapImported\\UI_EventThumb_Event_AXO_explosion.tga"
+        set ProtoEventIcon[112] = "war3mapImported\\UI_EventThumb_Event_AXO_explosion.blp"
         set ProtoEventImageAspect[112] = 1.777778
         set ProtoEventRequired[112] = 0
         set ProtoEventRequiredChoice[112] = 0
@@ -4546,7 +4546,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[113] = 4
         set ProtoEventStory[113] = "요새 안에서 |cFF006B8F카즈마|r와 |cFF006B8F위즈|r는 |cFFA53528폭발 직전의 동력원|r을 발견한다. 위즈가 이를 다른 곳으로 전송하려면 힘이 필요하다.|n|n카즈마가 힘을 건네면 급한 폭발은 옮길 수 있지만 요새 자체가 안전해진다는 보장은 없다. 둘은 |cFF80560C마을|r을 향한 위험을 멈추려고 서두른다."
         set ProtoEventIntro[113] = "요새 안에 폭발을 앞둔 |cFF865500동력원|r이 남아 있다."
-        set ProtoEventIcon[113] = "war3mapImported\\UI_EventThumb_Card_KSO1_wiz_Art.tga"
+        set ProtoEventIcon[113] = "war3mapImported\\UI_EventThumb_Card_KSO1_wiz_Art.blp"
         set ProtoEventImageAspect[113] = 1.777778
         set ProtoEventRequired[113] = 0
         set ProtoEventRequiredChoice[113] = 0
@@ -4610,7 +4610,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[114] = 1
         set ProtoEventStory[114] = "|cFF865500디스트로이어|r를 막아 낸 여정의 끝에서, 액셀에 처음 도착했을 때를 돌아본다. 잠자리와 일거리부터 걱정하던 |cFF006B8F카즈마|r에게 이제는 잃고 싶지 않은 집과 소란스러운 동료들이 있다.|n|n남은 뒤처리가 모두 사라진 것은 아니지만, 다음 날도 이 |cFF80560C도시|r에서 살아갈 이유는 달라졌다."
         set ProtoEventIntro[114] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[114] = "war3mapImported\\UI_EventThumb_Card_KSO1_kazuma_Art.tga"
+        set ProtoEventIcon[114] = "war3mapImported\\UI_EventThumb_Card_KSO1_kazuma_Art.blp"
         set ProtoEventImageAspect[114] = 1.777778
         set ProtoEventRequired[114] = 0
         set ProtoEventRequiredChoice[114] = 0
@@ -4667,7 +4667,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[9] = 1
         set ProtoEventStory[9] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
         set ProtoEventIntro[9] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
-        set ProtoEventIcon[9] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.tga"
+        set ProtoEventIcon[9] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.blp"
         set ProtoEventImageAspect[9] = 1.777778
         set ProtoHeadEntryEvent[13] = 10
         set ProtoEventKey[10] = "abydos_entry_1"
@@ -4679,7 +4679,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[10] = 1
         set ProtoEventStory[10] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
         set ProtoEventIntro[10] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
-        set ProtoEventIcon[10] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.tga"
+        set ProtoEventIcon[10] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.blp"
         set ProtoEventImageAspect[10] = 1.777778
         set ProtoHeadEntryEvent[14] = 11
         set ProtoEventKey[11] = "abydos_entry_2"
@@ -4691,7 +4691,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[11] = 1
         set ProtoEventStory[11] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
         set ProtoEventIntro[11] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
-        set ProtoEventIcon[11] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.tga"
+        set ProtoEventIcon[11] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.blp"
         set ProtoEventImageAspect[11] = 1.777778
         set ProtoHeadEntryEvent[15] = 12
         set ProtoEventKey[12] = "abydos_entry_3"
@@ -4703,7 +4703,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[12] = 1
         set ProtoEventStory[12] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
         set ProtoEventIntro[12] = "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 |cFF006B8F선생|r님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?"
-        set ProtoEventIcon[12] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.tga"
+        set ProtoEventIcon[12] = "war3mapImported\\UI_EventThumb_Head_Official_abydos_Icon.blp"
         set ProtoEventImageAspect[12] = 1.777778
         set ProtoCardKey[147] = "abydos_ayane"
         set ProtoCardName[147] = "오쿠소라 아야네"
@@ -5440,7 +5440,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[115] = 1
         set ProtoEventStory[115] = "학교로 오는 보급품이 모래에 막혔다. |cFF006B8F아야네|r의 지도에는 |cFF006B8F시로코|r가 확인한 지름길과 적이 모이는 큰길이 표시돼 있다. |cFF006B8F노노미|r는 필요한 물건을 놓치지 않도록 뒤에서 엄호하겠다고 한다."
         set ProtoEventIntro[115] = "|cFF006B8F아야네|r가 보급로 두 곳 중 맡을 길을 묻는다."
-        set ProtoEventIcon[115] = "war3mapImported\\UI_EventThumb_Card_BAM1_23005_Art.tga"
+        set ProtoEventIcon[115] = "war3mapImported\\UI_EventThumb_Card_BAM1_23005_Art.blp"
         set ProtoEventImageAspect[115] = 1.777778
         set ProtoEventRequired[115] = 0
         set ProtoEventRequiredChoice[115] = 0
@@ -5487,7 +5487,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[116] = 1
         set ProtoEventStory[116] = "시바세키 라멘에 손님이 몰렸는데 |cFF006B8F세리카|r는 대책위원회 일도 마쳐야 한다. 그녀는 가게가 자신의 것이 아니어도 피해를 주고 싶지 않다며 주문서를 붙잡는다. 배달과 주문 정리, 재료 운송 중 나눠 맡을 일을 고른다."
         set ProtoEventIntro[116] = "라멘 가게 아르바이트와 학교 일이 겹친 |cFF006B8F세리카|r."
-        set ProtoEventIcon[116] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.tga"
+        set ProtoEventIcon[116] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.blp"
         set ProtoEventImageAspect[116] = 1.777778
         set ProtoEventRequired[116] = 0
         set ProtoEventRequiredChoice[116] = 0
@@ -5534,7 +5534,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[117] = 1
         set ProtoEventStory[117] = "빚의 흐름을 조사하던 대책위원회가 블랙마켓 골목에서 길을 잃었다. 히후미가 건넨 안내에는 위험한 통로가 표시돼 있고, |cFF006B8F시로코|r는 먼 곳을 확인하러 가겠다고 한다. 수상한 은행의 돈을 보상처럼 가져올 수는 없다."
         set ProtoEventIntro[117] = "히후미와 출구를 찾으며 조사 |cFF80560C기록|r을 지켜야 한다."
-        set ProtoEventIcon[117] = "war3mapImported\\UI_EventThumb_Card_BAM1_10003_Art.tga"
+        set ProtoEventIcon[117] = "war3mapImported\\UI_EventThumb_Card_BAM1_10003_Art.blp"
         set ProtoEventImageAspect[117] = 1.777778
         set ProtoEventRequired[117] = 0
         set ProtoEventRequiredChoice[117] = 0
@@ -5581,7 +5581,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[118] = 1
         set ProtoEventStory[118] = "라멘 가게가 파괴된 뒤 가게 주인은 치료를 받고 있다. |cFF006B8F세리카|r가 멀쩡한 도구를 모으고, |cFF006B8F아야네|r는 필요한 물자를 적는다.|n|n범인을 한 번 처치하면 원래대로 돌아올 문제가 아니다.|n|n지금 할 수 있는 복구부터 맡아야 한다."
         set ProtoEventIntro[118] = "파괴된 가게 앞에서 도구와 복구 자재를 나눈다."
-        set ProtoEventIcon[118] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.tga"
+        set ProtoEventIcon[118] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.blp"
         set ProtoEventImageAspect[118] = 1.777778
         set ProtoEventRequired[118] = 116
         set ProtoEventRequiredChoice[118] = 1
@@ -5628,7 +5628,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[119] = 1
         set ProtoEventStory[119] = "학교 주변 사막이 카이저 소유라는 사실을 확인한 뒤에도 보급로는 필요하다. |cFF006B8F호시노|r는 무리한 진입을 막고, |cFF006B8F노노미|r는 엄호 범위를 살핀다. 오늘의 정찰 한 번으로 토지 소유권을 바꿀 수는 없지만 학교를 지킬 준비는 할 수 있다."
         set ProtoEventIntro[119] = "사막의 경계에서 정찰과 방어 준비를 나눈다."
-        set ProtoEventIcon[119] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.tga"
+        set ProtoEventIcon[119] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.blp"
         set ProtoEventImageAspect[119] = 1.777778
         set ProtoEventRequired[119] = 0
         set ProtoEventRequiredChoice[119] = 0
@@ -5675,7 +5675,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[120] = 1
         set ProtoEventStory[120] = "학교로 돌아오자 |cFF006B8F호시노|r의 자리가 비어 있다. 대책위원회는 |cFF80560C편지|r와 남은 |cFF80560C기록|r을 확인하며 그녀를 찾을 준비를 한다. 앞서 확보한 방어 위치가 있다면 위험한 구출 준비에도 도움을 줄 수 있다."
         set ProtoEventIntro[120] = "|cFF006B8F호시노|r가 떠난 뒤, 남은 대책위원회가 준비를 시작한다."
-        set ProtoEventIcon[120] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.tga"
+        set ProtoEventIcon[120] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.blp"
         set ProtoEventImageAspect[120] = 1.777778
         set ProtoEventRequired[120] = 119
         set ProtoEventRequiredChoice[120] = 1
@@ -5722,7 +5722,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[121] = 1
         set ProtoEventStory[121] = "|cFF006B8F시로코|r가 조깅 경로와 로드바이크를 세울 곳을 가리킨다. |cFF006B8F세리카|r는 그 한 바퀴가 자기에게도 같은 거리냐며 지도를 다시 펼친다. 네가 준비할 경로와 맡을 바깥 구역을 나누어야 한다."
         set ProtoEventIntro[121] = "박자를 맞출지, 더 넓은 길목을 맡을지 정한다."
-        set ProtoEventIcon[121] = "war3mapImported\\UI_EventThumb_Card_BAS1_10010_Art.tga"
+        set ProtoEventIcon[121] = "war3mapImported\\UI_EventThumb_Card_BAS1_10010_Art.blp"
         set ProtoEventImageAspect[121] = 1.777778
         set ProtoEventRequired[121] = 0
         set ProtoEventRequiredChoice[121] = 0
@@ -5769,7 +5769,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[122] = 1
         set ProtoEventStory[122] = "|cFF006B8F호시노|r가 의자에서 눈을 감으려는데 |cFF006B8F아야네|r는 앞에 쌓인 준비 가방을 가리킨다. |cFF006B8F노노미|r는 맡을 길목을 나누고 호시노가 일어날 자리도 남기자고 한다. 잠을 깨우기보다 먼저 네가 맡을 구역을 정해야 한다."
         set ProtoEventIntro[122] = "앞에 설 자리를 준비하거나 맡을 길목을 나눈다."
-        set ProtoEventIcon[122] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.tga"
+        set ProtoEventIcon[122] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.blp"
         set ProtoEventImageAspect[122] = 1.777778
         set ProtoEventRequired[122] = 0
         set ProtoEventRequiredChoice[122] = 0
@@ -5816,7 +5816,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[123] = 1
         set ProtoEventStory[123] = "|cFF006B8F노노미|r가 간식 몫을 나누는데 |cFF006B8F아야네|r는 바깥에 가져갈 보급 항목도 남았다고 한다. |cFF006B8F세리카|r는 장부의 빈칸이 간식보다 먼저라며 주문서를 펼친다. 지금 나눌 몫과 이후 쓸 |cFF80560C기록|r을 모두 네가 챙길 수는 없다."
         set ProtoEventIntro[123] = "지금 나눌 몫과 다음에 쓸 |cFF80560C기록|r 중 맡을 일을 고른다."
-        set ProtoEventIcon[123] = "war3mapImported\\UI_EventThumb_Card_BAM1_13004_Art.tga"
+        set ProtoEventIcon[123] = "war3mapImported\\UI_EventThumb_Card_BAM1_13004_Art.blp"
         set ProtoEventImageAspect[123] = 1.777778
         set ProtoEventRequired[123] = 0
         set ProtoEventRequiredChoice[123] = 0
@@ -5863,7 +5863,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[124] = 1
         set ProtoEventStory[124] = "|cFF006B8F아야네|r가 골동품 가게의 낡은 목록에서 지워진 항목을 발견한다. 주인은 이전 |cFF80560C기록|r까지 확인할지는 장담하지 않고, 확실한 항목만 정리할 수도 있다고 한다. 아야네는 값을 내기 전에 어떤 일을 맡을지부터 적자고 한다."
         set ProtoEventIntro[124] = "불확실한 |cFF80560C기록|r 확인과 확실한 장부 정리 중 정한다."
-        set ProtoEventIcon[124] = "war3mapImported\\UI_EventThumb_Card_BAM1_23005_Art.tga"
+        set ProtoEventIcon[124] = "war3mapImported\\UI_EventThumb_Card_BAM1_23005_Art.blp"
         set ProtoEventImageAspect[124] = 1.777778
         set ProtoEventRequired[124] = 0
         set ProtoEventRequiredChoice[124] = 0
@@ -5910,7 +5910,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[125] = 1
         set ProtoEventStory[125] = "수족관에 가려던 |cFF006B8F호시노|r가 안내판 앞에서 다음에 갈 곳을 가리킨다. |cFF006B8F시로코|r는 돌아갈 길도 봐 두겠다며 바깥 지도를 펼치고 |cFF006B8F아야네|r는 아직 남은 보급 일을 적는다. 외출 전에 어디까지 맡을지 나누어야 한다."
         set ProtoEventIntro[125] = "외출 전에 앞에 설 자리와 귀환길의 부담을 나눈다."
-        set ProtoEventIcon[125] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.tga"
+        set ProtoEventIcon[125] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.blp"
         set ProtoEventImageAspect[125] = 1.777778
         set ProtoEventRequired[125] = 0
         set ProtoEventRequiredChoice[125] = 0
@@ -5957,7 +5957,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[126] = 1
         set ProtoEventStory[126] = "히후미가 페로로 굿즈 진열을 보는데 |cFF006B8F노노미|r는 기다리는 사람의 부탁도 들어 보자고 한다. 히후미는 어느 이야기를 먼저 들을지 망설이고 |cFF006B8F시로코|r는 빠져나갈 길부터 가리킨다. 진열 앞에서 모두의 부탁을 한 번에 맡을 수는 없다."
         set ProtoEventIntro[126] = "부탁을 들을지, 가져갈 몫과 통행 구역을 나눌지 정한다."
-        set ProtoEventIcon[126] = "war3mapImported\\UI_EventThumb_Card_BAM1_10003_Art.tga"
+        set ProtoEventIcon[126] = "war3mapImported\\UI_EventThumb_Card_BAM1_10003_Art.blp"
         set ProtoEventImageAspect[126] = 1.777778
         set ProtoEventRequired[126] = 0
         set ProtoEventRequiredChoice[126] = 0
@@ -6004,7 +6004,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[127] = 1
         set ProtoEventStory[127] = "아루가 라멘 계산서를 집어 들며 오늘은 자신이 계산하겠다고 한다. |cFF006B8F세리카|r가 기다리는 동안 아루의 손가락은 계산서 끝에 멈추고 무츠키는 사장님의 멋진 모습을 더 보고 싶다며 웃는다.|n|n계산서를 덮으려는 아루 앞에서 세리카는 마감에 쓸 빈 그릇을 모은다."
         set ProtoEventIntro[127] = "계산서 끝을 넘기면 사장님 체면도 넘어갈까?"
-        set ProtoEventIcon[127] = "war3mapImported\\UI_EventThumb_Card_BAM1_10000_Art.tga"
+        set ProtoEventIcon[127] = "war3mapImported\\UI_EventThumb_Card_BAM1_10000_Art.blp"
         set ProtoEventImageAspect[127] = 1.777778
         set ProtoEventRequired[127] = 0
         set ProtoEventRequiredChoice[127] = 0
@@ -6051,7 +6051,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[128] = 1
         set ProtoEventStory[128] = "카요코가 찾는CD를 물으려는데 가게 주인은 그녀가 말하기 전에 먼저 사과한다. 카요코가 잠깐 입을 다물자 주인은 사과를 하나 더 붙이고 그 틈에 주문할 말은 더 멀어진다.|n|n카요코는 사과를 요구한 적 없다는 말까지 꺼내려다 찾던CD쪽을 다시 가리킨다."
         set ProtoEventIntro[128] = "사과를 듣고 싶은 사람이 아무도 없는데 말은 끊겼다."
-        set ProtoEventIcon[128] = "war3mapImported\\UI_EventThumb_Card_BAM1_13005_Art.tga"
+        set ProtoEventIcon[128] = "war3mapImported\\UI_EventThumb_Card_BAM1_13005_Art.blp"
         set ProtoEventImageAspect[128] = 1.777778
         set ProtoEventRequired[128] = 0
         set ProtoEventRequiredChoice[128] = 0
@@ -6098,7 +6098,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[129] = 1
         set ProtoEventStory[129] = "네가 화분에서 자란 것을 잡초라고 부르며 손을 뻗자 하루카가 화분 가장자리를 붙든다. 잡초를 기르는 중이었다는 말을 듣고 보니 치우겠다는 네 말이 먼저였다.|n|n하루카는 네 손이 물러난 뒤에도 화분을 놓지 않은 채 어디에 두려던 것인지 묻는다."
         set ProtoEventIntro[129] = "치우려던 것이 누군가에게는 기르는 것이었다."
-        set ProtoEventIcon[129] = "war3mapImported\\UI_EventThumb_Card_BAM1_16000_Art.tga"
+        set ProtoEventIcon[129] = "war3mapImported\\UI_EventThumb_Card_BAM1_16000_Art.blp"
         set ProtoEventImageAspect[129] = 1.777778
         set ProtoEventRequired[129] = 0
         set ProtoEventRequiredChoice[129] = 0
@@ -6145,7 +6145,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[130] = 1
         set ProtoEventStory[130] = "무츠키가 같은 봉투 두 개를 놓고 한쪽에는 장난의 답이 들어 있다고 한다. 아루가 답을 아느냐고 묻자 무츠키는 아는 사람이 웃는 거라며 이번에는 너를 본다.|n|n네가 봉투를 뒤집어 보려 하자 무츠키는 값을 걸고 열거나 답을 듣는 대가를 내라고 한다."
         set ProtoEventIntro[130] = "답을 아는 사람만 먼저 웃고 있다."
-        set ProtoEventIcon[130] = "war3mapImported\\UI_EventThumb_Card_BAM1_13006_Art.tga"
+        set ProtoEventIcon[130] = "war3mapImported\\UI_EventThumb_Card_BAM1_13006_Art.blp"
         set ProtoEventImageAspect[130] = 1.777778
         set ProtoEventRequired[130] = 0
         set ProtoEventRequiredChoice[130] = 0
@@ -6192,7 +6192,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[131] = 1
         set ProtoEventStory[131] = "계산을 도왔던 너에게 아루가 이번에는 흥신소의 이름부터 꺼낸다. 무츠키가 이름 뒤에 할 일은 무엇이냐고 묻자 아루는 맡길 일보다 멋진 소개를 먼저 고친다.|n|n옆에서 마감 그릇을 옮기는 |cFF006B8F세리카|r는 아루가 소개하는 동안에도 자기 일을 끝내 간다."
         set ProtoEventIntro[131] = "이름을 들었지만 아직 할 일은 못 들었다."
-        set ProtoEventIcon[131] = "war3mapImported\\UI_EventThumb_Card_BAM1_10000_Art.tga"
+        set ProtoEventIcon[131] = "war3mapImported\\UI_EventThumb_Card_BAM1_10000_Art.blp"
         set ProtoEventImageAspect[131] = 1.777778
         set ProtoEventRequired[131] = 127
         set ProtoEventRequiredChoice[131] = 1
@@ -6239,7 +6239,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[132] = 1
         set ProtoEventStory[132] = "카요코와 한 곡을 끝까지 들었던 너에게 가게 주인이 이번에는 찾는 것이 무엇이었냐고 묻는다. 네가 먼저 답하려 하자 카요코가 아까 끝내지 못한 말을 이어 간다.|n|n주인은 이번에는 사과 대신CD진열 쪽을 보며 카요코의 다음 말을 기다린다."
         set ProtoEventIntro[132] = "이번에는 누구의 말이 먼저였을까?"
-        set ProtoEventIcon[132] = "war3mapImported\\UI_EventThumb_Card_BAM1_13005_Art.tga"
+        set ProtoEventIcon[132] = "war3mapImported\\UI_EventThumb_Card_BAM1_13005_Art.blp"
         set ProtoEventImageAspect[132] = 1.777778
         set ProtoEventRequired[132] = 128
         set ProtoEventRequiredChoice[132] = 2
@@ -6286,7 +6286,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[133] = 1
         set ProtoEventStory[133] = "수많은 학교가 모인 도시 키보토스에서 아비도스 고등학교는 사막화와 거액의 빚으로 |cFFA53528폐교 직전이다.|r 남은 학생은 |cFF006B8F시로코|r, |cFF006B8F세리카|r, 노노미, 아야네와 선배 |cFF006B8F호시노|r 다섯 명이다.|n|n이들은 대책위원회를 만들어 학교를 지키지만 헬멧단의 공격까지 반복된다.|n|n도움을 요청받아 온 어른인 선생이 길에서 지쳐 쓰러진다. 행동파 학생 시로코가 그를 발견하고 상태를 살핀다."
         set ProtoEventIntro[133] = "길에서 발견한 어른을 |cFF006B8F시로코|r가 살핀다."
-        set ProtoEventIcon[133] = "war3mapImported\\UI_EventThumb_Event_ABE_classroom.tga"
+        set ProtoEventIcon[133] = "war3mapImported\\UI_EventThumb_Event_ABE_classroom.blp"
         set ProtoEventImageAspect[133] = 1.777778
         set ProtoEventRequired[133] = 0
         set ProtoEventRequiredChoice[133] = 0
@@ -6336,7 +6336,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[134] = 1
         set ProtoEventStory[134] = "헬멧단이 학교를 공격한다. 부족한 인원과 물자로 방어에 나선 학생들을 |cFF006B8F선생|r이 살피고 지휘를 맡는다.|n|n오랫동안 도움을 받지 못했던 대책위원회에게 낯선 경험이다.|n|n전투가 끝난 뒤에도 |cFF006B8F세리카|r는 쉽게 기대하지 않는다. 이야기를 듣고도 떠나 버리는 어른을 또 만날까 두려워 선생에게 정말 끝까지 도울 생각인지 묻는다."
         set ProtoEventIntro[134] = "첫 도움 뒤에도 |cFF006B8F세리카|r의 의심은 남는다."
-        set ProtoEventIcon[134] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.tga"
+        set ProtoEventIcon[134] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.blp"
         set ProtoEventImageAspect[134] = 1.777778
         set ProtoEventRequired[134] = 0
         set ProtoEventRequiredChoice[134] = 0
@@ -6386,7 +6386,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[135] = 1
         set ProtoEventStory[135] = "|cFF006B8F세리카|r는 학교의 빚 상환을 돕기 위해 시바세키 라멘에서 일한다. 그런데 일을 마치고도 돌아오지 않는다.|n|n혼자 귀가하던 그녀를 |cFFA53528헬멧단이 납치한 것이다.|r|n|n|cFF006B8F선생|r과 대책위원회는 귀가가 늦은 이유를 찾아 움직이고, 적의 이동을 추적한다. |cFF006B8F시로코|r와 동료들은 세리카가 실린 적의 이동 경로를 확인하며 구출을 준비한다."
         set ProtoEventIntro[135] = "돌아오지 않는 동료를 찾아 움직인다."
-        set ProtoEventIcon[135] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.tga"
+        set ProtoEventIcon[135] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.blp"
         set ProtoEventImageAspect[135] = 1.777778
         set ProtoEventRequired[135] = 0
         set ProtoEventRequiredChoice[135] = 0
@@ -6436,7 +6436,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[136] = 2
         set ProtoEventStory[136] = "라멘집에서 빚을 의논하던 학생들은 게헨나의 흥신소68을 만난다. 리더 아루와 무츠키, 카요코, 하루카는 돈을 받고 여러 일을 맡는다.|n|n같은 자리에서 대화했던 이들이 다음 날에는 |cFFA53528학교를 공격하는 의뢰|r를 받아 무장하고 나타난다.|n|n|cFF006B8F노노미|r와 동료들이 방어를 준비하는 사이 아루가 의뢰라며 태도를 굳히려 한다."
         set ProtoEventIntro[136] = "어제 알게 된 얼굴이 오늘은 적으로 왔다."
-        set ProtoEventIcon[136] = "war3mapImported\\UI_EventThumb_Card_BAM1_10000_Art.tga"
+        set ProtoEventIcon[136] = "war3mapImported\\UI_EventThumb_Card_BAM1_10000_Art.blp"
         set ProtoEventImageAspect[136] = 1.777778
         set ProtoEventRequired[136] = 0
         set ProtoEventRequiredChoice[136] = 0
@@ -6486,7 +6486,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[137] = 2
         set ProtoEventStory[137] = "헬멧단의 단서를 쫓은 학생들은 법의 손길이 닿기 어려운 블랙마켓으로 들어간다. 그곳에서 만난 트리니티 학생 히후미가 안내를 돕는다.|n|n학교가 갚아 온 돈이 |cFF865500암은행을 거친다는 정황|r을 듣자 |cFF006B8F시로코|r가 은행에서 직접 자료를 확보하자고 한다.|n|n복면까지 준비하는 과격한 계획에 동료들이 목적을 확인한다."
         set ProtoEventIntro[137] = "돈과 장비의 흐름을 좇아 블랙마켓으로 간다."
-        set ProtoEventIcon[137] = "war3mapImported\\UI_EventThumb_Event_ABE_frontline.tga"
+        set ProtoEventIcon[137] = "war3mapImported\\UI_EventThumb_Event_ABE_frontline.blp"
         set ProtoEventImageAspect[137] = 1.777778
         set ProtoEventRequired[137] = 0
         set ProtoEventRequiredChoice[137] = 0
@@ -6543,7 +6543,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[138] = 2
         set ProtoEventStory[138] = "블랙마켓 자료는 학교의 상환금이 |cFF865500카이저론|r을 거쳐 헬멧단의 |cFF865500무기 자금으로 흘러갔음|r을 보여 준다. 학생들은 빚을 갚을수록 공격자를 돕는 구조를 알게 된다.|n|n한편 수중에는 은행에서 가져온 큰돈도 있다.|n|n|cFF006B8F세리카|r는 당장 갚아야 할 빚을 떠올리지만, 이 돈을 써도 되는지는 다른 문제라고 한다."
         set ProtoEventIntro[138] = "빚의 자료와 손에 들어온 큰돈을 마주한다."
-        set ProtoEventIcon[138] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.tga"
+        set ProtoEventIcon[138] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.blp"
         set ProtoEventImageAspect[138] = 1.777778
         set ProtoEventRequired[138] = 0
         set ProtoEventRequiredChoice[138] = 0
@@ -6593,7 +6593,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[139] = 2
         set ProtoEventStory[139] = "게헨나의 질서를 관리하는 선도부는 같은 학교 학생인 흥신소68을 데려가려 한다. 대책위원회는 아비도스에서 벌어진 피해를 자신들 뜻과 무관하게 처리하는 데 반발한다.|n|n조금 전까지 적이던 흥신소와 같은 편에 서야 하는 상황이다.|n|n|cFF006B8F세리카|r는 다친 라멘집 주인과 무너진 가게를 떠올리며 말을 꺼낸다."
         set ProtoEventIntro[139] = "학교에서 벌어진 피해를 누가 처리할 것인가."
-        set ProtoEventIcon[139] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.tga"
+        set ProtoEventIcon[139] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.blp"
         set ProtoEventImageAspect[139] = 1.777778
         set ProtoEventRequired[139] = 0
         set ProtoEventRequiredChoice[139] = 0
@@ -6643,7 +6643,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[140] = 2
         set ProtoEventStory[140] = "계속된 싸움 뒤 |cFF006B8F호시노|r가 수족관에 가자고 한다. 다섯 학생과 |cFF006B8F선생|r은 잠시 총과 빚에서 벗어나 물고기를 보며 시간을 보낸다.|n|n|cFF006B8F시로코|r에게는 이런 하루도 학교를 지키려는 이유다.|n|n그런데 선배의 태도에 평소와 다른 여운이 있다. 오래전 학교와 자신을 돌봐 주던 선배를 떠올리는 호시노는 후배들에게 모든 부담을 털어놓지는 않는다. 시로코가 조심스럽게 곁으로 다가간다."
         set ProtoEventIntro[140] = "쉬어 가는 하루에 선배의 다른 표정이 보인다."
-        set ProtoEventIcon[140] = "war3mapImported\\UI_EventThumb_Event_ABE_aquarium.tga"
+        set ProtoEventIcon[140] = "war3mapImported\\UI_EventThumb_Event_ABE_aquarium.blp"
         set ProtoEventImageAspect[140] = 1.777778
         set ProtoEventRequired[140] = 0
         set ProtoEventRequiredChoice[140] = 0
@@ -6693,7 +6693,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[141] = 2
         set ProtoEventStory[141] = "학교를 둘러싼 대부분의 땅은 카이저가 샀지만 |cFF865500학교 부지|r는 남아 있다. 대책위원회가 |cFF865500사막 기지|r를 찾아가자 무장 병력과 통제된 구역이 기다린다.|n|n카이저 이사는 토지 매입을 주장하면서 대출 |cFFA53528이자도 크게 올리겠다고|r 압박한다.|n|n빚을 갚으면 끝날 줄 알았던 학생들은 더 큰 부담 앞에 선다. 호시노는 전에 |cFF006B8F검은 양복|r에게 받은 제안을 떠올린다."
         set ProtoEventIntro[141] = "학교를 둘러싼 땅과 빚으로 압박이 이어진다."
-        set ProtoEventIcon[141] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.tga"
+        set ProtoEventIcon[141] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.blp"
         set ProtoEventImageAspect[141] = 1.777778
         set ProtoEventRequired[141] = 0
         set ProtoEventRequiredChoice[141] = 0
@@ -6743,7 +6743,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[142] = 2
         set ProtoEventStory[142] = "|cFF006B8F호시노|r의 |cFF80560C편지|r에는 자신이 떠나면 학교와 후배들의 부담을 덜 수 있으리라는 선택이 담겼다. 과거 함께 학교를 지키던 선배를 잃은 호시노는 후배들만큼은 지켜야 한다고 생각해 왔다.|n|n그러나 학생들이 지키려던 학교에는 호시노의 자리도 있다.|n|n|cFF006B8F시로코|r가 곧바로 찾으러 나가려는 순간 카이저 병력이 학교를 공격한다. 호시노가 자퇴했다는 구실로 학교의 권리까지 빼앗으려는 것이다."
         set ProtoEventIntro[142] = "빈자리의 |cFF80560C편지|r를 읽던 학교에 공격이 닥친다."
-        set ProtoEventIcon[142] = "war3mapImported\\UI_EventThumb_Event_ABO_letter.tga"
+        set ProtoEventIcon[142] = "war3mapImported\\UI_EventThumb_Event_ABO_letter.blp"
         set ProtoEventImageAspect[142] = 1.777778
         set ProtoEventRequired[142] = 0
         set ProtoEventRequiredChoice[142] = 0
@@ -6793,7 +6793,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[143] = 3
         set ProtoEventStory[143] = "카이저의 공격 앞에서 |cFF006B8F호시노|r가 빠진 네 학생만으로는 방어가 어렵다. 그때 예전에 적으로 만났던 흥신소68을 비롯한 도움의 손길이 합류한다.|n|n|cFF006B8F세리카|r와 동료들은 예상하지 못한 지원을 확인하고 서로의 위치를 맞추려 한다.|n|n지금은 관계를 따지며 등을 돌릴 시간이 없다. |cFF006B8F아야네|r가 함께 싸울 사람들의 정보를 정리한다."
         set ProtoEventIntro[143] = "예전의 인연이 방어에 힘을 보탠다."
-        set ProtoEventIcon[143] = "war3mapImported\\UI_EventThumb_Event_ABO_assault.tga"
+        set ProtoEventIcon[143] = "war3mapImported\\UI_EventThumb_Event_ABO_assault.blp"
         set ProtoEventImageAspect[143] = 1.777778
         set ProtoEventRequired[143] = 0
         set ProtoEventRequiredChoice[143] = 0
@@ -6843,7 +6843,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[144] = 3
         set ProtoEventStory[144] = "|cFF006B8F검은 양복|r은 |cFF006B8F호시노|r의 특별한 힘을 |cFFA53528연구 대상으로 삼으려는|r 인물이다. 그는 학교의 위기와 학생의 선택을 이용해 그녀를 손에 넣으려 했다.|n|n|cFF006B8F선생|r에게도 호시노를 포기하고 협력하라고 권한다.|n|n학교를 지킬 수 있다는 논리 앞에서 선생은 학생 한 사람을 넘기는 것이 무엇을 뜻하는지 듣고 있다. 검은 양복이 답을 기다린다."
         set ProtoEventIntro[144] = "학생을 넘기라는 제안 앞에서 답을 고른다."
-        set ProtoEventIcon[144] = "war3mapImported\\UI_EventThumb_Event_ABO_black_suit.tga"
+        set ProtoEventIcon[144] = "war3mapImported\\UI_EventThumb_Event_ABO_black_suit.blp"
         set ProtoEventImageAspect[144] = 1.777778
         set ProtoEventRequired[144] = 0
         set ProtoEventRequiredChoice[144] = 0
@@ -6900,7 +6900,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[145] = 3
         set ProtoEventStory[145] = "|cFF006B8F선생|r과 대책위원회는 |cFF006B8F호시노|r가 갇힌 카이저 |cFF865500사막 기지|r로 간다. 병력의 방어를 뚫으며 접근한 후배들을 본 호시노는 자신 때문에 모두가 위험을 감수했다는 사실과 마주한다.|n|n혼자 떠나 학교를 남기려던 선배 앞에 |cFF006B8F시로코|r가 선다.|n|n후배들은 선배 대신 돈이나 빈 교실을 얻으러 온 것이 아니다. 아직 기지를 빠져나가야 하지만 먼저 함께 돌아가겠다는 뜻을 전하려 한다."
         set ProtoEventIntro[145] = "혼자 떠났던 선배 앞에 후배들이 도착한다."
-        set ProtoEventIcon[145] = "war3mapImported\\UI_EventThumb_Event_ABO_rescue.tga"
+        set ProtoEventIcon[145] = "war3mapImported\\UI_EventThumb_Event_ABO_rescue.blp"
         set ProtoEventImageAspect[145] = 1.777778
         set ProtoEventRequired[145] = 0
         set ProtoEventRequiredChoice[145] = 0
@@ -6950,7 +6950,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[146] = 4
         set ProtoEventStory[146] = "|cFF006B8F호시노|r가 돌아온 학교의 교실에 다섯 학생이 다시 모인다. 창밖의 모래와 갚아야 할 빚은 그대로이고, 카이저가 사막을 산 목적도 아직 의문이다.|n|n|cFF006B8F선생|r은 학생을 거래로 넘기지 않았고 후배들은 선배를 직접 데려왔다.|n|n이제 남은 문제를 누가 감당할지 다시 이야기해야 한다. 호시노가 익숙한 자리 앞에 서자 동료들이 말을 건넨다."
         set ProtoEventIntro[146] = "돌아온 교실에서 함께 남을 자리를 이야기한다."
-        set ProtoEventIcon[146] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.tga"
+        set ProtoEventIcon[146] = "war3mapImported\\UI_EventThumb_Card_BAM1_10005_Art.blp"
         set ProtoEventImageAspect[146] = 1.777778
         set ProtoEventRequired[146] = 0
         set ProtoEventRequiredChoice[146] = 0
@@ -7005,7 +7005,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[147] = 1
         set ProtoEventStory[147] = "여정을 마친 뒤 아비도스에서 적었던 |cFF80560C기록|r을 다시 펼친다. 처음 들은 학생들의 이름과 |cFF006B8F호시노|r가 돌아온 교실이 서로 다른 쪽에 적혀 있다.|n|n끝난 일을 다시 해결하려는 기록은 아니다. 다음 길에 가져갈 한 장을 고르며 빈칸에 짧은 말을 더한다."
         set ProtoEventIntro[147] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[147] = "war3mapImported\\UI_EventThumb_Event_ABO_memory.tga"
+        set ProtoEventIcon[147] = "war3mapImported\\UI_EventThumb_Event_ABO_memory.blp"
         set ProtoEventImageAspect[147] = 1.777778
         set ProtoEventRequired[147] = 0
         set ProtoEventRequiredChoice[147] = 0
@@ -7062,7 +7062,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[13] = 1
         set ProtoEventStory[13] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
         set ProtoEventIntro[13] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
-        set ProtoEventIcon[13] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.tga"
+        set ProtoEventIcon[13] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.blp"
         set ProtoEventImageAspect[13] = 1.777778
         set ProtoHeadEntryEvent[17] = 14
         set ProtoEventKey[14] = "academy_entry_1"
@@ -7074,7 +7074,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[14] = 1
         set ProtoEventStory[14] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
         set ProtoEventIntro[14] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
-        set ProtoEventIcon[14] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.tga"
+        set ProtoEventIcon[14] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.blp"
         set ProtoEventImageAspect[14] = 1.777778
         set ProtoHeadEntryEvent[18] = 15
         set ProtoEventKey[15] = "academy_entry_2"
@@ -7086,7 +7086,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[15] = 1
         set ProtoEventStory[15] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
         set ProtoEventIntro[15] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
-        set ProtoEventIcon[15] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.tga"
+        set ProtoEventIcon[15] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.blp"
         set ProtoEventImageAspect[15] = 1.777778
         set ProtoHeadEntryEvent[19] = 16
         set ProtoEventKey[16] = "academy_entry_3"
@@ -7098,7 +7098,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[16] = 1
         set ProtoEventStory[16] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
         set ProtoEventIntro[16] = "학원도시에서 자신과 닮은 소녀의 |cFF80560C소문|r을 들은 |cFF006B8F미코토|r. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다."
-        set ProtoEventIcon[16] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.tga"
+        set ProtoEventIcon[16] = "war3mapImported\\UI_EventThumb_Head_Official_academy_Icon.blp"
         set ProtoEventImageAspect[16] = 1.777778
         set ProtoCardKey[219] = "academy_uiharu"
         set ProtoCardName[219] = "우이하루 카자리"
@@ -7896,7 +7896,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[148] = 1
         set ProtoEventStory[148] = "풍기위원 지부에서 구조 신호가 끊겼다. 우이하루는 |cFF80560C기록|r을 복구하고 쿠로코는 현장으로 갈 준비를 한다. 통신선을 살리는 일과 사람을 먼저 찾는 일 중 어디를 맡을까?"
         set ProtoEventIntro[148] = "구조 신호와 현장 수색 중 맡을 일을 정한다."
-        set ProtoEventIcon[148] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.tga"
+        set ProtoEventIcon[148] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.blp"
         set ProtoEventImageAspect[148] = 1.777778
         set ProtoEventRequired[148] = 0
         set ProtoEventRequiredChoice[148] = 0
@@ -7943,7 +7943,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[149] = 1
         set ProtoEventStory[149] = "복구한 신호의 좌표가 도착했다. 한 번의 단서로 |cFF80560C도시|r의 큰 사건을 끝내지는 못한다. |cFF006B8F미코토|r가 전원 시설을 확인하는 동안 |cFF006B8F토우마|r는 구조 대상에게 다가가려 한다."
         set ProtoEventIntro[149] = "복구한 신호에서 새로운 구조 장소를 찾았다."
-        set ProtoEventIcon[149] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[149] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[149] = 1.777778
         set ProtoEventRequired[149] = 148
         set ProtoEventRequiredChoice[149] = 1
@@ -7990,7 +7990,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[150] = 1
         set ProtoEventStory[150] = "사텐이 들은 능력 개발 |cFF80560C소문|r이 사람들을 한 골목으로 모았다. 우이하루는 사실 확인이 먼저라고 하고 |cFF006B8F미코토|r는 수상한 장치에 시선을 둔다. 소문을 퍼뜨리는 대신 확인할 일을 정한다."
         set ProtoEventIntro[150] = "사텐이 모은 |cFF80560C소문|r을 실제 단서로 바꿔야 한다."
-        set ProtoEventIcon[150] = "war3mapImported\\UI_EventThumb_Card_RGT_11_Art.tga"
+        set ProtoEventIcon[150] = "war3mapImported\\UI_EventThumb_Card_RGT_11_Art.blp"
         set ProtoEventImageAspect[150] = 1.777778
         set ProtoEventRequired[150] = 0
         set ProtoEventRequiredChoice[150] = 0
@@ -8037,7 +8037,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[151] = 1
         set ProtoEventStory[151] = "|cFF006B8F미코토|r는 코인으로 작은 표적을 겨누지만 뒤편에는 작업자 통로가 있다. 발사 위력을 높이는 일보다 통로를 비우고 안전한 각도를 찾는 일이 먼저다."
         set ProtoEventIntro[151] = "|cFF006B8F미코토|r의 표적 뒤로 작업자가 지나간다."
-        set ProtoEventIcon[151] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[151] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[151] = 1.777778
         set ProtoEventRequired[151] = 0
         set ProtoEventRequiredChoice[151] = 0
@@ -8084,7 +8084,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[152] = 1
         set ProtoEventStory[152] = "모두가 능력자를 따라간 뒤 사텐과 당신 앞에는 옮기지 못한 물자가 남았다. 능력이 없어도 지금 할 수 있는 일이 있다. 어느 쪽을 먼저 챙길까?"
         set ProtoEventIntro[152] = "능력자들이 떠난 뒤에도 옮길 물자가 남았다."
-        set ProtoEventIcon[152] = "war3mapImported\\UI_EventThumb_Card_RGT_11_Art.tga"
+        set ProtoEventIcon[152] = "war3mapImported\\UI_EventThumb_Card_RGT_11_Art.blp"
         set ProtoEventImageAspect[152] = 1.777778
         set ProtoEventRequired[152] = 0
         set ProtoEventRequiredChoice[152] = 0
@@ -8131,7 +8131,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[153] = 1
         set ProtoEventStory[153] = "현장에 들어간 쿠로코가 처음 보지 못한 통로를 알려 왔다. 우이하루와 백업 통신을 연결할지, 위험한 길 하나를 닫을지, 쿠로코와 도착한 자리에서 할 일을 정할지 고른다. 더 많은 길을 맡으면 오가는 상대도 늘어난다."
         set ProtoEventIntro[153] = "쿠로코가 새 통로를 확인했다."
-        set ProtoEventIcon[153] = "war3mapImported\\UI_EventThumb_Card_RGO1_kuroko_Art.tga"
+        set ProtoEventIcon[153] = "war3mapImported\\UI_EventThumb_Card_RGO1_kuroko_Art.blp"
         set ProtoEventImageAspect[153] = 1.777778
         set ProtoEventRequired[153] = 148
         set ProtoEventRequiredChoice[153] = 2
@@ -8178,7 +8178,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[154] = 1
         set ProtoEventStory[154] = "|cFF006B8F미코토|r가 귀여운 소품 진열을 보다가 한 발 물러선다. 쿠로코는 |cFF80560C약속|r한 순찰 시간이 다가온다고 알리고 가게 주인은 새 상자 때문에 가려진 진열창을 가리킨다. 쿠로코의 부탁과 가게 정리를 한 번에 맡기에는 손이 부족하다."
         set ProtoEventIntro[154] = "가려진 진열창과 순찰 길목 중 맡을 일을 고른다."
-        set ProtoEventIcon[154] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[154] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[154] = 1.777778
         set ProtoEventRequired[154] = 0
         set ProtoEventRequiredChoice[154] = 0
@@ -8225,7 +8225,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[155] = 1
         set ProtoEventStory[155] = "우이하루가 간식을 고르던 중 점원으로부터 중복 주문이라는 안내를 받는다. 사텐은 아직 정리되지 않은 납품 상자를 가리키며 눈치를 준다. 주문 확인과 상자 정리 중 하나를 우선해야 한다."
         set ProtoEventIntro[155] = "겹친 주문을 맞추거나 납품 경로의 연락을 맡는다."
-        set ProtoEventIcon[155] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.tga"
+        set ProtoEventIcon[155] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.blp"
         set ProtoEventImageAspect[155] = 1.777778
         set ProtoEventRequired[155] = 0
         set ProtoEventRequiredChoice[155] = 0
@@ -8272,7 +8272,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[156] = 1
         set ProtoEventStory[156] = "대패성제의 이인삼각 준비 자리에서 콘고가 |cFF006B8F미코토|r에게 먼저 출발 순서를 묻는다. 미코토가 보폭을 짚자 콘고는 자기 쪽만 크게 내디뎠던 발을 멈춘다. 완나이는 바깥 준비물도 아직 나누지 못했다고 알린다."
         set ProtoEventIntro[156] = "옆 사람의 보폭과 바깥 준비 구역 중 맡을 일을 정한다."
-        set ProtoEventIcon[156] = "war3mapImported\\UI_EventThumb_Card_RGT_34_Art.tga"
+        set ProtoEventIcon[156] = "war3mapImported\\UI_EventThumb_Card_RGT_34_Art.blp"
         set ProtoEventImageAspect[156] = 1.777778
         set ProtoEventRequired[156] = 0
         set ProtoEventRequiredChoice[156] = 0
@@ -8319,7 +8319,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[157] = 1
         set ProtoEventStory[157] = "수영부 준비물 꾸러미가 풀 가장자리에 한꺼번에 모였다. 완나이는 물이 흐르는 쪽부터 보자고 하고 아와츠키는 잠깐 뜨게 할 물건을 따로 나눈다. 콘고가 바깥 통행까지 맡겠다고 나서자 완나이는 먼저 맡을 범위를 적자고 한다."
         set ProtoEventIntro[157] = "흐름을 살필지, 뜨는 물건의 균형을 맞출지 고른다."
-        set ProtoEventIcon[157] = "war3mapImported\\UI_EventThumb_Card_RGT_35_Art.tga"
+        set ProtoEventIcon[157] = "war3mapImported\\UI_EventThumb_Card_RGT_35_Art.blp"
         set ProtoEventImageAspect[157] = 1.777778
         set ProtoEventRequired[157] = 0
         set ProtoEventRequiredChoice[157] = 0
@@ -8366,7 +8366,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[158] = 1
         set ProtoEventStory[158] = "길목을 막은 짐을 보고 군하가 곤란한 사람을 돕겠다며 앞으로 나선다. |cFF006B8F토우마|r는 도착지를 먼저 확인하자고 제안하고 군하는 이미 한쪽을 들 준비를 한다. 짐을 옮긴 후 담당할 길목을 결정해야 한다."
         set ProtoEventIntro[158] = "더 강한 적이 오가는 길목과 남은 짐 정리 중 맡을 일을 정한다."
-        set ProtoEventIcon[158] = "war3mapImported\\UI_EventThumb_Card_RGT_38_Art.tga"
+        set ProtoEventIcon[158] = "war3mapImported\\UI_EventThumb_Card_RGT_38_Art.blp"
         set ProtoEventImageAspect[158] = 1.777778
         set ProtoEventRequired[158] = 0
         set ProtoEventRequiredChoice[158] = 0
@@ -8413,7 +8413,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[159] = 1
         set ProtoEventStory[159] = "밤 퍼레이드 준비 중 예전 안내표와 새 표식이 섞여 나온다. 우이하루는 |cFF80560C기록|r 대조를 요청하고, 쿠로코는 확인되지 않은 표식의 설치를 만류한다. 사텐은 당일용과 내일용 표식을 구분한다."
         set ProtoEventIntro[159] = "예전 |cFF80560C기록|r의 확인과 새 표식 준비 중 맡을 일을 고른다."
-        set ProtoEventIcon[159] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.tga"
+        set ProtoEventIcon[159] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.blp"
         set ProtoEventImageAspect[159] = 1.777778
         set ProtoEventRequired[159] = 0
         set ProtoEventRequiredChoice[159] = 0
@@ -8460,7 +8460,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[160] = 1
         set ProtoEventStory[160] = "|cFF006B8F토우마|r가 동전을 삼킨 자판기를 보며 남은 한 닢을 꺼내자 |cFF006B8F미코토|r는 익숙한 방법이 있다며 발을 보낸다. 네 손에도 아직 마시지 못한 음료값이 남아 있고 토우마는 네 동전까지 같은 곳에 넣을 필요는 없다고 말한다.|n|n다른 가게는 아직 열려 있지만 자판기 앞의 두 사람은 그쪽을 보고 있지 않다."
         set ProtoEventIntro[160] = "남은 동전도 같은 자판기에 넣어야 할까?"
-        set ProtoEventIcon[160] = "war3mapImported\\UI_EventThumb_Card_RGT_37_Art.tga"
+        set ProtoEventIcon[160] = "war3mapImported\\UI_EventThumb_Card_RGT_37_Art.blp"
         set ProtoEventImageAspect[160] = 1.777778
         set ProtoEventRequired[160] = 0
         set ProtoEventRequiredChoice[160] = 0
@@ -8507,7 +8507,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[161] = 1
         set ProtoEventStory[161] = "케이크를 막 나누려던 쿠로코가 호출을 듣고 일어서자 우이하루는 아직 들지 못한 자기 찻잔을 본다. 사텐은 돌아올 때도 남아 있겠냐고 묻고 쿠로코는 나갔다 온 뒤의 이야기까지 지금 못 한다고 말한다.|n|n네 손에는 포장하지 않은 간식과 가져갈 짐이 남아 있다."
         set ProtoEventIntro[161] = "돌아올 한 잔과 가져갈 짐 중 자기 몫을 정한다."
-        set ProtoEventIcon[161] = "war3mapImported\\UI_EventThumb_Card_RGO1_kuroko_Art.tga"
+        set ProtoEventIcon[161] = "war3mapImported\\UI_EventThumb_Card_RGO1_kuroko_Art.blp"
         set ProtoEventImageAspect[161] = 1.777778
         set ProtoEventRequired[161] = 0
         set ProtoEventRequiredChoice[161] = 0
@@ -8554,7 +8554,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[162] = 1
         set ProtoEventStory[162] = "쿠로코가 먼저 나설 준비를 하는데 우이하루는 네가 맡을 일에도 아직 대답을 듣지 못했다고 말한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 우이하루는 누가 대답한 것이냐고 되묻는다.|n|n너는 아직 자기 몫을 말하지 않았고 두 사람 사이에도 답하지 못한 말이 남아 있다."
         set ProtoEventIntro[162] = "들은 대답과 내가 하지 않은 대답이 어긋났다."
-        set ProtoEventIcon[162] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.tga"
+        set ProtoEventIcon[162] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.blp"
         set ProtoEventImageAspect[162] = 1.777778
         set ProtoEventRequired[162] = 0
         set ProtoEventRequiredChoice[162] = 0
@@ -8601,7 +8601,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[163] = 1
         set ProtoEventStory[163] = "오락실에서 학생이 중간에 떠나자 테츠소는 방금 하려던 말과 버튼 사이에 손을 멈춘다. 좋아하던 게임인데도 누구에게 말을 이어야 할지 몰라 자기 옆의 빈 의자를 보고 있다.|n|n네 다음 동전과 아직 누르지 않은 버튼이 같은 자리에서 기다리고 있다."
         set ProtoEventIntro[163] = "빈 의자 옆에서 내 다음 동전을 쓸까?"
-        set ProtoEventIcon[163] = "war3mapImported\\UI_EventThumb_Card_SUP5_tessou_Art.tga"
+        set ProtoEventIcon[163] = "war3mapImported\\UI_EventThumb_Card_SUP5_tessou_Art.blp"
         set ProtoEventImageAspect[163] = 1.777778
         set ProtoEventRequired[163] = 0
         set ProtoEventRequiredChoice[163] = 0
@@ -8648,7 +8648,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[164] = 1
         set ProtoEventStory[164] = "성하제에서 너를 안내하던 |cFF006B8F미코토|r가 다음 전시를 가리키다가 자기 무대 차례를 떠올려 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토에게도 돌아갈 자리가 남아 있냐고 묻는다.|n|n네가 더 구경할 전시와 미코토가 기다리는 무대의 방향이 갈라진다."
         set ProtoEventIntro[164] = "전시를 더 볼까, 무대 앞에서 기다릴까?"
-        set ProtoEventIcon[164] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[164] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[164] = 1.777778
         set ProtoEventRequired[164] = 0
         set ProtoEventRequiredChoice[164] = 0
@@ -8695,7 +8695,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[165] = 1
         set ProtoEventStory[165] = "다른 곳에서 음료를 마련했던 네 앞에서 |cFF006B8F미코토|r가 아직 뜯지 않은 자기 몫을 내려놓는다. |cFF006B8F토우마|r는 자판기에 남은 동전부터 떠올리고 미코토는 지금 손의 것을 마시기 전에 또 같은 기계를 볼 것이냐고 묻는다.|n|n네가 마련한 보급은 손에 있는데 다음 준비는 아직 끝나지 않았다."
         set ProtoEventIntro[165] = "손에 든 음료를 열기 전에 남은 준비를 정한다."
-        set ProtoEventIcon[165] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[165] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[165] = 1.777778
         set ProtoEventRequired[165] = 160
         set ProtoEventRequiredChoice[165] = 1
@@ -8742,7 +8742,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[166] = 1
         set ProtoEventStory[166] = "우이하루가 네가 남긴 확인 순서 옆에 아직 맡을 사람을 적지 못한 항목을 붙인다. 사텐은 돌아갈 골목을 알려 줄 수 있다고 하고 쿠로코는 통행을 막지 않을 경계를 먼저 정하자고 한다.|n|n앞서 |cFF80560C기록|r을 정리한 너도 이번에는 어디까지 맡을지 답해야 한다."
         set ProtoEventIntro[166] = "우이하루가 확인할 순서를 적어 둔 네 |cFF80560C기록|r을 다시 펼친다."
-        set ProtoEventIcon[166] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.tga"
+        set ProtoEventIcon[166] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.blp"
         set ProtoEventImageAspect[166] = 1.777778
         set ProtoEventRequired[166] = 0
         set ProtoEventRequiredChoice[166] = 0
@@ -8789,7 +8789,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[167] = 1
         set ProtoEventStory[167] = "우이하루가 네가 접어 두지 않은 항목을 보며 확인된 내용과 다시 물어야 할 내용을 나눈다. |cFF006B8F토우마|r는 짐의 도착지가 아직 비어 있다고 하고 사텐은 먼저 나를 상자를 가리킨다. 쿠로코는 나가기 전에 돌아올 자리도 남겨 달라고 한다.|n|n이미 남긴 |cFF80560C기록|r이 있어 처음부터 묻지는 않아도 된다.|n|n다만 모두의 일을 한꺼번에 맡을 수는 없다."
         set ProtoEventIntro[167] = "남겨 둔 항목에 돌아갈 곳과 전할 말이 붙었다."
-        set ProtoEventIcon[167] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.tga"
+        set ProtoEventIcon[167] = "war3mapImported\\UI_EventThumb_Card_RGT_IF_uiharu_Art.blp"
         set ProtoEventImageAspect[167] = 1.777778
         set ProtoEventRequired[167] = 0
         set ProtoEventRequiredChoice[167] = 0
@@ -8836,7 +8836,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[168] = 1
         set ProtoEventStory[168] = "능력 개발을 받는 학생들이 모인 학원도시에서 미사카 |cFF006B8F미코토|r는 전기를 다루는 최고 등급 레벨5다.|n룸메이트 시라이 쿠로코와 친구 우이하루, 사텐에게는 함께 쇼핑하고 장난치는 친구이기도 하다.|n|n그런데 미코토가 가지 않은 장소에서 그녀를 보았다는 소문이 돌고, 같은 능력을 가진 |cFF865500복제인간 이야기|r까지 들린다. 낯선 학생 |cFF006B8F누노타바 시노부|r의 반응이 어린 시절의 일을 떠올리게 한다.|n|n미코토는 치료 연구를 돕는다는 말을 듣고 |cFF865500DNA를 제공했던 적|r이 있다."
         set ProtoEventIntro[168] = "자신과 같은 얼굴의 |cFF80560C소문|r이 과거의 연구로 이어진다."
-        set ProtoEventIcon[168] = "war3mapImported\\UI_EventThumb_Event_ACE_friends.tga"
+        set ProtoEventIcon[168] = "war3mapImported\\UI_EventThumb_Event_ACE_friends.blp"
         set ProtoEventImageAspect[168] = 1.777778
         set ProtoEventRequired[168] = 0
         set ProtoEventRequiredChoice[168] = 0
@@ -8886,7 +8886,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[169] = 1
         set ProtoEventStory[169] = "연구소에서 |cFF006B8F미코토|r는 복제인간 계획이 중단됐다는 |cFF80560C기록|r을 읽고 안도한다. 그러나 일상으로 돌아온 뒤 |cFF865500자신과 같은 전기적 기척|r을 느낀다.|n|n그곳에는 얼굴과 교복이 같은 소녀가 서 있다. 소녀는 미코토를 언니라고 부르며 복제인간이라는 사실을 숨기지 않는다.|n|n미코토는 방금 확인한 기록과 눈앞의 사람이 맞지 않아 말을 잇지 못한다."
         set ProtoEventIntro[169] = "중단된 계획의 |cFF80560C기록|r 앞에 소녀가 실제로 나타난다."
-        set ProtoEventIcon[169] = "war3mapImported\\UI_EventThumb_Event_ACE_sisters.tga"
+        set ProtoEventIcon[169] = "war3mapImported\\UI_EventThumb_Event_ACE_sisters.blp"
         set ProtoEventImageAspect[169] = 1.777778
         set ProtoEventRequired[169] = 0
         set ProtoEventRequiredChoice[169] = 0
@@ -8936,7 +8936,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[170] = 1
         set ProtoEventStory[170] = "|cFF006B8F미코토|r는 |cFF865500시스터즈|r라 불리는 복제 소녀들이 지금 어떤 연구에 쓰이는지 자료를 뒤진다. 중단된 복제 계획 뒤에 |cFF865500레벨6 시프트|r라는 다른 실험이 이어져 있었다.|n|n문서에는 학원도시 |cFF865500최강의 능력자 액셀러레이터|r와 시스터즈의 전투가 적혀 있다. 미코토가 다음 내용을 읽으려 손을 멈춘다.|n|n치료를 돕는다는 설명과는 전혀 다른 연구다."
         set ProtoEventIntro[170] = "복제 계획 뒤에 다른 실험의 이름이 보인다."
-        set ProtoEventIcon[170] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[170] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[170] = 1.777778
         set ProtoEventRequired[170] = 0
         set ProtoEventRequiredChoice[170] = 0
@@ -8993,7 +8993,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[171] = 2
         set ProtoEventStory[171] = "실험 현장에 도착한 |cFF006B8F미코토|r는 |cFF865500시스터즈|r 한 명이 |cFF006B8F액셀러레이터|r에게 |cFFA53528살해되는 모습을 본다.|r 사람으로 대했던 소녀가 실험의 한 차례처럼 처리된다.|n|n분노한 미코토가 전격을 쏘지만 공격은 통하지 않고 되돌아온다. 상대는 닿는 힘의 방향인 벡터를 조종하며 공격을 반사한다.|n|n다른 시스터즈가 실험 절차를 말하며 미코토를 물러나게 한다."
         set ProtoEventIntro[171] = "현장의 죽음과 되돌아오는 전격 앞에서 길을 찾는다."
-        set ProtoEventIcon[171] = "war3mapImported\\UI_EventThumb_Event_ACE_resistance.tga"
+        set ProtoEventIcon[171] = "war3mapImported\\UI_EventThumb_Event_ACE_resistance.blp"
         set ProtoEventImageAspect[171] = 1.777778
         set ProtoEventRequired[171] = 0
         set ProtoEventRequiredChoice[171] = 0
@@ -9043,7 +9043,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[172] = 2
         set ProtoEventStory[172] = "|cFF006B8F미코토|r가 시설을 파괴하는 동안 연구 참여자였던 |cFF006B8F누노타바 시노부|r도 다른 저항을 준비한다. |cFF865500시스터즈|r를 재료로만 보지 않게 된 그녀는 감정을 전하는 프로그램을 네트워크에 퍼뜨리려 한다.|n|n소녀들이 |cFFA53528죽음을 받아들이는 실험|r을 멈추게 하려는 것이다. 두 사람은 서로 다른 시설에 있으며, 시노부는 자신의 계획을 실행하기 직전이다."
         set ProtoEventIntro[172] = "다른 시설에서 |cFF006B8F시노부|r가 프로그램을 준비한다."
-        set ProtoEventIcon[172] = "war3mapImported\\UI_EventThumb_Card_RGS_nunotaba_Art.tga"
+        set ProtoEventIcon[172] = "war3mapImported\\UI_EventThumb_Card_RGS_nunotaba_Art.blp"
         set ProtoEventImageAspect[172] = 1.777778
         set ProtoEventRequired[172] = 0
         set ProtoEventRequiredChoice[172] = 0
@@ -9093,7 +9093,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[173] = 2
         set ProtoEventStory[173] = "프렌다의 폭발물 함정을 넘어서던 |cFF006B8F미코토|r 앞에 아이템의 다른 구성원 무기노 시즈리가 나타난다. 같은 레벨5이자 제4위인 무기노는 멜트다우너라는 |cFFA53528강한 광선으로 시설까지 관통|r한다.|n|n타키츠보는 미코토의 능력 흔적을 추적한다. 연속 습격으로 지친 미코토에게 둘을 힘으로 압도할 여유는 없다.|n|n그녀는 적이 남긴 물건과 방 안의 구조를 살피며 거리를 벌릴 방법을 찾는다."
         set ProtoEventIntro[173] = "지친 |cFF006B8F미코토|r 앞을 또 다른 레벨5가 막는다."
-        set ProtoEventIcon[173] = "war3mapImported\\UI_EventThumb_Event_ACE_shinobu.tga"
+        set ProtoEventIcon[173] = "war3mapImported\\UI_EventThumb_Event_ACE_shinobu.blp"
         set ProtoEventImageAspect[173] = 1.777778
         set ProtoEventRequired[173] = 0
         set ProtoEventRequiredChoice[173] = 0
@@ -9143,7 +9143,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[174] = 2
         set ProtoEventStory[174] = "시설들을 파괴한 |cFF006B8F미코토|r는 추격을 벗어나 이제 실험도 멈췄을 것이라고 기대한다. 거리에서 이전부터 마주치던 소년 카미조 |cFF006B8F토우마|r와 말다툼하고 쿠로코도 끼어든다. 토우마는 판정상 레벨0이지만 오른손으로 |cFF865500초능력을 지워|r 미코토의 전격이 통하지 않는다.|n|n잠깐 평소의 소란으로 돌아온 순간 |cFF865500시스터즈|r 한 명이 나타난다.|n|n미코토는 소녀에게 실험이 어떻게 됐는지 확인하려 한다."
         set ProtoEventIntro[174] = "끝났다고 믿은 실험을 소녀에게 확인하려 한다."
-        set ProtoEventIcon[174] = "war3mapImported\\UI_EventThumb_Event_ACE_dolls.tga"
+        set ProtoEventIcon[174] = "war3mapImported\\UI_EventThumb_Event_ACE_dolls.blp"
         set ProtoEventImageAspect[174] = 1.777778
         set ProtoEventRequired[174] = 0
         set ProtoEventRequiredChoice[174] = 0
@@ -9193,7 +9193,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[175] = 2
         set ProtoEventStory[175] = "레벨6 실험은 슈퍼컴퓨터 |cFF865500트리 다이어그램|r의 성장 예측을 근거로 한다. |cFF006B8F미코토|r는 계산을 다시 하게 하거나 틀렸음을 증명하면 계획을 멈출 수 있다고 생각한다.|n|n하지만 접속한 장치가 이미 다른 사건으로 파괴됐다는 사실을 확인한다.|n|n재계산도 요구할 수 없는 상태다."
         set ProtoEventIntro[175] = "계산을 바꿀 장치가 이미 사라져 있다."
-        set ProtoEventIcon[175] = "war3mapImported\\UI_EventThumb_Event_ACE_waiting.tga"
+        set ProtoEventIcon[175] = "war3mapImported\\UI_EventThumb_Event_ACE_waiting.blp"
         set ProtoEventImageAspect[175] = 1.777778
         set ProtoEventRequired[175] = 0
         set ProtoEventRequiredChoice[175] = 0
@@ -9243,7 +9243,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[176] = 2
         set ProtoEventStory[176] = "|cFF006B8F토우마|r는 소녀와 실험 현장의 관계를 알고 싶어 |cFF006B8F미코토|r를 찾는다. 기숙사에는 미코토 대신 쿠로코가 있다.|n|n그녀도 밤마다 사라지고 고민을 털어놓지 않는 친구를 걱정하고 있다. 토우마가 사감을 피해 몸을 숨기다가 미코토가 남긴 자료를 발견한다.|n|n|cFF865500시스터즈|r를 죽이는 실험과 미코토의 밤마다의 행방이 같은 문제로 이어져 있었다."
         set ProtoEventIntro[176] = "친구의 빈 방에 남겨진 자료를 읽는다."
-        set ProtoEventIcon[176] = "war3mapImported\\UI_EventThumb_Card_RGT_37_Art.tga"
+        set ProtoEventIcon[176] = "war3mapImported\\UI_EventThumb_Card_RGT_37_Art.blp"
         set ProtoEventImageAspect[176] = 1.777778
         set ProtoEventRequired[176] = 0
         set ProtoEventRequiredChoice[176] = 0
@@ -9293,7 +9293,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[177] = 2
         set ProtoEventStory[177] = "다리에서 만난 |cFF006B8F미코토|r는 자신의 죽음으로 실험의 계산을 흔들려 한다고 말한다. 원본인 자신이 |cFF006B8F액셀러레이터|r에게 너무 쉽게 패하면 능력 평가가 틀렸음이 드러나리라는 생각이다. 자기 DNA로 시작된 일을 |cFFA53528자기 목숨으로 끝내려는 것이다.|r|n|n|cFF006B8F토우마|r는 그것으로 실험이 끝날 보장이 없으며 소녀들이 바랄 구원도 아니라고 맞선다.|n|n미코토가 전격을 쏘아도 그는 길을 비키지 않는다."
         set ProtoEventIntro[177] = "자신을 희생하려는 |cFF006B8F미코토|r 앞에 |cFF006B8F토우마|r가 선다."
-        set ProtoEventIcon[177] = "war3mapImported\\UI_EventThumb_Event_ACO_bridge.tga"
+        set ProtoEventIcon[177] = "war3mapImported\\UI_EventThumb_Event_ACO_bridge.blp"
         set ProtoEventImageAspect[177] = 1.777778
         set ProtoEventRequired[177] = 0
         set ProtoEventRequiredChoice[177] = 0
@@ -9350,7 +9350,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[178] = 3
         set ProtoEventStory[178] = "실험장에 들어간 |cFF006B8F토우마|r는 |cFF865500시스터즈|r를 죽이려던 |cFF006B8F액셀러레이터|r와 맞선다. 보통의 타격은 벡터를 조종하는 그의 능력에 막히지만 토우마에게는 닿은 초능력을 지우는 오른손이 있다.|n|n상대가 최강이고 자신이 레벨0이라는 평가를 뒤집어야 실험의 전제를 깨뜨릴 수 있다.|n|n토우마는 소녀 앞에 서서 첫 공격의 거리를 잡는다."
         set ProtoEventIntro[178] = "레벨0의 오른손이 최강과 맞설 거리를 잡는다."
-        set ProtoEventIcon[178] = "war3mapImported\\UI_EventThumb_Event_ACO_cat_memory.tga"
+        set ProtoEventIcon[178] = "war3mapImported\\UI_EventThumb_Event_ACO_cat_memory.blp"
         set ProtoEventImageAspect[178] = 1.777778
         set ProtoEventRequired[178] = 0
         set ProtoEventRequiredChoice[178] = 0
@@ -9400,7 +9400,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[179] = 3
         set ProtoEventStory[179] = "|cFF006B8F액셀러레이터|r는 공기 흐름을 계산해 거대한 힘을 모으며 |cFF006B8F토우마|r를 끝내려 한다. |cFF006B8F미코토|r가 전격으로 대신 싸우는 것만으로는 실험의 전제를 깨지 못한다.|n|n그녀는 현장의 미사카10032호에게 도움을 청하려 한다. |cFF865500시스터즈|r는 정보를 연결하는 네트워크와 전기 능력으로 도시의 풍력 발전기에 영향을 줄 수 있다.|n|n바람을 바꾸면 상대의 계산도 흔들릴 수 있다."
         set ProtoEventIntro[179] = "|cFF006B8F미코토|r가 동생들에게 다른 행동을 부탁한다."
-        set ProtoEventIcon[179] = "war3mapImported\\UI_EventThumb_Event_ACO_sisters.tga"
+        set ProtoEventIcon[179] = "war3mapImported\\UI_EventThumb_Event_ACO_sisters.blp"
         set ProtoEventImageAspect[179] = 1.777778
         set ProtoEventRequired[179] = 0
         set ProtoEventRequiredChoice[179] = 0
@@ -9450,7 +9450,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[180] = 3
         set ProtoEventStory[180] = "불규칙해진 바람에 |cFF006B8F액셀러레이터|r가 모은 힘이 흩어진다. |cFF865500시스터즈|r가 방해했음을 안 그는 현장의 소녀에게 분노를 돌린다.|n|n|cFF006B8F미코토|r는 자신과 같은 얼굴의 실험체가 아니라 동생이라고 하며 앞을 지킨다. 그 사이 쓰러졌던 |cFF006B8F토우마|r가 몸을 일으킨다.|n|n마지막 기회가 생겼지만 소녀를 향한 공격도 막아야 한다."
         set ProtoEventIntro[180] = "소녀들이 만든 틈에서 마지막 기회를 붙든다."
-        set ProtoEventIcon[180] = "war3mapImported\\UI_EventThumb_Event_ACO_resolve.tga"
+        set ProtoEventIcon[180] = "war3mapImported\\UI_EventThumb_Event_ACO_resolve.blp"
         set ProtoEventImageAspect[180] = 1.777778
         set ProtoEventRequired[180] = 0
         set ProtoEventRequiredChoice[180] = 0
@@ -9500,7 +9500,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[181] = 3
         set ProtoEventStory[181] = "병원에서 |cFF006B8F토우마|r는 실험이 중단됐다는 소식을 |cFF006B8F미코토|r에게 전한다. 그녀는 자신이 DNA를 제공하지 않았다면 소녀들의 죽음도 없었으리라는 죄책감을 떨치지 못한다.|n|n친구를 구하려던 싸움이 끝나도 이미 잃은 사람들의 일은 사라지지 않는다.|n|n토우마는 소녀들이 태어난 일 자체를 잘못이라고 하는 말에는 답해야 한다고 생각한다."
         set ProtoEventIntro[181] = "병원에서도 |cFF006B8F미코토|r의 죄책감은 남아 있다."
-        set ProtoEventIcon[181] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[181] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[181] = 1.777778
         set ProtoEventRequired[181] = 0
         set ProtoEventRequiredChoice[181] = 0
@@ -9557,7 +9557,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[182] = 4
         set ProtoEventStory[182] = "|cFF006B8F미코토|r와 |cFF006B8F10032호|r는 공원을 걸으며 평범한 자매들이 노는 모습을 본다. 실험에서 죽을 예정이었던 소녀에게 다음 날은 처음부터 주어진 것이 아니었다.|n|n이제 고양이를 돌보고 사람을 만나며 좋아하는 일을 고를 수 있다. 같은 얼굴과 DNA가 같은 하루까지 정해 주지는 않는다.|n|n미코토가 곁의 동생에게 앞으로 하고 싶은 일을 묻는다."
         set ProtoEventIntro[182] = "이제 정해지지 않은 내일을 함께 생각한다."
-        set ProtoEventIcon[182] = "war3mapImported\\UI_EventThumb_Card_RGT_39_Art.tga"
+        set ProtoEventIcon[182] = "war3mapImported\\UI_EventThumb_Card_RGT_39_Art.blp"
         set ProtoEventImageAspect[182] = 1.777778
         set ProtoEventRequired[182] = 0
         set ProtoEventRequiredChoice[182] = 0
@@ -9612,7 +9612,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[183] = 1
         set ProtoEventStory[183] = "실험이 멈춘 뒤에도 살아남은 |cFF865500시스터즈|r에게는 치료와 앞으로의 생활이 남아 있다. |cFF006B8F미코토|r 혼자 끝낼 수 없었던 싸움은 |cFF006B8F토우마|r와 시스터즈의 도움으로 다른 결말에 닿았다.|n|n그 일을 돌아보며, 지켜 낸 생명과 다시 이어갈 평범한 하루를 함께 생각한다."
         set ProtoEventIntro[183] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[183] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.tga"
+        set ProtoEventIcon[183] = "war3mapImported\\UI_EventThumb_Card_RGO1_mikoto_Art.blp"
         set ProtoEventImageAspect[183] = 1.777778
         set ProtoEventRequired[183] = 0
         set ProtoEventRequiredChoice[183] = 0
@@ -9669,7 +9669,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[17] = 1
         set ProtoEventStory[17] = "낯선 |cFF80560C꿈|r을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
         set ProtoEventIntro[17] = "낯선 꿈을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
-        set ProtoEventIcon[17] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.tga"
+        set ProtoEventIcon[17] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.blp"
         set ProtoEventImageAspect[17] = 1.777778
         set ProtoHeadEntryEvent[21] = 18
         set ProtoEventKey[18] = "mitakihara_entry_1"
@@ -9681,7 +9681,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[18] = 1
         set ProtoEventStory[18] = "낯선 |cFF80560C꿈|r을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
         set ProtoEventIntro[18] = "낯선 꿈을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
-        set ProtoEventIcon[18] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.tga"
+        set ProtoEventIcon[18] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.blp"
         set ProtoEventImageAspect[18] = 1.777778
         set ProtoHeadEntryEvent[22] = 19
         set ProtoEventKey[19] = "mitakihara_entry_2"
@@ -9693,7 +9693,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[19] = 1
         set ProtoEventStory[19] = "낯선 |cFF80560C꿈|r을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
         set ProtoEventIntro[19] = "낯선 꿈을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
-        set ProtoEventIcon[19] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.tga"
+        set ProtoEventIcon[19] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.blp"
         set ProtoEventImageAspect[19] = 1.777778
         set ProtoHeadEntryEvent[23] = 20
         set ProtoEventKey[20] = "mitakihara_entry_3"
@@ -9705,7 +9705,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[20] = 1
         set ProtoEventStory[20] = "낯선 |cFF80560C꿈|r을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
         set ProtoEventIntro[20] = "낯선 꿈을 꾼 |cFF006B8F마도카|r 앞에 꿈속의 소녀 |cFF006B8F호무라|r가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다."
-        set ProtoEventIcon[20] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.tga"
+        set ProtoEventIcon[20] = "war3mapImported\\UI_EventThumb_Head_Official_mitakihara_Icon.blp"
         set ProtoEventImageAspect[20] = 1.777778
         set ProtoCardKey[294] = "madoka_care"
         set ProtoCardName[294] = "카나메 마도카"
@@ -10350,7 +10350,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[184] = 1
         set ProtoEventStory[184] = "병원 자전거 보관소에서 |cFFA53528부화 직전의 그리프 시드|r를 발견했다. |cFF006B8F마도카|r는 마미에게 도움을 청하고 |cFF006B8F사야카|r는 시민들이 접근하지 못하도록 경계한다.|n|n연락을 받은 |cFF006B8F호무라|r는 다른 길로 돌아가라고 한다. 도움을 기다리는 동안 너도 맡을 일을 정해야 한다."
         set ProtoEventIntro[184] = "도움을 기다리는 자전거 보관소에서 맡을 일을 정한다."
-        set ProtoEventIcon[184] = "war3mapImported\\UI_EventThumb_Card_MEU10_madoka_Art.tga"
+        set ProtoEventIcon[184] = "war3mapImported\\UI_EventThumb_Card_MEU10_madoka_Art.blp"
         set ProtoEventImageAspect[184] = 1.777778
         set ProtoEventRequired[184] = 0
         set ProtoEventRequiredChoice[184] = 0
@@ -10397,7 +10397,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[185] = 1
         set ProtoEventStory[185] = "|cFF006B8F마미|r를 기다리는 길목에서 다음 작전을 논의한다. 마미는 결계의 위험을 경고하며 사격 위치와 퇴로를 함께 정하자고 제안한다. |cFF006B8F마도카|r는 돌아올 표시를 남기고 마미는 뒤편 준비까지 혼자 맡지 말자고 한다."
         set ProtoEventIntro[185] = "|cFF006B8F마미|r와 사격 위치와 퇴로를 함께 정한다."
-        set ProtoEventIcon[185] = "war3mapImported\\UI_EventThumb_Card_MEU10_mami_Art.tga"
+        set ProtoEventIcon[185] = "war3mapImported\\UI_EventThumb_Card_MEU10_mami_Art.blp"
         set ProtoEventImageAspect[185] = 1.777778
         set ProtoEventRequired[185] = 184
         set ProtoEventRequiredChoice[185] = 1
@@ -10444,7 +10444,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[186] = 1
         set ProtoEventStory[186] = "마법소녀들의 충돌 이후 놓친 사역마의 흔적이 발견되었다. |cFF006B8F사야카|r는 추적을 원하지만, |cFF006B8F마도카|r는 서로 대화하며 상황을 풀길 바란다. |cFF006B8F쿄코|r는 같은 흔적을 다른 쪽에서 살피며 추적할 구역을 나누라고 한다."
         set ProtoEventIntro[186] = "추적을 계속할지 먼저 대화할지 의견이 갈린다."
-        set ProtoEventIcon[186] = "war3mapImported\\UI_EventThumb_Card_MEU10_sayaka_Art.tga"
+        set ProtoEventIcon[186] = "war3mapImported\\UI_EventThumb_Card_MEU10_sayaka_Art.blp"
         set ProtoEventImageAspect[186] = 1.777778
         set ProtoEventRequired[186] = 0
         set ProtoEventRequiredChoice[186] = 0
@@ -10491,7 +10491,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[187] = 1
         set ProtoEventStory[187] = "|cFF006B8F쿄코|r가 |cFF006B8F사야카|r를 데리고 폐허가 된 교회로 향했다. 쿄코가 내민 음식을 두고 두 사람의 태도가 엇갈리는 상황에서 당신은 어떻게 행동할까?"
         set ProtoEventIntro[187] = "|cFF006B8F쿄코|r의 이야기를 듣는 동안 귀환도 준비한다."
-        set ProtoEventIcon[187] = "war3mapImported\\UI_EventThumb_Card_MEU10_kyoko_Art.tga"
+        set ProtoEventIcon[187] = "war3mapImported\\UI_EventThumb_Card_MEU10_kyoko_Art.blp"
         set ProtoEventImageAspect[187] = 1.777778
         set ProtoEventRequired[187] = 0
         set ProtoEventRequiredChoice[187] = 0
@@ -10538,7 +10538,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[188] = 1
         set ProtoEventStory[188] = "|cFF006B8F큐베|r가 당신의 소원 한 가지를 이루어 주겠다고 한다. 큰 힘을 바라면 그 힘을 |cFF704261감당할 준비|r도 필요하다. |cFF006B8F사야카|r와 |cFF006B8F호무라|r가 곁에서 당신의 답을 기다린다."
         set ProtoEventIntro[188] = "|cFF006B8F큐베|r의 한 가지 소원에 답해야 한다."
-        set ProtoEventIcon[188] = "war3mapImported\\UI_EventThumb_Card_PMM_kyube_Art.tga"
+        set ProtoEventIcon[188] = "war3mapImported\\UI_EventThumb_Card_PMM_kyube_Art.blp"
         set ProtoEventImageAspect[188] = 1.777778
         set ProtoEventRequired[188] = 0
         set ProtoEventRequiredChoice[188] = 0
@@ -10585,7 +10585,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[189] = 1
         set ProtoEventStory[189] = "|cFF006B8F호무라|r가 준비한 지도에 아직 파악되지 않은 빈 구역이 존재한다. 한 곳에 대비를 집중할지 아니면 사람들을 우선적으로 안내할지 결정해야 한다. |cFF006B8F마미|r는 먼 거리에서 볼 자리를, |cFF006B8F마도카|r는 남은 사람들의 귀환길을 가리킨다."
         set ProtoEventIntro[189] = "|cFF006B8F호무라|r의 지도에 아직 비어 있는 구역이 있다."
-        set ProtoEventIcon[189] = "war3mapImported\\UI_EventThumb_Card_MEU10_homura_Art.tga"
+        set ProtoEventIcon[189] = "war3mapImported\\UI_EventThumb_Card_MEU10_homura_Art.blp"
         set ProtoEventImageAspect[189] = 1.777778
         set ProtoEventRequired[189] = 184
         set ProtoEventRequiredChoice[189] = 3
@@ -10632,7 +10632,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[190] = 1
         set ProtoEventStory[190] = "|cFF006B8F사야카|r가 가방을 닫기 전 지워진 쪽지를 꺼내 들었다. |cFF006B8F마도카|r는 이름을 확인하려 했지만, 쪽지에는 음악 제목만 흐릿하게 남아 있었다. 병실 밖 담당자는 이전 목록을 확인해 줄 수 있다고 전했다."
         set ProtoEventIntro[190] = "쪽지의 제목을 확인할지, 가져갈 가방부터 나눌지 정한다."
-        set ProtoEventIcon[190] = "war3mapImported\\UI_EventThumb_Card_MEU10_sayaka_Art.tga"
+        set ProtoEventIcon[190] = "war3mapImported\\UI_EventThumb_Card_MEU10_sayaka_Art.blp"
         set ProtoEventImageAspect[190] = 1.777778
         set ProtoEventRequired[190] = 0
         set ProtoEventRequiredChoice[190] = 0
@@ -10679,7 +10679,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[191] = 1
         set ProtoEventStory[191] = "준코가 출근 가방을 챙기는 사이 토모히사는 아침 식사 몫을 나누고 있었다. 현관에는 여러 개의 봉투가 모여 있어 누구의 것인지 알 수 없었다. |cFF006B8F마도카|r는 누구의 준비를 먼저 도울지 물었다."
         set ProtoEventIntro[191] = "먼저 끝낼 일과 남겨 둘 몫 중 도울 준비를 고른다."
-        set ProtoEventIcon[191] = "war3mapImported\\UI_EventThumb_Card_SUP5_junko_Art.tga"
+        set ProtoEventIcon[191] = "war3mapImported\\UI_EventThumb_Card_SUP5_junko_Art.blp"
         set ProtoEventImageAspect[191] = 1.777778
         set ProtoEventRequired[191] = 0
         set ProtoEventRequiredChoice[191] = 0
@@ -10726,7 +10726,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[192] = 1
         set ProtoEventStory[192] = "히토미가 피아노와 다도 준비를 점검하자 |cFF006B8F사야카|r는 잠깐 같이 가자고 손짓했다. |cFF006B8F마도카|r는 아직 정리하지 못한 안내표를 들고 있었다. 히토미는 빈 시간을 고려해 갈 곳을 나누자고 제안했다."
         set ProtoEventIntro[192] = "|cFF80560C약속|r 사이의 준비와 학교에 남은 안내 일을 나눈다."
-        set ProtoEventIcon[192] = "war3mapImported\\UI_EventThumb_Card_SUP5_hitomi_Art.tga"
+        set ProtoEventIcon[192] = "war3mapImported\\UI_EventThumb_Card_SUP5_hitomi_Art.blp"
         set ProtoEventImageAspect[192] = 1.777778
         set ProtoEventRequired[192] = 0
         set ProtoEventRequiredChoice[192] = 0
@@ -10773,7 +10773,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[193] = 1
         set ProtoEventStory[193] = "|cFF006B8F호무라|r가 먼저 연습 도구를 정리해둔 것을 보고 |cFF006B8F사야카|r가 물었다. |cFF006B8F마도카|r는 남은 준비를 함께 보자고 했지만 호무라는 바깥 일 때문에 서둘러야 했다. 교실 정리와 적이 오가는 길목 중 맡을 일을 정해야 했다."
         set ProtoEventIntro[193] = "교실 쪽의 준비와 바깥 구역 중 맡을 일을 정한다."
-        set ProtoEventIcon[193] = "war3mapImported\\UI_EventThumb_Card_MEU10_homura_Art.tga"
+        set ProtoEventIcon[193] = "war3mapImported\\UI_EventThumb_Card_MEU10_homura_Art.blp"
         set ProtoEventImageAspect[193] = 1.777778
         set ProtoEventRequired[193] = 0
         set ProtoEventRequiredChoice[193] = 0
@@ -10820,7 +10820,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[194] = 1
         set ProtoEventStory[194] = "|cFF006B8F마미|r가 후배들에게 마녀를 쫓는 일을 함께 보자고 제안한 뒤 아직 접지 않은 지도를 펼친다. |cFF006B8F사야카|r는 어느 길부터 갈지 묻고 |cFF006B8F마도카|r는 돌아올 준비도 남겨 두자고 한다.|n|n마미는 한 사람이 바깥 길과 입구의 준비를 모두 맡지는 말자고 한다."
         set ProtoEventIntro[194] = "들어갈 간격을 짚거나 바깥 길목을 맡는다."
-        set ProtoEventIcon[194] = "war3mapImported\\UI_EventThumb_Card_MEU10_mami_Art.tga"
+        set ProtoEventIcon[194] = "war3mapImported\\UI_EventThumb_Card_MEU10_mami_Art.blp"
         set ProtoEventImageAspect[194] = 1.777778
         set ProtoEventRequired[194] = 0
         set ProtoEventRequiredChoice[194] = 0
@@ -10867,7 +10867,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[195] = 1
         set ProtoEventStory[195] = "낯선 입구를 발견한 |cFF006B8F마도카|r가 안쪽에 사람이 있는지 물었다. |cFF006B8F마미|r는 결계를 모르니 주의를 주었고 |cFF006B8F호무라|r는 확인할 곳을 먼저 짚었다. 흔적 확인과 다음 진입 준비를 나누어야 했다."
         set ProtoEventIntro[195] = "입구에 들어가기 전 확인할 구역을 나눈다."
-        set ProtoEventIcon[195] = "war3mapImported\\UI_EventThumb_Card_MEU10_madoka_Art.tga"
+        set ProtoEventIcon[195] = "war3mapImported\\UI_EventThumb_Card_MEU10_madoka_Art.blp"
         set ProtoEventImageAspect[195] = 1.777778
         set ProtoEventRequired[195] = 0
         set ProtoEventRequiredChoice[195] = 0
@@ -10914,7 +10914,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[196] = 1
         set ProtoEventStory[196] = "|cFF006B8F마미|r는 다른 만남에서 네가 들어갈 위치와 물러설 자리를 표시했던 지도를 보며 다음에도 같은 일을 맡을지 묻는다. |cFF006B8F마도카|r는 돌아올 자리부터 남기자고 하고 |cFF006B8F사야카|r는 마미의 뒤편 준비도 비어 있다고 한다.|n|n익힌 간격이 있어 입구부터 다시 설명할 필요는 없지만 다음 방문까지 맡을지는 네가 답해야 한다."
         set ProtoEventIntro[196] = "|cFF006B8F마미|r가 네가 표시한 입구의 간격을 알아보고 지도를 다시 편다."
-        set ProtoEventIcon[196] = "war3mapImported\\UI_EventThumb_Card_MEU10_mami_Art.tga"
+        set ProtoEventIcon[196] = "war3mapImported\\UI_EventThumb_Card_MEU10_mami_Art.blp"
         set ProtoEventImageAspect[196] = 1.777778
         set ProtoEventRequired[196] = 0
         set ProtoEventRequiredChoice[196] = 0
@@ -10961,7 +10961,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[197] = 1
         set ProtoEventStory[197] = "중학생 카나메 |cFF006B8F마도카|r는 무너진 |cFF80560C도시|r에서 한 소녀가 홀로 싸우는 |cFF80560C꿈|r을 꾼다. 다음 날 그 얼굴의 아케미 |cFF006B8F호무라|r가 같은 반으로 전학 온다.|n|n호무라는 가족과 지금의 생활이 소중하다면 자신을 바꾸려 하지 말라고 한다. 처음 만난 소녀가 왜 이런 말을 하는지 알 수 없다.|n|n마도카는 걸음을 멈추고 호무라를 바라본다."
         set ProtoEventIntro[197] = "|cFF80560C꿈|r에서 본 소녀가 |cFF006B8F마도카|r에게 경고한다."
-        set ProtoEventIcon[197] = "war3mapImported\\UI_EventThumb_Event_MTE_warning.tga"
+        set ProtoEventIcon[197] = "war3mapImported\\UI_EventThumb_Event_MTE_warning.blp"
         set ProtoEventImageAspect[197] = 1.777778
         set ProtoEventRequired[197] = 0
         set ProtoEventRequiredChoice[197] = 0
@@ -11011,7 +11011,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[198] = 1
         set ProtoEventStory[198] = "|cFF006B8F큐베|r는 소원 하나를 이루어 주는 대신 마법소녀가 되어 마녀와 싸우라고 제안한다. |cFF006B8F마미|r는 마녀가 숨은 결계를 찾아 사람들을 구하는 일을 보여 주겠다고 한다.|n|n|cFF006B8F마도카|r와 |cFF006B8F사야카|r에게는 아직 모르는 것이 많다.|n|n사야카는 병원에서 손을 다친 소꿉친구 쿄스케를 떠올리며, 다른 사람을 위한 소원도 괜찮을지 망설인다."
         set ProtoEventIntro[198] = "|cFF006B8F마미|r가 계약을 서두르지 말고 먼저 일을 보라고 권한다."
-        set ProtoEventIcon[198] = "war3mapImported\\UI_EventThumb_Event_MTE_tea.tga"
+        set ProtoEventIcon[198] = "war3mapImported\\UI_EventThumb_Event_MTE_tea.blp"
         set ProtoEventImageAspect[198] = 1.777778
         set ProtoEventRequired[198] = 0
         set ProtoEventRequiredChoice[198] = 0
@@ -11061,7 +11061,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[199] = 1
         set ProtoEventStory[199] = "병원의 마녀를 막으려 결계에 들어간 |cFF006B8F마미|r는 위험을 경고하는 |cFF006B8F호무라|r를 |cFF704261방해꾼으로 여겨|r 묶어 둔다. |cFF006B8F마도카|r는 마미와 함께하며 자신도 마법소녀가 되고 싶다고 말한다. 마미는 혼자 싸우는 일이 외롭고 두려웠다고 털어놓는다.|n|n늘 여유로워 보였던 선배도 함께할 동료를 기다리고 있었다.|n|n마도카는 그 말에 답하려 한다."
         set ProtoEventIntro[199] = "늘 여유롭던 |cFF006B8F마미|r가 |cFF006B8F마도카|r 앞에서 속마음을 꺼낸다."
-        set ProtoEventIcon[199] = "war3mapImported\\UI_EventThumb_Event_MTV_companions.tga"
+        set ProtoEventIcon[199] = "war3mapImported\\UI_EventThumb_Event_MTV_companions.blp"
         set ProtoEventImageAspect[199] = 1.777778
         set ProtoEventRequired[199] = 0
         set ProtoEventRequiredChoice[199] = 0
@@ -11118,7 +11118,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[200] = 2
         set ProtoEventStory[200] = "|cFF006B8F마미|r가 죽은 다음 날에도 학교는 평소처럼 돌아간다. |cFF006B8F마도카|r는 마미의 빈 방을 찾은 뒤 귀갓길에 |cFF006B8F호무라|r에게 아무도 모르게 싸우다 사라지는 마법소녀의 현실을 듣는다.|n|n더는 계약하지 않겠다고 생각하며 돌아가던 길, 친구 히토미가 이상한 말을 하며 걷는 모습이 눈에 들어온다.|n|n마도카가 불러도 평소처럼 답하지 않는다."
         set ProtoEventIntro[200] = "귀갓길에서 히토미가 평소와 다른 모습을 보인다."
-        set ProtoEventIcon[200] = "war3mapImported\\UI_EventThumb_Event_MTE_sunset.tga"
+        set ProtoEventIcon[200] = "war3mapImported\\UI_EventThumb_Event_MTE_sunset.blp"
         set ProtoEventImageAspect[200] = 1.777778
         set ProtoEventRequired[200] = 0
         set ProtoEventRequiredChoice[200] = 0
@@ -11168,7 +11168,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[201] = 2
         set ProtoEventStory[201] = "|cFF006B8F사야카|r는 부상으로 바이올린을 놓아야 했던 소꿉친구 카미조 쿄스케의 손을 낫게 해 달라고 소원을 빌었다. 그를 살피러 다니던 친구가 왜 계약했는지 |cFF006B8F마도카|r도 이제 안다.|n|n병원 옥상에서 회복을 축하하는 자리가 마련된다.|n|n쿄스케가 악기를 준비하는 동안 사야카는 마도카 곁에 선다. 자신이 고른 소원에 관해 아직 나누고 싶은 말이 있다."
         set ProtoEventIntro[201] = "쿄스케가 연주를 시작하기 전, |cFF006B8F사야카|r가 |cFF006B8F마도카|r를 돌아본다."
-        set ProtoEventIcon[201] = "war3mapImported\\UI_EventThumb_Card_MEU10_sayaka_Art.tga"
+        set ProtoEventIcon[201] = "war3mapImported\\UI_EventThumb_Card_MEU10_sayaka_Art.blp"
         set ProtoEventImageAspect[201] = 1.777778
         set ProtoEventRequired[201] = 0
         set ProtoEventRequiredChoice[201] = 0
@@ -11218,7 +11218,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[202] = 2
         set ProtoEventStory[202] = "사야카는 |cFFA53528사람을 해칠 사역마|r도 없애려 하지만 쿄코는 마녀로 자라 정화용 |cFF865500그리프 시드|r를 남길 때까지 두라고 한다. 첫 싸움에서 밀린 사야카를 |cFF006B8F호무라|r가 구했어도 갈등은 끝나지 않았다.|n|n다리 위에서 두 사람이 다시 맞선다.|n|n|cFF006B8F마도카|r는 친구가 또 다칠까 두렵다. 사야카가 변신하려는 모습을 보고 곁으로 다가간다."
         set ProtoEventIntro[202] = "다시 대치한 두 소녀 사이에서 |cFF006B8F마도카|r가 친구를 부른다."
-        set ProtoEventIcon[202] = "war3mapImported\\UI_EventThumb_Event_MTE_difference.tga"
+        set ProtoEventIcon[202] = "war3mapImported\\UI_EventThumb_Event_MTE_difference.blp"
         set ProtoEventImageAspect[202] = 1.777778
         set ProtoEventRequired[202] = 0
         set ProtoEventRequiredChoice[202] = 0
@@ -11268,7 +11268,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[203] = 2
         set ProtoEventStory[203] = "사야카는 |cFF865500소울 젬|r이 멀어진 뒤 |cFFA53528움직이지 않는다|r. |cFF006B8F마도카|r는 친구를 불러 보지만 대답이 없다.|n|n쿄코도 이런 일은 설명받은 적이 없다며 큐베를 붙잡는다.|n|n큐베는 소녀들이 왜 당황하는지 이해하지 못하는 듯하다. |cFF006B8F호무라|r가 보석을 뒤쫓아간 사이, 남은 두 사람은 계약에 관해 묻는다."
         set ProtoEventIntro[203] = "친구가 쓰러진 이유를 |cFF006B8F큐베|r에게 묻는다."
-        set ProtoEventIcon[203] = "war3mapImported\\UI_EventThumb_Card_PMM_kyube_Art.tga"
+        set ProtoEventIcon[203] = "war3mapImported\\UI_EventThumb_Card_PMM_kyube_Art.blp"
         set ProtoEventImageAspect[203] = 1.777778
         set ProtoEventRequired[203] = 0
         set ProtoEventRequiredChoice[203] = 0
@@ -11325,7 +11325,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[204] = 2
         set ProtoEventStory[204] = "|cFF006B8F쿄코|r는 사람들이 아버지의 설교를 듣게 해 달라고 빌었지만, 마법임을 안 아버지가 무너져 |cFF704261가족까지 잃었다고|r 털어놓는다. 자신만을 위해 살라는 충고에도 |cFF006B8F사야카|r는 남을 구하겠다는 뜻을 고집한다.|n|n이후 친구 히토미는 자신도 쿄스케를 좋아한다며 사야카에게 먼저 고백할 하루를 준다.|n|n달라진 몸 때문에 다가갈 수 없다고 여기는 사야카는, 히토미를 구한 일을 잠깐 후회한 자신까지 미워한다. |cFF006B8F마도카|r가 걱정하며 곁으로 다가온다."
         set ProtoEventIntro[204] = "걱정하며 다가온 |cFF006B8F마도카|r 앞에서 |cFF006B8F사야카|r가 말을 고른다."
-        set ProtoEventIcon[204] = "war3mapImported\\UI_EventThumb_Event_MTE_rain.tga"
+        set ProtoEventIcon[204] = "war3mapImported\\UI_EventThumb_Event_MTE_rain.blp"
         set ProtoEventImageAspect[204] = 1.777778
         set ProtoEventRequired[204] = 0
         set ProtoEventRequiredChoice[204] = 0
@@ -11375,7 +11375,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[205] = 2
         set ProtoEventStory[205] = "사야카의 |cFF865500소울 젬|r이 |cFF865500그리프 시드|r로 변하며 마녀가 태어난다. |cFF006B8F호무라|r는 쿄코와 사야카의 빈 몸을 구해 낸 뒤 마법소녀가 절망하면 마녀가 된다고 밝힌다.|n|n쿄코는 |cFF006B8F마도카|r의 목소리가 친구에게 닿을지도 모른다는 희망을 버리지 않는다.|n|n큐베도 그 가능성을 분명히 부정하지 않았다. 쿄코가 마도카를 찾아 함께 들어가자고 한다."
         set ProtoEventIntro[205] = "|cFF006B8F쿄코|r가 친구를 되찾으러 함께 가자고 제안한다."
-        set ProtoEventIcon[205] = "war3mapImported\\UI_EventThumb_Card_MEU10_kyoko_Art.tga"
+        set ProtoEventIcon[205] = "war3mapImported\\UI_EventThumb_Card_MEU10_kyoko_Art.blp"
         set ProtoEventImageAspect[205] = 1.777778
         set ProtoEventRequired[205] = 0
         set ProtoEventRequiredChoice[205] = 0
@@ -11432,7 +11432,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[206] = 2
         set ProtoEventStory[206] = "시간은 지금보다 앞선 |cFF006B8F호무라|r의 기억으로 돌아간다. 긴 입원 뒤 학교에 적응하지 못하던 호무라를 |cFF006B8F마도카|r가 챙겼고, 마도카와 마미는 마녀에게서도 그녀를 구했다.|n|n그러나 거대한 마녀 |cFF865500발푸르기스의 밤|r과 싸운 마도카가 |cFFA53528목숨을 잃는다|r.|n|n큐베가 소원을 묻자 호무라는 자신을 지켜 주었던 소녀를 바라본다."
         set ProtoEventIntro[206] = "오래전의 |cFF006B8F호무라|r가 잃어버린 만남을 떠올린다."
-        set ProtoEventIcon[206] = "war3mapImported\\UI_EventThumb_Event_MTO_meeting.tga"
+        set ProtoEventIcon[206] = "war3mapImported\\UI_EventThumb_Event_MTO_meeting.blp"
         set ProtoEventImageAspect[206] = 1.777778
         set ProtoEventRequired[206] = 0
         set ProtoEventRequiredChoice[206] = 0
@@ -11489,7 +11489,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[207] = 3
         set ProtoEventStory[207] = "|cFF006B8F사야카|r를 잃은 뒤 |cFF006B8F마도카|r는 |cFF006B8F큐베|r에게 계약의 목적을 묻는다. 큐베는 소녀의 희망이 절망으로 바뀔 때 생기는 에너지를 모아 우주의 고갈을 늦춘다고 설명한다.|n|n한 사람의 희생을 전체의 효율로 말하는 큐베 앞에서 마도카는 친구들이 겪은 일을 떠올린다.|n|n소원을 들어주는 친절만으로는 설명되지 않는 계약이었다."
         set ProtoEventIntro[207] = "현재로 돌아와, |cFF006B8F마도카|r가 |cFF006B8F큐베|r의 설명을 듣는다."
-        set ProtoEventIcon[207] = "war3mapImported\\UI_EventThumb_Event_MTO_explanation.tga"
+        set ProtoEventIcon[207] = "war3mapImported\\UI_EventThumb_Event_MTO_explanation.blp"
         set ProtoEventImageAspect[207] = 1.777778
         set ProtoEventRequired[207] = 0
         set ProtoEventRequiredChoice[207] = 0
@@ -11546,7 +11546,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[208] = 3
         set ProtoEventStory[208] = "|cFF865500발푸르기스의 밤|r이 |cFF80560C도시|r를 덮치자 주민들이 재난을 피해 대피한다. |cFF006B8F호무라|r는 시간을 멈추고 준비한 무기를 쏟아붓지만 마녀를 막지 못하고 크게 다친다.|n|n다시 시간을 돌리면 |cFF006B8F마도카|r에게 더 무거운 인과를 쌓게 된다.|n|n대피소에 있는 마도카는 친구에게 가야 한다고 생각한다. 걱정하는 어머니 앞에서, 왜 밖으로 나서려는지 말할 차례다."
         set ProtoEventIntro[208] = "대피소에서 |cFF006B8F마도카|r가 어머니에게 말을 꺼낸다."
-        set ProtoEventIcon[208] = "war3mapImported\\UI_EventThumb_Event_MTO_struggle.tga"
+        set ProtoEventIcon[208] = "war3mapImported\\UI_EventThumb_Event_MTO_struggle.blp"
         set ProtoEventImageAspect[208] = 1.777778
         set ProtoEventRequired[208] = 0
         set ProtoEventRequiredChoice[208] = 0
@@ -11596,7 +11596,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[209] = 3
         set ProtoEventStory[209] = "|cFF006B8F호무라|r는 |cFF006B8F마도카|r가 계약하면 다시 같은 비극을 겪을까 두렵다. 그러나 마도카가 생각한 것은 이번 마녀만 쓰러뜨리는 소원이 아니다.|n|n친구들이 품었던 희망과 그 끝에서 생긴 절망을 모두 본 마도카는 |cFF006B8F큐베|r를 돌아본다.|n|n누구를, 어디까지 구하고 싶은지 자기 말로 정할 순간이다."
         set ProtoEventIntro[209] = "|cFF006B8F호무라|r 곁에 도착한 |cFF006B8F마도카|r가 소원을 정한다."
-        set ProtoEventIcon[209] = "war3mapImported\\UI_EventThumb_Event_MTO_wish.tga"
+        set ProtoEventIcon[209] = "war3mapImported\\UI_EventThumb_Event_MTO_wish.blp"
         set ProtoEventImageAspect[209] = 1.777778
         set ProtoEventRequired[209] = 0
         set ProtoEventRequiredChoice[209] = 0
@@ -11653,7 +11653,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[210] = 4
         set ProtoEventStory[210] = "새 세계에서 마법소녀는 마녀가 되는 대신 마지막 순간 |cFF006B8F마도카|r의 이치에 이끌린다. |cFF006B8F사야카|r는 돌아오지 않아도 그녀의 소원으로 쿄스케의 연주는 이어진다.|n|n|cFF006B8F마미|r와 쿄코가 살아 있는 이곳에도 사람의 저주에서 생긴 마수는 남아 있다.|n|n대부분이 마도카를 잊은 가운데 |cFF006B8F호무라|r는 리본을 손에 쥔다. 다음 싸움에 나서기 전, 잠시 친구와 나눈 약속을 떠올린다."
         set ProtoEventIntro[210] = "남겨진 세계에서 |cFF006B8F호무라|r가 리본을 바라본다."
-        set ProtoEventIcon[210] = "war3mapImported\\UI_EventThumb_Card_MEU10_homura_Art.tga"
+        set ProtoEventIcon[210] = "war3mapImported\\UI_EventThumb_Card_MEU10_homura_Art.blp"
         set ProtoEventImageAspect[210] = 1.777778
         set ProtoEventRequired[210] = 0
         set ProtoEventRequiredChoice[210] = 0
@@ -11712,7 +11712,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[211] = 1
         set ProtoEventStory[211] = "미타키하라의 이야기를 덮기 전에 처음의 만남과 마지막 인사를 다시 떠올린다. 소녀들의 선택을 뒤집거나 누구도 잃지 않았던 결말을 쓰려는 것은 아니다. 다음 길에 가져갈 대목을 골라, 남겨 둔 빈칸에 자신의 짧은 말을 보탠다."
         set ProtoEventIntro[211] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[211] = "war3mapImported\\UI_EventThumb_Event_MTO_meeting.tga"
+        set ProtoEventIcon[211] = "war3mapImported\\UI_EventThumb_Event_MTO_meeting.blp"
         set ProtoEventImageAspect[211] = 1.777778
         set ProtoEventRequired[211] = 0
         set ProtoEventRequiredChoice[211] = 0
@@ -11778,7 +11778,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[21] = 1
         set ProtoEventStory[21] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
         set ProtoEventIntro[21] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
-        set ProtoEventIcon[21] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.tga"
+        set ProtoEventIcon[21] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.blp"
         set ProtoEventImageAspect[21] = 1.777778
         set ProtoHeadEntryEvent[25] = 22
         set ProtoEventKey[22] = "aincrad_entry_1"
@@ -11790,7 +11790,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[22] = 1
         set ProtoEventStory[22] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
         set ProtoEventIntro[22] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
-        set ProtoEventIcon[22] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.tga"
+        set ProtoEventIcon[22] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.blp"
         set ProtoEventImageAspect[22] = 1.777778
         set ProtoHeadEntryEvent[26] = 23
         set ProtoEventKey[23] = "aincrad_entry_2"
@@ -11802,7 +11802,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[23] = 1
         set ProtoEventStory[23] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
         set ProtoEventIntro[23] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
-        set ProtoEventIcon[23] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.tga"
+        set ProtoEventIcon[23] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.blp"
         set ProtoEventImageAspect[23] = 1.777778
         set ProtoHeadEntryEvent[27] = 24
         set ProtoEventKey[24] = "aincrad_entry_3"
@@ -11814,7 +11814,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[24] = 1
         set ProtoEventStory[24] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
         set ProtoEventIntro[24] = "로그아웃이 사라진 아인크라드에서 |cFF006B8F키리토|r와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다."
-        set ProtoEventIcon[24] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.tga"
+        set ProtoEventIcon[24] = "war3mapImported\\UI_EventThumb_Head_Official_aincrad_Icon.blp"
         set ProtoEventImageAspect[24] = 1.777778
         set ProtoCardKey[357] = "sao_agil"
         set ProtoCardName[357] = "에길"
@@ -12527,7 +12527,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[212] = 1
         set ProtoEventStory[212] = "|cFF006B8F키리토|r가 내민 희귀 |cFF80560C검|r과 비교하던 리즈벳의 시험검이 부러져 공방의 말이 잠깐 끊긴다. 리즈벳은 희귀 재료만 있다면 원하는 검을 만들 수 있다고 하고 키리토는 아직 남은 파편을 본다.|n|n네게 새 검을 달라는 의뢰는 아니지만 공방에 필요한 수송 준비와 남은 부품을 맡을 수 있다. 리즈벳은 휘어진 면까지 한데 버리지 말라며 네 앞에 작은 쟁반을 둔다."
         set ProtoEventIntro[212] = "부러진 |cFF80560C검|r을 대신 요구하지 않고 무엇을 맡을까?"
-        set ProtoEventIcon[212] = "war3mapImported\\UI_EventThumb_Card_SAOFD_lisbeth_Art.tga"
+        set ProtoEventIcon[212] = "war3mapImported\\UI_EventThumb_Card_SAOFD_lisbeth_Art.blp"
         set ProtoEventImageAspect[212] = 1.777778
         set ProtoEventRequired[212] = 0
         set ProtoEventRequiredChoice[212] = 0
@@ -12574,7 +12574,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[213] = 1
         set ProtoEventStory[213] = "네가 마련했던 수송 준비가 공방에 닿자 리즈벳은 이제 |cFF80560C검|r을 만드는 쪽은 자기 일이라고 말한다. |cFF006B8F키리토|r는 다음 동작을 살피고 |cFF006B8F아스나|r는 친구가 작업할 공간을 비우며 네가 아직 들고 있는 짐을 본다.|n|n너는 직접 내려놓을 자리와 더 맡을 준비 중 자기 몫을 정한다."
         set ProtoEventIntro[213] = "수송 준비를 마친 손에 아직 짐이 남아 있다."
-        set ProtoEventIcon[213] = "war3mapImported\\UI_EventThumb_Card_SAOFD_lisbeth_Art.tga"
+        set ProtoEventIcon[213] = "war3mapImported\\UI_EventThumb_Card_SAOFD_lisbeth_Art.blp"
         set ProtoEventImageAspect[213] = 1.777778
         set ProtoEventRequired[213] = 212
         set ProtoEventRequiredChoice[213] = 1
@@ -12621,7 +12621,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[214] = 1
         set ProtoEventStory[214] = "피나를 잃은 시리카에게 |cFF006B8F키리토|r가 소생을 위한 방법과 길을 설명하고 있다. 시리카는 돌아올 준비물을 만지다가 아직 피나가 없는 쪽을 돌아본다.|n|n네 손에 남은 보급과 운반 준비는 그 길을 떠나기 전에도 필요하다. 클라인은 운반할 짐을 내려놓고 출발 전에 맡을 길목부터 나누자고 한다."
         set ProtoEventIntro[214] = "소생의 길을 앞두고 내 손에 남은 준비를 정한다."
-        set ProtoEventIcon[214] = "war3mapImported\\UI_EventThumb_Card_SAOFD_silica_Art.tga"
+        set ProtoEventIcon[214] = "war3mapImported\\UI_EventThumb_Card_SAOFD_silica_Art.blp"
         set ProtoEventImageAspect[214] = 1.777778
         set ProtoEventRequired[214] = 0
         set ProtoEventRequiredChoice[214] = 0
@@ -12668,7 +12668,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[215] = 1
         set ProtoEventStory[215] = "에길의 가게에서 |cFF006B8F키리토|r가 희귀한 라구 래빗 고기를 내밀지만 자기 요리 실력으로는 아깝다고 말한다. |cFF006B8F아스나|r는 반을 나누는 조건으로 맡겠다고 하다가 요리 도구는 자기 방에 있다고 덧붙인다.|n|n네가 보탤 식탁 준비와 에길에게 옮길 물품이 남아 있다. 클라인은 들고 온 짐을 내려놓고 가게 바깥의 운반 길목을 맡겠다고 한다."
         set ProtoEventIntro[215] = "고기의 주인이 정한 식사에 어떤 준비를 보탤까?"
-        set ProtoEventIcon[215] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.tga"
+        set ProtoEventIcon[215] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.blp"
         set ProtoEventImageAspect[215] = 1.777778
         set ProtoEventRequired[215] = 0
         set ProtoEventRequiredChoice[215] = 0
@@ -12715,7 +12715,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[216] = 1
         set ProtoEventStory[216] = "보스 방의 상대를 보고 돌아온 |cFF006B8F키리토|r와 |cFF006B8F아스나|r가 안전 구역에서 경고를 전한다. 정보만 들으면 바로 들어가도 된다고 여기는 사람들 때문에 두 사람의 설명이 끊긴다.|n|n키리토는 방 안에서 확인한 위험을, 아스나는 물러설 순서를 짚는다. 너는 아직 출발하지 않은 자신의 담당 구역과 보급을 다시 정한다."
         set ProtoEventIntro[216] = "정찰대가 보스 방의 위험을 경고한다."
-        set ProtoEventIcon[216] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.tga"
+        set ProtoEventIcon[216] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.blp"
         set ProtoEventImageAspect[216] = 1.777778
         set ProtoEventRequired[216] = 0
         set ProtoEventRequiredChoice[216] = 0
@@ -12762,7 +12762,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[217] = 1
         set ProtoEventStory[217] = "몬스터가 들어올 수 없는 |cFF80560C마을|r에서 사망했다는 목격담이 퍼진다. |cFF006B8F키리토|r와 |cFF006B8F아스나|r는 결투로 설명되지 않는 현장을 조사하지만 아직 누구의 말이 맞는지 정하지 않는다.|n|n공방에 보낸 장비 질문과 증언이 서로 다른 순서로 돌아와 네 앞의 메모가 겹친다. 장비의 면, 증언의 순서, 확인된 흔적 중 무엇부터 맡을까?"
         set ProtoEventIntro[217] = "안전 구역의 증언과 장비가 서로 맞지 않는다."
-        set ProtoEventIcon[217] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.tga"
+        set ProtoEventIcon[217] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.blp"
         set ProtoEventImageAspect[217] = 1.777778
         set ProtoEventRequired[217] = 0
         set ProtoEventRequiredChoice[217] = 0
@@ -12809,7 +12809,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[218] = 1
         set ProtoEventStory[218] = "에길의 물품 상자에 값표가 겹쳐 있어 거래가 중단되었다. |cFF006B8F키리토|r는 현재 물건부터 나누자고 제안하며 업무를 분담한다. 에길은 값표를 재부착할 인원과 외부 운반을 맡을 인원을 구분한다."
         set ProtoEventIntro[218] = "겹친 값표를 이미 펼쳐 두어 방문 행동력 없이 한 가지 일을 맡을 수 있다."
-        set ProtoEventIcon[218] = "war3mapImported\\UI_EventThumb_Card_SAOFD_agil_Art.tga"
+        set ProtoEventIcon[218] = "war3mapImported\\UI_EventThumb_Card_SAOFD_agil_Art.blp"
         set ProtoEventImageAspect[218] = 1.777778
         set ProtoEventRequired[218] = 0
         set ProtoEventRequiredChoice[218] = 0
@@ -12856,7 +12856,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[219] = 1
         set ProtoEventStory[219] = "클라인이 풍림화산의 다음 준비를 나누는데 모두 먼저 나설 자리만 가리킨다. |cFF006B8F키리토|r는 뒤에 남길 몫도 빠지지 말자고 말한다. 클라인은 빈 뒷자리와 더 많은 적이 드나드는 옆길 중 네가 맡을 일을 묻는다."
         set ProtoEventIntro[219] = "빈 뒷자리와 적이 많은 옆길 중 맡을 일을 정한다."
-        set ProtoEventIcon[219] = "war3mapImported\\UI_EventThumb_Card_SAOFD_klein_Art.tga"
+        set ProtoEventIcon[219] = "war3mapImported\\UI_EventThumb_Card_SAOFD_klein_Art.blp"
         set ProtoEventImageAspect[219] = 1.777778
         set ProtoEventRequired[219] = 0
         set ProtoEventRequiredChoice[219] = 0
@@ -12903,7 +12903,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[220] = 1
         set ProtoEventStory[220] = "중층에서 |cFF006B8F사치|r가 준비물을 들고도 바로 나서지 못해 머뭇거린다. |cFF006B8F키리토|r는 재촉 대신 먼저 담당 구역을 나누자고 말한다. 사치는 남겨둘 등불과 돌아올 자리를 확인한다."
         set ProtoEventIntro[220] = "|cFF006B8F사치|r의 답을 재촉하지 않고 먼저 맡을 구역을 나눈다."
-        set ProtoEventIcon[220] = "war3mapImported\\UI_EventThumb_Card_SAOFD_sachi_Art.tga"
+        set ProtoEventIcon[220] = "war3mapImported\\UI_EventThumb_Card_SAOFD_sachi_Art.blp"
         set ProtoEventImageAspect[220] = 1.777778
         set ProtoEventRequired[220] = 0
         set ProtoEventRequiredChoice[220] = 0
@@ -12950,7 +12950,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[221] = 1
         set ProtoEventStory[221] = "니시다가 찌를 보는 동안 |cFF006B8F키리토|r의 손은 한 번 더 당겨 보려는 쪽으로 움직인다. 니시다는 빨리 다음 일을 찾는 것과 입질을 기다리는 것은 다르다고 말하고 |cFF006B8F아스나|r는 두 사람 옆에 앉을 자리를 잡는다.|n|n너는 작은 입질을 노려 볼 준비와 오래 기다릴 자리 중 자기 몫을 정한다."
         set ProtoEventIntro[221] = "작은 입질을 노려 볼까, 기다릴 자리를 마련할까?"
-        set ProtoEventIcon[221] = "war3mapImported\\UI_EventThumb_Card_NSU9_nishida_Art.tga"
+        set ProtoEventIcon[221] = "war3mapImported\\UI_EventThumb_Card_NSU9_nishida_Art.blp"
         set ProtoEventImageAspect[221] = 1.777778
         set ProtoEventRequired[221] = 0
         set ProtoEventRequiredChoice[221] = 0
@@ -12997,7 +12997,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[222] = 1
         set ProtoEventStory[222] = "|cFF006B8F아스나|r가 다음 준비를 나누던 중 인원이 한곳에만 모였다는 보고를 받는다. 클라인은 빈 길목을 가리키고 |cFF006B8F키리토|r는 연락을 묻는다. 아스나는 맡은 범위부터 다시 확인을 요청한다."
         set ProtoEventIntro[222] = "한 곳에 몰린 준비와 빈 길목의 역할을 다시 나눈다."
-        set ProtoEventIcon[222] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.tga"
+        set ProtoEventIcon[222] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.blp"
         set ProtoEventImageAspect[222] = 1.777778
         set ProtoEventRequired[222] = 0
         set ProtoEventRequiredChoice[222] = 0
@@ -13044,7 +13044,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[223] = 1
         set ProtoEventStory[223] = "아르고에게 그 길은 어떠냐고 묻자 상대의 위험부터 답이 돌아온다. 네가 궁금했던 것은 사냥을 마친 뒤 어느 갈림길로 돌아오는가였고 아르고는 처음부터 무엇을 알고 싶은지 말했어야 한다고 손을 펼친다.|n|n다음 상대와 돌아올 길 중 네 질문에 빠진 것이 남아 있다. 아르고는 접혀 있던 종이를 펴며 물을 범위를 먼저 가리키라고 한다."
         set ProtoEventIntro[223] = "돌아올 길을 사서 들을까, 자기 간격부터 익힐까?"
-        set ProtoEventIcon[223] = "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.tga"
+        set ProtoEventIcon[223] = "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.blp"
         set ProtoEventImageAspect[223] = 1.777778
         set ProtoEventRequired[223] = 0
         set ProtoEventRequiredChoice[223] = 0
@@ -13091,7 +13091,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[224] = 1
         set ProtoEventStory[224] = "아르고가 옆 손님에게 방금 네가 들은 이야기를 다시 전하자 그 손님이 먼저 산 쪽만 아는 정보 아니냐며 너를 돌아본다. 아르고는 혼자만 들을 권리를 판 적은 없다며 너에게도 무엇을 살 것인지 묻는다.|n|n너는 남의 입을 막는 대신 자기 질문과 맡을 사냥의 몫을 정한다."
         set ProtoEventIntro[224] = "같은 답을 들은 뒤 내게 남은 질문은 무엇일까?"
-        set ProtoEventIcon[224] = "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.tga"
+        set ProtoEventIcon[224] = "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.blp"
         set ProtoEventImageAspect[224] = 1.777778
         set ProtoEventRequired[224] = 0
         set ProtoEventRequiredChoice[224] = 0
@@ -13138,7 +13138,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[225] = 1
         set ProtoEventStory[225] = "네가 앉아 있는 소녀에게 어디서 왔냐고 묻자 |cFF006B8F키리토|r도 막 같은 질문을 했다고 말한다. |cFF006B8F아스나|r는 더 묻기 전에 앉을 곳부터 비우고 있지만 |cFF80560C기억|r을 잃은 소녀에게는 아직 이어서 할 말이 없다.|n|n네 손에는 자기 외투와 전달할 담요가 남아 있다."
         set ProtoEventIntro[225] = "질문이 멈춘 자리에서 무엇을 먼저 내놓을까?"
-        set ProtoEventIcon[225] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.tga"
+        set ProtoEventIcon[225] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.blp"
         set ProtoEventImageAspect[225] = 1.777778
         set ProtoEventRequired[225] = 0
         set ProtoEventRequiredChoice[225] = 0
@@ -13185,7 +13185,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[226] = 1
         set ProtoEventStory[226] = "첫 공략 회의 뒤 출발 준비를 지켜보는데 |cFF006B8F키리토|r와 |cFF006B8F아스나|r가 각자 걷던 간격 때문에 자꾸 서로를 돌아본다. 키리토가 옆의 빈 자리를 보자 네 발도 혼자 다닐 때의 보폭을 따라 움직인다.|n|n너는 두 사람의 파티를 대신하지 않고 자기 다음 싸움에서 남길 간격을 생각한다. 에길은 회의 뒤 남은 보급 상자를 길가에 놓으며 들 수 있는 무게부터 확인하라고 한다."
         set ProtoEventIntro[226] = "혼자 걷던 보폭으로 다음 싸움을 맞아도 될까?"
-        set ProtoEventIcon[226] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.tga"
+        set ProtoEventIcon[226] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.blp"
         set ProtoEventImageAspect[226] = 1.777778
         set ProtoEventRequired[226] = 0
         set ProtoEventRequiredChoice[226] = 0
@@ -13232,7 +13232,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[227] = 1
         set ProtoEventStory[227] = "돌아올 갈림길을 물었던 너를 아르고가 알아보고 이번에는 무엇이 빠졌냐고 묻는다. 네가 그 길에서 버텨야 할 상대도 알아야 한다고 말하자 아르고는 처음 질문과 이번 질문은 값이 다르다고 손가락을 편다.|n|n앞선 답을 무효로 만들지 않고 이번 질문에 자기 몫을 보탤 차례다."
         set ProtoEventIntro[227] = "돌아갈 길은 들었다. 상대에 관한 질문도 보탤까?"
-        set ProtoEventIcon[227] = "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.tga"
+        set ProtoEventIcon[227] = "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.blp"
         set ProtoEventImageAspect[227] = 1.777778
         set ProtoEventRequired[227] = 223
         set ProtoEventRequiredChoice[227] = 1
@@ -13279,7 +13279,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[228] = 1
         set ProtoEventStory[228] = "다른 방문에서 찌를 기다린 너를 니시다가 알아보고 이번에도 같은 자리에 앉을지 묻는다. 네 낚싯줄은 이미 풀려 있어 입질을 기다리는 설명부터 되풀이할 필요는 없다.|n|n|cFF006B8F아스나|r는 떠날 사람들의 준비를 챙기며 먼저 맡을 몫만 답해 두자고 한다. 다음 자리, 지금의 기다림, 바깥 구역 중 어디에 힘을 남길까?"
         set ProtoEventIntro[228] = "익힌 기다림을 알아본 니시다가 옆에 남은 자리를 가리킨다."
-        set ProtoEventIcon[228] = "war3mapImported\\UI_EventThumb_Card_NSU9_nishida_Art.tga"
+        set ProtoEventIcon[228] = "war3mapImported\\UI_EventThumb_Card_NSU9_nishida_Art.blp"
         set ProtoEventImageAspect[228] = 1.777778
         set ProtoEventRequired[228] = 0
         set ProtoEventRequiredChoice[228] = 0
@@ -13326,7 +13326,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[229] = 1
         set ProtoEventStory[229] = "에길의 상점에서 전에 나눠 둔 값표와 새로 온 물품이 한데 놓여 있다. 가격이 같다고 용도까지 같지는 않다는 에길의 말에 리즈벳은 휘어진 면부터 보자고 한다.|n|n전달할 물품을 기다리던 아르고는 물어볼 항목을 먼저 펴 두라고 덧붙인다. 익힌 비교 순서로 이번에는 무엇을 따로 확인할까?"
         set ProtoEventIntro[229] = "에길이 네가 나눠 두었던 값표를 다시 꺼내 보인다."
-        set ProtoEventIcon[229] = "war3mapImported\\UI_EventThumb_Card_SAOFD_agil_Art.tga"
+        set ProtoEventIcon[229] = "war3mapImported\\UI_EventThumb_Card_SAOFD_agil_Art.blp"
         set ProtoEventImageAspect[229] = 1.777778
         set ProtoEventRequired[229] = 0
         set ProtoEventRequiredChoice[229] = 0
@@ -13373,7 +13373,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[230] = 1
         set ProtoEventStory[230] = "가상현실 게임 소드 아트 온라인에 접속한 |cFF006B8F키리토|r는 초보자 클라인에게 전투를 가르친다. 그러나 |cFFA53528로그아웃 버튼이 사라지고|r, 개발자 |cFF006B8F카야바|r는 백 층을 공략해야 나갈 수 있다고 선언한다.|n|n게임 속 죽음과 장치의 강제 제거는 현실의 죽음이 된다. 시험 참가 경험이 있는 키리토는 다음 |cFF80560C마을|r로 먼저 갈 생각이다. 클라인이 걱정하며 그를 바라본다."
         set ProtoEventIntro[230] = "친구들이 기다리는 클라인 앞에서 |cFF006B8F키리토|r가 말을 고른다."
-        set ProtoEventIcon[230] = "war3mapImported\\UI_EventThumb_Event_SAE_declaration.tga"
+        set ProtoEventIcon[230] = "war3mapImported\\UI_EventThumb_Event_SAE_declaration.blp"
         set ProtoEventImageAspect[230] = 1.777778
         set ProtoEventRequired[230] = 0
         set ProtoEventRequiredChoice[230] = 0
@@ -13423,7 +13423,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[231] = 1
         set ProtoEventStory[231] = "한 달이 지나도 첫 층을 넘지 못하자 기사 디아벨이 공략대를 모은다. |cFF006B8F키리토|r는 혼자 싸우던 검사 |cFF006B8F아스나|r와 짝을 맺는다.|n|n보스가 마지막에 꺼낸 무기는 시험 때와 달랐고, 예전 공격을 예상한 디아벨이 |cFFA53528치명상을 입는다|r. 바뀐 움직임을 따라잡지 못하면 더 많은 사람이 쓰러진다. 키리토는 아스나의 위치를 확인한다."
         set ProtoEventIntro[231] = "디아벨이 쓰러진 뒤 |cFF006B8F키리토|r가 |cFF006B8F아스나|r에게 외친다."
-        set ProtoEventIcon[231] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.tga"
+        set ProtoEventIcon[231] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.blp"
         set ProtoEventImageAspect[231] = 1.777778
         set ProtoEventRequired[231] = 0
         set ProtoEventRequiredChoice[231] = 0
@@ -13480,7 +13480,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[232] = 1
         set ProtoEventStory[232] = "|cFF006B8F키리토|r는 몬스터에게 몰린 길드 달밤의 |cFF80560C검|r은 고양이단을 구하고 동료로 받아들여진다. 같은 식탁과 숙소가 반갑지만, 훨씬 높은 자신의 레벨을 밝히면 다시 멀어질까 두려워 숨긴다.|n|n사라진 소녀 |cFF006B8F사치|r를 찾아낸 키리토는 그녀가 |cFF704261죽음이 두려워|r 견디기 어렵다는 말을 듣는다. 밤마다 홀로 성장하던 그가 친구 곁에 앉는다."
         set ProtoEventIntro[232] = "죽는 것이 두렵다는 |cFF006B8F사치|r에게 |cFF006B8F키리토|r가 답한다."
-        set ProtoEventIcon[232] = "war3mapImported\\UI_EventThumb_Event_SAE_guild.tga"
+        set ProtoEventIcon[232] = "war3mapImported\\UI_EventThumb_Event_SAE_guild.blp"
         set ProtoEventImageAspect[232] = 1.777778
         set ProtoEventRequired[232] = 0
         set ProtoEventRequiredChoice[232] = 0
@@ -13530,7 +13530,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[233] = 2
         set ProtoEventStory[233] = "동료들이 연 보물상자에서 함정이 작동하고, |cFFA53528탈출할 수 없는 방|r에 몬스터가 몰려든다. |cFF006B8F키리토|r는 |cFF006B8F사치|r를 포함한 길드원들을 지키지 못한다.|n|n경험을 숨기지 않았다면 막을 수 있었을지 자책하며 혼자 싸운다. 시간이 흘러 크리스마스 보스를 쓰러뜨리면 부활 아이템을 얻는다는 |cFF80560C소문|r이 들린다. 키리토는 자신을 말리는 클라인 앞에서 무기를 점검한다."
         set ProtoEventIntro[233] = "크리스마스 보스에게서 되돌릴 방법을 찾으려 한다."
-        set ProtoEventIcon[233] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.tga"
+        set ProtoEventIcon[233] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.blp"
         set ProtoEventImageAspect[233] = 1.777778
         set ProtoEventRequired[233] = 0
         set ProtoEventRequiredChoice[233] = 0
@@ -13587,7 +13587,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[234] = 2
         set ProtoEventStory[234] = "조련사 실리카는 파티와 다툰 뒤 숲에서 길을 잃고 |cFFA53528몬스터에게 공격받는다|r. 작은 용 피나가 그녀를 지키다 쓰러지고, |cFF006B8F키리토|r가 나타나 남은 위협을 막는다.|n|n실리카는 함께 다니던 동료를 잃었다며 피나를 바라본다. 키리토는 정해진 장소의 |cFF80560C꽃|r으로 사역마를 되살릴 수 있다는 정보를 떠올린다."
         set ProtoEventIntro[234] = "실리카가 쓰러진 피나를 안고 고개를 들지 못한다."
-        set ProtoEventIcon[234] = "war3mapImported\\UI_EventThumb_Event_SAE_feather.tga"
+        set ProtoEventIcon[234] = "war3mapImported\\UI_EventThumb_Event_SAE_feather.blp"
         set ProtoEventImageAspect[234] = 1.777778
         set ProtoEventRequired[234] = 0
         set ProtoEventRequiredChoice[234] = 0
@@ -13637,7 +13637,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[235] = 2
         set ProtoEventStory[235] = "공략을 이어 온 |cFF006B8F아스나|r는 혈맹기사단의 부단장이 되어 있다. 그녀와 |cFF006B8F키리토|r는 공격으로 죽지 않는 |cFF80560C마을|r 안에서 |cFF865500사람이 사라지는 광경|r을 목격한다.|n|n또 다른 피해자까지 나타나자 과거 해체된 길드의 살인 사건이 조사에 떠오른다. 두 사람은 보았던 효과와 남은 단서를 다시 맞춘다. 규칙 자체가 깨진 것인지, 죽었다고 본 순간부터 잘못 이해한 것인지 확인해야 한다."
         set ProtoEventIntro[235] = "|cFF80560C마을|r 안에서 일어난 죽음을 |cFF006B8F아스나|r와 대조한다."
-        set ProtoEventIcon[235] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.tga"
+        set ProtoEventIcon[235] = "war3mapImported\\UI_EventThumb_Card_SAO1_asuna_Art.blp"
         set ProtoEventImageAspect[235] = 1.777778
         set ProtoEventRequired[235] = 0
         set ProtoEventRequiredChoice[235] = 0
@@ -13687,7 +13687,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[236] = 2
         set ProtoEventStory[236] = "대장장이 리즈벳은 |cFF006B8F키리토|r의 주문을 받고 희귀 금속을 찾으러 함께 나선다. 자신이 내놓은 |cFF80560C검|r이 성능 시험에서 부러져 더 좋은 검을 만들고 싶었다.|n|n흰 용이 사는 산에서 그녀를 구하려던 키리토까지 |cFFA53528깊은 구덩이에 떨어진다|r. 해가 지며 둘은 함께 밤을 보내게 된다. 재료를 얻는 일보다 먼저 살아 돌아갈 길이 필요하다."
         set ProtoEventIntro[236] = "깊은 구덩이에 갇힌 리즈벳이 |cFF006B8F키리토|r를 돌아본다."
-        set ProtoEventIcon[236] = "war3mapImported\\UI_EventThumb_Card_SAOFD_lisbeth_Art.tga"
+        set ProtoEventIcon[236] = "war3mapImported\\UI_EventThumb_Card_SAOFD_lisbeth_Art.blp"
         set ProtoEventImageAspect[236] = 1.777778
         set ProtoEventRequired[236] = 0
         set ProtoEventRequiredChoice[236] = 0
@@ -13737,7 +13737,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[237] = 2
         set ProtoEventStory[237] = "함께 식사하고 파티를 맺은 |cFF006B8F키리토|r와 |cFF006B8F아스나|r는 칠십사 층 보스를 정찰한다. 그녀의 호위 크라딜은 키리토와의 결투에서 패한 뒤 물러났다.|n|n키리토가 지도와 경고를 건넸어도 군이라 불리는 공략대는 지친 채 보스에게 도전한다. 돌아가던 길에 비명이 들린다. 준비 없이 위험하다고 판단했던 방 안에 사람들이 남아 있다."
         set ProtoEventIntro[237] = "보스 방에서 비명이 들리고 두 사람이 멈춰 선다."
-        set ProtoEventIcon[237] = "war3mapImported\\UI_EventThumb_Event_SAE_rest.tga"
+        set ProtoEventIcon[237] = "war3mapImported\\UI_EventThumb_Event_SAE_rest.blp"
         set ProtoEventImageAspect[237] = 1.777778
         set ProtoEventRequired[237] = 0
         set ProtoEventRequiredChoice[237] = 0
@@ -13787,7 +13787,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[238] = 2
         set ProtoEventStory[238] = "혈맹기사단장 |cFF006B8F히스클리프|r와의 결투에서 패한 |cFF006B8F키리토|r는 입단한다. 믿기 어려운 반응 속도가 마음에 걸려도 약속을 따른다.|n|n훈련에 나선 크라딜은 마비독으로 인솔자와 키리토를 무력화하고 |cFFA53528살인자의 본색|r을 드러낸다. |cFF006B8F아스나|r가 달려와 키리토를 구하지만 항복을 가장한 크라딜이 다시 기습한다. 키리토가 막아 그를 쓰러뜨린 뒤, 아스나는 자신을 탓한다."
         set ProtoEventIntro[238] = "|cFF006B8F아스나|r는 자신 때문에 벌어진 일이라며 고개를 숙인다."
-        set ProtoEventIcon[238] = "war3mapImported\\UI_EventThumb_Event_SAO1_door.tga"
+        set ProtoEventIcon[238] = "war3mapImported\\UI_EventThumb_Event_SAO1_door.blp"
         set ProtoEventImageAspect[238] = 1.777778
         set ProtoEventRequired[238] = 0
         set ProtoEventRequiredChoice[238] = 0
@@ -13844,7 +13844,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[239] = 2
         set ProtoEventStory[239] = "호숫가에서 신혼생활을 하던 |cFF006B8F키리토|r와 |cFF006B8F아스나|r는 숲에 나타난다는 유령 소문을 듣는다. 산책 중 흰옷의 어린 소녀가 쓰러지는 것을 보고 집으로 데려와 돌본다.|n|n소녀는 |cFF006B8F유이|r라는 이름 말고는 자신이 어디서 왔는지 |cFF80560C기억|r하지 못한다. 두 사람을 부모처럼 부르는 아이 곁에서 아스나는 기다리고 있을 보호자를 생각한다."
         set ProtoEventIntro[239] = "이름만 |cFF80560C기억|r하는 |cFF006B8F유이|r가 두 사람 곁에 앉아 있다."
-        set ProtoEventIcon[239] = "war3mapImported\\UI_EventThumb_Event_SAO1_cabin.tga"
+        set ProtoEventIcon[239] = "war3mapImported\\UI_EventThumb_Event_SAO1_cabin.blp"
         set ProtoEventImageAspect[239] = 1.777778
         set ProtoEventRequired[239] = 0
         set ProtoEventRequiredChoice[239] = 0
@@ -13894,7 +13894,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[240] = 3
         set ProtoEventStory[240] = "시작의 거리에서 |cFF006B8F유이|r의 보호자를 찾던 두 사람은 유리엘에게 지하 던전에 갇힌 사람의 구조를 부탁받는다. 유이도 따라나선 일행은 갇힌 사람을 발견하지만 훨씬 강한 몬스터에게 막힌다.|n|n|cFF006B8F키리토|r와 |cFF006B8F아스나|r가 위기에 처하자 유이가 앞으로 나선다. 두 사람은 아이가 적에게 다가가는 것을 보고 이름을 부른다."
         set ProtoEventIntro[240] = "구조대 앞을 막은 적에게 |cFF006B8F유이|r가 다가서려 한다."
-        set ProtoEventIcon[240] = "war3mapImported\\UI_EventThumb_Event_SAO1_yui.tga"
+        set ProtoEventIcon[240] = "war3mapImported\\UI_EventThumb_Event_SAO1_yui.blp"
         set ProtoEventImageAspect[240] = 1.777778
         set ProtoEventRequired[240] = 0
         set ProtoEventRequiredChoice[240] = 0
@@ -13951,7 +13951,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[241] = 3
         set ProtoEventStory[241] = "|cFF006B8F키리토|r는 낚시를 즐기는 나이 든 플레이어 니시다와 어울린다. 전선에 나서지 못하는 사람들도 각자의 하루를 보내며 누군가 탈출할 길을 열기를 기다린다.|n|n|cFF006B8F아스나|r와 집에 더 머물고 싶은 때, 칠십오 층 공략에 합류하라는 연락이 온다. 두 사람은 조용한 생활과 밖에서 기다리는 사람들을 함께 생각한다."
         set ProtoEventIntro[241] = "호숫가의 집에 공략대로 돌아오라는 연락이 온다."
-        set ProtoEventIcon[241] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.tga"
+        set ProtoEventIcon[241] = "war3mapImported\\UI_EventThumb_Card_SAO1_kirito_Art.blp"
         set ProtoEventImageAspect[241] = 1.777778
         set ProtoEventRequired[241] = 0
         set ProtoEventRequiredChoice[241] = 0
@@ -14001,7 +14001,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[242] = 3
         set ProtoEventStory[242] = "보스전 뒤 생존자들이 숨을 고르는 동안 |cFF006B8F히스클리프|r는 침착하다. |cFF006B8F키리토|r는 단장의 체력이 위험할 만큼 내려간 적이 없다는 사실과 결투 때의 믿기 어려운 반응을 연결한다.|n|n모든 공격을 잘 막은 것인지, 시스템이 죽지 않게 지켜 준 것인지 아직 확인해야 한다. 키리토가 |cFF80560C검|r을 쥔 손에 힘을 준다."
         set ProtoEventIntro[242] = "|cFF006B8F키리토|r가 |cFF006B8F히스클리프|r의 움직임을 되짚는다."
-        set ProtoEventIcon[242] = "war3mapImported\\UI_EventThumb_Event_SAO1_heathcliff.tga"
+        set ProtoEventIcon[242] = "war3mapImported\\UI_EventThumb_Event_SAO1_heathcliff.blp"
         set ProtoEventImageAspect[242] = 1.777778
         set ProtoEventRequired[242] = 0
         set ProtoEventRequiredChoice[242] = 0
@@ -14058,7 +14058,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[243] = 4
         set ProtoEventStory[243] = "결투 중 |cFF006B8F아스나|r가 마비를 넘어 |cFF006B8F키리토|r 대신 공격을 받고 사라진다. 키리토도 체력이 바닥나지만 완전히 사라지기 전에 마지막 |cFF80560C검|r을 뻗어 |cFF006B8F카야바|r를 쓰러뜨린다.|n|n게임 종료가 선언된다. 무너지는 아인크라드 위의 공간에서 키리토와 아스나는 잠시 다시 만난다. 지금까지 게임 속 이름으로 부르던 두 사람에게, 현실에서 다시 찾을 이름이 필요하다."
         set ProtoEventIntro[243] = "무너지는 세계 위에서 두 사람이 현실의 이름을 묻는다."
-        set ProtoEventIcon[243] = "war3mapImported\\UI_EventThumb_Event_SAO1_return.tga"
+        set ProtoEventIcon[243] = "war3mapImported\\UI_EventThumb_Event_SAO1_return.blp"
         set ProtoEventImageAspect[243] = 1.777778
         set ProtoEventRequired[243] = 0
         set ProtoEventRequiredChoice[243] = 0
@@ -14117,7 +14117,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[244] = 1
         set ProtoEventStory[244] = "아인크라드의 |cFF80560C기록|r을 펼치면 보스방의 문과 호숫가의 식탁이 서로 다른 쪽에 남아 있다. 같은 세계에서 목숨을 걸었고 평범한 하루도 바랐다.|n|n이미 끝난 게임을 다시 공략하려는 것은 아니다. 그 안에서 무엇을 가져갈지 고르며 마지막 쪽을 넘긴다."
         set ProtoEventIntro[244] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[244] = "war3mapImported\\UI_EventThumb_Event_SAO1_memory.tga"
+        set ProtoEventIcon[244] = "war3mapImported\\UI_EventThumb_Event_SAO1_memory.blp"
         set ProtoEventImageAspect[244] = 1.777778
         set ProtoEventRequired[244] = 0
         set ProtoEventRequiredChoice[244] = 0
@@ -14174,7 +14174,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[25] = 1
         set ProtoEventStory[25] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
         set ProtoEventIntro[25] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
-        set ProtoEventIcon[25] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[25] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[25] = 1.777778
         set ProtoHeadEntryEvent[29] = 26
         set ProtoEventKey[26] = "zegagrande_entry_1"
@@ -14186,7 +14186,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[26] = 1
         set ProtoEventStory[26] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
         set ProtoEventIntro[26] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
-        set ProtoEventIcon[26] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[26] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[26] = 1.777778
         set ProtoHeadEntryEvent[30] = 27
         set ProtoEventKey[27] = "zegagrande_entry_2"
@@ -14198,7 +14198,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[27] = 1
         set ProtoEventStory[27] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
         set ProtoEventIntro[27] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
-        set ProtoEventIcon[27] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[27] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[27] = 1.777778
         set ProtoHeadEntryEvent[31] = 28
         set ProtoEventKey[28] = "zegagrande_entry_3"
@@ -14210,7 +14210,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[28] = 1
         set ProtoEventStory[28] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
         set ProtoEventIntro[28] = "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 |cFF006B8F루리아|r와 헤어진다. 낯선 땅에서 만난 |cFF006B8F롤란|r과 함께 동료를 되찾을 실마리를 찾는다."
-        set ProtoEventIcon[28] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[28] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[28] = 1.777778
         set ProtoCardKey[425] = "gbf_rackam"
         set ProtoCardName[425] = "라캄"
@@ -14859,7 +14859,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[245] = 1
         set ProtoEventStory[245] = "그랑사이퍼 갑판에서 풀린 화물 끈이 오이겐의 장비를 밀고 있다. 라캄은 움직이기 전에 무거운 상자를 먼저 묶자고 하고 카타리나는 |cFF006B8F루리아|r 곁의 통로를 비워 두려 한다.|n|n장비를 옮길 곳과 비워 둘 통로가 겹쳐 네가 맡을 몫부터 정해야 한다."
         set ProtoEventIntro[245] = "화물이 미끄러져 다음 비행 준비가 늦어진다."
-        set ProtoEventIcon[245] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[245] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[245] = 1.777778
         set ProtoEventRequired[245] = 0
         set ProtoEventRequiredChoice[245] = 0
@@ -14906,7 +14906,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[246] = 1
         set ProtoEventStory[246] = "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 |cFF006B8F루리아|r 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다.|n|n당신이 맡을 자리를 고른다. 칼리오스트로는 장비를 조정할 몫은 따로 맡을 수 있다고 한다."
         set ProtoEventIntro[246] = "안정된 갑판에 공격 위치를 정한다."
-        set ProtoEventIcon[246] = "war3mapImported\\UI_EventThumb_Card_GBF_eugen_Art.tga"
+        set ProtoEventIcon[246] = "war3mapImported\\UI_EventThumb_Card_GBF_eugen_Art.blp"
         set ProtoEventImageAspect[246] = 1.777778
         set ProtoEventRequired[246] = 245
         set ProtoEventRequiredChoice[246] = 1
@@ -14953,7 +14953,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[247] = 1
         set ProtoEventStory[247] = "이오가 마법 준비를 다시 하는 동안 |cFFA53528적이 모일 통로|r가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다.|n|n다음 구역에 들어갈 준비가 아직 끝나지 않았다. 나루메아는 바깥의 간격을 살피고 베인은 돌아올 사람이 서 있을 곳부터 남기자고 한다."
         set ProtoEventIntro[247] = "이오의 집중을 지킬 통로를 골라야 한다."
-        set ProtoEventIcon[247] = "war3mapImported\\UI_EventThumb_Card_GBF_io_Art.tga"
+        set ProtoEventIcon[247] = "war3mapImported\\UI_EventThumb_Card_GBF_io_Art.blp"
         set ProtoEventImageAspect[247] = 1.777778
         set ProtoEventRequired[247] = 0
         set ProtoEventRequiredChoice[247] = 0
@@ -15000,7 +15000,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[248] = 1
         set ProtoEventStory[248] = "제타가 성정수 조사 |cFF80560C기록|r의 빈 부분을 확인하자고 한다. |cFFA53528조사 대상의 위험|r을 모른 채 강한 무기만 요구할 수는 없다.|n|n무엇을 맡을지 선택한다. 오이겐은 조사 장비와 조준할 통로를 한 목록에 넣지 말자고 한다."
         set ProtoEventIntro[248] = "제타의 성정수 조사 |cFF80560C기록|r에 빈 부분이 있다."
-        set ProtoEventIcon[248] = "war3mapImported\\UI_EventThumb_Card_GBF_zeta_Art.tga"
+        set ProtoEventIcon[248] = "war3mapImported\\UI_EventThumb_Card_GBF_zeta_Art.blp"
         set ProtoEventImageAspect[248] = 1.777778
         set ProtoEventRequired[248] = 0
         set ProtoEventRequiredChoice[248] = 0
@@ -15047,7 +15047,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[249] = 1
         set ProtoEventStory[249] = "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 이오는 시험할 장소를, 나루메아는 견본이 움직일 간격을 먼저 본다.|n|n겉모습이 같다는 이유로 다른 견본을 한 결과에 묶으면 다음 준비가 꼬인다. 조정을 맡길지, 시험할 자리를 고를지, 작동을 하나씩 볼지 정한다."
         set ProtoEventIntro[249] = "연금 조정 전후의 견본이 섞였다."
-        set ProtoEventIcon[249] = "war3mapImported\\UI_EventThumb_Card_GBF_cagliostro_Art.tga"
+        set ProtoEventIcon[249] = "war3mapImported\\UI_EventThumb_Card_GBF_cagliostro_Art.blp"
         set ProtoEventImageAspect[249] = 1.777778
         set ProtoEventRequired[249] = 0
         set ProtoEventRequiredChoice[249] = 0
@@ -15094,7 +15094,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[250] = 1
         set ProtoEventStory[250] = "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 |cFF80560C기록|r을 마무리하려 한다."
         set ProtoEventIntro[250] = "조사를 마친 일행의 귀환 신호를 보낸다."
-        set ProtoEventIcon[250] = "war3mapImported\\UI_EventThumb_Card_GBF_rackam_Art.tga"
+        set ProtoEventIcon[250] = "war3mapImported\\UI_EventThumb_Card_GBF_rackam_Art.blp"
         set ProtoEventImageAspect[250] = 1.777778
         set ProtoEventRequired[250] = 248
         set ProtoEventRequiredChoice[250] = 1
@@ -15141,7 +15141,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[251] = 1
         set ProtoEventStory[251] = "한 여행자가 이미 지나온 길을 오늘 열린 길이라며 알려 준다. 로제타는 두 안내의 날짜가 다르다며 네가 직접 무엇을 확인했는지 묻는다. 라캄은 확인되지 않은 말을 항로에 적기 전에 낡은 |cFF80560C기록|r부터 대조하자고 한다."
         set ProtoEventIntro[251] = "서로 다른 날짜의 안내 중 무엇을 확인할지 정한다."
-        set ProtoEventIcon[251] = "war3mapImported\\UI_EventThumb_Card_GBF_rosetta_Art.tga"
+        set ProtoEventIcon[251] = "war3mapImported\\UI_EventThumb_Card_GBF_rosetta_Art.blp"
         set ProtoEventImageAspect[251] = 1.777778
         set ProtoEventRequired[251] = 0
         set ProtoEventRequiredChoice[251] = 0
@@ -15188,7 +15188,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[252] = 1
         set ProtoEventStory[252] = "|cFF006B8F롤란|r이 여행자에게 길을 알려 주는데 여행자는 가려던 곳과 물어본 곳이 다르다고 뒤늦게 말한다. |cFF006B8F비|r는 앞에서 설명한 길을 벌써 가리켰고 롤란은 먼저 무엇을 하러 왔는지 다시 묻는다.|n|n안내를 다시 들을지 바깥에서 길을 확인할지 정해야 한다. 로제타는 말했던 목적과 가리킨 길을 따로 |cFF80560C기억|r해 두자고 한다."
         set ProtoEventIntro[252] = "먼저 목적을 물을지 바깥 길을 확인할지 정한다."
-        set ProtoEventIcon[252] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.tga"
+        set ProtoEventIcon[252] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.blp"
         set ProtoEventImageAspect[252] = 1.777778
         set ProtoEventRequired[252] = 0
         set ProtoEventRequiredChoice[252] = 0
@@ -15235,7 +15235,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[253] = 1
         set ProtoEventStory[253] = "앞쪽을 먼저 맡겠다는 사람이 모이자 돌아올 사람을 받을 자리가 비었다. 랜슬롯은 앞에 몇 명이 서는지보다 뒤를 누가 이어받는지 먼저 묻고 베인은 돌아오는 쪽을 남기자고 한다. 네가 맡을 자리가 정해져야 교대가 시작된다."
         set ProtoEventIntro[253] = "비어 있는 교대 자리와 돌아올 길을 나눈다."
-        set ProtoEventIcon[253] = "war3mapImported\\UI_EventThumb_Card_GBF_lancelot_Art.tga"
+        set ProtoEventIcon[253] = "war3mapImported\\UI_EventThumb_Card_GBF_lancelot_Art.blp"
         set ProtoEventImageAspect[253] = 1.777778
         set ProtoEventRequired[253] = 0
         set ProtoEventRequiredChoice[253] = 0
@@ -15282,7 +15282,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[254] = 1
         set ProtoEventStory[254] = "짐을 나누던 사람들은 힘없는 여행자에게도 같은 무게를 들라며 서두른다. 퍼시벌은 같은 수로 나누었다고 같은 부담이 되는 것은 아니라고 말한다. 너는 맡을 짐과 적이 있는 길을 다시 나누거나 운반만 마칠 수 있다."
         set ProtoEventIntro[254] = "같은 묶음에 다른 부담을 다시 나눈다."
-        set ProtoEventIcon[254] = "war3mapImported\\UI_EventThumb_Card_GBF_percival_Art.tga"
+        set ProtoEventIcon[254] = "war3mapImported\\UI_EventThumb_Card_GBF_percival_Art.blp"
         set ProtoEventImageAspect[254] = 1.777778
         set ProtoEventRequired[254] = 0
         set ProtoEventRequiredChoice[254] = 0
@@ -15329,7 +15329,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[255] = 1
         set ProtoEventStory[255] = "낚시꾼을 자처하는 요달라하 옆으로 긴 짐을 든 여행자가 지나가자 그는 낚싯대보다 발을 먼저 옮겨 비켜 준다. 너는 그 짧은 움직임이 낚시 자세와 어울리지 않아 다시 보게 된다.|n|n요달라하는 낚시할 자리는 남겨 두라며 네가 어디에 설 것인지 묻는다. 나루메아도 바깥 통로를 살피지만 요달라하는 발을 옮기기 전에 서 있을 곳을 먼저 비운다."
         set ProtoEventIntro[255] = "옆에서 본 짧은 몸놀림을 방문 행동력 없이 한 번 더 짚을 수 있다."
-        set ProtoEventIcon[255] = "war3mapImported\\UI_EventThumb_Card_GBF_yodarha_Art.tga"
+        set ProtoEventIcon[255] = "war3mapImported\\UI_EventThumb_Card_GBF_yodarha_Art.blp"
         set ProtoEventImageAspect[255] = 1.777778
         set ProtoEventRequired[255] = 0
         set ProtoEventRequiredChoice[255] = 0
@@ -15376,7 +15376,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[256] = 1
         set ProtoEventStory[256] = "이오가 사람들에게 웃음을 주려고 작은 시범을 준비하는데 앞줄은 서로의 어깨에 가려 보이지 않는다. 이오는 더 큰 마법이면 잘 보이겠냐고 묻고 |cFF006B8F비|r는 먼저 사람들이 어디를 보고 있는지 살펴보자고 한다.|n|n네가 자리를 나눌지 바깥 일을 맡을지 고른다. 라캄은 바깥 길의 짐을 맡고 이오는 작은 시범을 더 크게 할지 아직 정하지 못했다."
         set ProtoEventIntro[256] = "더 큰 시범보다 먼저 보는 자리를 나눈다."
-        set ProtoEventIcon[256] = "war3mapImported\\UI_EventThumb_Card_GBF_io_Art.tga"
+        set ProtoEventIcon[256] = "war3mapImported\\UI_EventThumb_Card_GBF_io_Art.blp"
         set ProtoEventImageAspect[256] = 1.777778
         set ProtoEventRequired[256] = 0
         set ProtoEventRequiredChoice[256] = 0
@@ -15423,7 +15423,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[257] = 1
         set ProtoEventStory[257] = "다른 방문에서 목적부터 말했던 너를 |cFF006B8F롤란|r이 알아보고 새 부탁의 목록을 펼친다. |cFF006B8F비|r는 이번에도 목적을 먼저 묻고 로제타는 전에 들은 답과 지금의 부탁을 나란히 둔다.|n|n라캄은 맡을 길의 짐부터 묶자고 한다. 이미 익힌 안내를 다시 듣는 대신 이번에 어디까지 맡을지 답할 차례다."
         set ProtoEventIntro[257] = "익힌 안내 경험으로 다음 부탁의 몫을 정한다."
-        set ProtoEventIcon[257] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.tga"
+        set ProtoEventIcon[257] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.blp"
         set ProtoEventImageAspect[257] = 1.777778
         set ProtoEventRequired[257] = 0
         set ProtoEventRequiredChoice[257] = 0
@@ -15470,7 +15470,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[258] = 1
         set ProtoEventStory[258] = "기공정 그랑사이퍼가 제가 그랑데 공역에 가까워진다. 단장의 목적지는 아버지가 기다린다는 이스타르시아다. 작은 용 |cFF006B8F비|r와 동료들이 그 여행을 함께한다.|n|n곁에 선 |cFF006B8F루리아|r는 성정수와 마음을 잇는 소녀다. 과거 죽어 가던 단장에게 생명을 나눈 뒤 두 사람의 목숨은 이어졌다.|n|n그녀가 낯선 섬들을 바라보다 단장 쪽으로 돌아선다. “이번에는 어떤 곳일까요?”"
         set ProtoEventIntro[258] = "새로운 공역을 앞두고 |cFF006B8F루리아|r가 갑판에서 기다린다."
-        set ProtoEventIcon[258] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.tga"
+        set ProtoEventIcon[258] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.blp"
         set ProtoEventImageAspect[258] = 1.777778
         set ProtoEventRequired[258] = 0
         set ProtoEventRequiredChoice[258] = 0
@@ -15520,7 +15520,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[259] = 1
         set ProtoEventStory[259] = "공역에 들어선 배를 마물들이 덮친다. |cFF006B8F루리아|r가 동료들을 지키려고 부른 바하무트까지 통제를 잃자, 기공단은 힘을 합쳐 폭주를 진정시킨다.|n|n그러나 그랑사이퍼는 이미 손상되었다. 흔들리는 갑판에서 루리아가 |cFFA53528하늘 아래로 떨어진다|r.|n|n|cFF006B8F비|r가 다급히 그녀의 이름을 부른다. 단장은 난간을 향해 몸을 돌린다."
         set ProtoEventIntro[259] = "부서진 갑판 너머로 |cFF006B8F루리아|r의 모습이 사라진다."
-        set ProtoEventIcon[259] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[259] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[259] = 1.777778
         set ProtoEventRequired[259] = 0
         set ProtoEventRequiredChoice[259] = 0
@@ -15570,7 +15570,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[260] = 1
         set ProtoEventStory[260] = "폴카의 해결사 |cFF006B8F롤란|r은 낯선 공역에 내려온 기공단에게 |cFF80560C마을|r 사정을 알려 준다. 배를 수리하며 숨을 돌리던 중, 이웃 마을 템피얼이 폭풍과 마물 때문에 위험하다는 소식이 온다.|n|n롤란은 그곳에 아직 주민들이 남아 있다고 설명한다. 기공단도 이 마을에서 도움을 받은 참이다. 단장은 수리 중인 배와 걱정하는 주민들을 번갈아 본다."
         set ProtoEventIntro[260] = "템피얼의 구조 소식을 들은 |cFF006B8F롤란|r이 일행을 바라본다."
-        set ProtoEventIcon[260] = "war3mapImported\\UI_EventThumb_Event_ZGE_folca.tga"
+        set ProtoEventIcon[260] = "war3mapImported\\UI_EventThumb_Event_ZGE_folca.blp"
         set ProtoEventImageAspect[260] = 1.777778
         set ProtoEventRequired[260] = 0
         set ProtoEventRequiredChoice[260] = 0
@@ -15620,7 +15620,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[261] = 2
         set ProtoEventStory[261] = "템피얼의 고블린들은 폭풍을 틈타 주민들을 붙잡았다. 기공단은 포로들을 풀어 주고 우두머리도 쓰러뜨린다.|n|n하지만 |cFF80560C마을|r을 흔드는 바람은 여전하다. 구출한 사람들을 안전한 곳으로 옮기던 |cFF006B8F루리아|r가 거센 바람 너머를 살핀다.|n|n눈앞의 마물과는 다른 힘을 느낀 듯하다. |cFF006B8F롤란|r도 이것으로 구조가 끝난 것은 아니라고 말한다."
         set ProtoEventIntro[261] = "고블린을 물리쳤는데도 바람은 멎지 않는다."
-        set ProtoEventIcon[261] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.tga"
+        set ProtoEventIcon[261] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.blp"
         set ProtoEventImageAspect[261] = 1.777778
         set ProtoEventRequired[261] = 0
         set ProtoEventRequiredChoice[261] = 0
@@ -15670,7 +15670,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[262] = 2
         set ProtoEventStory[262] = "퓨리칸의 폭주를 진정시킨 기공단 앞에 아비아의 지도자 |cFF006B8F릴리스|r와 검사 |cFF006B8F이드|r가 나타난다. 그들이 원하는 것은 |cFF865500성정수의 힘을 다룰 수 있는 루리아|r다.|n|n루리아가 동료들 가까이 물러선다. 이드의 |cFF80560C검|r이 길을 가로막고, 단장은 루리아와 적 사이에 선다."
         set ProtoEventIntro[262] = "낯선 지도자와 검사가 |cFF006B8F루리아|r를 요구한다."
-        set ProtoEventIcon[262] = "war3mapImported\\UI_EventThumb_Card_GBF_id_Art.tga"
+        set ProtoEventIcon[262] = "war3mapImported\\UI_EventThumb_Card_GBF_id_Art.blp"
         set ProtoEventImageAspect[262] = 1.777778
         set ProtoEventRequired[262] = 0
         set ProtoEventRequiredChoice[262] = 0
@@ -15720,7 +15720,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[263] = 2
         set ProtoEventStory[263] = "|cFF006B8F롤란|r은 |cFF006B8F루리아|r를 찾는 기공단과 동행한다. 수리를 마친 그랑사이퍼가 출항하지만, 아비아의 함대가 앞을 가로막는다.|n|n다음 목적지는 설산의 수도원이다. 롤란의 지인 히스토리아에게서 단서를 구하려면 이 항로부터 통과해야 한다.|n|n라캄이 조타를 붙잡고 동료들에게 대비하라고 외친다."
         set ProtoEventIntro[263] = "적 함대가 그랑사이퍼의 항로를 막는다."
-        set ProtoEventIcon[263] = "war3mapImported\\UI_EventThumb_Card_GBF_rackam_Art.tga"
+        set ProtoEventIcon[263] = "war3mapImported\\UI_EventThumb_Card_GBF_rackam_Art.blp"
         set ProtoEventImageAspect[263] = 1.777778
         set ProtoEventRequired[263] = 0
         set ProtoEventRequiredChoice[263] = 0
@@ -15770,7 +15770,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[264] = 2
         set ProtoEventStory[264] = "설산에서 |cFF006B8F루리아|r를 찾았지만 그녀는 스스로 행동하지 못한다. |cFF006B8F릴리스|r가 채운 |cFF865500구속구|r가 |cFFA53528의지를 억누르고 있다|r.|n|n이드와 성정수 마나가름이 일행의 앞을 막는다. 기공단은 루리아의 이름을 부르며 다가가려 한다.|n|n단장은 구속구를 확인한 뒤, 동료들과 함께 적의 공격을 막아 낸다."
         set ProtoEventIntro[264] = "눈앞의 |cFF006B8F루리아|r에게 동료들의 말이 닿지 않는다."
-        set ProtoEventIcon[264] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.tga"
+        set ProtoEventIcon[264] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.blp"
         set ProtoEventImageAspect[264] = 1.777778
         set ProtoEventRequired[264] = 0
         set ProtoEventRequiredChoice[264] = 0
@@ -15820,7 +15820,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[265] = 2
         set ProtoEventStory[265] = "시드홀름의 정보통 자스바에게서 |cFF006B8F루리아|r의 |cFF865500구속구|r를 풀 단서를 얻는다. 고대 장치를 찾아야 하며, 그것은 사막의 유적에 있다.|n|n설산에서는 동료를 눈앞에 두고도 데려오지 못했다. 루리아의 뜻을 되찾을 수단이 필요하다.|n|n단장은 유적으로 향하기 전에 자스바가 알려 준 내용을 동료들과 확인한다."
         set ProtoEventIntro[265] = "자스바가 사막 유적의 장치를 설명한다."
-        set ProtoEventIcon[265] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[265] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[265] = 1.777778
         set ProtoEventRequired[265] = 0
         set ProtoEventRequiredChoice[265] = 0
@@ -15870,7 +15870,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[266] = 2
         set ProtoEventStory[266] = "화산의 성정수 볼칸 볼라가 기공단과 |cFF006B8F이드|r를 함께 위협한다. |cFF006B8F루리아|r도 그 |cFFA53528힘에 붙잡혀 있다|r.|n|n그녀를 빼앗아 갔던 적이지만, 지금 이드 역시 루리아를 구하려 한다. 단장은 사막에서 가져온 장치를 확인한다.|n|n먼저 성정수의 위협을 넘어야 루리아에게 닿을 수 있다."
         set ProtoEventIntro[266] = "|cFF006B8F루리아|r를 구하려는 |cFF006B8F이드|r와 잠시 목적이 겹친다."
-        set ProtoEventIcon[266] = "war3mapImported\\UI_EventThumb_Card_GBF_id_Art.tga"
+        set ProtoEventIcon[266] = "war3mapImported\\UI_EventThumb_Card_GBF_id_Art.blp"
         set ProtoEventImageAspect[266] = 1.777778
         set ProtoEventRequired[266] = 0
         set ProtoEventRequiredChoice[266] = 0
@@ -15927,7 +15927,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[267] = 2
         set ProtoEventStory[267] = "|cFF006B8F루리아|r를 다시 쫓기 전에 |cFF006B8F롤란|r이 일행을 부른다. |cFF006B8F릴리스|r가 성정수와 루리아의 힘에 집착하는 이유를 설명해야 할 때다.|n|n폴카에서 길을 안내하던 그는 이번 일에 대해 아는 것이 있었다. 단장은 롤란이 말을 잇기를 기다린다."
         set ProtoEventIntro[267] = "|cFF006B8F롤란|r이 오래 숨긴 자신의 출신을 이야기하려 한다."
-        set ProtoEventIcon[267] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.tga"
+        set ProtoEventIcon[267] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.blp"
         set ProtoEventImageAspect[267] = 1.777778
         set ProtoEventRequired[267] = 0
         set ProtoEventRequiredChoice[267] = 0
@@ -15984,7 +15984,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[268] = 3
         set ProtoEventStory[268] = "시드홀름은 아비아의 공격에 휩싸여 있다. 이드와 성정수 |cFF865500앙그라마이뉴|r가 기공단 앞을 막는다.|n|n돌아온 일행은 |cFFA53528무너지는 도시|r에서 |cFF006B8F루리아|r를 되찾아야 한다. |cFF006B8F롤란|r이 동료들과 함께 적의 움직임을 살핀다.|n|n단장은 루리아가 있는 쪽으로 나아가기 위해 자세를 잡는다."
         set ProtoEventIntro[268] = "공격받는 시드홀름에서 |cFF006B8F루리아|r에게 닿을 길을 찾는다."
-        set ProtoEventIcon[268] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.tga"
+        set ProtoEventIcon[268] = "war3mapImported\\UI_EventThumb_Card_GBF_lyria_Art.blp"
         set ProtoEventImageAspect[268] = 1.777778
         set ProtoEventRequired[268] = 0
         set ProtoEventRequiredChoice[268] = 0
@@ -16041,7 +16041,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[269] = 3
         set ProtoEventStory[269] = "바요이의 탑으로 향하는 기공단 앞에서 |cFF006B8F이드|r는 더는 |cFF006B8F릴리스|r가 요구하는 희생을 따르지 않겠다는 뜻을 밝힌다. |cFF006B8F루리아|r를 빼앗아 갔던 검사지만, 화산에서는 함께 그녀를 구했다.|n|n지금 |cFF006B8F롤란|r을 구하고 의식을 막으려는 목표가 같다. 단장은 이드의 협력에 답해야 한다."
         set ProtoEventIntro[269] = "|cFF006B8F이드|r가 |cFF006B8F릴리스|r의 명령을 거부하고 손을 내민다."
-        set ProtoEventIcon[269] = "war3mapImported\\UI_EventThumb_Card_GBF_id_Art.tga"
+        set ProtoEventIcon[269] = "war3mapImported\\UI_EventThumb_Card_GBF_id_Art.blp"
         set ProtoEventImageAspect[269] = 1.777778
         set ProtoEventRequired[269] = 0
         set ProtoEventRequiredChoice[269] = 0
@@ -16098,7 +16098,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[270] = 3
         set ProtoEventStory[270] = "기공단과 |cFF006B8F롤란|r의 도움으로 |cFF865500베르사|r에서 분리된 |cFF006B8F이드|r가 통제를 되찾는다. 일행은 베르사를 |cFF865500차원의 틈|r으로 밀어내지만 단장과 이드도 함께 갇힌다.|n|n롤란이 두 사람을 돌려보내려 한다. 아직 자신까지 함께 나갈 수 있다는 약속은 하지 않는다.|n|n단장은 그를 바라보며 손을 뻗는다."
         set ProtoEventIntro[270] = "차원의 틈에서 |cFF006B8F롤란|r이 돌아갈 길을 열려 한다."
-        set ProtoEventIcon[270] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.tga"
+        set ProtoEventIcon[270] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.blp"
         set ProtoEventImageAspect[270] = 1.777778
         set ProtoEventRequired[270] = 0
         set ProtoEventRequiredChoice[270] = 0
@@ -16148,7 +16148,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[271] = 4
         set ProtoEventStory[271] = "기공단은 |cFF006B8F롤란|r이 남긴 의뢰를 대신 해결하며 일지와 흔적을 모은다. 그를 구출할 단서를 찾기까지 다시 수고와 시간이 필요했다.|n|n마침내 |cFF006B8F이드|r에게 남은 |cFF865500베르사|r의 힘과 |cFF006B8F루리아|r의 힘으로 차원의 틈을 다시 열 준비가 된다. 지난번에는 롤란의 도움으로 두 사람만 돌아왔다.|n|n단장은 이번에 함께 데려올 사람을 떠올린다."
         set ProtoEventIntro[271] = "|cFF006B8F롤란|r의 |cFF865500일지|r 끝에서 돌아갈 문을 열 준비를 한다."
-        set ProtoEventIcon[271] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.tga"
+        set ProtoEventIcon[271] = "war3mapImported\\UI_EventThumb_Card_GBF_rolan_Art.blp"
         set ProtoEventImageAspect[271] = 1.777778
         set ProtoEventRequired[271] = 0
         set ProtoEventRequiredChoice[271] = 0
@@ -16207,7 +16207,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[272] = 1
         set ProtoEventStory[272] = "|cFF006B8F롤란|r을 구해 돌아온 뒤, 기공단은 다음 항해를 준비한다. |cFF006B8F이드|r가 공역의 사람들을 돕는 길과 기공단의 항로가 늘 같을 필요는 없다.|n|n그랑사이퍼를 타고 지나온 일을 돌아보면, 목적지에 닿는 것만큼 동료가 돌아올 길을 남기는 일이 중요했다."
         set ProtoEventIntro[272] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[272] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.tga"
+        set ProtoEventIcon[272] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[272] = 1.777778
         set ProtoEventRequired[272] = 0
         set ProtoEventRequiredChoice[272] = 0
@@ -16378,7 +16378,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[273] = 1
         set ProtoEventStory[273] = "길목의 벽에 5엔이면 의뢰를 받는다는 번호가 적혀 있다. 전화를 받은 야토는 놓친 물건을 찾아 주겠다고 하지만 |cFFA53528길은 안전하지 않다.|r 당신도 의뢰의 한 부분을 맡을 수 있다."
         set ProtoEventIntro[273] = "벽의 전화번호로 작은 의뢰를 맡길 수 있다."
-        set ProtoEventIcon[273] = "war3mapImported\\UI_EventThumb_Card_NRO1_yato_Icon.tga"
+        set ProtoEventIcon[273] = "war3mapImported\\UI_EventThumb_Card_NRO1_yato_Icon.blp"
         set ProtoEventImageAspect[273] = 1.777778
         set ProtoEventRequired[273] = 0
         set ProtoEventRequiredChoice[273] = 0
@@ -16425,7 +16425,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[274] = 1
         set ProtoEventStory[274] = "텐진의 신사에 일이 몰려 야토가 도움을 부탁받았다. 히요리는 종이와 물자를 정리하고 유키네는 바깥 통로를 확인한다. 가장 요란한 일을 맡아야만 도움이 되는 것은 아니다."
         set ProtoEventIntro[274] = "시험철의 신사에 심부름이 몰렸다."
-        set ProtoEventIcon[274] = "war3mapImported\\UI_EventThumb_Card_NRG_hiyori_Icon.tga"
+        set ProtoEventIcon[274] = "war3mapImported\\UI_EventThumb_Card_NRG_hiyori_Icon.blp"
         set ProtoEventImageAspect[274] = 1.777778
         set ProtoEventRequired[274] = 0
         set ProtoEventRequiredChoice[274] = 0
@@ -16472,7 +16472,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[275] = 1
         set ProtoEventStory[275] = "야토와 함께 정리한 길목 끝에서 의뢰인의 |cFF865500주소가 틀렸다는|r 사실을 알았다. 작업은 했지만 연락할 사람이 없어 마무리가 남았다. 히요리는 근처 사람들이 |cFF80560C기억|r하는 길부터 확인하자고 한다."
         set ProtoEventIntro[275] = "정리한 길목 끝에서 주소가 틀린 것을 알았다."
-        set ProtoEventIcon[275] = "war3mapImported\\UI_EventThumb_Card_NRG_hiyori_Icon.tga"
+        set ProtoEventIcon[275] = "war3mapImported\\UI_EventThumb_Card_NRG_hiyori_Icon.blp"
         set ProtoEventImageAspect[275] = 1.777778
         set ProtoEventRequired[275] = 273
         set ProtoEventRequiredChoice[275] = 1
@@ -16519,7 +16519,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[276] = 1
         set ProtoEventStory[276] = "로렌스가 모피를 팔려는데 저울을 놓는 순서부터 이야기가 엇갈린다. 호로는 가격보다 상대가 |cFF865500무엇을 숨기는지|r 들어 보라고 한다. 급히 현금화할지 확인 비용을 쓸지 정한다."
         set ProtoEventIntro[276] = "모피를 재는 저울과 설명이 서로 맞지 않는다."
-        set ProtoEventIcon[276] = "war3mapImported\\UI_EventThumb_Card_SWO1_holo_Icon.tga"
+        set ProtoEventIcon[276] = "war3mapImported\\UI_EventThumb_Card_SWO1_holo_Icon.blp"
         set ProtoEventImageAspect[276] = 1.777778
         set ProtoEventRequired[276] = 0
         set ProtoEventRequiredChoice[276] = 0
@@ -16576,7 +16576,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[277] = 1
         set ProtoEventStory[277] = "재협상을 거절당한 거래 내역을 다시 펼쳤다. 로렌스는 |cFF704261손실을 숨기기보다|r 다른 구매자의 비용을 비교하자고 한다. 이번에는 |cFF80560C약속|r만 좋은 거래와 확정된 정리 대금을 구분한다."
         set ProtoEventIntro[277] = "거절당한 거래를 다른 구매자와 다시 따져 본다."
-        set ProtoEventIcon[277] = "war3mapImported\\UI_EventThumb_Card_SWO1_lawrence_Icon.tga"
+        set ProtoEventIcon[277] = "war3mapImported\\UI_EventThumb_Card_SWO1_lawrence_Icon.blp"
         set ProtoEventImageAspect[277] = 1.777778
         set ProtoEventRequired[277] = 276
         set ProtoEventRequiredChoice[277] = -3
@@ -16623,7 +16623,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[278] = 1
         set ProtoEventStory[278] = "재협상이 성사된 뒤에도 호로는 서류를 살펴보라고 한다. 앞서 들은 말과 적힌 조건이 다르면 다음 여행에서 문제가 된다. 지금 정리를 맡을지 다음 운송을 맡을지 고른다."
         set ProtoEventIntro[278] = "성사된 협상의 말과 영수증을 대조한다."
-        set ProtoEventIcon[278] = "war3mapImported\\UI_EventThumb_Card_SWO1_holo_Icon.tga"
+        set ProtoEventIcon[278] = "war3mapImported\\UI_EventThumb_Card_SWO1_holo_Icon.blp"
         set ProtoEventImageAspect[278] = 1.777778
         set ProtoEventRequired[278] = 276
         set ProtoEventRequiredChoice[278] = 3
@@ -16670,7 +16670,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[279] = 1
         set ProtoEventStory[279] = "여행길의 비로 로렌스의 화물 덮개가 젖었다. 호로는 그 상태로 가격을 말해도 |cFF704261상대가 믿지 않을|r 거라고 한다. 화물의 상태를 확인하거나 우회 운송을 맡는다."
         set ProtoEventIntro[279] = "젖은 화물 덮개를 그대로 둘 수 없다."
-        set ProtoEventIcon[279] = "war3mapImported\\UI_EventThumb_Card_SWO1_lawrence_Icon.tga"
+        set ProtoEventIcon[279] = "war3mapImported\\UI_EventThumb_Card_SWO1_lawrence_Icon.blp"
         set ProtoEventImageAspect[279] = 1.777778
         set ProtoEventRequired[279] = 0
         set ProtoEventRequiredChoice[279] = 0
@@ -16717,7 +16717,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[280] = 1
         set ProtoEventStory[280] = "호로는 고향으로 돌아갈 길을 찾고 로렌스는 다음 |cFF80560C도시|r의 거래를 생각한다. 어느 길도 지금의 여행을 한 번에 끝내지는 않는다. 남은 물자를 어떻게 나눌지 묻는다."
         set ProtoEventIntro[280] = "호로의 귀향길과 다음 거래를 함께 준비한다."
-        set ProtoEventIcon[280] = "war3mapImported\\UI_EventThumb_Card_SWO1_holo_Icon.tga"
+        set ProtoEventIcon[280] = "war3mapImported\\UI_EventThumb_Card_SWO1_holo_Icon.blp"
         set ProtoEventImageAspect[280] = 1.777778
         set ProtoEventRequired[280] = 0
         set ProtoEventRequiredChoice[280] = 0
@@ -16764,7 +16764,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[281] = 1
         set ProtoEventStory[281] = "막힌 길의 안내판에 찢어진 수배서가 붙어 있다. 그림과 닮은 남자가 종이를 구겨 주머니에 넣고, 짐이 쌓인 쪽을 보며 길부터 비우라고 말한다.|n|n라그나의 칼이 지나갈 앞길을 맡을지, 옆에서 틈을 살필지, 사람들을 다른 길로 보낼지 정해야 한다."
         set ProtoEventIntro[281] = "수배서 속 얼굴과 닮은 남자가 막힌 길 앞에서 칼을 고쳐 쥔다."
-        set ProtoEventIcon[281] = "war3mapImported\\UI_EventThumb_Card_BB_ragna-cf_Icon.tga"
+        set ProtoEventIcon[281] = "war3mapImported\\UI_EventThumb_Card_BB_ragna-cf_Icon.blp"
         set ProtoEventImageAspect[281] = 1.777778
         set ProtoEventRequired[281] = 0
         set ProtoEventRequiredChoice[281] = 0
@@ -16811,7 +16811,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[282] = 1
         set ProtoEventStory[282] = "앞길을 맡은 뒤 라그나가 갈림길에서 잠깐 |cFF80560C검|r을 내렸다. 짐을 통과시키기에는 폭이 모자라지만, 뒤쪽에는 사람들을 돌려보낼 보급 담당자가 도착했다.|n|n좁은 길을 손봐 다시 칼이 들어갈 각도를 찾을지, 큰 흔적을 피해 보급품을 먼저 옮길지 정할 수 있다."
         set ProtoEventIntro[282] = "라그나가 좁은 갈림길을 보고 |cFF80560C검|r을 내린다."
-        set ProtoEventIcon[282] = "war3mapImported\\UI_EventThumb_Card_BB_ragna-cf_Icon.tga"
+        set ProtoEventIcon[282] = "war3mapImported\\UI_EventThumb_Card_BB_ragna-cf_Icon.blp"
         set ProtoEventImageAspect[282] = 1.777778
         set ProtoEventRequired[282] = 281
         set ProtoEventRequiredChoice[282] = 1
@@ -16848,7 +16848,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[283] = 1
         set ProtoEventStory[283] = "상인이 비탈에서 빠뜨린 운반 상자를 찾아 달라며 길가에 의뢰 쪽지를 남겼다. 나즈린의 다우징 막대는 진흙 아래를 가리키지만 나무 상자인지 고철인지는 아직 알 수 없다.|n|n들쥐들이 먹을 것부터 먹어 버렸다는 말에, 남은 반응과 수색 범위를 따로 살핀다."
         set ProtoEventIntro[283] = "탐색을 배우거나 넓은 구역을 맡을지, 불확실한 반응에 비용을 쓸지 정한다."
-        set ProtoEventIcon[283] = "war3mapImported\\UI_EventThumb_Card_LW_nazrin-l1_Icon.tga"
+        set ProtoEventIcon[283] = "war3mapImported\\UI_EventThumb_Card_LW_nazrin-l1_Icon.blp"
         set ProtoEventImageAspect[283] = 1.777778
         set ProtoEventRequired[283] = 0
         set ProtoEventRequiredChoice[283] = 0
@@ -16905,7 +16905,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[284] = 1
         set ProtoEventStory[284] = "의뢰 상자를 넘긴 자리에서 나즈린의 막대가 다른 방향으로 흔들린다. 첫 상자를 찾았어도 새 반응의 정체까지 알 수는 없고, 비탈에는 열린 구덩이와 강한 적이 남아 있다. 나즈린은 더 깊이 들어가기 전에 돌아갈 자리가 있는지 확인한다."
         set ProtoEventIntro[284] = "의뢰 물건을 찾은 뒤 새 반응을 좇거나, 뒷정리의 보수와 위험을 정한다."
-        set ProtoEventIcon[284] = "war3mapImported\\UI_EventThumb_Card_LW_nazrin-l1_Icon.tga"
+        set ProtoEventIcon[284] = "war3mapImported\\UI_EventThumb_Card_LW_nazrin-l1_Icon.blp"
         set ProtoEventImageAspect[284] = 1.777778
         set ProtoEventRequired[284] = 283
         set ProtoEventRequiredChoice[284] = 3
@@ -16952,7 +16952,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[285] = 1
         set ProtoEventStory[285] = "의뢰 상자를 찾지 못한 자리에서 나즈린이 젖은 측정 끈을 펼친다. 표시했던 깊이와 방향을 다시 확인해야 하지만 이미 쓴 작업비는 돌아오지 않는다. 강한 적이 남은 구역을 바라보며 재측정과 남은 작업을 나눈다."
         set ProtoEventIntro[285] = "실패한 수색 뒤 다시 측정할지, 넓은 구역을 맡을지, 빈 상자를 옮길지 고른다."
-        set ProtoEventIcon[285] = "war3mapImported\\UI_EventThumb_Card_LW_nazrin-l1_Icon.tga"
+        set ProtoEventIcon[285] = "war3mapImported\\UI_EventThumb_Card_LW_nazrin-l1_Icon.blp"
         set ProtoEventImageAspect[285] = 1.777778
         set ProtoEventRequired[285] = 283
         set ProtoEventRequiredChoice[285] = -3
@@ -17009,7 +17009,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[29] = 1
         set ProtoEventStory[29] = "|cFF006B8F나츠|r와 해피를 만난 |cFF006B8F루시|r가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
         set ProtoEventIntro[29] = "|cFF006B8F나츠|r와 해피를 만난 루시가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
-        set ProtoEventIcon[29] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga"
+        set ProtoEventIcon[29] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[29] = 1.777778
         set ProtoHeadEntryEvent[33] = 30
         set ProtoEventKey[30] = "magnolia_entry_1"
@@ -17021,7 +17021,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[30] = 1
         set ProtoEventStory[30] = "|cFF006B8F나츠|r와 해피를 만난 |cFF006B8F루시|r가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
         set ProtoEventIntro[30] = "|cFF006B8F나츠|r와 해피를 만난 루시가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
-        set ProtoEventIcon[30] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga"
+        set ProtoEventIcon[30] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[30] = 1.777778
         set ProtoHeadEntryEvent[34] = 31
         set ProtoEventKey[31] = "magnolia_entry_2"
@@ -17033,7 +17033,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[31] = 1
         set ProtoEventStory[31] = "|cFF006B8F나츠|r와 해피를 만난 |cFF006B8F루시|r가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
         set ProtoEventIntro[31] = "|cFF006B8F나츠|r와 해피를 만난 루시가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
-        set ProtoEventIcon[31] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga"
+        set ProtoEventIcon[31] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[31] = 1.777778
         set ProtoHeadEntryEvent[35] = 32
         set ProtoEventKey[32] = "magnolia_entry_3"
@@ -17045,7 +17045,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[32] = 1
         set ProtoEventStory[32] = "|cFF006B8F나츠|r와 해피를 만난 |cFF006B8F루시|r가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
         set ProtoEventIntro[32] = "|cFF006B8F나츠|r와 해피를 만난 루시가 동경하던 |cFF865500페어리 테일|r의 문을 연다. 시끌벅적한 동료들과 가까워질수록, 이곳을 자신의 집으로 부를 이유가 생긴다."
-        set ProtoEventIcon[32] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga"
+        set ProtoEventIcon[32] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[32] = 1.777778
         set ProtoCardKey[502] = "ft_happy"
         set ProtoCardName[502] = "해피"
@@ -17725,7 +17725,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[286] = 1
         set ProtoEventStory[286] = "길드를 다시 정리하던 중 의뢰서와 수송 짐이 뒤섞여 있다. |cFF006B8F나츠|r는 짐을 치울 테니 밖의 위험을 맡아 달라고 하고 |cFF006B8F루시|r는 주소부터 대조하자고 한다.|n|n샤를은 해피가 옮길 짐의 무게와 지나갈 곳을 먼저 살핀다. 같은 마당에서 운반 길·의뢰서·수송 동선 중 무엇부터 맡을까?"
         set ProtoEventIntro[286] = "길드 마당에 흩어진 물건들 사이로 엉킨 의뢰서들이 널브러져 있다."
-        set ProtoEventIcon[286] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga"
+        set ProtoEventIcon[286] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[286] = 1.777778
         set ProtoEventRequired[286] = 0
         set ProtoEventRequiredChoice[286] = 0
@@ -17772,7 +17772,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[287] = 1
         set ProtoEventStory[287] = "|cFF006B8F나츠|r와 운반 길을 열고 돌아오니 맡아 둔 목재를 어디에 쓸지 묻는 사람들이 있다. |cFF006B8F그레이|r는 위험한 길목의 방어물을 만들려 하고, 웬디는 운반을 마친 사람들의 회복을 돕고 있다.|n|n|cFF006B8F엘자|r는 더 약한 담당 구역을 고르더라도 |cFF80560C검|r을 잡을 쪽은 비워 두자고 한다."
         set ProtoEventIntro[287] = "목재를 짊어지고 돌아온 일행들이 다음 행동을 결정하지 못해 멈춰 서 있다."
-        set ProtoEventIcon[287] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga"
+        set ProtoEventIcon[287] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[287] = 1.777778
         set ProtoEventRequired[287] = 286
         set ProtoEventRequiredChoice[287] = 1
@@ -17819,7 +17819,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[288] = 1
         set ProtoEventStory[288] = "|cFF006B8F루시|r와 주소를 대조해 놓은 의뢰서 중 같은 물품에 서로 다른 수령인이 적혀 있다. 접수 실수인지 확인하는 동안, |cFF006B8F엘자|r가 필요한 짐을 나눠 들겠다고 한다. 어느 수령인에게 어떤 준비를 보내야 할까?"
         set ProtoEventIntro[288] = "동일한 물품을 요구하는 두 개의 의뢰서가 책상 위에 놓여 있다."
-        set ProtoEventIcon[288] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[288] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[288] = 1.777778
         set ProtoEventRequired[288] = 286
         set ProtoEventRequiredChoice[288] = 2
@@ -17866,7 +17866,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[289] = 1
         set ProtoEventStory[289] = "해피가 수송할 짐 옆에서 생선 봉지를 발견했다. 모두 가져가고 싶다는 말에 샤를은 짐의 무게부터 보라고 한다. |cFF006B8F엘자|r와 웬디가 도울 준비를 하는 동안, 짐을 나눠 보내거나 지상 운반을 맡을 수 있다."
         set ProtoEventIntro[289] = "해피가 챙기려는 생선과 수송해야 할 물품들이 한데 섞여 있다."
-        set ProtoEventIcon[289] = "war3mapImported\\UI_EventThumb_Card_FT_happy_Art.tga"
+        set ProtoEventIcon[289] = "war3mapImported\\UI_EventThumb_Card_FT_happy_Art.blp"
         set ProtoEventImageAspect[289] = 1.777778
         set ProtoEventRequired[289] = 286
         set ProtoEventRequiredChoice[289] = 3
@@ -17913,7 +17913,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[290] = 1
         set ProtoEventStory[290] = "다른 방문에서 의뢰서를 구분했던 너를 |cFF006B8F루시|r가 알아보고 새로 붙은 의뢰의 첫 줄을 가리킨다. |cFF006B8F그레이|r는 좁은 통로의 받침을 확인하자고 하고 |cFF006B8F엘자|r는 돌아올 사람을 위한 경계를 맡으려 한다.|n|n미라젠은 맡을 길을 줄이더라도 돌아온 뒤의 보급을 남겨 두자고 한다. 익힌 |cFF80560C기록|r을 다시 받는 대신 이번에는 어디까지 맡을까?"
         set ProtoEventIntro[290] = "의뢰 |cFF80560C기록|r의 경험으로 새 게시판에서 맡을 몫을 고른다."
-        set ProtoEventIcon[290] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[290] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[290] = 1.777778
         set ProtoEventRequired[290] = 0
         set ProtoEventRequiredChoice[290] = 0
@@ -17960,7 +17960,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[291] = 1
         set ProtoEventStory[291] = "|cFF006B8F엘자|r는 여행 가방을 금세 닫았지만, 내 짐은 아직 바닥에 널려 있다. 무구를 환장하는 엘자와 달리 나는 다 들고 갈 수 없다. 엘자는 |cFF80560C검|r을 잡을 공간부터 남기라 하고, 웬디는 오래 버틸 준비를 권한다."
         set ProtoEventIntro[291] = "가볍게 떠나는 |cFF006B8F엘자|r 옆에서 아직 바닥에 널린 내 짐을 고른다."
-        set ProtoEventIcon[291] = "war3mapImported\\UI_EventThumb_Card_FT_erza-scarlet_Art.tga"
+        set ProtoEventIcon[291] = "war3mapImported\\UI_EventThumb_Card_FT_erza-scarlet_Art.blp"
         set ProtoEventImageAspect[291] = 1.777778
         set ProtoEventRequired[291] = 0
         set ProtoEventRequiredChoice[291] = 0
@@ -18007,7 +18007,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[292] = 1
         set ProtoEventStory[292] = "비로 불어난 물가에서 돌아갈 짐이 멈춰 있다. |cFF006B8F그레이|r는 간단한 구조물을 만들 수 있지만 물살 속에 고정할지는 장담하지 않는다.|n|n힘을 보태 빠른 길을 시도할지, 웬디와 짐을 나눠 안전하게 돌아갈지 고른다. 샤를은 물가가 아닌 바깥 쪽을 더 적게 맡는 길도 먼저 살펴보라고 한다."
         set ProtoEventIntro[292] = "강물이 불어나 길을 막고 있고, 수송 짐이 물가에 멈춰 서 있다."
-        set ProtoEventIcon[292] = "war3mapImported\\UI_EventThumb_Card_FT_gray-fullbuster_Art.tga"
+        set ProtoEventIcon[292] = "war3mapImported\\UI_EventThumb_Card_FT_gray-fullbuster_Art.blp"
         set ProtoEventImageAspect[292] = 1.777778
         set ProtoEventRequired[292] = 0
         set ProtoEventRequiredChoice[292] = 0
@@ -18054,7 +18054,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[293] = 1
         set ProtoEventStory[293] = "빠른 물길에서 짐이 젖은 뒤 |cFF006B8F루시|r가 번진 글씨를 살피고 있다. 원래 받는 사람을 찾아 남은 짐을 보내거나 웬디와 젖은 물품부터 정리할 수 있다.|n|n어느 쪽이든 흠뻑 젖은 포장을 그대로 둘 수는 없다. 미라젠은 돌려보낼 젖은 포장과 다음 방문에 쓸 보급을 따로 두자고 한다."
         set ProtoEventIntro[293] = "물에 젖어 글씨가 번진 의뢰서를 |cFF006B8F루시|r가 유심히 살펴보고 있다."
-        set ProtoEventIcon[293] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[293] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[293] = 1.777778
         set ProtoEventRequired[293] = 292
         set ProtoEventRequiredChoice[293] = -1
@@ -18101,7 +18101,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[294] = 1
         set ProtoEventStory[294] = "|cFF006B8F나츠|r와 공격 준비를 해 본 뒤 운반할 짐 옆에서 다시 힘을 맞춘다. 나츠는 크게 힘을 싣는 쪽을 권하지만, |cFF006B8F엘자|r는 옆의 짐을 가리키며 한 번 더 간격을 확인하라고 한다. 강한 일격과 정확한 간격 중 무엇을 준비할까?"
         set ProtoEventIntro[294] = "|cFF006B8F나츠|r와 |cFF006B8F엘자|r가 서로 다른 방식의 공격 준비를 제안하며 짐을 살피고 있다."
-        set ProtoEventIcon[294] = "war3mapImported\\UI_EventThumb_Card_FT_nastu-dragneel_Art.tga"
+        set ProtoEventIcon[294] = "war3mapImported\\UI_EventThumb_Card_FT_nastu-dragneel_Art.blp"
         set ProtoEventImageAspect[294] = 1.777778
         set ProtoEventRequired[294] = 0
         set ProtoEventRequiredChoice[294] = 0
@@ -18148,7 +18148,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[295] = 1
         set ProtoEventStory[295] = "|cFF006B8F가질|r이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다. 미라젠은 먹어도 되는 철을 먼저 나누자고 하고 가질은 어느 쪽이 식사인지 표시부터 하라고 한다.|n|n너는 구분을 돕거나 바깥에서 부품을 가져오는 쪽을 맡을 수 있다."
         set ProtoEventIntro[295] = "식사할 철과 아직 쓸 부품을 어떻게 나눌까?"
-        set ProtoEventIcon[295] = "war3mapImported\\UI_EventThumb_Card_FTG_gajeel_Art.tga"
+        set ProtoEventIcon[295] = "war3mapImported\\UI_EventThumb_Card_FTG_gajeel_Art.blp"
         set ProtoEventImageAspect[295] = 1.777778
         set ProtoEventRequired[295] = 0
         set ProtoEventRequiredChoice[295] = 0
@@ -18195,7 +18195,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[296] = 1
         set ProtoEventStory[296] = "쥬비아가 |cFF006B8F그레이|r가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다. 쥬비아는 그레이 몫을 먼저 보려 하고 미라젠은 돌아오는 사람의 수부터 세자고 한다.|n|n그레이는 자신에게 두 개가 필요하지는 않다며 다른 쪽을 가리킨다. 웬디는 돌아오는 길에서 쓸 보급도 함께 나눠 둘지 묻는다."
         set ProtoEventIntro[296] = "|cFF006B8F그레이|r 몫을 먼저 챙길지 돌아올 사람부터 셀지 정한다."
-        set ProtoEventIcon[296] = "war3mapImported\\UI_EventThumb_Card_FTG_juvia_Art.tga"
+        set ProtoEventIcon[296] = "war3mapImported\\UI_EventThumb_Card_FTG_juvia_Art.blp"
         set ProtoEventImageAspect[296] = 1.777778
         set ProtoEventRequired[296] = 0
         set ProtoEventRequiredChoice[296] = 0
@@ -18242,7 +18242,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[297] = 1
         set ProtoEventStory[297] = "길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다. 미라젠은 사진을 보고 온 사람과 일 때문에 온 사람이 뒤섞였다고 말한다.|n|n|cFF006B8F루시|r는 의뢰서를 받아 놓고 먼저 어떤 말을 하러 왔는지 나누자고 한다."
         set ProtoEventIntro[297] = "사진을 가져온 손님과 의뢰인을 같은 줄에 둘지 정한다."
-        set ProtoEventIcon[297] = "war3mapImported\\UI_EventThumb_Card_FTG_mirajane_Art.tga"
+        set ProtoEventIcon[297] = "war3mapImported\\UI_EventThumb_Card_FTG_mirajane_Art.blp"
         set ProtoEventImageAspect[297] = 1.777778
         set ProtoEventRequired[297] = 0
         set ProtoEventRequiredChoice[297] = 0
@@ -18289,7 +18289,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[298] = 1
         set ProtoEventStory[298] = "렉서스가 뒤쪽은 자신이 맡겠다고 짧게 말하자 |cFF006B8F나츠|r는 먼저 가라는 말이냐며 돌아선다. 렉서스는 아직 돌아올 쪽의 이야기를 끝내지 않았다고 하고 |cFF006B8F루시|r는 두 사람이 다른 답을 들었다고 한다.|n|n먼저 말의 끝을 확인할지 바깥 일을 맡을지 정한다."
         set ProtoEventIntro[298] = "먼저 가라는 뜻이었는지 돌아올 쪽을 맡겠다는 뜻인지 다시 묻는다."
-        set ProtoEventIcon[298] = "war3mapImported\\UI_EventThumb_Card_FTG_laxus_Art.tga"
+        set ProtoEventIcon[298] = "war3mapImported\\UI_EventThumb_Card_FTG_laxus_Art.blp"
         set ProtoEventImageAspect[298] = 1.777778
         set ProtoEventRequired[298] = 0
         set ProtoEventRequiredChoice[298] = 0
@@ -18336,7 +18336,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[299] = 1
         set ProtoEventStory[299] = "길다트가 무심코 지나간 쪽의 벽이 부서져 사람들이 문이 어디였는지 묻는다. 미라젠은 남은 문틀 옆으로 짐을 모으지 말자고 하고 길다트는 자신이 지나온 쪽을 돌아본다. 네가 파손 자리를 정리할지 바깥 길을 맡을지 정해야 한다."
         set ProtoEventIntro[299] = "부서진 벽 옆을 정리할지 바깥 일을 맡을지 정한다."
-        set ProtoEventIcon[299] = "war3mapImported\\UI_EventThumb_Card_FTG_gildarts_Art.tga"
+        set ProtoEventIcon[299] = "war3mapImported\\UI_EventThumb_Card_FTG_gildarts_Art.blp"
         set ProtoEventImageAspect[299] = 1.777778
         set ProtoEventRequired[299] = 0
         set ProtoEventRequiredChoice[299] = 0
@@ -18383,7 +18383,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[300] = 1
         set ProtoEventStory[300] = "|cFF006B8F루시|r가 쓴 이야기를 읽던 사람이 결말보다 앞에서 왜 그 길을 택했냐고 묻는다. 루시는 뒤에 답이 있다며 넘기려다가 독자가 멈춘 줄을 다시 본다.|n|n해피는 다음 페이지가 아니라 방금 줄부터 읽어 보자고 한다. |cFF006B8F그레이|r는 다른 의뢰에서 가져온 원고를 돌려주려다 멈춰 서고 누구의 다음 줄부터 읽을지 묻는다."
         set ProtoEventIntro[300] = "독자가 멈춘 줄을 방문 행동력 없이 함께 읽는다."
-        set ProtoEventIcon[300] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[300] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[300] = 1.777778
         set ProtoEventRequired[300] = 0
         set ProtoEventRequiredChoice[300] = 0
@@ -18430,7 +18430,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[301] = 1
         set ProtoEventStory[301] = "다른 방문에서 손님의 목적을 구분했던 너를 미라젠이 알아본다. 새 손님이 사진을 꺼내기 전에 |cFF006B8F루시|r가 의뢰인지 먼저 묻고 |cFF006B8F가질|r은 쓰는 철을 가져온 사람은 다른 줄로 보내 달라고 한다.|n|n미라젠은 이번 줄만 정리할지 다음 손님에게 물을 몫도 맡을지 네 답을 기다린다."
         set ProtoEventIntro[301] = "익힌 방문 목적의 구분으로 이번과 다음의 몫을 나눈다."
-        set ProtoEventIcon[301] = "war3mapImported\\UI_EventThumb_Card_FTG_mirajane_Art.tga"
+        set ProtoEventIcon[301] = "war3mapImported\\UI_EventThumb_Card_FTG_mirajane_Art.blp"
         set ProtoEventImageAspect[301] = 1.777778
         set ProtoEventRequired[301] = 0
         set ProtoEventRequiredChoice[301] = 0
@@ -18477,7 +18477,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[302] = 1
         set ProtoEventStory[302] = "성령을 부리는 마도사 |cFF006B8F루시|r는 자기 힘으로 살아가며 유명한 길드 |cFF865500페어리 테일|r에 들어가고 싶다. 그러나 길드원을 사칭한 보라의 말을 믿었다가 여성들을 팔아넘기려는 배에 붙잡힌다.|n|n불을 쓰는 |cFF006B8F나츠|r와 날개 달린 고양이 해피가 그녀를 구한다. 소동 뒤 나츠가 진짜 페어리 테일 문장을 보여 준다. 루시가 바라던 길드가 뜻밖에도 눈앞에 있다."
         set ProtoEventIntro[302] = "불을 쓰는 소년이 진짜 길드 문장을 보여 준다."
-        set ProtoEventIcon[302] = "war3mapImported\\UI_EventThumb_Card_FT_nastu-dragneel_Art.tga"
+        set ProtoEventIcon[302] = "war3mapImported\\UI_EventThumb_Card_FT_nastu-dragneel_Art.blp"
         set ProtoEventImageAspect[302] = 1.777778
         set ProtoEventRequired[302] = 0
         set ProtoEventRequiredChoice[302] = 0
@@ -18527,7 +18527,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[303] = 1
         set ProtoEventStory[303] = "|cFF865500페어리 테일|r의 문을 열자 조용한 영웅들의 집회 대신 시끄러운 소동이 펼쳐진다. |cFF006B8F나츠|r는 익숙하게 사람들과 부딪치고, |cFF006B8F루시|r는 서로 다투면서도 가까워 보이는 길드원들을 바라본다.|n|n길드 마스터 |cFF006B8F마카로프|r와 미라젠이 새로 온 그녀를 맞는다. 루시가 어떤 마도사인지 말할 차례다."
         set ProtoEventIntro[303] = "떠들썩한 길드 한가운데에서 새 얼굴이 인사를 준비한다."
-        set ProtoEventIcon[303] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.tga"
+        set ProtoEventIcon[303] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[303] = 1.777778
         set ProtoEventRequired[303] = 0
         set ProtoEventRequiredChoice[303] = 0
@@ -18577,7 +18577,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[304] = 1
         set ProtoEventStory[304] = "|cFF006B8F루시|r는 |cFF865500페어리 테일|r에 들어왔다. 하지만 지금까지는 문을 통과해 인사를 나눈 것뿐이다.|n|n미라젠이 길드 문장을 새기기 위해 다가오자 루시는 오른손을 펼친다. 이제부터 이곳에서 의뢰를 맡고 동료들과 함께 살아갈 것이다. 루시는 문장이 놓일 손등을 바라본다."
         set ProtoEventIntro[304] = "미라젠이 문장을 찍을 자리를 기다린다."
-        set ProtoEventIcon[304] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[304] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[304] = 1.777778
         set ProtoEventRequired[304] = 0
         set ProtoEventRequiredChoice[304] = 0
@@ -18627,7 +18627,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[305] = 2
         set ProtoEventStory[305] = "의뢰인 카비는 에바루 저택의 |cFF80560C책|r 데이브레이크를 없애 달라고 부탁했다. |cFF006B8F루시|r는 |cFF006B8F나츠|r와 함께 저택에 들어가고, 나츠가 적을 상대하는 동안 성령의 힘을 빌려 책을 살핀다.|n|n겉으로는 에바루를 찬양하는 글이지만 루시는 그대로 믿기 어려운 흔적을 발견한다. 의뢰대로 지우기 전에 더 읽어 볼지 정해야 한다."
         set ProtoEventIntro[305] = "없애 달라는 |cFF80560C책|r 속에서 낯선 단서를 발견한다."
-        set ProtoEventIcon[305] = "war3mapImported\\UI_EventThumb_Event_MGE_daybreak.tga"
+        set ProtoEventIcon[305] = "war3mapImported\\UI_EventThumb_Event_MGE_daybreak.blp"
         set ProtoEventImageAspect[305] = 1.777778
         set ProtoEventRequired[305] = 0
         set ProtoEventRequiredChoice[305] = 0
@@ -18684,7 +18684,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[306] = 2
         set ProtoEventStory[306] = "갑옷과 검을 바꾸어 싸우는 에르자는 아이젠발트가 저주의 피리 라라바이로 길드 마스터들을 |cFFA53528암살하려 한다고 알린다|r. 루시와 |cFF006B8F나츠|r, |cFF006B8F그레이|r는 그녀와 함께 추적한다.|n|n나츠는 해피의 조언을 받아 에리골의 바람을 넘어선다. 그러나 피리를 지닌 카게야마가 |cFF006B8F마카로프|r 앞에 서 있다. 동료들은 암살을 막으려 급히 뒤쫓는다."
         set ProtoEventIntro[306] = "길드 마스터들을 노리는 피리가 악기를 넘어선다."
-        set ProtoEventIcon[306] = "war3mapImported\\UI_EventThumb_Event_MGE_lullaby.tga"
+        set ProtoEventIcon[306] = "war3mapImported\\UI_EventThumb_Event_MGE_lullaby.blp"
         set ProtoEventImageAspect[306] = 1.777778
         set ProtoEventRequired[306] = 0
         set ProtoEventRequiredChoice[306] = 0
@@ -18741,7 +18741,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[307] = 2
         set ProtoEventStory[307] = "|cFF006B8F루시|r는 방을 구하고 의뢰 보수로 생활하며 마그놀리아의 하루를 익힌다. 혼자 계획한 대로 흘러가지 않는 일이 많고, |cFF006B8F나츠|r와 해피는 조용히 지내게 두지 않는다.|n|n일을 마치고 길드로 돌아오자 동료들의 떠드는 소리가 들린다. 루시는 문 앞에서 잠깐 멈췄다가 익숙해진 얼굴들을 바라본다."
         set ProtoEventIntro[307] = "의뢰 뒤 돌아온 |cFF006B8F루시|r에게 익숙한 소리가 들린다."
-        set ProtoEventIcon[307] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[307] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[307] = 1.777778
         set ProtoEventRequired[307] = 0
         set ProtoEventRequiredChoice[307] = 0
@@ -18791,7 +18791,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[308] = 2
         set ProtoEventStory[308] = "|cFF865500팬텀 로드|r가 |cFF865500페어리 테일|r |cFF865500건물을 망가뜨렸다|r. 분노한 동료들 앞에서 |cFF006B8F마카로프|r는 건물의 피해만으로 싸움을 키우려 하지 않는다.|n|n루시는 부서진 곳을 바라보다 동료들 쪽으로 돌아선다. 지금 다친 사람이 없는지부터 확인해야 한다."
         set ProtoEventIntro[308] = "부서진 길드 앞에서 |cFF006B8F마카로프|r의 판단을 기다린다."
-        set ProtoEventIcon[308] = "war3mapImported\\UI_EventThumb_Event_MGE_guild.tga"
+        set ProtoEventIcon[308] = "war3mapImported\\UI_EventThumb_Event_MGE_guild.blp"
         set ProtoEventImageAspect[308] = 1.777778
         set ProtoEventRequired[308] = 0
         set ProtoEventRequiredChoice[308] = 0
@@ -18841,7 +18841,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[309] = 2
         set ProtoEventStory[309] = "|cFF865500페어리 테일|r이 |cFF865500팬텀 로드|r에 맞서는 동안 |cFF006B8F루시|r가 납치된다. 팬텀의 마스터 조제는 |cFFA53528그녀를 인질로 삼는다|r.|n|n루시는 자신을 왜 노리는지, 밖에서 동료들에게 무슨 일이 벌어지는지 알 수 없다. 조제가 붙잡힌 그녀를 내려다본다."
         set ProtoEventIntro[309] = "적의 손에 붙잡힌 |cFF006B8F루시|r는 길드의 상황을 묻는다."
-        set ProtoEventIcon[309] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[309] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[309] = 1.777778
         set ProtoEventRequired[309] = 0
         set ProtoEventRequiredChoice[309] = 0
@@ -18891,7 +18891,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[310] = 2
         set ProtoEventStory[310] = "|cFF006B8F루시|r는 부유한 하트필리아 가문에서 나와 자신의 삶을 찾아왔다. 아버지는 그녀를 |cFFA53528강제로 데려오기 위해|r |cFF865500팬텀 로드|r를 고용했다.|n|n조제는 그 사실로 루시를 압박한다. 자신 때문에 동료들이 다쳤다는 생각이 루시를 짓누른다. 그때 아래에서 그녀를 부르는 |cFF006B8F나츠|r의 목소리가 들린다."
         set ProtoEventIntro[310] = "집으로 돌아오라는 아버지의 뜻을 적에게서 듣는다."
-        set ProtoEventIcon[310] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[310] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[310] = 1.777778
         set ProtoEventRequired[310] = 0
         set ProtoEventRequiredChoice[310] = 0
@@ -18941,7 +18941,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[311] = 2
         set ProtoEventStory[311] = "창가의 |cFF006B8F루시|r 아래에 |cFF006B8F나츠|r가 있다. 갇힌 곳에 남아도 스스로 선택한 삶으로 돌아갈 수 없다.|n|n나츠는 자신에게 뛰어내리라고 한다. 루시는 창가를 붙잡은 손에 힘을 준다. 받아 줄 동료를 믿고 이곳을 벗어날 수 있을까."
         set ProtoEventIntro[311] = "아래에서 기다리는 |cFF006B8F나츠|r에게 몸을 맡길 순간이다."
-        set ProtoEventIcon[311] = "war3mapImported\\UI_EventThumb_Card_FT_nastu-dragneel_Art.tga"
+        set ProtoEventIcon[311] = "war3mapImported\\UI_EventThumb_Card_FT_nastu-dragneel_Art.blp"
         set ProtoEventImageAspect[311] = 1.777778
         set ProtoEventRequired[311] = 0
         set ProtoEventRequiredChoice[311] = 0
@@ -18998,7 +18998,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[312] = 3
         set ProtoEventStory[312] = "팬텀의 마도집속포 |cFF865500주피터|r가 |cFFA53528길드를 노린다|r. 에르자는 공격을 막아 내지만 쓰러진다.|n|n다시 포격하게 둘 수 없다. |cFF006B8F나츠|r와 |cFF006B8F그레이|r, 엘프먼이 요새 안으로 향하려 한다. 루시는 쓰러진 에르자와 아직 앞을 지키는 동료들을 번갈아 본다."
         set ProtoEventIntro[312] = "에르자가 포격을 막은 뒤 동료들이 요새로 향한다."
-        set ProtoEventIcon[312] = "war3mapImported\\UI_EventThumb_Card_FT_erza-scarlet_Art.tga"
+        set ProtoEventIcon[312] = "war3mapImported\\UI_EventThumb_Card_FT_erza-scarlet_Art.blp"
         set ProtoEventImageAspect[312] = 1.777778
         set ProtoEventRequired[312] = 0
         set ProtoEventRequiredChoice[312] = 0
@@ -19048,7 +19048,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[313] = 3
         set ProtoEventStory[313] = "거인으로 변한 팬텀 요새가 어비스 브레이크를 준비한다. 엘프먼은 솔을, |cFF006B8F그레이|r는 쥬비아를 상대한다.|n|n|cFF006B8F나츠|r가 아리아와 싸우는 곳에는 상처 입은 에르자도 도착한다. 아리아가 길드 마스터의 |cFFA53528마력을 빼앗은 적|r이라는 사실을 알고 있다. 에르자는 여전히 싸울 뜻으로 |cFF80560C검|r을 든다."
         set ProtoEventIntro[313] = "거대한 마법을 준비하는 요새 안에서 각자의 적을 막는다."
-        set ProtoEventIcon[313] = "war3mapImported\\UI_EventThumb_Event_MGO_erza.tga"
+        set ProtoEventIcon[313] = "war3mapImported\\UI_EventThumb_Event_MGO_erza.blp"
         set ProtoEventImageAspect[313] = 1.777778
         set ProtoEventRequired[313] = 0
         set ProtoEventRequiredChoice[313] = 0
@@ -19098,7 +19098,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[314] = 3
         set ProtoEventStory[314] = "|cFF006B8F나츠|r는 |cFF006B8F가질|r과의 싸움에서 힘이 달린다. |cFF006B8F루시|r는 자신을 구하러 온 동료가 무너지는 모습을 지켜볼 수 없다.|n|n불을 먹으면 다시 힘을 낼 수 있는 나츠에게 불길을 만들어 줄 방법이 필요하다. 루시는 성령 사지타리우스의 열쇠를 찾는다."
         set ProtoEventIntro[314] = "지친 |cFF006B8F나츠|r를 보며 |cFF006B8F루시|r가 자신의 열쇠를 움켜쥔다."
-        set ProtoEventIcon[314] = "war3mapImported\\UI_EventThumb_Event_MGO_fairylaw.tga"
+        set ProtoEventIcon[314] = "war3mapImported\\UI_EventThumb_Event_MGO_fairylaw.blp"
         set ProtoEventImageAspect[314] = 1.777778
         set ProtoEventRequired[314] = 0
         set ProtoEventRequiredChoice[314] = 0
@@ -19155,7 +19155,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[315] = 3
         set ProtoEventStory[315] = "전쟁이 끝난 뒤 |cFF006B8F루시|r는 하트필리아 저택으로 간다. 돌아오라는 명령에 따르기 위해서가 아니라, 자신의 뜻을 직접 말하기 위해서다.|n|n아버지는 딸의 삶을 |cFF865500가문의 뜻대로|r 정하려 한다. 루시는 길드에서 자신을 구한 동료들을 떠올린다. 이번에는 누군가 대신 답하게 두지 않을 것이다."
         set ProtoEventIntro[315] = "가문의 저택에서 |cFF006B8F루시|r가 아버지와 마주한다."
-        set ProtoEventIcon[315] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[315] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[315] = 1.777778
         set ProtoEventRequired[315] = 0
         set ProtoEventRequiredChoice[315] = 0
@@ -19205,7 +19205,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[316] = 4
         set ProtoEventStory[316] = "마그놀리아로 돌아온 |cFF006B8F루시|r 앞에는 아직 상처 입은 길드가 있다. 동료들은 건물을 고치며 다시 일상을 이어 간다.|n|n|cFF006B8F나츠|r와 해피는 돌아온 그녀에게 다음 의뢰를 이야기하려 한다. 루시는 오른손의 문장을 바라보다 고개를 든다. 처음 이곳에 왔을 때와는 다른 인사를 할 수 있을 것 같다."
         set ProtoEventIntro[316] = "수리 중인 길드 앞에서 익숙한 두 얼굴이 기다린다."
-        set ProtoEventIcon[316] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[316] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[316] = 1.777778
         set ProtoEventRequired[316] = 0
         set ProtoEventRequiredChoice[316] = 0
@@ -19264,7 +19264,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[317] = 1
         set ProtoEventStory[317] = "|cFF865500팬텀 로드|r와의 싸움이 끝나고, |cFF006B8F루시|r는 아버지에게 자신의 뜻을 전한 뒤 동료들에게 돌아가는 길을 택했다. 처음 동경하던 길드의 이름은 이제 함께 일을 하고 서로를 지켜 준 사람들의 얼굴로 남는다.|n|n부서진 건물을 다시 세울 일이 있어도, 그 안으로 돌아갈 이유는 잃지 않았다."
         set ProtoEventIntro[317] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[317] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.tga"
+        set ProtoEventIcon[317] = "war3mapImported\\UI_EventThumb_Card_FT_lucy-heartfilia_Art.blp"
         set ProtoEventImageAspect[317] = 1.777778
         set ProtoEventRequired[317] = 0
         set ProtoEventRequiredChoice[317] = 0
@@ -19321,7 +19321,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[33] = 1
         set ProtoEventStory[33] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. |cFF80560C마을|r을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
         set ProtoEventIntro[33] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. 마을을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
-        set ProtoEventIcon[33] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[33] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[33] = 1.777778
         set ProtoHeadEntryEvent[37] = 34
         set ProtoEventKey[34] = "karakura_entry_1"
@@ -19333,7 +19333,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[34] = 1
         set ProtoEventStory[34] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. |cFF80560C마을|r을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
         set ProtoEventIntro[34] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. 마을을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
-        set ProtoEventIcon[34] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[34] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[34] = 1.777778
         set ProtoHeadEntryEvent[38] = 35
         set ProtoEventKey[35] = "karakura_entry_2"
@@ -19345,7 +19345,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[35] = 1
         set ProtoEventStory[35] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. |cFF80560C마을|r을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
         set ProtoEventIntro[35] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. 마을을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
-        set ProtoEventIcon[35] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[35] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[35] = 1.777778
         set ProtoHeadEntryEvent[39] = 36
         set ProtoEventKey[36] = "karakura_entry_3"
@@ -19357,7 +19357,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[36] = 1
         set ProtoEventStory[36] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. |cFF80560C마을|r을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
         set ProtoEventIntro[36] = "가족을 덮친 호로 앞에서 |cFF006B8F이치고|r는 |cFF006B8F루키아|r의 힘을 받아든다. 마을을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다."
-        set ProtoEventIcon[36] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[36] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[36] = 1.777778
         set ProtoCardKey[570] = "bl_kon"
         set ProtoCardName[570] = "콘"
@@ -20135,7 +20135,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[318] = 1
         set ProtoEventStory[318] = "|cFF006B8F우라하라|r 상점 앞에 세 갈래 길로 보낼 짐이 쌓였다. 콘이 끼어든 상자에는 수취인 이름이 가려져 있고, 젖어 갈라진 배송 쪽지를 |cFF006B8F이치고|r와 우류가 서로 다르게 읽는다.|n|n오리히메는 부서진 운반대 때문에 뒷길의 짐이 멈췄다는 점을 알아챈다."
         set ProtoEventIntro[318] = "|cFF006B8F우라하라|r 상점 앞에 네 갈래 길로 보낼 짐이 쌓여 있다."
-        set ProtoEventIcon[318] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[318] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[318] = 1.777778
         set ProtoEventRequired[318] = 0
         set ProtoEventRequiredChoice[318] = 0
@@ -20182,7 +20182,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[319] = 1
         set ProtoEventStory[319] = "|cFF006B8F이치고|r가 짚었던 귀환길 입구 위로 같은 |cFF80560C발자국|r이 이어진다. |cFF006B8F요루이치|r는 그 입구 옆의 좁은 발판을 통해 거리를 벌리자고 하고, |cFF006B8F루키아|r는 아래 골목에 적이 몰리기 전에 입구를 맡자고 한다."
         set ProtoEventIntro[319] = "앞길의 짐을 옮긴 뒤, 돌아가는 길 위로 같은 |cFF80560C발자국|r이 이어진다."
-        set ProtoEventIcon[319] = "war3mapImported\\UI_EventThumb_Card_BBO2_yoruichi_Art.tga"
+        set ProtoEventIcon[319] = "war3mapImported\\UI_EventThumb_Card_BBO2_yoruichi_Art.blp"
         set ProtoEventImageAspect[319] = 1.777778
         set ProtoEventRequired[319] = 318
         set ProtoEventRequiredChoice[319] = 1
@@ -20229,7 +20229,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[320] = 1
         set ProtoEventStory[320] = "배송 쪽지의 글씨를 되살렸지만 짐을 보내야 할 집까지는 위험한 구간이 남았다. |cFF006B8F우라하라|r는 |cFF80560C약속|r한 준비물을 펼치고, 차드는 짐을 한 번에 나눠 들어 좁은 길을 비우려 한다.|n|n우류는 주소를 다시 복구하는 대신 이번에는 접을 메모의 끝만 맞추자고 한다."
         set ProtoEventIntro[320] = "배송 쪽지의 글씨를 되살렸지만 짐을 보내야 할 집까지는 위험한 구간이 남았다."
-        set ProtoEventIcon[320] = "war3mapImported\\UI_EventThumb_Card_BBO2_urahara_Art.tga"
+        set ProtoEventIcon[320] = "war3mapImported\\UI_EventThumb_Card_BBO2_urahara_Art.blp"
         set ProtoEventImageAspect[320] = 1.777778
         set ProtoEventRequired[320] = 318
         set ProtoEventRequiredChoice[320] = 2
@@ -20276,7 +20276,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[321] = 1
         set ProtoEventStory[321] = "오리히메가 운반대를 복구한 뒤 짐이 통과한 뒷길은 조용해졌다. 하지만 바깥 골목의 흔적은 아직 남아 있어 |cFF006B8F루키아|r가 그쪽을 맡으려 한다.|n|n차드는 돌아오는 사람이 길을 잃지 않게 표식을 더 세우자고 한다. 콘이 표식 끈에 발이 걸려 불평하자 차드는 끈을 당기기 전에 발부터 빼라고 한다."
         set ProtoEventIntro[321] = "복원한 운반대가 지나간 길 바깥에 다른 흔적이 이어진다."
-        set ProtoEventIcon[321] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.tga"
+        set ProtoEventIcon[321] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.blp"
         set ProtoEventImageAspect[321] = 1.777778
         set ProtoEventRequired[321] = 318
         set ProtoEventRequiredChoice[321] = 3
@@ -20323,7 +20323,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[322] = 1
         set ProtoEventStory[322] = "다른 방문에서 젖은 배송 쪽지를 읽었던 너를 우류가 알아보고 새 상자 앞의 콘을 가리킨다. 인형이 짐에 섞인 채 메모를 가리고 있어 |cFF006B8F우라하라|r는 목적지별 물품부터 추리자고 한다.|n|n오리히메는 늦어진 운반대를 살피고 유즈는 돌아갈 보급을 따로 묶으려 한다. 익힌 조준을 다시 받는 대신 어디까지 맡을까?"
         set ProtoEventIntro[322] = "배송 쪽지를 읽은 경험으로 새 짐 앞에서 맡을 몫을 고른다."
-        set ProtoEventIcon[322] = "war3mapImported\\UI_EventThumb_Card_BBS_kon_Art.tga"
+        set ProtoEventIcon[322] = "war3mapImported\\UI_EventThumb_Card_BBS_kon_Art.blp"
         set ProtoEventImageAspect[322] = 1.777778
         set ProtoEventRequired[322] = 0
         set ProtoEventRequiredChoice[322] = 0
@@ -20370,7 +20370,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[323] = 1
         set ProtoEventStory[323] = "경보가 서로 다른 골목에서 엇갈려 울린다. |cFF006B8F요루이치|r는 가장 가까운 신호를 따라 좁은 길로 들어가려 하고, 차드는 사람들이 지나는 길을 먼저 확보한다. 우류는 흩어진 표시를 대조해 잘못된 신호를 가리려 한다."
         set ProtoEventIntro[323] = "경보가 서로 다른 골목에서 엇갈려 울린다."
-        set ProtoEventIcon[323] = "war3mapImported\\UI_EventThumb_Card_BBO2_yoruichi_Art.tga"
+        set ProtoEventIcon[323] = "war3mapImported\\UI_EventThumb_Card_BBO2_yoruichi_Art.blp"
         set ProtoEventImageAspect[323] = 1.777778
         set ProtoEventRequired[323] = 0
         set ProtoEventRequiredChoice[323] = 0
@@ -20417,7 +20417,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[324] = 1
         set ProtoEventStory[324] = "추적했던 경보는 빈 골목에서 끊겼고 쓸 수 있는 표식도 줄었다. |cFF006B8F루키아|r는 돌아갈 갈림길을 다시 확인하고, |cFF006B8F우라하라|r는 경보 |cFF80560C기록|r에서 빼먹은 지점을 짚는다. 차드는 돌아오는 사람이 설 간격을 비워 두자고 한다."
         set ProtoEventIntro[324] = "추적했던 경보는 빈 골목에서 끊겼고 쓸 수 있는 표식도 줄었다."
-        set ProtoEventIcon[324] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.tga"
+        set ProtoEventIcon[324] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.blp"
         set ProtoEventImageAspect[324] = 1.777778
         set ProtoEventRequired[324] = 323
         set ProtoEventRequiredChoice[324] = -1
@@ -20464,7 +20464,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[325] = 1
         set ProtoEventStory[325] = "|cFF006B8F이치고|r와 앞길을 맡아 본 뒤, 칼을 너무 빨리 뻗으면 다음 동작이 흐트러진다는 점을 알게 된다. 이치고는 더 강한 상대의 틈을 기다려 한 번에 힘을 모으려 한다. 차드는 길을 넓혀 다음 공격을 버틸 자리를 먼저 고르자고 한다."
         set ProtoEventIntro[325] = "|cFF006B8F이치고|r와 앞길을 맡아 본 뒤, 칼을 너무 빨리 뻗으면 다음 동작이 흐트러진다는 점을 알게 된다."
-        set ProtoEventIcon[325] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.tga"
+        set ProtoEventIcon[325] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.blp"
         set ProtoEventImageAspect[325] = 1.777778
         set ProtoEventRequired[325] = 0
         set ProtoEventRequiredChoice[325] = 0
@@ -20511,7 +20511,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[326] = 1
         set ProtoEventStory[326] = "우류가 찢어진 소매를 펼치고 |cFF006B8F이치고|r에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다. 콘은 옆의 실타래에 발이 묶여 불평한다. 급한 길 확인과 소매 정리 중 어느 일을 맡을지 나누어야 한다."
         set ProtoEventIntro[326] = "소매를 준비할지, 바깥 길목을 살필지 정한다."
-        set ProtoEventIcon[326] = "war3mapImported\\UI_EventThumb_Card_BBO1_uryu_Art.tga"
+        set ProtoEventIcon[326] = "war3mapImported\\UI_EventThumb_Card_BBO1_uryu_Art.blp"
         set ProtoEventImageAspect[326] = 1.777778
         set ProtoEventRequired[326] = 0
         set ProtoEventRequiredChoice[326] = 0
@@ -20558,7 +20558,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[327] = 1
         set ProtoEventStory[327] = "차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다. 아이는 사람 많은 길을 가리키지만 차드는 큰 몸을 급하게 움직이면 누군가 밀릴까 조심한다. |cFF006B8F이치고|r는 다른 쪽 길목도 살펴야 한다고 말한다."
         set ProtoEventIntro[327] = "아이 앞에 설 자리를 준비하거나 통행할 범위만 정리할 수 있다."
-        set ProtoEventIcon[327] = "war3mapImported\\UI_EventThumb_Card_BBO2_sado_Art.tga"
+        set ProtoEventIcon[327] = "war3mapImported\\UI_EventThumb_Card_BBO2_sado_Art.blp"
         set ProtoEventImageAspect[327] = 1.777778
         set ProtoEventRequired[327] = 0
         set ProtoEventRequiredChoice[327] = 0
@@ -20605,7 +20605,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[328] = 1
         set ProtoEventStory[328] = "유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. |cFF006B8F이치고|r는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다."
         set ProtoEventIntro[328] = "남겨 둘 보급을 준비할지, 바깥 길을 맡을지 정한다."
-        set ProtoEventIcon[328] = "war3mapImported\\UI_EventThumb_Card_QU7_yuzu_Art.tga"
+        set ProtoEventIcon[328] = "war3mapImported\\UI_EventThumb_Card_QU7_yuzu_Art.blp"
         set ProtoEventImageAspect[328] = 1.777778
         set ProtoEventRequired[328] = 0
         set ProtoEventRequiredChoice[328] = 0
@@ -20652,7 +20652,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[329] = 1
         set ProtoEventStory[329] = "돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. |cFF006B8F이치고|r는 먼저 지나갈 자리를 만들어야 한다고 말한다."
         set ProtoEventIntro[329] = "보일 신호를 맞추거나 통행할 범위를 나누어 맡는다."
-        set ProtoEventIcon[329] = "war3mapImported\\UI_EventThumb_Card_BBS_kanonji_Art.tga"
+        set ProtoEventIcon[329] = "war3mapImported\\UI_EventThumb_Card_BBS_kanonji_Art.blp"
         set ProtoEventImageAspect[329] = 1.777778
         set ProtoEventRequired[329] = 0
         set ProtoEventRequiredChoice[329] = 0
@@ -20699,7 +20699,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[330] = 1
         set ProtoEventStory[330] = "|cFF006B8F우라하라|r가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다.|n|n콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다. 우류는 확인한 목록의 끝을 맞추고 유즈는 돌아갈 보급을 따로 담아 주려 한다."
         set ProtoEventIntro[330] = "불완전한 묶음에 비용을 걸지, 확인된 물품을 마련할지 정한다."
-        set ProtoEventIcon[330] = "war3mapImported\\UI_EventThumb_Card_BBO2_urahara_Art.tga"
+        set ProtoEventIcon[330] = "war3mapImported\\UI_EventThumb_Card_BBO2_urahara_Art.blp"
         set ProtoEventImageAspect[330] = 1.777778
         set ProtoEventRequired[330] = 0
         set ProtoEventRequiredChoice[330] = 0
@@ -20746,7 +20746,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[331] = 1
         set ProtoEventStory[331] = "타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다.|n|n타츠키는 발부터 놓고 움직임을 맞추자고 한다. 차드는 기다리는 사람이 돌아올 쪽도 비워 두자고 한다."
         set ProtoEventIntro[331] = "발 놓을 자리를 맞출지, 맡을 구역을 줄일지 정한다."
-        set ProtoEventIcon[331] = "war3mapImported\\UI_EventThumb_Card_SUP5_tatsuki_Art.tga"
+        set ProtoEventIcon[331] = "war3mapImported\\UI_EventThumb_Card_SUP5_tatsuki_Art.blp"
         set ProtoEventImageAspect[331] = 1.777778
         set ProtoEventRequired[331] = 0
         set ProtoEventRequiredChoice[331] = 0
@@ -20793,7 +20793,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[332] = 1
         set ProtoEventStory[332] = "상점 앞에서 쉬려는 손님을 카린이 벤치의 반대편으로 짧게 부른다. 손님은 아무도 앉지 않은 자리를 왜 비워 두냐고 묻고 카린은 남들이 못 보는 것을 떠들어 봐야 더 시끄러워진다고 한다.|n|n|cFF006B8F이치고|r가 옆자리를 내주려 하니 너는 설명을 캐물을지 먼저 자리를 옮길지 고른다. |cFF006B8F루키아|r는 손님에게 비워 둘 쪽부터 알려 줄지 묻는다."
         set ProtoEventIntro[332] = "빈 자리의 이유를 방문 행동력 없이 한 번 더 확인한다."
-        set ProtoEventIcon[332] = "war3mapImported\\UI_EventThumb_Card_SUP5_karin_Art.tga"
+        set ProtoEventIcon[332] = "war3mapImported\\UI_EventThumb_Card_SUP5_karin_Art.blp"
         set ProtoEventImageAspect[332] = 1.777778
         set ProtoEventRequired[332] = 0
         set ProtoEventRequiredChoice[332] = 0
@@ -20840,7 +20840,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[333] = 1
         set ProtoEventStory[333] = "|cFF006B8F이치고|r를 찾으러 왔다는 말에 잇신이 의원 문 밖까지 나와 반갑게 맞는다. 이치고는 잠깐 물건만 돌려받을 일이라고 말하지만 잇신은 아들과 무슨 일을 같이 했는지부터 묻는다.|n|n유즈가 둘 사이에 설 자리를 내주자 너는 잇신의 걱정을 들을지 이치고의 짧은 용건부터 마칠지 정한다."
         set ProtoEventIntro[333] = "잇신의 걱정을 듣거나 |cFF006B8F이치고|r의 용건부터 마칠지 정한다."
-        set ProtoEventIcon[333] = "war3mapImported\\UI_EventThumb_Card_BBO2_isshin_Art.tga"
+        set ProtoEventIcon[333] = "war3mapImported\\UI_EventThumb_Card_BBO2_isshin_Art.blp"
         set ProtoEventImageAspect[333] = 1.777778
         set ProtoEventRequired[333] = 0
         set ProtoEventRequiredChoice[333] = 0
@@ -20887,7 +20887,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[334] = 1
         set ProtoEventStory[334] = "|cFF006B8F우라하라|r 상점의 손님이 우루루에게 커다란 상자를 밖으로 옮기라며 혼자서는 못 들 것 같다고 비웃는다. 우루루가 상자를 가볍게 들자 진타는 옮겨 달라는 말과 얕보는 말은 다르다고 끼어든다.|n|n손님이 이번에는 더 많은 짐을 밀어 넣으려 하니 네가 어디서 부탁을 멈출지 정한다."
         set ProtoEventIntro[334] = "들 수 있다는 이유로 부탁을 계속 늘려도 될까?"
-        set ProtoEventIcon[334] = "war3mapImported\\UI_EventThumb_Card_BBS_ururu_Art.tga"
+        set ProtoEventIcon[334] = "war3mapImported\\UI_EventThumb_Card_BBS_ururu_Art.blp"
         set ProtoEventImageAspect[334] = 1.777778
         set ProtoEventRequired[334] = 0
         set ProtoEventRequiredChoice[334] = 0
@@ -20934,7 +20934,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[335] = 1
         set ProtoEventStory[335] = "케이고가 네게 |cFF006B8F이치고|r와 |cFF80560C마을|r을 둘러보자고 |cFF80560C약속|r했지만 이치고는 그런 말을 들은 적 없다고 한다. 케이고는 친구라면 같이 갈 줄 알았다고 하고 이치고는 남의 약속을 대신 잡지 말라고 한다.|n|n너는 케이고에게 자기 약속부터 맡기거나 이치고와 가능한 범위를 다시 정할 수 있다."
         set ProtoEventIntro[335] = "케이고가 허락받지 않은 |cFF80560C약속|r을 누가 맡을지 정한다."
-        set ProtoEventIcon[335] = "war3mapImported\\UI_EventThumb_Card_BKQ11_keigo_Art.tga"
+        set ProtoEventIcon[335] = "war3mapImported\\UI_EventThumb_Card_BKQ11_keigo_Art.blp"
         set ProtoEventImageAspect[335] = 1.777778
         set ProtoEventRequired[335] = 0
         set ProtoEventRequiredChoice[335] = 0
@@ -20981,7 +20981,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[336] = 1
         set ProtoEventStory[336] = "다른 방문에서 준비 요령을 익힌 너를 |cFF006B8F우라하라|r가 알아보고 새 목록을 펼친다. 콘은 전에 채운 것과 같은 물건이면 그냥 넣자고 하지만 우류는 이번 받는 사람의 줄부터 보자고 한다.|n|n|cFF006B8F루키아|r는 아직 지나지 않은 골목을 표시된 길과 섞지 말라고 한다. 전에 받은 준비를 반복하는 대신 이번과 다음에 맡을 몫을 답할 차례다."
         set ProtoEventIntro[336] = "상점에서 익힌 준비로 새 목록의 현재와 다음을 나눈다."
-        set ProtoEventIcon[336] = "war3mapImported\\UI_EventThumb_Card_BBO2_urahara_Art.tga"
+        set ProtoEventIcon[336] = "war3mapImported\\UI_EventThumb_Card_BBO2_urahara_Art.blp"
         set ProtoEventImageAspect[336] = 1.777778
         set ProtoEventRequired[336] = 0
         set ProtoEventRequiredChoice[336] = 0
@@ -21028,7 +21028,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[337] = 1
         set ProtoEventStory[337] = "영혼을 볼 수 있는 고등학생 쿠로사키 |cFF006B8F이치고|r 앞에 사신 쿠치키 |cFF006B8F루키아|r가 나타난다. 사신은 악한 혼인 호로를 정화하고 죽은 이의 혼을 저승으로 보내는 존재다. 이치고의 강한 영력을 쫓아온 호로가 가족을 덮치고, 이를 막던 루키아가 다친다.|n|n다른 방법이 없자 루키아는 자신의 칼을 통해 힘의 절반을 이치고에게 나눠 주려 한다. 루키아 — 내 힘을 받을 수 있겠어?"
         set ProtoEventIntro[337] = "가족이 습격당한 밤, 다친 사신이 |cFF006B8F이치고|r에게 힘을 건네려 한다."
-        set ProtoEventIcon[337] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.tga"
+        set ProtoEventIcon[337] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.blp"
         set ProtoEventImageAspect[337] = 1.777778
         set ProtoEventRequired[337] = 0
         set ProtoEventRequiredChoice[337] = 0
@@ -21085,7 +21085,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[338] = 1
         set ProtoEventStory[338] = "|cFF006B8F루키아|r는 의체를 쓰고 |cFF006B8F이치고|r의 학교에 전학생으로 들어온다. 이치고는 아는 사람만 지키면 된다고 생각하지만, 루키아는 사신이 눈앞의 혼을 골라 구해서는 안 된다고 가르친다.|n|n같은 반 이노우에 오리히메의 죽은 오빠가 호로가 되어 나타나면서 그 말은 남의 일이 아니게 된다. 이치고 — 오리히메의 오빠라면, 그냥 괴물로만 볼 순 없잖아."
         set ProtoEventIntro[338] = "호로가 된 오빠 앞에서 오리히메를 지켜야 한다."
-        set ProtoEventIcon[338] = "war3mapImported\\UI_EventThumb_Event_KAE_lesson.tga"
+        set ProtoEventIcon[338] = "war3mapImported\\UI_EventThumb_Event_KAE_lesson.blp"
         set ProtoEventImageAspect[338] = 1.777778
         set ProtoEventRequired[338] = 0
         set ProtoEventRequiredChoice[338] = 0
@@ -21142,7 +21142,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[339] = 1
         set ProtoEventStory[339] = "동급생 이시다 우류는 호로를 사냥하는 퀸시이며 사신에게 적대적이다. 그는 누가 호로를 더 많이 쓰러뜨리는지 겨루겠다며 미끼로 호로들을 불러낸다. |cFF006B8F이치고|r는 무관한 사람까지 위험에 빠뜨리는 승부에 반발한다.|n|n|cFF80560C마을|r에서는 오리히메가 친구 타츠키를, 차드가 이치고의 동생 카린을 지키려다 새로운 힘을 드러낸다.|n|n이치고 — |cFFA53528마을 전체가 위험해.|r 승부를 계속할 때가 아니야."
         set ProtoEventIntro[339] = "호로 사냥 승부가 |cFF80560C마을|r 사람들까지 위험에 빠뜨린다."
-        set ProtoEventIcon[339] = "war3mapImported\\UI_EventThumb_Event_KAE_cooperation.tga"
+        set ProtoEventIcon[339] = "war3mapImported\\UI_EventThumb_Event_KAE_cooperation.blp"
         set ProtoEventImageAspect[339] = 1.777778
         set ProtoEventRequired[339] = 0
         set ProtoEventRequiredChoice[339] = 0
@@ -21192,7 +21192,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[340] = 2
         set ProtoEventStory[340] = "|cFF006B8F루키아|r의 위치를 알아낸 소울 소사이어티는 그녀를 체포하러 사신 아바라이 렌지와 쿠치키 뱌쿠야를 보낸다. 뱌쿠야는 루키아의 양오빠이기도 하다. |cFF865500인간에게 사신의 힘을 넘긴 죄|r를 묻는 두 사람 앞에서 |cFF006B8F이치고|r는 저항하지만, 뱌쿠야에게 쓰러져 사신의 힘마저 잃는다.|n|n루키아는 더 버티면 이치고가 죽는다고 보고 그를 살려 둔 채 자신을 데려가게 한다. |cFF006B8F우라하라|r가 남겨진 이치고를 구한다. 우라하라 — 그대로 끝난 일로 받아들이실 겁니까?"
         set ProtoEventIntro[340] = "|cFF006B8F루키아|r는 붙잡혀 갔고, 힘을 잃은 |cFF006B8F이치고|r만 남았다."
-        set ProtoEventIcon[340] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.tga"
+        set ProtoEventIcon[340] = "war3mapImported\\UI_EventThumb_Card_BBO1_rukia_Art.blp"
         set ProtoEventImageAspect[340] = 1.777778
         set ProtoEventRequired[340] = 0
         set ProtoEventRequiredChoice[340] = 0
@@ -21242,7 +21242,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[341] = 2
         set ProtoEventStory[341] = "|cFF006B8F루키아|r를 구하러 가려는 |cFF006B8F이치고|r는 |cFF006B8F우라하라|r의 훈련을 받아들인다. 빼앗긴 힘을 돌려달라고 기다리는 대신 자기 안에 잠든 사신의 힘을 깨워야 한다.|n|n우라하라 — 돌려받기를 기다려서는 앞으로 갈 수 없어요."
         set ProtoEventIntro[341] = "|cFF006B8F루키아|r에게 가려면 자신의 힘부터 찾아야 한다."
-        set ProtoEventIcon[341] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.tga"
+        set ProtoEventIcon[341] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.blp"
         set ProtoEventImageAspect[341] = 1.777778
         set ProtoEventRequired[341] = 0
         set ProtoEventRequiredChoice[341] = 0
@@ -21299,7 +21299,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[342] = 2
         set ProtoEventStory[342] = "소울 소사이어티에 도착한 일행은 혼들이 사는 류콘가에서 사신의 거주 구역 정령정으로 들어가려 한다. 거대한 담과 문이 둘을 갈라놓고 있다.|n|n|cFF006B8F이치고|r는 문지기 지단보를 이기지만, 열린 문 안쪽에 나타난 사신 대장 이치마루 긴이 진입을 막는다. 문지기를 쓰러뜨리는 것만으로는 |cFF006B8F루키아|r에게 갈 수 없다.|n|n|cFF006B8F요루이치|r는 지인인 불꽃놀이 전문가 시바 쿠카쿠를 찾아간다. 쿠카쿠 — 정문을 통과하는 방법만 있는 건 아니지."
         set ProtoEventIntro[342] = "막힌 정문을 대신할 길을 찾으러 쿠카쿠를 만난다."
-        set ProtoEventIcon[342] = "war3mapImported\\UI_EventThumb_Event_KAE_gate.tga"
+        set ProtoEventIcon[342] = "war3mapImported\\UI_EventThumb_Event_KAE_gate.blp"
         set ProtoEventImageAspect[342] = 1.777778
         set ProtoEventRequired[342] = 0
         set ProtoEventRequiredChoice[342] = 0
@@ -21349,7 +21349,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[343] = 2
         set ProtoEventStory[343] = "쿠카쿠의 대포로 장벽을 넘지만 진입 충격에 일행이 흩어진다. |cFF006B8F이치고|r는 간쥬와 함께 사신들의 추격과 싸움을 헤쳐 나가며 |cFF006B8F루키아|r가 있는 참죄궁을 찾는다.|n|n그때 치료를 맡는 사번대의 사신 야마다 하나타로를 만난다. 하나타로는 수감된 루키아와 이야기를 나누며 이치고에 관한 말을 들었던 사람이다.|n|n침입자를 잡아야 하는 사신이지만 루키아의 처형을 바라지 않아 이치고를 돕기로 한다.|n|n하나타로 — 루키아 씨를 구하려는 거죠? 제가 아는 길이 있어요."
         set ProtoEventIntro[343] = "추격자들 사이에서 뜻밖의 안내자를 만난다."
-        set ProtoEventIcon[343] = "war3mapImported\\UI_EventThumb_Card_BBS_hanataro_Art.tga"
+        set ProtoEventIcon[343] = "war3mapImported\\UI_EventThumb_Card_BBS_hanataro_Art.blp"
         set ProtoEventImageAspect[343] = 1.777778
         set ProtoEventRequired[343] = 0
         set ProtoEventRequiredChoice[343] = 0
@@ -21399,7 +21399,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[344] = 2
         set ProtoEventStory[344] = "참죄궁으로 가는 길에서 렌지가 |cFF006B8F이치고|r를 막는다. 현세에서 만났을 때보다 강한 렌지에게 고전하지만, 이치고는 |cFF006B8F우라하라|r의 훈련을 떠올리며 끝내 승리한다.|n|n렌지와 루키아는 가난한 거리에서 |cFF865500함께 자란 소꿉친구|r였다. 루키아가 귀족 쿠치키가에 입양되자 둘은 멀어졌고, 렌지는 법에 따라 그녀를 체포했지만 죽기를 바란 것은 아니었다.|n|n렌지 — |cFF704261난 그 녀석이 죽기를 바란 적 없어.|r"
         set ProtoEventIntro[344] = "싸움에서 진 |cFF006B8F렌지|r에게는 아직 꺼내지 못한 말이 있다."
-        set ProtoEventIcon[344] = "war3mapImported\\UI_EventThumb_Card_BBO1_renji_Art.tga"
+        set ProtoEventIcon[344] = "war3mapImported\\UI_EventThumb_Card_BBO1_renji_Art.blp"
         set ProtoEventImageAspect[344] = 1.777778
         set ProtoEventRequired[344] = 0
         set ProtoEventRequiredChoice[344] = 0
@@ -21456,7 +21456,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[345] = 2
         set ProtoEventStory[345] = "참죄궁을 향하던 |cFF006B8F이치고|r 앞에 십일번대 대장 자라키 켄파치가 나타난다. 강한 상대와 싸우기를 즐기는 그는 이치고에게서 싸울 만한 힘을 느낀다. 그러나 이치고가 온 힘으로 휘둘러도 처음에는 켄파치의 몸에 제대로 상처조차 내지 못한다.|n|n|cFFA53528켄파치의 반격에 치명상을 입은|r 이치고는 내면에서 참월과 다시 마주한다. 참월 — 너 혼자만 칼을 휘두르고 있다고 생각했느냐."
         set ProtoEventIntro[345] = "켄파치의 힘 앞에 쓰러진 |cFF006B8F이치고|r가 내면의 참월을 만난다."
-        set ProtoEventIcon[345] = "war3mapImported\\UI_EventThumb_Event_KAE_kenpachi.tga"
+        set ProtoEventIcon[345] = "war3mapImported\\UI_EventThumb_Event_KAE_kenpachi.blp"
         set ProtoEventImageAspect[345] = 1.777778
         set ProtoEventRequired[345] = 0
         set ProtoEventRequiredChoice[345] = 0
@@ -21506,7 +21506,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[346] = 2
         set ProtoEventStory[346] = "간쥬와 하나타로는 마침내 참죄궁의 |cFF006B8F루키아|r를 만난다. 하지만 간쥬는 |cFF704261그녀를 보고 멈춰 선다.|r|n|n루키아는 그의 형 시바 카이엔을 죽인 사신이었다. 간쥬 — 하필 네가, 내가 구하러 온 사신이었다니."
         set ProtoEventIntro[346] = "구하러 온 사람과 형의 죽음이 감옥 앞에서 겹친다."
-        set ProtoEventIcon[346] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[346] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[346] = 1.777778
         set ProtoEventRequired[346] = 0
         set ProtoEventRequiredChoice[346] = 0
@@ -21563,7 +21563,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[347] = 2
         set ProtoEventStory[347] = "|cFF006B8F이치고|r를 데려온 |cFF006B8F요루이치|r는 |cFF006B8F뱌쿠야|r에게 맞서려면 참백도의 두 번째 해방인 |cFF865500만해가 필요|r하다고 설명한다. 고양이 모습으로 길을 안내했던 그녀는 뛰어난 사신이었던 경험으로 수련을 이끈다. 이치고는 실체화한 참월과 맞서며 통상 오랜 세월이 걸리는 만해를 사흘 안에 얻으려 한다.|n|n요루이치 — 지금부터는 쉬운 수련이 아니다. 남은 시간을 놓치지 마라."
         set ProtoEventIntro[347] = "|cFF006B8F요루이치|r의 수련은 남은 시간과의 싸움이기도 하다."
-        set ProtoEventIcon[347] = "war3mapImported\\UI_EventThumb_Card_BBO2_yoruichi_Art.tga"
+        set ProtoEventIcon[347] = "war3mapImported\\UI_EventThumb_Card_BBO2_yoruichi_Art.blp"
         set ProtoEventImageAspect[347] = 1.777778
         set ProtoEventRequired[347] = 0
         set ProtoEventRequiredChoice[347] = 0
@@ -21620,7 +21620,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[348] = 3
         set ProtoEventStory[348] = "|cFF006B8F루키아|r가 거대한 처형 무기 |cFF865500쌍극|r 앞에 선다. 집행이 시작되는 순간 |cFF006B8F이치고|r가 나타나 공격을 막는다. 처형에 반대하던 사신 대장 우키타케와 쿄라쿠도 움직여 쌍극을 파괴한다.|n|n이치고 — 지금이다. |cFF006B8F렌지|r, 루키아를 받아!"
         set ProtoEventIntro[348] = "처형이 멈춘 틈에 |cFF006B8F루키아|r를 안전한 곳으로 보내야 한다."
-        set ProtoEventIcon[348] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.tga"
+        set ProtoEventIcon[348] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.blp"
         set ProtoEventImageAspect[348] = 1.777778
         set ProtoEventRequired[348] = 0
         set ProtoEventRequiredChoice[348] = 0
@@ -21677,7 +21677,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[349] = 3
         set ProtoEventStory[349] = "|cFF006B8F루키아|r를 데리고 떠나는 |cFF006B8F렌지|r의 뒤에서 |cFF006B8F이치고|r와 |cFF006B8F뱌쿠야|r가 맞선다. 뱌쿠야는 귀족인 자신이 법을 어기면 누가 법을 지키겠느냐고 묻는다.|n|n뱌쿠야 — 귀족인 내가 법을 저버리면 누가 그것을 지키겠느냐."
         set ProtoEventIntro[349] = "|cFF006B8F루키아|r를 지키려는 |cFF006B8F이치고|r 앞에 뱌쿠야가 다시 선다."
-        set ProtoEventIcon[349] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[349] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[349] = 1.777778
         set ProtoEventRequired[349] = 0
         set ProtoEventRequiredChoice[349] = 0
@@ -21734,7 +21734,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[350] = 3
         set ProtoEventStory[350] = "정령정의 혼란을 조사하던 히츠가야는 명령을 내리는 최고 사법기관 중앙 사십육실의 구성원들이 |cFFA53528이미 전부 살해된 것을 발견한다.|r |cFF006B8F루키아|r의 처형을 재촉한 명령은 정상적인 기관에서 나온 것이 아니었다.|n|n히츠가야 — 사십육실이 이 지경이라면, 그 명령은 어디서 나온 거지?"
         set ProtoEventIntro[350] = "처형 명령을 내렸다는 기관 안에는 죽은 사람들만 있다."
-        set ProtoEventIcon[350] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[350] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[350] = 1.777778
         set ProtoEventRequired[350] = 0
         set ProtoEventRequiredChoice[350] = 0
@@ -21791,7 +21791,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[351] = 3
         set ProtoEventStory[351] = "|cFF006B8F아이젠|r 일행이 떠난 뒤 부상자들이 치료를 받는 동안, |cFF006B8F뱌쿠야|r는 |cFF006B8F루키아|r에게 가족의 |cFF80560C비밀|r을 말한다. 세상을 떠난 아내 히사나는 루키아의 친언니였다. 히사나는 어린 동생을 버린 일을 후회하며 찾고 있었고, 죽기 전 뱌쿠야에게 동생을 지켜 달라고 부탁했다.|n|n뱌쿠야 — 히사나가 마지막까지 찾던 동생이 너였다."
         set ProtoEventIntro[351] = "|cFF006B8F뱌쿠야|r가 숨겨 왔던 가족의 이야기를 꺼낸다."
-        set ProtoEventIcon[351] = "war3mapImported\\UI_EventThumb_Event_KRO_answer.tga"
+        set ProtoEventIcon[351] = "war3mapImported\\UI_EventThumb_Event_KRO_answer.blp"
         set ProtoEventImageAspect[351] = 1.777778
         set ProtoEventRequired[351] = 0
         set ProtoEventRequiredChoice[351] = 0
@@ -21848,7 +21848,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[352] = 4
         set ProtoEventStory[352] = "|cFF006B8F루키아|r의 처형이 취소되고 구출 일행은 현세로 돌아갈 준비를 한다. 사신 대장 우키타케는 |cFF006B8F이치고|r에게 사신대행증을 건넨다.|n|n우키타케 — 현세에서도 네가 맡은 일을 이어 가게 될 거다."
         set ProtoEventIntro[352] = "구출 일행이 현세로 돌아가기 전 마지막 인사를 나눈다."
-        set ProtoEventIcon[352] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.tga"
+        set ProtoEventIcon[352] = "war3mapImported\\UI_EventThumb_Card_BBO1_ichigo_Art.blp"
         set ProtoEventImageAspect[352] = 1.777778
         set ProtoEventRequired[352] = 0
         set ProtoEventRequiredChoice[352] = 0
@@ -21912,7 +21912,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[353] = 1
         set ProtoEventStory[353] = "처형대로 향하던 여정이 끝난 뒤 카라쿠라의 |cFF80560C기록|r을 다시 펼친다. 구하러 간 이름과 헤어질 때 들은 대답이 같은 사람의 말로 남아 있다.|n|n다음에 가져갈 것은 가장 강한 칼의 이름만이 아니다. 함께 건넜던 길에서 오래 남길 대목을 고른다."
         set ProtoEventIntro[353] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[353] = "war3mapImported\\UI_EventThumb_Event_KRO_memory.tga"
+        set ProtoEventIcon[353] = "war3mapImported\\UI_EventThumb_Event_KRO_memory.blp"
         set ProtoEventImageAspect[353] = 1.777778
         set ProtoEventRequired[353] = 0
         set ProtoEventRequiredChoice[353] = 0
@@ -21959,7 +21959,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[354] = 3
         set ProtoEventStory[354] = "|cFF006B8F루키아|r를 다시 붙잡은 |cFF006B8F아이젠|r은 처형의 진짜 목적을 밝힌다. 노린 것은 그녀 안에 숨겨진 붕옥, |cFF865500사신과 호로의 경계를 허무는 물건|r이다.|n|n이를 만든 |cFF006B8F우라하라|r는 파괴하지 못한 붕옥을 루키아에게 숨기고 영력을 약화시키는 의체를 주었다. 루키아는 그 사실을 몰랐고, 힘이 돌아오지 않던 일에도 이 사정이 얽혀 있었다.|n|n루키아 — 내 안에, 그런 것이 숨겨져 있었다고?"
         set ProtoEventIntro[354] = "|cFF006B8F아이젠|r이 |cFF006B8F루키아|r를 붙잡은 진짜 이유를 밝힌다."
-        set ProtoEventIcon[354] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.tga"
+        set ProtoEventIcon[354] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[354] = 1.777778
         set ProtoEventRequired[354] = 0
         set ProtoEventRequiredChoice[354] = 0
@@ -22026,7 +22026,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[37] = 1
         set ProtoEventStory[37] = "레버리 호텔의 초대를 받아 페나코니로 향한다. |cFF006B8F반디|r와 나눈 |cFF80560C약속|r, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
         set ProtoEventIntro[37] = "레버리 호텔의 초대를 받아 페나코니로 향한다. 반디와 나눈 약속, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
-        set ProtoEventIcon[37] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[37] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[37] = 1.777778
         set ProtoHeadEntryEvent[41] = 38
         set ProtoEventKey[38] = "penacony_entry_1"
@@ -22038,7 +22038,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[38] = 1
         set ProtoEventStory[38] = "레버리 호텔의 초대를 받아 페나코니로 향한다. |cFF006B8F반디|r와 나눈 |cFF80560C약속|r, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
         set ProtoEventIntro[38] = "레버리 호텔의 초대를 받아 페나코니로 향한다. 반디와 나눈 약속, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
-        set ProtoEventIcon[38] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[38] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[38] = 1.777778
         set ProtoHeadEntryEvent[42] = 39
         set ProtoEventKey[39] = "penacony_entry_2"
@@ -22050,7 +22050,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[39] = 1
         set ProtoEventStory[39] = "레버리 호텔의 초대를 받아 페나코니로 향한다. |cFF006B8F반디|r와 나눈 |cFF80560C약속|r, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
         set ProtoEventIntro[39] = "레버리 호텔의 초대를 받아 페나코니로 향한다. 반디와 나눈 약속, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
-        set ProtoEventIcon[39] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[39] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[39] = 1.777778
         set ProtoHeadEntryEvent[43] = 40
         set ProtoEventKey[40] = "penacony_entry_3"
@@ -22062,7 +22062,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[40] = 1
         set ProtoEventStory[40] = "레버리 호텔의 초대를 받아 페나코니로 향한다. |cFF006B8F반디|r와 나눈 |cFF80560C약속|r, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
         set ProtoEventIntro[40] = "레버리 호텔의 초대를 받아 페나코니로 향한다. 반디와 나눈 약속, |cFF006B8F미샤|r에게 이어진 개척의 기억을 따라 |cFF006B8F선데이|r의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다."
-        set ProtoEventIcon[40] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[40] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[40] = 1.777778
         set ProtoCardKey[643] = "hsr_misha"
         set ProtoCardName[643] = "미샤"
@@ -22824,7 +22824,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[355] = 1
         set ProtoEventStory[355] = "에이딘 공원의 슬롯머신 앞에서 코인을 쥔 손님들이 다음 차례를 기다린다. |cFF006B8F어벤츄린|r은 손에 남길 돈부터 정하라며 빈 기계 옆에 선다.|n|n옆줄에서는 쏟아진 코인이 통로까지 굴러 나와 사람들이 몰리고 있다. 너에게 말을 건 |cFF006B8F미샤|r는 줄이 바뀌기 전에 돌아갈 표식을 먼저 보자고 한다."
         set ProtoEventIntro[355] = "판돈을 정할지, |cFF006B8F어벤츄린|r의 준비를 살필지, 막힌 통로를 도울지 정한다."
-        set ProtoEventIcon[355] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.tga"
+        set ProtoEventIcon[355] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.blp"
         set ProtoEventImageAspect[355] = 1.777778
         set ProtoEventRequired[355] = 0
         set ProtoEventRequiredChoice[355] = 0
@@ -22871,7 +22871,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[356] = 1
         set ProtoEventStory[356] = "한 번의 놀이를 끝내고 코인을 정리하는데 스파클이 박수 소리를 흉내 낸다. 같은 얼굴을 따라온 손님들이 출구를 막자 갤러거가 놀이가 끝난 사람부터 밖으로 안내한다.|n|n|cFF006B8F블랙 스완|r은 떠난 사람과 아직 같은 박수를 따라오는 사람의 |cFF80560C기억|r을 나눠 듣는다."
         set ProtoEventIntro[356] = "당첨 뒤 모인 손님 사이에서 누구와 출구를 정리할지 고른다."
-        set ProtoEventIcon[356] = "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.tga"
+        set ProtoEventIcon[356] = "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.blp"
         set ProtoEventImageAspect[356] = 1.777778
         set ProtoEventRequired[356] = 355
         set ProtoEventRequiredChoice[356] = 1
@@ -22918,7 +22918,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[357] = 1
         set ProtoEventStory[357] = "당첨되지 않은 회전판의 그림이 자꾸 떠오른다. |cFF006B8F블랙 스완|r은 |cFF80560C기억|r 속 손이 언제 멈칫했는지 함께 살피자고 한다.|n|n갤러거는 또 돌리러 가기 전에 돌아갈 길부터 정하라고 권한다.|n|n|cFF006B8F미샤|r는 너에게 다음 놀이가 아닌 |cFF704261다음 귀환 이야기|r부터 들려 달라고 한다."
         set ProtoEventIntro[357] = "틀린 그림을 다시 돌리는 대신 남은 준비를 정한다."
-        set ProtoEventIcon[357] = "war3mapImported\\UI_EventThumb_Card_HSR_1307_Art.tga"
+        set ProtoEventIcon[357] = "war3mapImported\\UI_EventThumb_Card_HSR_1307_Art.blp"
         set ProtoEventImageAspect[357] = 1.777778
         set ProtoEventRequired[357] = 355
         set ProtoEventRequiredChoice[357] = -1
@@ -22965,7 +22965,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[358] = 1
         set ProtoEventStory[358] = "코인을 모은 자루는 통로 밖으로 옮겼지만 몰려든 사람들은 다른 쪽 출구로 흩어졌다. |cFF006B8F미샤|r는 호텔로 돌아갈 길에서 강한 흔적이 남은 방향을 짚고, |cFF006B8F어벤츄린|r은 남은 준비물을 빽빽한 길과 나눠 쓰지 말자고 한다.|n|n스파클은 같은 줄에서 다시 시작할 이유가 있냐며 박수의 방향을 바꾼다."
         set ProtoEventIntro[358] = "정리한 통로 끝에서 다음 길의 준비를 고른다."
-        set ProtoEventIcon[358] = "war3mapImported\\UI_EventThumb_Card_Misha.tga"
+        set ProtoEventIcon[358] = "war3mapImported\\UI_EventThumb_Card_Misha.blp"
         set ProtoEventImageAspect[358] = 1.777778
         set ProtoEventRequired[358] = 355
         set ProtoEventRequiredChoice[358] = 3
@@ -23012,7 +23012,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[359] = 1
         set ProtoEventStory[359] = "커다란 솔글래드 광고 아래에서 음료를 받은 손님들이 서로 다른 방향을 가리킨다. 갤러거는 유난히 같은 말만 반복하는 사람을 경계하고, |cFF006B8F미샤|r는 광고에 가려진 호텔 쪽 안내를 짚는다.|n|n쉬지 않고 손님을 모으는 안내대에는 돌아갈 사람의 짐도 쌓여 있다."
         set ProtoEventIntro[359] = "환한 음료 광고 아래의 손님과 귀환 준비를 살핀다."
-        set ProtoEventIcon[359] = "war3mapImported\\UI_EventThumb_Card_HSR_1301_Art.tga"
+        set ProtoEventIcon[359] = "war3mapImported\\UI_EventThumb_Card_HSR_1301_Art.blp"
         set ProtoEventImageAspect[359] = 1.777778
         set ProtoEventRequired[359] = 0
         set ProtoEventRequiredChoice[359] = 0
@@ -23059,7 +23059,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[360] = 1
         set ProtoEventStory[360] = "무대 앞에서 같은 안내인이 한 번은 오른쪽을, 다음에는 왼쪽을 가리킨다. 스파클은 어느 쪽 얼굴을 믿느냐고 되묻고, |cFF006B8F블랙 스완|r은 두 안내를 들었을 때의 |cFF80560C기억|r을 따로 살펴보자고 한다."
         set ProtoEventIntro[360] = "스파클의 연극에 맞출지, 들었던 안내를 |cFF80560C기억|r으로 대조할지 정한다."
-        set ProtoEventIcon[360] = "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.tga"
+        set ProtoEventIcon[360] = "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.blp"
         set ProtoEventImageAspect[360] = 1.777778
         set ProtoEventRequired[360] = 0
         set ProtoEventRequiredChoice[360] = 0
@@ -23106,7 +23106,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[361] = 1
         set ProtoEventStory[361] = "서로 달랐던 안내를 |cFF80560C기억|r과 대조한 뒤, 사람들의 걸음이 꺾이는 자리를 찾았다. |cFF006B8F어벤츄린|r은 그 좁은 자리를 그대로 통과하지 말자고 하고, 갤러거는 남아 있는 경비 안내를 다시 확인한다.|n|n|cFF006B8F아케론|r은 아직 지나지 않은 좁은 자리 앞에서 |cFF80560C검|r을 뽑기보다 간격을 남긴다."
         set ProtoEventIntro[361] = "찾아낸 출구의 빈틈을 안전한 준비로 바꾼다."
-        set ProtoEventIcon[361] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.tga"
+        set ProtoEventIcon[361] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.blp"
         set ProtoEventImageAspect[361] = 1.777778
         set ProtoEventRequired[361] = 360
         set ProtoEventRequiredChoice[361] = 2
@@ -23153,7 +23153,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[362] = 1
         set ProtoEventStory[362] = "뛰어다니는 광고판을 따라가자 같은 가게 앞을 다시 지나쳤다. |cFF006B8F미샤|r는 호텔 입구의 시계판이 있는 쪽을 짚고, |cFF006B8F블랙 스완|r은 방금 본 간판과 |cFF80560C기억|r 속 간판의 차이를 찾는다."
         set ProtoEventIntro[362] = "움직이는 광고판과 실제 귀환길을 구분한다."
-        set ProtoEventIcon[362] = "war3mapImported\\UI_EventThumb_Card_Misha.tga"
+        set ProtoEventIcon[362] = "war3mapImported\\UI_EventThumb_Card_Misha.blp"
         set ProtoEventImageAspect[362] = 1.777778
         set ProtoEventRequired[362] = 0
         set ProtoEventRequiredChoice[362] = 0
@@ -23200,7 +23200,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[363] = 1
         set ProtoEventStory[363] = "황금의 순간의 머니 머신에서 쏟아진 지폐를 따라가던 손님들이 서로 다른 골목으로 흩어진다. |cFF006B8F어벤츄린|r은 돈이 나오는 것과 쫓아가서 챙길 수 있는 것은 다르다며 네가 얼마를 걸지 묻는다.|n|n너는 작은 판돈을 걸어 먼 쪽까지 따라가거나 눈앞에서 받은 몫만 챙길 수 있다."
         set ProtoEventIntro[363] = "눈앞의 몫으로 멈출지 더 먼 돈을 쫓을지 정한다."
-        set ProtoEventIcon[363] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.tga"
+        set ProtoEventIcon[363] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.blp"
         set ProtoEventImageAspect[363] = 1.777778
         set ProtoEventRequired[363] = 0
         set ProtoEventRequiredChoice[363] = 0
@@ -23247,7 +23247,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[364] = 1
         set ProtoEventStory[364] = "꿈속 황금의 순간에서 아이스크림을 잡으려 손을 뻗을 때마다 바로 앞의 빈 자리가 눈에 들어온다. 너에게만 말을 건 |cFF006B8F미샤|r는 다른 별에서도 이런 간식을 먹는지 묻다가 네가 먼저 내디딘 발을 본다.|n|n넌 급히 손을 뻗을지 발을 둘 자리부터 살필지 정한다.|n|n곁을 지나던 |cFF006B8F반디|r는 간식을 잡는 사진보다 그곳에서 보이는 풍경을 가리킨다."
         set ProtoEventIntro[364] = "방문 행동력 없이 한 번 더 간식 앞의 발자리를 살핀다."
-        set ProtoEventIcon[364] = "war3mapImported\\UI_EventThumb_Card_Misha.tga"
+        set ProtoEventIcon[364] = "war3mapImported\\UI_EventThumb_Card_Misha.blp"
         set ProtoEventImageAspect[364] = 1.777778
         set ProtoEventRequired[364] = 0
         set ProtoEventRequiredChoice[364] = 0
@@ -23294,7 +23294,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[365] = 1
         set ProtoEventStory[365] = "|cFF865500꿈 건축 경계의 막힌 입구|r에서 꿈 건축가가 꿈의 눈으로 이어 보이는 길의 도면만 보여 준다. |cFF006B8F아케론|r은 장검을 든 채 그림의 연결 부분과 실제 발을 둘 간격이 같은지 묻는다.|n|n외부인인 너는 공사장으로 들어가는 대신 도면 밖의 통로에서 그 간격을 확인해야 한다.|n|n네가 바깥 통로에서 돌아올 때 |cFF006B8F블랙 스완|r은 그림에서 본 길과 실제로 본 길을 따로 듣는다."
         set ProtoEventIntro[365] = "이어 보이는 도면과 실제 통로를 어떻게 대조할까?"
-        set ProtoEventIcon[365] = "war3mapImported\\UI_EventThumb_Card_HSR_1308_Art.tga"
+        set ProtoEventIcon[365] = "war3mapImported\\UI_EventThumb_Card_HSR_1308_Art.blp"
         set ProtoEventImageAspect[365] = 1.777778
         set ProtoEventRequired[365] = 0
         set ProtoEventRequiredChoice[365] = 0
@@ -23341,7 +23341,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[366] = 1
         set ProtoEventStory[366] = "클락 스튜디오 테마파크의 촬영 체험에서 끝났다는 표시 뒤에도 한 배우가 다른 역을 이어 간다. 스파클은 지금 웃는 사람이 누구의 편인지부터 물으며 아직 남은 장면이 있다고 한다.|n|n촬영 안내인은 다음 체험 손님이 기다린다며 네가 마칠 장면을 정해 달라고 한다.|n|n|cFF006B8F블랙 스완|r은 끝났다는 표시와 아직 이어진 장면을 같은 |cFF80560C기억|r으로 적지 말자고 한다."
         set ProtoEventIntro[366] = "끝났다는 표시 뒤에도 역을 이어 갈지 정한다."
-        set ProtoEventIcon[366] = "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.tga"
+        set ProtoEventIcon[366] = "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.blp"
         set ProtoEventImageAspect[366] = 1.777778
         set ProtoEventRequired[366] = 0
         set ProtoEventRequiredChoice[366] = 0
@@ -23388,7 +23388,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[367] = 1
         set ProtoEventStory[367] = "꿈세계 몬스터들을 위한 바에서 잔을 내민 손님이 단맛이 싫다고 뒤늦게 말한다. 음료를 살피던 갤러거는 손님을 예의 있게 대하면서도 왜 처음에는 다른 주문을 했는지 다시 묻는다.|n|n너는 새 잔을 마련할지 손님 말을 먼저 들을지 다른 주문을 맡을지 정한다."
         set ProtoEventIntro[367] = "손님이 뒤늦게 바꾼 주문부터 다시 묻는다."
-        set ProtoEventIcon[367] = "war3mapImported\\UI_EventThumb_Card_HSR_1301_Art.tga"
+        set ProtoEventIcon[367] = "war3mapImported\\UI_EventThumb_Card_HSR_1301_Art.blp"
         set ProtoEventImageAspect[367] = 1.777778
         set ProtoEventRequired[367] = 0
         set ProtoEventRequiredChoice[367] = 0
@@ -23435,7 +23435,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[368] = 1
         set ProtoEventStory[368] = "제이드는 네가 골라 온 물건보다 그것을 고른 이유를 오래 듣는다. 너는 골드만 내면 끝나는 거래인지 묻지만 제이드는 더 큰 수입을 고르면 앞으로의 움직임도 무거워질 수 있다고 한다.|n|n값과 남을 부담을 모두 읽고 거래할지 지금 가진 몫으로 돌아갈지 정한다.|n|n|cFF006B8F블랙 스완|r은 네가 들은 조건과 아직 답하지 않은 조건을 따로 듣는다."
         set ProtoEventIntro[368] = "골드와 거래 뒤에 남을 부담을 함께 읽는다."
-        set ProtoEventIcon[368] = "war3mapImported\\UI_EventThumb_Card_HSR_1314_Art.tga"
+        set ProtoEventIcon[368] = "war3mapImported\\UI_EventThumb_Card_HSR_1314_Art.blp"
         set ProtoEventImageAspect[368] = 1.777778
         set ProtoEventRequired[368] = 0
         set ProtoEventRequiredChoice[368] = 0
@@ -23482,7 +23482,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[369] = 1
         set ProtoEventStory[369] = "대극장의 사전 공연 안내 자리에서 네 앞의 관객들이 |cFF006B8F로빈|r의 이름을 번갈아 외쳐 뒤쪽 사람은 시작 안내를 듣지 못한다. 로빈은 아직 노래를 시작하지 않고 뒤편에서도 안내가 들렸는지 묻는다.|n|n너는 함께 이름을 외치려던 친구에게 기다릴 이유를 말할지, 다른 자리에서 듣도록 도울지 정한다.|n|n갤러거는 돌아갈 관객의 보급을 아직 시작하지 않은 공연과 나누려 한다."
         set ProtoEventIntro[369] = "이름을 부르는 친구와 안내를 듣지 못한 관객 사이에서 맡을 일을 정한다."
-        set ProtoEventIcon[369] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.tga"
+        set ProtoEventIcon[369] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.blp"
         set ProtoEventImageAspect[369] = 1.777778
         set ProtoEventRequired[369] = 0
         set ProtoEventRequiredChoice[369] = 0
@@ -23529,7 +23529,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[370] = 1
         set ProtoEventStory[370] = "솔글래드 후원 오디션 참가자가 소개를 연습하고 있지만, 광고 문구는 끝까지 읽고도 정작 자기 이름은 말하지 못해 당황한다. 옆을 지나던 |cFF006B8F로빈|r이 네가 내민 소개지에서 이름이 어디에 있는지 묻자 참가자는 빈 여백을 가리킨다.|n|n너는 이름을 다시 적을 준비를 도울지, 순서를 바꾸지 않고 들릴 위치를 찾을지 정한다.|n|n스파클은 광고 속 주인공의 이름과 참가자의 이름이 같은지 되묻는다."
         set ProtoEventIntro[370] = "광고를 읽은 참가자가 자기 이름도 말할 수 있게 어떤 도움을 줄까?"
-        set ProtoEventIcon[370] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.tga"
+        set ProtoEventIcon[370] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.blp"
         set ProtoEventImageAspect[370] = 1.777778
         set ProtoEventRequired[370] = 0
         set ProtoEventRequiredChoice[370] = 0
@@ -23576,7 +23576,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[371] = 1
         set ProtoEventStory[371] = "한 관광객이 IPC 광고 앞에서 부트힐의 기념사진을 찍어 달라며 네게 카메라를 건넨다. 부트힐은 광고의 로고가 자기 뒤에 들어오는 것을 보고 그 사진을 누가 어떤 의도로 보게 될지 먼저 묻는다.|n|n관광객은 멋진 사이보그를 남기고 싶었을 뿐이라며 광고를 빼면 어떤 말을 붙여야 할지 되묻는다."
         set ProtoEventIntro[371] = "멋진 사진과 그 사진을 본 사람이 이해할 뜻은 같을까?"
-        set ProtoEventIcon[371] = "war3mapImported\\UI_EventThumb_Card_HSR_1315_Art.tga"
+        set ProtoEventIcon[371] = "war3mapImported\\UI_EventThumb_Card_HSR_1315_Art.blp"
         set ProtoEventImageAspect[371] = 1.777778
         set ProtoEventRequired[371] = 0
         set ProtoEventRequiredChoice[371] = 0
@@ -23623,7 +23623,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[372] = 1
         set ProtoEventStory[372] = "꿈속 관광 안내 자리에서 여행자가 |cFF006B8F반디|r에게 SAM의 모습을 보여 달라고 부탁한다. 반디는 바로 답하지 않고 네가 펼친 풍경 안내의 한쪽을 보고 있는데 여행자는 갑옷 사진이 없으면 무엇을 보러 가냐고 묻는다.|n|n너는 반디에게 보고 싶은 풍경을 물을지, 안내만 전달하고 다른 준비를 할지 정한다.|n|n너에게 말을 건 |cFF006B8F미샤|r는 남이 고른 사진 대신 듣고 싶은 여행 이야기를 묻는다."
         set ProtoEventIntro[372] = "갑옷을 기다리는 사람 곁에서 |cFF006B8F반디|r에게 먼저 무엇을 물을까?"
-        set ProtoEventIcon[372] = "war3mapImported\\UI_EventThumb_Card_HSR_1310_Icon.tga"
+        set ProtoEventIcon[372] = "war3mapImported\\UI_EventThumb_Card_HSR_1310_Icon.blp"
         set ProtoEventImageAspect[372] = 1.777778
         set ProtoEventRequired[372] = 0
         set ProtoEventRequiredChoice[372] = 0
@@ -23670,7 +23670,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[373] = 1
         set ProtoEventStory[373] = "참가자가 첫 소개를 마친 뒤 이름을 적은 안내지에 준비를 도운 네 자리까지 출연석으로 표시되었다. 다음 손님은 그 표시를 보고 네게 공연을 부탁한다.|n|n|cFF006B8F로빈|r은 누가 소개를 준비했고 누가 이름을 말했는지 다시 구분하자고 한다.|n|n갤러거는 네가 돌아갈 몫까지 관객 자리의 짐으로 쓰지 말라고 한다."
         set ProtoEventIntro[373] = "도움을 준 자리와 무대에 설 자리가 함께 표시되었다."
-        set ProtoEventIcon[373] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.tga"
+        set ProtoEventIcon[373] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.blp"
         set ProtoEventImageAspect[373] = 1.777778
         set ProtoEventRequired[373] = 370
         set ProtoEventRequiredChoice[373] = 1
@@ -23717,7 +23717,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[374] = 1
         set ProtoEventStory[374] = "광고가 빠진 사진을 넘긴 뒤 관광객이 붙인 설명에는 IPC의 수호자라는 말이 적혀 있다. 부트힐은 배경만 바꾸면 같은 뜻도 바뀌는 줄 알았냐며 네가 앞서 적은 이유를 보여 준다.|n|n관광객은 사진은 마음에 든다며 설명만 어디부터 고칠지 묻는다.|n|n|cFF006B8F블랙 스완|r은 네가 왜 배경을 바꿨는지 |cFF80560C기억|r부터 들려 달라고 한다."
         set ProtoEventIntro[374] = "광고를 뺀 사진에 반대 뜻의 설명이 붙었다."
-        set ProtoEventIcon[374] = "war3mapImported\\UI_EventThumb_Card_HSR_1315_Art.tga"
+        set ProtoEventIcon[374] = "war3mapImported\\UI_EventThumb_Card_HSR_1315_Art.blp"
         set ProtoEventImageAspect[374] = 1.777778
         set ProtoEventRequired[374] = 371
         set ProtoEventRequiredChoice[374] = 1
@@ -23764,7 +23764,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[375] = 1
         set ProtoEventStory[375] = "전에 꿈속에서 길을 함께 살폈던 |cFF006B8F미샤|r가 네게 새 안내지를 보여 준다. 지난 귀환 표시 옆에는 다음 여행의 이야기를 적을 여백이 남아 있다.|n|n갤러거는 지금 쓸 보급부터 나누고 |cFF006B8F블랙 스완|r은 전에 본 길과 이번에 들은 길이 같은지 묻는다.|n|n미샤는 아직 떠나지 않은 길을 벌써 끝난 이야기로 적지 않으려 한다."
         set ProtoEventIntro[375] = "익힌 귀환 준비로 이번과 다음에 맡을 몫을 나눈다."
-        set ProtoEventIcon[375] = "war3mapImported\\UI_EventThumb_Card_Misha.tga"
+        set ProtoEventIcon[375] = "war3mapImported\\UI_EventThumb_Card_Misha.blp"
         set ProtoEventImageAspect[375] = 1.777778
         set ProtoEventRequired[375] = 0
         set ProtoEventRequiredChoice[375] = 0
@@ -23811,7 +23811,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[376] = 1
         set ProtoEventStory[376] = "다른 방문에서 뒤편의 안내를 함께 들었던 너를 |cFF006B8F로빈|r이 알아본다. 이번 안내지에는 앞줄에서 이름을 외칠 자리만 표시되어 뒤편의 친구는 어디서 기다려야 할지 묻는다.|n|n|cFF006B8F반디|r는 멀리서 보는 풍경도 괜찮다며 다른 자리를 살피고 갤러거는 돌아갈 관객의 보급을 나눈다.|n|n아직 노래가 시작되지 않았는데 모두 들었다고 답할 수는 없다."
         set ProtoEventIntro[376] = "전에 먼저 들었던 |cFF80560C기억|r으로 새 관객의 기다릴 자리를 고른다."
-        set ProtoEventIcon[376] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.tga"
+        set ProtoEventIcon[376] = "war3mapImported\\UI_EventThumb_Card_HSR_1309_Art.blp"
         set ProtoEventImageAspect[376] = 1.777778
         set ProtoEventRequired[376] = 0
         set ProtoEventRequiredChoice[376] = 0
@@ -23858,7 +23858,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[377] = 1
         set ProtoEventStory[377] = "화합의 축제 초대를 받은 |cFF865500은하열차|r가 페나코니에 도착한다. 이곳을 다스리는 패밀리는 손님들에게 고통을 잊을 수 있는 |cFF865500안전한 꿈|r을 약속한다.|n|n가수 로빈과 그녀의 오빠 |cFF006B8F선데이|r가 맞이하는 호텔은 축제를 기다리는 사람들로 북적인다.|n|n객실로 향하던 당신 앞에 소년 직원이 멈춰 선다. 명찰에는 ‘미샤’라고 적혀 있다. 소년은 |cFF865500입몽 장치|r가 처음인지 물으며 안내를 기다린다."
         set ProtoEventIntro[377] = "낯선 호텔에서 작은 안내인이 말을 건넨다."
-        set ProtoEventIcon[377] = "war3mapImported\\UI_EventThumb_Card_Misha.tga"
+        set ProtoEventIcon[377] = "war3mapImported\\UI_EventThumb_Card_Misha.blp"
         set ProtoEventImageAspect[377] = 1.777778
         set ProtoEventRequired[377] = 0
         set ProtoEventRequiredChoice[377] = 0
@@ -23908,7 +23908,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[378] = 1
         set ProtoEventStory[378] = "황금빛 거리를 구경하던 당신 앞으로 한 소녀가 급히 걸어온다. 뒤따르는 사람들을 돌아보던 소녀는 군중 사이에서 걸음을 멈춘다. 주변의 시선까지 몰리자 말을 꺼내려던 입술이 굳는다.|n|n누가 어떤 사정으로 쫓기는지 아직 알 수 없다. 하지만 눈앞의 소녀가 혼자 상황을 설명하기 어려워한다는 것은 보인다.|n|n당신이 다가서자 소녀가 조심스럽게 고개를 든다."
         set ProtoEventIntro[378] = "쫓기던 소녀와 당신의 시선이 마주친다."
-        set ProtoEventIcon[378] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[378] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[378] = 1.777778
         set ProtoEventRequired[378] = 0
         set ProtoEventRequiredChoice[378] = 0
@@ -23958,7 +23958,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[379] = 1
         set ProtoEventStory[379] = "|cFF006B8F반디|r를 따라 오른 드림 보더에서는 |cFF80560C꿈|r의 |cFF80560C도시|r가 한눈에 보인다. 먹거리를 고르며 웃던 반디가 난간 앞에서는 조금 조용해진다. 반디는 이곳에서 보낸 하루가 자신에게 특별하다고 말하다가 멈춘다.|n|n잠시 망설인 그녀가 당신을 돌아본다.|n|n함께 걸어 준 당신에게, 아직 하지 못한 이야기가 있는 듯하다."
         set ProtoEventIntro[379] = "|cFF006B8F반디|r가 풍경에서 눈을 떼고 무언가 말하려 한다."
-        set ProtoEventIcon[379] = "war3mapImported\\UI_EventThumb_Card_HSR_1310_Icon.tga"
+        set ProtoEventIcon[379] = "war3mapImported\\UI_EventThumb_Card_HSR_1310_Icon.blp"
         set ProtoEventImageAspect[379] = 1.777778
         set ProtoEventRequired[379] = 0
         set ProtoEventRequiredChoice[379] = 0
@@ -24008,7 +24008,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[380] = 2
         set ProtoEventStory[380] = "호텔로 돌아가던 길, 삼포의 얼굴을 한 인물이 두 사람을 막아선다. 익숙한 얼굴과 어울리지 않는 말투. 타인의 모습을 빌리는 가면의 우인 스파클은 패밀리의 비밀을 들먹이더니 당신과 |cFF006B8F반디|r를 위험한 꿈으로 밀어 넣는다.|n|n관광객의 웃음 대신 |cFFA53528괴물의 기척이 다가온다|r. 그때 낯선 여인이 모습을 드러내고, 자신을 |cFF006B8F블랙 스완|r이라고 소개한다.|n|n|cFF80560C기억|r을 다루는 그녀가 이곳에서 벗어나도록 돕겠다며 손을 내민다."
         set ProtoEventIntro[380] = "괴물들이 다가오는 꿈속에서 낯선 손이 내밀어진다."
-        set ProtoEventIcon[380] = "war3mapImported\\UI_EventThumb_Card_HSR_1307_Art.tga"
+        set ProtoEventIcon[380] = "war3mapImported\\UI_EventThumb_Card_HSR_1307_Art.blp"
         set ProtoEventImageAspect[380] = 1.777778
         set ProtoEventRequired[380] = 0
         set ProtoEventRequiredChoice[380] = 0
@@ -24058,7 +24058,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[381] = 2
         set ProtoEventStory[381] = "다시 입몽한 당신은 |cFF006B8F블랙 스완|r과 꿈속 호텔을 조사한다. 도중에 만난 검객 |cFF006B8F아케론|r과 로비로 향하던 중, 마침내 |cFF006B8F반디|r를 발견한다. 인사를 건넬 틈도 없이 |cFFA53528죽음을 닮은 괴물이 반디를 찌른다|r.|n|n뻗은 손이 닿기도 전에 그녀의 모습이 사라진다. ‘꿈에서는 누구도 죽지 않는다’던 설명과 눈앞의 광경이 어긋난다.|n|n블랙 스완이 당신 곁에 멈춰 선다. 아직 반디에게 무슨 일이 일어났는지 알 수 없다."
         set ProtoEventIntro[381] = "|cFF006B8F반디|r가 사라진 자리에서 아직 움직이지 못한다."
-        set ProtoEventIcon[381] = "war3mapImported\\UI_EventThumb_Card_HSR_1310_Icon.tga"
+        set ProtoEventIcon[381] = "war3mapImported\\UI_EventThumb_Card_HSR_1310_Icon.blp"
         set ProtoEventImageAspect[381] = 1.777778
         set ProtoEventRequired[381] = 0
         set ProtoEventRequiredChoice[381] = 0
@@ -24108,7 +24108,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[382] = 2
         set ProtoEventStory[382] = "|cFF80560C기억|r의 잔상을 따라간 끝에 불길을 두른 갑주가 나타난다. 스텔라론 헌터의 일원으로 알려진 전사, 샘이다. |cFF006B8F반디|r의 흔적이 이곳으로 이어졌다는 사실만으로 그의 목적까지 알 수는 없다.|n|n대치가 격해지자 |cFF006B8F아케론|r이 앞을 막아선다. 그사이 |cFF006B8F블랙 스완|r이 당신에게 다가와, 이 일을 더 알아볼 수 있는 상대가 있다며 빠져나갈 길을 가리킨다.|n|n지금 그녀를 따라갈지 판단해야 한다."
         set ProtoEventIntro[382] = "샘과 |cFF006B8F아케론|r이 대치하는 사이, |cFF006B8F블랙 스완|r이 길을 가리킨다."
-        set ProtoEventIcon[382] = "war3mapImported\\UI_EventThumb_Card_HSR_1307_Art.tga"
+        set ProtoEventIcon[382] = "war3mapImported\\UI_EventThumb_Card_HSR_1307_Art.blp"
         set ProtoEventImageAspect[382] = 1.777778
         set ProtoEventRequired[382] = 0
         set ProtoEventRequiredChoice[382] = 0
@@ -24158,7 +24158,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[383] = 2
         set ProtoEventStory[383] = "|cFF006B8F어벤츄린|r은 패밀리의 |cFF80560C약속|r이 무너지면 컴퍼니가 개입할 명분을 얻는다고 설명한다. 과거 페나코니를 지배했던 기업의 이해관계와 실종자를 찾는 당신의 목적은 같지 않다. |cFF006B8F선데이|r의 압박을 받은 어벤츄린도 말만으로는 진실에 다가가기 어렵다고 여긴다.|n|n그는 더 큰 판을 준비했다며 당신을 바라본다.|n|n도움을 받기 전에, 이 협상가가 어디까지 걸 생각인지 물을 기회다."
         set ProtoEventIntro[383] = "|cFF006B8F어벤츄린|r의 제안에는 아직 말하지 않은 대가가 있다."
-        set ProtoEventIcon[383] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.tga"
+        set ProtoEventIcon[383] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.blp"
         set ProtoEventImageAspect[383] = 1.777778
         set ProtoEventRequired[383] = 0
         set ProtoEventRequiredChoice[383] = 0
@@ -24208,7 +24208,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[384] = 2
         set ProtoEventStory[384] = "시계 스튜디오에서 |cFF006B8F어벤츄린|r은 힘을 해방하고 열차 일행을 공격한다. |cFFA53528협상을 기대했던 무대는 전장이 된다|r. 동료들이 밀려도 그는 멈추지 않고, |cFF006B8F아케론|r이 서 있는 쪽까지 압박을 이어 간다.|n|n이대로라면 누군가 쓰러진다. 그런데 어벤츄린의 시선은 승리를 확신하는 사람보다, 어떤 반응을 기다리는 사람에 가깝다.|n|n당신은 동료들 곁에서 다시 자세를 잡는다."
         set ProtoEventIntro[384] = "|cFF006B8F어벤츄린|r은 물러서지 않고 동료들을 압박한다."
-        set ProtoEventIcon[384] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.tga"
+        set ProtoEventIcon[384] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.blp"
         set ProtoEventImageAspect[384] = 1.777778
         set ProtoEventRequired[384] = 0
         set ProtoEventRequiredChoice[384] = 0
@@ -24258,7 +24258,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[385] = 2
         set ProtoEventStory[385] = "정신을 차린 당신은 눈앞의 샘을 바라본다. |cFF006B8F반디|r의 흔적 끝에서 맞섰던 갑주가 이번에는 당신을 구했다. 경계해야 할 상대인지, 사라진 사람에게 닿을 단서인지 판단하기 어렵다.|n|n샘은 당장 싸울 뜻이 없다는 듯 멈춰 선다. 왜 당신을 도왔는지, 자신이 무엇을 말하려 했는지 이제 설명하겠다고 한다.|n|n당신에게는 묻지 못한 말이 남아 있다."
         set ProtoEventIntro[385] = "당신을 구한 샘이 설명할 기회를 청한다."
-        set ProtoEventIcon[385] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[385] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[385] = 1.777778
         set ProtoEventRequired[385] = 0
         set ProtoEventRequiredChoice[385] = 0
@@ -24308,7 +24308,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[386] = 2
         set ProtoEventStory[386] = "|cFF80560C꿈|r이 흐르는 암초에 도착한 당신은 |cFF006B8F로빈|r을 발견한다. 죽은 듯 발견되었다던 그녀가 눈앞에 살아 있다. 화려한 관광 구역과 다른 풍경 속에서, 지금까지의 설명을 다시 맞춰 봐야 한다.|n|n로빈 곁에 있던 패밀리 경비원 갤러거가 다가온다.|n|n그는 괴물과 실종, 그리고 이곳으로 이어진 길에 관해 할 이야기가 있다며 당신의 질문을 기다린다."
         set ProtoEventIntro[386] = "죽은 줄 알았던 |cFF006B8F로빈|r 곁에 갤러거가 서 있다."
-        set ProtoEventIcon[386] = "war3mapImported\\UI_EventThumb_Event_PEO_reef.tga"
+        set ProtoEventIcon[386] = "war3mapImported\\UI_EventThumb_Event_PEO_reef.blp"
         set ProtoEventImageAspect[386] = 1.777778
         set ProtoEventRequired[386] = 0
         set ProtoEventRequiredChoice[386] = 0
@@ -24358,7 +24358,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[387] = 3
         set ProtoEventStory[387] = "|cFF865500시계공|r의 흔적을 좇던 일행을 |cFF006B8F미샤|r가 |cFF80560C기억|r의 공간으로 안내한다. 호텔에서 만났던 소년은 이곳의 오래된 풍경을 낯설어하지 않는다. 미샤는 앞에 남은 기억을 바라보다가 당신에게 돌아선다.|n|n자신이 전하고 싶은 이야기가 아직 있다며, 마지막까지 함께 봐 주겠느냐고 묻는다.|n|n그 이야기가 끝나면 무엇이 기다리는지는 아직 알 수 없다."
         set ProtoEventIntro[387] = "|cFF006B8F미샤|r가 마지막으로 함께 봐 달라는 |cFF80560C기억|r이 있다."
-        set ProtoEventIcon[387] = "war3mapImported\\UI_EventThumb_Card_Misha.tga"
+        set ProtoEventIcon[387] = "war3mapImported\\UI_EventThumb_Card_Misha.blp"
         set ProtoEventImageAspect[387] = 1.777778
         set ProtoEventRequired[387] = 0
         set ProtoEventRequiredChoice[387] = 0
@@ -24408,7 +24408,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[388] = 3
         set ProtoEventStory[388] = "|cFF006B8F로빈|r과 열차 동료 웰트가 스텔라론 문제로 패밀리의 실권자 ‘|cFF865500꿈의 주인|r’과 협상을 시도하지만, |cFF006B8F선데이|r가 가로막는다. 그는 축제와 스텔라론의 힘으로 모두를 고통 없는 영원한 꿈에 머물게 하겠다고 밝힌다. 약자가 불행에 내몰리지 않도록 자신이 보호하겠다는 것이다.|n|n화합의 축제가 한 뜻으로 모두를 묶는 질서에 쓰이려 한다.|n|n선데이는 그보다 나은 답이 있느냐며 일행을 바라본다."
         set ProtoEventIntro[388] = "|cFF006B8F선데이|r가 |cFF80560C약속|r하는 낙원에는 떠날 자유가 없다."
-        set ProtoEventIcon[388] = "war3mapImported\\UI_EventThumb_Card_HSR_1313_Art.tga"
+        set ProtoEventIcon[388] = "war3mapImported\\UI_EventThumb_Card_HSR_1313_Art.blp"
         set ProtoEventImageAspect[388] = 1.777778
         set ProtoEventRequired[388] = 0
         set ProtoEventRequiredChoice[388] = 0
@@ -24458,7 +24458,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[389] = 3
         set ProtoEventStory[389] = "축제의 예선을 지나 대극장에 도착한 일행은 |cFF006B8F선데이|r와 맞선다. |cFF006B8F반디|r는 |cFF80560C꿈|r 밖에서 도울 방법을 찾으러 따로 움직이고, 남은 동료들이 무대를 지킨다. |cFFA53528선데이의 거대한 합창이 일행을 짓누른다|r.|n|n그의 통제를 거부한 말만으로 이 힘을 막을 수는 없다.|n|n한 차례 공격을 버틴 당신은 숨을 고르고, 여전히 곁에 선 동료들을 바라본다."
         set ProtoEventIntro[389] = "|cFF006B8F선데이|r의 합창 앞에서 일행의 발이 밀린다."
-        set ProtoEventIcon[389] = "war3mapImported\\UI_EventThumb_Event_PEO_sunday.tga"
+        set ProtoEventIcon[389] = "war3mapImported\\UI_EventThumb_Event_PEO_sunday.blp"
         set ProtoEventImageAspect[389] = 1.777778
         set ProtoEventRequired[389] = 0
         set ProtoEventRequiredChoice[389] = 0
@@ -24508,7 +24508,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[390] = 3
         set ProtoEventStory[390] = "떠날 준비를 하던 당신에게 |cFF006B8F블랙 스완|r이 첫날의 |cFF80560C기억|r을 묻는다. 누구를 만났고, 어디에서 처음 말을 나눴는지. 지나간 여행을 확인하는 질문 같지만 그녀의 표정은 진지하다.|n|n블랙 스완은 지금까지 알아낸 사실과 처음의 기억 사이에 맞지 않는 부분이 있다고 말한다. 무엇이 어긋났는지는 아직 짚어 주지 않는다.|n|n당신은 잠시 출발 준비를 멈춘다."
         set ProtoEventIntro[390] = "|cFF006B8F블랙 스완|r은 승리가 아니라 여행의 시작을 묻는다."
-        set ProtoEventIcon[390] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[390] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[390] = 1.777778
         set ProtoEventRequired[390] = 0
         set ProtoEventRequiredChoice[390] = 0
@@ -24558,7 +24558,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[391] = 4
         set ProtoEventStory[391] = "거짓 승리에서 벗어난 일행 앞을 |cFF006B8F선데이|r가 다시 가로막는다. 그는 고통받는 현실로 돌아가는 대신 자신의 보호 아래 영원히 머물 것을 요구한다.|n|n꿈의 장막 너머에서 동료들의 움직임이 전해진다. 갤럭시 레인저 부트힐이 부른 외부의 조력과 열차 동료들이 저항을 돕고, |cFF006B8F아케론|r이 돌파할 길을 연다.|n|n|cFF006B8F로빈|r의 노래도 들려온다. 아직 꿈은 끝나지 않았다.|n|n그럼에도 |cFF865500현실로 돌아가겠느냐|r는 선데이의 물음 앞에서, 당신은 한 걸음 앞으로 나선다."
         set ProtoEventIntro[391] = "다시 마주한 |cFF006B8F선데이|r. 이번에는 우리가 |cFF80560C꿈|r의 끝을 정할 차례다."
-        set ProtoEventIcon[391] = "war3mapImported\\UI_EventThumb_Event_PEO_theater.tga"
+        set ProtoEventIcon[391] = "war3mapImported\\UI_EventThumb_Event_PEO_theater.blp"
         set ProtoEventImageAspect[391] = 1.777778
         set ProtoEventRequired[391] = 0
         set ProtoEventRequiredChoice[391] = 0
@@ -24613,7 +24613,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[392] = 1
         set ProtoEventStory[392] = "페나코니의 |cFF80560C꿈|r에서 깨어난 뒤, 호텔의 엽서를 펼쳐 여행에서 남은 말을 고른다. 처음에는 초대받은 손님으로 보았던 |cFF80560C도시|r를 이제는 그 안에서 꿈꾸고 고민하던 사람들의 얼굴과 함께 떠올린다.|n|n한 장에 모두 적을 수 없어도 가장 오래 남은 장면은 저마다 다르다."
         set ProtoEventIntro[392] = "이야기를 마친 뒤 호텔의 엽서를 펼친다. 화려한 |cFF80560C도시|r보다 그곳에서 만난 사람들의 말을 먼저 적는다."
-        set ProtoEventIcon[392] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[392] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[392] = 1.777778
         set ProtoEventRequired[392] = 0
         set ProtoEventRequiredChoice[392] = 0
@@ -24660,7 +24660,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[393] = 1
         set ProtoEventStory[393] = "페나코니를 돌아본 뒤에도 다음에 만날 날짜나 장소까지 정해진 것은 아니다. 같은 |cFF80560C꿈|r에 머무르는 대신 각자의 길로 나아간 사람들을 생각한다. 다시 만난다면 나누고 싶은 말과, 그때까지 혼자 품고 갈 질문을 골라 본다."
         set ProtoEventIntro[393] = "|cFF80560C꿈|r의 거리를 떠올리며 다음 인사를 준비한다. 예전처럼 머무르겠다는 |cFF80560C약속|r 대신 서로의 삶을 기다린다."
-        set ProtoEventIcon[393] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.tga"
+        set ProtoEventIcon[393] = "war3mapImported\\UI_EventThumb_Head_Official_penacony_Icon.blp"
         set ProtoEventImageAspect[393] = 1.777778
         set ProtoEventRequired[393] = 0
         set ProtoEventRequiredChoice[393] = 0
@@ -24726,7 +24726,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[41] = 1
         set ProtoEventStory[41] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 |cFF006B8F에드|r와 |cFF006B8F알|r은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
         set ProtoEventIntro[41] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 에드와 알은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
-        set ProtoEventIcon[41] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[41] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[41] = 1.777778
         set ProtoHeadEntryEvent[45] = 42
         set ProtoEventKey[42] = "amestris_entry_1"
@@ -24738,7 +24738,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[42] = 1
         set ProtoEventStory[42] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 |cFF006B8F에드|r와 |cFF006B8F알|r은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
         set ProtoEventIntro[42] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 에드와 알은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
-        set ProtoEventIcon[42] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[42] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[42] = 1.777778
         set ProtoHeadEntryEvent[46] = 43
         set ProtoEventKey[43] = "amestris_entry_2"
@@ -24750,7 +24750,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[43] = 1
         set ProtoEventStory[43] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 |cFF006B8F에드|r와 |cFF006B8F알|r은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
         set ProtoEventIntro[43] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 에드와 알은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
-        set ProtoEventIcon[43] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[43] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[43] = 1.777778
         set ProtoHeadEntryEvent[47] = 44
         set ProtoEventKey[44] = "amestris_entry_3"
@@ -24762,7 +24762,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[44] = 1
         set ProtoEventStory[44] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 |cFF006B8F에드|r와 |cFF006B8F알|r은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
         set ProtoEventIntro[44] = "금지된 |cFF865500인체 연성|r으로 몸을 잃은 에드와 알은 |cFF865500현자의 돌|r을 찾아 나선다. 몸을 되찾겠다는 약속을 따라갈수록 나라 깊숙이 숨은 비밀과 마주한다."
-        set ProtoEventIcon[44] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[44] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[44] = 1.777778
         set ProtoCardKey[717] = "fma_winry"
         set ProtoCardName[717] = "윈리 록벨"
@@ -25543,7 +25543,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[394] = 1
         set ProtoEventStory[394] = "|cFF006B8F에드|r워드가 정비를 마친 팔을 움직이자 |cFF006B8F윈리|r가 손목에서 나는 미세한 소리에 귀를 기울인다. 에드는 밖에서 시험하면 금방 |cFF006B8F알|r 수 있다고 말하고, 알폰스는 우선 넘어지지 않을 자세부터 점검하자고 제안한다.|n|n누구의 확인을 도울지 결정해야 한다."
         set ProtoEventIntro[394] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[394] = "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.tga"
+        set ProtoEventIcon[394] = "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.blp"
         set ProtoEventImageAspect[394] = 1.777778
         set ProtoEventRequired[394] = 0
         set ProtoEventRequiredChoice[394] = 0
@@ -25590,7 +25590,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[395] = 1
         set ProtoEventStory[395] = "함께 점검했던 손목은 이제 부드럽게 움직인다. |cFF006B8F윈리|r가 |cFF80560C기록|r지를 넘기다 낡은 정비서의 치수가 번진 부분을 발견한다.|n|n그 |cFF80560C책|r을 읽은 셰스카의 도움을 받을지, |cFF006B8F에드|r와 실제 움직임을 더 확인할지 정한다. 휴즈는 지난 기록과 이번에 확인한 기록이 겹쳐 있으면 남이 읽을 때도 헷갈린다며 차례를 물었다."
         set ProtoEventIntro[395] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[395] = "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.tga"
+        set ProtoEventIcon[395] = "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.blp"
         set ProtoEventImageAspect[395] = 1.777778
         set ProtoEventRequired[395] = 394
         set ProtoEventRequiredChoice[395] = 1
@@ -25637,7 +25637,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[396] = 1
         set ProtoEventStory[396] = "강한 적을 상대로 한 시험이 끝나자 |cFF006B8F에드|r워드가 땅에 남은 |cFF80560C발자국|r을 내려다본다. 공격은 닿았지만 너는 생각보다 멀리 밀려났다.|n|n알폰스는 뒤로 빠질 자리를, 함께 시험을 지켜본 암스트롱은 힘을 모으는 자세를 짚어 준다. 지나던 리자는 다음에 통행할 사람의 자리도 비워야 한다고 덧붙인다."
         set ProtoEventIntro[396] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[396] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[396] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[396] = 1.777778
         set ProtoEventRequired[396] = 394
         set ProtoEventRequiredChoice[396] = 2
@@ -25684,7 +25684,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[397] = 1
         set ProtoEventStory[397] = "셰스카가 물에 젖어 읽을 수 없게 된 기술서의 한 페이지를 막힘없이 적어 내려간다. |cFF006B8F에드|r워드는 그 옆에서 글자를 베끼는 것과 구조를 이해하는 것은 다르다며 도면을 가리킨다.|n|n|cFF80560C책|r을 온전히 남길지, 당장 필요한 원리를 배울지 정한다. |cFF006B8F윈리|r는 도면의 숫자와 직접 측정한 숫자를 다른 줄에 적자며 자기 |cFF80560C기록|r지를 펼친다."
         set ProtoEventIntro[397] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[397] = "war3mapImported\\UI_EventThumb_Card_FMA_21_Art.tga"
+        set ProtoEventIcon[397] = "war3mapImported\\UI_EventThumb_Card_FMA_21_Art.blp"
         set ProtoEventImageAspect[397] = 1.777778
         set ProtoEventRequired[397] = 0
         set ProtoEventRequiredChoice[397] = 0
@@ -25731,7 +25731,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[398] = 1
         set ProtoEventStory[398] = "이즈미는 사냥터의 |cFF80560C발자국|r과 먹다 남은 열매를 가리키며, 강한 기술부터 찾는 너를 멈춰 세운다. 더 강한 적이 있는 구역도, 적이 여러 방향에서 다니는 구역도 있다. 알폰스는 기본 자세를 되풀이할 자리에서 기다린다."
         set ProtoEventIntro[398] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[398] = "war3mapImported\\UI_EventThumb_Card_FMO2_izumi_Art.tga"
+        set ProtoEventIcon[398] = "war3mapImported\\UI_EventThumb_Card_FMO2_izumi_Art.blp"
         set ProtoEventImageAspect[398] = 1.777778
         set ProtoEventRequired[398] = 0
         set ProtoEventRequiredChoice[398] = 0
@@ -25778,7 +25778,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[399] = 1
         set ProtoEventStory[399] = "큰 적을 넘긴 자리에서 이즈미가 네 등 뒤의 |cFF80560C발자국|r을 가리킨다. 눈앞에 집중하는 동안 다른 적이 지나갈 길을 놓쳤다.|n|n힘을 내는 법 다음에는 움직일 자리를 읽어야 한다. 시그는 다음날 쓸 준비물과 지금 운반할 묶음을 같은 짐에 넣지 말라고 한다."
         set ProtoEventIntro[399] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[399] = "war3mapImported\\UI_EventThumb_Card_FMO2_izumi_Art.tga"
+        set ProtoEventIcon[399] = "war3mapImported\\UI_EventThumb_Card_FMO2_izumi_Art.blp"
         set ProtoEventImageAspect[399] = 1.777778
         set ProtoEventRequired[399] = 398
         set ProtoEventRequiredChoice[399] = 1
@@ -25825,7 +25825,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[400] = 1
         set ProtoEventStory[400] = "여러 적 사이에서 힘을 모으던 연습이 끝나자 이즈미가 발밑을 보게 한다. 공격할 자리는 찾았지만 다음 발을 둘 공간을 자꾸 잃었다.|n|n알폰스는 넓게 맡은 구역부터 줄여 보자고 한다. 암스트롱은 힘을 모으던 자리 옆에 다음 사람이 지나갈 자리를 남겨 보자고 한다."
         set ProtoEventIntro[400] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[400] = "war3mapImported\\UI_EventThumb_Card_FMO2_izumi_Art.tga"
+        set ProtoEventIcon[400] = "war3mapImported\\UI_EventThumb_Card_FMO2_izumi_Art.blp"
         set ProtoEventImageAspect[400] = 1.777778
         set ProtoEventRequired[400] = 398
         set ProtoEventRequiredChoice[400] = 2
@@ -25872,7 +25872,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[401] = 1
         set ProtoEventStory[401] = "리자가 블랙 하야테에게 낮은 |cFF80560C목소리|r로 기다리라고 한다. |cFF006B8F에드|r워드는 앞길을 살피려 움직이고, 개는 준비 가방 쪽을 빤히 쳐다본다. 리자는 가방을 든 네 손을 낮추고 지나갈 선부터 비우라고 말한다."
         set ProtoEventIntro[401] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[401] = "war3mapImported\\UI_EventThumb_Card_FMO3_riza_Art.tga"
+        set ProtoEventIcon[401] = "war3mapImported\\UI_EventThumb_Card_FMO3_riza_Art.blp"
         set ProtoEventImageAspect[401] = 1.777778
         set ProtoEventRequired[401] = 0
         set ProtoEventRequiredChoice[401] = 0
@@ -25919,7 +25919,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[402] = 1
         set ProtoEventStory[402] = "휴즈가 소중한 가족 사진을 보여주려 하자, 셰스카가 들고 온 보고서가 그 아래로 겹쳐 깔린다. 휴즈는 보고서의 미세한 차이를 단번에 짚어내면서도 다시 딸 이야기를 꺼내려 한다. 지금은 어느 쪽을 먼저 정리해야 할지 결정해야 한다."
         set ProtoEventIntro[402] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[402] = "war3mapImported\\UI_EventThumb_Card_FMO1_hughes_Art.tga"
+        set ProtoEventIcon[402] = "war3mapImported\\UI_EventThumb_Card_FMO1_hughes_Art.blp"
         set ProtoEventImageAspect[402] = 1.777778
         set ProtoEventRequired[402] = 0
         set ProtoEventRequiredChoice[402] = 0
@@ -25966,7 +25966,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[403] = 1
         set ProtoEventStory[403] = "|cFF006B8F윈리|r가 준비한 소모품을 가방에 전부 넣으려 하자, 피나코가 돌아왔을 때 쓸 몫을 가리키며 만류한다. |cFF006B8F에드|r워드는 밖에서 확인할 곳이 많다며 문 옆에서 팔짱을 낀 채 기다린다. 지금 더 챙길지 아니면 남겨 둘지 정해야 한다."
         set ProtoEventIntro[403] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[403] = "war3mapImported\\UI_EventThumb_Card_FMA_13_Art.tga"
+        set ProtoEventIcon[403] = "war3mapImported\\UI_EventThumb_Card_FMA_13_Art.blp"
         set ProtoEventImageAspect[403] = 1.777778
         set ProtoEventRequired[403] = 0
         set ProtoEventRequiredChoice[403] = 0
@@ -26013,7 +26013,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[404] = 1
         set ProtoEventStory[404] = "시그가 정육점의 같은 무게 묶음을 나누다가 작은 묶음을 다시 저울에 올린다. 이즈미는 |cFF006B8F에드|r워드에게 단순히 힘만 주는 것이 아니라고 주의를 준다. 가게 일을 돕거나 바깥의 더 강한 상대를 맡을 수 있다."
         set ProtoEventIntro[404] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[404] = "war3mapImported\\UI_EventThumb_Card_FMA_26_Art.tga"
+        set ProtoEventIcon[404] = "war3mapImported\\UI_EventThumb_Card_FMA_26_Art.blp"
         set ProtoEventImageAspect[404] = 1.777778
         set ProtoEventRequired[404] = 0
         set ProtoEventRequiredChoice[404] = 0
@@ -26060,7 +26060,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[405] = 1
         set ProtoEventStory[405] = "|cFF006B8F린|r이 식사 접시를 깨끗이 비운 뒤 계산서를 보고 환하게 웃는다. |cFF006B8F에드|r워드는 떠날 준비를 먼저 해야 한다고 재촉하고, 알폰스는 식탁에 앉아 두 사람의 대화를 듣는다. 식사비를 거들거나 다른 준비 일을 맡아야 한다."
         set ProtoEventIntro[405] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[405] = "war3mapImported\\UI_EventThumb_Card_FMO2_lin_Art.tga"
+        set ProtoEventIcon[405] = "war3mapImported\\UI_EventThumb_Card_FMO2_lin_Art.blp"
         set ProtoEventImageAspect[405] = 1.777778
         set ProtoEventRequired[405] = 0
         set ProtoEventRequiredChoice[405] = 0
@@ -26107,7 +26107,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[406] = 1
         set ProtoEventStory[406] = "로이가 준비 목록을 보며 발화포를 챙기려는데 리자가 먼저 사람들이 지나갈 곳을 가리킨다. 하보크는 운반할 상자가 아직 남았다고 말하며 짐을 챙긴다. 불을 시험하기 전에 무엇을 맡을지 나누어야 한다."
         set ProtoEventIntro[406] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[406] = "war3mapImported\\UI_EventThumb_Card_RMU12_roy_Art.tga"
+        set ProtoEventIcon[406] = "war3mapImported\\UI_EventThumb_Card_RMU12_roy_Art.blp"
         set ProtoEventImageAspect[406] = 1.777778
         set ProtoEventRequired[406] = 0
         set ProtoEventRequiredChoice[406] = 0
@@ -26154,7 +26154,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[407] = 1
         set ProtoEventStory[407] = "그레이시아가 나눌 애플파이를 상자에 넣는데 휴즈가 설명하던 받는 사람의 이름 둘이 겹친다. 알폰스는 서두르기 전에 상자의 표시부터 나누자고 제안한다. 불확실한 연락을 맡거나 확인된 준비만 도울 수 있다."
         set ProtoEventIntro[407] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[407] = "war3mapImported\\UI_EventThumb_Card_FMO1_hughes_Art.tga"
+        set ProtoEventIcon[407] = "war3mapImported\\UI_EventThumb_Card_FMO1_hughes_Art.blp"
         set ProtoEventImageAspect[407] = 1.777778
         set ProtoEventRequired[407] = 0
         set ProtoEventRequiredChoice[407] = 0
@@ -26201,7 +26201,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[408] = 1
         set ProtoEventStory[408] = "전에 함께 |cFF80560C기록|r을 비교했던 너를 셰스카가 알아본다. 새 페이지에는 읽었던 내용과 지금 직접 재야 할 치수가 한 줄에 겹쳐 있다.|n|n|cFF006B8F윈리|r는 숫자를 적기 전에 어디서 나온 숫자인지 묻고 휴즈는 이번 작업 뒤의 부탁까지 모두 맡을 수 있는지 물었다. 빈칸을 무턱대고 채울 수는 없다."
         set ProtoEventIntro[408] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[408] = "war3mapImported\\UI_EventThumb_Card_FMA_21_Art.tga"
+        set ProtoEventIcon[408] = "war3mapImported\\UI_EventThumb_Card_FMA_21_Art.blp"
         set ProtoEventImageAspect[408] = 1.777778
         set ProtoEventRequired[408] = 0
         set ProtoEventRequiredChoice[408] = 0
@@ -26248,7 +26248,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[409] = 1
         set ProtoEventStory[409] = "귀환의 몫을 남기는 일을 익혔던 너에게 피나코가 지난번 표시를 보여 준다. 오늘 가방에는 비슷한 크기의 다른 묶음이 들어 있다.|n|n|cFF006B8F윈리|r는 지난 숫자를 그대로 쓰지 말라고 하고 시그는 운반할 무게부터 나누자고 한다. 돌아왔다는 이유만으로 다음 준비가 끝난 것은 아니다."
         set ProtoEventIntro[409] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
-        set ProtoEventIcon[409] = "war3mapImported\\UI_EventThumb_Card_FMA_13_Art.tga"
+        set ProtoEventIcon[409] = "war3mapImported\\UI_EventThumb_Card_FMA_13_Art.blp"
         set ProtoEventImageAspect[409] = 1.777778
         set ProtoEventRequired[409] = 0
         set ProtoEventRequiredChoice[409] = 0
@@ -26295,7 +26295,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[410] = 1
         set ProtoEventStory[410] = "형 |cFF006B8F에드|r워드와 동생 알폰스 엘릭은 죽은 어머니를 되살리려 금지된 인체연성을 시도한다. 연금술은 물질을 이해하고 분해해 다시 구성하는 기술이지만, 형제는 생명을 되돌리는 데 실패한다. 에드는 왼다리를, |cFF006B8F알|r은 몸 전체를 잃는다.|n|n에드는 오른팔까지 내어 동생의 혼을 갑옷에 붙잡아 둔다. 소꿉친구이자 정비사인 |cFF006B8F윈리|r에게 기계 의수족을 받은 에드 앞에 군인 로이 |cFF006B8F머스탱|r이 새로운 길을 제안한다.|n|n머스탱 — 군의 연구에 접근하는 길은 있다. 그 선택을 감당하겠나?"
         set ProtoEventIntro[410] = "몸을 잃은 형제에게 군의 연구라는 길이 제안된다."
-        set ProtoEventIcon[410] = "war3mapImported\\UI_EventThumb_Event_AME_brothers.tga"
+        set ProtoEventIcon[410] = "war3mapImported\\UI_EventThumb_Event_AME_brothers.blp"
         set ProtoEventImageAspect[410] = 1.777778
         set ProtoEventRequired[410] = 0
         set ProtoEventRequiredChoice[410] = 0
@@ -26345,7 +26345,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[411] = 1
         set ProtoEventStory[411] = "리올의 사제 코넬로는 신의 기적을 내세워 사람들의 믿음을 모은다. |cFF006B8F에드|r와 |cFF006B8F알|r은 그의 연성이 등가교환을 뛰어넘는 듯 보여 |cFF865500현자의 돌|r을 의심한다. 약혼자를 잃은 로제 역시 코넬로가 죽은 이를 되살려 줄 것이라 믿고 있다.|n|n에드 — 살아 돌아온다는 |cFF80560C약속|r, 정말 믿어도 되는지 확인해야겠어."
         set ProtoEventIntro[411] = "죽은 이를 되살린다는 사제의 기적을 확인해야 한다."
-        set ProtoEventIcon[411] = "war3mapImported\\UI_EventThumb_Card_FCU8_edward_Art.tga"
+        set ProtoEventIcon[411] = "war3mapImported\\UI_EventThumb_Card_FCU8_edward_Art.blp"
         set ProtoEventImageAspect[411] = 1.777778
         set ProtoEventRequired[411] = 0
         set ProtoEventRequiredChoice[411] = 0
@@ -26402,7 +26402,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[412] = 1
         set ProtoEventStory[412] = "형제는 국가연금술사 쇼 터커의 집에서 연구 자료를 보며 딸 니나와 개 알렉산더와 가까워진다. 터커는 자격 심사를 통과할 성과가 필요해 쫓기고 있었다. 터커가 새로 만든 말하는 키메라를 보여 주자 |cFF006B8F에드|r가 다가간다.|n|n에드 — 터커 씨, 이번 연구는 어떻게 된 거죠?"
         set ProtoEventIntro[412] = "친숙했던 연구자의 집에 자격 심사의 압박이 드리운다."
-        set ProtoEventIcon[412] = "war3mapImported\\UI_EventThumb_Event_AME_nina.tga"
+        set ProtoEventIcon[412] = "war3mapImported\\UI_EventThumb_Event_AME_nina.blp"
         set ProtoEventImageAspect[412] = 1.777778
         set ProtoEventRequired[412] = 0
         set ProtoEventRequiredChoice[412] = 0
@@ -26459,7 +26459,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[413] = 2
         set ProtoEventStory[413] = "국가연금술사를 노리는 |cFF006B8F스카|r의 공격으로 |cFF006B8F에드|r의 기계 의수인 |cFFA53528오토메일이 부서지고|r 알의 갑옷도 손상된다. 형제는 군인 아암스트롱 등의 도움으로 살아남아 수리를 위해 고향 리젬블로 향한다.|n|n도중에 만난 전 군 연구자 마르코는 |cFF865500현자의 돌|r을 연구했던 인물로, 센트럴 도서관에 남긴 기록이 단서가 될 수 있다고 알려 준다.|n|n마르코 — 내가 남긴 기록을 읽으면 찾는 답에 가까워질지도 모른다."
         set ProtoEventIntro[413] = "부서진 몸을 고치러 가는 길에 돌 연구의 단서를 만난다."
-        set ProtoEventIcon[413] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[413] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[413] = 1.777778
         set ProtoEventRequired[413] = 0
         set ProtoEventRequiredChoice[413] = 0
@@ -26509,7 +26509,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[414] = 2
         set ProtoEventStory[414] = "센트럴에 도착하자 마르코의 |cFF80560C기록|r이 있던 |cFF865500도서관은 이미 불타 있다.|r 그러나 읽은 책을 통째로 |cFF80560C기억|r하는 전 직원 셰스카가 내용을 복원해 주어 조사는 이어진다.|n|n|cFF006B8F알|r — 기록을 다시 읽을 수 있어. 이번에는 끝까지 해독해 보자."
         set ProtoEventIntro[414] = "불탄 |cFF80560C기록|r이 복원되며 |cFF865500현자의 돌|r을 다시 조사할 수 있게 된다."
-        set ProtoEventIcon[414] = "war3mapImported\\UI_EventThumb_Card_FMA_21_Art.tga"
+        set ProtoEventIcon[414] = "war3mapImported\\UI_EventThumb_Card_FMA_21_Art.blp"
         set ProtoEventImageAspect[414] = 1.777778
         set ProtoEventRequired[414] = 0
         set ProtoEventRequiredChoice[414] = 0
@@ -26566,7 +26566,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[415] = 2
         set ProtoEventStory[415] = "제5연구소에서 만난 갑옷 경비 배리는 |cFF006B8F알|r에게 혼과 기억도 형이 만들어 낸 |cFF704261가짜일 수 있다고|r 말한다. 한편 연구소를 감추려는 수상한 존재들, 호문쿨루스도 형제의 조사를 가로막는다. 적들은 |cFF006B8F에드|r를 죽이지 않은 채 밖으로 내보내고 연구소를 무너뜨린다.|n|n다친 에드가 입원하자 의수를 고치러 |cFF006B8F윈리|r가 온다.|n|n알 — 내 기억이 정말 내 것인지, 어떻게 알 수 있지?"
         set ProtoEventIntro[415] = "갑옷 경비가 남긴 말이 |cFF006B8F알|r의 |cFF80560C기억|r을 흔든다."
-        set ProtoEventIcon[415] = "war3mapImported\\UI_EventThumb_Event_AME_winry.tga"
+        set ProtoEventIcon[415] = "war3mapImported\\UI_EventThumb_Event_AME_winry.blp"
         set ProtoEventImageAspect[415] = 1.777778
         set ProtoEventRequired[415] = 0
         set ProtoEventRequiredChoice[415] = 0
@@ -26623,7 +26623,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[416] = 2
         set ProtoEventStory[416] = "더블리스로 간 |cFF006B8F에드|r와 |cFF006B8F알|r은 연금술을 가르쳐 준 스승 이즈미와 마주한다. 과거 그녀에게 배울 때 형제는 섬에서 살아남는 수련을 하며 모든 생명이 서로 이어져 있다는 법칙을 익혔다. 그런데 자신들이 그 생명의 경계를 넘으려다 몸을 잃은 것이다.|n|n이즈미 — 너희가 무엇을 했는지 숨기지 말고 말해라."
         set ProtoEventIntro[416] = "스승 앞에서 형제는 실패를 숨기지 않아야 한다."
-        set ProtoEventIcon[416] = "war3mapImported\\UI_EventThumb_Event_AME_training.tga"
+        set ProtoEventIcon[416] = "war3mapImported\\UI_EventThumb_Event_AME_training.blp"
         set ProtoEventImageAspect[416] = 1.777778
         set ProtoEventRequired[416] = 0
         set ProtoEventRequiredChoice[416] = 0
@@ -26680,7 +26680,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[417] = 2
         set ProtoEventStory[417] = "|cFF006B8F그리드|r는 |cFF006B8F알|r을 납치해 갑옷에 혼을 묶어 둔 방법을 묻는다. 그는 호문쿨루스라는 인조인간으로 상처를 재생하는 힘을 가졌지만, 그보다 더 완전하게 |cFF704261죽지 않는 몸을 원한다.|r 알을 찾아온 |cFF006B8F에드|r가 그리드 앞에 선다.|n|n그리드 — 갑옷에 혼을 묶은 방법, 내게도 쓸모가 있겠는데."
         set ProtoEventIntro[417] = "|cFF006B8F알|r의 몸을 불멸의 기술로 여기는 |cFF006B8F그리드|r가 길을 막는다."
-        set ProtoEventIcon[417] = "war3mapImported\\UI_EventThumb_Card_FMO3_greed_Art.tga"
+        set ProtoEventIcon[417] = "war3mapImported\\UI_EventThumb_Card_FMO3_greed_Art.blp"
         set ProtoEventImageAspect[417] = 1.777778
         set ProtoEventRequired[417] = 0
         set ProtoEventRequiredChoice[417] = 0
@@ -26730,7 +26730,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[418] = 2
         set ProtoEventStory[418] = "센트럴로 돌아온 형제는 자신들의 조사를 도왔던 군인 휴즈가 |cFF704261이미 살해됐다는 소식|r을 듣는다. 그는 |cFF006B8F머스탱|r의 오랜 친구이며, 아내 그라시아와 어린 딸 엘리시아를 아끼던 아버지다. 돌의 연구와 군의 음모를 조사한 끝에 목숨을 잃었지만 형제는 떠나 있는 동안 그 사실을 몰랐다.|n|n|cFF006B8F알|r — 그동안 우리는 아무것도 모르고 있었어."
         set ProtoEventIntro[418] = "다시 만나리라 믿었던 휴즈는 이미 세상을 떠났다."
-        set ProtoEventIcon[418] = "war3mapImported\\UI_EventThumb_Card_FMO1_hughes_Art.tga"
+        set ProtoEventIcon[418] = "war3mapImported\\UI_EventThumb_Card_FMO1_hughes_Art.blp"
         set ProtoEventImageAspect[418] = 1.777778
         set ProtoEventRequired[418] = 0
         set ProtoEventRequiredChoice[418] = 0
@@ -26780,7 +26780,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[419] = 2
         set ProtoEventStory[419] = "휴즈 살해범으로 체포된 마리아 로스가 탈옥한 뒤 |cFF006B8F머스탱|r에게 불타 죽었다는 소식이 퍼진다. |cFF006B8F에드|r는 분노하지만 머스탱이 사람들 앞에 보여 준 것과 실제 의도는 다르다.|n|n에드 — 머스탱 대령이 정말 그런 일을 했다고?"
         set ProtoEventIntro[419] = "|cFF006B8F머스탱|r이 로스를 죽였다는 발표가 |cFF006B8F에드|r를 뒤흔든다."
-        set ProtoEventIcon[419] = "war3mapImported\\UI_EventThumb_Card_RMU12_roy_Art.tga"
+        set ProtoEventIcon[419] = "war3mapImported\\UI_EventThumb_Card_RMU12_roy_Art.blp"
         set ProtoEventImageAspect[419] = 1.777778
         set ProtoEventRequired[419] = 0
         set ProtoEventRequiredChoice[419] = 0
@@ -26837,7 +26837,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[420] = 2
         set ProtoEventStory[420] = "고향 리젬블에서 |cFF006B8F에드|r는 오랫동안 가족 곁을 떠나 있던 아버지 |cFF006B8F호엔하임|r과 마주한다. 원망이 앞서는 아들에게 호엔하임은 인체연성으로 만들어 낸 것이 정말 어머니 트리샤였는지 묻는다.|n|n호엔하임 — 너희가 만들어 낸 것이 정말 트리샤였는지 생각해 봐라."
         set ProtoEventIntro[420] = "오래 떠났던 아버지가 어머니의 연성에 관한 질문을 남긴다."
-        set ProtoEventIcon[420] = "war3mapImported\\UI_EventThumb_Card_FMO2_hohenheim_Art.tga"
+        set ProtoEventIcon[420] = "war3mapImported\\UI_EventThumb_Card_FMO2_hohenheim_Art.blp"
         set ProtoEventImageAspect[420] = 1.777778
         set ProtoEventRequired[420] = 0
         set ProtoEventRequiredChoice[420] = 0
@@ -26894,7 +26894,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[421] = 2
         set ProtoEventStory[421] = "센트럴에서 |cFF006B8F스카|r와 맞서던 중 |cFF006B8F윈리|r는 그가 의사였던 자신의 |cFF865500부모를 죽였다는 사실|r을 듣는다. 분노한 윈리는 총을 겨누지만 |cFF006B8F에드|r가 막는다.|n|n에드 — 윈리, 네 손은 사람을 고치는 손이잖아."
         set ProtoEventIntro[421] = "부모를 죽인 사람 앞에서 |cFF006B8F윈리|r의 손이 총을 쥔다."
-        set ProtoEventIcon[421] = "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.tga"
+        set ProtoEventIcon[421] = "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.blp"
         set ProtoEventImageAspect[421] = 1.777778
         set ProtoEventRequired[421] = 0
         set ProtoEventRequiredChoice[421] = 0
@@ -26951,7 +26951,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[422] = 3
         set ProtoEventStory[422] = "형제는 북방의 브릭스 요새로 가 지휘관 올리비에 아암스트롱과 협력한다. 요새 아래의 거대한 통로와 나라가 확장되어 온 과정, 학살과 전쟁이 벌어진 지역을 함께 살피자 하나의 모양이 드러난다.|n|n올리비에 — 통로와 전쟁의 흔적을 따로 보지 마라."
         set ProtoEventIntro[422] = "통로와 전쟁의 흔적이 나라 지도 위에서 이어진다."
-        set ProtoEventIcon[422] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[422] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[422] = 1.777778
         set ProtoEventRequired[422] = 0
         set ProtoEventRequiredChoice[422] = 0
@@ -27008,7 +27008,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[423] = 3
         set ProtoEventStory[423] = "적이 국토 연성을 실행하려는 |cFF80560C약속|r의 날이 온다. |cFF006B8F머스탱|r과 브릭스 병사들은 센트럴에서 군에 맞서고, 형제와 동료들은 지하의 아버지에게 향한다. 목표는 권력을 차지하는 것이 아니라 국민을 제물로 삼을 계획을 막는 것이다.|n|n|cFF006B8F알|r — 서로 다른 곳에서 모두 같은 날을 버티고 있어."
         set ProtoEventIntro[423] = "|cFF80560C약속|r의 날, 여러 곳의 싸움이 같은 목적을 향한다."
-        set ProtoEventIcon[423] = "war3mapImported\\UI_EventThumb_Card_FCU8_alphonse_Art.tga"
+        set ProtoEventIcon[423] = "war3mapImported\\UI_EventThumb_Card_FCU8_alphonse_Art.blp"
         set ProtoEventImageAspect[423] = 1.777778
         set ProtoEventRequired[423] = 0
         set ProtoEventRequiredChoice[423] = 0
@@ -27058,7 +27058,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[424] = 3
         set ProtoEventStory[424] = "|cFF006B8F호엔하임|r이 오랜 세월 준비한 대항 연성이 발동해 아버지에게 빼앗긴 국민의 혼을 각자의 몸으로 돌려보낸다. 이어 |cFF006B8F스카|r가 형의 연구를 바탕으로 한 역전 연성을 실행하면서, 아버지가 연금술의 힘을 가로막던 제약도 벗겨진다.|n|n|cFF006B8F에드|r — 다시 연금술을 쓸 수 있어. 지금이야."
         set ProtoEventIntro[424] = "국민의 혼과 연금술이 돌아왔지만 적은 아직 남아 있다."
-        set ProtoEventIcon[424] = "war3mapImported\\UI_EventThumb_Card_FMO2_hohenheim_Art.tga"
+        set ProtoEventIcon[424] = "war3mapImported\\UI_EventThumb_Card_FMO2_hohenheim_Art.blp"
         set ProtoEventImageAspect[424] = 1.777778
         set ProtoEventRequired[424] = 0
         set ProtoEventRequiredChoice[424] = 0
@@ -27108,7 +27108,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[425] = 3
         set ProtoEventStory[425] = "아버지의 반격으로 오른팔 오토메일을 잃은 |cFF006B8F에드|r가 움직이기 어려운 상태에서 죽을 위기에 몰린다.|n|n|cFF006B8F알|r — 메이, 형에게 팔을 돌려줄 방법이 있어."
         set ProtoEventIntro[425] = "|cFF006B8F에드|r의 생명이 위태로운 순간 |cFF006B8F알|r이 메이를 부른다."
-        set ProtoEventIcon[425] = "war3mapImported\\UI_EventThumb_Card_FCU8_alphonse_Art.tga"
+        set ProtoEventIcon[425] = "war3mapImported\\UI_EventThumb_Card_FCU8_alphonse_Art.blp"
         set ProtoEventImageAspect[425] = 1.777778
         set ProtoEventRequired[425] = 0
         set ProtoEventRequiredChoice[425] = 0
@@ -27165,7 +27165,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[426] = 3
         set ProtoEventStory[426] = "아버지를 쓰러뜨리고 국민을 지켰지만 |cFF006B8F알|r은 자신의 혼을 내놓아 |cFF865500진리의 문|r 너머에 남아 있다. |cFF006B8F에드|r는 다른 사람의 생명이나 |cFF865500현자의 돌|r을 대가로 쓰지 않고 동생을 데려올 답을 찾는다.|n|n에드 — 다른 사람의 목숨 말고, 내가 내놓을 답을 찾겠어."
         set ProtoEventIntro[426] = "싸움은 끝났지만 |cFF006B8F알|r은 |cFF865500진리의 문|r 너머에 남아 있다."
-        set ProtoEventIcon[426] = "war3mapImported\\UI_EventThumb_Card_FCU8_edward_Art.tga"
+        set ProtoEventIcon[426] = "war3mapImported\\UI_EventThumb_Card_FCU8_edward_Art.blp"
         set ProtoEventImageAspect[426] = 1.777778
         set ProtoEventRequired[426] = 0
         set ProtoEventRequiredChoice[426] = 0
@@ -27222,7 +27222,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[427] = 4
         set ProtoEventStory[427] = "|cFF006B8F알|r은 자신의 몸을 되찾고 |cFF006B8F에드|r와 함께 |cFF006B8F윈리|r와 동료들 곁으로 돌아온다. 오래 쓰지 못했던 몸은 회복해야 하며, 에드도 연금술을 잃고 왼다리의 기계 의족을 지닌 채 살아간다.|n|n알 — 이 몸으로 할 수 있는 일을 하나씩 다시 배워야겠네."
         set ProtoEventIntro[427] = "돌려받은 몸으로 형제는 다음 삶을 배워야 한다."
-        set ProtoEventIcon[427] = "war3mapImported\\UI_EventThumb_Event_AMO_home.tga"
+        set ProtoEventIcon[427] = "war3mapImported\\UI_EventThumb_Event_AMO_home.blp"
         set ProtoEventImageAspect[427] = 1.777778
         set ProtoEventRequired[427] = 0
         set ProtoEventRequiredChoice[427] = 0
@@ -27279,7 +27279,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[428] = 1
         set ProtoEventStory[428] = "|cFF006B8F알|r이 자신의 몸으로 돌아온 뒤, 형제가 지나온 길도 다르게 보인다. 연금술만으로는 건널 수 없었던 순간마다 손을 내민 사람들이 있었다. 끝내 얻은 것과 기꺼이 내놓은 것을 함께 돌아본다."
         set ProtoEventIntro[428] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[428] = "war3mapImported\\UI_EventThumb_Card_FCU8_alphonse_Art.tga"
+        set ProtoEventIcon[428] = "war3mapImported\\UI_EventThumb_Card_FCU8_alphonse_Art.blp"
         set ProtoEventImageAspect[428] = 1.777778
         set ProtoEventRequired[428] = 0
         set ProtoEventRequiredChoice[428] = 0
@@ -27326,7 +27326,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[429] = 2
         set ProtoEventStory[429] = "호문쿨루스 그라토니에게 |cFF006B8F에드|r와 |cFF006B8F린|r, 또 다른 호문쿨루스 엔비가 삼켜지자 |cFF006B8F알|r은 그라토니의 안내로 센트럴 지하의 우두머리를 찾아간다. 안에 갇힌 에드는 탈출할 방법을 찾아 셋을 밖으로 이끌고 그곳에서 알과 재회한다.|n|n호문쿨루스들이 아버지라 부르는 우두머리는 친부 |cFF006B8F호엔하임|r과 닮았지만 다른 존재다.|n|n알 — 아버지와 닮았지만, 이 사람은 누구지?"
         set ProtoEventIntro[429] = "지하에서 만난 우두머리는 아버지와 닮은 얼굴을 하고 있다."
-        set ProtoEventIcon[429] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[429] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[429] = 1.777778
         set ProtoEventRequired[429] = 0
         set ProtoEventRequiredChoice[429] = 0
@@ -27383,7 +27383,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[430] = 2
         set ProtoEventStory[430] = "|cFF006B8F호엔하임|r과 우두머리 아버지의 기원은 옛 크세르크세스 왕국으로 거슬러 올라간다. 호엔하임이 노예였을 때 그의 피를 바탕으로 만들어진 플라스크 속 존재가 훗날의 아버지다.|n|n호엔하임 — 그 존재를 처음 만난 것은, 내가 아직 노예였을 때였다."
         set ProtoEventIntro[430] = "현재의 위협을 이해하려면 사라진 왕국의 과거를 들어야 한다."
-        set ProtoEventIcon[430] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[430] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[430] = 1.777778
         set ProtoEventRequired[430] = 0
         set ProtoEventRequiredChoice[430] = 0
@@ -27440,7 +27440,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[431] = 2
         set ProtoEventStory[431] = "브래들리에게 붙잡힌 첫 |cFF006B8F그리드|r는 아버지에게 흡수되었다. |cFF006B8F린|r의 몸에서 다시 태어난 그리드는 옛 |cFF80560C기억|r을 잃었지만 린의 의식까지 지우지는 못했다. 린은 자기 백성을 버리지 않는 군주를 바라며 그리드의 행동에도 맞선다.|n|n그리드는 자신을 찾아온 옛 동료 비도를 알아보지 못한 채 죽이고, 그 일을 계기로 지워졌던 동료들의 기억을 되찾는다.|n|n같은 몸 안에서 린의 의식이 그리드에게 말을 건다.|n|n린 — 네가 탐내는 것 때문에 곁의 사람까지 버릴 셈이야?"
         set ProtoEventIntro[431] = "한 몸을 쓰는 |cFF006B8F린|r과 |cFF006B8F그리드|r가 버릴 수 없는 것을 두고 부딪친다."
-        set ProtoEventIcon[431] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[431] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[431] = 1.777778
         set ProtoEventRequired[431] = 0
         set ProtoEventRequiredChoice[431] = 0
@@ -27497,7 +27497,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[432] = 3
         set ProtoEventStory[432] = "아버지는 거대한 연성에 쓸 다섯 연금술사를 인주로 모은다. 인체연성으로 |cFF865500진리의 문|r을 열었던 |cFF006B8F에드|r와 알, 이즈미에 |cFF006B8F호엔하임|r, 그리고 적에게 강제로 인체연성을 당한 |cFF006B8F머스탱|r까지 다섯이 모인다. 머스탱은 그 대가로 시력을 잃는다.|n|n알 — 인주 다섯이 모였어.|n|n아직 막을 수 있을까?"
         set ProtoEventIntro[432] = "다섯 인주가 모이고 나라를 삼킬 순간이 다가온다."
-        set ProtoEventIcon[432] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.tga"
+        set ProtoEventIcon[432] = "war3mapImported\\UI_EventThumb_Head_Official_amestris_Icon.blp"
         set ProtoEventImageAspect[432] = 1.777778
         set ProtoEventRequired[432] = 0
         set ProtoEventRequiredChoice[432] = 0
@@ -27564,7 +27564,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[45] = 1
         set ProtoEventStory[45] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
         set ProtoEventIntro[45] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
-        set ProtoEventIcon[45] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga"
+        set ProtoEventIcon[45] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.blp"
         set ProtoEventImageAspect[45] = 1.777778
         set ProtoHeadEntryEvent[49] = 46
         set ProtoEventKey[46] = "butterfly_entry_1"
@@ -27576,7 +27576,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[46] = 1
         set ProtoEventStory[46] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
         set ProtoEventIntro[46] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
-        set ProtoEventIcon[46] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga"
+        set ProtoEventIcon[46] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.blp"
         set ProtoEventImageAspect[46] = 1.777778
         set ProtoHeadEntryEvent[50] = 47
         set ProtoEventKey[47] = "butterfly_entry_2"
@@ -27588,7 +27588,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[47] = 1
         set ProtoEventStory[47] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
         set ProtoEventIntro[47] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
-        set ProtoEventIcon[47] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga"
+        set ProtoEventIcon[47] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.blp"
         set ProtoEventImageAspect[47] = 1.777778
         set ProtoHeadEntryEvent[51] = 48
         set ProtoEventKey[48] = "butterfly_entry_3"
@@ -27600,7 +27600,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[48] = 1
         set ProtoEventStory[48] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
         set ProtoEventIntro[48] = "상처를 입고 나비저택에 도착한 |cFF006B8F탄지로|r와 동료들이 다시 |cFF80560C검|r을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다."
-        set ProtoEventIcon[48] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga"
+        set ProtoEventIcon[48] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.blp"
         set ProtoEventImageAspect[48] = 1.777778
         set ProtoCardKey[794] = "kny_aoi"
         set ProtoCardName[794] = "칸자키 아오이"
@@ -28274,7 +28274,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[433] = 1
         set ProtoEventStory[433] = "|cFF80560C약속|r된 시각이 지났음에도 보급꾼은 나타나지 않았고, 길목에는 |cFF865500주인 잃은 짐더미|r만 덩그러니 놓여 있다. 젠이츠는 멀리서 들려오는 기묘한 소리에 귀를 기울이며 멈춰 서고, 이노스케는 거칠게 앞길을 가로막는 수풀을 헤치며 나아가려 한다.|n|n|cFF006B8F탄지로|r는 성급한 행동을 만류하며 눈앞에 놓인 상황들을 먼저 짚어보자고 제안한다."
         set ProtoEventIntro[433] = "보급꾼을 찾을지, 길을 뚫을지, 남은 짐을 먼저 수습할지 정한다."
-        set ProtoEventIcon[433] = "war3mapImported\\UI_EventThumb_Card_KMO1_zenitsu_Art.tga"
+        set ProtoEventIcon[433] = "war3mapImported\\UI_EventThumb_Card_KMO1_zenitsu_Art.blp"
         set ProtoEventImageAspect[433] = 1.777778
         set ProtoEventRequired[433] = 0
         set ProtoEventRequiredChoice[433] = 0
@@ -28321,7 +28321,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[434] = 1
         set ProtoEventStory[434] = "앞선 수색에서 찾았던 보급꾼이 돌아온 길을 |cFF80560C기록|r지에 짚는다. 젠이츠는 소리를 듣는 것과 그 순간 몸을 움직이는 것은 다르다고 말하고, |cFF006B8F카나오|r가 반응을 확인할 자리를 가리킨다. 정찰 뒤 어떤 준비를 더할지 정한다."
         set ProtoEventIntro[434] = "돌아온 길은 확인했지만 다음에는 언제 발을 움직일까?"
-        set ProtoEventIcon[434] = "war3mapImported\\UI_EventThumb_Card_KNY_kanawo_Art.tga"
+        set ProtoEventIcon[434] = "war3mapImported\\UI_EventThumb_Card_KNY_kanawo_Art.blp"
         set ProtoEventImageAspect[434] = 1.777778
         set ProtoEventRequired[434] = 433
         set ProtoEventRequiredChoice[434] = 1
@@ -28368,7 +28368,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[435] = 1
         set ProtoEventStory[435] = "수색에 실패하고 |cFF865500빈손으로 돌아온 기록지|r에는 같은 길을 맴돈 흔적만 남았다. |cFF006B8F시노부|r는 다음 임무를 위한 회복 준비를 강조하고, 이노스케는 더욱 직접적인 돌파 방식을 요구한다."
         set ProtoEventIntro[435] = "다시 나설 준비를 갖출지, 위험을 감수하고 돌파할지, 남은 길을 줄일지 정한다."
-        set ProtoEventIcon[435] = "war3mapImported\\UI_EventThumb_Card_KMO2_shinobu_Art.tga"
+        set ProtoEventIcon[435] = "war3mapImported\\UI_EventThumb_Card_KMO2_shinobu_Art.blp"
         set ProtoEventImageAspect[435] = 1.777778
         set ProtoEventRequired[435] = 433
         set ProtoEventRequiredChoice[435] = -1
@@ -28415,7 +28415,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[436] = 1
         set ProtoEventStory[436] = "비에 젖은 보급 상자를 열자 |cFF865500병의 이름표가 번져 있다|r. |cFF006B8F시노부|r는 이름을 모르는 것을 먼저 쓰지 말라고 하고, 아오이는 확인한 병과 빈 용기부터 따로 놓는다. 젖지 않은 |cFF80560C기록|r지가 있기는 하지만 전부 대조하려면 준비물이 더 필요하다."
         set ProtoEventIntro[436] = "|cFF80560C기록|r까지 확인할지, 확실한 보급만 챙길지 정한다."
-        set ProtoEventIcon[436] = "war3mapImported\\UI_EventThumb_Card_KMO2_shinobu_Art.tga"
+        set ProtoEventIcon[436] = "war3mapImported\\UI_EventThumb_Card_KMO2_shinobu_Art.blp"
         set ProtoEventImageAspect[436] = 1.777778
         set ProtoEventRequired[436] = 0
         set ProtoEventRequiredChoice[436] = 0
@@ -28462,7 +28462,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[437] = 1
         set ProtoEventStory[437] = "회복 중인 사람들에게 건넬 흰 천을 말리려는데 비가 그치지 않는다. 아오이는 아직 마르지 않은 묶음을 펼쳐 보이고, 이노스케는 돌아가면 마른 보급을 가져올 길이 있다고 나선다.|n|n오늘 맡을 길목을 넓혀 가져올지, 필요한 만큼만 새로 구할지 정해야 한다."
         set ProtoEventIntro[437] = "새 천을 구하거나 돌아가는 길을 맡거나 필요한 범위만 줄인다."
-        set ProtoEventIcon[437] = "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.tga"
+        set ProtoEventIcon[437] = "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.blp"
         set ProtoEventImageAspect[437] = 1.777778
         set ProtoEventRequired[437] = 0
         set ProtoEventRequiredChoice[437] = 0
@@ -28509,7 +28509,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[438] = 1
         set ProtoEventStory[438] = "전령 까마귀가 새 임무를 빠르게 읽는다. 맡을 일을 놓쳐 같은 문장을 다시 듣자 |cFF006B8F탄지로|r가 숨을 고르고 확인할 순서를 정하자고 한다. 아오이는 설명을 듣는 동안 출발할 보급을 묶고 있지만, 아직 빠진 준비물이 있다."
         set ProtoEventIntro[438] = "길게 읽은 안내 뒤에 아직 맡지 않은 준비가 남아 있다."
-        set ProtoEventIcon[438] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga"
+        set ProtoEventIcon[438] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.blp"
         set ProtoEventImageAspect[438] = 1.777778
         set ProtoEventRequired[438] = 0
         set ProtoEventRequiredChoice[438] = 0
@@ -28556,7 +28556,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[439] = 1
         set ProtoEventStory[439] = "출발할 짐을 묶는 소리와 발소리가 뒤섞이자 젠이츠가 문턱에서 멈춘다. 한꺼번에 들린 소리 중 무엇을 먼저 확인할지 망설이는 사이, |cFF006B8F탄지로|r는 짐 자루에 묻은 풀을 살핀다.|n|n모든 소리를 없앨 수는 없으니 소리를 줄이거나 확인할 순서를 바꿀 수 있다."
         set ProtoEventIntro[439] = "짐 소리를 줄이거나 주변 흔적을 먼저 보거나 맡을 범위를 줄인다."
-        set ProtoEventIcon[439] = "war3mapImported\\UI_EventThumb_Card_KMO1_zenitsu_Art.tga"
+        set ProtoEventIcon[439] = "war3mapImported\\UI_EventThumb_Card_KMO1_zenitsu_Art.blp"
         set ProtoEventImageAspect[439] = 1.777778
         set ProtoEventRequired[439] = 0
         set ProtoEventRequiredChoice[439] = 0
@@ -28603,7 +28603,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[440] = 1
         set ProtoEventStory[440] = "저택 밖 보급길의 자국은 한 방향으로 이어지는데, 젖은 짐과 풀 냄새는 서로 다르게 남아 있다. |cFF006B8F탄지로|r는 보이는 자국만 곧장 따르지 않고 냄새가 갈라지는 곳을 짚는다. 이노스케는 주변 길까지 직접 맡으면 알 수 있다고 나선다."
         set ProtoEventIntro[440] = "조사비와 강한 구역을 감수해 확인할지, 넓은 길을 맡을지, 확인한 곳만 남길지 정한다."
-        set ProtoEventIcon[440] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga"
+        set ProtoEventIcon[440] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.blp"
         set ProtoEventImageAspect[440] = 1.777778
         set ProtoEventRequired[440] = 0
         set ProtoEventRequiredChoice[440] = 0
@@ -28650,7 +28650,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[441] = 1
         set ProtoEventStory[441] = "떠나려던 순간 보급낭의 |cFF865500바닥이 벌어져|r 준비한 것들이 떨어졌다. |cFF006B8F시노부|r는 상대에 맞춰 가져갈 것을 다시 고르자고 하고, |cFF006B8F카나오|r는 짐을 나누면 발을 옮기는 데 덜 걸린다고 몸으로 보여 준다.|n|n이노스케는 큰 짐을 한쪽으로 모아 들 테니 강한 길을 맡자고 재촉한다."
         set ProtoEventIntro[441] = "벌어진 보급낭을 계기로 가져갈 준비와 맡을 부담을 다시 고른다."
-        set ProtoEventIcon[441] = "war3mapImported\\UI_EventThumb_Card_KMO2_shinobu_Art.tga"
+        set ProtoEventIcon[441] = "war3mapImported\\UI_EventThumb_Card_KMO2_shinobu_Art.blp"
         set ProtoEventImageAspect[441] = 1.777778
         set ProtoEventRequired[441] = 0
         set ProtoEventRequiredChoice[441] = 0
@@ -28697,7 +28697,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[442] = 1
         set ProtoEventStory[442] = "저택을 찾은 무라타를 선배라고 소개하자 이노스케가 자기보다 강한지부터 묻는다. |cFF006B8F탄지로|r는 먼저 인사하자고 하지만 이노스케는 선배라는 말이 승부를 피할 이유는 되지 않는다고 한다.|n|n무라타는 사람을 오래 지켜 온 것과 싸움에서 이기는 것을 같은 말로 묶지 말라며 네가 어떤 준비를 택할지 묻는다."
         set ProtoEventIntro[442] = "선배의 몫과 승부, 인사 뒤의 반복은 서로 다른 준비가 된다."
-        set ProtoEventIcon[442] = "war3mapImported\\UI_EventThumb_Card_KNYG_murata_Art.tga"
+        set ProtoEventIcon[442] = "war3mapImported\\UI_EventThumb_Card_KNYG_murata_Art.blp"
         set ProtoEventImageAspect[442] = 1.777778
         set ProtoEventRequired[442] = 0
         set ProtoEventRequiredChoice[442] = 0
@@ -28744,7 +28744,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[443] = 1
         set ProtoEventStory[443] = "쉬지 않는 |cFF006B8F탄지로|r를 보고 돌아온 젠이츠와 이노스케가 훈련장 문 앞에서 서로 먼저 들어가라며 버틴다. 젠이츠는 보는 사람이 있는지 살피고 이노스케는 탄지로보다 먼저 시작한 것처럼 들어가겠다고 한다.|n|n탄지로는 이미 같은 동작을 한 번 더 반복하고 있으니 네가 둘을 부를 말부터 정해야 한다."
         set ProtoEventIntro[443] = "두 사람을 부를 때 꾸준함을 보여 줄지 승부나 관심을 앞세울지 정한다."
-        set ProtoEventIcon[443] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga"
+        set ProtoEventIcon[443] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.blp"
         set ProtoEventImageAspect[443] = 1.777778
         set ProtoEventRequired[443] = 0
         set ProtoEventRequiredChoice[443] = 0
@@ -28791,7 +28791,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[444] = 1
         set ProtoEventStory[444] = "해가 진 뒤 저택을 찾은 방문객이 |cFF006B8F네즈코|r를 보고 뒤로 물러난다. 네즈코는 손을 뻗지 않고 가만히 있고 |cFF006B8F탄지로|r는 동생을 몰아세우지 않으면서도 손님의 놀람을 가볍게 넘기고 싶지 않다.|n|n네가 양쪽의 거리를 지켜 이야기를 들을지 탄지로와 다른 자리를 안내할지 정한다."
         set ProtoEventIntro[444] = "놀란 사람을 안심시키는 동안 |cFF006B8F네즈코|r의 의지를 어떻게 지킬까?"
-        set ProtoEventIcon[444] = "war3mapImported\\UI_EventThumb_Card_KMO1_nezuko_Art.tga"
+        set ProtoEventIcon[444] = "war3mapImported\\UI_EventThumb_Card_KMO1_nezuko_Art.blp"
         set ProtoEventImageAspect[444] = 1.777778
         set ProtoEventRequired[444] = 0
         set ProtoEventRequiredChoice[444] = 0
@@ -28838,7 +28838,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[445] = 1
         set ProtoEventStory[445] = "표주박을 보고 네가 먼저 큰 것을 집자 아오이가 아직 설명을 끝내지 않았다고 손을 멈춘다. |cFF006B8F탄지로|r가 자기 도구에 숨을 잇는 동안 너는 크기가 곧 실력이라는 말을 삼킨다.|n|n아오이는 네가 불어 볼 도구를 내려놓고 설명부터 들을 것인지 묻는다."
         set ProtoEventIntro[445] = "큰 도구를 골랐지만 설명은 아직 못 들었다."
-        set ProtoEventIcon[445] = "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.tga"
+        set ProtoEventIcon[445] = "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.blp"
         set ProtoEventImageAspect[445] = 1.777778
         set ProtoEventRequired[445] = 0
         set ProtoEventRequiredChoice[445] = 0
@@ -28885,7 +28885,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[446] = 1
         set ProtoEventStory[446] = "|cFF006B8F탄지로|r에게 아침 인사를 하려는데 그가 대답하다가 자기 호흡의 박자를 다시 잇는다. 하루 종일 유지하려는 연습이라고 듣고 나니 네 다음 질문이 입끝에 남는다.|n|n탄지로는 질문도 듣겠다면서 그 말을 하는 동안에도 자기 숨의 길이를 다시 맞춘다."
         set ProtoEventIntro[446] = "질문은 남았고 |cFF006B8F탄지로|r의 연습도 계속되고 있다."
-        set ProtoEventIcon[446] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga"
+        set ProtoEventIcon[446] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.blp"
         set ProtoEventImageAspect[446] = 1.777778
         set ProtoEventRequired[446] = 0
         set ProtoEventRequiredChoice[446] = 0
@@ -28932,7 +28932,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[447] = 1
         set ProtoEventStory[447] = "|cFF006B8F카나오|r와 손동작으로 반응을 맞추던 네가 끝났다고 생각한 순간에도 손은 앞으로 남아 있다. 카나오는 다음 차례를 준비하고 아오이는 손을 거둘 때도 훈련이라고 말한다. 네가 손을 당기는 사이 카나오는 다음 동작을 이미 기다리고 있다."
         set ProtoEventIntro[447] = "끝났다고 생각한 손은 아직 돌아오지 않았다."
-        set ProtoEventIcon[447] = "war3mapImported\\UI_EventThumb_Card_KNY_kanawo_Art.tga"
+        set ProtoEventIcon[447] = "war3mapImported\\UI_EventThumb_Card_KNY_kanawo_Art.blp"
         set ProtoEventImageAspect[447] = 1.777778
         set ProtoEventRequired[447] = 0
         set ProtoEventRequiredChoice[447] = 0
@@ -28979,7 +28979,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[448] = 1
         set ProtoEventStory[448] = "이노스케가 가림막 뒤로 옮겨 간 네 위치를 가리키고는 이제 네가 맞혀 보라고 한다. 눈앞의 막만 보던 네가 발을 움직이자 이노스케도 다른 쪽으로 발판을 바꾼다.|n|n먼저 막을 걷으려는 네 손을 보고 이노스케는 아직 승부가 끝난 게 아니라고 한다."
         set ProtoEventIntro[448] = "눈앞의 막을 걷으면 승부도 끝나는 걸까?"
-        set ProtoEventIcon[448] = "war3mapImported\\UI_EventThumb_Card_KMO2_inosuke_Art.tga"
+        set ProtoEventIcon[448] = "war3mapImported\\UI_EventThumb_Card_KMO2_inosuke_Art.blp"
         set ProtoEventImageAspect[448] = 1.777778
         set ProtoEventRequired[448] = 0
         set ProtoEventRequiredChoice[448] = 0
@@ -29026,7 +29026,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[449] = 1
         set ProtoEventStory[449] = "첫 표주박 도전이 끝난 뒤 네가 도구를 내려놓으려는데 |cFF006B8F탄지로|r는 아직 숨을 잇고 있다. 아오이가 터진 소리만 세면 다음 박자를 놓친다고 네 손을 본다. 네가 첫 성공을 다시 말하려 하자 탄지로는 다음 숨은 언제 시작할 것인지 묻는다."
         set ProtoEventIntro[449] = "첫 소리는 끝났지만 숨은 아직 이어진다."
-        set ProtoEventIcon[449] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga"
+        set ProtoEventIcon[449] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.blp"
         set ProtoEventImageAspect[449] = 1.777778
         set ProtoEventRequired[449] = 445
         set ProtoEventRequiredChoice[449] = 1
@@ -29073,7 +29073,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[450] = 1
         set ProtoEventStory[450] = "|cFF006B8F탄지로|r는 도깨비에게 가족을 잃고, 도깨비로 변한 여동생 |cFF006B8F네즈코|r를 인간으로 되돌리려는 소년이다. 도깨비와 싸우는 조직 귀살대의 검사가 되어 동료 젠이츠, 이노스케와 함께했지만 나타구모산 전투에서 크게 다친다.|n|n일행은 귀살대의 강한 검사인 주 가운데 치료에 밝은 |cFF006B8F시노부|r가 있는 나비저택으로 옮겨진다.|n|n아오이와 어린 조력자 키요, 스미, 나호가 치료와 돌봄을 맡는다. 네즈코는 도깨비인데도 인간을 해치지 않고 오빠를 돕는 특별한 존재다. 아오이 — 다음 임무를 생각하기 전에, 지금 몸부터 돌봐야 해요."
         set ProtoEventIntro[450] = "나타구모산에서 다친 일행이 나비저택의 치료를 받는다."
-        set ProtoEventIcon[450] = "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.tga"
+        set ProtoEventIcon[450] = "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.blp"
         set ProtoEventImageAspect[450] = 1.777778
         set ProtoEventRequired[450] = 0
         set ProtoEventRequiredChoice[450] = 0
@@ -29123,7 +29123,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[451] = 1
         set ProtoEventStory[451] = "치료가 진행되자 몸풀기와 찻잔 겨루기, 술래잡기 등 재활 훈련이 시작된다. 상대인 |cFF006B8F카나오|r는 |cFF006B8F탄지로|r와 같은 입대 시험을 통과했지만 |cFF006B8F시노부|r에게 직접 배우는 계승자다. 탄지로와 이노스케는 그녀의 움직임을 따라잡지 못한다.|n|n뒤늦게 훈련에 합류한 젠이츠도 처음의 의욕과 달리 계속 패한다. 결국 젠이츠와 이노스케는 훈련에서 물러나고 탄지로만 남는다. 탄지로 — 같은 시험을 통과했는데 이렇게 다를 수 있구나."
         set ProtoEventIntro[451] = "재활 훈련에서 |cFF006B8F카나오|r와의 실력 차이가 드러난다."
-        set ProtoEventIcon[451] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga"
+        set ProtoEventIcon[451] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.blp"
         set ProtoEventImageAspect[451] = 1.777778
         set ProtoEventRequired[451] = 0
         set ProtoEventRequiredChoice[451] = 0
@@ -29173,7 +29173,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[452] = 1
         set ProtoEventStory[452] = "평소에도 호흡을 유지하려 홀로 수련하던 |cFF006B8F탄지로|r는 온화하게 웃는 |cFF006B8F시노부|r에게서 |cFF704261억눌린 분노|r를 느끼고 그 이유를 묻는다.|n|n시노부는 언니 카나에가 도깨비에게 죽었다고 털어놓는다. 시노부 — 언니의 바람을 |cFF80560C기억|r해도 제 마음은 쉽게 따라가지 않네요."
         set ProtoEventIntro[452] = "홀로 수련하던 |cFF006B8F탄지로|r가 |cFF006B8F시노부|r의 웃음 뒤를 묻는다."
-        set ProtoEventIcon[452] = "war3mapImported\\UI_EventThumb_Event_BTE_shinobu.tga"
+        set ProtoEventIcon[452] = "war3mapImported\\UI_EventThumb_Event_BTE_shinobu.blp"
         set ProtoEventImageAspect[452] = 1.777778
         set ProtoEventRequired[452] = 0
         set ProtoEventRequiredChoice[452] = 0
@@ -29230,7 +29230,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[453] = 2
         set ProtoEventStory[453] = "|cFF006B8F시노부|r와의 대화 뒤에도 |cFF006B8F탄지로|r는 키요, 스미, 나호에게 배운 차이를 되짚으며 수련을 잇는다. |cFF006B8F카나오|r는 전집중 호흡을 싸울 때뿐 아니라 하루 종일 유지하고 있었다. 전집중 호흡은 몸의 힘과 움직임을 끌어올리는 호흡법이며, 그것을 평소에도 계속하는 훈련이 상중이다.|n|n키요 — 카나오 님은 호흡을 평소에도 계속하고 계세요."
         set ProtoEventIntro[453] = "잠깐의 기술을 하루의 호흡으로 이어야 한다."
-        set ProtoEventIcon[453] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga"
+        set ProtoEventIcon[453] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.blp"
         set ProtoEventImageAspect[453] = 1.777778
         set ProtoEventRequired[453] = 0
         set ProtoEventRequiredChoice[453] = 0
@@ -29280,7 +29280,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[454] = 2
         set ProtoEventStory[454] = "|cFF006B8F탄지로|r는 하루 종일 전집중 호흡을 유지하는 상중 수련에 들어간다. 키요, 스미, 나호는 그가 잠든 뒤에도 호흡이 끊기지 않게 곁에서 돕는다. 표주박을 부는 훈련도 거듭하며 호흡을 지탱할 힘을 기른다.|n|n탄지로 — 잠든 뒤에도 도와준다니, 혼자 하는 훈련은 아니었네."
         set ProtoEventIntro[454] = "밤낮으로 곁을 지키는 아이들이 |cFF006B8F탄지로|r의 수련을 돕는다."
-        set ProtoEventIcon[454] = "war3mapImported\\UI_EventThumb_Event_BTE_return.tga"
+        set ProtoEventIcon[454] = "war3mapImported\\UI_EventThumb_Event_BTE_return.blp"
         set ProtoEventImageAspect[454] = 1.777778
         set ProtoEventRequired[454] = 0
         set ProtoEventRequiredChoice[454] = 0
@@ -29330,7 +29330,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[455] = 2
         set ProtoEventStory[455] = "임무를 전하는 까마귀가 사람들이 사라지는 |cFF865500무한열차|r를 조사하라는 소식을 가져온다. 일행은 귀살대의 강한 검사인 염주 |cFF006B8F렌고쿠|r와 합류해야 한다. 출발을 앞둔 |cFF006B8F탄지로|r는 아오이에게 자신의 싸움이 그녀의 돌봄 덕분이기도 하다며 감사한다.|n|n|cFF006B8F카나오|r — 곧 떠나는구나. 나는 이런 때 무슨 말을 해야 할지 모르겠어."
         set ProtoEventIntro[455] = "새 임무를 받고 떠나기 전 |cFF006B8F카나오|r와 마주한다."
-        set ProtoEventIcon[455] = "war3mapImported\\UI_EventThumb_Event_BTE_kanao.tga"
+        set ProtoEventIcon[455] = "war3mapImported\\UI_EventThumb_Event_BTE_kanao.blp"
         set ProtoEventImageAspect[455] = 1.777778
         set ProtoEventRequired[455] = 0
         set ProtoEventRequiredChoice[455] = 0
@@ -29387,7 +29387,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[456] = 2
         set ProtoEventStory[456] = "사람들이 사라진 |cFF865500무한열차|r에 오른 일행은 염주 |cFF006B8F렌고쿠|r 쿄쥬로와 합류한다. |cFF006B8F탄지로|r에게는 실종 조사와 함께 묻고 싶은 것이 있다. 가족에게 전해져 전투에서도 사용한 춤, 히노카미 카구라가 불꽃의 호흡과 관련 있는지 알고 싶은 것이다.|n|n렌고쿠 — 내게 묻고 싶은 기술이 있다고 했지?"
         set ProtoEventIntro[456] = "|cFF865500무한열차|r에서 만난 |cFF006B8F렌고쿠|r에게 기술의 단서를 묻는다."
-        set ProtoEventIcon[456] = "war3mapImported\\UI_EventThumb_Card_KMO2_rengoku_Art.tga"
+        set ProtoEventIcon[456] = "war3mapImported\\UI_EventThumb_Card_KMO2_rengoku_Art.blp"
         set ProtoEventImageAspect[456] = 1.777778
         set ProtoEventRequired[456] = 0
         set ProtoEventRequiredChoice[456] = 0
@@ -29444,7 +29444,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[457] = 2
         set ProtoEventStory[457] = "잠을 조종하는 도깨비 |cFF006B8F엔무|r는 일행을 |cFF80560C꿈|r에 가두고 |cFFA53528정신의 핵을 파괴하려 한다|r. 달콤한 꿈을 받기 원하는 인간 협력자들을 잠든 검사들의 꿈속으로 보내는 방식이다. |cFF006B8F탄지로|r는 이미 죽은 가족이 살아 있는 집에서 다시 평범한 하루를 보낸다.|n|n잃어버린 사람들과 머물고 싶은 마음이 강할수록 꿈을 떠나기는 어렵다. 탄지로 — 여기 남고 싶은데, 어딘가 맞지 않는 것 같아."
         set ProtoEventIntro[457] = "죽은 가족이 돌아온 |cFF80560C꿈|r은 너무도 떠나기 어렵다."
-        set ProtoEventIcon[457] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga"
+        set ProtoEventIcon[457] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.blp"
         set ProtoEventImageAspect[457] = 1.777778
         set ProtoEventRequired[457] = 0
         set ProtoEventRequiredChoice[457] = 0
@@ -29501,7 +29501,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[458] = 2
         set ProtoEventStory[458] = "|cFF80560C꿈|r이라는 사실을 안 |cFF006B8F탄지로|r는 돌아갈 방법을 찾는다. 꿈속에서 아버지의 모습을 만나 깨어날 단서를 얻고, 꿈속의 자기 목을 베어 현실로 돌아온다. 가족을 다시 잃는 듯한 고통을 안고도 실제로 곁에 남은 |cFF006B8F네즈코|r를 지키려는 선택이다.|n|n탄지로 — |cFF006B8F엔무|r를 찾아야 해. 다른 동료들도 깨어나야 하고."
         set ProtoEventIntro[458] = "|cFF80560C꿈|r에서 깨어났어도 열차의 위험은 끝나지 않았다."
-        set ProtoEventIcon[458] = "war3mapImported\\UI_EventThumb_Event_BTO_awakening.tga"
+        set ProtoEventIcon[458] = "war3mapImported\\UI_EventThumb_Event_BTO_awakening.blp"
         set ProtoEventImageAspect[458] = 1.777778
         set ProtoEventRequired[458] = 0
         set ProtoEventRequiredChoice[458] = 0
@@ -29558,7 +29558,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[459] = 2
         set ProtoEventStory[459] = "열차와 하나가 된 |cFF006B8F엔무|r의 살덩이와 촉수가 승객들을 덮친다. 이백여 명을 인질로 붙잡은 적 앞에서 |cFF006B8F탄지로|r가 목만 찾으러 떠날 수는 없다.|n|n|cFF006B8F렌고쿠|r — 승객들을 맡겠다. 너희는 본체를 찾아라."
         set ProtoEventIntro[459] = "승객 보호와 본체 수색을 동시에 해내야 한다."
-        set ProtoEventIcon[459] = "war3mapImported\\UI_EventThumb_Event_BTO_defenders.tga"
+        set ProtoEventIcon[459] = "war3mapImported\\UI_EventThumb_Event_BTO_defenders.blp"
         set ProtoEventImageAspect[459] = 1.777778
         set ProtoEventRequired[459] = 0
         set ProtoEventRequiredChoice[459] = 0
@@ -29608,7 +29608,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[460] = 3
         set ProtoEventStory[460] = "|cFF006B8F탄지로|r와 이노스케가 힘을 합쳐 기관부의 목을 베자 |cFF006B8F엔무|r가 쓰러진다. 열차가 탈선해 일행은 밖으로 튕겨 나가지만, |cFF006B8F렌고쿠|r가 승객들을 보호한 덕분에 모두 살아남는다. 싸움에서 다친 탄지로는 움직이기 어렵고 렌고쿠는 호흡으로 출혈을 억제하는 방법을 알려 준다.|n|n나비저택에서 익힌 호흡이 공격뿐 아니라 자신의 몸을 지키는 데도 필요해진다. 렌고쿠 — 그 호흡은 공격할 때만 쓰는 것이 아니다."
         set ProtoEventIntro[460] = "|cFF006B8F엔무|r를 쓰러뜨린 뒤 |cFF006B8F탄지로|r는 다친 몸을 추스른다."
-        set ProtoEventIcon[460] = "war3mapImported\\UI_EventThumb_Card_KMO2_rengoku_Art.tga"
+        set ProtoEventIcon[460] = "war3mapImported\\UI_EventThumb_Card_KMO2_rengoku_Art.blp"
         set ProtoEventImageAspect[460] = 1.777778
         set ProtoEventRequired[460] = 0
         set ProtoEventRequiredChoice[460] = 0
@@ -29665,7 +29665,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[461] = 3
         set ProtoEventStory[461] = "|cFF006B8F아카자|r는 |cFF006B8F렌고쿠|r의 검술을 보고 도깨비가 되라고 권한다. 인간이라면 늙고 죽어 잃을 재능을, 도깨비가 되어 영원히 단련할 수 있다는 제안이다.|n|n렌고쿠 — 오래 살아남는 것만으로 지키려는 것이 같아지지는 않아."
         set ProtoEventIntro[461] = "|cFF006B8F아카자|r는 |cFF006B8F렌고쿠|r에게 인간의 삶을 버리라고 권한다."
-        set ProtoEventIcon[461] = "war3mapImported\\UI_EventThumb_Event_BTO_flame.tga"
+        set ProtoEventIcon[461] = "war3mapImported\\UI_EventThumb_Event_BTO_flame.blp"
         set ProtoEventImageAspect[461] = 1.777778
         set ProtoEventRequired[461] = 0
         set ProtoEventRequiredChoice[461] = 0
@@ -29722,7 +29722,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[462] = 3
         set ProtoEventStory[462] = "치명상을 입은 |cFF006B8F렌고쿠|r는 |cFF006B8F아카자|r를 붙잡아 해가 뜰 때까지 놓아주지 않으려 한다. 햇빛에 죽는 도깨비인 아카자는 몸을 빼 달아난다.|n|n|cFF006B8F탄지로|r는 도망가는 적을 향해, 승객을 한 명도 죽게 하지 않은 렌고쿠가 패배한 것이 아니라고 외친다. 탄지로 — 렌고쿠 씨가 아직 저기 계셔."
         set ProtoEventIntro[462] = "적은 도망쳤지만 |cFF006B8F렌고쿠|r의 상처는 남았다."
-        set ProtoEventIcon[462] = "war3mapImported\\UI_EventThumb_Card_KMO2_rengoku_Art.tga"
+        set ProtoEventIcon[462] = "war3mapImported\\UI_EventThumb_Card_KMO2_rengoku_Art.blp"
         set ProtoEventImageAspect[462] = 1.777778
         set ProtoEventRequired[462] = 0
         set ProtoEventRequiredChoice[462] = 0
@@ -29779,7 +29779,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[463] = 4
         set ProtoEventStory[463] = "열차의 승객들은 살아남았지만 |cFF006B8F렌고쿠|r는 일행과 함께 돌아오지 못한다. |cFF006B8F탄지로|r와 젠이츠, 이노스케는 부상을 치료하며 큰 상실을 마주한다. 나비저택에서 익힌 호흡과 동료들의 돌봄은 실제로 사람을 구하는 힘이 되었지만, 모든 죽음을 막아 주지는 못했다.|n|n탄지로 — 구한 사람도 있는데, 함께 돌아오지 못한 사람도 있어."
         set ProtoEventIntro[463] = "살아 돌아온 이들은 함께 오지 못한 사람을 |cFF80560C기억|r한다."
-        set ProtoEventIcon[463] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.tga"
+        set ProtoEventIcon[463] = "war3mapImported\\UI_EventThumb_Card_KMO1_tanjiro_Art.blp"
         set ProtoEventImageAspect[463] = 1.777778
         set ProtoEventRequired[463] = 0
         set ProtoEventRequiredChoice[463] = 0
@@ -29834,7 +29834,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[464] = 1
         set ProtoEventStory[464] = "열차에서 돌아온 뒤의 하루에는 치료와 훈련, 그리고 떠난 사람을 생각하는 시간이 함께 남는다. 나비저택에서 배운 것은 싸우는 기술만이 아니었다. 아픈 몸을 돌보는 손과 자기 마음으로 고르는 작은 선택도 다음 걸음을 지탱한다."
         set ProtoEventIntro[464] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[464] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.tga"
+        set ProtoEventIcon[464] = "war3mapImported\\UI_EventThumb_Head_Official_butterfly_Icon.blp"
         set ProtoEventImageAspect[464] = 1.777778
         set ProtoEventRequired[464] = 0
         set ProtoEventRequiredChoice[464] = 0
@@ -29891,7 +29891,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[49] = 1
         set ProtoEventStory[49] = "|cFF80560C기억|r이 흐릿한 |cFF006B8F유우키|r와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
         set ProtoEventIntro[49] = "기억이 흐릿한 유우키와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
-        set ProtoEventIcon[49] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[49] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[49] = 1.777778
         set ProtoHeadEntryEvent[53] = 50
         set ProtoEventKey[50] = "gourmet_entry_1"
@@ -29903,7 +29903,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[50] = 1
         set ProtoEventStory[50] = "|cFF80560C기억|r이 흐릿한 |cFF006B8F유우키|r와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
         set ProtoEventIntro[50] = "기억이 흐릿한 유우키와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
-        set ProtoEventIcon[50] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[50] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[50] = 1.777778
         set ProtoHeadEntryEvent[54] = 51
         set ProtoEventKey[51] = "gourmet_entry_2"
@@ -29915,7 +29915,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[51] = 1
         set ProtoEventStory[51] = "|cFF80560C기억|r이 흐릿한 |cFF006B8F유우키|r와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
         set ProtoEventIntro[51] = "기억이 흐릿한 유우키와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
-        set ProtoEventIcon[51] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[51] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[51] = 1.777778
         set ProtoHeadEntryEvent[55] = 52
         set ProtoEventKey[52] = "gourmet_entry_3"
@@ -29927,7 +29927,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[52] = 1
         set ProtoEventStory[52] = "|cFF80560C기억|r이 흐릿한 |cFF006B8F유우키|r와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
         set ProtoEventIntro[52] = "기억이 흐릿한 유우키와 그를 안내하는 |cFF006B8F콧코로|r가 여행을 시작한다. |cFF006B8F페코린느|r, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다."
-        set ProtoEventIcon[52] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[52] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[52] = 1.777778
         set ProtoCardKey[857] = "pc_kokkoro_entry"
         set ProtoCardName[857] = "콧코로"
@@ -30622,7 +30622,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[465] = 1
         set ProtoEventStory[465] = "의뢰를 마친 |cFF865500미식전|r이 길가에 냄비를 내려놓는다. |cFF006B8F페코린느|r는 식재료 바구니를 들여다보며 자기 몫을 몇 번이고 다시 세고, |cFF006B8F콧코로|r는 다음 끼니에 쓸 재료를 따로 묶는다.|n|n캬루는 잘린 재료 냄새를 따라 다가오는 적을 가리키며, 먹기 전에 자리부터 정하자고 투덜거린다."
         set ProtoEventIntro[465] = "더 모아 함께 먹을지, 다음 끼니를 준비할지, 식사 자리를 줄일지 정한다."
-        set ProtoEventIcon[465] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.tga"
+        set ProtoEventIcon[465] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.blp"
         set ProtoEventImageAspect[465] = 1.777778
         set ProtoEventRequired[465] = 0
         set ProtoEventRequiredChoice[465] = 0
@@ -30669,7 +30669,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[466] = 1
         set ProtoEventStory[466] = "앞서 넉넉히 먹은 자리에서 그릇을 거두던 중, 근처 일을 돕던 사람들이 한 끼를 부탁한다. |cFF006B8F페코린느|r는 비어 가는 냄비를 보고 재료를 더 보태자고 하고, 캬루는 남은 음식부터 나눌 자리를 정하자고 한다."
         set ProtoEventIntro[466] = "재료를 더 보태거나 남은 음식을 나눌 자리를 마련한다."
-        set ProtoEventIcon[466] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.tga"
+        set ProtoEventIcon[466] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.blp"
         set ProtoEventImageAspect[466] = 1.777778
         set ProtoEventRequired[466] = 465
         set ProtoEventRequiredChoice[466] = 1
@@ -30716,7 +30716,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[467] = 1
         set ProtoEventStory[467] = "앞서 |cFF006B8F콧코로|r와 나누어 둔 밀봉 식사 한 끼가 남았다. 다시 만난 자리에서 길을 서둘러 떠나려는 일행이 식사를 부탁한다. |cFF006B8F페코린느|r는 묶어 둔 그릇을 바라보다가, 이번에는 네 몫을 먼저 정해 달라고 한다."
         set ProtoEventIntro[467] = "남겨 둔 한 끼를 먹거나 건네거나 판다."
-        set ProtoEventIcon[467] = "war3mapImported\\UI_EventThumb_Card_PCR_105931_Art.tga"
+        set ProtoEventIcon[467] = "war3mapImported\\UI_EventThumb_Card_PCR_105931_Art.blp"
         set ProtoEventImageAspect[467] = 1.777778
         set ProtoEventRequired[467] = 465
         set ProtoEventRequiredChoice[467] = 2
@@ -30763,7 +30763,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[468] = 1
         set ProtoEventStory[468] = "길드 하우스를 정리하다가 오래 닫혀 있던 작은 방을 열었다. 빈 상자와 쓸 만한 그릇, 부러진 선반이 한데 쌓여 있다. |cFF006B8F콧코로|r는 버릴 것부터 구분하자고 하고, |cFF006B8F페코린느|r는 큰 상자를 들어내면 안쪽까지 볼 수 있다고 말한다.|n|n오늘 맡기로 한 길목 정리도 아직 남았다."
         set ProtoEventIntro[468] = "어질러진 방 안에서 두 사람의 의견이 엇갈린다. 어떻게 정리하는 것이 좋을까?"
-        set ProtoEventIcon[468] = "war3mapImported\\UI_EventThumb_Card_PCR_105931_Art.tga"
+        set ProtoEventIcon[468] = "war3mapImported\\UI_EventThumb_Card_PCR_105931_Art.blp"
         set ProtoEventImageAspect[468] = 1.777778
         set ProtoEventRequired[468] = 0
         set ProtoEventRequiredChoice[468] = 0
@@ -30810,7 +30810,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[469] = 1
         set ProtoEventStory[469] = "습기에 번진 향신료 채집 지도에는 단 한 길만 표시되어 있다. |cFF006B8F페코린느|r는 직접 확인하고 싶어 하고, 캬루는 지도의 정확성을 먼저 의심한다. |cFF006B8F콧코로|r는 오늘 필요한 최소한의 보급품을 챙기고 있다."
         set ProtoEventIntro[469] = "희미한 지도를 보며 다음 행선지를 고민한다."
-        set ProtoEventIcon[469] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.tga"
+        set ProtoEventIcon[469] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.blp"
         set ProtoEventImageAspect[469] = 1.777778
         set ProtoEventRequired[469] = 0
         set ProtoEventRequiredChoice[469] = 0
@@ -30857,7 +30857,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[470] = 1
         set ProtoEventStory[470] = "아오이가 작은 차 모임 안내장을 들고 문 앞을 서성인다. 건네려던 말을 적었다 지우다 종이만 여러 번 접었다. |cFF006B8F콧코로|r는 모임 준비물을 살펴보다 빠진 것을 가리킨다.|n|n아오이는 부탁할 말을 네가 전부 대신하기보다, 처음 한 문장만 함께 정리해 주면 좋겠다고 한다."
         set ProtoEventIntro[470] = "건넬 말을 함께 준비할지, 모임의 실무를 도울지 정한다."
-        set ProtoEventIcon[470] = "war3mapImported\\UI_EventThumb_Card_PCR_104031_Art.tga"
+        set ProtoEventIcon[470] = "war3mapImported\\UI_EventThumb_Card_PCR_104031_Art.blp"
         set ProtoEventImageAspect[470] = 1.777778
         set ProtoEventRequired[470] = 0
         set ProtoEventRequiredChoice[470] = 0
@@ -30904,7 +30904,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[471] = 1
         set ProtoEventStory[471] = "논가에 묶어 둔 곡식 옆으로 빗방울이 떨어진다. |cFF006B8F콧코로|r는 막힌 배수길과 남은 묶음을 번갈아 보고, |cFF006B8F페코린느|r는 들 수 있는 것부터 옮기자고 한다. 둘 다 끝내기에는 손이 부족하다."
         set ProtoEventIntro[471] = "배수 도구를 마련할지, 곡식을 옮길지, 맡을 범위를 줄일지 정한다."
-        set ProtoEventIcon[471] = "war3mapImported\\UI_EventThumb_Card_PCR_105931_Art.tga"
+        set ProtoEventIcon[471] = "war3mapImported\\UI_EventThumb_Card_PCR_105931_Art.blp"
         set ProtoEventImageAspect[471] = 1.777778
         set ProtoEventRequired[471] = 0
         set ProtoEventRequiredChoice[471] = 0
@@ -30951,7 +30951,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[472] = 1
         set ProtoEventStory[472] = "츠무기가 옷에 묶인 |cFF80560C이름표|r를 의뢰서 옆에 놓는다. 받는 사람이 서로 다르자 |cFF006B8F유우키|r도 배달 종이를 다시 펼친다. 츠무기는 허락도 받지 않고 자를 수는 없다며 가위를 내려놓는다."
         set ProtoEventIntro[472] = "확인을 도울지, 맞지 않는 옷을 되돌릴 준비를 할지 정한다."
-        set ProtoEventIcon[472] = "war3mapImported\\UI_EventThumb_Card_PCR_105431_Art.tga"
+        set ProtoEventIcon[472] = "war3mapImported\\UI_EventThumb_Card_PCR_105431_Art.blp"
         set ProtoEventImageAspect[472] = 1.777778
         set ProtoEventRequired[472] = 0
         set ProtoEventRequiredChoice[472] = 0
@@ -30988,7 +30988,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[473] = 1
         set ProtoEventStory[473] = "카스미가 두 주민의 진술을 나란히 펼친다. 한 사람은 짐수레를, 다른 사람은 어두운 보행자를 보았지만 적힌 시각이 다르다. 카스미는 둘 중 누구를 거짓말쟁이라 부르기 전에 시각부터 확인하자고 한다."
         set ProtoEventIntro[473] = "어느 부분을 확인하고 어디까지 |cFF80560C기록|r할지 정한다."
-        set ProtoEventIcon[473] = "war3mapImported\\UI_EventThumb_Card_PCR_101431_Art.tga"
+        set ProtoEventIcon[473] = "war3mapImported\\UI_EventThumb_Card_PCR_101431_Art.blp"
         set ProtoEventImageAspect[473] = 1.777778
         set ProtoEventRequired[473] = 0
         set ProtoEventRequiredChoice[473] = 0
@@ -31035,7 +31035,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[474] = 1
         set ProtoEventStory[474] = "불안해진 상인들이 저녁도 준비하기 전에 문을 닫으려 한다. 모니카는 지킬 길목을 나누자고 하고, |cFF006B8F페코린느|r는 식사할 사람들의 몫도 걱정한다. 캬루는 넓게 맡을수록 놓칠 구석이 늘어난다고 말한다."
         set ProtoEventIntro[474] = "길목을 준비하거나 맡을 범위를 바꿀 수 있다. 폐점 일을 돕는 방법도 있다."
-        set ProtoEventIcon[474] = "war3mapImported\\UI_EventThumb_Card_PCR_105331_Art.tga"
+        set ProtoEventIcon[474] = "war3mapImported\\UI_EventThumb_Card_PCR_105331_Art.blp"
         set ProtoEventImageAspect[474] = 1.777778
         set ProtoEventRequired[474] = 0
         set ProtoEventRequiredChoice[474] = 0
@@ -31082,7 +31082,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[475] = 1
         set ProtoEventStory[475] = "|cFF006B8F유우키|r의 배달 짐과 |cFF865500미식전|r의 보급품이 같은 수레에 실렸다. 목적지가 달라 첫 갈림길에서 그대로 나아갈 수는 없다. |cFF006B8F콧코로|r는 나눌 몫을 표시하고 |cFF006B8F페코린느|r는 큰 짐부터 들자고 한다."
         set ProtoEventIntro[475] = "다시 포장할지, 큰 몫을 맡을지, 좁은 범위만 도울지 정한다."
-        set ProtoEventIcon[475] = "war3mapImported\\UI_EventThumb_Card_PCRS_yuuki_Art.tga"
+        set ProtoEventIcon[475] = "war3mapImported\\UI_EventThumb_Card_PCRS_yuuki_Art.blp"
         set ProtoEventImageAspect[475] = 1.777778
         set ProtoEventRequired[475] = 0
         set ProtoEventRequiredChoice[475] = 0
@@ -31129,7 +31129,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[476] = 1
         set ProtoEventStory[476] = "카르미나의 연습 자리에서 움직일 때마다 벽 쪽 짐이 덜컹거린다. 벽 너머에서는 주민들이 쉬고 있고, 노조미는 연습도 부탁도 전부 한 번에 맡기는 어렵다고 말한다. |cFF006B8F페코린느|r는 바깥에 쌓인 짐부터 들어 보려 한다."
         set ProtoEventIntro[476] = "연습 자리의 움직임을 맞추거나 짐을 옮기는 일을 도울 수 있다."
-        set ProtoEventIcon[476] = "war3mapImported\\UI_EventThumb_Card_PCR_102931_Art.tga"
+        set ProtoEventIcon[476] = "war3mapImported\\UI_EventThumb_Card_PCR_102931_Art.blp"
         set ProtoEventImageAspect[476] = 1.777778
         set ProtoEventRequired[476] = 0
         set ProtoEventRequiredChoice[476] = 0
@@ -31176,7 +31176,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[477] = 1
         set ProtoEventStory[477] = "|cFF865500기억을 잃은 소년|r |cFF006B8F유우키|r가 눈을 뜬다. 자신의 과거는 물론 말과 생활에도 서툴다. 엘프 소녀 |cFF006B8F콧코로|r는 신탁을 따라 그를 찾아왔으며 앞으로 곁에서 안내하겠다고 한다.|n|n콧코로가 왕도 랜드솔로 가는 길을 가리킨다. 유우키는 낯선 이름을 되뇌며 그녀를 바라본다."
         set ProtoEventIntro[477] = "낯선 숲에서 |cFF006B8F콧코로|r가 먼저 손을 내민다."
-        set ProtoEventIcon[477] = "war3mapImported\\UI_EventThumb_Event_GRE_mushrooms.tga"
+        set ProtoEventIcon[477] = "war3mapImported\\UI_EventThumb_Event_GRE_mushrooms.blp"
         set ProtoEventImageAspect[477] = 1.777778
         set ProtoEventRequired[477] = 0
         set ProtoEventRequiredChoice[477] = 0
@@ -31226,7 +31226,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[478] = 1
         set ProtoEventStory[478] = "버섯을 찾던 |cFF006B8F유우키|r와 |cFF006B8F콧코로|r는 배고픈 검사 |cFF006B8F페코린느|r를 만난다. 힘이 세고 사람을 잘 믿는 그녀는 먹을 것을 이야기할 때 특히 즐거워한다.|n|n얼마 뒤 랜드솔의 대식 대회에서 우승한 페코린느와 다시 마주친다. 반가워하던 그녀는 소중한 |cFF80560C검|r을 잃어버렸다고 털어놓는다. 콧코로가 어디에서 놓쳤는지 물으려 한다."
         set ProtoEventIntro[478] = "다시 만난 |cFF006B8F페코린느|r가 잃어버린 |cFF80560C검|r 이야기를 꺼낸다."
-        set ProtoEventIcon[478] = "war3mapImported\\UI_EventThumb_Event_GRE_contest.tga"
+        set ProtoEventIcon[478] = "war3mapImported\\UI_EventThumb_Event_GRE_contest.blp"
         set ProtoEventImageAspect[478] = 1.777778
         set ProtoEventRequired[478] = 0
         set ProtoEventRequiredChoice[478] = 0
@@ -31276,7 +31276,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[479] = 1
         set ProtoEventStory[479] = "|cFF006B8F유우키|r가 틈을 만든 사이 |cFF006B8F페코린느|r는 |cFF80560C검|r을 되찾아 용을 쓰러뜨리고 |cFF006B8F캐르|r도 구한다. 돌아오는 길, 페코린느가 주먹밥을 내민다.|n|n캐르는 고마운 마음을 쉽게 드러내지 못하고 퉁명스럽게 대꾸한다. 페코린느는 재촉하지 않고 먹을 것을 손에 든 채 기다린다."
         set ProtoEventIntro[479] = "용의 둥지에서 돌아온 일행이 음식을 나눈다."
-        set ProtoEventIcon[479] = "war3mapImported\\UI_EventThumb_Event_GRE_restaurant.tga"
+        set ProtoEventIcon[479] = "war3mapImported\\UI_EventThumb_Event_GRE_restaurant.blp"
         set ProtoEventImageAspect[479] = 1.777778
         set ProtoEventRequired[479] = 0
         set ProtoEventRequiredChoice[479] = 0
@@ -31326,7 +31326,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[480] = 2
         set ProtoEventStory[480] = "식탁에서 헤어졌다가 다시 모인 네 사람에게 |cFF006B8F페코린느|r가 생각을 꺼낸다. 맛있는 것을 찾아다니고 함께 먹는 길드를 만들자는 것이다. 길드가 되면 의뢰를 받아 함께 모험할 수 있다.|n|n|cFF006B8F캐르|r는 그런 이유로 길드를 만들어도 되느냐고 묻는다. 페코린느는 세 사람의 대답을 기다린다."
         set ProtoEventIntro[480] = "|cFF006B8F페코린느|r가 다음에도 함께 모험하자고 제안한다."
-        set ProtoEventIcon[480] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.tga"
+        set ProtoEventIcon[480] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.blp"
         set ProtoEventImageAspect[480] = 1.777778
         set ProtoEventRequired[480] = 0
         set ProtoEventRequiredChoice[480] = 0
@@ -31376,7 +31376,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[481] = 2
         set ProtoEventStory[481] = "기대하며 찾아온 집은 오랫동안 비어 있었다. 먼지가 쌓이고 물건도 어지럽게 놓여 있어 바로 살 수 없다. |cFF006B8F페코린느|r는 넓은 공간을 둘러보고, |cFF006B8F캐르|r는 청소할 곳이 끝도 없다고 한다.|n|n|cFF006B8F콧코로|r가 창문을 열며 어디부터 손볼지 묻는다."
         set ProtoEventIntro[481] = "새 길드 하우스의 문을 여니 먼지가 일어난다."
-        set ProtoEventIcon[481] = "war3mapImported\\UI_EventThumb_Event_GRE_house.tga"
+        set ProtoEventIcon[481] = "war3mapImported\\UI_EventThumb_Event_GRE_house.blp"
         set ProtoEventImageAspect[481] = 1.777778
         set ProtoEventRequired[481] = 0
         set ProtoEventRequiredChoice[481] = 0
@@ -31426,7 +31426,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[482] = 2
         set ProtoEventStory[482] = "향신료 원료를 거두러 타르굼 마을에 온 |cFF865500미식전|r은 다른 길드의 구출 요청을 듣는다. |cFF80560C검|r은 괴물 |cFF865500쉐도우|r와 싸우던 엘리자베스 파크의 시오리가 |cFFA53528삼켜진 것이다|r.|n|n시오리의 언니 하츠네는 동생을 두고 돌아갈 수 없다. 미식전은 하츠네와 길드원들로부터 마지막으로 시오리를 본 상황을 듣는다."
         set ProtoEventIntro[482] = "향신료를 구하러 온 |cFF80560C마을|r에서 실종 소식을 듣는다."
-        set ProtoEventIcon[482] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[482] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[482] = 1.777778
         set ProtoEventRequired[482] = 0
         set ProtoEventRequiredChoice[482] = 0
@@ -31476,7 +31476,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[483] = 2
         set ProtoEventStory[483] = "|cFF006B8F캐르|r에게는 친구들에게 말하지 못한 임무가 있다. 왕궁의 지배자가 |cFF006B8F페코린느|r 일행을 |cFF865500감시하라고 명령|r한 것이다. 자신을 인정해 준 주인을 따르고 싶은 마음은 크다.|n|n하지만 집 안에서는 함께 음식을 먹고 위험을 넘겼던 친구들의 |cFF80560C목소리|r가 들린다. 캐르는 손을 문 앞으로 가져갔다가 잠시 멈춘다. 안에서 페코린느가 그녀를 부른다."
         set ProtoEventIntro[483] = "|cFF006B8F캐르|r가 길드 하우스 앞에서 걸음을 늦춘다."
-        set ProtoEventIcon[483] = "war3mapImported\\UI_EventThumb_Card_PCR_106031_Art.tga"
+        set ProtoEventIcon[483] = "war3mapImported\\UI_EventThumb_Card_PCR_106031_Art.blp"
         set ProtoEventImageAspect[483] = 1.777778
         set ProtoEventRequired[483] = 0
         set ProtoEventRequiredChoice[483] = 0
@@ -31526,7 +31526,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[484] = 2
         set ProtoEventStory[484] = "랜드솔과 농촌을 잇는 길에 마물이 나타나 식재료가 들어오지 못한다. 토벌에 나선 |cFF865500미식전|r은 |cFFA53528거대한 쉐도우X의 공격|r에 몰린다.|n|n미궁 길드의 리더 |cFF006B8F라비리스트|r가 나타나 일행을 돕는다. |cFF006B8F유우키|r와 세계의 비밀을 살피던 그녀는 지금은 공격을 피해야 한다며 자신을 따라오라고 한다."
         set ProtoEventIntro[484] = "거대한 |cFF80560C그림자|r가 교역로를 가로막는다."
-        set ProtoEventIcon[484] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[484] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[484] = 1.777778
         set ProtoEventRequired[484] = 0
         set ProtoEventRequiredChoice[484] = 0
@@ -31576,7 +31576,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[485] = 2
         set ProtoEventStory[485] = "|cFF006B8F콧코로|r는 임시 왕궁에서 본 초상화와 |cFF006B8F페코린느|r를 번갈아 본다. 늘 밝게 음식을 나누던 친구의 표정이 잠시 달라진다.|n|n페코린느는 자신이 숨겨 온 일이 있다고 말한다. 콧코로는 질문을 서두르지 않고 그녀를 향해 선다."
         set ProtoEventIntro[485] = "초상화 앞에서 |cFF006B8F페코린느|r가 말할 준비를 한다."
-        set ProtoEventIcon[485] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.tga"
+        set ProtoEventIcon[485] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.blp"
         set ProtoEventImageAspect[485] = 1.777778
         set ProtoEventRequired[485] = 0
         set ProtoEventRequiredChoice[485] = 0
@@ -31633,7 +31633,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[486] = 2
         set ProtoEventStory[486] = "디아볼로스의 미야코와 시노부가 다친 채 길드 하우스로 찾아온다. 같은 길드의 동료들이 납치되었다고 한다. 왕궁에서 시작된 위협이 다른 길드와 |cFF80560C도시|r로 번지고 있다.|n|n|cFF006B8F페코린느|r는 친구들을 구하려면 더는 자신의 |cFF865500정체를 감추고|r 있을 수 없다고 생각한다. 그녀가 집을 나서려 하자 |cFF006B8F콧코로|r가 곁으로 온다."
         set ProtoEventIntro[486] = "돌아오지 않은 |cFF006B8F캐르|r를 기다리던 집에 부상자들이 찾아온다."
-        set ProtoEventIcon[486] = "war3mapImported\\UI_EventThumb_Event_GRO_visitors.tga"
+        set ProtoEventIcon[486] = "war3mapImported\\UI_EventThumb_Event_GRO_visitors.blp"
         set ProtoEventImageAspect[486] = 1.777778
         set ProtoEventRequired[486] = 0
         set ProtoEventRequiredChoice[486] = 0
@@ -31683,7 +31683,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[487] = 3
         set ProtoEventStory[487] = "|cFF006B8F카이저|r와 |cFF006B8F캐르|r에게 향하던 |cFF006B8F페코린느|r 앞을 쥰이 가로막는다. 나라를 지켜야 할 기사단장이 카이저에게 |cFFA53528세뇌되어 왕녀를 공격|r하고 있다.|n|n페코린느는 쥰을 지나야 하지만, 조종당하는 기사를 그대로 적으로 버릴 수도 없다. 쥰이 다시 거리를 좁힌다."
         set ProtoEventIntro[487] = "왕궁 기사단장 |cFF006B8F쥰|r이 |cFF006B8F페코린느|r에게 무기를 겨눈다."
-        set ProtoEventIcon[487] = "war3mapImported\\UI_EventThumb_Event_GRO_bondage.tga"
+        set ProtoEventIcon[487] = "war3mapImported\\UI_EventThumb_Event_GRO_bondage.blp"
         set ProtoEventImageAspect[487] = 1.777778
         set ProtoEventRequired[487] = 0
         set ProtoEventRequiredChoice[487] = 0
@@ -31740,7 +31740,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[488] = 3
         set ProtoEventStory[488] = "|cFF006B8F유우키|r는 |cFF006B8F콧코로|r가 받은 열쇠의 지원으로 싸워 붙잡힌 |cFF006B8F라비리스트|r와 네네카를 풀어 준다. 그러나 카이저가 |cFFA53528쉐도우에 삼켜져 더 거대한 위협|r이 된다. 캐르는 자신을 도구처럼 대한 주인도 버리지 못한다.|n|n다른 길드와 미식전이 그녀를 돕는 동안 유우키는 두 사람을 구하려다 다쳐 쓰러진다. 그 앞에 실패를 되돌리고 다시 시작할 가능성과, 지금의 동료들이 있는 곳으로 돌아갈 선택이 놓인다."
         set ProtoEventIntro[488] = "쓰러진 |cFF006B8F유우키|r에게 다시 시작할 가능성이 열린다."
-        set ProtoEventIcon[488] = "war3mapImported\\UI_EventThumb_Event_GRO_return.tga"
+        set ProtoEventIcon[488] = "war3mapImported\\UI_EventThumb_Event_GRO_return.blp"
         set ProtoEventImageAspect[488] = 1.777778
         set ProtoEventRequired[488] = 0
         set ProtoEventRequiredChoice[488] = 0
@@ -31797,7 +31797,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[489] = 3
         set ProtoEventStory[489] = "돌아온 |cFF006B8F유우키|r와 동료들이 구출을 이어간다. |cFF006B8F캐르|r는 두려워하기만 했던 주인에게 자신의 마음을 말하려 한다. |cFF865500미식전|r에서 보낸 식사와 생활을 떠올리자 그 사람에게도 건네고 싶은 바람이 생긴다.|n|n캐르는 친구들이 열어 준 틈으로 |cFF006B8F카이저|r를 향한다."
         set ProtoEventIntro[489] = "캐르가 |cFF865500쉐도우|r에 삼켜진 |cFF006B8F카이저|r에게 다가간다."
-        set ProtoEventIcon[489] = "war3mapImported\\UI_EventThumb_Event_GRO_together.tga"
+        set ProtoEventIcon[489] = "war3mapImported\\UI_EventThumb_Event_GRO_together.blp"
         set ProtoEventImageAspect[489] = 1.777778
         set ProtoEventRequired[489] = 0
         set ProtoEventRequiredChoice[489] = 0
@@ -31847,7 +31847,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[490] = 4
         set ProtoEventStory[490] = "위기가 끝나고 |cFF006B8F페코린느|r는 왕녀 유스티아나의 이름과 자리를 되찾는다. 그 뒤 그녀가 다시 찾아온 곳은 |cFF865500미식전|r의 길드 하우스다. 집 안에서는 캐르가 음식을 준비하고 |cFF006B8F유우키|r와 |cFF006B8F콧코로|r가 기다린다.|n|n페코린느는 왕녀로서의 인사보다 친구들에게 먼저 하고 싶은 말이 있다. 문 앞에서 익숙한 얼굴들을 바라본다."
         set ProtoEventIntro[490] = "|cFF006B8F캐르|r가 음식을 준비한 집에 |cFF006B8F페코린느|r가 찾아온다."
-        set ProtoEventIcon[490] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.tga"
+        set ProtoEventIcon[490] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.blp"
         set ProtoEventImageAspect[490] = 1.777778
         set ProtoEventRequired[490] = 0
         set ProtoEventRequiredChoice[490] = 0
@@ -31902,7 +31902,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[491] = 1
         set ProtoEventStory[491] = "네 사람이 다시 마주 앉은 식탁을 떠올린다. |cFF865500미식전|r의 여행에는 낯선 음식을 찾던 즐거움과 함께 돌아오지 못할까 두려웠던 순간이 함께 있었다. 그 끝에서 평범한 한 끼를 가능하게 한 것은 무엇이었을까."
         set ProtoEventIntro[491] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[491] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[491] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[491] = 1.777778
         set ProtoEventRequired[491] = 0
         set ProtoEventRequiredChoice[491] = 0
@@ -31949,7 +31949,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[492] = 2
         set ProtoEventStory[492] = "|cFF865500미식전|r은 여러 의뢰를 겪으며 함께 지내고, 랜드솔 축제에서 모처럼 즐거운 하루를 보낸다. 같은 때 |cFF006B8F라비리스트|r는 |cFF006B8F카이저|r의 지배를 막으려 맞서고 있다.|n|n친구들 곁에 있던 캐르의 반지가 갑자기 빛난다. 주인에게 받은 선물이다. 캐르가 손을 살피는 사이 |cFFA53528몸이 그 자리에서 끌려나가려|r 한다."
         set ProtoEventIntro[492] = "축제 한가운데에서 |cFF006B8F캐르|r의 손에 낀 |cFF865500반지|r가 빛난다."
-        set ProtoEventIcon[492] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[492] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[492] = 1.777778
         set ProtoEventRequired[492] = 0
         set ProtoEventRequiredChoice[492] = 0
@@ -32006,7 +32006,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[493] = 3
         set ProtoEventStory[493] = "왕궁에서 |cFF006B8F페코린느|r와 |cFF006B8F캐르|r가 위기에 놓인 동안 |cFF006B8F콧코로|r는 아메스의 부탁을 듣는다. |cFF006B8F유우키|r의 꿈속에서 그를 도와온 존재인 아메스는 열쇠를 내밀며 유우키를 지켜 달라고 한다.|n|n동료들에게 힘을 보태는 유우키에게도 누군가의 도움이 필요하다. 콧코로가 내밀어진 열쇠를 바라본다."
         set ProtoEventIntro[493] = "아메스가 |cFF006B8F콧코로|r에게 |cFF865500열쇠|r를 내민다."
-        set ProtoEventIcon[493] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.tga"
+        set ProtoEventIcon[493] = "war3mapImported\\UI_EventThumb_Head_Official_gourmet_Icon.blp"
         set ProtoEventImageAspect[493] = 1.777778
         set ProtoEventRequired[493] = 0
         set ProtoEventRequiredChoice[493] = 0
@@ -32051,7 +32051,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[14] = "amphoreus"
         set ProtoHeadName[14] = "앰포리어스"
         set ProtoHeadIntro[14] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 불씨를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
-        set ProtoHeadIcon[14] = "war3mapImported\\UI_Card_XP_amphoreus_head_Icon.tga"
+        set ProtoHeadIcon[14] = "war3mapImported\\UI_Card_XP_amphoreus_head_Icon.blp"
         set ProtoHeadEntryCard[14] = 937
         set ProtoHeadMainLength[14] = 16
         set ProtoHeadRequiredMain[14] = 0
@@ -32066,7 +32066,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[494] = 1
         set ProtoEventStory[494] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 |cFF865500불씨|r를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
         set ProtoEventIntro[494] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 불씨를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
-        set ProtoEventIcon[494] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga"
+        set ProtoEventIcon[494] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.blp"
         set ProtoEventImageAspect[494] = 1.777778
         set ProtoHeadEntryEvent[57] = 495
         set ProtoEventKey[495] = "amphoreus_entry_1"
@@ -32078,7 +32078,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[495] = 1
         set ProtoEventStory[495] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 |cFF865500불씨|r를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
         set ProtoEventIntro[495] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 불씨를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
-        set ProtoEventIcon[495] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga"
+        set ProtoEventIcon[495] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.blp"
         set ProtoEventImageAspect[495] = 1.777778
         set ProtoHeadEntryEvent[58] = 496
         set ProtoEventKey[496] = "amphoreus_entry_2"
@@ -32090,7 +32090,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[496] = 1
         set ProtoEventStory[496] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 |cFF865500불씨|r를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
         set ProtoEventIntro[496] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 불씨를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
-        set ProtoEventIcon[496] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga"
+        set ProtoEventIcon[496] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.blp"
         set ProtoEventImageAspect[496] = 1.777778
         set ProtoHeadEntryEvent[59] = 497
         set ProtoEventKey[497] = "amphoreus_entry_3"
@@ -32102,7 +32102,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[497] = 1
         set ProtoEventStory[497] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 |cFF865500불씨|r를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
         set ProtoEventIntro[497] = "|cFF865500검은 물결|r에 잠식되는 세계에서 황금의 후예들이 불씨를 모은다. 오크마의 첫 만남부터 |cFF865500철묘|r와의 마지막 싸움까지, 서로에게 맡긴 내일을 따라간다."
-        set ProtoEventIcon[497] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga"
+        set ProtoEventIcon[497] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.blp"
         set ProtoEventImageAspect[497] = 1.777778
         set ProtoCardKey[937] = "amph_tribbie"
         set ProtoCardName[937] = "트리비"
@@ -32695,7 +32695,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[498] = 1
         set ProtoEventStory[498] = "|cFF006B8F개척자|r와 단항이 앰포리어스에 도착한다. |cFF006B8F아글라이아|r는 세계를 잠식하는 |cFF865500검은 물결|r과 불씨를 되찾는 여정을 설명한다. |cFF006B8F트리비|r의 안내를 따라 도시를 보니, 구해야 할 세계에는 이름 모를 사람들의 일상도 있었다."
         set ProtoEventIntro[498] = "|cFF865500검은 물결|r 너머에 오크마의 빛이 남아 있다."
-        set ProtoEventIcon[498] = "war3mapImported\\UI_EventThumb_XP_amphoreus_aglaea.tga"
+        set ProtoEventIcon[498] = "war3mapImported\\UI_EventThumb_XP_amphoreus_aglaea.blp"
         set ProtoEventImageAspect[498] = 1.777778
         set ProtoEventRequired[498] = 0
         set ProtoEventRequiredChoice[498] = 0
@@ -32745,7 +32745,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[499] = 1
         set ProtoEventStory[499] = "|cFF006B8F파이논|r과 |cFF006B8F마이데이|r, |cFF006B8F개척자|r는 니카도르에게 맞서는 길에 선다. 신의 힘을 마주한 뒤에는 용맹이라는 말만으로 설명되지 않는 무게가 남는다. 승리와 |cFF865500불씨|r의 회수 뒤에도 그것을 이어받을 시련은 끝나지 않는다."
         set ProtoEventIntro[499] = "분쟁의 타이탄 앞에서 인간의 도전이 시작된다."
-        set ProtoEventIcon[499] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.tga"
+        set ProtoEventIcon[499] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.blp"
         set ProtoEventImageAspect[499] = 1.777778
         set ProtoEventRequired[499] = 0
         set ProtoEventRequiredChoice[499] = 0
@@ -32795,7 +32795,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[500] = 1
         set ProtoEventStory[500] = "위기에 놓인 신성한 숲에서 일행은 |cFF006B8F아낙사|r와 그가 품은 |cFF865500불씨|r를 구하려 한다. |cFF006B8F트리비|r는 오랜 |cFF80560C기억|r을 통해 불을 쫓는 여정의 기원을 보여 준다. 예언은 처음부터 답이 적힌 종이처럼 단순하지 않았다."
         set ProtoEventIntro[500] = "|cFF865500검은 물결|r 속에서 지식과 |cFF80560C기억|r을 건져 올린다."
-        set ProtoEventIcon[500] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.tga"
+        set ProtoEventIcon[500] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.blp"
         set ProtoEventImageAspect[500] = 1.777778
         set ProtoEventRequired[500] = 0
         set ProtoEventRequiredChoice[500] = 0
@@ -32852,7 +32852,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[501] = 1
         set ProtoEventStory[501] = "|cFF006B8F마이데이|r는 분쟁의 힘을 이어받고 일행과 |cFF865500불씨|r를 지킨다. 트리안느는 힘을 다한 뒤 쓰러지고, |cFF865500검은 물결|r은 여전히 사람들을 위협한다. 마이데이가 끝내려는 것은 |cFFA53528피를 요구해 온 왕조의 유산|r이지 살아남은 사람들의 내일이 아니다."
         set ProtoEventIntro[501] = "|cFF006B8F마이데이|r가 시련에서 돌아오지만 이별도 함께 온다."
-        set ProtoEventIcon[501] = "war3mapImported\\UI_EventThumb_XP_amphoreus_mydei.tga"
+        set ProtoEventIcon[501] = "war3mapImported\\UI_EventThumb_XP_amphoreus_mydei.blp"
         set ProtoEventImageAspect[501] = 1.777778
         set ProtoEventRequired[501] = 0
         set ProtoEventRequiredChoice[501] = 0
@@ -32902,7 +32902,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[502] = 1
         set ProtoEventStory[502] = "|cFF006B8F개척자|r는 빼앗긴 자신의 미래를 되찾아야 한다는 사실을 알게 된다. |cFF006B8F사이퍼|r의 안내로 |cFF006B8F카스토리스|r와 스틱시아에 이른다. 카스토리스가 지나는 |cFFA53528죽음의 경계|r에서 필요한 것은 두려움을 모른 척하는 용기가 아니었다."
         set ProtoEventIntro[502] = "|cFF006B8F카스토리스|r와 함께 죽음의 경계로 향한다."
-        set ProtoEventIcon[502] = "war3mapImported\\UI_EventThumb_XP_amphoreus_castorice.tga"
+        set ProtoEventIcon[502] = "war3mapImported\\UI_EventThumb_XP_amphoreus_castorice.blp"
         set ProtoEventImageAspect[502] = 1.777778
         set ProtoEventRequired[502] = 0
         set ProtoEventRequiredChoice[502] = 0
@@ -32952,7 +32952,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[503] = 2
         set ProtoEventStory[503] = "시민들의 판단이 모이는 자리에서 |cFF006B8F아낙사|r는 세계의 창조에 관한 가설을 제시한다. 여정을 이어 갈 근거는 권위만으로 정해지지 않는다. 그가 이성의 |cFF865500불씨|r를 돌려놓으며 남긴 것은 이후에도 멈추지 않을 질문이었다."
         set ProtoEventIntro[503] = "|cFF006B8F아낙사|r는 시민들 앞에 검증할 주장을 놓는다."
-        set ProtoEventIcon[503] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.tga"
+        set ProtoEventIcon[503] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.blp"
         set ProtoEventImageAspect[503] = 1.777778
         set ProtoEventRequired[503] = 0
         set ProtoEventRequiredChoice[503] = 0
@@ -33009,7 +33009,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[504] = 2
         set ProtoEventStory[504] = "|cFF006B8F아글라이아|r의 죽음 뒤 |cFF006B8F파이논|r이 여정을 이끈다. 하늘로 향한 |cFF006B8F히아킨|r은 |cFF865500조상들의 승리에 가려졌던 진실|r을 알게 된다. 아퀼라와의 싸움에서 일행이 지키려는 것은 완벽한 전승보다 지금 하늘 아래 살아 있는 사람들이다."
         set ProtoEventIntro[504] = "|cFF006B8F히아킨|r은 아퀼라와 맞서는 진실을 마주한다."
-        set ProtoEventIcon[504] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hyacine.tga"
+        set ProtoEventIcon[504] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hyacine.blp"
         set ProtoEventImageAspect[504] = 1.777778
         set ProtoEventRequired[504] = 0
         set ProtoEventRequiredChoice[504] = 0
@@ -33059,7 +33059,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[505] = 2
         set ProtoEventStory[505] = "|cFF006B8F사이퍼|r는 유한했던 여명 장치의 빛을 |cFF865500기만의 힘|r으로 이어 왔다. 세계를 받치는 |cFF865500불씨|r를 지키다 그녀가 쓰러지자 천 년을 버틴 거짓도 끝난다. 농담과 속임수만으로 보았던 행동의 무게를 다시 생각하게 된다."
         set ProtoEventIntro[505] = "|cFF006B8F사이퍼|r가 혼자 지켜 온 여명의 |cFF80560C비밀|r이 드러난다."
-        set ProtoEventIcon[505] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cipher.tga"
+        set ProtoEventIcon[505] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cipher.blp"
         set ProtoEventImageAspect[505] = 1.777778
         set ProtoEventRequired[505] = 0
         set ProtoEventRequiredChoice[505] = 0
@@ -33109,7 +33109,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[506] = 2
         set ProtoEventStory[506] = "|cFF006B8F파이논|r의 고향을 따라가던 |cFF006B8F개척자|r는 반복된 여정의 진실을 마주한다. 앰포리어스는 철묘를 길러 내는 실험에 묶여 있었고, 파이논과 |cFF006B8F키레네|r는 그 완성을 막으려 끝없는 반복을 견뎠다. |cFF865500실험이라는 말|r로 그 안의 삶을 가볍게 만들 수는 없었다."
         set ProtoEventIntro[506] = "|cFF006B8F파이논|r의 |cFF80560C기억|r이 세계의 다른 얼굴을 드러낸다."
-        set ProtoEventIcon[506] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.tga"
+        set ProtoEventIcon[506] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.blp"
         set ProtoEventImageAspect[506] = 1.777778
         set ProtoEventRequired[506] = 0
         set ProtoEventRequiredChoice[506] = 0
@@ -33166,7 +33166,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[507] = 2
         set ProtoEventStory[507] = "|cFF006B8F파이논|r은 파멸에 맞서고 |cFF006B8F개척자|r는 그의 역할을 이어받아 새로운 반복으로 향한다. 같은 시작으로 돌아간다고 모든 수고가 지워지는 것은 아니다. |cFF006B8F키레네|r와 동료들이 남긴 |cFF80560C기억|r이 다른 대답을 시도할 근거가 된다."
         set ProtoEventIntro[507] = "|cFF006B8F개척자|r가 |cFF006B8F파이논|r의 자리를 이어받는다."
-        set ProtoEventIcon[507] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.tga"
+        set ProtoEventIcon[507] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.blp"
         set ProtoEventImageAspect[507] = 1.777778
         set ProtoEventRequired[507] = 0
         set ProtoEventRequiredChoice[507] = 0
@@ -33216,7 +33216,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[508] = 3
         set ProtoEventStory[508] = "율법의 힘을 찾는 |cFF006B8F개척자|r는 최초로 불을 쫓던 시대에 이른다. |cFF006B8F히실렌스|r의 도움으로 |cFF006B8F케리드라|r를 둘러싼 거래를 살피게 된다. 케리드라는 관찰자의 말을 순순히 믿는 인물이 아니며, 서로의 목적을 확인하는 과정이 필요하다."
         set ProtoEventIntro[508] = "|cFF006B8F히실렌스|r와 |cFF006B8F케리드라|r가 살던 시대로 들어간다."
-        set ProtoEventIcon[508] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cerydra.tga"
+        set ProtoEventIcon[508] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cerydra.blp"
         set ProtoEventImageAspect[508] = 1.777778
         set ProtoEventRequired[508] = 0
         set ProtoEventRequiredChoice[508] = 0
@@ -33273,7 +33273,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[509] = 3
         set ProtoEventStory[509] = "|cFF006B8F케리드라|r는 자신의 목숨을 걸어 율법을 바꿀 결정을 |cFF006B8F히실렌스|r에게 맡긴다. 그 선택과 뒤를 이은 사람들의 노력은 세계의 연산을 되돌릴 틈을 만든다. 관찰자가 잔더의 사유 조각임이 드러나고, 일행은 |cFF865500철묘의 탄생을 늦추기 위해|r 맞선다."
         set ProtoEventIntro[509] = "먼저 떠난 이들이 벌어 둔 시간이 모인다."
-        set ProtoEventIcon[509] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hysilens.tga"
+        set ProtoEventIcon[509] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hysilens.blp"
         set ProtoEventImageAspect[509] = 1.777778
         set ProtoEventRequired[509] = 0
         set ProtoEventRequiredChoice[509] = 0
@@ -33323,7 +33323,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[510] = 3
         set ProtoEventStory[510] = "완성된 듯한 |cFF865500재창세|r에서 시간의 불씨가 어긋난다. 에버나이트가 건넨 세계를 받치는 불씨는 |cFF865500시간의 힘으로 만든 환상|r이었다.|n|n|cFF006B8F키레네|r가 기억을 지키는 동안, 열차에서 위기를 들은 단항이 앰포리어스로 돌아온다. 대지의 시련을 거친 그는 기억의 바다에서 |cFF006B8F개척자|r를 찾아내지만 삼칠이는 아직 일행과 재회하지 못했다."
         set ProtoEventIntro[510] = "에버나이트의 구원에는 지워지는 것들이 있었다."
-        set ProtoEventIcon[510] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.tga"
+        set ProtoEventIcon[510] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.blp"
         set ProtoEventImageAspect[510] = 1.777778
         set ProtoEventRequired[510] = 0
         set ProtoEventRequiredChoice[510] = 0
@@ -33380,7 +33380,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[511] = 3
         set ProtoEventStory[511] = "에버나이트와의 대화 끝에 삼칠이는 기억을 돌려받고 동료들과 재회한다. |cFF006B8F단항|r과 함께 |cFF865500재창세|r에 힘을 보태지만 잔더가 노린 |cFF865500철묘|r의 위협까지 사라진 것은 아니다.|n|n|cFF006B8F키레네|r가 지키는 기억과 은하의 동료들이 모일 때, 여정은 마지막 싸움의 문턱에 이른다."
         set ProtoEventIntro[511] = "대지와 시간의 힘이 함께 |cFF865500재창세|r로 향한다."
-        set ProtoEventIcon[511] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.tga"
+        set ProtoEventIcon[511] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.blp"
         set ProtoEventImageAspect[511] = 1.777778
         set ProtoEventRequired[511] = 0
         set ProtoEventRequiredChoice[511] = 0
@@ -33430,7 +33430,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[512] = 3
         set ProtoEventStory[512] = "일행은 시간의 유적에서 |cFF865500파이논이 자신의 몸으로 남긴 봉인|r을 해제한다. 그가 오랫동안 |cFF865500철묘|r를 붙잡아 둔 시간을 이어받아 은하의 동료들과 마지막 싸움을 시작한다.|n|n|cFF006B8F키레네|r는 사라질 위기에 놓인 삶의 |cFF80560C기억|r을 지킨다. 반복을 한 번 더 버티는 싸움으로 끝낼 수는 없다."
         set ProtoEventIntro[512] = "시간의 유적에서 |cFF865500철묘|r와 마주할 준비가 끝난다."
-        set ProtoEventIcon[512] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.tga"
+        set ProtoEventIcon[512] = "war3mapImported\\UI_EventThumb_XP_amphoreus_phainon.blp"
         set ProtoEventImageAspect[512] = 1.777778
         set ProtoEventRequired[512] = 0
         set ProtoEventRequiredChoice[512] = 0
@@ -33480,7 +33480,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[513] = 4
         set ProtoEventStory[513] = "싸움이 끝난 뒤 |cFF006B8F개척자|r는 동료들과 작별한다. |cFF006B8F키레네|r에게는 |cFF865500철묘|r가 돌아올 틈을 닫기 위해 과거로 들어가 인과를 완성할 선택이 남아 있다. 이별을 없던 일로 만들기보다 함께 살아온 이야기를 미래에 전할 차례다."
         set ProtoEventIntro[513] = "작별 뒤에도 세계가 이어질 이유를 남긴다."
-        set ProtoEventIcon[513] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.tga"
+        set ProtoEventIcon[513] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.blp"
         set ProtoEventImageAspect[513] = 1.777778
         set ProtoEventRequired[513] = 0
         set ProtoEventRequiredChoice[513] = 0
@@ -33535,7 +33535,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[514] = 1
         set ProtoEventStory[514] = "오크마를 처음 걸었을 때의 |cFF80560C기억|r이다. 복잡한 길 앞에서 |cFF006B8F트리비|r는 같은 목적지에도 여러 길이 있다고 알려 준다. 긴 여정을 더 늘리지 않아도 짧은 안내에서 배울 것이 있다."
         set ProtoEventIntro[514] = "|cFF006B8F트리비|r의 작은 안내를 |cFF80560C기억|r 속에서 다시 만난다."
-        set ProtoEventIcon[514] = "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.tga"
+        set ProtoEventIcon[514] = "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.blp"
         set ProtoEventImageAspect[514] = 1.777778
         set ProtoEventRequired[514] = 0
         set ProtoEventRequiredChoice[514] = 0
@@ -33582,7 +33582,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[515] = 1
         set ProtoEventStory[515] = "함께 걷던 사람들이 잠깐 발을 멈추었을 때가 떠오른다. |cFF006B8F히아킨|r은 서둘러 괜찮다고 말하지 않아도 된다는 듯 곁을 지켰다. 쉬는 동안 무엇을 돌아보았는지 생각한다."
         set ProtoEventIntro[515] = "더 멀리 가기 전에 잠깐 숨을 고른 |cFF80560C기억|r이다."
-        set ProtoEventIcon[515] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hyacine.tga"
+        set ProtoEventIcon[515] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hyacine.blp"
         set ProtoEventImageAspect[515] = 1.777778
         set ProtoEventRequired[515] = 0
         set ProtoEventRequiredChoice[515] = 0
@@ -33629,7 +33629,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[516] = 1
         set ProtoEventStory[516] = "|cFF006B8F아글라이아|r의 손끝이 떠오르는 일상 |cFF80560C기억|r이다. 엉킨 실을 무작정 잡아당기면 더 단단히 묶일 뿐이었다. 빨리 마치는 것과 다음에도 쓸 수 있게 남기는 일은 같지 않았다."
         set ProtoEventIntro[516] = "작은 엉킴 앞에서 손을 멈춘 순간이다."
-        set ProtoEventIcon[516] = "war3mapImported\\UI_EventThumb_XP_amphoreus_aglaea.tga"
+        set ProtoEventIcon[516] = "war3mapImported\\UI_EventThumb_XP_amphoreus_aglaea.blp"
         set ProtoEventImageAspect[516] = 1.777778
         set ProtoEventRequired[516] = 0
         set ProtoEventRequiredChoice[516] = 0
@@ -33676,7 +33676,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[517] = 1
         set ProtoEventStory[517] = "|cFF006B8F아낙사|r와 나눈 문답을 다시 읽는다. 당연하다고 적어 둔 문장 옆에 왜 그런지 설명하지 못한 빈칸이 있다. 그 빈칸을 어떻게 대할지 정한다."
         set ProtoEventIntro[517] = "질문을 받았을 때의 불편함도 배움이 된다."
-        set ProtoEventIcon[517] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.tga"
+        set ProtoEventIcon[517] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.blp"
         set ProtoEventImageAspect[517] = 1.777778
         set ProtoEventRequired[517] = 0
         set ProtoEventRequiredChoice[517] = 0
@@ -33723,7 +33723,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[518] = 1
         set ProtoEventStory[518] = "한때 보았던 훈련 장면을 떠올린다. |cFF006B8F마이데이|r는 힘을 내는 순간만큼 지킬 자리를 분명히 했다. 끝까지 버틴다는 말을 무작정 버티는 것과 혼동하지 않기로 한다."
         set ProtoEventIntro[518] = "|cFF006B8F마이데이|r의 자세에서 버티는 이유를 읽는다."
-        set ProtoEventIcon[518] = "war3mapImported\\UI_EventThumb_XP_amphoreus_mydei.tga"
+        set ProtoEventIcon[518] = "war3mapImported\\UI_EventThumb_XP_amphoreus_mydei.blp"
         set ProtoEventImageAspect[518] = 1.777778
         set ProtoEventRequired[518] = 0
         set ProtoEventRequiredChoice[518] = 0
@@ -33770,7 +33770,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[519] = 1
         set ProtoEventStory[519] = "멀찍이 서서 같은 풍경을 바라보던 |cFF80560C기억|r이다. 말이 적다는 이유로 마음까지 멀다고 정할 수는 없었다. 상대가 감당할 수 있는 거리에서 뜻을 전할 방법을 찾는다."
         set ProtoEventIntro[519] = "|cFF006B8F카스토리스|r와 나란히 있었던 시간을 되짚는다."
-        set ProtoEventIcon[519] = "war3mapImported\\UI_EventThumb_XP_amphoreus_castorice.tga"
+        set ProtoEventIcon[519] = "war3mapImported\\UI_EventThumb_XP_amphoreus_castorice.blp"
         set ProtoEventImageAspect[519] = 1.777778
         set ProtoEventRequired[519] = 0
         set ProtoEventRequiredChoice[519] = 0
@@ -33817,7 +33817,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[520] = 1
         set ProtoEventStory[520] = "|cFF006B8F사이퍼|r가 농담과 함께 길을 바꾸던 순간을 |cFF80560C기억|r한다. 눈에 잘 띄는 말만 쫓다 보면 정말 보고 있어야 할 움직임을 놓칠 때가 있었다. 이번에는 무엇을 먼저 확인할까?"
         set ProtoEventIntro[520] = "|cFF006B8F사이퍼|r가 지나간 뒤의 거리를 살핀다."
-        set ProtoEventIcon[520] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cipher.tga"
+        set ProtoEventIcon[520] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cipher.blp"
         set ProtoEventImageAspect[520] = 1.777778
         set ProtoEventRequired[520] = 0
         set ProtoEventRequiredChoice[520] = 0
@@ -33864,7 +33864,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[521] = 1
         set ProtoEventStory[521] = "오래된 시대에서 보았던 대화를 떠올린다. |cFF006B8F케리드라|r는 지금 유리한 한 수뿐 아니라 그 뒤 상대가 고를 자리도 보았다. 상대를 이해하는 일과 그 뜻에 동의하는 일은 구분해야 했다."
         set ProtoEventIntro[521] = "|cFF006B8F케리드라|r의 판단을 한 번 더 생각한다."
-        set ProtoEventIcon[521] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cerydra.tga"
+        set ProtoEventIcon[521] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cerydra.blp"
         set ProtoEventImageAspect[521] = 1.777778
         set ProtoEventRequired[521] = 0
         set ProtoEventRequiredChoice[521] = 0
@@ -33911,7 +33911,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[522] = 1
         set ProtoEventStory[522] = "거친 흐름 속에서도 이어졌던 |cFF006B8F히실렌스|r의 |cFF80560C목소리|r가 떠오른다. 남의 속도를 따라가는 것과 함께 갈 속도를 만드는 일은 달랐다. 어떤 박자를 자신의 걸음에 남길까?"
         set ProtoEventIntro[522] = "|cFF006B8F히실렌스|r의 목소리를 |cFF80560C기억|r에서 따라간다."
-        set ProtoEventIcon[522] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hysilens.tga"
+        set ProtoEventIcon[522] = "war3mapImported\\UI_EventThumb_XP_amphoreus_hysilens.blp"
         set ProtoEventImageAspect[522] = 1.777778
         set ProtoEventRequired[522] = 0
         set ProtoEventRequiredChoice[522] = 0
@@ -33958,7 +33958,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[523] = 1
         set ProtoEventStory[523] = "큰 전투의 |cFF80560C기록|r 사이에서 평범한 식사와 인사, 길 안내의 |cFF80560C기억|r을 꺼낸다. |cFF006B8F키레네|r에게 맡기고 싶은 이야기는 승리만으로 이루어져 있지 않다. 어느 장면을 먼저 붙잡을까?"
         set ProtoEventIntro[523] = "|cFF006B8F키레네|r의 |cFF80560C기억|r 옆에 작은 하루를 적는다."
-        set ProtoEventIcon[523] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.tga"
+        set ProtoEventIcon[523] = "war3mapImported\\UI_EventThumb_XP_amphoreus_cyrene.blp"
         set ProtoEventImageAspect[523] = 1.777778
         set ProtoEventRequired[523] = 0
         set ProtoEventRequiredChoice[523] = 0
@@ -34005,7 +34005,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[524] = 1
         set ProtoEventStory[524] = "|cFF006B8F트리비|r의 안내를 받아 본 |cFF80560C기억|r이 있어 이번에는 갈림길을 바로 지나치지 않는다. 혼자 빨리 도착하는 방법과 일행이 함께 도착할 방법을 나란히 생각한다."
         set ProtoEventIntro[524] = "한번 배운 안내가 새로운 길에서도 도움이 된다."
-        set ProtoEventIcon[524] = "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.tga"
+        set ProtoEventIcon[524] = "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.blp"
         set ProtoEventImageAspect[524] = 1.777778
         set ProtoEventRequired[524] = 0
         set ProtoEventRequiredChoice[524] = 0
@@ -34052,7 +34052,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[525] = 1
         set ProtoEventStory[525] = "|cFF006B8F아낙사|r의 질문을 |cFF80560C기억|r한 채 지난 |cFF80560C기록|r을 다시 펼친다. 그때는 몰랐지만 지금은 설명할 수 있는 부분도 있다. 배우는 일이 끝났다고 말하기에는 아직 남은 빈칸이 많다."
         set ProtoEventIntro[525] = "예전에 남긴 질문을 지금의 경험과 대조한다."
-        set ProtoEventIcon[525] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.tga"
+        set ProtoEventIcon[525] = "war3mapImported\\UI_EventThumb_XP_amphoreus_anaxa.blp"
         set ProtoEventImageAspect[525] = 1.777778
         set ProtoEventRequired[525] = 0
         set ProtoEventRequiredChoice[525] = 0
@@ -34099,7 +34099,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[526] = 1
         set ProtoEventStory[526] = "|cFF006B8F트리비|r에게 배웠던 안내를 정리하며 다음에 다시 걷고 싶은 길을 적는다. 많이 적는 것보다 실제로 이어 갈 수 있는 준비가 중요하다. 무엇부터 끝낼까?"
         set ProtoEventIntro[526] = "동행의 |cFF80560C기억|r을 다음 일정으로 옮긴다."
-        set ProtoEventIcon[526] = "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.tga"
+        set ProtoEventIcon[526] = "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.blp"
         set ProtoEventImageAspect[526] = 1.777778
         set ProtoEventRequired[526] = 0
         set ProtoEventRequiredChoice[526] = 0
@@ -34146,7 +34146,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[527] = 1
         set ProtoEventStory[527] = "지난번 모은 표식을 따라 일정을 다시 읽는다. 준비를 마친 덕분에 한 번 더 길을 둘러볼 여유가 생겼다. 이 여유를 더 많은 만남에 쓸지, 이미 잡은 목표에 집중할지 고른다."
         set ProtoEventIntro[527] = "정리한 길에서 다음 만남의 자리가 보인다."
-        set ProtoEventIcon[527] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga"
+        set ProtoEventIcon[527] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.blp"
         set ProtoEventImageAspect[527] = 1.777778
         set ProtoEventRequired[527] = 526
         set ProtoEventRequiredChoice[527] = 1
@@ -34193,7 +34193,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[528] = 1
         set ProtoEventStory[528] = "열차에서의 작별 뒤 남겨진 이야기를 읽는다. 책장을 넘길 때마다 함께 길을 열었던 사람들의 |cFF80560C목소리|r가 |cFF80560C기억|r 속에서 되살아난다. 자신에게 남은 작은 순간들을 어느 이름 옆에 적을까?"
         set ProtoEventIntro[528] = "완성된 |cFF80560C기록|r에서 동료들의 작은 순간을 찾는다."
-        set ProtoEventIcon[528] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga"
+        set ProtoEventIcon[528] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.blp"
         set ProtoEventImageAspect[528] = 1.777778
         set ProtoEventRequired[528] = 0
         set ProtoEventRequiredChoice[528] = 0
@@ -34240,7 +34240,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[529] = 1
         set ProtoEventStory[529] = "인과가 닫힌 뒤에도 |cFF80560C기억|r은 미래를 향한다. 언제 어떤 모습으로 싹틀지 단정하는 대신, 다음 사람이 이 이야기를 읽을 때 무엇을 알아주었으면 하는지 생각한다."
         set ProtoEventIntro[529] = "문명의 |cFF80560C기억|r이 닿을 다음 독자를 떠올린다."
-        set ProtoEventIcon[529] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.tga"
+        set ProtoEventIcon[529] = "war3mapImported\\UI_EventThumb_XP_amphoreus_head.blp"
         set ProtoEventImageAspect[529] = 1.777778
         set ProtoEventRequired[529] = 0
         set ProtoEventRequiredChoice[529] = 0
@@ -34282,7 +34282,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[15] = "phantom_blood"
         set ProtoHeadName[15] = "죠죠 1부"
         set ProtoHeadIntro[15] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
-        set ProtoHeadIcon[15] = "war3mapImported\\UI_Card_XP_phantom_blood_head_Icon.tga"
+        set ProtoHeadIcon[15] = "war3mapImported\\UI_Card_XP_phantom_blood_head_Icon.blp"
         set ProtoHeadEntryCard[15] = 995
         set ProtoHeadMainLength[15] = 12
         set ProtoHeadRequiredMain[15] = 0
@@ -34297,7 +34297,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[530] = 1
         set ProtoEventStory[530] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
         set ProtoEventIntro[530] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
-        set ProtoEventIcon[530] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.tga"
+        set ProtoEventIcon[530] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.blp"
         set ProtoEventImageAspect[530] = 1.777778
         set ProtoHeadEntryEvent[61] = 531
         set ProtoEventKey[531] = "phantom_blood_entry_1"
@@ -34309,7 +34309,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[531] = 1
         set ProtoEventStory[531] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
         set ProtoEventIntro[531] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
-        set ProtoEventIcon[531] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.tga"
+        set ProtoEventIcon[531] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.blp"
         set ProtoEventImageAspect[531] = 1.777778
         set ProtoHeadEntryEvent[62] = 532
         set ProtoEventKey[532] = "phantom_blood_entry_2"
@@ -34321,7 +34321,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[532] = 1
         set ProtoEventStory[532] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
         set ProtoEventIntro[532] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
-        set ProtoEventIcon[532] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.tga"
+        set ProtoEventIcon[532] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.blp"
         set ProtoEventImageAspect[532] = 1.777778
         set ProtoHeadEntryEvent[63] = 533
         set ProtoEventKey[533] = "phantom_blood_entry_3"
@@ -34333,7 +34333,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[533] = 1
         set ProtoEventStory[533] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
         set ProtoEventIntro[533] = "죠스타 저택에서 시작한 두 사람의 인연이 |cFF865500석가면|r과 |cFF865500파문|r의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다."
-        set ProtoEventIcon[533] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.tga"
+        set ProtoEventIcon[533] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_head.blp"
         set ProtoEventImageAspect[533] = 1.777778
         set ProtoCardKey[995] = "pb_speedwagon"
         set ProtoCardName[995] = "스피드왜건"
@@ -34746,7 +34746,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[534] = 1
         set ProtoEventStory[534] = "죠스타 저택에 |cFF006B8F디오|r가 들어온 날, |cFF006B8F죠나단|r은 함께 지낼 또래를 반기려 한다. 그러나 디오는 가까워지려는 손길을 밀어내고 저택 안의 시선도 자기 쪽으로 돌린다. 죠나단은 한집에 산다는 이유만으로 서로를 이해할 수 없다는 사실을 처음 배운다."
         set ProtoEventIntro[534] = "새로 온 |cFF006B8F디오|r와 |cFF006B8F죠나단|r의 첫 인사가 어긋난다."
-        set ProtoEventIcon[534] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.tga"
+        set ProtoEventIcon[534] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.blp"
         set ProtoEventImageAspect[534] = 1.777778
         set ProtoEventRequired[534] = 0
         set ProtoEventRequiredChoice[534] = 0
@@ -34796,7 +34796,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[535] = 1
         set ProtoEventStory[535] = "|cFF006B8F디오|r의 괴롭힘은 저택 안에서 끝나지 않는다. |cFF006B8F죠나단|r과 가까워진 |cFF006B8F에리나|r마저 모욕을 당한다. 자신을 겨냥한 일이라면 참아 왔던 죠나단도 다른 사람의 |cFF704261마음을 짓밟는 행위|r를 넘길 수 없다.|n|n에리나에게 필요한 것을 먼저 살피면서 디오에게 맞설 이유는 또렷해진다."
         set ProtoEventIntro[535] = "|cFF006B8F에리나|r와의 만남까지 |cFF006B8F디오|r가 침범한다."
-        set ProtoEventIcon[535] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_erina.tga"
+        set ProtoEventIcon[535] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_erina.blp"
         set ProtoEventImageAspect[535] = 1.777778
         set ProtoEventRequired[535] = 0
         set ProtoEventRequiredChoice[535] = 0
@@ -34846,7 +34846,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[536] = 1
         set ProtoEventStory[536] = "대학생이 된 |cFF006B8F죠나단|r은 아버지의 상태를 걱정한다. 우연히 읽은 |cFF006B8F디오|r의 아버지가 남긴 |cFF80560C편지|r에는 |cFF865500낯익은 병세|r가 적혀 있다. 지금의 쇠약과 닮은 대목을 확인해야 한다. 의심만으로 고발할 수는 없지만, 확인을 미룰수록 아버지에게 남은 시간도 줄어든다."
         set ProtoEventIntro[536] = "아버지의 쇠약과 과거의 |cFF80560C기록|r이 겹친다."
-        set ProtoEventIcon[536] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[536] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[536] = 1.777778
         set ProtoEventRequired[536] = 0
         set ProtoEventRequiredChoice[536] = 0
@@ -34903,7 +34903,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[537] = 1
         set ProtoEventStory[537] = "독의 출처를 찾아 런던의 |cFF865500식시귀 거리|r에 들어선 |cFF006B8F죠나단|r은 |cFF006B8F스피드왜건|r 일행과 부딪힌다. 공격을 막아 내면서도 쓰러진 상대를 끝까지 몰아붙이지 않는 태도에 스피드왜건은 귀족 청년을 다시 본다. 두 사람의 만남은 조사할 통로가 되고, 이어질 위험을 함께 볼 동료를 남긴다."
         set ProtoEventIntro[537] = "험한 거리에서 뜻밖의 동료를 만난다."
-        set ProtoEventIcon[537] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.tga"
+        set ProtoEventIcon[537] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.blp"
         set ProtoEventImageAspect[537] = 1.777778
         set ProtoEventRequired[537] = 0
         set ProtoEventRequiredChoice[537] = 0
@@ -34953,7 +34953,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[538] = 2
         set ProtoEventStory[538] = "진실을 추궁받은 디오는 반성하는 듯한 모습을 보인다. 그러나 |cFF006B8F스피드왜건|r은 그 태도에 속지 않는다. 몰린 디오는 |cFF865500석가면|r을 쓰고 |cFFA53528인간을 벗어난 힘|r을 얻는다.|n|n아버지를 잃은 |cFF006B8F죠나단|r에게 남은 것은 더 큰 피해를 막아야 한다는 의지다. 저택은 두 사람의 싸움 속에서 불길에 휩싸인다."
         set ProtoEventIntro[538] = "정체가 드러난 |cFF006B8F디오|r가 |cFF865500석가면|r에 손을 댄다."
-        set ProtoEventIcon[538] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.tga"
+        set ProtoEventIcon[538] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.blp"
         set ProtoEventImageAspect[538] = 1.777778
         set ProtoEventRequired[538] = 0
         set ProtoEventRequiredChoice[538] = 0
@@ -35003,7 +35003,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[539] = 2
         set ProtoEventStory[539] = "크게 다친 |cFF006B8F죠나단|r을 돌보는 것은 다시 만난 |cFF006B8F에리나|r다. 잠시 얻은 평온 속에 윌 A.|n|n|cFF006B8F체펠리|r가 나타나 파문을 보여 준다. |cFF006B8F디오|r가 죽었다고 단정할 수 없다는 말은 죠나단을 흔든다. 무작정 뛰쳐나가는 대신 새로운 싸움에 필요한 것을 제대로 배워야 한다."
         set ProtoEventIntro[539] = "회복 중인 |cFF006B8F죠나단|r 앞에 |cFF006B8F체펠리|r가 나타난다."
-        set ProtoEventIcon[539] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.tga"
+        set ProtoEventIcon[539] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.blp"
         set ProtoEventImageAspect[539] = 1.777778
         set ProtoEventRequired[539] = 0
         set ProtoEventRequiredChoice[539] = 0
@@ -35053,7 +35053,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[540] = 2
         set ProtoEventStory[540] = "|cFF006B8F체펠리|r와 |cFF006B8F스피드왜건|r이 동행한 길에서 |cFF006B8F죠나단|r은 배운 것을 실제 위협에 사용해야 한다. 어두운 통로에서는 보이는 움직임만 좇기 어렵다. 체펠리는 당황해 호흡을 끊지 말라고 한다. 죠나단은 위험이 숨어 있는 방향과 동료가 설 위치를 구분하려 한다."
         set ProtoEventIntro[540] = "보이지 않는 위협 앞에서 호흡을 유지해야 한다."
-        set ProtoEventIcon[540] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[540] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[540] = 1.777778
         set ProtoEventRequired[540] = 0
         set ProtoEventRequiredChoice[540] = 0
@@ -35110,7 +35110,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[541] = 2
         set ProtoEventStory[541] = "|cFF006B8F디오|r가 되살린 기사 브루포드와 싸우며 |cFF006B8F죠나단|r은 |cFF704261원한만으로 설명할 수 없는|r 기개를 느낀다. |cFF865500파문|r이 닿은 뒤 인간의 감각을 되찾은 브루포드는 마지막에 검을 맡긴다.|n|n죠나단은 그것을 승리의 전리품처럼 받아들일 수 없다. 검을 쥔 손에 기사의 뜻까지 남는다."
         set ProtoEventIntro[541] = "쓰러진 브루포드에게서 다른 표정을 본다."
-        set ProtoEventIcon[541] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[541] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[541] = 1.777778
         set ProtoEventRequired[541] = 0
         set ProtoEventRequiredChoice[541] = 0
@@ -35160,7 +35160,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[542] = 3
         set ProtoEventStory[542] = "옛 수련장에서 일행은 타커스가 만든 위기에 빠진다. |cFF006B8F죠나단|r은 쇠사슬에 묶여 안쪽에 갇히고 문 바깥의 동료들은 손을 뻗을 수 없다.|n|n|cFF006B8F포코|r가 두려움을 이겨 내고 작은 틈으로 들어가려 한다. 어른들이 할 수 없는 일을 아이가 맡은 순간, 밖에서는 무엇을 해 줄 수 있을까?"
         set ProtoEventIntro[542] = "잠긴 방 안의 |cFF006B8F죠나단|r을 구할 방법이 필요하다."
-        set ProtoEventIcon[542] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[542] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[542] = 1.777778
         set ProtoEventRequired[542] = 0
         set ProtoEventRequiredChoice[542] = 0
@@ -35210,7 +35210,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[543] = 3
         set ProtoEventStory[543] = "|cFF006B8F체펠리|r는 자신에게 예고된 운명을 떠올리면서도 |cFF006B8F죠나단|r을 구하러 간다. 타커스에게 |cFFA53528치명상을 입은|r 그는 남은 힘을 제자에게 전한다.|n|n죠나단은 강해졌다는 기쁨을 느낄 수 없다. 누군가의 마지막 결심이 자신에게 도착했다는 사실부터 받아들여야 한다."
         set ProtoEventIntro[543] = "|cFF006B8F체펠리|r는 돌아서지 않고 |cFF006B8F죠나단|r에게 향한다."
-        set ProtoEventIcon[543] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.tga"
+        set ProtoEventIcon[543] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.blp"
         set ProtoEventImageAspect[543] = 1.777778
         set ProtoEventRequired[543] = 0
         set ProtoEventRequiredChoice[543] = 0
@@ -35267,7 +35267,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[544] = 3
         set ProtoEventStory[544] = "|cFF006B8F포코|r의 누나를 구한 |cFF006B8F죠나단|r은 다시 |cFF006B8F디오|r 앞에 선다. 디오는 |cFFA53528파문을 끊을 냉기|r를 준비하고, 죠나단은 맡겨진 검과 동료에게 배운 감각을 가져온다.|n|n힘의 양만 겨루는 승부가 아니다. 얼어붙는 순간을 넘을 방법을 찾아야 한다."
         set ProtoEventIntro[544] = "|cFF006B8F디오|r의 냉기가 |cFF865500파문|r을 막으려 한다."
-        set ProtoEventIcon[544] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.tga"
+        set ProtoEventIcon[544] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.blp"
         set ProtoEventImageAspect[544] = 1.777778
         set ProtoEventRequired[544] = 0
         set ProtoEventRequiredChoice[544] = 0
@@ -35317,7 +35317,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[545] = 4
         set ProtoEventStory[545] = "|cFF006B8F디오|r를 쓰러뜨렸다고 믿은 |cFF006B8F죠나단|r은 |cFF006B8F에리나|r와 결혼하고 배를 탄다. 선내에서 왕 첸을 발견하며 평온은 무너진다.|n|n|cFFA53528살아남은 디오의 위협|r이 다시 닿고, 사람들은 도망칠 곳을 찾아야 한다. 죠나단은 자신이 돌아갈 가능성보다 아직 구할 수 있는 생명을 먼저 본다."
         set ProtoEventIntro[545] = "신혼여행의 배에서 끝난 줄 알았던 인연이 돌아온다."
-        set ProtoEventIcon[545] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_erina.tga"
+        set ProtoEventIcon[545] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_erina.blp"
         set ProtoEventImageAspect[545] = 1.777778
         set ProtoEventRequired[545] = 0
         set ProtoEventRequiredChoice[545] = 0
@@ -35381,7 +35381,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[546] = 1
         set ProtoEventStory[546] = "|cFF006B8F죠나단|r이 |cFF006B8F에리나|r에게 할 말을 연습하다 스스로 어색해한다. |cFF006B8F스피드왜건|r은 긴 설명을 준비할수록 문 앞에 오래 서 있을 뿐이라며 웃는다. 큰 싸움 밖에도 마음을 정해야 하는 순간은 있다."
         set ProtoEventIntro[546] = "할 말을 고르느라 문고리를 잡은 손이 멈췄다."
-        set ProtoEventIcon[546] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[546] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[546] = 1.777778
         set ProtoEventRequired[546] = 0
         set ProtoEventRequiredChoice[546] = 0
@@ -35428,7 +35428,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[547] = 1
         set ProtoEventStory[547] = "수련의 한 장면을 떠올린다. 힘을 주면 팔은 단단해지지만 잔 안의 물은 오히려 더 흔들린다. |cFF006B8F체펠리|r는 버티는 힘과 불필요한 힘을 빼는 감각을 구분해 보라고 한다."
         set ProtoEventIntro[547] = "|cFF006B8F체펠리|r가 잔을 들고 자세를 지켜본다."
-        set ProtoEventIcon[547] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.tga"
+        set ProtoEventIcon[547] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.blp"
         set ProtoEventImageAspect[547] = 1.777778
         set ProtoEventRequired[547] = 0
         set ProtoEventRequiredChoice[547] = 0
@@ -35475,7 +35475,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[548] = 1
         set ProtoEventStory[548] = "|cFF006B8F스피드왜건|r이 골목을 가리키지만 |cFF006B8F죠나단|r은 짐을 든 사람이 지나갈 수 있을지부터 본다. 가장 짧은 길이 모두에게 가장 빠른 길은 아닐 수 있다. 동행할 사람을 정한 뒤 경로를 골라야 한다."
         set ProtoEventIntro[548] = "지름길을 아는 사람과 안전한 길을 아는 사람이 다르다."
-        set ProtoEventIcon[548] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[548] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[548] = 1.777778
         set ProtoEventRequired[548] = 0
         set ProtoEventRequiredChoice[548] = 0
@@ -35522,7 +35522,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[549] = 1
         set ProtoEventStory[549] = "여행의 한때, 일행은 처마 아래에서 비가 잦아들기를 기다린다. |cFF006B8F체펠리|r는 급하다고 젖은 채 뛰어나갈 필요는 없다고 하고, |cFF006B8F스피드왜건|r은 다시 묶을 짐을 찾는다. |cFF006B8F죠나단|r은 기다리는 동안 할 일을 나누려 한다."
         set ProtoEventIntro[549] = "젖은 옷을 정리하는 짧은 틈이 생겼다."
-        set ProtoEventIcon[549] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[549] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[549] = 1.777778
         set ProtoEventRequired[549] = 0
         set ProtoEventRequiredChoice[549] = 0
@@ -35569,7 +35569,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[550] = 1
         set ProtoEventStory[550] = "|cFF006B8F디오|r를 만났다는 두 사람의 말이 엇갈린다. 한 사람은 예의를 칭찬하고 다른 사람은 두려움을 말한다. 어느 쪽이 거짓인지 서둘러 고르면 그가 사람마다 보인 얼굴을 놓칠 수 있다."
         set ProtoEventIntro[550] = "같은 사람을 봤는데 |cFF80560C기억|r한 인상이 다르다."
-        set ProtoEventIcon[550] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.tga"
+        set ProtoEventIcon[550] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.blp"
         set ProtoEventImageAspect[550] = 1.777778
         set ProtoEventRequired[550] = 0
         set ProtoEventRequiredChoice[550] = 0
@@ -35616,7 +35616,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[551] = 1
         set ProtoEventStory[551] = "|cFF006B8F체펠리|r에게 배운 |cFF80560C기억|r을 다시 꺼낸다. 제자리에서는 되던 호흡이 움직이면 끊긴다.|n|n더 세게 밀어붙이기 전에 어디서 흐름을 잃었는지 찾을 때다. 이 반복은 새 기술을 받는 일이 아니라 배운 것을 자기 것으로 만드는 과정이다."
         set ProtoEventIntro[551] = "|cFF006B8F체펠리|r의 가르침을 다른 자세에서도 이어 본다."
-        set ProtoEventIcon[551] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.tga"
+        set ProtoEventIcon[551] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.blp"
         set ProtoEventImageAspect[551] = 1.777778
         set ProtoEventRequired[551] = 0
         set ProtoEventRequiredChoice[551] = 0
@@ -35663,7 +35663,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[552] = 1
         set ProtoEventStory[552] = "|cFF865500식시귀 거리|r의 익숙한 모퉁이에서 |cFF006B8F스피드왜건|r이 걸음을 늦춘다. 사람에게서 말을 끌어내는 일과 믿을 만한 말을 듣는 일은 다르다고 한다. |cFF006B8F죠나단|r은 힘으로 길을 여는 것만으로 끝낼 수 없다는 사실을 |cFF80560C기억|r한다."
         set ProtoEventIntro[552] = "|cFF006B8F스피드왜건|r은 먼저 듣는 법부터 말한다."
-        set ProtoEventIcon[552] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.tga"
+        set ProtoEventIcon[552] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.blp"
         set ProtoEventImageAspect[552] = 1.777778
         set ProtoEventRequired[552] = 0
         set ProtoEventRequiredChoice[552] = 0
@@ -35710,7 +35710,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[553] = 1
         set ProtoEventStory[553] = "기사가 |cFF80560C검|r을 맡기던 장면 이후의 |cFF80560C기억|r을 짧게 돌아본다. |cFF006B8F죠나단|r은 날을 살피다가 손을 멈춘다.|n|n남겨진 물건을 쓰는 것은 주인을 잊는 일일까, 뜻을 이어 가는 일일까? 곁의 동료들은 서로 다른 말을 꺼낸다."
         set ProtoEventIntro[553] = "|cFF80560C검|r의 무게보다 건넨 사람의 뜻이 오래 남는다."
-        set ProtoEventIcon[553] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[553] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[553] = 1.777778
         set ProtoEventRequired[553] = 0
         set ProtoEventRequiredChoice[553] = 0
@@ -35757,7 +35757,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[554] = 1
         set ProtoEventStory[554] = "|cFF006B8F에리나|r가 상태를 물으면 |cFF006B8F죠나단|r은 늘 괜찮다고 답하려 한다. 걱정을 줄이고 싶어서지만, 도움을 줄 사람에게 필요한 정보도 지워 버린다. 에리나는 강해 보이려는 말보다 지금 어떤지 듣고 싶어 한다."
         set ProtoEventIntro[554] = "괜찮다는 말만으로 대화를 끝낼 수는 없다."
-        set ProtoEventIcon[554] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[554] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[554] = 1.777778
         set ProtoEventRequired[554] = 0
         set ProtoEventRequiredChoice[554] = 0
@@ -35804,7 +35804,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[555] = 1
         set ProtoEventStory[555] = "|cFF006B8F죠나단|r은 |cFF006B8F톤페티|r가 |cFF006B8F체펠리|r에게 전했던 예고를 떠올린다. 피하고 싶은 미래를 알면서도 스승은 눈앞의 사람을 버리지 않았다. 정해진 말을 따랐던 것일까, 그 앞에서도 자기 의지로 움직였던 것일까?"
         set ProtoEventIntro[555] = "미래에 대한 말이 현재의 행동을 대신할 수 있을까?"
-        set ProtoEventIcon[555] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_tonpetty.tga"
+        set ProtoEventIcon[555] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_tonpetty.blp"
         set ProtoEventImageAspect[555] = 1.777778
         set ProtoEventRequired[555] = 0
         set ProtoEventRequiredChoice[555] = 0
@@ -35851,7 +35851,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[556] = 1
         set ProtoEventStory[556] = "|cFFA53528디오의 냉기|r를 마주했던 전투를 |cFF80560C기억|r 속에서 다시 살핀다. 똑같은 방법을 더 세게 되풀이하는 것만으로는 통하지 않는다. 먼저 바꿔야 하는 것은 힘의 양일까, 공격 순서일까, 맞서야 할 거리일까?"
         set ProtoEventIntro[556] = "얼어붙는 힘을 보며 무엇부터 버릴지 고른다."
-        set ProtoEventIcon[556] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.tga"
+        set ProtoEventIcon[556] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_dio.blp"
         set ProtoEventImageAspect[556] = 1.777778
         set ProtoEventRequired[556] = 0
         set ProtoEventRequiredChoice[556] = 0
@@ -35898,7 +35898,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[557] = 1
         set ProtoEventStory[557] = "길을 걷던 |cFF006B8F스피드왜건|r이 뒤를 돌아본다. 누군가 괜찮다고 말해도 숨과 보폭이 먼저 피로를 드러낼 때가 있다. 일행의 앞과 뒤가 서로 보이지 않을 만큼 벌어지기 전에 역할을 다시 정한다."
         set ProtoEventIntro[557] = "동료의 걸음이 조금 늦어졌다."
-        set ProtoEventIcon[557] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.tga"
+        set ProtoEventIcon[557] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_speedwagon.blp"
         set ProtoEventImageAspect[557] = 1.777778
         set ProtoEventRequired[557] = 0
         set ProtoEventRequiredChoice[557] = 0
@@ -35945,7 +35945,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[558] = 1
         set ProtoEventStory[558] = "|cFF006B8F죠나단|r의 마지막 여정을 마친 뒤 |cFF006B8F에리나|r에게 남은 삶을 생각한다. 배에서 벗어났다고 상실이 작아지는 것은 아니다. 그러나 구해 낸 생명을 놓지 않는 일과 함께한 사람을 |cFF80560C기억|r하는 일은 같은 하루 안에서 이어질 수 있다."
         set ProtoEventIntro[558] = "살아남은 사람이 다음 날을 마주한다."
-        set ProtoEventIcon[558] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.tga"
+        set ProtoEventIcon[558] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_jonathan.blp"
         set ProtoEventImageAspect[558] = 1.777778
         set ProtoEventRequired[558] = 0
         set ProtoEventRequiredChoice[558] = 0
@@ -35992,7 +35992,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[559] = 1
         set ProtoEventStory[559] = "|cFF006B8F톤페티|r에게서 |cFF006B8F체펠리|r로, 다시 |cFF006B8F죠나단|r에게 이어진 호흡을 떠올린다. 가르치던 목소리는 들을 수 없어도 몸이 |cFF80560C기억|r하는 자세는 남았다. 다음 걸음을 내딛기 전에 누구에게서 무엇을 배웠는지 돌아본다."
         set ProtoEventIntro[559] = "이미 끝난 대화가 다음 선택에 남는다."
-        set ProtoEventIcon[559] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.tga"
+        set ProtoEventIcon[559] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.blp"
         set ProtoEventImageAspect[559] = 1.777778
         set ProtoEventRequired[559] = 0
         set ProtoEventRequiredChoice[559] = 0
@@ -36034,7 +36034,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[16] = "madolche"
         set ProtoHeadName[16] = "마돌체"
         set ProtoHeadIntro[16] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
-        set ProtoHeadIcon[16] = "war3mapImported\\UI_Card_XP_madolche_head_Icon.tga"
+        set ProtoHeadIcon[16] = "war3mapImported\\UI_Card_XP_madolche_head_Icon.blp"
         set ProtoHeadEntryCard[16] = 1035
         set ProtoHeadMainLength[16] = 12
         set ProtoHeadRequiredMain[16] = 0
@@ -36049,7 +36049,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[560] = 1
         set ProtoEventStory[560] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
         set ProtoEventIntro[560] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
-        set ProtoEventIcon[560] = "war3mapImported\\UI_EventThumb_XP_madolche_head.tga"
+        set ProtoEventIcon[560] = "war3mapImported\\UI_EventThumb_XP_madolche_head.blp"
         set ProtoEventImageAspect[560] = 1.777778
         set ProtoHeadEntryEvent[65] = 561
         set ProtoEventKey[561] = "madolche_entry_1"
@@ -36061,7 +36061,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[561] = 1
         set ProtoEventStory[561] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
         set ProtoEventIntro[561] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
-        set ProtoEventIcon[561] = "war3mapImported\\UI_EventThumb_XP_madolche_head.tga"
+        set ProtoEventIcon[561] = "war3mapImported\\UI_EventThumb_XP_madolche_head.blp"
         set ProtoEventImageAspect[561] = 1.777778
         set ProtoHeadEntryEvent[66] = 562
         set ProtoEventKey[562] = "madolche_entry_2"
@@ -36073,7 +36073,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[562] = 1
         set ProtoEventStory[562] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
         set ProtoEventIntro[562] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
-        set ProtoEventIcon[562] = "war3mapImported\\UI_EventThumb_XP_madolche_head.tga"
+        set ProtoEventIcon[562] = "war3mapImported\\UI_EventThumb_XP_madolche_head.blp"
         set ProtoEventImageAspect[562] = 1.777778
         set ProtoHeadEntryEvent[67] = 563
         set ProtoEventKey[563] = "madolche_entry_3"
@@ -36085,7 +36085,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[563] = 1
         set ProtoEventStory[563] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
         set ProtoEventIntro[563] = "|cFF865500마돌체 샤토|r의 다과회에 주소 없는 |cFF865500초대장|r이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다."
-        set ProtoEventIcon[563] = "war3mapImported\\UI_EventThumb_XP_madolche_head.tga"
+        set ProtoEventIcon[563] = "war3mapImported\\UI_EventThumb_XP_madolche_head.blp"
         set ProtoEventImageAspect[563] = 1.777778
         set ProtoCardKey[1035] = "mad_magileine"
         set ProtoCardName[1035] = "마돌체 마죠레느"
@@ -36518,7 +36518,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[564] = 1
         set ProtoEventStory[564] = "|cFF865500마돌체 샤토|r에 도착하자 |cFF006B8F마죠레느|r가 이상한 초대장을 보여 준다. 다과회를 여는 장소와 시간은 있는데 |cFF865500받을 사람의 이름이 비었다.|r|n|n누가 빠졌는지 모른 채 문을 열면 한 손님은 길을 찾지 못할 수 있다. |cFF006B8F메신젤라또|r는 출발하기 전에 이 문제부터 확인하자고 한다."
         set ProtoEventIntro[564] = "다과회 |cFF865500초대장|r 한 장에 도착할 곳만 적혀 있다."
-        set ProtoEventIcon[564] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga"
+        set ProtoEventIcon[564] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.blp"
         set ProtoEventImageAspect[564] = 1.777778
         set ProtoEventRequired[564] = 0
         set ProtoEventRequiredChoice[564] = 0
@@ -36568,7 +36568,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[565] = 1
         set ProtoEventStory[565] = "|cFF006B8F메신젤라또|r가 펼친 발송 목록에는 같은 길 이름이 두 번 쓰여 있다. |cFF006B8F마죠레느|r는 중복을 지우려다가 종이 뒷면의 작은 화살표를 발견한다.|n|n한 길은 가는 길, 다른 길은 돌아오는 길이었다. 누락된 이름을 찾으려면 장소만 세는 방식부터 바꿔야 한다."
         set ProtoEventIntro[565] = "목록의 빈칸보다 접힌 뒷면이 먼저 눈에 들어온다."
-        set ProtoEventIcon[565] = "war3mapImported\\UI_EventThumb_XP_madolche_messengelato.tga"
+        set ProtoEventIcon[565] = "war3mapImported\\UI_EventThumb_XP_madolche_messengelato.blp"
         set ProtoEventImageAspect[565] = 1.777778
         set ProtoEventRequired[565] = 0
         set ProtoEventRequiredChoice[565] = 0
@@ -36618,7 +36618,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[566] = 1
         set ProtoEventStory[566] = "길에서 돌아온 |cFF006B8F훗케이크|r는 갈림길의 안내판들이 |cFF865500바람에 뒤집혔다고|r 알린다. 그는 비어 있는 |cFF865500초대장|r을 주웠지만 누구 것인지 보지 못했다.|n|n안내판을 바로잡지 않으면 다른 손님들도 엉뚱한 방향으로 갈 수 있다. 이름 찾기에만 매달릴 때가 아니다."
         set ProtoEventIntro[566] = "|cFF006B8F훗케이크|r가 바람 때문에 읽지 못한 안내를 가져왔다."
-        set ProtoEventIcon[566] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.tga"
+        set ProtoEventIcon[566] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.blp"
         set ProtoEventImageAspect[566] = 1.777778
         set ProtoEventRequired[566] = 0
         set ProtoEventRequiredChoice[566] = 0
@@ -36675,7 +36675,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[567] = 1
         set ProtoEventStory[567] = "샤토로 돌아가던 중 |cFF006B8F푸팅세스루|r가 서로 다른 문에 도착하는 전달자들을 발견한다. 길은 여러 개인데 받을 곳은 하나뿐이라 도착한 사람마다 다시 돌아가야 한다. 잃어버린 |cFF865500초대장|r을 찾는 동안에도 불필요한 왕복이 늘고 있었다."
         set ProtoEventIntro[567] = "먼저 출발한 이들이 다른 문으로 돌아오고 있다."
-        set ProtoEventIcon[567] = "war3mapImported\\UI_EventThumb_XP_madolche_petingcessoeur.tga"
+        set ProtoEventIcon[567] = "war3mapImported\\UI_EventThumb_XP_madolche_petingcessoeur.blp"
         set ProtoEventImageAspect[567] = 1.777778
         set ProtoEventRequired[567] = 0
         set ProtoEventRequiredChoice[567] = 0
@@ -36725,7 +36725,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[568] = 2
         set ProtoEventStory[568] = "정원에 도착하니 빈 의자 옆에 이름 없는 |cFF865500초대장|r과 같은 장식 끈이 놓여 있다. 누군가 이곳에서 기다렸지만 지금은 없다.|n|n|cFF006B8F푸딩세스|r는 빈 의자를 치우면 정원이 깔끔해질 거라고 했다가 말을 멈춘다. 자리를 정리하는 일과 |cFF865500기다리던 사람의 흔적|r을 지우는 일은 다르다."
         set ProtoEventIntro[568] = "정원에는 마중하러 나간 사람이 남긴 의자가 있다."
-        set ProtoEventIcon[568] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga"
+        set ProtoEventIcon[568] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.blp"
         set ProtoEventImageAspect[568] = 1.777778
         set ProtoEventRequired[568] = 0
         set ProtoEventRequiredChoice[568] = 0
@@ -36775,7 +36775,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[569] = 2
         set ProtoEventStory[569] = "메모를 읽은 |cFF006B8F글래스플레|r는 초대 목록과 준비 목록이 따로였다는 사실을 짚는다. 도움을 주는 이들은 다과회 안에 있을 거라 생각해 |cFF865500초대장|r을 만들지 않았던 것이다.|n|n그러나 밖에서 안내를 맡은 사람은 손님이 다 들어온 뒤에야 돌아온다. 이름 없는 초대장이 왜 남았는지 이제 알 것 같다."
         set ProtoEventIntro[569] = "손님 목록에는 연회를 준비하던 이들이 빠져 있다."
-        set ProtoEventIcon[569] = "war3mapImported\\UI_EventThumb_XP_madolche_glassouffle.tga"
+        set ProtoEventIcon[569] = "war3mapImported\\UI_EventThumb_XP_madolche_glassouffle.blp"
         set ProtoEventImageAspect[569] = 1.777778
         set ProtoEventRequired[569] = 0
         set ProtoEventRequiredChoice[569] = 0
@@ -36832,7 +36832,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[570] = 2
         set ProtoEventStory[570] = "새로 쓴 |cFF865500초대장|r을 |cFF006B8F훗케이크|r가 받아 들자 창문이 크게 흔들린다. 공중으로 곧장 가는 길은 빠르지만 바람에 종이를 놓칠 수 있다.|n|n|cFF006B8F메신젤라또|r는 땅길을 쓰면 시간이 걸린다고 한다. 전달이 늦는 것과 도착하지 않는 것은 다른 문제다."
         set ProtoEventIntro[570] = "새 |cFF865500초대장|r을 전달할 길에 바람이 다시 세진다."
-        set ProtoEventIcon[570] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.tga"
+        set ProtoEventIcon[570] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.blp"
         set ProtoEventImageAspect[570] = 1.777778
         set ProtoEventRequired[570] = 0
         set ProtoEventRequiredChoice[570] = 0
@@ -36882,7 +36882,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[571] = 2
         set ProtoEventStory[571] = "바깥 안내가 안정될 무렵, 열린 창으로 바람이 들어와 |cFF865500식탁의 이름표를 섞어|r 놓는다. |cFF006B8F푸딩세스|r는 처음 계획대로 돌려놓으려 하지만 준비 담당의 자리가 추가된 뒤라 옛 배치는 더는 맞지 않는다.|n|n돌아온 자리로 복원할 것인지, 바뀐 식탁에 맞게 다시 놓을 것인지 결정해야 한다."
         set ProtoEventIntro[571] = "식탁의 |cFF865500이름표|r가 섞여 자리 배치가 흔들린다."
-        set ProtoEventIcon[571] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga"
+        set ProtoEventIcon[571] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.blp"
         set ProtoEventImageAspect[571] = 1.777778
         set ProtoEventRequired[571] = 0
         set ProtoEventRequiredChoice[571] = 0
@@ -36932,7 +36932,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[572] = 3
         set ProtoEventStory[572] = "|cFF006B8F티아라미스|r는 흩어진 장식과 |cFF865500이름표|r를 보며 무엇을 제자리로 돌려놓을지 묻는다. 처음과 똑같이 만들면 새로 마련한 자리는 사라진다. 모두는 이제 되돌림이 과거의 모양을 복사하는 일이 아니라 각자가 돌아올 곳을 찾는 일임을 이해하려 한다."
         set ProtoEventIntro[572] = "|cFF006B8F티아라미스|r는 처음 모양이 아니라 필요한 자리를 본다."
-        set ProtoEventIcon[572] = "war3mapImported\\UI_EventThumb_XP_madolche_tiaramisu.tga"
+        set ProtoEventIcon[572] = "war3mapImported\\UI_EventThumb_XP_madolche_tiaramisu.blp"
         set ProtoEventImageAspect[572] = 1.777778
         set ProtoEventRequired[572] = 0
         set ProtoEventRequiredChoice[572] = 0
@@ -36989,7 +36989,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[573] = 3
         set ProtoEventStory[573] = "다과회에 손님들이 들어왔는데 |cFF006B8F메신젤라또|r는 한 길목의 확인 표시가 없는 것을 발견한다. |cFF006B8F훗케이크|r가 돌아가 보니 마지막 안내를 맡은 이가 |cFF865500교대 소식을 받지 못한|r 채 기다리고 있었다.|n|n새 초대가 완성되어도 전달이 끝나지 않으면 같은 빈자리가 다시 생긴다."
         set ProtoEventIntro[573] = "모두 들어온 줄 알았지만 길목에 한 사람이 남았다."
-        set ProtoEventIcon[573] = "war3mapImported\\UI_EventThumb_XP_madolche_messengelato.tga"
+        set ProtoEventIcon[573] = "war3mapImported\\UI_EventThumb_XP_madolche_messengelato.blp"
         set ProtoEventImageAspect[573] = 1.777778
         set ProtoEventRequired[573] = 0
         set ProtoEventRequiredChoice[573] = 0
@@ -37039,7 +37039,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[574] = 3
         set ProtoEventStory[574] = "마지막 안내자가 돌아오자 |cFF006B8F엔젤리|r가 남겨 둔 자리를 가리킨다. 새로 올린 찻잔은 처음 계획한 식탁의 모양과 조금 다르다.|n|n그러나 준비하던 이들까지 같은 자리에 앉은 지금의 풍경이 더 자연스럽다. |cFF006B8F푸딩세스|r는 가장 잘 보이는 장식보다 서로 얼굴을 볼 수 있는 위치를 고른다."
         set ProtoEventIntro[574] = "늦게 돌아온 사람이 앉으며 준비가 마무리된다."
-        set ProtoEventIcon[574] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga"
+        set ProtoEventIcon[574] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.blp"
         set ProtoEventImageAspect[574] = 1.777778
         set ProtoEventRequired[574] = 0
         set ProtoEventRequiredChoice[574] = 0
@@ -37089,7 +37089,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[575] = 4
         set ProtoEventStory[575] = "|cFF006B8F마죠레느|r는 처음 발견한 |cFF865500초대장|r을 식탁 가운데 놓는다. 비어 있던 이름 때문에 출발했지만 찾아낸 것은 한 사람의 이름만이 아니었다.|n|n준비한 사람도 손님이라는 사실과 돌아올 자리를 알려야 한다는 |cFF80560C약속|r이 남았다. 다과회가 끝난 뒤 이 초대장을 어떻게 간직할까?"
         set ProtoEventIntro[575] = "모두 앉은 식탁에서 처음의 빈 |cFF865500초대장|r을 다시 펼친다."
-        set ProtoEventIcon[575] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga"
+        set ProtoEventIcon[575] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.blp"
         set ProtoEventImageAspect[575] = 1.777778
         set ProtoEventRequired[575] = 0
         set ProtoEventRequiredChoice[575] = 0
@@ -37146,7 +37146,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[576] = 1
         set ProtoEventStory[576] = "|cFF006B8F마죠레느|r가 새 |cFF865500초대장|r에 리본을 매다 글자가 반쯤 가린 것을 발견한다. |cFF006B8F푸딩세스|r는 모양이 마음에 들지만 |cFF006B8F메신젤라또|r는 받는 이가 읽지 못하면 소용없다고 한다. 작고 빠르게 끝낼 수 있는 준비에 손을 보탠다."
         set ProtoEventIntro[576] = "장식은 예쁘지만 |cFF865500초대장|r 글자를 가리고 있다."
-        set ProtoEventIcon[576] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga"
+        set ProtoEventIcon[576] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.blp"
         set ProtoEventImageAspect[576] = 1.777778
         set ProtoEventRequired[576] = 0
         set ProtoEventRequiredChoice[576] = 0
@@ -37193,7 +37193,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[577] = 1
         set ProtoEventStory[577] = "|cFF006B8F엔젤리|r는 식탁의 잔이 줄지 않는 것을 보고 맛이 없는지 걱정한다. |cFF006B8F글래스플레|r는 뜨거운 것을 바로 마시지 못하는 손님도 있다고 짚는다. |cFF006B8F푸팅세스루|r는 잔이 비었는지만 보지 말고 먼저 물어보자고 한다."
         set ProtoEventIntro[577] = "같은 차를 받고도 마시는 속도가 다르다."
-        set ProtoEventIcon[577] = "war3mapImported\\UI_EventThumb_XP_madolche_anjelly.tga"
+        set ProtoEventIcon[577] = "war3mapImported\\UI_EventThumb_XP_madolche_anjelly.blp"
         set ProtoEventImageAspect[577] = 1.777778
         set ProtoEventRequired[577] = 0
         set ProtoEventRequiredChoice[577] = 0
@@ -37240,7 +37240,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[578] = 1
         set ProtoEventStory[578] = "|cFF006B8F메신젤라또|r가 지도 밖으로 표시된 길을 보고 멈춘다. |cFF006B8F훗케이크|r는 위에서 보면 길이 이어진다고 하지만 처음 오는 손님은 |cFF865500지도가 틀렸다고 생각할|r 것이다. 끝나는 곳처럼 보이는 경계를 어떻게 설명할지 고른다."
         set ProtoEventIntro[578] = "지도의 가장자리에도 돌아오는 길이 이어진다."
-        set ProtoEventIcon[578] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.tga"
+        set ProtoEventIcon[578] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.blp"
         set ProtoEventImageAspect[578] = 1.777778
         set ProtoEventRequired[578] = 0
         set ProtoEventRequiredChoice[578] = 0
@@ -37287,7 +37287,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[579] = 1
         set ProtoEventStory[579] = "|cFF006B8F글래스플레|r는 번호대로 앉아도 이동이 반복되는 이유를 살핀다. 가방을 놓을 공간과 지날 통로가 계산에서 빠져 있었다. |cFF006B8F푸딩세스|r는 의자를 더 붙이려다 식탁 아래를 보고 생각을 바꾼다."
         set ProtoEventIntro[579] = "의자 번호는 맞는데 한 사람씩 다시 일어난다."
-        set ProtoEventIcon[579] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga"
+        set ProtoEventIcon[579] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.blp"
         set ProtoEventImageAspect[579] = 1.777778
         set ProtoEventRequired[579] = 0
         set ProtoEventRequiredChoice[579] = 0
@@ -37334,7 +37334,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[580] = 1
         set ProtoEventStory[580] = "|cFF006B8F메신젤라또|r가 전한 변경 사항을 |cFF006B8F훗케이크|r가 뒤늦은 메모로 가져온다. 두 사람 모두 정확히 전달했지만 적힌 시각이 달라 서로 다른 지시처럼 보였다. 다음에도 같은 일이 생기지 않게 표시를 정한다."
         set ProtoEventIntro[580] = "이미 전한 내용이 다시 도착해 준비가 흔들린다."
-        set ProtoEventIcon[580] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.tga"
+        set ProtoEventIcon[580] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.blp"
         set ProtoEventImageAspect[580] = 1.777778
         set ProtoEventRequired[580] = 0
         set ProtoEventRequiredChoice[580] = 0
@@ -37381,7 +37381,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[581] = 1
         set ProtoEventStory[581] = "|cFF006B8F푸팅세스루|r가 창을 조금 열자 방 안의 공기는 좋아지지만 |cFF865500이름표|r가 움직인다. |cFF006B8F엔젤리|r는 종이를 누를 물건을 찾고 |cFF006B8F푸딩세스|r는 장식의 위치를 고민한다. 하나를 포기하기 전에 바람이 지나갈 길을 바꿔 볼 수 있다."
         set ProtoEventIntro[581] = "바람을 막으면 방이 답답하고 열면 장식이 흔들린다."
-        set ProtoEventIcon[581] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga"
+        set ProtoEventIcon[581] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.blp"
         set ProtoEventImageAspect[581] = 1.777778
         set ProtoEventRequired[581] = 0
         set ProtoEventRequiredChoice[581] = 0
@@ -37428,7 +37428,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[582] = 1
         set ProtoEventStory[582] = "|cFF006B8F마죠레느|r와 준비 |cFF80560C기록|r을 다시 읽다가 빠뜨린 이름을 발견한다. 초대한 사람은 적었는데 도착을 도운 사람은 이름조차 묻지 않았던 것이다. 마죠레느는 도움을 받았던 장소부터 짚어 본다."
         set ProtoEventIntro[582] = "|cFF006B8F마죠레느|r가 지난번 초대의 빈칸을 다시 본다."
-        set ProtoEventIcon[582] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga"
+        set ProtoEventIcon[582] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.blp"
         set ProtoEventImageAspect[582] = 1.777778
         set ProtoEventRequired[582] = 0
         set ProtoEventRequiredChoice[582] = 0
@@ -37475,7 +37475,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[583] = 1
         set ProtoEventStory[583] = "|cFF006B8F메신젤라또|r는 확인 한 줄이 빠졌다며 왔던 길을 되돌아가려 한다. 함께 전달했던 경험을 떠올리자, 필요한 정보가 |cFF006B8F훗케이크|r의 메모에도 있다는 생각이 든다. 성실함이 불필요한 왕복으로만 남지 않게 돕는다."
         set ProtoEventIntro[583] = "한 번 다녀온 |cFF006B8F메신젤라또|r가 다시 출발하려 한다."
-        set ProtoEventIcon[583] = "war3mapImported\\UI_EventThumb_XP_madolche_messengelato.tga"
+        set ProtoEventIcon[583] = "war3mapImported\\UI_EventThumb_XP_madolche_messengelato.blp"
         set ProtoEventImageAspect[583] = 1.777778
         set ProtoEventRequired[583] = 0
         set ProtoEventRequiredChoice[583] = 0
@@ -37522,7 +37522,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[584] = 1
         set ProtoEventStory[584] = "샤토에 처음 온 손님은 누가 말을 걸어 줄지 몰라 입구에서 망설인다. |cFF006B8F푸딩세스|r는 환영 문구를 외우고 |cFF006B8F엔젤리|r는 빈 의자를 가져온다. 완벽한 인사보다 지금 들어와도 된다는 신호가 먼저 필요하다."
         set ProtoEventIntro[584] = "처음 온 손님이 발걸음을 멈춘다."
-        set ProtoEventIcon[584] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.tga"
+        set ProtoEventIcon[584] = "war3mapImported\\UI_EventThumb_XP_madolche_puddingcess.blp"
         set ProtoEventImageAspect[584] = 1.777778
         set ProtoEventRequired[584] = 0
         set ProtoEventRequiredChoice[584] = 0
@@ -37569,7 +37569,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[585] = 1
         set ProtoEventStory[585] = "|cFF006B8F훗케이크|r가 흩어진 부스러기를 보고 |cFF865500급히 떨어뜨린 짐이|r 있을 거라고 한다. 하지만 그것만으로 누군가를 탓하기는 이르다. |cFF006B8F메신젤라또|r는 지나간 순서를, |cFF006B8F글래스플레|r는 다른 가능성을 살핀다."
         set ProtoEventIntro[585] = "길에 남은 흔적을 보고 누가 지나갔는지 짐작한다."
-        set ProtoEventIcon[585] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.tga"
+        set ProtoEventIcon[585] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.blp"
         set ProtoEventImageAspect[585] = 1.777778
         set ProtoEventRequired[585] = 0
         set ProtoEventRequiredChoice[585] = 0
@@ -37616,7 +37616,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[586] = 1
         set ProtoEventStory[586] = "다과를 정리하다 남은 접시가 나온다. |cFF006B8F마죠레느|r는 수를 잘못 셌는지, |cFF006B8F푸딩세스|r는 장식으로 쓸지 생각한다. |cFF006B8F티아라미스|r는 지금 비어 있다는 이유로 쓸모없다고 정하지 말자고 한다."
         set ProtoEventIntro[586] = "하나 더 준비한 접시를 어디에 둘지 고른다."
-        set ProtoEventIcon[586] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga"
+        set ProtoEventIcon[586] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.blp"
         set ProtoEventImageAspect[586] = 1.777778
         set ProtoEventRequired[586] = 0
         set ProtoEventRequiredChoice[586] = 0
@@ -37663,7 +37663,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[587] = 1
         set ProtoEventStory[587] = "|cFF006B8F푸팅세스루|r가 맡던 준비를 |cFF006B8F엔젤리|r에게 넘기려는데 여러 |cFF80560C목소리|r가 겹친다. |cFF006B8F글래스플레|r는 설명이 길어질수록 빠뜨리기 쉽다고 한다. 일을 맡기는 쪽과 받는 쪽 모두 이해할 방법을 정한다."
         set ProtoEventIntro[587] = "다들 바빠서 중요한 말이 묻힌다."
-        set ProtoEventIcon[587] = "war3mapImported\\UI_EventThumb_XP_madolche_anjelly.tga"
+        set ProtoEventIcon[587] = "war3mapImported\\UI_EventThumb_XP_madolche_anjelly.blp"
         set ProtoEventImageAspect[587] = 1.777778
         set ProtoEventRequired[587] = 0
         set ProtoEventRequiredChoice[587] = 0
@@ -37710,7 +37710,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[588] = 1
         set ProtoEventStory[588] = "다과회가 끝난 뒤 |cFF006B8F마죠레느|r가 보관한 |cFF865500초대장|r을 펼친다. 처음에는 한 사람의 이름만 찾으려 했지만, 마지막에는 함께 준비한 이들의 자리까지 찾았다. 뒷면에 남길 짧은 |cFF80560C기록|r을 고른다."
         set ProtoEventIntro[588] = "다과회 뒤, 빈칸에서 시작한 하루를 다시 본다."
-        set ProtoEventIcon[588] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.tga"
+        set ProtoEventIcon[588] = "war3mapImported\\UI_EventThumb_XP_madolche_magileine.blp"
         set ProtoEventImageAspect[588] = 1.777778
         set ProtoEventRequired[588] = 0
         set ProtoEventRequiredChoice[588] = 0
@@ -37757,7 +37757,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[589] = 1
         set ProtoEventStory[589] = "손님들이 떠난 샤토의 식탁을 바라본다. 자리가 비었다고 오늘의 일이 없어진 것은 아니다.|n|n|cFF006B8F티아라미스|r와 |cFF006B8F엔젤리|r, |cFF006B8F글래스플레|r가 각기 다른 방식으로 하루를 정리한다. 같은 모양을 반복하기보다 다음 사람에게 필요한 준비를 남긴다."
         set ProtoEventIntro[589] = "비어 있는 자리를 보며 다음 환영을 생각한다."
-        set ProtoEventIcon[589] = "war3mapImported\\UI_EventThumb_XP_madolche_tiaramisu.tga"
+        set ProtoEventIcon[589] = "war3mapImported\\UI_EventThumb_XP_madolche_tiaramisu.blp"
         set ProtoEventImageAspect[589] = 1.777778
         set ProtoEventRequired[589] = 0
         set ProtoEventRequiredChoice[589] = 0
@@ -37799,7 +37799,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[17] = "tengu"
         set ProtoHeadName[17] = "텐구시"
         set ProtoHeadIntro[17] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
-        set ProtoHeadIcon[17] = "war3mapImported\\UI_Card_XP_tengu_head_Icon.tga"
+        set ProtoHeadIcon[17] = "war3mapImported\\UI_Card_XP_tengu_head_Icon.blp"
         set ProtoHeadEntryCard[17] = 1077
         set ProtoHeadMainLength[17] = 12
         set ProtoHeadRequiredMain[17] = 0
@@ -37814,7 +37814,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[590] = 1
         set ProtoEventStory[590] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
         set ProtoEventIntro[590] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
-        set ProtoEventIcon[590] = "war3mapImported\\UI_EventThumb_XP_tengu_head.tga"
+        set ProtoEventIcon[590] = "war3mapImported\\UI_EventThumb_XP_tengu_head.blp"
         set ProtoEventImageAspect[590] = 1.777778
         set ProtoHeadEntryEvent[69] = 591
         set ProtoEventKey[591] = "tengu_entry_1"
@@ -37826,7 +37826,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[591] = 1
         set ProtoEventStory[591] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
         set ProtoEventIntro[591] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
-        set ProtoEventIcon[591] = "war3mapImported\\UI_EventThumb_XP_tengu_head.tga"
+        set ProtoEventIcon[591] = "war3mapImported\\UI_EventThumb_XP_tengu_head.blp"
         set ProtoEventImageAspect[591] = 1.777778
         set ProtoHeadEntryEvent[70] = 592
         set ProtoEventKey[592] = "tengu_entry_2"
@@ -37838,7 +37838,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[592] = 1
         set ProtoEventStory[592] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
         set ProtoEventIntro[592] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
-        set ProtoEventIcon[592] = "war3mapImported\\UI_EventThumb_XP_tengu_head.tga"
+        set ProtoEventIcon[592] = "war3mapImported\\UI_EventThumb_XP_tengu_head.blp"
         set ProtoEventImageAspect[592] = 1.777778
         set ProtoHeadEntryEvent[71] = 593
         set ProtoEventKey[593] = "tengu_entry_3"
@@ -37850,7 +37850,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[593] = 1
         set ProtoEventStory[593] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
         set ProtoEventIntro[593] = "평범한 등굣길에 |cFF865500공간진|r 경보가 울린다. 이츠카 |cFF006B8F시도|r는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다."
-        set ProtoEventIcon[593] = "war3mapImported\\UI_EventThumb_XP_tengu_head.tga"
+        set ProtoEventIcon[593] = "war3mapImported\\UI_EventThumb_XP_tengu_head.blp"
         set ProtoEventImageAspect[593] = 1.777778
         set ProtoCardKey[1077] = "dal_shido"
         set ProtoCardName[1077] = "이츠카 시도"
@@ -38293,7 +38293,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[594] = 1
         set ProtoEventStory[594] = "|cFF865500공간진|r 경보로 사람들은 대피했지만 |cFF006B8F시도|r는 거리에서 정령과 마주친다. 소녀는 자신을 향한 |cFF704261낯선 시선을 경계한다.|r 다가갈지 물러설지보다, 먼저 어떤 뜻을 전할지가 중요해 보인다."
         set ProtoEventIntro[594] = "텅 빈 거리 한가운데, |cFF80560C검|r을 든 소녀가 서 있다."
-        set ProtoEventIcon[594] = "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_spirit.tga"
+        set ProtoEventIcon[594] = "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_spirit.blp"
         set ProtoEventImageAspect[594] = 1.777778
         set ProtoEventRequired[594] = 0
         set ProtoEventRequiredChoice[594] = 0
@@ -38343,7 +38343,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[595] = 1
         set ProtoEventStory[595] = "|cFF865500라타토스크|r가 내놓은 방법은 정령과 만나 마음을 여는 것이다. |cFF006B8F코토리|r는 |cFF006B8F시도|r에게 사람을 대하는 연습부터 시킨다. 정답처럼 들리는 조언이 쏟아지지만, 상대의 반응을 읽는 일은 결국 시도의 몫이다."
         set ProtoEventIntro[595] = "|cFF006B8F코토리|r가 통신 너머에서 첫 연습을 지시한다."
-        set ProtoEventIcon[595] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga"
+        set ProtoEventIcon[595] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[595] = 1.777778
         set ProtoEventRequired[595] = 0
         set ProtoEventRequiredChoice[595] = 0
@@ -38400,7 +38400,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[596] = 1
         set ProtoEventStory[596] = "|cFF006B8F시도|r와 |cFF006B8F토카|r가 |cFF865500라타토스크|r의 도움을 받아 거리를 둘러본다. 토카에게 이곳은 적과 싸우던 장소만은 아니게 된다. 가게와 행인, 별것 아닌 먹거리 앞에서 둘의 걸음이 자꾸 멈춘다."
         set ProtoEventIntro[596] = "|cFF006B8F토카|r가 |cFF006B8F시도|r와 함께 텐구시를 걷는다."
-        set ProtoEventIcon[596] = "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_date.tga"
+        set ProtoEventIcon[596] = "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_date.blp"
         set ProtoEventImageAspect[596] = 1.777778
         set ProtoEventRequired[596] = 0
         set ProtoEventRequiredChoice[596] = 0
@@ -38450,7 +38450,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[597] = 1
         set ProtoEventStory[597] = "비 오는 신사에서 |cFF006B8F시도|r는 수줍은 소녀 |cFF006B8F요시노|r를 만난다. 며칠 뒤 다시 울린 경보 속에서, 그 소녀가 |cFF865500허밋이라 불리는 정령|r임을 알게 된다. 처음 만났을 때의 두려운 표정이 마음에 남는다."
         set ProtoEventIntro[597] = "신사 처마 아래에서 조심스러운 시선이 닿는다."
-        set ProtoEventIcon[597] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.tga"
+        set ProtoEventIcon[597] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.blp"
         set ProtoEventImageAspect[597] = 1.777778
         set ProtoEventRequired[597] = 0
         set ProtoEventRequiredChoice[597] = 0
@@ -38500,7 +38500,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[598] = 2
         set ProtoEventStory[598] = "|cFF006B8F요시노|r가 아끼는 인형 |cFF865500요시농|r이 사라진다. 시도는 그녀의 마음을 안정시키기 위해 인형부터 찾으려 한다. |cFF865500라타토스크|r가 확인한 행방은 뜻밖에도 |cFF006B8F오리가미|r의 집을 가리킨다."
         set ProtoEventIntro[598] = "|cFF006B8F요시노|r의 곁에 있어야 할 인형이 보이지 않는다."
-        set ProtoEventIcon[598] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.tga"
+        set ProtoEventIcon[598] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.blp"
         set ProtoEventImageAspect[598] = 1.777778
         set ProtoEventRequired[598] = 0
         set ProtoEventRequiredChoice[598] = 0
@@ -38557,7 +38557,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[599] = 2
         set ProtoEventStory[599] = "토카와 |cFF006B8F요시노|r의 바람으로 |cFF006B8F시도|r 일행은 온천에 갈 준비를 한다. 한편 |cFF865500AST|r도 대장 쿠사카베 료코를 위한 위로회를 계획한다. 두 무리의 접촉을 피하려는 |cFF865500라타토스크|r의 일정표가 복잡해진다."
         set ProtoEventIntro[599] = "온천을 향한 두 일행의 일정이 겹친다."
-        set ProtoEventIcon[599] = "war3mapImported\\UI_EventThumb_XP_tengu_head.tga"
+        set ProtoEventIcon[599] = "war3mapImported\\UI_EventThumb_XP_tengu_head.blp"
         set ProtoEventImageAspect[599] = 1.777778
         set ProtoEventRequired[599] = 0
         set ProtoEventRequiredChoice[599] = 0
@@ -38607,7 +38607,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[600] = 2
         set ProtoEventStory[600] = "전학생 토키사키 |cFF006B8F쿠루미|r는 |cFF865500자신이 정령이라고|r 시도에게 밝힌다. 비슷한 시기에 |cFF865500AST|r에 온 타카미야 마나는 시도를 오빠라고 부른다. 갑자기 늘어난 질문 앞에서 시도와 |cFF006B8F코토리|r는 상황을 정리하려 한다."
         set ProtoEventIntro[600] = "전학생의 소개와 뜻밖의 호칭이 겹쳐 들린다."
-        set ProtoEventIcon[600] = "war3mapImported\\UI_EventThumb_XP_tengu_kurumi.tga"
+        set ProtoEventIcon[600] = "war3mapImported\\UI_EventThumb_XP_tengu_kurumi.blp"
         set ProtoEventImageAspect[600] = 1.777778
         set ProtoEventRequired[600] = 0
         set ProtoEventRequiredChoice[600] = 0
@@ -38657,7 +38657,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[601] = 2
         set ProtoEventStory[601] = "이번 만남은 세 사람과의 |cFF80560C약속|r이 겹친 상황에서 시작된다. |cFF865500라타토스크|r의 지원에도 |cFF006B8F시도|r는 한곳에 오래 머물기 어렵다. 잘 넘기는 말보다 누가 무엇을 기다리고 있는지 놓치지 않는 일이 급하다."
         set ProtoEventIntro[601] = "토카와 |cFF006B8F오리가미|r, |cFF006B8F쿠루미|r와의 일정이 충돌한다."
-        set ProtoEventIcon[601] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.tga"
+        set ProtoEventIcon[601] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.blp"
         set ProtoEventImageAspect[601] = 1.777778
         set ProtoEventRequired[601] = 0
         set ProtoEventRequiredChoice[601] = 0
@@ -38714,7 +38714,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[602] = 3
         set ProtoEventStory[602] = "|cFFA53528마나가 쿠루미를 공격하는|r 모습을 본 |cFF006B8F시도|r는 깊은 충격을 받는다. 구하려던 마음과 눈앞의 현실이 맞부딪친다. 기력을 잃은 시도의 앞에 |cFF006B8F토카|r가 나타나, 그가 지금까지 해 온 일을 돌아보게 한다."
         set ProtoEventIntro[602] = "참혹한 장면을 본 뒤, |cFF006B8F시도|r는 말을 잃는다."
-        set ProtoEventIcon[602] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.tga"
+        set ProtoEventIcon[602] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.blp"
         set ProtoEventImageAspect[602] = 1.777778
         set ProtoEventRequired[602] = 0
         set ProtoEventRequiredChoice[602] = 0
@@ -38764,7 +38764,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[603] = 3
         set ProtoEventStory[603] = "|cFF006B8F쿠루미|r에게 몰린 |cFF006B8F시도|r를 구하기 위해 |cFF006B8F코토리|r가 나타난다. 평소의 모습과 다른 힘을 드러낸 그녀 앞에서 이츠카 남매의 과거가 문제로 떠오른다. 가까운 사람을 잘 안다고 생각했던 믿음도 다시 살펴야 한다."
         set ProtoEventIntro[603] = "|cFF006B8F시도|r의 앞을 막아선 이는 익숙한 동생이다."
-        set ProtoEventIcon[603] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga"
+        set ProtoEventIcon[603] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[603] = 1.777778
         set ProtoEventRequired[603] = 0
         set ProtoEventRequiredChoice[603] = 0
@@ -38821,7 +38821,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[604] = 3
         set ProtoEventStory[604] = "|cFF006B8F코토리|r가 자신을 유지할 수 있는 시간이 줄어든다. |cFF006B8F시도|r는 함께 자라 온 동생을 새롭게 마주하며 데이트를 준비한다. 익숙한 사이라고 해서 마음을 묻는 일을 생략할 수는 없다."
         set ProtoEventIntro[604] = "|cFF006B8F코토리|r를 구할 데이트를 준비한다."
-        set ProtoEventIcon[604] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga"
+        set ProtoEventIcon[604] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[604] = 1.777778
         set ProtoEventRequired[604] = 0
         set ProtoEventRequiredChoice[604] = 0
@@ -38871,7 +38871,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[605] = 4
         set ProtoEventStory[605] = "|cFF006B8F코토리|r와 |cFF006B8F시도|r의 풀장 데이트에 |cFF006B8F오리가미|r가 나타난다. |cFF704261복수심과 지키려는 마음|r이 정면으로 부딪친다. 시도에게는 누군가를 적이라고 밀어내는 것만으로 지킬 수 없는 하루가 있다."
         set ProtoEventIntro[605] = "|cFF006B8F오리가미|r의 습격이 평온한 시간을 깨뜨린다."
-        set ProtoEventIcon[605] = "war3mapImported\\UI_EventThumb_XP_tengu_head.tga"
+        set ProtoEventIcon[605] = "war3mapImported\\UI_EventThumb_XP_tengu_head.blp"
         set ProtoEventImageAspect[605] = 1.777778
         set ProtoEventRequired[605] = 0
         set ProtoEventRequiredChoice[605] = 0
@@ -38926,7 +38926,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[606] = 1
         set ProtoEventStory[606] = "돌아가던 길, |cFF006B8F토카|r가 진열대 앞에서 눈을 떼지 못한다. |cFF006B8F시도|r는 무엇이 마음에 드는지 묻고, |cFF006B8F요시노|r는 조금 떨어져 둘의 대화를 듣는다. 짧은 우회도 함께 다녀온 |cFF80560C기억|r이 된다."
         set ProtoEventIntro[606] = "빵집 앞에서 |cFF006B8F토카|r의 걸음이 멈춘다."
-        set ProtoEventIcon[606] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.tga"
+        set ProtoEventIcon[606] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.blp"
         set ProtoEventImageAspect[606] = 1.777778
         set ProtoEventRequired[606] = 0
         set ProtoEventRequiredChoice[606] = 0
@@ -38973,7 +38973,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[607] = 1
         set ProtoEventStory[607] = "갑자기 내린 비에 일행이 발을 멈춘다. |cFF006B8F요시노|r가 우산 끝의 물방울을 바라보고, |cFF006B8F시도|r는 다음 |cFF80560C약속|r 시간을 확인한다. 잠깐 기다리는 동안에도 서로 맞출 수 있는 것이 있다."
         set ProtoEventIntro[607] = "비가 그칠 때까지 잠시 처마 아래에 선다."
-        set ProtoEventIcon[607] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.tga"
+        set ProtoEventIcon[607] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.blp"
         set ProtoEventImageAspect[607] = 1.777778
         set ProtoEventRequired[607] = 0
         set ProtoEventRequiredChoice[607] = 0
@@ -39020,7 +39020,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[608] = 1
         set ProtoEventStory[608] = "|cFF006B8F토카|r가 학교 안내문을 이리저리 돌려 본다. 필요한 내용과 아직 몰라도 되는 설명이 뒤섞여 있다. |cFF006B8F오리가미|r는 등교 시간부터 짚고, |cFF006B8F시도|r는 어려운 표현을 풀어 주려 한다."
         set ProtoEventIntro[608] = "전학생에게 학교의 작은 규칙을 알려 준다."
-        set ProtoEventIcon[608] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.tga"
+        set ProtoEventIcon[608] = "war3mapImported\\UI_EventThumb_XP_tengu_tohka.blp"
         set ProtoEventImageAspect[608] = 1.777778
         set ProtoEventRequired[608] = 0
         set ProtoEventRequiredChoice[608] = 0
@@ -39067,7 +39067,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[609] = 1
         set ProtoEventStory[609] = "다음 만남을 준비하는 동안 |cFF006B8F코토리|r의 통신에 의견이 쏟아진다. 모두 이유가 있지만 한 번에 실행할 수는 없다. |cFF006B8F시도|r는 필요한 질문 하나를 고르려 한다."
         set ProtoEventIntro[609] = "통신에서 여러 의견이 겹쳐 나온다."
-        set ProtoEventIcon[609] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga"
+        set ProtoEventIcon[609] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[609] = 1.777778
         set ProtoEventRequired[609] = 0
         set ProtoEventRequiredChoice[609] = 0
@@ -39114,7 +39114,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[610] = 1
         set ProtoEventStory[610] = "|cFF006B8F요시노|r가 쉬어 가자는 말에 고개를 끄덕인다. |cFF006B8F토카|r는 조금 전 본 풍경을 설명하고, |cFF006B8F시도|r는 두 사람의 말이 겹치지 않게 기다린다. 오늘은 먼 곳에 가지 않아도 괜찮다."
         set ProtoEventIntro[610] = "공원 벤치에서 말의 속도를 늦춘다."
-        set ProtoEventIcon[610] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.tga"
+        set ProtoEventIcon[610] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.blp"
         set ProtoEventImageAspect[610] = 1.777778
         set ProtoEventRequired[610] = 0
         set ProtoEventRequiredChoice[610] = 0
@@ -39161,7 +39161,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[611] = 1
         set ProtoEventStory[611] = "|cFF006B8F오리가미|r는 분주한 거리에서도 흐트러진 동선을 금방 찾는다. |cFF006B8F토카|r는 그곳에 있는 재미있는 가게를 먼저 본다. 무엇을 먼저 보는지가 다음 걸음을 바꾼다."
         set ProtoEventIntro[611] = "|cFF006B8F오리가미|r가 거리의 작은 움직임을 짚는다."
-        set ProtoEventIcon[611] = "war3mapImported\\UI_EventThumb_XP_tengu_origami.tga"
+        set ProtoEventIcon[611] = "war3mapImported\\UI_EventThumb_XP_tengu_origami.blp"
         set ProtoEventImageAspect[611] = 1.777778
         set ProtoEventRequired[611] = 0
         set ProtoEventRequiredChoice[611] = 0
@@ -39208,7 +39208,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[612] = 1
         set ProtoEventStory[612] = "길모퉁이에서 |cFF006B8F쿠루미|r가 걸음을 멈춘다. 고양이가 멀찍이 앉아 사람들을 살핀다. 가까이 다가가도 되는지, 조용히 기다릴지 작은 선택이 남는다.|n|n이 만남은 별개의 일상 |cFF80560C기억|r이다."
         set ProtoEventIntro[612] = "|cFF006B8F쿠루미|r가 길가의 고양이를 바라본다."
-        set ProtoEventIcon[612] = "war3mapImported\\UI_EventThumb_XP_tengu_kurumi.tga"
+        set ProtoEventIcon[612] = "war3mapImported\\UI_EventThumb_XP_tengu_kurumi.blp"
         set ProtoEventImageAspect[612] = 1.777778
         set ProtoEventRequired[612] = 0
         set ProtoEventRequiredChoice[612] = 0
@@ -39255,7 +39255,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[613] = 1
         set ProtoEventStory[613] = "새로운 만남이 늘자 |cFF80560C기억|r만으로 일정을 챙기기 어렵다. |cFF006B8F시도|r는 날짜만 적을지, 상대가 기다리는 일도 함께 남길지 고민한다. |cFF006B8F코토리|r는 짧아도 알아볼 수 있게 쓰라고 한다."
         set ProtoEventIntro[613] = "|cFF006B8F시도|r가 놓친 |cFF80560C약속|r이 없는지 확인한다."
-        set ProtoEventIcon[613] = "war3mapImported\\UI_EventThumb_XP_tengu_shido.tga"
+        set ProtoEventIcon[613] = "war3mapImported\\UI_EventThumb_XP_tengu_shido.blp"
         set ProtoEventImageAspect[613] = 1.777778
         set ProtoEventRequired[613] = 0
         set ProtoEventRequiredChoice[613] = 0
@@ -39302,7 +39302,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[614] = 1
         set ProtoEventStory[614] = "|cFF006B8F요시노|r와 대화했던 |cFF80560C기억|r이 있어 오늘은 첫 인사가 조금 덜 어렵다. 그녀는 전에 끝내지 못한 이야기를 조심스럽게 잇는다. 듣는 쪽의 자세도 어제와 같을 필요는 없다."
         set ProtoEventIntro[614] = "지난번 말을 |cFF80560C기억|r한 |cFF006B8F요시노|r가 먼저 고개를 든다."
-        set ProtoEventIcon[614] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.tga"
+        set ProtoEventIcon[614] = "war3mapImported\\UI_EventThumb_XP_tengu_yoshino.blp"
         set ProtoEventImageAspect[614] = 1.777778
         set ProtoEventRequired[614] = 0
         set ProtoEventRequiredChoice[614] = 0
@@ -39349,7 +39349,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[615] = 1
         set ProtoEventStory[615] = "지난번 |cFF006B8F오리가미|r가 짚었던 동선을 |cFF80560C기억|r하며 같은 거리에 선다. 그때와 달라진 점도 있고, 처음부터 잘못 짐작한 점도 있다. 경계를 유지하면서 익숙해지는 방법을 생각한다."
         set ProtoEventIntro[615] = "|cFF006B8F오리가미|r의 관찰을 배운 뒤 거리를 다시 본다."
-        set ProtoEventIcon[615] = "war3mapImported\\UI_EventThumb_XP_tengu_origami.tga"
+        set ProtoEventIcon[615] = "war3mapImported\\UI_EventThumb_XP_tengu_origami.blp"
         set ProtoEventImageAspect[615] = 1.777778
         set ProtoEventRequired[615] = 0
         set ProtoEventRequiredChoice[615] = 0
@@ -39396,7 +39396,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[616] = 1
         set ProtoEventStory[616] = "다음 만남 사이의 시간이 모두 채워져 있다. |cFF006B8F코토리|r는 더 빠르게 움직이는 것만으로 해결되지 않는다고 말한다. |cFF006B8F시도|r는 바쁜 일정을 다시 펴고 무엇부터 바꿀지 고른다."
         set ProtoEventIntro[616] = "|cFF006B8F코토리|r가 빼곡한 일정에 펜을 멈춘다."
-        set ProtoEventIcon[616] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga"
+        set ProtoEventIcon[616] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[616] = 1.777778
         set ProtoEventRequired[616] = 0
         set ProtoEventRequiredChoice[616] = 0
@@ -39443,7 +39443,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[617] = 1
         set ProtoEventStory[617] = "준비가 끝난 |cFF80560C약속|r을 표시한 뒤, |cFF006B8F코토리|r는 일정표를 다시 살핀다. 한 번 더 사람을 만날 여유를 만들지, 이미 잡은 만남에 집중할지 정할 수 있다."
         set ProtoEventIntro[617] = "정리한 일정에 새로운 여유가 생겼다."
-        set ProtoEventIcon[617] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga"
+        set ProtoEventIcon[617] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[617] = 1.777778
         set ProtoEventRequired[617] = 616
         set ProtoEventRequiredChoice[617] = 1
@@ -39490,7 +39490,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[618] = 1
         set ProtoEventStory[618] = "지난 일들을 모두 설명할 수는 없어도 다시 시작할 일상은 있다. |cFF006B8F시도|r와 |cFF006B8F토카|r는 익숙한 길을 걷고, |cFF006B8F요시노|r는 다음 만남에 가져갈 이야기를 생각한다."
         set ProtoEventIntro[618] = "소란이 지난 뒤에도 함께 걸을 길이 있다."
-        set ProtoEventIcon[618] = "war3mapImported\\UI_EventThumb_XP_tengu_shido.tga"
+        set ProtoEventIcon[618] = "war3mapImported\\UI_EventThumb_XP_tengu_shido.blp"
         set ProtoEventImageAspect[618] = 1.777778
         set ProtoEventRequired[618] = 0
         set ProtoEventRequiredChoice[618] = 0
@@ -39537,7 +39537,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[619] = 1
         set ProtoEventStory[619] = "|cFF006B8F코토리|r가 하루의 연락을 마치고, |cFF006B8F토카|r는 준비할 일을 찾는다. |cFF006B8F시도|r는 각자 돌아온 시간을 확인한다. 특별한 작전이 없는 저녁에도 함께할 자리는 필요하다."
         set ProtoEventIntro[619] = "평범한 저녁 준비를 함께한다."
-        set ProtoEventIcon[619] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.tga"
+        set ProtoEventIcon[619] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[619] = 1.777778
         set ProtoEventRequired[619] = 0
         set ProtoEventRequiredChoice[619] = 0
@@ -39579,7 +39579,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[18] = "ikebukuro"
         set ProtoHeadName[18] = "이케부쿠로"
         set ProtoHeadIntro[18] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 검은 바이크와 색 없는 조직의 소문을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
-        set ProtoHeadIcon[18] = "war3mapImported\\UI_Card_XP_ikebukuro_head_Icon.tga"
+        set ProtoHeadIcon[18] = "war3mapImported\\UI_Card_XP_ikebukuro_head_Icon.blp"
         set ProtoHeadEntryCard[18] = 1120
         set ProtoHeadMainLength[18] = 12
         set ProtoHeadRequiredMain[18] = 0
@@ -39594,7 +39594,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[620] = 1
         set ProtoEventStory[620] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 |cFF80560C검|r은 바이크와 색 없는 조직의 |cFF80560C소문|r을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
         set ProtoEventIntro[620] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 검은 바이크와 색 없는 조직의 소문을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
-        set ProtoEventIcon[620] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga"
+        set ProtoEventIcon[620] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.blp"
         set ProtoEventImageAspect[620] = 1.777778
         set ProtoHeadEntryEvent[73] = 621
         set ProtoEventKey[621] = "ikebukuro_entry_1"
@@ -39606,7 +39606,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[621] = 1
         set ProtoEventStory[621] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 |cFF80560C검|r은 바이크와 색 없는 조직의 |cFF80560C소문|r을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
         set ProtoEventIntro[621] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 검은 바이크와 색 없는 조직의 소문을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
-        set ProtoEventIcon[621] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga"
+        set ProtoEventIcon[621] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.blp"
         set ProtoEventImageAspect[621] = 1.777778
         set ProtoHeadEntryEvent[74] = 622
         set ProtoEventKey[622] = "ikebukuro_entry_2"
@@ -39618,7 +39618,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[622] = 1
         set ProtoEventStory[622] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 |cFF80560C검|r은 바이크와 색 없는 조직의 |cFF80560C소문|r을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
         set ProtoEventIntro[622] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 검은 바이크와 색 없는 조직의 소문을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
-        set ProtoEventIcon[622] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga"
+        set ProtoEventIcon[622] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.blp"
         set ProtoEventImageAspect[622] = 1.777778
         set ProtoHeadEntryEvent[75] = 623
         set ProtoEventKey[623] = "ikebukuro_entry_3"
@@ -39630,7 +39630,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[623] = 1
         set ProtoEventStory[623] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 |cFF80560C검|r은 바이크와 색 없는 조직의 |cFF80560C소문|r을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
         set ProtoEventIntro[623] = "|cFF006B8F마사오미|r의 초대로 도시에 온 |cFF006B8F미카도|r는 검은 바이크와 색 없는 조직의 소문을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다."
-        set ProtoEventIcon[623] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga"
+        set ProtoEventIcon[623] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.blp"
         set ProtoEventImageAspect[623] = 1.777778
         set ProtoCardKey[1120] = "drrr_mikado"
         set ProtoCardName[1120] = "류가미네 미카도"
@@ -40073,7 +40073,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[624] = 1
         set ProtoEventStory[624] = "친구 |cFF006B8F마사오미|r의 초대로 이케부쿠로에 온 |cFF006B8F미카도|r는 분주한 거리를 걷는다. 마사오미는 |cFF006B8F이자야|r와 시즈오, 다라즈에 얽힌 소문을 들려준다. 그날 밤 미카도는 도시 괴담처럼 알려진 |cFF865500검은 바이크까지 마주친다|r."
         set ProtoEventIntro[624] = "|cFF006B8F마사오미|r가 낯선 |cFF80560C도시|r의 길을 안내한다."
-        set ProtoEventIcon[624] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga"
+        set ProtoEventIcon[624] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.blp"
         set ProtoEventImageAspect[624] = 1.777778
         set ProtoEventRequired[624] = 0
         set ProtoEventRequiredChoice[624] = 0
@@ -40123,7 +40123,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[625] = 1
         set ProtoEventStory[625] = "이케부쿠로에는 제각기 누군가를 찾는 사람들이 있다. 등교하지 않는 친구를 찾던 |cFF006B8F안리|r가 거리에서 시비에 휘말리자, |cFF006B8F미카도|r는 도우려 한다. 그때 |cFF006B8F마사오미|r가 경고했던 정보상 |cFF006B8F이자야|r가 모습을 드러낸다."
         set ProtoEventIntro[625] = "곤란에 처한 |cFF006B8F안리|r에게 다가가려 한다."
-        set ProtoEventIcon[625] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.tga"
+        set ProtoEventIcon[625] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.blp"
         set ProtoEventImageAspect[625] = 1.777778
         set ProtoEventRequired[625] = 0
         set ProtoEventRequiredChoice[625] = 0
@@ -40173,7 +40173,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[626] = 1
         set ProtoEventStory[626] = "거리에서 부딪친 여성이 검은 바이크를 피해 도망친다. |cFF006B8F미카도|r는 그녀를 집으로 데려오지만 |cFF704261자신을 기억하지 못한다는 말|r만 듣는다. |cFF006B8F마사오미|r와 의논한 다음 날, 셀티와 |cFF006B8F이자야|r가 교문 앞에서 미카도를 기다린다."
         set ProtoEventIntro[626] = "목에 상처가 있는 여성이 도움을 구한다."
-        set ProtoEventIcon[626] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.tga"
+        set ProtoEventIcon[626] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.blp"
         set ProtoEventImageAspect[626] = 1.777778
         set ProtoEventRequired[626] = 0
         set ProtoEventRequiredChoice[626] = 0
@@ -40230,7 +40230,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[627] = 1
         set ProtoEventStory[627] = "|cFF006B8F미카도|r는 야기리 나미에와 마주해 자신이 모은 정보를 바탕으로 요구를 전한다. |cFF865500다라즈|r의 첫 집회가 시작되자 평범해 보이던 거리의 사람들이 반응한다. |cFF006B8F셀티|r도 그 자리에서 자신의 머리에 관한 진실을 쫓는다."
         set ProtoEventIntro[627] = "평범한 행인들의 손에서 휴대전화가 울린다."
-        set ProtoEventIcon[627] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga"
+        set ProtoEventIcon[627] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.blp"
         set ProtoEventImageAspect[627] = 1.777778
         set ProtoEventRequired[627] = 0
         set ProtoEventRequiredChoice[627] = 0
@@ -40280,7 +40280,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[628] = 2
         set ProtoEventStory[628] = "하리마 미카의 설명으로 |cFF006B8F셀티|r가 쫓던 얼굴의 사정이 밝혀진다. 그 얼굴은 셀티의 |cFF865500머리를 이식한 결과가 아니다|r. 자신에게 숨겨진 사실을 알게 된 셀티는 |cFF006B8F신라|r와 마주하고, 두 사람은 서로의 생각을 직접 꺼낸다."
         set ProtoEventIntro[628] = "같은 얼굴이 곧 같은 사람은 아니었다."
-        set ProtoEventIcon[628] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.tga"
+        set ProtoEventIcon[628] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.blp"
         set ProtoEventImageAspect[628] = 1.777778
         set ProtoEventRequired[628] = 0
         set ProtoEventRequiredChoice[628] = 0
@@ -40337,7 +40337,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[629] = 2
         set ProtoEventStory[629] = "첫 |cFF865500다라즈|r 집회로부터 반년이 지났다. |cFF006B8F미카도|r와 친구들의 생활은 익숙해졌지만, 거리에는 베기마의 |cFF80560C소문|r과 |cFF865500황건적|r의 움직임이 겹쳐 퍼진다. 누구나 아는 소문처럼 들려도 직접 확인한 사람은 많지 않다."
         set ProtoEventIntro[629] = "평온해 보이는 거리 아래 다른 움직임이 번진다."
-        set ProtoEventIcon[629] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga"
+        set ProtoEventIcon[629] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.blp"
         set ProtoEventImageAspect[629] = 1.777778
         set ProtoEventRequired[629] = 0
         set ProtoEventRequiredChoice[629] = 0
@@ -40387,7 +40387,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[630] = 2
         set ProtoEventStory[630] = "베기마에게 쫓기던 |cFF006B8F안리|r를 차 안에서 발견한 |cFF006B8F카도타|r 일행이 도우러 나선다. |cFF006B8F시즈오|r와 |cFF006B8F셀티|r도 그 현장에 합류한다. 공격자를 막았다고 생각한 순간에도 사건 전체가 끝났다는 증거는 없다."
         set ProtoEventIntro[630] = "|cFF006B8F안리|r를 위협하는 움직임을 |cFF006B8F카도타|r 일행이 발견한다."
-        set ProtoEventIcon[630] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_kadota.tga"
+        set ProtoEventIcon[630] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_kadota.blp"
         set ProtoEventImageAspect[630] = 1.777778
         set ProtoEventRequired[630] = 0
         set ProtoEventRequiredChoice[630] = 0
@@ -40437,7 +40437,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[631] = 2
         set ProtoEventStory[631] = "니에카와 하루나가 |cFF006B8F안리|r를 찾아오면서 |cFF865500사이카|r에 얽힌 사정이 드러난다. 안리는 자신이 품고 있던 힘과 과거를 마주한다. 그녀는 |cFF704261타인의 욕망에 떠밀리는 대신|r 스스로 판단하고 하루나와 대치한다."
         set ProtoEventIntro[631] = "|cFF865500사이카|r의 목소리와 |cFF006B8F안리|r의 뜻은 같지 않다."
-        set ProtoEventIcon[631] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.tga"
+        set ProtoEventIcon[631] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.blp"
         set ProtoEventImageAspect[631] = 1.777778
         set ProtoEventRequired[631] = 0
         set ProtoEventRequiredChoice[631] = 0
@@ -40494,7 +40494,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[632] = 3
         set ProtoEventStory[632] = "|cFF006B8F안리|r가 공격받았다는 사실은 |cFF006B8F마사오미|r를 과거로 끌어당긴다. |cFF865500황건적|r을 이끌었던 시절과 사키에게 벌어진 일을 떠올리며, 그는 친구를 지키려 다시 나선다. |cFF006B8F이자야|r는 서로 다른 사정을 아는 위치에서 움직임을 지켜본다."
         set ProtoEventIntro[632] = "|cFF006B8F마사오미|r가 다시 |cFF865500황건적|r의 이름 앞에 선다."
-        set ProtoEventIcon[632] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.tga"
+        set ProtoEventIcon[632] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.blp"
         set ProtoEventImageAspect[632] = 1.777778
         set ProtoEventRequired[632] = 0
         set ProtoEventRequiredChoice[632] = 0
@@ -40544,7 +40544,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[633] = 3
         set ProtoEventStory[633] = "안리는 |cFF865500황건적|r을 살피다 |cFF006B8F마사오미|r의 위치를 알게 되고 위험한 곳에서 셀티의 도움을 받는다. 마사오미에게는 |cFF006B8F미카도|r와 |cFF865500다라즈|r의 관계가 전해진다. 같은 교실에서 마주치는 세 사람은 서로에게 바로 묻지 못한 채 추측을 쌓는다."
         set ProtoEventIntro[633] = "세 친구의 이름이 거리에서 다른 뜻으로 불린다."
-        set ProtoEventIcon[633] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.tga"
+        set ProtoEventIcon[633] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.blp"
         set ProtoEventImageAspect[633] = 1.777778
         set ProtoEventRequired[633] = 0
         set ProtoEventRequiredChoice[633] = 0
@@ -40601,7 +40601,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[634] = 3
         set ProtoEventStory[634] = "쫓기던 안리를 |cFF865500다라즈|r 멤버들이 돕는다. 그러나 |cFFA53528황건적의 위협과 내부 불만|r 속에서 |cFF006B8F미카도|r는 해산을 선언하고 게시판을 닫는다. 셀티의 설득을 들은 뒤, 미카도와 안리는 홀로 폐공장에 간 |cFF006B8F마사오미|r를 만나러 움직인다."
         set ProtoEventIntro[634] = "|cFF006B8F안리|r를 도왔던 사람들의 행동이 |cFF006B8F미카도|r에게 남는다."
-        set ProtoEventIcon[634] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga"
+        set ProtoEventIcon[634] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.blp"
         set ProtoEventImageAspect[634] = 1.777778
         set ProtoEventRequired[634] = 0
         set ProtoEventRequiredChoice[634] = 0
@@ -40651,7 +40651,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[635] = 4
         set ProtoEventStory[635] = "호라다 일행과의 충돌이 벌어진 폐공장에 |cFF006B8F미카도|r와 안리가 도착하고 |cFF006B8F마사오미|r와 마주한다. |cFF865500다라즈|r, 황건적, 사이카라는 이름에 |cFF865500가려졌던 세 친구의 사정|r이 드러난다. 이제는 소문을 통해서가 아니라 서로에게 말할 차례다."
         set ProtoEventIntro[635] = "|cFF865500폐공장|r에서 세 친구가 같은 자리에 선다."
-        set ProtoEventIcon[635] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.tga"
+        set ProtoEventIcon[635] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_head.blp"
         set ProtoEventImageAspect[635] = 1.777778
         set ProtoEventRequired[635] = 0
         set ProtoEventRequiredChoice[635] = 0
@@ -40706,7 +40706,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[636] = 1
         set ProtoEventStory[636] = "익숙하지 않은 골목 앞에서 |cFF006B8F마사오미|r가 걸음을 멈춘다. 같은 목적지로 가더라도 무엇을 보고 가는지는 다르다. 서두를 일이 없는 지금, 오늘 |cFF80560C기억|r할 길을 고른다."
         set ProtoEventIntro[636] = "|cFF006B8F마사오미|r가 지름길과 구경할 길을 가리킨다."
-        set ProtoEventIcon[636] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.tga"
+        set ProtoEventIcon[636] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.blp"
         set ProtoEventImageAspect[636] = 1.777778
         set ProtoEventRequired[636] = 0
         set ProtoEventRequiredChoice[636] = 0
@@ -40753,7 +40753,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[637] = 1
         set ProtoEventStory[637] = "복잡한 설명보다 누구나 찾을 수 있는 표식 하나가 도움이 될 때가 있다. |cFF006B8F미카도|r는 만날 장소를 알려 줄 답장을 고른다. |cFF006B8F셀티|r에게 배운 간결한 전달법도 떠오른다."
         set ProtoEventIntro[637] = "휴대전화에 위치를 묻는 글이 도착한다."
-        set ProtoEventIcon[637] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga"
+        set ProtoEventIcon[637] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.blp"
         set ProtoEventImageAspect[637] = 1.777778
         set ProtoEventRequired[637] = 0
         set ProtoEventRequiredChoice[637] = 0
@@ -40800,7 +40800,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[638] = 1
         set ProtoEventStory[638] = "|cFF80560C책|r을 구경하던 일행의 관심사가 각기 다른 선반으로 향한다. |cFF006B8F카도타|r는 나갈 때 다시 모일 곳을 정하자고 한다. 구경하는 시간을 지키면서도 서로를 놓치지 않을 방법을 찾는다."
         set ProtoEventIntro[638] = "|cFF006B8F카도타|r가 일행이 흩어지지 않았는지 살핀다."
-        set ProtoEventIcon[638] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_kadota.tga"
+        set ProtoEventIcon[638] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_kadota.blp"
         set ProtoEventImageAspect[638] = 1.777778
         set ProtoEventRequired[638] = 0
         set ProtoEventRequiredChoice[638] = 0
@@ -40847,7 +40847,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[639] = 1
         set ProtoEventStory[639] = "큰소리가 이어지는 길에서 |cFF006B8F시즈오|r가 표정을 굳힌다. 괜히 다가가 자극하기보다 서로 지나갈 공간부터 확보하는 편이 좋겠다. 강한 사람과 함께 있다고 주변을 살필 필요가 없어지는 것은 아니다."
         set ProtoEventIntro[639] = "|cFF006B8F시즈오|r가 소란스러운 길을 바라본다."
-        set ProtoEventIcon[639] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_shizuo.tga"
+        set ProtoEventIcon[639] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_shizuo.blp"
         set ProtoEventImageAspect[639] = 1.777778
         set ProtoEventRequired[639] = 0
         set ProtoEventRequiredChoice[639] = 0
@@ -40894,7 +40894,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[640] = 1
         set ProtoEventStory[640] = "거리에서 들은 이야기를 전하자 |cFF006B8F이자야|r는 내용보다 처음 말한 사람을 궁금해한다. |cFF006B8F안리|r와 |cFF006B8F미카도|r는 자신이 직접 본 부분만 남겨 보려 한다. 말이 돌아온 길을 살피면 다른 모습이 드러날지도 모른다."
         set ProtoEventIntro[640] = "|cFF006B8F이자야|r가 누구에게 들었는지 되묻는다."
-        set ProtoEventIcon[640] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_izaya.tga"
+        set ProtoEventIcon[640] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_izaya.blp"
         set ProtoEventImageAspect[640] = 1.777778
         set ProtoEventRequired[640] = 0
         set ProtoEventRequiredChoice[640] = 0
@@ -40941,7 +40941,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[641] = 1
         set ProtoEventStory[641] = "점심시간이 시작됐지만 모두 동시에 모이지는 못했다. |cFF006B8F안리|r는 조용히 자리를 남기고 |cFF006B8F마사오미|r는 어느 쪽을 보고 기다릴지 묻는다. 사소한 준비가 모인 뒤의 시간을 바꾼다."
         set ProtoEventIntro[641] = "|cFF006B8F안리|r가 늦게 온 친구를 위한 자리를 남긴다."
-        set ProtoEventIcon[641] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.tga"
+        set ProtoEventIcon[641] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_anri.blp"
         set ProtoEventImageAspect[641] = 1.777778
         set ProtoEventRequired[641] = 0
         set ProtoEventRequiredChoice[641] = 0
@@ -40988,7 +40988,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[642] = 1
         set ProtoEventStory[642] = "몇 번의 연락이 이어진 뒤 잠깐 조용해진다. |cFF006B8F신라|r는 말을 이어 가려 하고 |cFF006B8F셀티|r는 먼저 쉬어 갈 시간을 원한다. 함께 있다는 이유로 상대의 빈틈까지 모두 채울 필요는 없다."
         set ProtoEventIntro[642] = "|cFF006B8F신라|r가 |cFF006B8F셀티|r의 귀가를 기다린다."
-        set ProtoEventIcon[642] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_shinra.tga"
+        set ProtoEventIcon[642] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_shinra.blp"
         set ProtoEventImageAspect[642] = 1.777778
         set ProtoEventRequired[642] = 0
         set ProtoEventRequiredChoice[642] = 0
@@ -41035,7 +41035,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[643] = 1
         set ProtoEventStory[643] = "사람들이 한꺼번에 지나가려는 길은 금세 막힌다. 곁에 선 |cFF006B8F시즈오|r에게 길을 터 달라는 말이 들리지만 |cFF006B8F카도타|r는 먼저 누가 어디로 가려는지 확인한다. 시즈오와 함께 문제를 크게 만들지 않고 지나갈 방법을 고른다."
         set ProtoEventIntro[643] = "|cFF006B8F시즈오|r와 |cFF006B8F카도타|r가 좁은 길 앞에 선다."
-        set ProtoEventIcon[643] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_shizuo.tga"
+        set ProtoEventIcon[643] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_shizuo.blp"
         set ProtoEventImageAspect[643] = 1.777778
         set ProtoEventRequired[643] = 0
         set ProtoEventRequiredChoice[643] = 0
@@ -41082,7 +41082,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[644] = 1
         set ProtoEventStory[644] = "|cFF006B8F미카도|r와 연락을 나눴던 |cFF80560C기억|r이 있어 새 글의 맥락을 알아볼 수 있다. 답장이 길지는 않아도 처음 질문에서 놓친 부분을 짚는다. 다음에는 무엇을 더 확인할지 고른다."
         set ProtoEventIntro[644] = "|cFF006B8F미카도|r가 이전에 남긴 질문에 답이 달렸다."
-        set ProtoEventIcon[644] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga"
+        set ProtoEventIcon[644] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.blp"
         set ProtoEventImageAspect[644] = 1.777778
         set ProtoEventRequired[644] = 0
         set ProtoEventRequiredChoice[644] = 0
@@ -41129,7 +41129,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[645] = 1
         set ProtoEventStory[645] = "한 번 함께 살핀 길이라도 오늘의 흐름은 다르다. |cFF006B8F셀티|r가 잠시 속도를 늦추며 새로 막힌 구간을 가리킨다. 익숙함을 이유로 놓치지 말아야 할 것을 고른다."
         set ProtoEventIntro[645] = "|cFF006B8F셀티|r가 전에 알려 준 길을 다시 지난다."
-        set ProtoEventIcon[645] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.tga"
+        set ProtoEventIcon[645] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.blp"
         set ProtoEventImageAspect[645] = 1.777778
         set ProtoEventRequired[645] = 0
         set ProtoEventRequiredChoice[645] = 0
@@ -41176,7 +41176,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[646] = 1
         set ProtoEventStory[646] = "함께하고 싶은 일은 많아도 한 번에 모두 갈 수는 없다. |cFF006B8F마사오미|r는 먼저 확정한 |cFF80560C약속|r과 아직 물어보지 않은 약속을 나눠 보자고 한다. |cFF006B8F미카도|r는 달력을 다시 펼친다."
         set ProtoEventIntro[646] = "|cFF006B8F마사오미|r가 겹치는 |cFF80560C약속|r을 헤아린다."
-        set ProtoEventIcon[646] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.tga"
+        set ProtoEventIcon[646] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.blp"
         set ProtoEventImageAspect[646] = 1.777778
         set ProtoEventRequired[646] = 0
         set ProtoEventRequiredChoice[646] = 0
@@ -41223,7 +41223,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[647] = 1
         set ProtoEventStory[647] = "|cFF006B8F마사오미|r와 확정된 시간을 표시한 덕분에 다음 일정을 고를 수 있게 됐다. 새 만남을 하나 더 남길지, 이미 |cFF80560C약속|r한 상대에게 더 집중할지는 별개의 선택이다."
         set ProtoEventIntro[647] = "정리한 |cFF80560C약속|r 사이에 작은 여유가 생겼다."
-        set ProtoEventIcon[647] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.tga"
+        set ProtoEventIcon[647] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.blp"
         set ProtoEventImageAspect[647] = 1.777778
         set ProtoEventRequired[647] = 646
         set ProtoEventRequiredChoice[647] = 1
@@ -41270,7 +41270,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[648] = 1
         set ProtoEventStory[648] = "사키와 함께 떠난 |cFF006B8F마사오미|r가 곁에 있지는 않지만 연락할 길은 남아 있다. |cFF006B8F미카도|r는 짧은 글 앞에서 어떤 소식을 전할지 생각한다. |cFF006B8F안리|r도 같은 |cFF80560C도시|r의 오늘을 보내고 있다."
         set ProtoEventIntro[648] = "거리를 떠난 친구의 연락이 이어진다."
-        set ProtoEventIcon[648] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.tga"
+        set ProtoEventIcon[648] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_mikado.blp"
         set ProtoEventImageAspect[648] = 1.777778
         set ProtoEventRequired[648] = 0
         set ProtoEventRequiredChoice[648] = 0
@@ -41317,7 +41317,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[649] = 1
         set ProtoEventStory[649] = "세 친구의 갈등이 풀렸다고 이케부쿠로의 모든 사정이 끝난 것은 아니다. |cFF006B8F셀티|r는 여전히 자신의 머리를 찾고, |cFF006B8F카도타|r 일행도 각자의 하루를 보낸다. 이번에 배운 것을 오늘의 길에 적용해 본다."
         set ProtoEventIntro[649] = "|cFF006B8F셀티|r의 바이크가 익숙한 길을 지나간다."
-        set ProtoEventIcon[649] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.tga"
+        set ProtoEventIcon[649] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_celty.blp"
         set ProtoEventImageAspect[649] = 1.777778
         set ProtoEventRequired[649] = 0
         set ProtoEventRequiredChoice[649] = 0
@@ -41359,7 +41359,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[19] = "frieren"
         set ProtoHeadName[19] = "북쪽으로 가는 길"
         set ProtoHeadIntro[19] = "힘멜과의 작별 뒤, |cFF006B8F프리렌|r은 페른과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
-        set ProtoHeadIcon[19] = "war3mapImported\\UI_Card_XP_frieren_head_Icon.tga"
+        set ProtoHeadIcon[19] = "war3mapImported\\UI_Card_XP_frieren_head_Icon.blp"
         set ProtoHeadEntryCard[19] = 1163
         set ProtoHeadMainLength[19] = 12
         set ProtoHeadRequiredMain[19] = 0
@@ -41374,7 +41374,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[650] = 1
         set ProtoEventStory[650] = "|cFF006B8F힘멜|r과의 작별 뒤, |cFF006B8F프리렌|r은 |cFF006B8F페른|r과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
         set ProtoEventIntro[650] = "힘멜과의 작별 뒤, |cFF006B8F프리렌|r은 페른과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
-        set ProtoEventIcon[650] = "war3mapImported\\UI_EventThumb_XP_frieren_head.tga"
+        set ProtoEventIcon[650] = "war3mapImported\\UI_EventThumb_XP_frieren_head.blp"
         set ProtoEventImageAspect[650] = 1.777778
         set ProtoHeadEntryEvent[77] = 651
         set ProtoEventKey[651] = "frieren_entry_1"
@@ -41386,7 +41386,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[651] = 1
         set ProtoEventStory[651] = "|cFF006B8F힘멜|r과의 작별 뒤, |cFF006B8F프리렌|r은 |cFF006B8F페른|r과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
         set ProtoEventIntro[651] = "힘멜과의 작별 뒤, |cFF006B8F프리렌|r은 페른과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
-        set ProtoEventIcon[651] = "war3mapImported\\UI_EventThumb_XP_frieren_head.tga"
+        set ProtoEventIcon[651] = "war3mapImported\\UI_EventThumb_XP_frieren_head.blp"
         set ProtoEventImageAspect[651] = 1.777778
         set ProtoHeadEntryEvent[78] = 652
         set ProtoEventKey[652] = "frieren_entry_2"
@@ -41398,7 +41398,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[652] = 1
         set ProtoEventStory[652] = "|cFF006B8F힘멜|r과의 작별 뒤, |cFF006B8F프리렌|r은 |cFF006B8F페른|r과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
         set ProtoEventIntro[652] = "힘멜과의 작별 뒤, |cFF006B8F프리렌|r은 페른과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
-        set ProtoEventIcon[652] = "war3mapImported\\UI_EventThumb_XP_frieren_head.tga"
+        set ProtoEventIcon[652] = "war3mapImported\\UI_EventThumb_XP_frieren_head.blp"
         set ProtoEventImageAspect[652] = 1.777778
         set ProtoHeadEntryEvent[79] = 653
         set ProtoEventKey[653] = "frieren_entry_3"
@@ -41410,7 +41410,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[653] = 1
         set ProtoEventStory[653] = "|cFF006B8F힘멜|r과의 작별 뒤, |cFF006B8F프리렌|r은 |cFF006B8F페른|r과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
         set ProtoEventIntro[653] = "힘멜과의 작별 뒤, |cFF006B8F프리렌|r은 페른과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
-        set ProtoEventIcon[653] = "war3mapImported\\UI_EventThumb_XP_frieren_head.tga"
+        set ProtoEventIcon[653] = "war3mapImported\\UI_EventThumb_XP_frieren_head.blp"
         set ProtoEventImageAspect[653] = 1.777778
         set ProtoCardKey[1163] = "fr_fern_routine"
         set ProtoCardName[1163] = "페른"
@@ -41882,7 +41882,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[654] = 1
         set ProtoEventStory[654] = "마왕을 쓰러뜨린 일행은 각자의 삶으로 돌아갔다. 다시 만난 |cFF006B8F힘멜|r의 시간은 |cFF006B8F프리렌|r의 시간과 달랐다. 작별을 겪은 프리렌은 |cFF704261함께 보낸 날들|r을 뒤늦게 묻기 시작한다."
         set ProtoEventIntro[654] = "오십 년의 |cFF80560C약속|r 뒤, |cFF006B8F프리렌|r은 사람을 알아가는 여행을 시작한다."
-        set ProtoEventIcon[654] = "war3mapImported\\UI_EventThumb_XP_frieren_himmel.tga"
+        set ProtoEventIcon[654] = "war3mapImported\\UI_EventThumb_XP_frieren_himmel.blp"
         set ProtoEventImageAspect[654] = 1.777778
         set ProtoEventRequired[654] = 0
         set ProtoEventRequiredChoice[654] = 0
@@ -41932,7 +41932,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[655] = 1
         set ProtoEventStory[655] = "|cFF006B8F하이터|r의 집에서 |cFF006B8F페른|r은 매일 마법을 연습한다. |cFF006B8F프리렌|r은 오래 걸리는 일을 부탁받아 머무는 동안 아이의 성장을 지켜본다. 하이터가 남기려던 것은 |cFF80560C책|r의 해답보다 함께 살아갈 다음 날이었다."
         set ProtoEventIntro[655] = "마법을 배우는 |cFF006B8F페른|r에게 필요한 것은 재능만이 아니다."
-        set ProtoEventIcon[655] = "war3mapImported\\UI_EventThumb_XP_frieren_heiter.tga"
+        set ProtoEventIcon[655] = "war3mapImported\\UI_EventThumb_XP_frieren_heiter.blp"
         set ProtoEventImageAspect[655] = 1.777778
         set ProtoEventRequired[655] = 0
         set ProtoEventRequiredChoice[655] = 0
@@ -41989,7 +41989,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[656] = 1
         set ProtoEventStory[656] = "봉인되었던 크발을 앞두고 |cFF006B8F프리렌|r은 |cFF006B8F페른|r에게 방어를 맡긴다. 과거에 치명적이던 |cFF865500졸트라크|r는 오랜 연구 끝에 |cFF865500익숙한 공격 마법|r이 되었다. 한 사람의 힘보다 이어 온 배움의 시간이 드러난다."
         set ProtoEventIntro[656] = "한때 막지 못했던 마법을 인간들은 연구해 왔다."
-        set ProtoEventIcon[656] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.tga"
+        set ProtoEventIcon[656] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.blp"
         set ProtoEventImageAspect[656] = 1.777778
         set ProtoEventRequired[656] = 0
         set ProtoEventRequiredChoice[656] = 0
@@ -42039,7 +42039,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[657] = 1
         set ProtoEventStory[657] = "|cFF006B8F프리렌|r은 |cFF006B8F아이젠|r과 |cFF006B8F플람메|r의 기록을 더듬는다. 영혼이 잠드는 땅에 닿으면 |cFF006B8F힘멜|r에게 하지 못했던 말을 전할 수 있을지도 모른다. 기억을 되짚는 여행에 이제 분명한 방향이 생긴다."
         set ProtoEventIntro[657] = "|cFF006B8F아이젠|r이 오래된 |cFF80560C기록|r을 찾아 북쪽의 목적지를 짚어 준다."
-        set ProtoEventIcon[657] = "war3mapImported\\UI_EventThumb_XP_frieren_flamme.tga"
+        set ProtoEventIcon[657] = "war3mapImported\\UI_EventThumb_XP_frieren_flamme.blp"
         set ProtoEventImageAspect[657] = 1.777778
         set ProtoEventRequired[657] = 0
         set ProtoEventRequiredChoice[657] = 0
@@ -42089,7 +42089,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[658] = 2
         set ProtoEventStory[658] = "|cFF006B8F아이젠|r의 제자 |cFF006B8F슈타르크|r는 강하지만 |cFF704261용을 앞두고 몸이 굳는다.|r |cFF80560C마을|r 사람들은 이미 그를 의지한다. 겁이 없기를 기다릴지, 두려운 채로 필요한 한 걸음을 낼지 고민한다."
         set ProtoEventIntro[658] = "|cFF006B8F슈타르크|r는 두려움 때문에 |cFF80560C마을|r을 떠나지 못하고 있다."
-        set ProtoEventIcon[658] = "war3mapImported\\UI_EventThumb_XP_frieren_scene_stark_courage.tga"
+        set ProtoEventIcon[658] = "war3mapImported\\UI_EventThumb_XP_frieren_scene_stark_courage.blp"
         set ProtoEventImageAspect[658] = 1.777778
         set ProtoEventRequired[658] = 0
         set ProtoEventRequiredChoice[658] = 0
@@ -42139,7 +42139,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[659] = 2
         set ProtoEventStory[659] = "마족의 말이 곧 인간과 같은 뜻은 아니었다. 도시의 위기를 두고 페른과 |cFF006B8F슈타르크|r가 각자의 상대를 맡는 동안 |cFF006B8F프리렌|r은 |cFF865500아우라|r를 마주한다. |cFF865500드러난 힘만으로|r 상대를 재려는 판단에 오랜 수련이 답한다."
         set ProtoEventIntro[659] = "|cFF865500아우라|r와 맞서는 |cFF006B8F프리렌|r에게는 오래 지켜 온 가르침이 있다."
-        set ProtoEventIcon[659] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.tga"
+        set ProtoEventIcon[659] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.blp"
         set ProtoEventImageAspect[659] = 1.777778
         set ProtoEventRequired[659] = 0
         set ProtoEventRequiredChoice[659] = 0
@@ -42196,7 +42196,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[660] = 2
         set ProtoEventStory[660] = "뛰어난 승려 |cFF006B8F자인|r은 친구와의 |cFF80560C약속|r을 오래 미뤄 왔다며 이제는 늦었다고 말한다. |cFF006B8F프리렌|r은 그 말을 듣고 자신이 놓쳤던 시간을 떠올린다. 과거를 대신 결정할 수는 없어도 지금 떠나고 싶은지 자인에게 직접 물을 수 있다."
         set ProtoEventIntro[660] = "|cFF006B8F자인|r의 일상 옆에 오래 미뤄 둔 여행이 남아 있다."
-        set ProtoEventIcon[660] = "war3mapImported\\UI_EventThumb_XP_frieren_sein.tga"
+        set ProtoEventIcon[660] = "war3mapImported\\UI_EventThumb_XP_frieren_sein.blp"
         set ProtoEventImageAspect[660] = 1.777778
         set ProtoEventRequired[660] = 0
         set ProtoEventRequiredChoice[660] = 0
@@ -42246,7 +42246,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[661] = 2
         set ProtoEventStory[661] = "추위를 지나 만난 갈림길에서 |cFF006B8F자인|r과 일행의 목적지가 갈라진다. 작별을 거창하게 준비하던 마음과 달리 내일도 걸어야 할 길은 평범하게 이어진다. |cFF006B8F프리렌|r은 짧은 인사에도 다시 만날 여지가 있음을 배운다."
         set ProtoEventIntro[661] = "함께한 시간이 끝나도 같은 길을 걸었다는 사실은 남는다."
-        set ProtoEventIcon[661] = "war3mapImported\\UI_EventThumb_XP_frieren_sein.tga"
+        set ProtoEventIcon[661] = "war3mapImported\\UI_EventThumb_XP_frieren_sein.blp"
         set ProtoEventImageAspect[661] = 1.777778
         set ProtoEventRequired[661] = 0
         set ProtoEventRequiredChoice[661] = 0
@@ -42296,7 +42296,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[662] = 3
         set ProtoEventStory[662] = "|cFF8655001급 마법사|r 시험에서 |cFF006B8F프리렌|r은 |cFF006B8F라비네|r와 |cFF006B8F칸네|r와 한 조가 된다. 새를 잡아 지켜야 하는 과제 앞에서 두 사람의 다툼과 익숙한 호흡이 함께 드러난다. 강한 마법보다 서로가 움직일 조건을 이해하는 일이 필요하다."
         set ProtoEventIntro[662] = "시험에서는 각자의 마법을 아는 것만으로 부족하다."
-        set ProtoEventIcon[662] = "war3mapImported\\UI_EventThumb_XP_frieren_lawine.tga"
+        set ProtoEventIcon[662] = "war3mapImported\\UI_EventThumb_XP_frieren_lawine.blp"
         set ProtoEventImageAspect[662] = 1.777778
         set ProtoEventRequired[662] = 0
         set ProtoEventRequiredChoice[662] = 0
@@ -42346,7 +42346,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[663] = 3
         set ProtoEventStory[663] = "다음 시험의 미궁에는 |cFFA53528응시자를 닮은 복제체가 나타난다.|r |cFF006B8F프리렌|r의 복제체 앞에서 |cFF006B8F페른|r은 오래 함께 수련하며 보았던 짧은 빈틈을 떠올린다. 모두가 같은 해답을 갖지는 않아도 관찰을 모으면 길이 열린다."
         set ProtoEventIntro[663] = "미궁의 |cFF865500복제체|r를 넘으려면 상대를 아는 |cFF80560C기억|r이 필요하다."
-        set ProtoEventIcon[663] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.tga"
+        set ProtoEventIcon[663] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.blp"
         set ProtoEventImageAspect[663] = 1.777778
         set ProtoEventRequired[663] = 0
         set ProtoEventRequiredChoice[663] = 0
@@ -42403,7 +42403,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[664] = 3
         set ProtoEventStory[664] = "|cFF006B8F제리에|r는 마지막 시험에서 응시자들을 직접 마주한다. |cFF006B8F프리렌|r과 |cFF006B8F페른|r은 같은 스승과 제자여도 같은 평가를 받지 않는다. |cFF865500어떤 마법사가 될지|r 상상하는 일은 강한 주문을 얼마나 아는가와 다르다."
         set ProtoEventIntro[664] = "|cFF006B8F제리에|r의 눈앞에서 마법을 대하는 태도가 드러난다."
-        set ProtoEventIcon[664] = "war3mapImported\\UI_EventThumb_XP_frieren_serie.tga"
+        set ProtoEventIcon[664] = "war3mapImported\\UI_EventThumb_XP_frieren_serie.blp"
         set ProtoEventImageAspect[664] = 1.777778
         set ProtoEventRequired[664] = 0
         set ProtoEventRequiredChoice[664] = 0
@@ -42453,7 +42453,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[665] = 3
         set ProtoEventStory[665] = "마법도시에서 마주친 사람들과 작별할 때가 왔다. |cFF006B8F프리렌|r은 짧은 만남도 나중의 자신을 바꿀 수 있음을 안다. 북쪽의 목적지는 아직 멀지만 함께 걷는 사람들의 표정은 처음과 달라져 있다."
         set ProtoEventIntro[665] = "시험을 마친 사람들은 각자의 길로 돌아간다."
-        set ProtoEventIcon[665] = "war3mapImported\\UI_EventThumb_XP_frieren_scene_northward.tga"
+        set ProtoEventIcon[665] = "war3mapImported\\UI_EventThumb_XP_frieren_scene_northward.blp"
         set ProtoEventImageAspect[665] = 1.777778
         set ProtoEventRequired[665] = 0
         set ProtoEventRequiredChoice[665] = 0
@@ -42508,7 +42508,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[666] = 1
         set ProtoEventStory[666] = "오늘은 급한 의뢰가 없는 아침이다. |cFF006B8F페른|r은 계획대로 출발하고 싶고 |cFF006B8F프리렌|r은 조금만 더 자겠다고 한다. |cFF006B8F슈타르크|r는 두 사람 사이에서 짐을 먼저 정리한다."
         set ProtoEventIntro[666] = "|cFF006B8F페른|r이 잠든 |cFF006B8F프리렌|r과 식어 가는 식사를 번갈아 본다."
-        set ProtoEventIcon[666] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.tga"
+        set ProtoEventIcon[666] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.blp"
         set ProtoEventImageAspect[666] = 1.777778
         set ProtoEventRequired[666] = 0
         set ProtoEventRequiredChoice[666] = 0
@@ -42555,7 +42555,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[667] = 1
         set ProtoEventStory[667] = "동상의 글자가 닳아 읽기 어렵다. |cFF006B8F프리렌|r은 잘 아는 얼굴이지만 어디서부터 설명해야 할지 잠시 머뭇거린다. 아이는 큰 전쟁보다 이 사람이 |cFF80560C마을|r에서 무엇을 했는지가 궁금하다."
         set ProtoEventIntro[667] = "오래된 동상의 주인이 누구였는지 |cFF80560C마을|r 아이가 묻는다."
-        set ProtoEventIcon[667] = "war3mapImported\\UI_EventThumb_XP_frieren_himmel.tga"
+        set ProtoEventIcon[667] = "war3mapImported\\UI_EventThumb_XP_frieren_himmel.blp"
         set ProtoEventImageAspect[667] = 1.777778
         set ProtoEventRequired[667] = 0
         set ProtoEventRequiredChoice[667] = 0
@@ -42602,7 +42602,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[668] = 1
         set ProtoEventStory[668] = "같은 거리, 같은 표적, 같은 자세가 이어진다. |cFF006B8F페른|r은 더 어려운 주문을 배워야 할 때가 아닌지 묻는다. |cFF006B8F프리렌|r은 오늘의 차이는 표적보다 쏘기 직전의 호흡에 있을지도 모른다고 한다."
         set ProtoEventIntro[668] = "|cFF006B8F페른|r이 연습의 차이를 찾지 못해 잠시 멈춘다."
-        set ProtoEventIcon[668] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.tga"
+        set ProtoEventIcon[668] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.blp"
         set ProtoEventImageAspect[668] = 1.777778
         set ProtoEventRequired[668] = 0
         set ProtoEventRequiredChoice[668] = 0
@@ -42649,7 +42649,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[669] = 1
         set ProtoEventStory[669] = "|cFF704261아직 보이지 않는 적이 더 무섭다고|r |cFF006B8F슈타르크|r가 말한다. 웃어넘겨 달라는 듯한 표정이지만 대답을 기다리고 있다. 두려움을 없애 주겠다는 |cFF80560C약속|r보다 필요한 준비를 함께 정할 수 있다."
         set ProtoEventIntro[669] = "|cFF006B8F슈타르크|r가 밤 경계에 앞서 솔직한 마음을 털어놓는다."
-        set ProtoEventIcon[669] = "war3mapImported\\UI_EventThumb_XP_frieren_stark.tga"
+        set ProtoEventIcon[669] = "war3mapImported\\UI_EventThumb_XP_frieren_stark.blp"
         set ProtoEventImageAspect[669] = 1.777778
         set ProtoEventRequired[669] = 0
         set ProtoEventRequiredChoice[669] = 0
@@ -42696,7 +42696,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[670] = 1
         set ProtoEventStory[670] = "낡은 |cFF80560C책|r의 제목을 본 |cFF006B8F페른|r이 잠시 말이 없어진다. |cFF006B8F프리렌|r은 이런 마법도 언젠가는 누군가를 기쁘게 할 수 있다고 말한다. 짐은 늘어나지만 이 책을 찾은 시간을 헛되다고 할지는 아직 모른다."
         set ProtoEventIntro[670] = "|cFF006B8F프리렌|r이 찾아낸 |cFF80560C책|r은 전투와 거리가 멀어 보인다."
-        set ProtoEventIcon[670] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.tga"
+        set ProtoEventIcon[670] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.blp"
         set ProtoEventImageAspect[670] = 1.777778
         set ProtoEventRequired[670] = 0
         set ProtoEventRequiredChoice[670] = 0
@@ -42743,7 +42743,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[671] = 1
         set ProtoEventStory[671] = "|cFF006B8F칸네|r는 빗줄기가 내려오면 할 수 있는 일을 떠올린다. |cFF006B8F라비네|r는 그때까지 서 있을 위치가 더 급하다고 한다. 둘의 말은 다투는 듯하지만 같은 순간을 준비하고 있다."
         set ProtoEventIntro[671] = "|cFF006B8F라비네|r와 |cFF006B8F칸네|r가 하늘을 보며 다른 준비를 말한다."
-        set ProtoEventIcon[671] = "war3mapImported\\UI_EventThumb_XP_frieren_kanne.tga"
+        set ProtoEventIcon[671] = "war3mapImported\\UI_EventThumb_XP_frieren_kanne.blp"
         set ProtoEventImageAspect[671] = 1.777778
         set ProtoEventRequired[671] = 0
         set ProtoEventRequiredChoice[671] = 0
@@ -42790,7 +42790,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[672] = 1
         set ProtoEventStory[672] = "식탁에는 서로 경쟁하던 사람들이 앉아 있다. |cFF006B8F덴켄|r은 식사가 끝나기도 전에 승패를 따질 필요가 없다고 말한다. 낯선 동행의 버릇을 알게 되는 잠깐의 여유가 생긴다."
         set ProtoEventIntro[672] = "시험 이야기가 끝났는데도 |cFF006B8F덴켄|r은 자리를 정리하지 않는다."
-        set ProtoEventIcon[672] = "war3mapImported\\UI_EventThumb_XP_frieren_denken.tga"
+        set ProtoEventIcon[672] = "war3mapImported\\UI_EventThumb_XP_frieren_denken.blp"
         set ProtoEventImageAspect[672] = 1.777778
         set ProtoEventRequired[672] = 0
         set ProtoEventRequiredChoice[672] = 0
@@ -42837,7 +42837,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[673] = 1
         set ProtoEventStory[673] = "|cFF006B8F페른|r은 배운 그대로 했는데 결과가 달랐다고 말한다. |cFF006B8F프리렌|r은 어디를 따라 했는지 먼저 묻는다. 겉으로 보이는 움직임과 그 전에 결정한 판단은 같은 것이 아니다."
         set ProtoEventIntro[673] = "|cFF006B8F페른|r이 설명하던 손짓을 |cFF006B8F프리렌|r이 말없이 바라본다."
-        set ProtoEventIcon[673] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.tga"
+        set ProtoEventIcon[673] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.blp"
         set ProtoEventImageAspect[673] = 1.777778
         set ProtoEventRequired[673] = 0
         set ProtoEventRequiredChoice[673] = 0
@@ -42884,7 +42884,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[674] = 1
         set ProtoEventStory[674] = "|cFF006B8F프리렌|r은 |cFF006B8F힘멜|r이라면 왜 그런 부탁에까지 응했을지 다시 생각한다. 그때는 너무 작은 일이라 묻지 않았다. 이제 정답을 만들어 넣기보다 자신이 |cFF80560C기억|r하는 행동부터 돌아본다."
         set ProtoEventIntro[674] = "동상에서 떠올린 말이 다음 |cFF80560C마을|r까지 따라왔다."
-        set ProtoEventIcon[674] = "war3mapImported\\UI_EventThumb_XP_frieren_himmel.tga"
+        set ProtoEventIcon[674] = "war3mapImported\\UI_EventThumb_XP_frieren_himmel.blp"
         set ProtoEventImageAspect[674] = 1.777778
         set ProtoEventRequired[674] = 0
         set ProtoEventRequiredChoice[674] = 0
@@ -42931,7 +42931,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[675] = 1
         set ProtoEventStory[675] = "원하는 주문을 말하라는 질문에 대답이 늦어진다. 강하다는 평가와 자신이 하고 싶은 일은 아직 같은 말이 아니다. 오늘 필요한 힘이 무엇인지 먼저 정해야 한다."
         set ProtoEventIntro[675] = "상대는 실력을 보고 싶지만 |cFF006B8F제리에|r는 질문을 돌려준다."
-        set ProtoEventIcon[675] = "war3mapImported\\UI_EventThumb_XP_frieren_serie.tga"
+        set ProtoEventIcon[675] = "war3mapImported\\UI_EventThumb_XP_frieren_serie.blp"
         set ProtoEventImageAspect[675] = 1.777778
         set ProtoEventRequired[675] = 0
         set ProtoEventRequiredChoice[675] = 0
@@ -42978,7 +42978,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[676] = 1
         set ProtoEventStory[676] = "급하지 않다는 이유로 미뤄 온 작은 수선이 많다. |cFF006B8F슈타르크|r는 자기가 도울 수 있는 일이 있는지 묻는다. |cFF006B8F프리렌|r은 기다리는 동안 다음 |cFF80560C마을|r의 지도를 펼친다."
         set ProtoEventIntro[676] = "|cFF006B8F페른|r이 여행 중 헤진 소매를 조용히 꿰맨다."
-        set ProtoEventIcon[676] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.tga"
+        set ProtoEventIcon[676] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.blp"
         set ProtoEventImageAspect[676] = 1.777778
         set ProtoEventRequired[676] = 0
         set ProtoEventRequiredChoice[676] = 0
@@ -43025,7 +43025,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[677] = 1
         set ProtoEventStory[677] = "너무 긴장하면 |cFF704261작은 소리도 모두 위협처럼 들린다.|r |cFF006B8F슈타르크|r는 어깨의 힘을 조금 풀어 보지만 시선은 놓지 않는다. 오래 버티는 자세를 배웠다는 말의 뜻을 다시 생각한다."
         set ProtoEventIntro[677] = "|cFF006B8F아이젠|r의 짧은 조언이 밤의 소음 사이에서 떠오른다."
-        set ProtoEventIcon[677] = "war3mapImported\\UI_EventThumb_XP_frieren_eisen.tga"
+        set ProtoEventIcon[677] = "war3mapImported\\UI_EventThumb_XP_frieren_eisen.blp"
         set ProtoEventImageAspect[677] = 1.777778
         set ProtoEventRequired[677] = 0
         set ProtoEventRequiredChoice[677] = 0
@@ -43072,7 +43072,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[678] = 1
         set ProtoEventStory[678] = "지도에는 큰 |cFF80560C도시|r만 적혀 있지만 길가 표지에는 작은 |cFF80560C마을|r이 있다. |cFF006B8F프리렌|r은 전에 지나간 것 같다고 말하고 |cFF006B8F페른|r은 일정표를 본다. 한 번의 들름으로 무엇을 알게 될지는 아무도 모른다."
         set ProtoEventIntro[678] = "갈 길에서 조금 벗어난 이름이 |cFF006B8F프리렌|r의 눈에 걸린다."
-        set ProtoEventIcon[678] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.tga"
+        set ProtoEventIcon[678] = "war3mapImported\\UI_EventThumb_XP_frieren_frieren.blp"
         set ProtoEventImageAspect[678] = 1.777778
         set ProtoEventRequired[678] = 0
         set ProtoEventRequiredChoice[678] = 0
@@ -43119,7 +43119,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[679] = 1
         set ProtoEventStory[679] = "위대한 전투보다 오늘 먹은 음식과 늦잠 이야기가 먼저 나온다. |cFF006B8F페른|r은 이런 이야기라도 괜찮을지 묻는다. |cFF006B8F프리렌|r은 함께하지 못한 하루를 알려 주는 것도 안부라고 생각한다."
         set ProtoEventIntro[679] = "|cFF006B8F자인|r에게 전할 말을 쓰려니 평범한 이야기만 떠오른다."
-        set ProtoEventIcon[679] = "war3mapImported\\UI_EventThumb_XP_frieren_sein.tga"
+        set ProtoEventIcon[679] = "war3mapImported\\UI_EventThumb_XP_frieren_sein.blp"
         set ProtoEventImageAspect[679] = 1.777778
         set ProtoEventRequired[679] = 0
         set ProtoEventRequiredChoice[679] = 0
@@ -43166,7 +43166,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[680] = 1
         set ProtoEventStory[680] = "시험장의 긴장은 멀어지고 다시 식사와 숙소를 정하는 시간이 온다. |cFF006B8F페른|r은 얻은 자격보다 오늘 같이 걷는 속도가 먼저 눈에 들어온다. |cFF006B8F프리렌|r과 |cFF006B8F슈타르크|r도 각자의 방식으로 새 출발을 준비한다."
         set ProtoEventIntro[680] = "|cFF80560C도시|r를 벗어난 첫 길은 의외로 평범하다."
-        set ProtoEventIcon[680] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.tga"
+        set ProtoEventIcon[680] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.blp"
         set ProtoEventImageAspect[680] = 1.777778
         set ProtoEventRequired[680] = 0
         set ProtoEventRequiredChoice[680] = 0
@@ -43213,7 +43213,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[681] = 1
         set ProtoEventStory[681] = "북쪽으로 이어진 길가에서 세 사람은 잠시 쉰다. 아직 도착하지 않은 목적지를 결말처럼 말하지 않기로 한다. 지금 만난 사람들을 |cFF80560C기억|r하며 다음 하루를 정한다."
         set ProtoEventIntro[681] = "다음에 들려줄 이야기는 오늘부터 생긴다."
-        set ProtoEventIcon[681] = "war3mapImported\\UI_EventThumb_XP_frieren_head.tga"
+        set ProtoEventIcon[681] = "war3mapImported\\UI_EventThumb_XP_frieren_head.blp"
         set ProtoEventImageAspect[681] = 1.777778
         set ProtoEventRequired[681] = 0
         set ProtoEventRequiredChoice[681] = 0
@@ -43255,7 +43255,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[20] = "dungeon_meshi"
         set ProtoHeadName[20] = "던전밥"
         set ProtoHeadIntro[20] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
-        set ProtoHeadIcon[20] = "war3mapImported\\UI_Card_XP_dungeon_meshi_head_Icon.tga"
+        set ProtoHeadIcon[20] = "war3mapImported\\UI_Card_XP_dungeon_meshi_head_Icon.blp"
         set ProtoHeadEntryCard[20] = 1212
         set ProtoHeadMainLength[20] = 14
         set ProtoHeadRequiredMain[20] = 0
@@ -43270,7 +43270,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[682] = 1
         set ProtoEventStory[682] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
         set ProtoEventIntro[682] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
-        set ProtoEventIcon[682] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.tga"
+        set ProtoEventIcon[682] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.blp"
         set ProtoEventImageAspect[682] = 1.777778
         set ProtoHeadEntryEvent[81] = 683
         set ProtoEventKey[683] = "dungeon_meshi_entry_1"
@@ -43282,7 +43282,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[683] = 1
         set ProtoEventStory[683] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
         set ProtoEventIntro[683] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
-        set ProtoEventIcon[683] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.tga"
+        set ProtoEventIcon[683] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.blp"
         set ProtoEventImageAspect[683] = 1.777778
         set ProtoHeadEntryEvent[82] = 684
         set ProtoEventKey[684] = "dungeon_meshi_entry_2"
@@ -43294,7 +43294,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[684] = 1
         set ProtoEventStory[684] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
         set ProtoEventIntro[684] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
-        set ProtoEventIcon[684] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.tga"
+        set ProtoEventIcon[684] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.blp"
         set ProtoEventImageAspect[684] = 1.777778
         set ProtoHeadEntryEvent[83] = 685
         set ProtoEventKey[685] = "dungeon_meshi_entry_3"
@@ -43306,7 +43306,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[685] = 1
         set ProtoEventStory[685] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
         set ProtoEventIntro[685] = "|cFF865500염룡|r에게 삼켜진 |cFF006B8F파린|r을 찾아 다시 미궁으로 향한다. 칼과 지팡이, 자물쇠 도구와 냄비가 나란히 놓인 여정에서 함께 먹고 함께 나아갈 방법을 배운다."
-        set ProtoEventIcon[685] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.tga"
+        set ProtoEventIcon[685] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_head.blp"
         set ProtoEventImageAspect[685] = 1.777778
         set ProtoCardKey[1209] = "dm_laios"
         set ProtoCardName[1209] = "라이오스"
@@ -43799,7 +43799,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[686] = 1
         set ProtoEventStory[686] = "|cFF006B8F파린|r을 남겨 두고 돌아온 일행 앞에 빈 배낭이 놓였다. |cFF006B8F라이오스|r는 다시 내려갈 생각만 하지만, |cFF006B8F칠책|r은 돌아올 길까지 생각하자고 붙잡는다. |cFF006B8F마르실|r은 서두르는 두 사람 사이에서 지팡이를 꽉 쥔다."
         set ProtoEventIntro[686] = "|cFF006B8F파린|r이 없는 지상에서 다시 내려갈 준비를 한다."
-        set ProtoEventIcon[686] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[686] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[686] = 1.777778
         set ProtoEventRequired[686] = 0
         set ProtoEventRequiredChoice[686] = 0
@@ -43849,7 +43849,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[687] = 1
         set ProtoEventStory[687] = "처음 보는 재료를 두고 |cFF006B8F라이오스|r의 설명이 길어진다. |cFF006B8F마르실|r은 냄비에서 한 발 물러서고, |cFF006B8F센시|r는 설명보다 손질이 먼저라며 자리를 잡는다. |cFF006B8F칠책|r은 요리하는 동안 누가 주변을 볼지 묻는다."
         set ProtoEventIntro[687] = "|cFF006B8F센시|r는 미궁에서 먹고 나아가는 법을 안다."
-        set ProtoEventIcon[687] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_senshi_cooking.tga"
+        set ProtoEventIcon[687] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_senshi_cooking.blp"
         set ProtoEventImageAspect[687] = 1.777778
         set ProtoEventRequired[687] = 0
         set ProtoEventRequiredChoice[687] = 0
@@ -43899,7 +43899,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[688] = 1
         set ProtoEventStory[688] = "바실리스크를 마주친 순간, 시선이 한쪽으로 쏠린다. |cFF006B8F라이오스|r는 익숙한 모습에 |cFF865500속지 말라고 손을 뻗는다.|r |cFF006B8F마르실|r은 공격할 공간을 찾고, |cFF006B8F센시|r는 모두가 서로의 앞을 가리지 않게 거리를 벌린다."
         set ProtoEventIntro[688] = "바실리스크를 보며 위협이 향하는 곳을 읽는다."
-        set ProtoEventIcon[688] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[688] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[688] = 1.777778
         set ProtoEventRequired[688] = 0
         set ProtoEventRequiredChoice[688] = 0
@@ -43949,7 +43949,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[689] = 1
         set ProtoEventStory[689] = "금속이 부딪치는 소리 속에서 |cFF006B8F라이오스|r가 갑옷들의 움직임을 살핀다. |cFF006B8F칠책|r은 막히지 않은 통로를 찾고, |cFF006B8F마르실|r은 모두 물러날 시간을 재고 있다. |cFF865500갑옷이 모이는 방향|r을 놓치지 않으려면 역할을 나눠야 한다."
         set ProtoEventIntro[689] = "움직이는 갑옷은 아무렇게나 달려들지 않는다."
-        set ProtoEventIcon[689] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[689] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[689] = 1.777778
         set ProtoEventRequired[689] = 0
         set ProtoEventRequiredChoice[689] = 0
@@ -44006,7 +44006,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[690] = 2
         set ProtoEventStory[690] = "골렘의 등 위에 자란 채소를 보고 |cFF006B8F마르실|r의 질문이 쏟아진다. |cFF006B8F센시|r는 필요한 만큼 거두고 다음에 다시 자랄 자리도 남겨 두려 한다. |cFF006B8F라이오스|r는 골렘의 움직임에 마음이 가고, |cFF006B8F칠책|r은 발밑부터 보라고 부른다."
         set ProtoEventIntro[690] = "|cFF006B8F센시|r가 가꾼 채소밭은 발이 달려 있다."
-        set ProtoEventIcon[690] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.tga"
+        set ProtoEventIcon[690] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.blp"
         set ProtoEventImageAspect[690] = 1.777778
         set ProtoEventRequired[690] = 0
         set ProtoEventRequiredChoice[690] = 0
@@ -44056,7 +44056,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[691] = 2
         set ProtoEventStory[691] = "다른 통로에서는 |cFF006B8F카블루|r 일행이 탐색을 이어 간다. 뜻밖의 보물을 두고 기대가 부푼 순간에도 카블루는 동료들의 표정을 살핀다. 반짝이는 표면만으로 안심하기에는 미궁에서 모르는 것이 너무 많다."
         set ProtoEventIntro[691] = "같은 미궁을 걷는 |cFF006B8F카블루|r의 파티가 보물 앞에 선다."
-        set ProtoEventIcon[691] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_kabru.tga"
+        set ProtoEventIcon[691] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_kabru.blp"
         set ProtoEventImageAspect[691] = 1.777778
         set ProtoEventRequired[691] = 0
         set ProtoEventRequiredChoice[691] = 0
@@ -44106,7 +44106,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[692] = 2
         set ProtoEventStory[692] = "|cFF006B8F라이오스|r는 |cFF865500살아 있는 그림|r에서 본 장면을 설명하려 한다. |cFF006B8F마르실|r은 다시 들어갈 생각부터 접으라며 말을 자르고, |cFF006B8F칠책|r은 지금 있는 통로를 잊지 말라고 한다. 낯선 광경을 기억하되 눈앞의 길도 살펴야 한다."
         set ProtoEventIntro[692] = "그림 속의 풍경을 본 |cFF006B8F라이오스|r에게 질문이 남는다."
-        set ProtoEventIcon[692] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[692] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[692] = 1.777778
         set ProtoEventRequired[692] = 0
         set ProtoEventRequiredChoice[692] = 0
@@ -44156,7 +44156,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[693] = 2
         set ProtoEventStory[693] = "호수 앞에서 |cFF006B8F센시|r는 켈피를 타고 건너자고 한다. |cFF006B8F라이오스|r는 친숙하다고 안전한 것은 아니라며 반대하고, |cFF006B8F마르실|r은 |cFF865500수상 보행 마법을 제안한다.|r 건너는 방법을 정하기 전에 서로 무엇을 믿는지부터 들어야 한다."
         set ProtoEventIntro[693] = "|cFF006B8F센시|r가 아는 켈피와 |cFF006B8F라이오스|r가 아는 위험은 다르다."
-        set ProtoEventIcon[693] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.tga"
+        set ProtoEventIcon[693] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.blp"
         set ProtoEventImageAspect[693] = 1.777778
         set ProtoEventRequired[693] = 0
         set ProtoEventRequiredChoice[693] = 0
@@ -44206,7 +44206,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[694] = 2
         set ProtoEventStory[694] = "|cFF006B8F마르실|r의 |cFF80560C기억|r 속에서 작은 실험 용기와 바깥 풍경이 겹친다. 자신이 설명하려던 것을 |cFF006B8F파린|r은 전혀 다른 자리에서 배워 왔다. 지금의 마르실에게 필요한 것은 답을 빨리 말하는 일보다 친구가 본 것을 이해하는 일이었다."
         set ProtoEventIntro[694] = "|cFF006B8F마르실|r은 |cFF006B8F파린|r과 가까워졌던 학교 시절을 떠올린다."
-        set ProtoEventIcon[694] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_marcille.tga"
+        set ProtoEventIcon[694] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_marcille.blp"
         set ProtoEventImageAspect[694] = 1.777778
         set ProtoEventRequired[694] = 0
         set ProtoEventRequiredChoice[694] = 0
@@ -44263,7 +44263,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[695] = 3
         set ProtoEventStory[695] = "|cFF006B8F마르실|r을 걱정하던 일행 앞에 |cFF006B8F나마리|r가 모습을 보인다. 이제 그녀는 다른 모험가 일행의 호위를 맡고 있다. 반가움만으로 예전 역할을 부탁할 수는 없다.|n|n|cFF006B8F라이오스|r는 서로 어떤 도움이 필요한지 먼저 확인한다."
         set ProtoEventIntro[695] = "|cFF865500운디네|r전 뒤, 다른 파티의 |cFF006B8F나마리|r와 마주친다."
-        set ProtoEventIcon[695] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_namari.tga"
+        set ProtoEventIcon[695] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_namari.blp"
         set ProtoEventImageAspect[695] = 1.777778
         set ProtoEventRequired[695] = 0
         set ProtoEventRequiredChoice[695] = 0
@@ -44313,7 +44313,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[696] = 3
         set ProtoEventStory[696] = "촉수가 늘어진 통로에서 큰 개구리가 |cFFA53528무기를 낚아챈다.|r |cFF006B8F라이오스|r가 빈손을 내려다보는 사이 |cFF006B8F칠책|r은 벽의 장치를 찾는다. |cFF006B8F마르실|r은 그가 가리킨 지점을 보고, 센시는 움직일 공간을 만들려고 한다."
         set ProtoEventIntro[696] = "큰 개구리가 무기를 빼앗아도 |cFF006B8F칠책|r은 벽을 본다."
-        set ProtoEventIcon[696] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.tga"
+        set ProtoEventIcon[696] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.blp"
         set ProtoEventImageAspect[696] = 1.777778
         set ProtoEventRequired[696] = 0
         set ProtoEventRequiredChoice[696] = 0
@@ -44363,7 +44363,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[697] = 3
         set ProtoEventStory[697] = "염룡의 움직임은 일행이 세운 계획보다 거칠다. 무너지는 건물과 커다란 몸 사이에서 |cFF006B8F라이오스|r는 |cFF865500역린에 닿을 기회|r를 찾는다. |cFF006B8F마르실|r과 |cFF006B8F칠책|r, 센시는 각자의 자리에서 그 짧은 틈을 놓치지 않으려 한다."
         set ProtoEventIntro[697] = "세운 계획이 무너져도 동료의 위치는 놓치지 않는다."
-        set ProtoEventIcon[697] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[697] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[697] = 1.777778
         set ProtoEventRequired[697] = 0
         set ProtoEventRequiredChoice[697] = 0
@@ -44420,7 +44420,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[698] = 3
         set ProtoEventStory[698] = "찾아낸 |cFF704261파린의 뼈 앞에서|r 말이 줄어든다. |cFF006B8F마르실|r은 |cFF865500고대 마법|r을 쓰려는 이유를 설명하고, |cFF006B8F라이오스|r는 그 말을 끝까지 듣는다. 칠책과 센시는 놀람을 감추지 못하면서도 지금 필요한 일을 묻는다."
         set ProtoEventIntro[698] = "|cFF865500염룡|r을 쓰러뜨린 뒤에도 |cFF006B8F파린|r을 찾는 일은 끝나지 않았다."
-        set ProtoEventIcon[698] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_falin_return.tga"
+        set ProtoEventIcon[698] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_falin_return.blp"
         set ProtoEventImageAspect[698] = 1.777778
         set ProtoEventRequired[698] = 0
         set ProtoEventRequiredChoice[698] = 0
@@ -44470,7 +44470,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[699] = 4
         set ProtoEventStory[699] = "눈앞의 |cFF006B8F파린|r을 보고도 누구는 말을 고르지 못하고 누구는 너무 많은 말을 한다. |cFF006B8F센시|r가 식탁을 준비하는 동안, |cFF006B8F마르실|r은 파린 곁에 앉는다. 긴 길을 걸어온 일행은 다시 같은 자리에 모인다."
         set ProtoEventIntro[699] = "|cFF006B8F파린|r이 돌아온 자리에서 처음의 목적을 떠올린다."
-        set ProtoEventIcon[699] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_falin.tga"
+        set ProtoEventIcon[699] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_falin.blp"
         set ProtoEventImageAspect[699] = 1.777778
         set ProtoEventRequired[699] = 0
         set ProtoEventRequiredChoice[699] = 0
@@ -44525,7 +44525,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[700] = 1
         set ProtoEventStory[700] = "|cFF006B8F센시|r가 냄비를 내려놓자 |cFF006B8F칠책|r은 통로 쪽에 서고, |cFF006B8F라이오스|r는 벽에 남은 자국을 들여다본다. 아직 손질을 시작하기 전이라 짧게 주변을 살필 여유가 있다. 각자 무엇을 먼저 확인할까?"
         set ProtoEventIntro[700] = "일행이 자리를 펴는 동안 통로를 한 번 살핀다."
-        set ProtoEventIcon[700] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.tga"
+        set ProtoEventIcon[700] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.blp"
         set ProtoEventImageAspect[700] = 1.777778
         set ProtoEventRequired[700] = 0
         set ProtoEventRequiredChoice[700] = 0
@@ -44572,7 +44572,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[701] = 1
         set ProtoEventStory[701] = "|cFF006B8F센시|r가 쓴 도구를 닦는 동안 |cFF006B8F라이오스|r는 다음 재료 이야기를 꺼낸다. |cFF006B8F마르실|r은 설명보다 정리가 먼저라며 천을 건넨다. 잠깐의 손놀림으로 다음에 찾느라 헤맬 시간을 줄일 수 있다."
         set ProtoEventIntro[701] = "손질이 끝나면 도구를 제자리에 돌려놓는다."
-        set ProtoEventIcon[701] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.tga"
+        set ProtoEventIcon[701] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.blp"
         set ProtoEventImageAspect[701] = 1.777778
         set ProtoEventRequired[701] = 0
         set ProtoEventRequiredChoice[701] = 0
@@ -44619,7 +44619,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[702] = 1
         set ProtoEventStory[702] = "비슷한 소리가 두 번 들렸는데 |cFF006B8F칠책|r은 같은 원인이라고 단정하지 않는다. 가까운 벽에서 되돌아온 소리일 수도 있고 먼 통로의 소리일 수도 있다. |cFF80560C기억|r한 요령을 어디에 적용해 볼까?"
         set ProtoEventIntro[702] = "|cFF006B8F칠책|r과 배운 소리를 다시 비교할 기회가 생긴다."
-        set ProtoEventIcon[702] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.tga"
+        set ProtoEventIcon[702] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.blp"
         set ProtoEventImageAspect[702] = 1.777778
         set ProtoEventRequired[702] = 0
         set ProtoEventRequiredChoice[702] = 0
@@ -44666,7 +44666,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[703] = 1
         set ProtoEventStory[703] = "|cFF006B8F마르실|r의 메모에는 답보다 물음표가 더 많다. 틀렸던 설명을 지우려다가 |cFF006B8F파린|r이 바깥에서 배워 왔던 이야기를 떠올린다. 같은 질문을 다른 방식으로 남길 수 있을까?"
         set ProtoEventIntro[703] = "|cFF006B8F마르실|r은 지난번에 남긴 질문을 다시 펼친다."
-        set ProtoEventIcon[703] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_marcille.tga"
+        set ProtoEventIcon[703] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_marcille.blp"
         set ProtoEventImageAspect[703] = 1.777778
         set ProtoEventRequired[703] = 0
         set ProtoEventRequiredChoice[703] = 0
@@ -44713,7 +44713,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[704] = 1
         set ProtoEventStory[704] = "|cFF006B8F라이오스|r는 아는 특징을 열심히 설명하다가 말을 멈춘다. 방금 본 반응 하나가 설명과 맞지 않았다. |cFF006B8F칠책|r은 말을 맞추려 하지 말고 거리를 유지하라고 한다.|n|n다음 관찰은 어디서 시작할까?"
         set ProtoEventIntro[704] = "|cFF006B8F라이오스|r가 알던 마물도 눈앞에서는 다르게 움직인다."
-        set ProtoEventIcon[704] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[704] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[704] = 1.777778
         set ProtoEventRequired[704] = 0
         set ProtoEventRequiredChoice[704] = 0
@@ -44760,7 +44760,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[705] = 1
         set ProtoEventStory[705] = "|cFF006B8F파린|r을 잃기 전 함께 준비하던 날의 기억이다. |cFF006B8F나마리|r는 무기를 고르기 전에 신발과 짐의 무게를 본다. |cFF006B8F슈로|r는 옆에서 칼집을 정리하고, |cFF006B8F칠책|r은 너무 크게 벌린 짐을 치우라고 한다."
         set ProtoEventIntro[705] = "함께 다니던 시절, |cFF006B8F나마리|r는 발걸음부터 살폈다."
-        set ProtoEventIcon[705] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_namari.tga"
+        set ProtoEventIcon[705] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_namari.blp"
         set ProtoEventImageAspect[705] = 1.777778
         set ProtoEventRequired[705] = 0
         set ProtoEventRequiredChoice[705] = 0
@@ -44807,7 +44807,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[706] = 1
         set ProtoEventStory[706] = "예전 휴식 시간, |cFF006B8F라이오스|r가 |cFF006B8F슈로|r에게 질문을 잇달아 던졌다. 대답이 오기 전에 다음 질문이 나오자 |cFF006B8F파린|r이 잠깐 기다려 보자고 했다. 칼을 닦던 슈로가 천천히 고개를 들었다."
         set ProtoEventIntro[706] = "|cFF006B8F슈로|r와 함께하던 날의 짧은 침묵을 떠올린다."
-        set ProtoEventIcon[706] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_shuro.tga"
+        set ProtoEventIcon[706] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_shuro.blp"
         set ProtoEventImageAspect[706] = 1.777778
         set ProtoEventRequired[706] = 0
         set ProtoEventRequiredChoice[706] = 0
@@ -44854,7 +44854,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[707] = 1
         set ProtoEventStory[707] = "미궁에 들어가기 전, |cFF006B8F카블루|r의 파티가 짐을 정리한다. 카블루는 누가 서두르고 누가 말없이 기다리는지 차례로 살핀다. 사람을 아는 일과 미궁을 아는 일이 같지는 않다는 생각이 스친다."
         set ProtoEventIntro[707] = "|cFF006B8F카블루|r는 자기 동료들의 준비를 살핀다."
-        set ProtoEventIcon[707] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_kabru.tga"
+        set ProtoEventIcon[707] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_kabru.blp"
         set ProtoEventImageAspect[707] = 1.777778
         set ProtoEventRequired[707] = 0
         set ProtoEventRequiredChoice[707] = 0
@@ -44901,7 +44901,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[708] = 1
         set ProtoEventStory[708] = "|cFF006B8F센시|r가 설명을 마쳤는데 |cFF006B8F마르실|r의 메모에는 아직 빈칸이 남았다. 손의 힘이나 멈추는 순간은 이름만으로 적기 어렵다. |cFF006B8F라이오스|r는 모양을 그려 넣자며 고개를 가까이 댄다."
         set ProtoEventIntro[708] = "|cFF006B8F센시|r의 설명에는 손으로 보여 주는 부분이 많다."
-        set ProtoEventIcon[708] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.tga"
+        set ProtoEventIcon[708] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.blp"
         set ProtoEventImageAspect[708] = 1.777778
         set ProtoEventRequired[708] = 0
         set ProtoEventRequiredChoice[708] = 0
@@ -44948,7 +44948,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[709] = 1
         set ProtoEventStory[709] = "문 앞에서 |cFF006B8F칠책|r이 도구를 꺼내자 |cFF006B8F라이오스|r와 |cFF006B8F센시|r가 돕겠다며 다가온다. 칠책은 잠깐만 멈추라며 손을 든다. 돕는다는 말이 작업하는 사람에게도 도움이 되려면 순서가 필요하다."
         set ProtoEventIntro[709] = "|cFF006B8F칠책|r 앞의 장치에 여러 손이 모인다."
-        set ProtoEventIcon[709] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.tga"
+        set ProtoEventIcon[709] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_chilchuck.blp"
         set ProtoEventImageAspect[709] = 1.777778
         set ProtoEventRequired[709] = 0
         set ProtoEventRequiredChoice[709] = 0
@@ -44995,7 +44995,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[710] = 1
         set ProtoEventStory[710] = "아직 모두 함께 다니던 때, |cFF006B8F파린|r은 대화 도중에도 뒤처지는 사람이 없는지 돌아봤다. |cFF006B8F라이오스|r는 설명을 멈추고 같은 방향을 본다. |cFF006B8F나마리|r는 먼저 가던 걸음을 조금 늦춘다."
         set ProtoEventIntro[710] = "|cFF006B8F파린|r이 뒤쪽을 돌아보던 이유를 떠올린다."
-        set ProtoEventIcon[710] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_falin.tga"
+        set ProtoEventIcon[710] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_falin.blp"
         set ProtoEventImageAspect[710] = 1.777778
         set ProtoEventRequired[710] = 0
         set ProtoEventRequiredChoice[710] = 0
@@ -45042,7 +45042,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[711] = 1
         set ProtoEventStory[711] = "|cFF006B8F라이오스|r는 처음 먹어 본 맛을 마물의 생김새부터 설명한다. |cFF006B8F마르실|r은 그 설명 때문에 더 어려워진다며 얼굴을 찌푸린다. |cFF006B8F센시|r는 누가 맞는지보다 무엇을 알고 싶은지 먼저 물어 보라고 한다."
         set ProtoEventIntro[711] = "|cFF006B8F라이오스|r와 |cFF006B8F마르실|r은 같은 음식을 다르게 설명한다."
-        set ProtoEventIcon[711] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_marcille.tga"
+        set ProtoEventIcon[711] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_marcille.blp"
         set ProtoEventImageAspect[711] = 1.777778
         set ProtoEventRequired[711] = 0
         set ProtoEventRequiredChoice[711] = 0
@@ -45089,7 +45089,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[712] = 1
         set ProtoEventStory[712] = "|cFF006B8F라이오스|r의 기록에는 마물의 생김새가 길게 남아 있고 |cFF006B8F칠책|r의 기록에는 통로와 장치가 먼저 보인다. 다른 곳을 걷는 |cFF006B8F카블루|r라면 사람의 행동을 |cFF80560C기억|r했을지도 모른다. 한 기록만으로 길을 다 알 수는 없다."
         set ProtoEventIntro[712] = "미궁을 적는 방법은 모험가마다 다르다."
-        set ProtoEventIcon[712] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[712] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[712] = 1.777778
         set ProtoEventRequired[712] = 0
         set ProtoEventRequiredChoice[712] = 0
@@ -45136,7 +45136,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[713] = 1
         set ProtoEventStory[713] = "|cFF006B8F라이오스|r는 |cFF80560C검|r을 확인했고 |cFF006B8F마르실|r은 지팡이를 쥐어 보았다. |cFF006B8F센시|r는 도구를 내려놓을 위치를 골랐다. 평소 되풀이하던 작은 준비들이 큰 상대 앞에서도 필요했다.|n|n그때 각자 무엇을 먼저 챙겼는지 돌아본다."
         set ProtoEventIntro[713] = "큰 상대를 앞두고 동료들과 준비했던 순간을 떠올린다."
-        set ProtoEventIcon[713] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.tga"
+        set ProtoEventIcon[713] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_laios.blp"
         set ProtoEventImageAspect[713] = 1.777778
         set ProtoEventRequired[713] = 0
         set ProtoEventRequiredChoice[713] = 0
@@ -45183,7 +45183,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[714] = 1
         set ProtoEventStory[714] = "식탁에서는 길에서 있었던 이야기가 한꺼번에 나온다. |cFF006B8F파린|r은 처음 듣는 이름에 귀를 기울이고, |cFF006B8F마르실|r은 빠뜨린 설명을 보탠다. 아직 말을 다 못 한 |cFF006B8F라이오스|r가 다음 차례를 기다린다."
         set ProtoEventIntro[714] = "|cFF006B8F파린|r과 다시 마주한 짧은 시간을 천천히 남긴다."
-        set ProtoEventIcon[714] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_falin.tga"
+        set ProtoEventIcon[714] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_falin.blp"
         set ProtoEventImageAspect[714] = 1.777778
         set ProtoEventRequired[714] = 0
         set ProtoEventRequiredChoice[714] = 0
@@ -45230,7 +45230,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[715] = 1
         set ProtoEventStory[715] = "|cFF006B8F센시|r가 차려 둔 자리를 보며 |cFF006B8F칠책|r은 길에서 놓쳤던 물건이 없는지 생각한다. |cFF006B8F마르실|r은 그런 이야기보다 잠깐 앉아 있으라고 한다. 어수선한 말소리 사이로 긴장하던 얼굴들이 조금 느슨해진다."
         set ProtoEventIntro[715] = "재회의 식탁을 꾸린 사람들의 손길을 돌아본다."
-        set ProtoEventIcon[715] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.tga"
+        set ProtoEventIcon[715] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.blp"
         set ProtoEventImageAspect[715] = 1.777778
         set ProtoEventRequired[715] = 0
         set ProtoEventRequiredChoice[715] = 0
@@ -45272,7 +45272,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[21] = "hunter_exam"
         set ProtoHeadName[21] = "헌터시험장"
         set ProtoHeadIntro[21] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
-        set ProtoHeadIcon[21] = "war3mapImported\\UI_Card_XP_hunter_exam_head_Icon.tga"
+        set ProtoHeadIcon[21] = "war3mapImported\\UI_Card_XP_hunter_exam_head_Icon.blp"
         set ProtoHeadEntryCard[21] = 1257
         set ProtoHeadMainLength[21] = 14
         set ProtoHeadRequiredMain[21] = 0
@@ -45287,7 +45287,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[716] = 1
         set ProtoEventStory[716] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
         set ProtoEventIntro[716] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
-        set ProtoEventIcon[716] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.tga"
+        set ProtoEventIcon[716] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.blp"
         set ProtoEventImageAspect[716] = 1.777778
         set ProtoHeadEntryEvent[85] = 717
         set ProtoEventKey[717] = "hunter_exam_entry_1"
@@ -45299,7 +45299,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[717] = 1
         set ProtoEventStory[717] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
         set ProtoEventIntro[717] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
-        set ProtoEventIcon[717] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.tga"
+        set ProtoEventIcon[717] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.blp"
         set ProtoEventImageAspect[717] = 1.777778
         set ProtoHeadEntryEvent[86] = 718
         set ProtoEventKey[718] = "hunter_exam_entry_2"
@@ -45311,7 +45311,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[718] = 1
         set ProtoEventStory[718] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
         set ProtoEventIntro[718] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
-        set ProtoEventIcon[718] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.tga"
+        set ProtoEventIcon[718] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.blp"
         set ProtoEventImageAspect[718] = 1.777778
         set ProtoHeadEntryEvent[87] = 719
         set ProtoEventKey[719] = "hunter_exam_entry_3"
@@ -45323,7 +45323,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[719] = 1
         set ProtoEventStory[719] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
         set ProtoEventIntro[719] = "아버지와 같은 헌터가 되려는 |cFF006B8F곤|r이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다."
-        set ProtoEventIcon[719] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.tga"
+        set ProtoEventIcon[719] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_head.blp"
         set ProtoEventImageAspect[719] = 1.777778
         set ProtoCardKey[1257] = "hx_gon"
         set ProtoCardName[1257] = "곤"
@@ -45826,7 +45826,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[720] = 1
         set ProtoEventStory[720] = "거친 파도보다 먼저 두 사람의 말이 부딪친다. 헌터가 되려는 이유는 서로 달랐고, 그 차이는 쉽게 모욕으로 들렸다. |cFF006B8F곤|r은 누구의 말이 더 큰지보다 두 사람이 끝까지 놓지 않는 이야기에 귀를 기울인다."
         set ProtoEventIntro[720] = "곤은 시험장으로 가는 배에서 |cFF006B8F레오리오|r와 |cFF006B8F크라피카|r를 만난다."
-        set ProtoEventIcon[720] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_ship_meeting.tga"
+        set ProtoEventIcon[720] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_ship_meeting.blp"
         set ProtoEventImageAspect[720] = 1.777778
         set ProtoEventRequired[720] = 0
         set ProtoEventRequiredChoice[720] = 0
@@ -45876,7 +45876,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[721] = 1
         set ProtoEventStory[721] = "노파가 내놓은 질문은 어느 쪽을 답해도 |cFF704261소중한 사람을 버리게 만든다.|r |cFF006B8F레오리오|r는 황당한 요구에 화를 내고, |cFF006B8F크라피카|r는 문제의 틀을 살핀다. |cFF006B8F곤|r은 두 가지 답만 생각해야 하는지 고개를 기울인다."
         set ProtoEventIntro[721] = "시험장으로 향하는 골목에서 쉽게 고를 수 없는 질문을 만난다."
-        set ProtoEventIcon[721] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.tga"
+        set ProtoEventIcon[721] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.blp"
         set ProtoEventImageAspect[721] = 1.777778
         set ProtoEventRequired[721] = 0
         set ProtoEventRequiredChoice[721] = 0
@@ -45926,7 +45926,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[722] = 1
         set ProtoEventStory[722] = "터널의 끝은 보이지 않고 발소리만 길게 겹친다. 스케이트보드를 든 |cFF006B8F키르아|r와 |cFF006B8F곤|r은 말을 주고받으며 달리고, 뒤쪽에서는 |cFF006B8F레오리오|r가 이를 악문다. 계단이 나타나자 앞장선 |cFF006B8F사토츠|r의 속도가 다시 오른다."
         set ProtoEventIntro[722] = "첫 시험은 |cFF006B8F사토츠|r를 따라 다음 시험장까지 가는 일이다."
-        set ProtoEventIcon[722] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_tunnel_run.tga"
+        set ProtoEventIcon[722] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_tunnel_run.blp"
         set ProtoEventImageAspect[722] = 1.777778
         set ProtoEventRequired[722] = 0
         set ProtoEventRequiredChoice[722] = 0
@@ -45976,7 +45976,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[723] = 1
         set ProtoEventStory[723] = "멘치와 부하라 앞에 선 지원자들은 힘겨운 전투를 예상했던 표정을 감추지 못한다. 재료를 얻는 것과 제대로 다루는 것은 다른 일이었다. |cFF006B8F곤|r과 동료들은 요리라는 이유만으로 과제를 얕보면 무엇을 놓치는지 살핀다."
         set ProtoEventIntro[723] = "두 번째 시험은 요리를 만들어 시험관을 만족시키는 일이다."
-        set ProtoEventIcon[723] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.tga"
+        set ProtoEventIcon[723] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.blp"
         set ProtoEventImageAspect[723] = 1.777778
         set ProtoEventRequired[723] = 0
         set ProtoEventRequiredChoice[723] = 0
@@ -46033,7 +46033,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[724] = 2
         set ProtoEventStory[724] = "규칙은 간단하지만 |cFF006B8F네테로|r와 공 사이의 거리는 좀처럼 줄지 않는다. |cFF006B8F곤|r은 방향을 바꿔 달려들고 |cFF006B8F키르아|r는 움직임의 차이를 계산한다. 네테로는 두 소년의 조급함까지 보고 있는 듯 여유롭게 자리를 옮긴다."
         set ProtoEventIntro[724] = "비행선 안에서 곤과 |cFF006B8F키르아|r가 |cFF006B8F네테로|r의 공을 빼앗는 놀이에 도전한다."
-        set ProtoEventIcon[724] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_netero_ball.tga"
+        set ProtoEventIcon[724] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_netero_ball.blp"
         set ProtoEventImageAspect[724] = 1.777778
         set ProtoEventRequired[724] = 0
         set ProtoEventRequiredChoice[724] = 0
@@ -46083,7 +46083,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[725] = 2
         set ProtoEventStory[725] = "|cFF006B8F곤|r 일행에 톤파까지 합류해 다섯 명이 되었다. 다수결과 승부를 거쳐야 내려갈 수 있는 길에서, 곤은 촛불이 먼저 꺼지면 지는 시합에 나선다. 같은 모양의 초라도 타는 방식까지 같지는 않았다."
         set ProtoEventIntro[725] = "|cFF865500트릭 타워|r 안에서는 다섯 명이 함께 판단해야 길이 열린다."
-        set ProtoEventIcon[725] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.tga"
+        set ProtoEventIcon[725] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.blp"
         set ProtoEventImageAspect[725] = 1.777778
         set ProtoEventRequired[725] = 0
         set ProtoEventRequiredChoice[725] = 0
@@ -46133,7 +46133,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[726] = 2
         set ProtoEventStory[726] = "|cFF006B8F크라피카|r는 쓰러진 상대에게 끝장을 내라는 요구를 받아들이지 않는다. 시간이 흐르자 |cFF006B8F레오리오|r의 |cFF80560C목소리|r는 커지고, 톤파도 틈을 놓치지 않는다. 누군가의 |cFF704261원칙을 꺾어야만|r 함께 갈 수 있는 것처럼 공기가 팽팽해진다."
         set ProtoEventIntro[726] = "승패를 둘러싼 다툼이 길어지며 동료들 사이에도 초조함이 번진다."
-        set ProtoEventIcon[726] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.tga"
+        set ProtoEventIcon[726] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.blp"
         set ProtoEventImageAspect[726] = 1.777778
         set ProtoEventRequired[726] = 0
         set ProtoEventRequiredChoice[726] = 0
@@ -46183,7 +46183,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[727] = 2
         set ProtoEventStory[727] = "남은 시간은 적다. 한쪽은 다섯 명이 갈 수 있지만 길고 어려우며, 다른 쪽은 짧고 쉬운 대신 세 명만 지나갈 수 있다. |cFF006B8F곤|r은 사람을 둘로 나누기 전에 눈앞의 문과 주변을 다시 살핀다."
         set ProtoEventIntro[727] = "긴 대기 끝에 두 개의 문이 마지막 선택을 요구한다."
-        set ProtoEventIcon[727] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.tga"
+        set ProtoEventIcon[727] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.blp"
         set ProtoEventImageAspect[727] = 1.777778
         set ProtoEventRequired[727] = 0
         set ProtoEventRequiredChoice[727] = 0
@@ -46240,7 +46240,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[728] = 2
         set ProtoEventStory[728] = "정해진 표적의 |cFF865500번호표|r는 세 점, 자기 표도 세 점, 다른 표는 한 점이다. 일주일 뒤 여섯 점을 지녀야 통과할 수 있다.|n|n|cFF006B8F곤|r이 뽑은 표적은 |cFF006B8F히소카|r였다. 그는 정면에서 힘을 겨루기 전에 상대를 찾고 기다릴 방법을 생각한다."
         set ProtoEventIntro[728] = "|cFF865500제빌섬|r에서는 자신의 표를 지키면서 다른 지원자의 표도 얻어야 한다."
-        set ProtoEventIcon[728] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hisoka.tga"
+        set ProtoEventIcon[728] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hisoka.blp"
         set ProtoEventImageAspect[728] = 1.777778
         set ProtoEventRequired[728] = 0
         set ProtoEventRequiredChoice[728] = 0
@@ -46290,7 +46290,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[729] = 3
         set ProtoEventStory[729] = "낚싯줄이 목표한 |cFF865500번호표|r를 잡았다. 그러나 달아나려던 |cFF006B8F곤|r은 다른 지원자의 |cFFA53528기습을 받아 표를 빼앗기고|r 만다. 오랫동안 기다린 순간이 성공으로 바뀌자 주변을 살피던 눈이 너무 빨리 풀렸다."
         set ProtoEventIntro[729] = "|cFF006B8F곤|r은 |cFF006B8F히소카|r의 표를 낚아채지만 자신을 노리던 시선을 놓친다."
-        set ProtoEventIcon[729] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.tga"
+        set ProtoEventIcon[729] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.blp"
         set ProtoEventImageAspect[729] = 1.777778
         set ProtoEventRequired[729] = 0
         set ProtoEventRequiredChoice[729] = 0
@@ -46340,7 +46340,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[730] = 3
         set ProtoEventStory[730] = "|cFF006B8F레오리오|r의 상태는 나빠지고, 함정을 놓은 지원자는 |cFFA53528이미 죽어 해제법을 물을 수 없다.|r |cFF006B8F곤|r과 |cFF006B8F크라피카|r는 폰즈에게서 상황을 듣는다. 표를 얻으러 들어왔지만 지금은 모두가 나갈 방법부터 찾아야 한다."
         set ProtoEventIntro[730] = "폰즈를 쫓아간 동굴에서 |cFF006B8F곤|r과 동료들이 독사의 함정에 갇힌다."
-        set ProtoEventIcon[730] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.tga"
+        set ProtoEventIcon[730] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.blp"
         set ProtoEventImageAspect[730] = 1.777778
         set ProtoEventRequired[730] = 0
         set ProtoEventRequiredChoice[730] = 0
@@ -46390,7 +46390,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[731] = 3
         set ProtoEventStory[731] = "면담을 마친 지원자들 앞에 승리한 사람부터 합격하는 대진표가 펼쳐진다. |cFF865500상대를 죽이면 즉시 실격이다.|r|n|n|cFF006B8F곤|r은 |cFF006B8F한조|r의 움직임에 밀리고도 항복을 거부한다. 한조가 압박을 높여도 곤이 원하는 대답은 달라지지 않는다."
         set ProtoEventIntro[731] = "|cFF865500최종 시험|r의 첫 시합에서 곤은 |cFF006B8F한조|r와 마주 선다."
-        set ProtoEventIcon[731] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hanzo.tga"
+        set ProtoEventIcon[731] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hanzo.blp"
         set ProtoEventImageAspect[731] = 1.777778
         set ProtoEventRequired[731] = 0
         set ProtoEventRequiredChoice[731] = 0
@@ -46447,7 +46447,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[732] = 3
         set ProtoEventStory[732] = "|cFF006B8F사토츠|r의 설명은 곤이 의식을 잃은 뒤의 시합으로 이어진다. |cFF006B8F키르아|r는 형 |cFF006B8F일루미|r와 마주한 뒤 |cFFA53528보드로를 죽여 실격했고|r, 이미 시험장을 떠났다. 곤은 자기가 합격했다는 말보다 친구에게 무슨 일이 있었는지를 묻는다."
         set ProtoEventIntro[732] = "병실에서 깨어난 곤은 |cFF006B8F사토츠|r에게 합격과 |cFF006B8F키르아|r의 탈락을 듣는다."
-        set ProtoEventIcon[732] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_satotz.tga"
+        set ProtoEventIcon[732] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_satotz.blp"
         set ProtoEventImageAspect[732] = 1.777778
         set ProtoEventRequired[732] = 0
         set ProtoEventRequiredChoice[732] = 0
@@ -46497,7 +46497,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[733] = 4
         set ProtoEventStory[733] = "시험장을 떠난 |cFF006B8F키르아|r는 여기서 대답할 수 없다. |cFF006B8F곤|r은 친구가 무엇을 원하는지 직접 듣겠다고 마음먹는다.|n|n|cFF006B8F크라피카|r와 |cFF006B8F레오리오|r도 길을 함께하기로 한다. 합격증을 손에 넣은 여정은 다른 사람의 이름을 향해 이어진다."
         set ProtoEventIntro[733] = "곤은 |cFF006B8F일루미|r에게 항의한 뒤 |cFF006B8F키르아|r를 찾아가기로 한다."
-        set ProtoEventIcon[733] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_friends_departure.tga"
+        set ProtoEventIcon[733] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_friends_departure.blp"
         set ProtoEventImageAspect[733] = 1.777778
         set ProtoEventRequired[733] = 0
         set ProtoEventRequiredChoice[733] = 0
@@ -46552,7 +46552,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[734] = 1
         set ProtoEventStory[734] = "|cFF006B8F키르아|r는 그렇게 오래 들여다볼 필요가 있느냐고 묻고, |cFF006B8F곤|r은 손끝에 걸리는 작은 차이를 보여 준다. |cFF006B8F크라피카|r는 같은 도구라도 쓰려는 거리에 따라 준비가 달라진다고 말한다."
         set ProtoEventIntro[734] = "|cFF006B8F곤|r은 시험 도중 다시 묶었던 낚싯줄을 떠올린다."
-        set ProtoEventIcon[734] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.tga"
+        set ProtoEventIcon[734] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.blp"
         set ProtoEventImageAspect[734] = 1.777778
         set ProtoEventRequired[734] = 722
         set ProtoEventRequiredChoice[734] = 2
@@ -46599,7 +46599,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[735] = 1
         set ProtoEventStory[735] = "아직 출발하라는 말이 나오지 않았는데도 지원자들의 어깨가 자꾸 부딪친다. |cFF006B8F곤|r은 한 걸음 물러서서 지나갈 틈을 찾는다. |cFF006B8F사토츠|r가 모습을 드러내자 군중의 시선이 한곳으로 쏠린다."
         set ProtoEventIntro[735] = "시험이 시작되기 전 출발선에서 본 움직임을 되짚는다."
-        set ProtoEventIcon[735] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_satotz.tga"
+        set ProtoEventIcon[735] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_satotz.blp"
         set ProtoEventImageAspect[735] = 1.777778
         set ProtoEventRequired[735] = 721
         set ProtoEventRequiredChoice[735] = 3
@@ -46646,7 +46646,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[736] = 1
         set ProtoEventStory[736] = "|cFF006B8F레오리오|r는 말없이 앉아 있다가 |cFF006B8F곤|r에게 왜 그렇게 궁금한 것이 많으냐고 묻는다. |cFF006B8F키르아|r는 대답을 기다리며 벽에 기대 선다. 다음 시험을 예상하던 대화가 잠깐 서로에 관한 이야기로 바뀐다."
         set ProtoEventIntro[736] = "시험 도중 동료들과 잠깐 숨을 돌렸던 대화가 생각난다."
-        set ProtoEventIcon[736] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.tga"
+        set ProtoEventIcon[736] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.blp"
         set ProtoEventImageAspect[736] = 1.777778
         set ProtoEventRequired[736] = 722
         set ProtoEventRequiredChoice[736] = 3
@@ -46693,7 +46693,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[737] = 1
         set ProtoEventStory[737] = "멀리 갈 때만 움직임을 준비하는 것은 아니다. |cFF006B8F곤|r은 보드를 들고 달릴 때 팔이 어떻게 바뀌는지 보고, |cFF006B8F크라피카|r는 주변 사람과 부딪히지 않을 간격을 가늠한다."
         set ProtoEventIntro[737] = "|cFF006B8F키르아|r가 스케이트보드를 살피던 모습을 |cFF80560C기억|r한다."
-        set ProtoEventIcon[737] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_killua.tga"
+        set ProtoEventIcon[737] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_killua.blp"
         set ProtoEventImageAspect[737] = 1.777778
         set ProtoEventRequired[737] = 721
         set ProtoEventRequiredChoice[737] = 1
@@ -46740,7 +46740,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[738] = 1
         set ProtoEventStory[738] = "말이 능숙하다는 이유만으로 모두 믿을 수는 없다. |cFF006B8F곤|r은 궁금한 점을 되묻고, |cFF006B8F크라피카|r는 자신이 확인한 안내와 대조한다. |cFF006B8F레오리오|r는 좋은 말에 서둘러 |cFF80560C약속|r부터 하지 않으려 한다."
         set ProtoEventIntro[738] = "시험장에서 처음 들었던 톤파의 능숙한 조언을 돌아본다."
-        set ProtoEventIcon[738] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.tga"
+        set ProtoEventIcon[738] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.blp"
         set ProtoEventImageAspect[738] = 1.777778
         set ProtoEventRequired[738] = 721
         set ProtoEventRequiredChoice[738] = 2
@@ -46787,7 +46787,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[739] = 1
         set ProtoEventStory[739] = "|cFF006B8F레오리오|r는 |cFF006B8F한조|r의 긴 설명에 한숨을 쉬고, |cFF006B8F키르아|r는 대꾸 없이 그의 발을 본다. 말을 많이 한다고 몸까지 느슨해지는 것은 아니었다. |cFF006B8F곤|r도 설명을 듣다가 두 사람이 보고 있는 곳을 따라 본다."
         set ProtoEventIntro[739] = "말을 멈추지 않던 |cFF006B8F한조|r의 발끝이 문득 떠오른다."
-        set ProtoEventIcon[739] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hanzo.tga"
+        set ProtoEventIcon[739] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hanzo.blp"
         set ProtoEventImageAspect[739] = 1.777778
         set ProtoEventRequired[739] = 722
         set ProtoEventRequiredChoice[739] = 1
@@ -46834,7 +46834,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[740] = 1
         set ProtoEventStory[740] = "아무 말도 하지 않았는데 지나가던 사람들이 걸음을 틀었다. |cFF006B8F곤|r과 |cFF006B8F크라피카|r는 그 변화가 어디서 시작됐는지 본다. |cFF006B8F키르아|r는 상대를 계속 바라보는 일 자체가 틈이 될 수 있다고 경계한다."
         set ProtoEventIntro[740] = "습지의 위협을 넘긴 뒤, 멀리서 |cFF006B8F히소카|r를 보던 순간을 되짚는다."
-        set ProtoEventIcon[740] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hisoka.tga"
+        set ProtoEventIcon[740] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hisoka.blp"
         set ProtoEventImageAspect[740] = 1.777778
         set ProtoEventRequired[740] = 722
         set ProtoEventRequiredChoice[740] = 1
@@ -46881,7 +46881,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[741] = 1
         set ProtoEventStory[741] = "할 일은 작아 보여도 모두를 동시에 붙잡으면 손이 멈춘다. |cFF006B8F크라피카|r가 먼저 끝낼 일을 고르자고 하고, |cFF006B8F곤|r은 |cFF006B8F사토츠|r를 따라갈 때처럼 순서를 정하면 어떠냐고 묻는다."
         set ProtoEventIntro[741] = "시험 중 이동을 기다리며 준비를 나누던 때를 돌아본다."
-        set ProtoEventIcon[741] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.tga"
+        set ProtoEventIcon[741] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.blp"
         set ProtoEventImageAspect[741] = 1.777778
         set ProtoEventRequired[741] = 722
         set ProtoEventRequiredChoice[741] = 3
@@ -46928,7 +46928,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[742] = 1
         set ProtoEventStory[742] = "출발을 재촉하는 소리가 나도 무엇을 어디 넣었는지 다시 묻지 않아도 된다. |cFF006B8F레오리오|r는 남은 틈을 어떻게 쓸지 고른다. |cFF006B8F곤|r은 이미 정리한 것을 자꾸 만지려다 손을 멈춘다."
         set ProtoEventIntro[742] = "짐부터 나누었던 대기 시간에 뜻밖의 여유가 생겼다."
-        set ProtoEventIcon[742] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.tga"
+        set ProtoEventIcon[742] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.blp"
         set ProtoEventImageAspect[742] = 1.777778
         set ProtoEventRequired[742] = 741
         set ProtoEventRequiredChoice[742] = 1
@@ -46975,7 +46975,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[743] = 1
         set ProtoEventStory[743] = "앞사람을 따라가야 할 구간과 기다릴 지점을 나누니 불필요하게 되돌아갈 일이 줄었다. |cFF006B8F사토츠|r의 일정한 걸음에서 떠올린 방법을 이번에는 자신들의 준비에 맞춰 본다."
         set ProtoEventIntro[743] = "이동 순서를 먼저 정리했던 대기 시간에는 헛걸음이 줄었다."
-        set ProtoEventIcon[743] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_satotz.tga"
+        set ProtoEventIcon[743] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_satotz.blp"
         set ProtoEventImageAspect[743] = 1.777778
         set ProtoEventRequired[743] = 741
         set ProtoEventRequiredChoice[743] = 2
@@ -47022,7 +47022,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[744] = 1
         set ProtoEventStory[744] = "보드를 거두고 움직이는 순간에는 긴 말을 주고받기 어렵다. |cFF006B8F곤|r은 손을 얼마나 높이 들어야 보이는지 묻고, |cFF006B8F크라피카|r는 신호를 잘못 읽었을 때 멈출 방법도 정하자고 한다."
         set ProtoEventIntro[744] = "|cFF006B8F키르아|r와 맞췄던 작은 손짓이 어떻게 정해졌는지 떠올린다."
-        set ProtoEventIcon[744] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_killua.tga"
+        set ProtoEventIcon[744] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_killua.blp"
         set ProtoEventImageAspect[744] = 1.777778
         set ProtoEventRequired[744] = 737
         set ProtoEventRequiredChoice[744] = 1
@@ -47069,7 +47069,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[745] = 1
         set ProtoEventStory[745] = "같은 선택을 했어도 이유까지 같지는 않았다. |cFF006B8F레오리오|r는 급해서 고른 길을 떠올리고, |cFF006B8F크라피카|r는 설명을 더 들었어야 할 때를 짚는다. |cFF006B8F곤|r은 숫자가 많다는 것만으로 마음이 편해지지 않았던 순간을 |cFF80560C기억|r한다."
         set ProtoEventIntro[745] = "탑을 빠져나온 뒤 다수결에 대해 나누었던 말을 |cFF80560C기억|r한다."
-        set ProtoEventIcon[745] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.tga"
+        set ProtoEventIcon[745] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.blp"
         set ProtoEventImageAspect[745] = 1.777778
         set ProtoEventRequired[745] = 727
         set ProtoEventRequiredChoice[745] = 3
@@ -47116,7 +47116,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[746] = 1
         set ProtoEventStory[746] = "|cFF006B8F곤|r은 손이 닿을 듯했던 순간을 말하고, |cFF006B8F키르아|r는 |cFF006B8F네테로|r가 더 움직일 수 있었던 여지를 짚는다. 둘이 |cFF80560C기억|r을 맞추자 같은 놀이에서도 보지 못한 부분이 드러난다."
         set ProtoEventIntro[746] = "비행선에서 놓친 움직임을 |cFF006B8F곤|r과 |cFF006B8F키르아|r가 비교하던 대화다."
-        set ProtoEventIcon[746] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_netero.tga"
+        set ProtoEventIcon[746] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_netero.blp"
         set ProtoEventImageAspect[746] = 1.777778
         set ProtoEventRequired[746] = 724
         set ProtoEventRequiredChoice[746] = 3
@@ -47163,7 +47163,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[747] = 1
         set ProtoEventStory[747] = "섬의 길을 걷는 지원자들은 서로의 번호를 숨기거나 확인하려 한다. |cFF006B8F크라피카|r는 |cFF006B8F레오리오|r에게 표를 확인한 뒤에도 주변을 보라고 말한다. 멀리 지나가는 |cFF006B8F히소카|r를 보고 레오리오는 발걸음을 낮춘다."
         set ProtoEventIntro[747] = "|cFF865500제빌섬|r에서 |cFF865500번호표|r에 시선이 쏠렸던 때를 돌아본다."
-        set ProtoEventIcon[747] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hisoka.tga"
+        set ProtoEventIcon[747] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hisoka.blp"
         set ProtoEventImageAspect[747] = 1.777778
         set ProtoEventRequired[747] = 728
         set ProtoEventRequiredChoice[747] = 2
@@ -47210,7 +47210,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[748] = 1
         set ProtoEventStory[748] = "지나갈 수 있는 입구가 있다는 사실만으로 나올 수 있는 것은 아니었다. |cFF006B8F레오리오|r는 안으로 먼저 들어갔던 자신을 떠올리고, |cFF006B8F곤|r은 돌아오는 길에서 보았던 차이를 말한다."
         set ProtoEventIntro[748] = "동굴에서 나온 뒤 먼저 확인했어야 할 것을 돌아보던 장면이다."
-        set ProtoEventIcon[748] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.tga"
+        set ProtoEventIcon[748] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_leorio.blp"
         set ProtoEventImageAspect[748] = 1.777778
         set ProtoEventRequired[748] = 730
         set ProtoEventRequiredChoice[748] = 2
@@ -47257,7 +47257,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[749] = 1
         set ProtoEventStory[749] = "|cFF006B8F크라피카|r와 |cFF006B8F레오리오|r는 복도에서 |cFF006B8F곤|r과 |cFF006B8F한조|r의 시합을 돌아본다. 힘의 차이는 분명했지만 대진표의 결과는 그 차이만으로 정해지지 않았다. 곤이 병실에서 쉬는 동안 두 사람은 흘려듣지 말았어야 할 시험 규칙을 생각한다."
         set ProtoEventIntro[749] = "|cFF006B8F곤|r이 병실로 옮겨진 뒤 복도에서 나누었던 대화를 되짚는다."
-        set ProtoEventIcon[749] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hanzo.tga"
+        set ProtoEventIcon[749] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_hanzo.blp"
         set ProtoEventImageAspect[749] = 1.777778
         set ProtoEventRequired[749] = 731
         set ProtoEventRequiredChoice[749] = 2
@@ -47304,7 +47304,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[750] = 1
         set ProtoEventStory[750] = "|cFF006B8F곤|r은 |cFF006B8F키르아|r에게 물어볼 말을 아끼고, |cFF006B8F레오리오|r는 필요한 준비를 살핀다. |cFF006B8F크라피카|r는 함께 갈 길을 확인한다. 시험장에서 서로를 의심했던 시간도 있었지만 지금은 같은 이름을 향해 걷는다."
         set ProtoEventIntro[750] = "시험장을 나선 세 사람은 다음 목적지를 향한다."
-        set ProtoEventIcon[750] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.tga"
+        set ProtoEventIcon[750] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_gon.blp"
         set ProtoEventImageAspect[750] = 1.777778
         set ProtoEventRequired[750] = 0
         set ProtoEventRequiredChoice[750] = 0
@@ -47351,7 +47351,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[751] = 1
         set ProtoEventStory[751] = "|cFF006B8F곤|r은 자신이 들고 있는 자격과 |cFF006B8F키르아|r에게 하려는 말을 함께 생각한다. |cFF006B8F크라피카|r와 |cFF006B8F레오리오|r는 시험에 온 이유가 달랐던 것처럼, 앞으로 자격을 쓸 방식도 다를 것이라고 말한다."
         set ProtoEventIntro[751] = "시험이 끝나자 지원자 번호보다 사람의 이름이 먼저 떠오른다."
-        set ProtoEventIcon[751] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.tga"
+        set ProtoEventIcon[751] = "war3mapImported\\UI_EventThumb_XP_hunter_exam_kurapika.blp"
         set ProtoEventImageAspect[751] = 1.777778
         set ProtoEventRequired[751] = 0
         set ProtoEventRequiredChoice[751] = 0
@@ -47393,7 +47393,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[22] = "roswaal_mansion"
         set ProtoHeadName[22] = "로즈월 저택"
         set ProtoHeadIntro[22] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 기억하는 실패를 짚으며, 저택의 사람들과 아람 마을에 돌아올 아침을 찾는다."
-        set ProtoHeadIcon[22] = "war3mapImported\\UI_Card_XP_roswaal_mansion_head_Icon.tga"
+        set ProtoHeadIcon[22] = "war3mapImported\\UI_Card_XP_roswaal_mansion_head_Icon.blp"
         set ProtoHeadEntryCard[22] = 1306
         set ProtoHeadMainLength[22] = 14
         set ProtoHeadRequiredMain[22] = 0
@@ -47408,7 +47408,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[752] = 1
         set ProtoEventStory[752] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 |cFF80560C기억|r하는 실패를 짚으며, 저택의 사람들과 아람 |cFF80560C마을|r에 돌아올 아침을 찾는다."
         set ProtoEventIntro[752] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 기억하는 실패를 짚으며, 저택의 사람들과 아람 마을에 돌아올 아침을 찾는다."
-        set ProtoEventIcon[752] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.tga"
+        set ProtoEventIcon[752] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.blp"
         set ProtoEventImageAspect[752] = 1.777778
         set ProtoHeadEntryEvent[89] = 753
         set ProtoEventKey[753] = "roswaal_mansion_entry_1"
@@ -47420,7 +47420,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[753] = 1
         set ProtoEventStory[753] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 |cFF80560C기억|r하는 실패를 짚으며, 저택의 사람들과 아람 |cFF80560C마을|r에 돌아올 아침을 찾는다."
         set ProtoEventIntro[753] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 기억하는 실패를 짚으며, 저택의 사람들과 아람 마을에 돌아올 아침을 찾는다."
-        set ProtoEventIcon[753] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.tga"
+        set ProtoEventIcon[753] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.blp"
         set ProtoEventImageAspect[753] = 1.777778
         set ProtoHeadEntryEvent[90] = 754
         set ProtoEventKey[754] = "roswaal_mansion_entry_2"
@@ -47432,7 +47432,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[754] = 1
         set ProtoEventStory[754] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 |cFF80560C기억|r하는 실패를 짚으며, 저택의 사람들과 아람 |cFF80560C마을|r에 돌아올 아침을 찾는다."
         set ProtoEventIntro[754] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 기억하는 실패를 짚으며, 저택의 사람들과 아람 마을에 돌아올 아침을 찾는다."
-        set ProtoEventIcon[754] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.tga"
+        set ProtoEventIcon[754] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.blp"
         set ProtoEventImageAspect[754] = 1.777778
         set ProtoHeadEntryEvent[91] = 755
         set ProtoEventKey[755] = "roswaal_mansion_entry_3"
@@ -47444,7 +47444,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[755] = 1
         set ProtoEventStory[755] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 |cFF80560C기억|r하는 실패를 짚으며, 저택의 사람들과 아람 |cFF80560C마을|r에 돌아올 아침을 찾는다."
         set ProtoEventIntro[755] = "낯선 저택에서 시작한 작은 |cFF80560C약속|r이 몇 번이고 멀어진다. 나츠키 |cFF006B8F스바루|r는 자신만 기억하는 실패를 짚으며, 저택의 사람들과 아람 마을에 돌아올 아침을 찾는다."
-        set ProtoEventIcon[755] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.tga"
+        set ProtoEventIcon[755] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_head.blp"
         set ProtoEventImageAspect[755] = 1.777778
         set ProtoCardKey[1306] = "rz_subaru"
         set ProtoCardName[1306] = "나츠키 스바루"
@@ -47957,7 +47957,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[756] = 1
         set ProtoEventStory[756] = "엘자와의 싸움 뒤 |cFF006B8F로즈월|r 저택에서 눈을 뜬 |cFF006B8F스바루|r는 자신을 맞는 사람들을 처음으로 살핀다. 큰 보상보다 이곳에서 함께 지낼 자리를 원하는 그의 대답에 시선이 모인다."
         set ProtoEventIntro[756] = "저택의 첫 아침, |cFF006B8F로즈월|r이 원하는 보답을 묻는다."
-        set ProtoEventIcon[756] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_first_morning.tga"
+        set ProtoEventIcon[756] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_first_morning.blp"
         set ProtoEventImageAspect[756] = 1.777778
         set ProtoEventRequired[756] = 0
         set ProtoEventRequiredChoice[756] = 0
@@ -48007,7 +48007,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[757] = 1
         set ProtoEventStory[757] = "청소와 글자 공부 사이로 저택의 하루가 지나간다. |cFF006B8F스바루|r는 |cFF006B8F에밀리아|r와 함께할 다음 날을 기다리지만, 잠에서 깨자 앞서 보낸 나흘이 사라진 듯 첫날의 방이 눈앞에 놓인다."
         set ProtoEventIntro[757] = "첫 회차의 일상이 쌓이고 |cFF006B8F에밀리아|r와 |cFF80560C약속|r을 잡는다."
-        set ProtoEventIcon[757] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.tga"
+        set ProtoEventIcon[757] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.blp"
         set ProtoEventImageAspect[757] = 1.777778
         set ProtoEventRequired[757] = 0
         set ProtoEventRequiredChoice[757] = 0
@@ -48057,7 +48057,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[758] = 1
         set ProtoEventStory[758] = "다시 일하고 다시 |cFF80560C약속|r하면 이번에는 무사할까. |cFF80560C기억|r을 좇던 |cFF006B8F스바루|r는 두 번째 회차의 네 번째 밤에 몸이 약해진 채 |cFFA53528정체 모를 습격을 받는다.|r 마지막에 들린 사슬 소리가 다음 아침까지 남는다."
         set ProtoEventIntro[758] = "두 번째 회차, |cFF006B8F스바루|r는 앞선 하루를 따라 해 본다."
-        set ProtoEventIcon[758] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.tga"
+        set ProtoEventIcon[758] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.blp"
         set ProtoEventImageAspect[758] = 1.777778
         set ProtoEventRequired[758] = 0
         set ProtoEventRequiredChoice[758] = 0
@@ -48107,7 +48107,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[759] = 1
         set ProtoEventStory[759] = "저택을 떠나 바깥에서 살피면 이유를 알 수 있으리라 생각했다. 그러나 |cFFA53528사슬을 든 렘이 나타나고,|r 함께 보낸 |cFF80560C기억|r을 말하는 |cFF006B8F스바루|r의 |cFF80560C목소리|r는 그녀에게 닿지 않는다. 이 회차의 렘은 그 일상을 함께하지 않았다."
         set ProtoEventIntro[759] = "세 번째 회차, 저택 밖에서 기다리던 |cFF006B8F스바루|r 앞에 |cFF006B8F렘|r이 선다."
-        set ProtoEventIcon[759] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[759] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[759] = 1.777778
         set ProtoEventRequired[759] = 0
         set ProtoEventRequiredChoice[759] = 0
@@ -48164,7 +48164,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[760] = 2
         set ProtoEventStory[760] = "이번에는 |cFF865500금서고|r의 문 안에서 위험한 밤을 넘긴다. |cFF006B8F스바루|r는 다섯 번째 아침까지 살아남지만, 저택에서는 |cFFA53528렘이 숨진 채 발견된다.|r 자신이 무사한 것과 모두가 무사한 것은 같지 않았다."
         set ProtoEventIntro[760] = "네 번째 회차, |cFF006B8F스바루|r가 |cFF006B8F베아트리스|r에게 보호를 부탁한다."
-        set ProtoEventIcon[760] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.tga"
+        set ProtoEventIcon[760] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.blp"
         set ProtoEventImageAspect[760] = 1.777778
         set ProtoEventRequired[760] = 0
         set ProtoEventRequiredChoice[760] = 0
@@ -48214,7 +48214,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[761] = 2
         set ProtoEventStory[761] = "자신을 위협한 얼굴과 서툰 일을 도와주던 얼굴이 겹친다. |cFF006B8F스바루|r는 저택의 누구도 잃고 싶지 않다는 마음을 깨닫는다. 그 회차가 끝난 뒤 다시 깨어난 방에는 처음 만나는 표정들이 기다린다."
         set ProtoEventIntro[761] = "네 번째 회차의 끝, |cFF006B8F스바루|r는 저택에서의 |cFF80560C기억|r을 돌아본다."
-        set ProtoEventIcon[761] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.tga"
+        set ProtoEventIcon[761] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.blp"
         set ProtoEventImageAspect[761] = 1.777778
         set ProtoEventRequired[761] = 0
         set ProtoEventRequiredChoice[761] = 0
@@ -48264,7 +48264,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[762] = 2
         set ProtoEventStory[762] = "이번만은 잘해야 한다는 생각에 |cFF006B8F스바루|r의 인사가 과하게 밝아진다. |cFF006B8F에밀리아|r는 |cFF704261그 웃음이 힘겹다는 것을|r 알아차린다. 설명할 수 없는 일들까지 말하게 재촉하지 않고, 잠시 멈출 자리를 내준다."
         set ProtoEventIntro[762] = "다섯 번째 회차, 밝게 행동하던 |cFF006B8F스바루|r가 지쳐 간다."
-        set ProtoEventIcon[762] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.tga"
+        set ProtoEventIcon[762] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.blp"
         set ProtoEventImageAspect[762] = 1.777778
         set ProtoEventRequired[762] = 0
         set ProtoEventRequiredChoice[762] = 0
@@ -48321,7 +48321,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[763] = 2
         set ProtoEventStory[763] = "|cFF006B8F베아트리스|r에게 들은 |cFF865500저주|r의 조건과 앞선 회차의 동선을 맞춰 본다. |cFF006B8F스바루|r는 렘과 람을 따라 마을에 다녀온 뒤 다시 |cFF865500금서고|r를 찾는다. 사람만 살피던 생각에 빠진 접촉이 있었다."
         set ProtoEventIntro[763] = "다섯 번째 회차, |cFF865500저주|r의 단서를 |cFF80560C마을|r에서 찾는다."
-        set ProtoEventIcon[763] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_curse_in_library.tga"
+        set ProtoEventIcon[763] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_curse_in_library.blp"
         set ProtoEventImageAspect[763] = 1.777778
         set ProtoEventRequired[763] = 0
         set ProtoEventRequiredChoice[763] = 0
@@ -48371,7 +48371,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[764] = 2
         set ProtoEventStory[764] = "|cFF006B8F스바루|r와 |cFF006B8F렘|r은 아이들이 숲으로 들어갔다는 것을 알고 뒤쫓는다. 늘 가까워 보이던 |cFF80560C마을|r과 숲의 경계가 멀게 느껴진다. 아이들을 발견해도 안전하게 돌아오는 길까지 확보해야 한다."
         set ProtoEventIntro[764] = "다섯 번째 회차, |cFF80560C마을|r에서 아이들의 빈자리가 드러난다."
-        set ProtoEventIcon[764] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[764] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[764] = 1.777778
         set ProtoEventRequired[764] = 0
         set ProtoEventRequiredChoice[764] = 0
@@ -48421,7 +48421,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[765] = 3
         set ProtoEventStory[765] = "|cFFA53528아이를 감싸다 물린 스바루의 저주들은|r 서로 얽혀 있다. |cFF006B8F베아트리스|r도 이를 한꺼번에 풀 수 없다고 말한다. 남은 길을 찾던 중 |cFF006B8F렘|r이 혼자 숲으로 향했다는 사실을 듣는다."
         set ProtoEventIntro[765] = "다섯 번째 회차, 아이들은 돌아왔지만 |cFF006B8F스바루|r에게 여러 |cFF865500저주|r가 남는다."
-        set ProtoEventIcon[765] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.tga"
+        set ProtoEventIcon[765] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.blp"
         set ProtoEventImageAspect[765] = 1.777778
         set ProtoEventRequired[765] = 0
         set ProtoEventRequiredChoice[765] = 0
@@ -48478,7 +48478,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[766] = 3
         set ProtoEventStory[766] = "|cFF006B8F스바루|r와 |cFF006B8F람|r이 |cFF006B8F렘|r을 찾았지만 당장 함께 돌아갈 수 있는 상태가 아니다. 거친 싸움 속에서 그녀를 멈춰 세울 틈을 만들어야 한다. 둘은 서로의 움직임을 믿고 거리를 좁힌다."
         set ProtoEventIntro[766] = "다섯 번째 회차, 숲에서 |cFF006B8F렘|r의 기세가 거칠어져 있다."
-        set ProtoEventIcon[766] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.tga"
+        set ProtoEventIcon[766] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.blp"
         set ProtoEventImageAspect[766] = 1.777778
         set ProtoEventRequired[766] = 0
         set ProtoEventRequiredChoice[766] = 0
@@ -48528,7 +48528,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[767] = 3
         set ProtoEventStory[767] = "|cFF006B8F렘|r의 |cFF80560C기억|r 속에는 뛰어났던 언니와 |cFF865500그 뿔이 꺾인 날이 있다.|r 지금의 |cFF006B8F스바루|r가 그 과거를 모두 아는 것은 아니다. 그는 자신을 낮추는 렘에게 눈앞에서 함께해 준 사람의 가치를 전하려 한다."
         set ProtoEventIntro[767] = "다섯 번째 회차, 깨어난 |cFF006B8F렘|r은 오래 품었던 죄책감을 토로한다."
-        set ProtoEventIcon[767] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[767] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[767] = 1.777778
         set ProtoEventRequired[767] = 0
         set ProtoEventRequiredChoice[767] = 0
@@ -48585,7 +48585,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[768] = 3
         set ProtoEventStory[768] = "|cFF006B8F렘|r과 람이 물러날 틈을 만든 |cFF006B8F스바루|r 앞에 |cFFA53528큰 마수가 버틴다.|r 익힌 |cFF865500샤마크|r와 손에 남은 무기로 맞서도 혼자서는 끝내기 어렵다. 스바루는 동료들이 멀어지는 동안 눈앞의 위협을 붙잡아 둔다."
         set ProtoEventIntro[768] = "다섯 번째 회차, |cFF006B8F스바루|r가 |cFF865500울가름|r을 붙잡아 두고 있다."
-        set ProtoEventIcon[768] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.tga"
+        set ProtoEventIcon[768] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.blp"
         set ProtoEventImageAspect[768] = 1.777778
         set ProtoEventRequired[768] = 0
         set ProtoEventRequiredChoice[768] = 0
@@ -48635,7 +48635,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[769] = 4
         set ProtoEventStory[769] = "|cFF006B8F렘|r과 나눈 대화에 진심 어린 웃음이 남는다. |cFF006B8F스바루|r는 |cFF006B8F에밀리아|r에게 다시 함께 나갈 |cFF80560C약속|r을 청한다. 혼자 기억하던 아침을 넘어, 이제 곁에 있는 사람들과 내일을 이야기할 수 있다."
         set ProtoEventIntro[769] = "저택으로 돌아온 |cFF006B8F스바루|r 앞에 다시 |cFF80560C약속|r할 하루가 있다."
-        set ProtoEventIcon[769] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_beasts_aftermath.tga"
+        set ProtoEventIcon[769] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_beasts_aftermath.blp"
         set ProtoEventImageAspect[769] = 1.777778
         set ProtoEventRequired[769] = 0
         set ProtoEventRequiredChoice[769] = 0
@@ -48690,7 +48690,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[770] = 1
         set ProtoEventStory[770] = "|cFF006B8F스바루|r가 마지막 방을 놓치고 돌아오자 |cFF006B8F람|r이 한숨을 쉰다. |cFF006B8F팩|r은 창가에서 길을 잃기에도 재주가 필요하다는 듯 바라본다. 다음번에는 무엇부터 다르게 해 볼까?"
         set ProtoEventIntro[770] = "|cFF006B8F스바루|r가 청소 도구를 들고 같은 복도를 맴돌던 날을 떠올린다."
-        set ProtoEventIcon[770] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.tga"
+        set ProtoEventIcon[770] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.blp"
         set ProtoEventImageAspect[770] = 1.777778
         set ProtoEventRequired[770] = 0
         set ProtoEventRequiredChoice[770] = 0
@@ -48737,7 +48737,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[771] = 1
         set ProtoEventStory[771] = "|cFF006B8F스바루|r가 찻잔을 옮길 때마다 쟁반이 기울어진다. |cFF006B8F렘|r은 손의 위치를, |cFF006B8F베아트리스|r는 당장 넘칠 잔을 가리킨다. 같은 일을 해도 먼저 볼 것은 서로 다르다."
         set ProtoEventIntro[771] = "|cFF006B8F렘|r과 찻잔을 나르며 빈자리를 채우던 때를 |cFF80560C기억|r한다."
-        set ProtoEventIcon[771] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[771] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[771] = 1.777778
         set ProtoEventRequired[771] = 0
         set ProtoEventRequiredChoice[771] = 0
@@ -48784,7 +48784,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[772] = 1
         set ProtoEventStory[772] = "|cFF006B8F스바루|r가 비슷하게 생긴 글자를 연달아 틀린다. |cFF006B8F람|r은 답을 말해 주기보다 틀린 자리를 짚고, |cFF006B8F에밀리아|r는 앞에서 맞혔던 단어를 다시 읽어 보라고 한다."
         set ProtoEventIntro[772] = "|cFF006B8F람|r이 내준 글자 연습에서 마지막 문장을 남겼던 날이다."
-        set ProtoEventIcon[772] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.tga"
+        set ProtoEventIcon[772] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.blp"
         set ProtoEventImageAspect[772] = 1.777778
         set ProtoEventRequired[772] = 0
         set ProtoEventRequiredChoice[772] = 0
@@ -48831,7 +48831,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[773] = 1
         set ProtoEventStory[773] = "|cFF006B8F스바루|r가 이번에는 먼저 노크를 한다. |cFF006B8F베아트리스|r는 그 정도는 당연하다고 말하면서도 바로 문을 닫지는 않는다. 질문을 꺼낼 짧은 틈이 남았다."
         set ProtoEventIntro[773] = "|cFF865500금서고|r 문 앞에서 책장 넘기는 소리를 듣던 때를 떠올린다."
-        set ProtoEventIcon[773] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.tga"
+        set ProtoEventIcon[773] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.blp"
         set ProtoEventImageAspect[773] = 1.777778
         set ProtoEventRequired[773] = 0
         set ProtoEventRequiredChoice[773] = 0
@@ -48878,7 +48878,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[774] = 1
         set ProtoEventStory[774] = "할 일이 잠깐 끊긴 오후다. |cFF006B8F에밀리아|r는 |cFF006B8F팩|r을 깨우지 않으려 |cFF80560C목소리|r를 낮추고, |cFF006B8F람|r은 쓸데없이 오래 서 있지 말라고 한다. 잠깐의 빈 시간을 어떻게 쓸까?"
         set ProtoEventIntro[774] = "햇빛 아래 |cFF006B8F팩|r의 작은 잠을 지켜보던 오후가 생각난다."
-        set ProtoEventIcon[774] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_puck.tga"
+        set ProtoEventIcon[774] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_puck.blp"
         set ProtoEventImageAspect[774] = 1.777778
         set ProtoEventRequired[774] = 0
         set ProtoEventRequiredChoice[774] = 0
@@ -48925,7 +48925,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[775] = 1
         set ProtoEventStory[775] = "갑자기 불어온 바람에 널어 둔 천들이 한쪽으로 몰린다. |cFF006B8F렘|r은 손이 닿는 순서부터 바꾸고 |cFF006B8F람|r은 헛손질을 멈추라고 한다. 날아가기 전에 방법을 골라야 한다."
         set ProtoEventIntro[775] = "빨랫줄의 천들이 바람에 엉키던 날을 되짚는다."
-        set ProtoEventIcon[775] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[775] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[775] = 1.777778
         set ProtoEventRequired[775] = 0
         set ProtoEventRequiredChoice[775] = 0
@@ -48972,7 +48972,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[776] = 1
         set ProtoEventStory[776] = "할 일이 많다고 긴 목록부터 만들었더니 어디서 시작할지 더 막막하다. |cFF006B8F람|r은 순서를 다시 짜라고 하고, |cFF006B8F베아트리스|r는 빠진 전제부터 보라고 한다."
         set ProtoEventIntro[776] = "|cFF006B8F스바루|r의 작업표에 같은 일이 두 번 적혔던 날이다."
-        set ProtoEventIcon[776] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.tga"
+        set ProtoEventIcon[776] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.blp"
         set ProtoEventImageAspect[776] = 1.777778
         set ProtoEventRequired[776] = 0
         set ProtoEventRequiredChoice[776] = 0
@@ -49019,7 +49019,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[777] = 1
         set ProtoEventStory[777] = "모르는 말을 표시하다 보니 거의 모든 줄에 표식이 붙었다. |cFF006B8F베아트리스|r는 책보다 표시가 많다고 하고, |cFF006B8F에밀리아|r는 첫 질문부터 하나씩 읽어 준다."
         set ProtoEventIntro[777] = "|cFF80560C책|r 옆에 가득 쌓인 질문지를 들고 가던 때를 떠올린다."
-        set ProtoEventIcon[777] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.tga"
+        set ProtoEventIcon[777] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.blp"
         set ProtoEventImageAspect[777] = 1.777778
         set ProtoEventRequired[777] = 0
         set ProtoEventRequiredChoice[777] = 0
@@ -49066,7 +49066,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[778] = 1
         set ProtoEventStory[778] = "|cFF006B8F에밀리아|r가 |cFF80560C책|r을 옮기려다 흩어진 종이를 발견한다. |cFF006B8F람|r은 바람에 날리기 전에 챙기라고 하고 |cFF006B8F팩|r은 위에서 종이가 걸린 가지를 바라본다."
         set ProtoEventIntro[778] = "정원 벤치에서 바람에 날린 종이를 찾던 날을 |cFF80560C기억|r한다."
-        set ProtoEventIcon[778] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.tga"
+        set ProtoEventIcon[778] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.blp"
         set ProtoEventImageAspect[778] = 1.777778
         set ProtoEventRequired[778] = 0
         set ProtoEventRequiredChoice[778] = 0
@@ -49113,7 +49113,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[779] = 1
         set ProtoEventStory[779] = "좁은 곳에서는 능숙한 움직임도 서로를 방해한다. |cFF006B8F렘|r의 손에 들린 사슬이 돌아올 자리를 보고 |cFF006B8F스바루|r가 한 걸음 물러난다. 다음에는 무엇을 먼저 확인할까?"
         set ProtoEventIntro[779] = "|cFF006B8F렘|r이 사슬을 정리하던 자리에서 한 걸음 물러섰던 |cFF80560C기억|r이다."
-        set ProtoEventIcon[779] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[779] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[779] = 1.777778
         set ProtoEventRequired[779] = 0
         set ProtoEventRequiredChoice[779] = 0
@@ -49160,7 +49160,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[780] = 1
         set ProtoEventStory[780] = "|cFF006B8F스바루|r가 한꺼번에 많은 질문을 던지자 |cFF006B8F로즈월|r이 한 지점을 가리킨다. 위험을 설명할 때도 중요한 곳과 지나갈 곳을 나눌 필요가 있다."
         set ProtoEventIntro[780] = "|cFF006B8F로즈월|r 앞에서 주변 지형의 설명을 듣던 때를 되짚는다."
-        set ProtoEventIcon[780] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_roswaal.tga"
+        set ProtoEventIcon[780] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_roswaal.blp"
         set ProtoEventImageAspect[780] = 1.777778
         set ProtoEventRequired[780] = 0
         set ProtoEventRequiredChoice[780] = 0
@@ -49207,7 +49207,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[781] = 1
         set ProtoEventStory[781] = "한쪽에서는 잃어버린 물건을 찾고 다른 쪽에서는 놀이의 차례를 정해 달라고 한다. 모든 |cFF80560C목소리|r에 한꺼번에 답하려던 |cFF006B8F스바루|r가 잠시 멈춘다."
         set ProtoEventIntro[781] = "|cFF80560C마을|r 아이들의 서로 다른 부탁에 멈춰 섰던 날이 생각난다."
-        set ProtoEventIcon[781] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.tga"
+        set ProtoEventIcon[781] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_subaru.blp"
         set ProtoEventImageAspect[781] = 1.777778
         set ProtoEventRequired[781] = 0
         set ProtoEventRequiredChoice[781] = 0
@@ -49254,7 +49254,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[782] = 1
         set ProtoEventStory[782] = "|cFF006B8F베아트리스|r는 처음부터 다시 설명해 달라는 말 대신 어디까지 이해했는지부터 묻는다. 책갈피 아래에 정확히 말하지 못한 한 줄이 남아 있다."
         set ProtoEventIntro[782] = "책갈피를 남긴 뒤 설명을 자기 말로 정리해 갔던 날이다."
-        set ProtoEventIcon[782] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.tga"
+        set ProtoEventIcon[782] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_beatrice.blp"
         set ProtoEventImageAspect[782] = 1.777778
         set ProtoEventRequired[782] = 0
         set ProtoEventRequiredChoice[782] = 0
@@ -49301,7 +49301,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[783] = 1
         set ProtoEventStory[783] = "사슬이 지나간 뒤 바로 다가가려던 |cFF006B8F스바루|r가 발을 멈춘다. 돌아오는 자리까지 기다리는 것을 본 |cFF006B8F렘|r이 짧게 고개를 끄덕인다. 이제 다음 동작을 맞춰 볼 때다."
         set ProtoEventIntro[783] = "그때 배운 거리를 |cFF80560C기억|r하며 |cFF006B8F렘|r과 다시 움직여 보던 날이다."
-        set ProtoEventIcon[783] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[783] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[783] = 1.777778
         set ProtoEventRequired[783] = 0
         set ProtoEventRequiredChoice[783] = 0
@@ -49348,7 +49348,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[784] = 1
         set ProtoEventStory[784] = "앞서 순서를 맞춘 덕분에 비어 있는 시간이 생겼다. |cFF006B8F람|r은 일을 더 벌이기 전에 그 시간을 어떻게 쓸지 정하라고 한다. |cFF006B8F스바루|r는 목록의 끝에 새 칸을 만든다."
         set ProtoEventIntro[784] = "작업표를 다시 짠 뒤 |cFF006B8F람|r과 남은 시간을 살펴보던 때다."
-        set ProtoEventIcon[784] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.tga"
+        set ProtoEventIcon[784] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.blp"
         set ProtoEventImageAspect[784] = 1.777778
         set ProtoEventRequired[784] = 776
         set ProtoEventRequiredChoice[784] = 1
@@ -49395,7 +49395,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[785] = 1
         set ProtoEventStory[785] = "|cFF006B8F렘|r은 의자를 밀어 넣기 전에 천의 모서리를 잡고, |cFF006B8F람|r은 보기 좋은 쪽만 펴 놓았다고 지적한다. |cFF006B8F스바루|r는 반대편에도 같은 주름이 있다는 것을 뒤늦게 본다."
         set ProtoEventIntro[785] = "|cFF006B8F렘|r과 |cFF006B8F람|r을 도와 식탁보의 작은 주름을 펴던 아침을 떠올린다."
-        set ProtoEventIcon[785] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.tga"
+        set ProtoEventIcon[785] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_rem.blp"
         set ProtoEventImageAspect[785] = 1.777778
         set ProtoEventRequired[785] = 0
         set ProtoEventRequiredChoice[785] = 0
@@ -49442,7 +49442,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[786] = 1
         set ProtoEventStory[786] = "아침을 준비하는 |cFF006B8F렘|r과 |cFF006B8F람|r 곁에서 |cFF006B8F스바루|r가 필요한 물건을 나른다. 큰 승리의 말보다 서로를 부르는 익숙한 |cFF80560C목소리|r가 오래 남는다. 오늘도 함께 끝낼 일이 있다."
         set ProtoEventIntro[786] = "마수 사건이 끝난 뒤, 저택의 하루가 다시 바빠진다."
-        set ProtoEventIcon[786] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.tga"
+        set ProtoEventIcon[786] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.blp"
         set ProtoEventImageAspect[786] = 1.777778
         set ProtoEventRequired[786] = 0
         set ProtoEventRequiredChoice[786] = 0
@@ -49489,7 +49489,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[787] = 1
         set ProtoEventStory[787] = "이제 |cFF80560C약속|r은 끝내 오지 않을 날처럼 느껴지지 않는다. |cFF006B8F스바루|r는 멋진 계획을 늘어놓다가 |cFF006B8F에밀리아|r의 질문에 하나씩 답한다. |cFF006B8F팩|r은 둘을 번갈아 보며 느긋하게 끼어든다."
         set ProtoEventIntro[787] = "|cFF006B8F에밀리아|r와 함께 나갈 |cFF80560C약속|r을 다시 생각한다."
-        set ProtoEventIcon[787] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.tga"
+        set ProtoEventIcon[787] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_emilia.blp"
         set ProtoEventImageAspect[787] = 1.777778
         set ProtoEventRequired[787] = 0
         set ProtoEventRequiredChoice[787] = 0
@@ -49531,7 +49531,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[23] = "z_city"
         set ProtoHeadName[23] = "Z시"
         set ProtoHeadIntro[23] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 도시의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
-        set ProtoHeadIcon[23] = "war3mapImported\\UI_Card_XP_z_city_head_Icon.tga"
+        set ProtoHeadIcon[23] = "war3mapImported\\UI_Card_XP_z_city_head_Icon.blp"
         set ProtoHeadEntryCard[23] = 1357
         set ProtoHeadMainLength[23] = 13
         set ProtoHeadRequiredMain[23] = 0
@@ -49546,7 +49546,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[788] = 1
         set ProtoEventStory[788] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 |cFF80560C도시|r의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
         set ProtoEventIntro[788] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 도시의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
-        set ProtoEventIcon[788] = "war3mapImported\\UI_EventThumb_XP_z_city_head.tga"
+        set ProtoEventIcon[788] = "war3mapImported\\UI_EventThumb_XP_z_city_head.blp"
         set ProtoEventImageAspect[788] = 1.777778
         set ProtoHeadEntryEvent[93] = 789
         set ProtoEventKey[789] = "z_city_entry_1"
@@ -49558,7 +49558,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[789] = 1
         set ProtoEventStory[789] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 |cFF80560C도시|r의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
         set ProtoEventIntro[789] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 도시의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
-        set ProtoEventIcon[789] = "war3mapImported\\UI_EventThumb_XP_z_city_head.tga"
+        set ProtoEventIcon[789] = "war3mapImported\\UI_EventThumb_XP_z_city_head.blp"
         set ProtoEventImageAspect[789] = 1.777778
         set ProtoHeadEntryEvent[94] = 790
         set ProtoEventKey[790] = "z_city_entry_2"
@@ -49570,7 +49570,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[790] = 1
         set ProtoEventStory[790] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 |cFF80560C도시|r의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
         set ProtoEventIntro[790] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 도시의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
-        set ProtoEventIcon[790] = "war3mapImported\\UI_EventThumb_XP_z_city_head.tga"
+        set ProtoEventIcon[790] = "war3mapImported\\UI_EventThumb_XP_z_city_head.blp"
         set ProtoEventImageAspect[790] = 1.777778
         set ProtoHeadEntryEvent[95] = 791
         set ProtoEventKey[791] = "z_city_entry_3"
@@ -49582,7 +49582,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[791] = 1
         set ProtoEventStory[791] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 |cFF80560C도시|r의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
         set ProtoEventIntro[791] = "너무 쉽게 싸움을 끝내는 |cFF006B8F사이타마|r에게 |cFF006B8F제노스|r가 찾아온다. 히어로 시험과 도시의 위기, 하늘을 뒤덮은 침공 속에서 한 번의 일격 전후에 남는 사람들의 행동을 따라간다."
-        set ProtoEventIcon[791] = "war3mapImported\\UI_EventThumb_XP_z_city_head.tga"
+        set ProtoEventIcon[791] = "war3mapImported\\UI_EventThumb_XP_z_city_head.blp"
         set ProtoEventImageAspect[791] = 1.777778
         set ProtoCardKey[1356] = "opm_saitama"
         set ProtoCardName[1356] = "사이타마"
@@ -50065,7 +50065,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[792] = 1
         set ProtoEventStory[792] = "강적을 기다렸는데 싸움은 또 금방 끝났다. 집으로 돌아가는 길, |cFF006B8F사이타마|r는 힘을 얻기 전 한 아이를 구하려고 뛰어들었던 때를 떠올린다. 그때는 결과를 확신해서 움직인 것이 아니었다."
         set ProtoEventIntro[792] = "|cFF006B8F사이타마|r는 괴인을 쓰러뜨리고도 채 가시지 않은 무료함을 느낀다."
-        set ProtoEventIcon[792] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[792] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[792] = 1.777778
         set ProtoEventRequired[792] = 0
         set ProtoEventRequiredChoice[792] = 0
@@ -50115,7 +50115,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[793] = 1
         set ProtoEventStory[793] = "Z시에 몰려든 모기 떼와 싸우던 |cFF006B8F제노스|r는 상대의 변화에 몰렸다. 위기의 순간 나타난 |cFF006B8F사이타마|r의 힘은 그가 세운 예상과 달랐다. 며칠 뒤, 제노스가 그 힘을 알고 싶다며 사이타마의 집을 찾아온다."
         set ProtoEventIntro[793] = "모스키토 소녀를 상대하던 |cFF006B8F제노스|r 앞에 |cFF006B8F사이타마|r가 나타난다."
-        set ProtoEventIcon[793] = "war3mapImported\\UI_EventThumb_XP_z_city_scene_genos_visit.tga"
+        set ProtoEventIcon[793] = "war3mapImported\\UI_EventThumb_XP_z_city_scene_genos_visit.blp"
         set ProtoEventImageAspect[793] = 1.777778
         set ProtoEventRequired[793] = 0
         set ProtoEventRequiredChoice[793] = 0
@@ -50165,7 +50165,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[794] = 1
         set ProtoEventStory[794] = "아머드 고릴라가 전한 이야기 끝에는 지너스 박사의 연구가 있었다. |cFF006B8F사이타마|r의 몸을 이용하려는 계획을 멈추기 위해 두 사람이 움직인다. 내부에서 풀려난 아수라 카부토는 연구자가 |cFFA53528통제할 수 있는 상대조차 아니었다|r."
         set ProtoEventIntro[794] = "|cFF006B8F사이타마|r와 |cFF006B8F제노스|r는 자신들을 노린 조직의 본거지로 향한다."
-        set ProtoEventIcon[794] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.tga"
+        set ProtoEventIcon[794] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.blp"
         set ProtoEventImageAspect[794] = 1.777778
         set ProtoEventRequired[794] = 0
         set ProtoEventRequiredChoice[794] = 0
@@ -50215,7 +50215,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[795] = 1
         set ProtoEventStory[795] = "뉴스 속 |cFF865500도원단|r은 모두 머리를 밀고 있었다. |cFF006B8F사이타마|r는 자신까지 한패로 오해받을까 걱정한다. 한편 제니르의 경호를 맡은 |cFF006B8F소닉|r이 도원단을 쫓고 있었고, 사이타마의 앞에도 빠른 칼날이 나타난다."
         set ProtoEventIntro[795] = "|cFF865500도원단|r의 소동을 들은 |cFF006B8F사이타마|r가 F시로 향한다."
-        set ProtoEventIcon[795] = "war3mapImported\\UI_EventThumb_XP_z_city_sonic.tga"
+        set ProtoEventIcon[795] = "war3mapImported\\UI_EventThumb_XP_z_city_sonic.blp"
         set ProtoEventImageAspect[795] = 1.777778
         set ProtoEventRequired[795] = 0
         set ProtoEventRequiredChoice[795] = 0
@@ -50272,7 +50272,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[796] = 2
         set ProtoEventStory[796] = "|cFF006B8F사이타마|r는 체력 측정 |cFF80560C기록|r을 바꾸고도 필기시험 때문에 C급으로 합격한다. |cFF006B8F제노스|r는 시험과 실적을 인정받아 S급이 된다. 등급표의 간격과 눈앞에서 본 힘의 간격은 제노스에게 전혀 다르게 보였다."
         set ProtoEventIntro[796] = "히어로 인정 시험에서 두 사람은 다른 등급을 받는다."
-        set ProtoEventIcon[796] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.tga"
+        set ProtoEventIcon[796] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.blp"
         set ProtoEventImageAspect[796] = 1.777778
         set ProtoEventRequired[796] = 0
         set ProtoEventRequiredChoice[796] = 0
@@ -50322,7 +50322,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[797] = 2
         set ProtoEventStory[797] = "프로가 된 지 닷새가 지나서야 |cFF006B8F사이타마|r는 매주 활동 보고가 필요하다는 사실을 듣는다. 사건을 찾으려고 서두르지만 그럴수록 거리의 작은 일은 눈에 들어오지 않는다. 다시 나타난 |cFF006B8F소닉|r은 승부를 재촉하며 상황을 더 꼬이게 한다."
         set ProtoEventIntro[797] = "C급의 활동 보고 기한을 알게 된 |cFF006B8F사이타마|r가 거리로 나간다."
-        set ProtoEventIcon[797] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[797] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[797] = 1.777778
         set ProtoEventRequired[797] = 0
         set ProtoEventRequiredChoice[797] = 0
@@ -50372,7 +50372,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[798] = 2
         set ProtoEventStory[798] = "협회 지부는 이미 비어 있었다. |cFF006B8F제노스|r는 스승이 사는 |cFF80560C도시|r를 지키려고 운석을 향해 전력을 쏟으려 하고, |cFF006B8F뱅|r은 눈앞의 위협에서 시선을 떼지 않는다. 뒤이어 도착한 |cFF006B8F사이타마|r가 하늘을 올려다본다."
         set ProtoEventIntro[798] = "Z시로 떨어지는 운석 앞에 |cFF006B8F제노스|r와 |cFF006B8F뱅|r이 남는다."
-        set ProtoEventIcon[798] = "war3mapImported\\UI_EventThumb_XP_z_city_scene_meteor_branch.tga"
+        set ProtoEventIcon[798] = "war3mapImported\\UI_EventThumb_XP_z_city_scene_meteor_branch.blp"
         set ProtoEventImageAspect[798] = 1.777778
         set ProtoEventRequired[798] = 0
         set ProtoEventRequiredChoice[798] = 0
@@ -50429,7 +50429,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[799] = 2
         set ProtoEventStory[799] = "지상에 올라온 해인족 뒤로 더 강한 |cFF865500심해왕|r이 나타났다. 소닉은 눈앞의 상대를 상대하고, |cFF006B8F무면허 라이더|r는 자전거로 현장을 향한다. |cFF006B8F사이타마|r와 |cFF006B8F제노스|r도 도시로 향하지만 모두가 같은 장소에 있는 것은 아니다."
         set ProtoEventIntro[799] = "J시에 나타난 |cFF865500심해왕|r을 향해 히어로들이 움직인다."
-        set ProtoEventIcon[799] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.tga"
+        set ProtoEventIcon[799] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.blp"
         set ProtoEventImageAspect[799] = 1.777778
         set ProtoEventRequired[799] = 0
         set ProtoEventRequiredChoice[799] = 0
@@ -50479,7 +50479,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[800] = 2
         set ProtoEventStory[800] = "|cFF006B8F제노스|r는 아이를 감싸다 |cFFA53528심해왕의 공격에 크게 손상된다.|r 뒤이어 도착한 |cFF006B8F무면허 라이더|r도 힘의 차이를 알고 있지만 물러서지 않는다. 피난소의 시선이 그에게 모이는 동안 또 다른 발걸음이 비를 가르고 다가온다."
         set ProtoEventIntro[800] = "|cFF006B8F제노스|r와 |cFF006B8F무면허 라이더|r가 심해왕 앞에서 사람들을 지킨다."
-        set ProtoEventIcon[800] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.tga"
+        set ProtoEventIcon[800] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.blp"
         set ProtoEventImageAspect[800] = 1.777778
         set ProtoEventRequired[800] = 0
         set ProtoEventRequiredChoice[800] = 0
@@ -50529,7 +50529,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[801] = 3
         set ProtoEventStory[801] = "|cFF006B8F뱅|r의 도장을 찾았던 |cFF006B8F사이타마|r와 |cFF006B8F제노스|r도 A시 협회 본부로 향한다. 시바바와가 남긴 지구의 위기에 관한 예언이 전해지고, 설명이 끝나기도 전에 폭음이 건물을 흔든다. 거대한 |cFFA53528우주선의 공격|r이 도시를 덮친 것이다."
         set ProtoEventIntro[801] = "비상 소집으로 모인 S급 히어로들이 예언을 전해 듣는다."
-        set ProtoEventIcon[801] = "war3mapImported\\UI_EventThumb_XP_z_city_bang.tga"
+        set ProtoEventIcon[801] = "war3mapImported\\UI_EventThumb_XP_z_city_bang.blp"
         set ProtoEventImageAspect[801] = 1.777778
         set ProtoEventRequired[801] = 0
         set ProtoEventRequiredChoice[801] = 0
@@ -50586,7 +50586,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[802] = 3
         set ProtoEventStory[802] = "|cFF006B8F아토믹 사무라이|r와 뱅, 금속배트, 프리즈너가 |cFF865500멜자르갈드|r를 상대하지만 |cFF865500잘라 낸 몸은 다시 이어진다.|r |cFF006B8F사이타마|r는 혼자 우주선 안쪽으로 들어간다. 지상에 재차 포격이 쏟아지기 전에 두 전선에서 돌파구가 필요했다."
         set ProtoEventIntro[802] = "지상에서는 |cFF865500멜자르갈드|r가 버티고, 우주선 안에서는 함선 병력이 |cFF006B8F사이타마|r를 막는다."
-        set ProtoEventIcon[802] = "war3mapImported\\UI_EventThumb_XP_z_city_atomic.tga"
+        set ProtoEventIcon[802] = "war3mapImported\\UI_EventThumb_XP_z_city_atomic.blp"
         set ProtoEventImageAspect[802] = 1.777778
         set ProtoEventRequired[802] = 0
         set ProtoEventRequiredChoice[802] = 0
@@ -50636,7 +50636,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[803] = 3
         set ProtoEventStory[803] = "|cFF006B8F타츠마키|r가 쏟아지는 포격을 되돌리고, 지상의 히어로들은 |cFF865500멜자르갈드|r의 약점을 공략한다. 우주선에서는 |cFF704261강함에 권태를 느낀 보로스|r가 |cFF006B8F사이타마|r와 맞선다. 쉽게 끝날 것 같던 대결은 함선 위까지 이어진다."
         set ProtoEventIntro[803] = "|cFF006B8F사이타마|r가 |cFF006B8F보로스|r와 맞서는 동안 지상의 싸움도 끝을 향한다."
-        set ProtoEventIcon[803] = "war3mapImported\\UI_EventThumb_XP_z_city_scene_boros_battle.tga"
+        set ProtoEventIcon[803] = "war3mapImported\\UI_EventThumb_XP_z_city_scene_boros_battle.blp"
         set ProtoEventImageAspect[803] = 1.777778
         set ProtoEventRequired[803] = 0
         set ProtoEventRequiredChoice[803] = 0
@@ -50686,7 +50686,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[804] = 4
         set ProtoEventStory[804] = "전투의 소음이 잦아들고 쓰러진 함선이 눈앞에 남는다. 모두가 같은 곳에서 같은 싸움을 본 것은 아니다. |cFF006B8F사이타마|r와 |cFF006B8F제노스|r도 다시 일상으로 돌아갈 준비를 한다.|n|n큰 싸움 하나가 앞으로의 모든 질문을 끝내 주지는 않았다."
         set ProtoEventIntro[804] = "침공은 끝났지만 무너진 |cFF80560C도시|r와 히어로들의 일은 남는다."
-        set ProtoEventIcon[804] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[804] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[804] = 1.777778
         set ProtoEventRequired[804] = 0
         set ProtoEventRequiredChoice[804] = 0
@@ -50741,7 +50741,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[805] = 1
         set ProtoEventStory[805] = "문턱을 넘은 설명은 길었지만 |cFF006B8F사이타마|r가 한 번에 받아들일 수 있는 말은 많지 않았다. 다시 그 대화를 정리한다면 어느 지점에서 숨을 고를까?"
         set ProtoEventIntro[805] = "|cFF006B8F제노스|r가 |cFF006B8F사이타마|r를 찾아왔던 날의 대화를 떠올린다."
-        set ProtoEventIcon[805] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.tga"
+        set ProtoEventIcon[805] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.blp"
         set ProtoEventImageAspect[805] = 1.777778
         set ProtoEventRequired[805] = 793
         set ProtoEventRequiredChoice[805] = 1
@@ -50788,7 +50788,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[806] = 1
         set ProtoEventStory[806] = "늘 하던 일을 끝내고 돌아가는 길이다. 큰 이야기가 없어도 급한 마음을 내려놓을 틈은 있다. 짐을 다시 들기 전에 흐트러진 자세를 고친다."
         set ProtoEventIntro[806] = "|cFF006B8F사이타마|r가 돌아가는 길의 짐을 잠깐 내려놓는다."
-        set ProtoEventIcon[806] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[806] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[806] = 1.777778
         set ProtoEventRequired[806] = 0
         set ProtoEventRequiredChoice[806] = 0
@@ -50835,7 +50835,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[807] = 1
         set ProtoEventStory[807] = "긴 문장으로 빈칸을 채우는 것보다 실제로 본 일을 남기는 편이 어려웠다. |cFF006B8F사이타마|r가 |cFF80560C기억|r을 더듬는 동안 |cFF006B8F제노스|r는 빠진 순서를 확인했다. 그때 함께 정리했던 |cFF80560C기록|r을 다시 펼쳐 본다."
         set ProtoEventIntro[807] = "|cFF006B8F사이타마|r와 |cFF006B8F제노스|r가 앞선 순찰의 보고를 정리하던 때를 떠올린다."
-        set ProtoEventIcon[807] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[807] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[807] = 1.777778
         set ProtoEventRequired[807] = 797
         set ProtoEventRequiredChoice[807] = 1
@@ -50882,7 +50882,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[808] = 1
         set ProtoEventStory[808] = "그날의 보고를 마치자 덜 헤맬 수 있는 길이 보였다. |cFF006B8F제노스|r는 분 단위로 계획을 채우려 했지만 |cFF006B8F사이타마|r는 뜻밖의 부름이 올 자리도 남겨 두자고 했다. 그때 나누었던 말을 되짚어 본다."
         set ProtoEventIntro[808] = "|cFF006B8F제노스|r와 앞선 순찰 |cFF80560C기록|r의 빈칸을 살폈던 때를 돌아본다."
-        set ProtoEventIcon[808] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.tga"
+        set ProtoEventIcon[808] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.blp"
         set ProtoEventImageAspect[808] = 1.777778
         set ProtoEventRequired[808] = 807
         set ProtoEventRequiredChoice[808] = 2
@@ -50929,7 +50929,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[809] = 1
         set ProtoEventStory[809] = "눈으로 좇다 보면 이미 늦었던 움직임이다. 가장 빠른 장면을 다시 떠올리기보다 그 직전에 어디에 체중이 실렸는지 생각해 본다."
         set ProtoEventIntro[809] = "|cFF006B8F소닉|r의 움직임을 떠올리며 첫걸음의 방향을 살핀다."
-        set ProtoEventIcon[809] = "war3mapImported\\UI_EventThumb_XP_z_city_sonic.tga"
+        set ProtoEventIcon[809] = "war3mapImported\\UI_EventThumb_XP_z_city_sonic.blp"
         set ProtoEventImageAspect[809] = 1.777778
         set ProtoEventRequired[809] = 795
         set ProtoEventRequiredChoice[809] = 1
@@ -50976,7 +50976,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[810] = 1
         set ProtoEventStory[810] = "어디로 가야 할지 아는 것과 그곳까지 도착하는 것은 다른 일이다. 라이더의 페달, |cFF006B8F사이타마|r의 발걸음, |cFF006B8F제노스|r의 결심을 떠올리며 자신이 먼저 준비할 것을 고른다."
         set ProtoEventIntro[810] = "비 내리는 길을 달리던 |cFF006B8F무면허 라이더|r를 |cFF80560C기억|r한다."
-        set ProtoEventIcon[810] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.tga"
+        set ProtoEventIcon[810] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.blp"
         set ProtoEventImageAspect[810] = 1.777778
         set ProtoEventRequired[810] = 799
         set ProtoEventRequiredChoice[810] = 2
@@ -51023,7 +51023,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[811] = 2
         set ProtoEventStory[811] = "|cFF006B8F사이타마|r와의 차이를 단숨에 없애려는 마음만으로는 관찰할 틈이 없었다. |cFF006B8F제노스|r는 공격하기 전에 놓치고 싶지 않은 한 순간을 골라 두었다. 대련에서 무엇을 보려 했는지 다시 생각해 본다."
         set ProtoEventIntro[811] = "|cFF006B8F제노스|r가 대련을 앞두고 정해 두었던 관찰 기준을 떠올린다."
-        set ProtoEventIcon[811] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.tga"
+        set ProtoEventIcon[811] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.blp"
         set ProtoEventImageAspect[811] = 1.777778
         set ProtoEventRequired[811] = 796
         set ProtoEventRequiredChoice[811] = 3
@@ -51070,7 +51070,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[812] = 1
         set ProtoEventStory[812] = "승부만 바라보면 지나는 사람과 부딪칠 수 있다. 당시의 골목을 다시 떠올리며 싸움의 방향과 사람들이 벗어날 방향을 구분한다."
         set ProtoEventIntro[812] = "|cFF006B8F소닉|r의 도발이 지나간 거리의 동선을 되짚는다."
-        set ProtoEventIcon[812] = "war3mapImported\\UI_EventThumb_XP_z_city_sonic.tga"
+        set ProtoEventIcon[812] = "war3mapImported\\UI_EventThumb_XP_z_city_sonic.blp"
         set ProtoEventImageAspect[812] = 1.777778
         set ProtoEventRequired[812] = 797
         set ProtoEventRequiredChoice[812] = 2
@@ -51117,7 +51117,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[813] = 1
         set ProtoEventStory[813] = "비상 소집이 오기 전에는 잠깐의 고요가 있었다. |cFF006B8F뱅|r의 균형 잡힌 자세, |cFF006B8F제노스|r의 시선, |cFF006B8F사이타마|r의 평소 같은 태도를 떠올리며 자신의 긴장을 살핀다."
         set ProtoEventIntro[813] = "|cFF006B8F뱅|r의 도장을 찾았던 시간을 잠시 떠올린다."
-        set ProtoEventIcon[813] = "war3mapImported\\UI_EventThumb_XP_z_city_bang.tga"
+        set ProtoEventIcon[813] = "war3mapImported\\UI_EventThumb_XP_z_city_bang.blp"
         set ProtoEventImageAspect[813] = 1.777778
         set ProtoEventRequired[813] = 801
         set ProtoEventRequiredChoice[813] = 1
@@ -51164,7 +51164,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[814] = 1
         set ProtoEventStory[814] = "위기를 막았다는 사실과 피해를 입은 사람의 불만이 부딪쳤다. 그날의 일을 짧은 칭찬이나 비난 하나로 줄이면 빠지는 것이 생긴다."
         set ProtoEventIntro[814] = "운석이 깨진 뒤 Z시의 거리를 돌아본 |cFF80560C기억|r이 남는다."
-        set ProtoEventIcon[814] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[814] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[814] = 1.777778
         set ProtoEventRequired[814] = 798
         set ProtoEventRequiredChoice[814] = 3
@@ -51211,7 +51211,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[815] = 1
         set ProtoEventStory[815] = "싸움의 끝만 |cFF80560C기억|r하면 아이를 감싼 팔과 다시 일어선 사람을 놓친다. 누구의 힘이 더 컸는지를 잠시 내려놓고 끝까지 이어진 행동을 살핀다."
         set ProtoEventIntro[815] = "피난소에서 사람들이 버틴 시간을 되돌아본다."
-        set ProtoEventIcon[815] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.tga"
+        set ProtoEventIcon[815] = "war3mapImported\\UI_EventThumb_XP_z_city_mumen.blp"
         set ProtoEventImageAspect[815] = 1.777778
         set ProtoEventRequired[815] = 800
         set ProtoEventRequiredChoice[815] = 2
@@ -51258,7 +51258,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[816] = 1
         set ProtoEventStory[816] = "손상된 몸의 이야기만으로는 그가 왜 움직였는지 설명할 수 없다. |cFF006B8F제노스|r는 다시 같은 위험을 보았을 때 무엇을 먼저 확인할지 짧게 정리한다."
         set ProtoEventIntro[816] = "|cFF006B8F제노스|r는 피난소에서의 판단을 돌아본다."
-        set ProtoEventIcon[816] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.tga"
+        set ProtoEventIcon[816] = "war3mapImported\\UI_EventThumb_XP_z_city_genos.blp"
         set ProtoEventImageAspect[816] = 1.777778
         set ProtoEventRequired[816] = 800
         set ProtoEventRequiredChoice[816] = 1
@@ -51305,7 +51305,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[817] = 1
         set ProtoEventStory[817] = "|cFF865500잘려 나간 몸이 다시 이어지는 상대|r였다. |cFF006B8F아토믹 사무라이|r의 칼날과 |cFF006B8F금속배트|r의 타격, |cFF006B8F뱅|r의 움직임이 겹치는 순간을 따로 나누어 살펴본다."
         set ProtoEventIntro[817] = "|cFF865500멜자르갈드|r를 상대하던 지상의 연계를 떠올린다."
-        set ProtoEventIcon[817] = "war3mapImported\\UI_EventThumb_XP_z_city_metalbat.tga"
+        set ProtoEventIcon[817] = "war3mapImported\\UI_EventThumb_XP_z_city_metalbat.blp"
         set ProtoEventImageAspect[817] = 1.777778
         set ProtoEventRequired[817] = 802
         set ProtoEventRequiredChoice[817] = 1
@@ -51352,7 +51352,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[818] = 1
         set ProtoEventStory[818] = "|cFF006B8F타츠마키|r의 대응이 지상의 싸움과 맞물렸다. 멀리 있는 위협에만 시선을 빼앗겨 가까운 전선을 잊지 않도록 그때의 두 장면을 나누어 생각한다."
         set ProtoEventIntro[818] = "두 번째 포격을 막던 순간의 하늘을 떠올린다."
-        set ProtoEventIcon[818] = "war3mapImported\\UI_EventThumb_XP_z_city_tatsumaki.tga"
+        set ProtoEventIcon[818] = "war3mapImported\\UI_EventThumb_XP_z_city_tatsumaki.blp"
         set ProtoEventImageAspect[818] = 1.777778
         set ProtoEventRequired[818] = 803
         set ProtoEventRequiredChoice[818] = 3
@@ -51399,7 +51399,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[819] = 1
         set ProtoEventStory[819] = "끝없이 강한 상대를 찾는 마음이 닮아 보여도 그 때문에 지나온 길까지 같아지지는 않는다. 지상에 남은 피해와 두 사람의 대결을 함께 |cFF80560C기억|r한다."
         set ProtoEventIntro[819] = "|cFF006B8F보로스|r가 찾아온 이유를 |cFF006B8F사이타마|r와의 대결 뒤에 돌아본다."
-        set ProtoEventIcon[819] = "war3mapImported\\UI_EventThumb_XP_z_city_boros.tga"
+        set ProtoEventIcon[819] = "war3mapImported\\UI_EventThumb_XP_z_city_boros.blp"
         set ProtoEventImageAspect[819] = 1.777778
         set ProtoEventRequired[819] = 803
         set ProtoEventRequiredChoice[819] = 1
@@ -51446,7 +51446,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[820] = 1
         set ProtoEventStory[820] = "|cFF006B8F사이타마|r가 부순 통로와 지상의 히어로들이 마주한 |cFF865500재생하는 적|r은 같은 침공의 다른 얼굴이었다. 자신이 본 부분만으로 전부를 설명하지 않으려면 무엇을 더 들여다봐야 할까?"
         set ProtoEventIntro[820] = "함선 안과 지상에서 본 일이 서로 다른 모양으로 남는다."
-        set ProtoEventIcon[820] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[820] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[820] = 1.777778
         set ProtoEventRequired[820] = 802
         set ProtoEventRequiredChoice[820] = 3
@@ -51493,7 +51493,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[821] = 1
         set ProtoEventStory[821] = "큰 싸움 뒤에도 사소한 일은 남는다. |cFF006B8F제노스|r가 하루를 길게 정리하려 하자 |cFF006B8F사이타마|r는 우선 내일 할 일부터 생각한다. 둘의 말하는 속도는 아직 다르지만 같은 방에 놓일 이야기는 늘었다."
         set ProtoEventIntro[821] = "|cFF006B8F사이타마|r와 |cFF006B8F제노스|r는 평소의 생활로 돌아온다."
-        set ProtoEventIcon[821] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.tga"
+        set ProtoEventIcon[821] = "war3mapImported\\UI_EventThumb_XP_z_city_saitama.blp"
         set ProtoEventImageAspect[821] = 1.777778
         set ProtoEventRequired[821] = 0
         set ProtoEventRequiredChoice[821] = 0
@@ -51540,7 +51540,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[822] = 1
         set ProtoEventStory[822] = "함선 안의 싸움과 지상의 싸움은 한 사람의 이야기로 합쳐지지 않는다. |cFF006B8F타츠마키|r가 바라본 하늘, |cFF006B8F아토믹 사무라이|r가 겨눈 적, |cFF006B8F금속배트|r가 채운 간격을 각각 |cFF80560C기억|r한다."
         set ProtoEventIntro[822] = "침공 뒤에 남은 서로 다른 활약을 돌아본다."
-        set ProtoEventIcon[822] = "war3mapImported\\UI_EventThumb_XP_z_city_tatsumaki.tga"
+        set ProtoEventIcon[822] = "war3mapImported\\UI_EventThumb_XP_z_city_tatsumaki.blp"
         set ProtoEventImageAspect[822] = 1.777778
         set ProtoEventRequired[822] = 0
         set ProtoEventRequiredChoice[822] = 0
@@ -51582,7 +51582,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[24] = "witch_prison"
         set ProtoHeadName[24] = "절해의 감옥 저택"
         set ProtoHeadIntro[24] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
-        set ProtoHeadIcon[24] = "war3mapImported\\UI_Card_XP_witch_prison_head_Icon.tga"
+        set ProtoHeadIcon[24] = "war3mapImported\\UI_Card_XP_witch_prison_head_Icon.blp"
         set ProtoHeadEntryCard[24] = 1403
         set ProtoHeadMainLength[24] = 16
         set ProtoHeadRequiredMain[24] = 0
@@ -51597,7 +51597,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[823] = 1
         set ProtoEventStory[823] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
         set ProtoEventIntro[823] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
-        set ProtoEventIcon[823] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga"
+        set ProtoEventIcon[823] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.blp"
         set ProtoEventImageAspect[823] = 1.777778
         set ProtoHeadEntryEvent[97] = 824
         set ProtoEventKey[824] = "witch_prison_entry_1"
@@ -51609,7 +51609,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[824] = 1
         set ProtoEventStory[824] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
         set ProtoEventIntro[824] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
-        set ProtoEventIcon[824] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga"
+        set ProtoEventIcon[824] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.blp"
         set ProtoEventImageAspect[824] = 1.777778
         set ProtoHeadEntryEvent[98] = 825
         set ProtoEventKey[825] = "witch_prison_entry_2"
@@ -51621,7 +51621,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[825] = 1
         set ProtoEventStory[825] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
         set ProtoEventIntro[825] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
-        set ProtoEventIcon[825] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga"
+        set ProtoEventIcon[825] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.blp"
         set ProtoEventImageAspect[825] = 1.777778
         set ProtoHeadEntryEvent[99] = 826
         set ProtoEventKey[826] = "witch_prison_entry_3"
@@ -51633,7 +51633,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[826] = 1
         set ProtoEventStory[826] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
         set ProtoEventIntro[826] = "|cFF006B8F에마|r가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다."
-        set ProtoEventIcon[826] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga"
+        set ProtoEventIcon[826] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.blp"
         set ProtoEventImageAspect[826] = 1.777778
         set ProtoCardKey[1403] = "wt_ema"
         set ProtoCardName[1403] = "사쿠라바 에마"
@@ -52236,7 +52236,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[827] = 1
         set ProtoEventStory[827] = "|cFF006B8F에마|r는 자신과 함께 붙잡힌 소녀들을 바라본다. 부엉이는 이곳을 감옥이라 부르고, 마녀가 될 가능성만으로 모두의 |cFFA53528일상을 빼앗는다|r. |cFF006B8F히로|r가 간수에게 맞서지만 저항은 곧 비극으로 끝난다."
         set ProtoEventIntro[827] = "새 학기의 아침 대신 낯선 철문이 |cFF006B8F에마|r를 맞는다."
-        set ProtoEventIcon[827] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga"
+        set ProtoEventIcon[827] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.blp"
         set ProtoEventImageAspect[827] = 1.777778
         set ProtoEventRequired[827] = 0
         set ProtoEventRequiredChoice[827] = 0
@@ -52286,7 +52286,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[828] = 1
         set ProtoEventStory[828] = "|cFF006B8F노아|r가 숨진 뒤 방에 남은 그림과 물건이 증거가 된다. 아름다운 나비가 누구를 가리킨다는 |cFF80560C소문|r부터 번진다. |cFF006B8F에마|r는 그림의 인상과 실제로 벌어진 일을 나누어 살핀다."
         set ProtoEventIntro[828] = "|cFF006B8F노아|r의 방에서 발견한 흔적들은 한눈에 설명되지 않는다."
-        set ProtoEventIcon[828] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.tga"
+        set ProtoEventIcon[828] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.blp"
         set ProtoEventImageAspect[828] = 1.777778
         set ProtoEventRequired[828] = 0
         set ProtoEventRequiredChoice[828] = 0
@@ -52336,7 +52336,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[829] = 1
         set ProtoEventStory[829] = "재판에서 |cFF006B8F레이아|r의 마법이 주목을 받는다. 사람의 눈길을 움직이는 힘은 누가 무엇을 보았는지 흔들 수 있다. |cFF006B8F에마|r는 호감과 증거를 뒤섞지 않은 채 증언의 빈자리를 되짚는다."
         set ProtoEventIntro[829] = "모두가 보았다는 말이 오히려 의심을 부른다."
-        set ProtoEventIcon[829] = "war3mapImported\\UI_EventThumb_XP_witch_prison_leia.tga"
+        set ProtoEventIcon[829] = "war3mapImported\\UI_EventThumb_XP_witch_prison_leia.blp"
         set ProtoEventImageAspect[829] = 1.777778
         set ProtoEventRequired[829] = 0
         set ProtoEventRequiredChoice[829] = 0
@@ -52386,7 +52386,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[830] = 2
         set ProtoEventStory[830] = "|cFF006B8F미리아|r의 죽음을 둘러싸고 |cFF006B8F에마|r와 영혼이 바뀌었다는 말이 재판에 오른다. 에마는 두 사람의 행동과 남은 증거를 대조하며, 그 말이 누구를 향한 위험과 이어지는지 살핀다."
         set ProtoEventIntro[830] = "|cFF006B8F미리아|r의 죽음에 영혼이 바뀌었다는 말이 얽힌다."
-        set ProtoEventIcon[830] = "war3mapImported\\UI_EventThumb_XP_witch_prison_miria.tga"
+        set ProtoEventIcon[830] = "war3mapImported\\UI_EventThumb_XP_witch_prison_miria.blp"
         set ProtoEventImageAspect[830] = 1.777778
         set ProtoEventRequired[830] = 0
         set ProtoEventRequiredChoice[830] = 0
@@ -52436,7 +52436,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[831] = 2
         set ProtoEventStory[831] = "|cFF006B8F한나|r의 죽음을 조사하던 |cFF006B8F에마|r는 |cFF006B8F셰리|r에게 닿는다. 커져 가는 마법과 마녀가 된다는 공포가 두 친구를 몰아붙였다. 위로처럼 들리던 말들이 |cFF865500돌이킬 수 없는 선택|r으로 이어져 있었다."
         set ProtoEventIntro[831] = "|cFF006B8F한나|r와 |cFF006B8F셰리|r를 둘러싼 증언은 서로를 감싸고 있다."
-        set ProtoEventIcon[831] = "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.tga"
+        set ProtoEventIcon[831] = "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.blp"
         set ProtoEventImageAspect[831] = 1.777778
         set ProtoEventRequired[831] = 0
         set ProtoEventRequiredChoice[831] = 0
@@ -52495,7 +52495,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[832] = 2
         set ProtoEventStory[832] = "|cFF006B8F아리사|r가 숨지고 지하 장치의 작동이 쟁점이 된다. |cFF006B8F에마|r가 모르고 누른 버튼까지 증언에 오르면서 재판은 뜻하지 않은 방향으로 흐른다. |cFF704261자신의 기억을 믿고 싶어도|r 확인을 피할 수 없다."
         set ProtoEventIntro[832] = "|cFF006B8F아리사|r의 사건이 |cFF006B8F에마|r 자신을 향해 돌아온다."
-        set ProtoEventIcon[832] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga"
+        set ProtoEventIcon[832] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.blp"
         set ProtoEventImageAspect[832] = 1.777778
         set ProtoEventRequired[832] = 0
         set ProtoEventRequiredChoice[832] = 0
@@ -52545,7 +52545,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[833] = 2
         set ProtoEventStory[833] = "|cFF006B8F나노카|r의 사건을 좇던 |cFF006B8F에마|r는 |cFF006B8F메루루|r의 마법과 저택의 |cFF80560C비밀|r에 다가간다. 치료처럼 보였던 힘과 설명되지 않던 흔적을 함께 놓자, 앞선 재판에서 놓친 사실도 달리 보인다."
         set ProtoEventIntro[833] = "|cFF006B8F나노카|r가 남긴 흔적이 저택의 중심을 가리킨다."
-        set ProtoEventIcon[833] = "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.tga"
+        set ProtoEventIcon[833] = "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.blp"
         set ProtoEventImageAspect[833] = 1.777778
         set ProtoEventRequired[833] = 0
         set ProtoEventRequiredChoice[833] = 0
@@ -52595,7 +52595,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[834] = 2
         set ProtoEventStory[834] = "|cFF006B8F에마|r는 잊고 있던 |cFF006B8F유키|r와 자신의 과거를 마주한다. 깨어난 힘은 구원이 되지 못하고 |cFFA53528첫 시간은 파국으로 끝난다.|r 다시 감옥에서 눈을 뜬 |cFF006B8F히로|r에게 남은 것은 자신이 죽기 전까지의 기억이다."
         set ProtoEventIntro[834] = "|cFF006B8F에마|r의 이야기가 파국에 닿은 뒤 익숙한 아침이 돌아온다."
-        set ProtoEventIcon[834] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga"
+        set ProtoEventIcon[834] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.blp"
         set ProtoEventImageAspect[834] = 1.777778
         set ProtoEventRequired[834] = 0
         set ProtoEventRequiredChoice[834] = 0
@@ -52654,7 +52654,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[835] = 2
         set ProtoEventStory[835] = "|cFF006B8F메루루|r가 죽고 |cFF006B8F히로|r가 재판의 중심에 선다. |cFF006B8F마고|r가 받았던 간호와 두 사람이 남긴 말이 단서가 된다. 익숙한 호의가 있었어도 그 뒤의 행동까지 선의였다고 단정할 수 없다."
         set ProtoEventIntro[835] = "두 번째 시간의 첫 희생자는 |cFF006B8F메루루|r다."
-        set ProtoEventIcon[835] = "war3mapImported\\UI_EventThumb_XP_witch_prison_margo.tga"
+        set ProtoEventIcon[835] = "war3mapImported\\UI_EventThumb_XP_witch_prison_margo.blp"
         set ProtoEventImageAspect[835] = 1.777778
         set ProtoEventRequired[835] = 0
         set ProtoEventRequiredChoice[835] = 0
@@ -52704,7 +52704,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[836] = 2
         set ProtoEventStory[836] = "|cFF006B8F코코|r가 숨진 사건을 조사하며 |cFF006B8F히로|r는 |cFF006B8F나노카|r가 간수를 바라보던 이유에 다가간다. 위협적인 모습만으로는 그 관계를 설명할 수 없다. 누구를 지키려 했는지와 무엇을 저질렀는지를 함께 밝혀야 한다."
         set ProtoEventIntro[836] = "|cFF006B8F코코|r의 죽음 너머에 |cFF006B8F나노카|r가 감춰 온 관계가 있다."
-        set ProtoEventIcon[836] = "war3mapImported\\UI_EventThumb_XP_witch_prison_nanoka.tga"
+        set ProtoEventIcon[836] = "war3mapImported\\UI_EventThumb_XP_witch_prison_nanoka.blp"
         set ProtoEventImageAspect[836] = 1.777778
         set ProtoEventRequired[836] = 0
         set ProtoEventRequiredChoice[836] = 0
@@ -52754,7 +52754,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[837] = 2
         set ProtoEventStory[837] = "|cFF006B8F앙앙|r의 죽음을 둘러싼 재판은 |cFF006B8F노아|r가 숨겨 온 그림으로 이어진다. 마법 없이 그린 서툰 선을 앙앙은 좋아했다. 그러나 받아들여졌다는 기쁨과 들키고 싶지 않았던 마음이 노아 안에서 뒤엉켰다."
         set ProtoEventIntro[837] = "|cFF006B8F앙앙|r에게 보여 주었던 그림이 |cFF006B8F노아|r를 흔든다."
-        set ProtoEventIcon[837] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.tga"
+        set ProtoEventIcon[837] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.blp"
         set ProtoEventImageAspect[837] = 1.777778
         set ProtoEventRequired[837] = 0
         set ProtoEventRequiredChoice[837] = 0
@@ -52804,7 +52804,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[838] = 3
         set ProtoEventStory[838] = "|cFFA53528레이아와 에마가 숨진 채 발견된다.|r |cFF006B8F히로|r는 에마를 잃은 충격 속에서도 재판을 이어 가야 한다. |cFF006B8F한나|r가 감춘 불안과 현장에 남은 흔적이 서로 연결되기 시작한다."
         set ProtoEventIntro[838] = "|cFF006B8F히로|r가 손을 뻗으려는 순간 두 이름이 재판에 오른다."
-        set ProtoEventIcon[838] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hanna.tga"
+        set ProtoEventIcon[838] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hanna.blp"
         set ProtoEventImageAspect[838] = 1.777778
         set ProtoEventRequired[838] = 0
         set ProtoEventRequiredChoice[838] = 0
@@ -52854,7 +52854,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[839] = 3
         set ProtoEventStory[839] = "절망한 |cFF006B8F히로|r에게 소녀들이 해독해 두었던 |cFF80560C책|r과 말들이 닿는다. |cFF865500대마녀|r에게 다가갈 조건이 그 안에 있었다. 히로는 남은 기회를 붙들기 전에, 소녀들이 남긴 말과 지식을 끝까지 읽는다."
         set ProtoEventIntro[839] = "끝이라고 여긴 자리에 여러 사람이 남긴 글이 있다."
-        set ProtoEventIcon[839] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga"
+        set ProtoEventIcon[839] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.blp"
         set ProtoEventImageAspect[839] = 1.777778
         set ProtoEventRequired[839] = 0
         set ProtoEventRequiredChoice[839] = 0
@@ -52913,7 +52913,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[840] = 3
         set ProtoEventStory[840] = "|cFF006B8F히로|r는 |cFF865500대마녀|r에게 닿기 위한 |cFF865500사바트|r 의식을 준비한다. 서로 다른 상처와 마법을 가진 열세 소녀가 한자리에 선다. |cFF006B8F메루루|r의 정체와 유키에게 이어진 관계도 다시 묻게 된다."
         set ProtoEventIntro[840] = "마지막 반복에서 |cFF006B8F히로|r는 재판을 다른 목적으로 연다."
-        set ProtoEventIcon[840] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga"
+        set ProtoEventIcon[840] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.blp"
         set ProtoEventImageAspect[840] = 1.777778
         set ProtoEventRequired[840] = 0
         set ProtoEventRequiredChoice[840] = 0
@@ -52963,7 +52963,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[841] = 3
         set ProtoEventStory[841] = "유키는 |cFF704261인간을 향한 오래된 원한|r을 드러낸다. |cFF006B8F히로|r와 소녀들은 이미 내려진 결론에 질문할 자리를 만든다. |cFF006B8F에마|r는 유키가 정말로 아무도 믿지 않았는지, |cFF006B8F메루루|r와의 관계까지 부정할 수 있는지 묻는다."
         set ProtoEventIntro[841] = "|cFF006B8F유키|r가 내린 결론 앞에서 |cFF006B8F에마|r가 다시 말한다."
-        set ProtoEventIcon[841] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga"
+        set ProtoEventIcon[841] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.blp"
         set ProtoEventImageAspect[841] = 1.777778
         set ProtoEventRequired[841] = 0
         set ProtoEventRequiredChoice[841] = 0
@@ -53013,7 +53013,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[842] = 4
         set ProtoEventStory[842] = "|cFF006B8F유키|r는 |cFF865500마녀 인자를 거두어|r 해롭지 않게 만들고 소녀들을 풀어 준다. 그 끝에서 유키와 |cFF006B8F메루루|r는 함께 사라진다. 남은 이들에게는 이제 감옥 밖에서 살아갈 시간이 주어진다."
         set ProtoEventIntro[842] = "마지막 재판이 끝나고 돌아갈 길이 열린다."
-        set ProtoEventIcon[842] = "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.tga"
+        set ProtoEventIcon[842] = "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.blp"
         set ProtoEventImageAspect[842] = 1.777778
         set ProtoEventRequired[842] = 0
         set ProtoEventRequiredChoice[842] = 0
@@ -53072,7 +53072,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[843] = 1
         set ProtoEventStory[843] = "낯선 이름을 몇 번이나 되묻던 |cFF006B8F에마|r의 모습을 떠올린다. 적힌 순서대로 외우려니 정작 얼굴은 잘 떠오르지 않는다."
         set ProtoEventIntro[843] = "번호 옆에 적힌 이름들이 눈에 들어온다."
-        set ProtoEventIcon[843] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga"
+        set ProtoEventIcon[843] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.blp"
         set ProtoEventImageAspect[843] = 1.777778
         set ProtoEventRequired[843] = 0
         set ProtoEventRequiredChoice[843] = 0
@@ -53119,7 +53119,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[844] = 1
         set ProtoEventStory[844] = "|cFF006B8F앙앙|r이 펜을 쥔 채 한참 멈추었던 순간이다. 아무 말도 없다는 이유로 할 말이 없다고 단정할 수는 없었다."
         set ProtoEventIntro[844] = "스케치북의 빈칸을 보고 답을 기다리던 때가 생각난다."
-        set ProtoEventIcon[844] = "war3mapImported\\UI_EventThumb_XP_witch_prison_anan.tga"
+        set ProtoEventIcon[844] = "war3mapImported\\UI_EventThumb_XP_witch_prison_anan.blp"
         set ProtoEventImageAspect[844] = 1.777778
         set ProtoEventRequired[844] = 0
         set ProtoEventRequiredChoice[844] = 0
@@ -53166,7 +53166,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[845] = 1
         set ProtoEventStory[845] = "작은 면을 채우는 데에도 |cFF006B8F노아|r는 다른 색을 나란히 놓았다. 한쪽이 눈에 띈다고 다른 쪽을 곧장 버리지는 않았다."
         set ProtoEventIntro[845] = "|cFF006B8F노아|r가 색을 고르던 손길이 |cFF80560C기억|r에 남았다."
-        set ProtoEventIcon[845] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.tga"
+        set ProtoEventIcon[845] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.blp"
         set ProtoEventImageAspect[845] = 1.777778
         set ProtoEventRequired[845] = 0
         set ProtoEventRequiredChoice[845] = 0
@@ -53213,7 +53213,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[846] = 1
         set ProtoEventStory[846] = "어깨를 펴는 순간 분위기가 달라졌다. 그러나 가까운 사람에게 말할 때도 같은 |cFF80560C목소리|r가 필요한 것은 아니었다."
         set ProtoEventIntro[846] = "|cFF006B8F레이아|r가 사람들 앞에 섰던 자세를 떠올린다."
-        set ProtoEventIcon[846] = "war3mapImported\\UI_EventThumb_XP_witch_prison_leia.tga"
+        set ProtoEventIcon[846] = "war3mapImported\\UI_EventThumb_XP_witch_prison_leia.blp"
         set ProtoEventImageAspect[846] = 1.777778
         set ProtoEventRequired[846] = 0
         set ProtoEventRequiredChoice[846] = 0
@@ -53260,7 +53260,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[847] = 1
         set ProtoEventStory[847] = "무게보다 둘 곳을 먼저 정해야 했던 순간이다. 힘만 있으면 된다고 생각하니 주변의 좁은 간격을 놓치기 쉬웠다."
         set ProtoEventIntro[847] = "|cFF006B8F셰리|r가 가볍게 들어 올리던 물건이 생각난다."
-        set ProtoEventIcon[847] = "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.tga"
+        set ProtoEventIcon[847] = "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.blp"
         set ProtoEventImageAspect[847] = 1.777778
         set ProtoEventRequired[847] = 0
         set ProtoEventRequiredChoice[847] = 0
@@ -53307,7 +53307,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[848] = 1
         set ProtoEventStory[848] = "그 짧은 틈을 흉내 내어 웃어넘길 수도 있었겠지만, |cFF80560C기억|r에 남은 것은 틀리지 않으려는 표정이었다."
         set ProtoEventIntro[848] = "|cFF006B8F한나|r의 단정한 말투 뒤에 잠깐의 망설임이 있었다."
-        set ProtoEventIcon[848] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hanna.tga"
+        set ProtoEventIcon[848] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hanna.blp"
         set ProtoEventImageAspect[848] = 1.777778
         set ProtoEventRequired[848] = 0
         set ProtoEventRequiredChoice[848] = 0
@@ -53354,7 +53354,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[849] = 1
         set ProtoEventStory[849] = "같은 복도를 걸어도 그녀는 벽과 출입구를 먼저 살폈다. 이유를 묻기 전에 자신이 놓친 모서리부터 돌아본다."
         set ProtoEventIntro[849] = "|cFF006B8F나노카|r가 말없이 방향을 바꾸던 모습이 떠오른다."
-        set ProtoEventIcon[849] = "war3mapImported\\UI_EventThumb_XP_witch_prison_nanoka.tga"
+        set ProtoEventIcon[849] = "war3mapImported\\UI_EventThumb_XP_witch_prison_nanoka.blp"
         set ProtoEventImageAspect[849] = 1.777778
         set ProtoEventRequired[849] = 0
         set ProtoEventRequiredChoice[849] = 0
@@ -53401,7 +53401,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[850] = 1
         set ProtoEventStory[850] = "재생된 짧은 장면을 보던 |cFF80560C기억|r을 따라 시선을 옮긴다. 화면 밖에 있었다는 것과 없었다는 것은 같은 말이 아니다."
         set ProtoEventIntro[850] = "|cFF006B8F코코|r의 화면에는 실제 공간의 일부만 들어 있었다."
-        set ProtoEventIcon[850] = "war3mapImported\\UI_EventThumb_XP_witch_prison_koko.tga"
+        set ProtoEventIcon[850] = "war3mapImported\\UI_EventThumb_XP_witch_prison_koko.blp"
         set ProtoEventImageAspect[850] = 1.777778
         set ProtoEventRequired[850] = 0
         set ProtoEventRequiredChoice[850] = 0
@@ -53448,7 +53448,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[851] = 1
         set ProtoEventStory[851] = "무언가를 부탁하던 대화를 떠올린다. 듣기 좋은 말과 자신이 실제로 해야 할 일을 구분해 적어 본다."
         set ProtoEventIntro[851] = "|cFF006B8F마고|r의 호의적인 |cFF80560C목소리|r는 금세 경계를 낮추곤 했다."
-        set ProtoEventIcon[851] = "war3mapImported\\UI_EventThumb_XP_witch_prison_margo.tga"
+        set ProtoEventIcon[851] = "war3mapImported\\UI_EventThumb_XP_witch_prison_margo.blp"
         set ProtoEventImageAspect[851] = 1.777778
         set ProtoEventRequired[851] = 0
         set ProtoEventRequiredChoice[851] = 0
@@ -53495,7 +53495,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[852] = 1
         set ProtoEventStory[852] = "걱정스러운 표정을 보았다고 그 이유까지 안 것은 아니었다. 다가갈 거리와 물어볼 말을 천천히 고른다."
         set ProtoEventIntro[852] = "|cFF006B8F메루루|r가 말을 꺼내려다 멈춘 장면이 생각난다."
-        set ProtoEventIcon[852] = "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.tga"
+        set ProtoEventIcon[852] = "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.blp"
         set ProtoEventImageAspect[852] = 1.777778
         set ProtoEventRequired[852] = 0
         set ProtoEventRequiredChoice[852] = 0
@@ -53542,7 +53542,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[853] = 1
         set ProtoEventStory[853] = "|cFF006B8F히로|r의 단호함과 |cFF006B8F에마|r의 망설임을 함께 떠올린다. 맞고 틀림을 서둘러 나누기 전에 무엇을 말하는지부터 맞춰 본다."
         set ProtoEventIntro[853] = "같은 단어를 쓰고도 서로 다른 곳을 보고 있었다."
-        set ProtoEventIcon[853] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga"
+        set ProtoEventIcon[853] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.blp"
         set ProtoEventImageAspect[853] = 1.777778
         set ProtoEventRequired[853] = 0
         set ProtoEventRequiredChoice[853] = 0
@@ -53589,7 +53589,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[854] = 1
         set ProtoEventStory[854] = "저택에서 나눴던 대화를 정리한다. |cFF80560C기억|r하기 쉬운 사람부터 적으면 먼저 일어난 일이 뒤로 밀리기도 한다."
         set ProtoEventIntro[854] = "짧게 적어 둔 말들이 뒤섞여 있다."
-        set ProtoEventIcon[854] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga"
+        set ProtoEventIcon[854] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.blp"
         set ProtoEventImageAspect[854] = 1.777778
         set ProtoEventRequired[854] = 0
         set ProtoEventRequiredChoice[854] = 0
@@ -53636,7 +53636,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[855] = 1
         set ProtoEventStory[855] = "한 선을 끝내기 전에 옆의 여백을 살피던 손길이 떠오른다. 이미 익숙해졌다고 여긴 그림에도 더 볼 자리가 남아 있었다."
         set ProtoEventIntro[855] = "|cFF006B8F노아|r에게서 본 작은 습관을 다시 따라가 본다."
-        set ProtoEventIcon[855] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.tga"
+        set ProtoEventIcon[855] = "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.blp"
         set ProtoEventImageAspect[855] = 1.777778
         set ProtoEventRequired[855] = 0
         set ProtoEventRequiredChoice[855] = 0
@@ -53683,7 +53683,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[856] = 1
         set ProtoEventStory[856] = "빠르게 넘겼던 부분에서 익숙한 움직임이 눈에 걸린다. 처음 보았을 때의 확신을 잠시 내려놓고 속도를 늦춘다."
         set ProtoEventIntro[856] = "|cFF006B8F코코|r의 |cFF80560C기록|r을 살피던 감각이 아직 남아 있다."
-        set ProtoEventIcon[856] = "war3mapImported\\UI_EventThumb_XP_witch_prison_koko.tga"
+        set ProtoEventIcon[856] = "war3mapImported\\UI_EventThumb_XP_witch_prison_koko.blp"
         set ProtoEventImageAspect[856] = 1.777778
         set ProtoEventRequired[856] = 0
         set ProtoEventRequiredChoice[856] = 0
@@ -53730,7 +53730,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[857] = 1
         set ProtoEventStory[857] = "|cFF006B8F히로|r에게서 배운 정리 방식을 떠올리며 말을 더 보탤지 생각한다. 빽빽한 |cFF80560C기록|r보다 필요한 질문 하나를 남기는 편이 나을 때도 있다."
         set ProtoEventIntro[857] = "순서대로 정리한 메모의 끝에 빈 줄이 남았다."
-        set ProtoEventIcon[857] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga"
+        set ProtoEventIcon[857] = "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.blp"
         set ProtoEventImageAspect[857] = 1.777778
         set ProtoEventRequired[857] = 854
         set ProtoEventRequiredChoice[857] = 2
@@ -53777,7 +53777,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[858] = 1
         set ProtoEventStory[858] = "|cFF006B8F셰리|r가 대수롭지 않게 넘기던 작은 흔적을 |cFF80560C기억|r한다. 무엇을 옮겼는지보다 어떤 순서로 만졌는지가 중요할 때가 있다."
         set ProtoEventIntro[858] = "정리를 마친 뒤에도 손끝에 다른 색이 남아 있었다."
-        set ProtoEventIcon[858] = "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.tga"
+        set ProtoEventIcon[858] = "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.blp"
         set ProtoEventImageAspect[858] = 1.777778
         set ProtoEventRequired[858] = 0
         set ProtoEventRequiredChoice[858] = 0
@@ -53824,7 +53824,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[859] = 1
         set ProtoEventStory[859] = "재판이 끝난 뒤 |cFF006B8F에마|r와 |cFF006B8F히로|r가 나눈 화해를 떠올린다. 무엇이든 한 번에 바로잡겠다는 |cFF80560C약속|r보다, 다음에 다시 말을 걸 수 있다는 사실이 오래 남는다."
         set ProtoEventIntro[859] = "돌아갈 길 앞에서 평범한 인사가 달리 들린다."
-        set ProtoEventIcon[859] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga"
+        set ProtoEventIcon[859] = "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.blp"
         set ProtoEventImageAspect[859] = 1.777778
         set ProtoEventRequired[859] = 0
         set ProtoEventRequiredChoice[859] = 0
@@ -53871,7 +53871,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[860] = 1
         set ProtoEventStory[860] = "그림을 고르던 손, 의자를 옮기던 힘, 답을 기다리던 침묵이 함께 떠오른다. 누구도 한 번의 판결이나 한 장면만으로 |cFF80560C기억|r하고 싶지는 않다."
         set ProtoEventIntro[860] = "저택을 떠올리면 재판장의 모습만 남는 것은 아니다."
-        set ProtoEventIcon[860] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga"
+        set ProtoEventIcon[860] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.blp"
         set ProtoEventImageAspect[860] = 1.777778
         set ProtoEventRequired[860] = 0
         set ProtoEventRequiredChoice[860] = 0
@@ -53913,7 +53913,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[25] = "persona5"
         set ProtoHeadName[25] = "페르소나5"
         set ProtoHeadIntro[25] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
-        set ProtoHeadIcon[25] = "war3mapImported\\UI_Card_XP_persona5_head_Icon.tga"
+        set ProtoHeadIcon[25] = "war3mapImported\\UI_Card_XP_persona5_head_Icon.blp"
         set ProtoHeadEntryCard[25] = 1463
         set ProtoHeadMainLength[25] = 16
         set ProtoHeadRequiredMain[25] = 0
@@ -53928,7 +53928,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[861] = 1
         set ProtoEventStory[861] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
         set ProtoEventIntro[861] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
-        set ProtoEventIcon[861] = "war3mapImported\\UI_EventThumb_XP_persona5_head.tga"
+        set ProtoEventIcon[861] = "war3mapImported\\UI_EventThumb_XP_persona5_head.blp"
         set ProtoEventImageAspect[861] = 1.777778
         set ProtoHeadEntryEvent[101] = 862
         set ProtoEventKey[862] = "persona5_entry_1"
@@ -53940,7 +53940,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[862] = 1
         set ProtoEventStory[862] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
         set ProtoEventIntro[862] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
-        set ProtoEventIcon[862] = "war3mapImported\\UI_EventThumb_XP_persona5_head.tga"
+        set ProtoEventIcon[862] = "war3mapImported\\UI_EventThumb_XP_persona5_head.blp"
         set ProtoEventImageAspect[862] = 1.777778
         set ProtoHeadEntryEvent[102] = 863
         set ProtoEventKey[863] = "persona5_entry_2"
@@ -53952,7 +53952,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[863] = 1
         set ProtoEventStory[863] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
         set ProtoEventIntro[863] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
-        set ProtoEventIcon[863] = "war3mapImported\\UI_EventThumb_XP_persona5_head.tga"
+        set ProtoEventIcon[863] = "war3mapImported\\UI_EventThumb_XP_persona5_head.blp"
         set ProtoEventImageAspect[863] = 1.777778
         set ProtoHeadEntryEvent[103] = 864
         set ProtoEventKey[864] = "persona5_entry_3"
@@ -53964,7 +53964,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[864] = 1
         set ProtoEventStory[864] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
         set ProtoEventIntro[864] = "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. |cFF006B8F조커|r와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다."
-        set ProtoEventIcon[864] = "war3mapImported\\UI_EventThumb_XP_persona5_head.tga"
+        set ProtoEventIcon[864] = "war3mapImported\\UI_EventThumb_XP_persona5_head.blp"
         set ProtoEventImageAspect[864] = 1.777778
         set ProtoCardKey[1462] = "p5_joker"
         set ProtoCardName[1462] = "조커"
@@ -54557,7 +54557,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[865] = 1
         set ProtoEventStory[865] = "도쿄에서 조용히 지내려던 소년은 |cFF006B8F류지|r와 함께 낯선 성에 갇힌다. 류지가 위협받는 순간, 더는 |cFF704261보고만 있을 수 없다는|r 생각이 가면 아래에서 솟는다."
         set ProtoEventIntro[865] = "르블랑에 짐을 푼 전학생이 학교 대신 성 같은 곳에 들어선다."
-        set ProtoEventIcon[865] = "war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.tga"
+        set ProtoEventIcon[865] = "war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.blp"
         set ProtoEventImageAspect[865] = 1.777778
         set ProtoEventRequired[865] = 0
         set ProtoEventRequiredChoice[865] = 0
@@ -54607,7 +54607,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[866] = 1
         set ProtoEventStory[866] = "학교에서 벌어진 일을 모른 척하라는 압박이 이어진다. 안은 친구의 아픔을 자신의 침묵으로 덮지 않기로 한다. 괴도들은 카모시다의 보물을 훔칠 준비를 마친다."
         set ProtoEventIntro[866] = "친구가 입은 상처 앞에서 안도 성으로 들어온다."
-        set ProtoEventIcon[866] = "war3mapImported\\UI_EventThumb_XP_persona5_ann.tga"
+        set ProtoEventIcon[866] = "war3mapImported\\UI_EventThumb_XP_persona5_ann.blp"
         set ProtoEventImageAspect[866] = 1.777778
         set ProtoEventRequired[866] = 0
         set ProtoEventRequiredChoice[866] = 0
@@ -54657,7 +54657,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[867] = 1
         set ProtoEventStory[867] = "명성으로 가득한 미술관에는 제자들의 삶도 전시되어 있다. |cFF006B8F유스케|r는 믿어 온 스승의 말과 눈앞의 증거를 함께 마주한다. 한 그림을 둘러싼 진실은 예술에 대한 그의 믿음까지 흔든다."
         set ProtoEventIntro[867] = "|cFF006B8F유스케|r가 스승의 미술관에서 작품의 주인을 묻는다."
-        set ProtoEventIcon[867] = "war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.tga"
+        set ProtoEventIcon[867] = "war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.blp"
         set ProtoEventImageAspect[867] = 1.777778
         set ProtoEventRequired[867] = 0
         set ProtoEventRequiredChoice[867] = 0
@@ -54714,7 +54714,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[868] = 1
         set ProtoEventStory[868] = "학생들을 먹잇감으로 삼는 카네시로에게 |cFF006B8F마코토|r도 붙잡힌다. 거리 전체가 |cFF865500돈을 삼키는 은행|r처럼 변한 |cFF865500팰리스|r에서 그녀는 더 이상 남이 붙여 준 역할에 머물지 않으려 한다."
         set ProtoEventIntro[868] = "|cFF006B8F마코토|r가 협박 앞에서 다른 사람의 판단만 기다리지 않는다."
-        set ProtoEventIcon[868] = "war3mapImported\\UI_EventThumb_XP_persona5_makoto.tga"
+        set ProtoEventIcon[868] = "war3mapImported\\UI_EventThumb_XP_persona5_makoto.blp"
         set ProtoEventImageAspect[868] = 1.777778
         set ProtoEventRequired[868] = 0
         set ProtoEventRequiredChoice[868] = 0
@@ -54764,7 +54764,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[869] = 2
         set ProtoEventStory[869] = "메제드의 위협 속에서 새로운 의뢰가 도착한다. 사쿠라 |cFF006B8F후타바|r는 |cFF704261자신을 탓하는 기억|r 때문에 방에 갇혀 있다. 피라미드 같은 마음속에서 동료들은 그녀 대신 답을 정하기보다 그녀가 기억을 바라볼 틈을 찾는다."
         set ProtoEventIntro[869] = "알리바바라는 이름 뒤에서 |cFF006B8F후타바|r가 자신의 마음을 부탁한다."
-        set ProtoEventIcon[869] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.tga"
+        set ProtoEventIcon[869] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.blp"
         set ProtoEventImageAspect[869] = 1.777778
         set ProtoEventRequired[869] = 0
         set ProtoEventRequiredChoice[869] = 0
@@ -54814,7 +54814,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[870] = 2
         set ProtoEventStory[870] = "|cFF006B8F모르가나|r는 자신이 필요 없는 존재라는 생각에 등을 돌린다. 그가 함께 움직이던 하루 역시 아버지가 정한 미래에 갇혀 있다. 서로에게 잘못 꺼낸 말을 돌아보며 괴도단은 다시 모일 이유를 찾는다."
         set ProtoEventIntro[870] = "|cFF006B8F모르가나|r와의 갈등 뒤 하루와의 만남이 일행을 다시 묶는다."
-        set ProtoEventIcon[870] = "war3mapImported\\UI_EventThumb_XP_persona5_morgana.tga"
+        set ProtoEventIcon[870] = "war3mapImported\\UI_EventThumb_XP_persona5_morgana.blp"
         set ProtoEventImageAspect[870] = 1.777778
         set ProtoEventRequired[870] = 0
         set ProtoEventRequiredChoice[870] = 0
@@ -54864,7 +54864,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[871] = 2
         set ProtoEventStory[871] = "|cFF865500팰리스|r에서 돌아온 일행은 다음 소식을 기다린다. 그러나 기자회견에서 오쿠무라가 쓰러지고 괴도단을 향한 시선이 돌변한다. 하루의 상실 앞에서 성급한 변명만 늘어놓을 수는 없다."
         set ProtoEventIntro[871] = "오쿠무라 공략 뒤 현실의 기자회견이 예상과 다르게 끝난다."
-        set ProtoEventIcon[871] = "war3mapImported\\UI_EventThumb_XP_persona5_haru.tga"
+        set ProtoEventIcon[871] = "war3mapImported\\UI_EventThumb_XP_persona5_haru.blp"
         set ProtoEventImageAspect[871] = 1.777778
         set ProtoEventRequired[871] = 0
         set ProtoEventRequiredChoice[871] = 0
@@ -54914,7 +54914,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[872] = 2
         set ProtoEventStory[872] = "수사망이 조여 오는 가운데 |cFF006B8F아케치|r가 협력을 제안한다. |cFF006B8F사에|r의 마음속 카지노에서는 |cFF865500규칙조차 상대에게 유리하게 바뀐다.|r 괴도단은 드러난 승부와 숨겨 둔 준비를 나누어 움직인다."
         set ProtoEventIntro[872] = "|cFF006B8F아케치|r의 제안으로 사에의 |cFF865500팰리스|r를 공략한다."
-        set ProtoEventIcon[872] = "war3mapImported\\UI_EventThumb_XP_persona5_akechi.tga"
+        set ProtoEventIcon[872] = "war3mapImported\\UI_EventThumb_XP_persona5_akechi.blp"
         set ProtoEventImageAspect[872] = 1.777778
         set ProtoEventRequired[872] = 0
         set ProtoEventRequiredChoice[872] = 0
@@ -54964,7 +54964,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[873] = 3
         set ProtoEventStory[873] = "흐려지는 의식 속에서도 |cFF006B8F조커|r는 동료를 팔지 않는다. |cFF006B8F사에|r에게 건네야 할 말과 휴대전화가 남아 있다. 한 사람이 믿어 주는가에 따라 취조실 밖의 계획이 이어질 수 있다."
         set ProtoEventIntro[873] = "|cFF006B8F사에|r의 질문 앞에서 |cFF006B8F조커|r가 끝까지 동료를 지킨다."
-        set ProtoEventIcon[873] = "war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.tga"
+        set ProtoEventIcon[873] = "war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.blp"
         set ProtoEventImageAspect[873] = 1.777778
         set ProtoEventRequired[873] = 0
         set ProtoEventRequiredChoice[873] = 0
@@ -55021,7 +55021,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[874] = 3
         set ProtoEventStory[874] = "괴도단은 정계의 배후인 시도를 쫓아 거대한 배 같은 |cFF865500팰리스|r에 들어간다. 그곳에서 |cFF006B8F아케치|r가 |cFF704261자신의 적의와 복수를 드러낸다.|r 그의 말에는 끝내 동료에게 내보이지 않았던 고립도 섞여 있다."
         set ProtoEventIntro[874] = "시도의 배에서 |cFF006B8F아케치|r가 숨겨 온 목적과 맞선다."
-        set ProtoEventIcon[874] = "war3mapImported\\UI_EventThumb_XP_persona5_akechi.tga"
+        set ProtoEventIcon[874] = "war3mapImported\\UI_EventThumb_XP_persona5_akechi.blp"
         set ProtoEventImageAspect[874] = 1.777778
         set ProtoEventRequired[874] = 0
         set ProtoEventRequiredChoice[874] = 0
@@ -55071,7 +55071,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[875] = 3
         set ProtoEventStory[875] = "|cFFA53528주변을 희생시키는 권력|r이 거대한 배의 형태로 앞을 막는다. |cFF006B8F조커|r는 자신을 도쿄로 내몬 사건의 당사자와 마주한다. 동료들은 그 개인의 분노를 넘어 같은 위험에 놓인 사람들을 생각한다."
         set ProtoEventIntro[875] = "시도가 자신만 살아남는 미래를 당연하게 말한다."
-        set ProtoEventIcon[875] = "war3mapImported\\UI_EventThumb_XP_persona5_joker.tga"
+        set ProtoEventIcon[875] = "war3mapImported\\UI_EventThumb_XP_persona5_joker.blp"
         set ProtoEventImageAspect[875] = 1.777778
         set ProtoEventRequired[875] = 0
         set ProtoEventRequiredChoice[875] = 0
@@ -55121,7 +55121,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[876] = 3
         set ProtoEventStory[876] = "괴도단은 대중이 판단을 맡겨 버린 마음의 깊은 곳을 본다. 스스로 갇히려는 사람들 앞에서 힘으로 문만 여는 것이 답인지 흔들린다. 가장 아래에는 |cFF865500사람들의 바람이 만든 성배|r가 기다린다."
         set ProtoEventIntro[876] = "고백에도 움직이지 않는 여론을 따라 |cFF865500메멘토스|r 깊이 내려간다."
-        set ProtoEventIcon[876] = "war3mapImported\\UI_EventThumb_XP_persona5_head.tga"
+        set ProtoEventIcon[876] = "war3mapImported\\UI_EventThumb_XP_persona5_head.blp"
         set ProtoEventImageAspect[876] = 1.777778
         set ProtoEventRequired[876] = 0
         set ProtoEventRequiredChoice[876] = 0
@@ -55171,7 +55171,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[877] = 4
         set ProtoEventStory[877] = "|cFF006B8F조커|r 앞에 내려진 처형 명령에 |cFF865500쌍둥이 간수들도 모순을 느낀다|r. 잃어버린 |cFF80560C기억|r이 맞물리며 방의 주인을 자처하던 존재의 정체가 흔들린다. 조커에게는 편안한 복종이라는 제안이 남는다."
         set ProtoEventIntro[877] = "벨벳 룸에서 실패라는 판결을 그대로 받아들이지 않는다."
-        set ProtoEventIcon[877] = "war3mapImported\\UI_EventThumb_XP_persona5_joker.tga"
+        set ProtoEventIcon[877] = "war3mapImported\\UI_EventThumb_XP_persona5_joker.blp"
         set ProtoEventImageAspect[877] = 1.777778
         set ProtoEventRequired[877] = 0
         set ProtoEventRequiredChoice[877] = 0
@@ -55228,7 +55228,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[878] = 4
         set ProtoEventStory[878] = "거대한 적이 사람들의 포기를 힘으로 삼는다. 그래도 괴도단을 믿는 |cFF80560C목소리|r가 |cFF80560C도시|r에서 모여든다. |cFF006B8F조커|r와 동료들은 정해진 구원 대신 자신들이 선택한 미래를 향해 싸운다."
         set ProtoEventIntro[878] = "마음의 괴도단이 지배의 신 앞에서 다시 이름을 건다."
-        set ProtoEventIcon[878] = "war3mapImported\\UI_EventThumb_XP_persona5_joker.tga"
+        set ProtoEventIcon[878] = "war3mapImported\\UI_EventThumb_XP_persona5_joker.blp"
         set ProtoEventImageAspect[878] = 1.777778
         set ProtoEventRequired[878] = 0
         set ProtoEventRequiredChoice[878] = 0
@@ -55278,7 +55278,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[879] = 4
         set ProtoEventStory[879] = "큰 싸움이 끝나도 누명이 저절로 사라지지는 않는다. 시도의 죄를 밝힐 증언을 위해 |cFF006B8F조커|r는 |cFF006B8F사에|r와 이야기를 나눈다. 기다리게 될 동료들에게는 자신들이 할 수 있는 일을 찾을 시간이 시작된다."
         set ProtoEventIntro[879] = "현실의 책임 앞에서 |cFF006B8F조커|r가 자신의 말을 남긴다."
-        set ProtoEventIcon[879] = "war3mapImported\\UI_EventThumb_XP_persona5_sae.tga"
+        set ProtoEventIcon[879] = "war3mapImported\\UI_EventThumb_XP_persona5_sae.blp"
         set ProtoEventImageAspect[879] = 1.777778
         set ProtoEventRequired[879] = 0
         set ProtoEventRequiredChoice[879] = 0
@@ -55328,7 +55328,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[880] = 4
         set ProtoEventStory[880] = "떠날 준비를 마친 |cFF006B8F조커|r에게 친구들이 함께 가자고 손짓한다. 떠나는 사람과 남는 사람의 일상은 달라져도 함께 보낸 시간이 사라지지는 않는다. 차창 너머의 길이 길게 이어진다."
         set ProtoEventIntro[880] = "돌아갈 날, 동료들과 마지막 길에 나선다."
-        set ProtoEventIcon[880] = "war3mapImported\\UI_EventThumb_XP_persona5_ending_memorial.tga"
+        set ProtoEventIcon[880] = "war3mapImported\\UI_EventThumb_XP_persona5_ending_memorial.blp"
         set ProtoEventImageAspect[880] = 1.777778
         set ProtoEventRequired[880] = 0
         set ProtoEventRequiredChoice[880] = 0
@@ -55383,7 +55383,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[881] = 1
         set ProtoEventStory[881] = "|cFF006B8F모르가나|r가 먼저 복도를 살피고 |cFF006B8F류지|r가 뒤를 확인했다. |cFF006B8F조커|r는 돌아갈 방향을 손끝으로 가리켰다. 다음에도 빠뜨리지 않을 습관을 고른다."
         set ProtoEventIntro[881] = "첫 잠입 뒤 출구에서 나누었던 짧은 신호를 떠올린다."
-        set ProtoEventIcon[881] = "war3mapImported\\UI_EventThumb_XP_persona5_morgana.tga"
+        set ProtoEventIcon[881] = "war3mapImported\\UI_EventThumb_XP_persona5_morgana.blp"
         set ProtoEventImageAspect[881] = 1.777778
         set ProtoEventRequired[881] = 865
         set ProtoEventRequiredChoice[881] = 3
@@ -55430,7 +55430,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[882] = 1
         set ProtoEventStory[882] = "안과 |cFF006B8F류지|r는 하고 싶은 말을 쏟아냈고 |cFF006B8F모르가나|r는 필요한 준비를 끼워 넣었다. 문장으로 가득한 종이에서 다음 잠입에 가져갈 부분을 골라 본다."
         set ProtoEventIntro[882] = "카모시다 사건 뒤 옥상에서 수첩을 펼쳤던 때를 되짚는다."
-        set ProtoEventIcon[882] = "war3mapImported\\UI_EventThumb_XP_persona5_ann.tga"
+        set ProtoEventIcon[882] = "war3mapImported\\UI_EventThumb_XP_persona5_ann.blp"
         set ProtoEventImageAspect[882] = 1.777778
         set ProtoEventRequired[882] = 866
         set ProtoEventRequiredChoice[882] = 1
@@ -55477,7 +55477,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[883] = 1
         set ProtoEventStory[883] = "카운터 아래 찻잔을 정리하던 |cFF006B8F조커|r에게 |cFF006B8F소지로|r가 물기부터 보라고 했다. |cFF006B8F모르가나|r는 가방에서 그 광경을 지켜봤다. 서두르면 놓치던 작은 부분을 되짚는다."
         set ProtoEventIntro[883] = "르블랑에서 |cFF006B8F소지로|r의 일을 거들던 저녁이 떠오른다."
-        set ProtoEventIcon[883] = "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.tga"
+        set ProtoEventIcon[883] = "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.blp"
         set ProtoEventImageAspect[883] = 1.777778
         set ProtoEventRequired[883] = 865
         set ProtoEventRequiredChoice[883] = 2
@@ -55524,7 +55524,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[884] = 1
         set ProtoEventStory[884] = "|cFF006B8F유스케|r는 한 선에 담긴 움직임을 오래 설명했다. 안은 보는 사람마다 다른 느낌을 말했고 |cFF006B8F조커|r는 두 이야기를 번갈아 들었다. 같은 대상을 달리 살핀 |cFF80560C기억|r이 남아 있다."
         set ProtoEventIntro[884] = "|cFF006B8F유스케|r와 그림 앞에 멈춰 섰던 날을 떠올린다."
-        set ProtoEventIcon[884] = "war3mapImported\\UI_EventThumb_XP_persona5_yusuke.tga"
+        set ProtoEventIcon[884] = "war3mapImported\\UI_EventThumb_XP_persona5_yusuke.blp"
         set ProtoEventImageAspect[884] = 1.777778
         set ProtoEventRequired[884] = 867
         set ProtoEventRequiredChoice[884] = 1
@@ -55571,7 +55571,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[885] = 1
         set ProtoEventStory[885] = "|cFF006B8F마코토|r가 빠른 길에 표시를 하자 |cFF006B8F류지|r는 뒤처질 사람이 없는지 물었다. |cFF006B8F모르가나|r는 막다른 길을 짚었다. 빠르다는 말에 가려진 조건을 하나씩 보았다."
         set ProtoEventIntro[885] = "|cFF006B8F마코토|r와 이동 계획을 다시 그렸던 회의를 되짚는다."
-        set ProtoEventIcon[885] = "war3mapImported\\UI_EventThumb_XP_persona5_makoto.tga"
+        set ProtoEventIcon[885] = "war3mapImported\\UI_EventThumb_XP_persona5_makoto.blp"
         set ProtoEventImageAspect[885] = 1.777778
         set ProtoEventRequired[885] = 868
         set ProtoEventRequiredChoice[885] = 1
@@ -55618,7 +55618,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[886] = 1
         set ProtoEventStory[886] = "|cFF006B8F후타바|r는 여러 창을 띄웠고 |cFF006B8F마코토|r는 지금 필요한 질문을 골랐다. |cFF006B8F조커|r는 아직 답이 없는 항목을 따로 남겼다. 많은 정보와 필요한 정보의 차이가 보였다."
         set ProtoEventIntro[886] = "|cFF006B8F후타바|r가 합류한 뒤 화면을 함께 정리했던 |cFF80560C기억|r이다."
-        set ProtoEventIcon[886] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.tga"
+        set ProtoEventIcon[886] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.blp"
         set ProtoEventImageAspect[886] = 1.777778
         set ProtoEventRequired[886] = 869
         set ProtoEventRequiredChoice[886] = 1
@@ -55665,7 +55665,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[887] = 1
         set ProtoEventStory[887] = "하루는 다른 사람이 정한 모양보다 자기 손에 맞는지 확인했다. |cFF006B8F모르가나|r는 움직여 보라고 했고 안은 불편한 점을 말해도 된다고 거들었다."
         set ProtoEventIntro[887] = "하루가 합류한 뒤 장비를 살폈던 조용한 순간을 떠올린다."
-        set ProtoEventIcon[887] = "war3mapImported\\UI_EventThumb_XP_persona5_haru.tga"
+        set ProtoEventIcon[887] = "war3mapImported\\UI_EventThumb_XP_persona5_haru.blp"
         set ProtoEventImageAspect[887] = 1.777778
         set ProtoEventRequired[887] = 870
         set ProtoEventRequiredChoice[887] = 2
@@ -55712,7 +55712,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[888] = 1
         set ProtoEventStory[888] = "|cFF006B8F아케치|r는 상대의 답변에 빠진 조건을 물었다. |cFF006B8F마코토|r는 확인할 근거를 찾았고 |cFF006B8F조커|r는 질문이 유도하는 방향을 살폈다. 그날 들은 말은 여러 뜻으로 남아 있다."
         set ProtoEventIntro[888] = "|cFF006B8F아케치|r와 협력하던 때의 질문을 다시 읽는다."
-        set ProtoEventIcon[888] = "war3mapImported\\UI_EventThumb_XP_persona5_akechi.tga"
+        set ProtoEventIcon[888] = "war3mapImported\\UI_EventThumb_XP_persona5_akechi.blp"
         set ProtoEventImageAspect[888] = 1.777778
         set ProtoEventRequired[888] = 872
         set ProtoEventRequiredChoice[888] = 1
@@ -55759,7 +55759,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[889] = 1
         set ProtoEventStory[889] = "문서에는 확실히 보았던 일과 누군가에게 들었던 일을 나누어 적었다. |cFF006B8F소지로|r는 |cFF006B8F조커|r가 말을 끝낼 때까지 기다렸다. 결론보다 그 결론까지 가는 길이 중요했다."
         set ProtoEventIntro[889] = "|cFF006B8F사에|r와 증언을 정리했던 과정을 돌아본다."
-        set ProtoEventIcon[889] = "war3mapImported\\UI_EventThumb_XP_persona5_sae.tga"
+        set ProtoEventIcon[889] = "war3mapImported\\UI_EventThumb_XP_persona5_sae.blp"
         set ProtoEventImageAspect[889] = 1.777778
         set ProtoEventRequired[889] = 873
         set ProtoEventRequiredChoice[889] = 2
@@ -55806,7 +55806,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[890] = 1
         set ProtoEventStory[890] = "|cFF006B8F류지|r는 빨리 도착하는 일만 생각했다며 머리를 긁적였다. |cFF006B8F마코토|r가 복귀 순서를 적고 |cFF006B8F모르가나|r는 갈림길을 다시 짚었다. 길의 끝이 아니라 함께 돌아오는 순간을 생각했다."
         set ProtoEventIntro[890] = "|cFF006B8F류지|r와 다음 이동을 준비했던 말을 떠올린다."
-        set ProtoEventIcon[890] = "war3mapImported\\UI_EventThumb_XP_persona5_ryuji.tga"
+        set ProtoEventIcon[890] = "war3mapImported\\UI_EventThumb_XP_persona5_ryuji.blp"
         set ProtoEventImageAspect[890] = 1.777778
         set ProtoEventRequired[890] = 868
         set ProtoEventRequiredChoice[890] = 3
@@ -55853,7 +55853,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[891] = 1
         set ProtoEventStory[891] = "괜찮냐는 질문만 반복하고 싶지는 않았다. |cFF006B8F조커|r는 함께할 수 있는 일을 말해 보자고 했고 |cFF006B8F류지|r는 |cFF80560C약속|r한 때에 곁에 있겠다고 했다. 답을 재촉하지 않는 문장을 고른다."
         set ProtoEventIntro[891] = "안이 친구에게 보낼 말을 고르던 날을 떠올린다."
-        set ProtoEventIcon[891] = "war3mapImported\\UI_EventThumb_XP_persona5_ann.tga"
+        set ProtoEventIcon[891] = "war3mapImported\\UI_EventThumb_XP_persona5_ann.blp"
         set ProtoEventImageAspect[891] = 1.777778
         set ProtoEventRequired[891] = 866
         set ProtoEventRequiredChoice[891] = 2
@@ -55900,7 +55900,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[892] = 1
         set ProtoEventStory[892] = "|cFF006B8F소지로|r는 바쁜 말들 사이에서도 잔을 정리했다. 하루는 말수가 적은 사람에게 시선을 돌렸고 |cFF006B8F후타바|r는 들은 내용을 짧게 적었다. 말하지 않는 마음까지 살필 시간이었다."
         set ProtoEventIntro[892] = "동료들이 르블랑에서 돌아올 자리를 이야기했던 밤을 되짚는다."
-        set ProtoEventIcon[892] = "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.tga"
+        set ProtoEventIcon[892] = "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.blp"
         set ProtoEventImageAspect[892] = 1.777778
         set ProtoEventRequired[892] = 871
         set ProtoEventRequiredChoice[892] = 1
@@ -55947,7 +55947,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[893] = 1
         set ProtoEventStory[893] = "처음 표시할 때는 길 하나면 충분해 보였다. 돌아오는 방향에서 보면 같은 모서리도 달라 보인다는 설명이 뒤늦게 떠오른다."
         set ProtoEventIntro[893] = "|cFF006B8F모르가나|r에게 배웠던 퇴로 표식을 다시 떠올린다."
-        set ProtoEventIcon[893] = "war3mapImported\\UI_EventThumb_XP_persona5_morgana.tga"
+        set ProtoEventIcon[893] = "war3mapImported\\UI_EventThumb_XP_persona5_morgana.blp"
         set ProtoEventImageAspect[893] = 1.777778
         set ProtoEventRequired[893] = 865
         set ProtoEventRequiredChoice[893] = 3
@@ -55994,7 +55994,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[894] = 1
         set ProtoEventStory[894] = "질문을 줄이고 나니 다음 확인에 쓸 여유가 보였다. 꼭 채워야 하는 칸과 비워 두어야 하는 칸을 구분했던 |cFF80560C기억|r을 살핀다."
         set ProtoEventIntro[894] = "|cFF006B8F후타바|r와 정보 화면을 정리하던 때의 미완성 계획을 다시 본다."
-        set ProtoEventIcon[894] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.tga"
+        set ProtoEventIcon[894] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.blp"
         set ProtoEventImageAspect[894] = 1.777778
         set ProtoEventRequired[894] = 869
         set ProtoEventRequiredChoice[894] = 1
@@ -56041,7 +56041,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[895] = 1
         set ProtoEventStory[895] = "처음 내린 결심이 언제나 쉬운 것은 아니었다. 하루는 작은 선택에서도 자신의 이유를 찾아 보려 했다. 동료들은 답을 대신해 주지 않았다."
         set ProtoEventIntro[895] = "하루가 자기 뜻을 말했던 뒤의 대화를 되짚는다."
-        set ProtoEventIcon[895] = "war3mapImported\\UI_EventThumb_XP_persona5_haru.tga"
+        set ProtoEventIcon[895] = "war3mapImported\\UI_EventThumb_XP_persona5_haru.blp"
         set ProtoEventImageAspect[895] = 1.777778
         set ProtoEventRequired[895] = 870
         set ProtoEventRequiredChoice[895] = 2
@@ -56088,7 +56088,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[896] = 1
         set ProtoEventStory[896] = "|cFF006B8F후타바|r는 연결이 이어진 순간을 짚고 |cFF006B8F마코토|r는 전달 순서를 돌아봤다. |cFF006B8F조커|r는 어느 한 사람의 완벽함보다 서로 지킨 작은 몫을 떠올렸다."
         set ProtoEventIntro[896] = "취조실 계획이 끝난 뒤 동료들과 준비를 돌아봤던 |cFF80560C기억|r이다."
-        set ProtoEventIcon[896] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.tga"
+        set ProtoEventIcon[896] = "war3mapImported\\UI_EventThumb_XP_persona5_futaba.blp"
         set ProtoEventImageAspect[896] = 1.777778
         set ProtoEventRequired[896] = 873
         set ProtoEventRequiredChoice[896] = 3
@@ -56135,7 +56135,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[897] = 1
         set ProtoEventStory[897] = "|cFF006B8F소지로|r는 길게 말하는 대신 마지막까지 평소처럼 잔을 닦았다. |cFF006B8F모르가나|r는 가방 안의 자리를 확인했다. |cFF006B8F조커|r는 처음 올라왔던 계단을 다시 바라본다."
         set ProtoEventIntro[897] = "봄의 출발을 앞두고 르블랑에서 나누었던 인사를 떠올린다."
-        set ProtoEventIcon[897] = "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.tga"
+        set ProtoEventIcon[897] = "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.blp"
         set ProtoEventImageAspect[897] = 1.777778
         set ProtoEventRequired[897] = 0
         set ProtoEventRequiredChoice[897] = 0
@@ -56182,7 +56182,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[898] = 1
         set ProtoEventStory[898] = "|cFF006B8F류지|r는 다음에 무엇을 할지 앞서 말하고 안은 날짜부터 맞추자고 웃는다. |cFF006B8F유스케|r는 창밖 풍경을 오래 바라본다. 같은 차 안에서도 각자의 다음 그림은 조금씩 다르다."
         set ProtoEventIntro[898] = "함께 오른 귀향길에서 다음 만남을 이야기한다."
-        set ProtoEventIcon[898] = "war3mapImported\\UI_EventThumb_XP_persona5_ryuji.tga"
+        set ProtoEventIcon[898] = "war3mapImported\\UI_EventThumb_XP_persona5_ryuji.blp"
         set ProtoEventImageAspect[898] = 1.777778
         set ProtoEventRequired[898] = 0
         set ProtoEventRequiredChoice[898] = 0
@@ -56224,7 +56224,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[26] = "persona5_royal"
         set ProtoHeadName[26] = "페르소나5 더 로열"
         set ProtoHeadIntro[26] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
-        set ProtoHeadIcon[26] = "war3mapImported\\UI_Card_XP_persona5_royal_head_Icon.tga"
+        set ProtoHeadIcon[26] = "war3mapImported\\UI_Card_XP_persona5_royal_head_Icon.blp"
         set ProtoHeadEntryCard[26] = 1529
         set ProtoHeadMainLength[26] = 14
         set ProtoHeadRequiredMain[26] = 25
@@ -56239,7 +56239,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[899] = 1
         set ProtoEventStory[899] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
         set ProtoEventIntro[899] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
-        set ProtoEventIcon[899] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.tga"
+        set ProtoEventIcon[899] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.blp"
         set ProtoEventImageAspect[899] = 1.777778
         set ProtoHeadEntryEvent[105] = 900
         set ProtoEventKey[900] = "persona5_royal_entry_1"
@@ -56251,7 +56251,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[900] = 1
         set ProtoEventStory[900] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
         set ProtoEventIntro[900] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
-        set ProtoEventIcon[900] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.tga"
+        set ProtoEventIcon[900] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.blp"
         set ProtoEventImageAspect[900] = 1.777778
         set ProtoHeadEntryEvent[106] = 901
         set ProtoEventKey[901] = "persona5_royal_entry_2"
@@ -56263,7 +56263,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[901] = 1
         set ProtoEventStory[901] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
         set ProtoEventIntro[901] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
-        set ProtoEventIcon[901] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.tga"
+        set ProtoEventIcon[901] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.blp"
         set ProtoEventImageAspect[901] = 1.777778
         set ProtoHeadEntryEvent[107] = 902
         set ProtoEventKey[902] = "persona5_royal_entry_3"
@@ -56275,7 +56275,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[902] = 1
         set ProtoEventStory[902] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
         set ProtoEventIntro[902] = "괴도단과 함께했던 겨울의 |cFF80560C기억|r으로 돌아간다. 새롭게 맺었던 인연과 평온한 일상 속의 작은 어긋남을 따라, 자신의 대답으로 이어질 내일을 찾는다."
-        set ProtoEventIcon[902] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.tga"
+        set ProtoEventIcon[902] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.blp"
         set ProtoEventImageAspect[902] = 1.777778
         set ProtoCardKey[1520] = "p5r_joker"
         set ProtoCardName[1520] = "조커"
@@ -56808,7 +56808,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[903] = 1
         set ProtoEventStory[903] = "슈진 학원에는 상담사 |cFF006B8F마루키|r가 찾아왔고, |cFF006B8F요시자와|r는 체조와 학교생활 사이에서 애쓰고 있었다. |cFF006B8F조커|r는 각자의 이야기를 들으며 혼자서는 보지 못했던 마음을 알아 갔다. 겨울의 작은 어긋남을 따라가기 전에 그때의 말을 떠올린다."
         set ProtoEventIntro[903] = "괴도단과 지냈던 한 해에서 새 인연의 첫 장면을 되짚는다."
-        set ProtoEventIcon[903] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.tga"
+        set ProtoEventIcon[903] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.blp"
         set ProtoEventImageAspect[903] = 1.777778
         set ProtoEventRequired[903] = 0
         set ProtoEventRequiredChoice[903] = 0
@@ -56858,7 +56858,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[904] = 1
         set ProtoEventStory[904] = "|cFF006B8F조커|r와 |cFF006B8F모르가나|r는 |cFF006B8F요시자와|r와 함께 정체를 알 수 없는 건물에 들어간다. 앞을 막는 위험 속에서 그녀는 주저하던 자신을 넘어 움직인다. 아직 이 공간의 주인이 누구인지는 알 수 없다."
         set ProtoEventIntro[904] = "가을, |cFF006B8F요시자와|r와 낯선 팰리스에 들어갔던 |cFF80560C기억|r이 돌아온다."
-        set ProtoEventIcon[904] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[904] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[904] = 1.777778
         set ProtoEventRequired[904] = 0
         set ProtoEventRequiredChoice[904] = 0
@@ -56908,7 +56908,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[905] = 1
         set ProtoEventStory[905] = "얄다바오트와의 싸움 뒤 |cFF006B8F아케치|r가 사에 앞에 나타나 |cFF006B8F조커|r 대신 증언하러 간다. 그렇게 맞은 새해는 지나치게 평온하다. 친구들이 당연하게 이야기하는 가족과 일상 속에서 조커가 |cFF80560C기억|r하는 빈자리가 하나씩 사라져 있다."
         set ProtoEventIntro[905] = "겨울의 결전 뒤, 익숙한 사람들의 말이 |cFF80560C기억|r과 달라진다."
-        set ProtoEventIcon[905] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.tga"
+        set ProtoEventIcon[905] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.blp"
         set ProtoEventImageAspect[905] = 1.777778
         set ProtoEventRequired[905] = 0
         set ProtoEventRequiredChoice[905] = 0
@@ -56958,7 +56958,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[906] = 2
         set ProtoEventStory[906] = "|cFF006B8F조커|r와 |cFF006B8F아케치|r는 |cFF006B8F요시자와|r와 합류해 낯익은 팰리스를 조사한다. 예전과 달리 사람과 기척이 가득한 공간은 행복을 안내한다. 더 깊이 갈수록 요시자와가 알고 있던 자신과 맞지 않는 흔적이 나타난다."
         set ProtoEventIntro[906] = "|cFF006B8F요시자와|r가 알려 온 이상을 따라 이전의 건물에 다시 들어간다."
-        set ProtoEventIcon[906] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[906] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[906] = 1.777778
         set ProtoEventRequired[906] = 0
         set ProtoEventRequiredChoice[906] = 0
@@ -57008,7 +57008,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[907] = 2
         set ProtoEventStory[907] = "|cFF006B8F요시자와|r가 자기 기억을 묻자 |cFF006B8F마루키|r는 |cFF865500자매의 과거를 드러낸다|r. 조커가 카스미로 알고 지낸 사람은 동생 |cFF006B8F스미레|r였다. 언니를 잃은 고통을 피하고 싶었던 바람이 자신의 이름을 덮고 있었다."
         set ProtoEventIntro[907] = "|cFF006B8F마루키|r가 |cFF006B8F요시자와|r에게 잊고 싶었던 기억을 보여 준다."
-        set ProtoEventIcon[907] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[907] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[907] = 1.777778
         set ProtoEventRequired[907] = 0
         set ProtoEventRequiredChoice[907] = 0
@@ -57065,7 +57065,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[908] = 2
         set ProtoEventStory[908] = "아픔이 사라진 친구들은 분명 행복해 보인다. |cFF006B8F후타바|r와 하루가 되찾았다고 여기는 가족, |cFF006B8F유스케|r가 믿는 스승, |cFF006B8F류지|r가 달리는 길 앞에서 |cFF006B8F조커|r는 과거를 떠올릴 말을 찾는다. 빼앗긴 것은 고통만이 아니었다."
         set ProtoEventIntro[908] = "|cFF006B8F조커|r가 동료들의 바뀐 일상을 하나씩 찾아간다."
-        set ProtoEventIcon[908] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.tga"
+        set ProtoEventIcon[908] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.blp"
         set ProtoEventImageAspect[908] = 1.777778
         set ProtoEventRequired[908] = 0
         set ProtoEventRequiredChoice[908] = 0
@@ -57115,7 +57115,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[909] = 2
         set ProtoEventStory[909] = "|cFF006B8F조커|r는 새 현실을 받아들이지 않겠다고 말한다. |cFF006B8F스미레|r는 다시 |cFF006B8F카스미|r로 살고 싶은 마음에 저항하고, |cFF865500상드리용|r의 힘도 걷잡을 수 없이 흔들린다. 두 사람은 무너지는 힘 앞에서 물러설 곳을 찾는다."
         set ProtoEventIntro[909] = "일주일 뒤, |cFF006B8F조커|r와 |cFF006B8F아케치|r가 자신의 답을 전한다."
-        set ProtoEventIcon[909] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[909] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[909] = 1.777778
         set ProtoEventRequired[909] = 0
         set ProtoEventRequiredChoice[909] = 0
@@ -57165,7 +57165,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[910] = 3
         set ProtoEventStory[910] = "|cFF006B8F라벤차|r는 |cFF006B8F마루키|r의 힘과 |cFF865500메멘토스|r에 벌어진 변화를 설명한다. 다시 팰리스로 향한 |cFF006B8F스미레|r는 남의 모습을 좇던 자신을 외면하지 않는다. 조커와 동료들이 지켜보는 가운데, 이제 자신의 이름으로 손을 뻗는다."
         set ProtoEventIntro[910] = "남은 세계의 구조를 듣고 |cFF006B8F스미레|r가 자기 뜻으로 다시 나선다."
-        set ProtoEventIcon[910] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[910] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[910] = 1.777778
         set ProtoEventRequired[910] = 0
         set ProtoEventRequiredChoice[910] = 0
@@ -57222,7 +57222,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[911] = 3
         set ProtoEventStory[911] = "앞으로 갈 통로를 찾던 괴도단은 새 현실이 하나의 건물 안에서만 유지되는 것이 아님을 알아간다. |cFF865500메멘토스|r의 더 깊은 구역으로 향하며, |cFF006B8F후타바|r는 서로 다른 공간을 잇는 흐름을 짚는다."
         set ProtoEventIntro[911] = "팰리스의 막힌 길이 |cFF865500메멘토스|r 깊은 곳과 이어져 있다."
-        set ProtoEventIcon[911] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.tga"
+        set ProtoEventIcon[911] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.blp"
         set ProtoEventImageAspect[911] = 1.777778
         set ProtoEventRequired[911] = 0
         set ProtoEventRequiredChoice[911] = 0
@@ -57272,7 +57272,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[912] = 3
         set ProtoEventStory[912] = "|cFF006B8F마루키|r의 과거에는 연인을 괴로움에서 구하려던 마음과 그 대가로 |cFF704261지워진 관계가 남아 있다|r. 괴도단은 그를 이해할 단서를 보면서도 모두의 삶을 대신 고르는 결론에는 동의하지 않는다."
         set ProtoEventIntro[912] = "연구소의 |cFF80560C기록|r에서 |cFF006B8F마루키|r가 놓지 못한 상처를 마주한다."
-        set ProtoEventIcon[912] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga"
+        set ProtoEventIcon[912] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.blp"
         set ProtoEventImageAspect[912] = 1.777778
         set ProtoEventRequired[912] = 0
         set ProtoEventRequiredChoice[912] = 0
@@ -57322,7 +57322,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[913] = 4
         set ProtoEventStory[913] = "|cFF006B8F마루키|r는 이 현실을 잃으면 |cFF006B8F아케치|r와의 재회도 이어지지 못할 수 있다고 말한다. 아케치는 누군가 정해 놓은 삶에 머물기를 거부한다. |cFF006B8F조커|r에게는 친구의 뜻을 들은 채 자신의 답을 건넬 순간이 남는다."
         set ProtoEventIntro[913] = "결전 전날, 르블랑에서 |cFF006B8F마루키|r가 다시 묻는다."
-        set ProtoEventIcon[913] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.tga"
+        set ProtoEventIcon[913] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.blp"
         set ProtoEventImageAspect[913] = 1.777778
         set ProtoEventRequired[913] = 0
         set ProtoEventRequiredChoice[913] = 0
@@ -57379,7 +57379,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[914] = 4
         set ProtoEventStory[914] = "|cFF006B8F마루키|r와 |cFF865500아자토스|r는 고통 없는 세상을 놓지 않으려 한다. 서로의 이유를 안다고 싸움이 사라지지는 않는다. 더 거대한 힘이 나타나도 괴도단은 동료의 신호와 자신들이 정한 목표를 붙든다."
         set ProtoEventIntro[914] = "|cFF80560C약속|r한 날, 괴도단이 |cFF006B8F마루키|r의 마지막 의지와 맞선다."
-        set ProtoEventIcon[914] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga"
+        set ProtoEventIcon[914] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.blp"
         set ProtoEventImageAspect[914] = 1.777778
         set ProtoEventRequired[914] = 0
         set ProtoEventRequiredChoice[914] = 0
@@ -57429,7 +57429,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[915] = 4
         set ProtoEventStory[915] = "거대한 힘이 사라져도 |cFF006B8F마루키|r는 쉽게 놓지 못한다. 동료들이 탈출을 준비하는 동안 |cFF006B8F조커|r와 그는 |cFF704261마지막 감정을 부딪친다|r. 승패가 난 뒤에도 눈앞의 사람에게 내밀 손은 남아 있다."
         set ProtoEventIntro[915] = "무너지는 장소에서 |cFF006B8F조커|r와 |cFF006B8F마루키|r가 마지막으로 맞선다."
-        set ProtoEventIcon[915] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_joker.tga"
+        set ProtoEventIcon[915] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_joker.blp"
         set ProtoEventImageAspect[915] = 1.777778
         set ProtoEventRequired[915] = 0
         set ProtoEventRequiredChoice[915] = 0
@@ -57479,7 +57479,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[916] = 4
         set ProtoEventStory[916] = "각자의 계획을 이야기한 뒤 |cFF006B8F조커|r도 귀향할 날을 맞는다. 친구들과 |cFF006B8F마루키|r의 도움이 역으로 향할 길을 열어 준다. 역에서 만난 |cFF006B8F스미레|r와 짧은 인사를 나누고 조커는 자신의 다음 일상으로 발을 옮긴다."
         set ProtoEventIntro[916] = "봄, 동료들은 서로 다른 미래를 향해 움직인다."
-        set ProtoEventIcon[916] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ending_memorial.tga"
+        set ProtoEventIcon[916] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ending_memorial.blp"
         set ProtoEventImageAspect[916] = 1.777778
         set ProtoEventRequired[916] = 0
         set ProtoEventRequiredChoice[916] = 0
@@ -57534,7 +57534,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[917] = 1
         set ProtoEventStory[917] = "|cFF006B8F요시자와|r는 잘되지 않은 동작보다 다음에 바꿔 볼 부분을 말했다. |cFF006B8F조커|r는 그녀의 말을 듣고 상담실에서 들었던 질문도 떠올렸다. 답을 재촉하지 않는 준비가 남아 있다."
         set ProtoEventIntro[917] = "학교생활 중 |cFF006B8F요시자와|r가 다음 연습을 준비하던 때를 떠올린다."
-        set ProtoEventIcon[917] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[917] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[917] = 1.777778
         set ProtoEventRequired[917] = 903
         set ProtoEventRequiredChoice[917] = 2
@@ -57581,7 +57581,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[918] = 1
         set ProtoEventStory[918] = "|cFF006B8F조커|r는 쉽게 답할 수 없는 질문 앞에서 잠시 멈췄다. |cFF006B8F마루키|r는 결론을 재촉하지 않았다. 학교에서 만난 |cFF006B8F요시자와|r의 노력도 떠올리며 다음 말을 골랐다."
         set ProtoEventIntro[918] = "|cFF006B8F마루키|r의 상담실에서 질문 뒤에 남았던 침묵을 되짚는다."
-        set ProtoEventIcon[918] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga"
+        set ProtoEventIcon[918] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.blp"
         set ProtoEventImageAspect[918] = 1.777778
         set ProtoEventRequired[918] = 903
         set ProtoEventRequiredChoice[918] = 1
@@ -57628,7 +57628,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[919] = 1
         set ProtoEventStory[919] = "|cFF006B8F모르가나|r는 |cFFA53528멈추면 위험한 곳|r을 가리켰다. |cFF006B8F요시자와|r가 돌아서자 |cFF006B8F조커|r는 마지막 모서리를 확인했다. 그때는 설명할 수 없던 건물의 모양이 기억에 남아 있다."
         set ProtoEventIntro[919] = "정체 모를 팰리스에서 처음 빠져나왔던 길을 떠올린다."
-        set ProtoEventIcon[919] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_morgana.tga"
+        set ProtoEventIcon[919] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_morgana.blp"
         set ProtoEventImageAspect[919] = 1.777778
         set ProtoEventRequired[919] = 904
         set ProtoEventRequiredChoice[919] = 2
@@ -57675,7 +57675,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[920] = 1
         set ProtoEventStory[920] = "|cFF006B8F아케치|r는 설명되지 않는 조건을 물었고 |cFF006B8F조커|r는 달라진 복도를 |cFF80560C기억|r했다. |cFF006B8F요시자와|r는 자신의 기억과 어긋난 흔적 앞에 멈췄다. 같은 장소에서 본 것이 달랐다."
         set ProtoEventIntro[920] = "새해에 세 사람이 건물을 조사하던 때의 질문을 정리한다."
-        set ProtoEventIcon[920] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.tga"
+        set ProtoEventIcon[920] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.blp"
         set ProtoEventImageAspect[920] = 1.777778
         set ProtoEventRequired[920] = 906
         set ProtoEventRequiredChoice[920] = 1
@@ -57722,7 +57722,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[921] = 1
         set ProtoEventStory[921] = "|cFF006B8F조커|r는 |cFF006B8F후타바|r와 하루의 가족 이야기를 각각 들었다. |cFF006B8F마코토|r 역시 평온해진 관계를 이야기했다. 다른 사람에게 당연한 하루가 왜 자신에게는 낯선지 돌아본다."
         set ProtoEventIntro[921] = "동료들의 바뀐 일상을 하나씩 찾아갔던 일주일을 떠올린다."
-        set ProtoEventIcon[921] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_haru.tga"
+        set ProtoEventIcon[921] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_haru.blp"
         set ProtoEventImageAspect[921] = 1.777778
         set ProtoEventRequired[921] = 908
         set ProtoEventRequiredChoice[921] = 1
@@ -57769,7 +57769,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[922] = 1
         set ProtoEventStory[922] = "갑자기 들린 |cFF80560C목소리|r와 발소리가 |cFF006B8F조커|r의 시선을 돌렸다. |cFF006B8F류지|r는 먼저 길을 열었고 안은 동료를 살폈다. 다시 모였다는 사실이 그제야 실감났다."
         set ProtoEventIntro[922] = "|cFF006B8F스미레|r를 구하러 동료들이 도착했던 순간을 떠올린다."
-        set ProtoEventIcon[922] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ryuji.tga"
+        set ProtoEventIcon[922] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ryuji.blp"
         set ProtoEventImageAspect[922] = 1.777778
         set ProtoEventRequired[922] = 909
         set ProtoEventRequiredChoice[922] = 1
@@ -57816,7 +57816,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[923] = 1
         set ProtoEventStory[923] = "|cFF006B8F모르가나|r는 익숙한 |cFF80560C약속|r을 다시 설명했다. |cFF006B8F스미레|r는 놓친 부분을 물었고 |cFF006B8F마코토|r는 모두가 같은 뜻으로 이해했는지 확인했다. 오래 함께한 사람에게도 필요한 과정이었다."
         set ProtoEventIntro[923] = "|cFF006B8F스미레|r가 동행을 정한 뒤 신호를 맞추던 준비를 회상한다."
-        set ProtoEventIcon[923] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[923] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[923] = 1.777778
         set ProtoEventRequired[923] = 910
         set ProtoEventRequiredChoice[923] = 1
@@ -57863,7 +57863,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[924] = 1
         set ProtoEventStory[924] = "|cFF006B8F유스케|r는 똑같아 보이는 풍경에서도 전과 다른 선을 찾았다. |cFF006B8F후타바|r는 |cFF80560C기록|r을 비교했고 하루는 자신이 직접 보고 싶은 것을 말했다. 고른 현실을 스스로 살피는 시간이었다."
         set ProtoEventIntro[924] = "다시 모인 일행이 달라진 풍경을 이야기하던 밤을 떠올린다."
-        set ProtoEventIcon[924] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yusuke.tga"
+        set ProtoEventIcon[924] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yusuke.blp"
         set ProtoEventImageAspect[924] = 1.777778
         set ProtoEventRequired[924] = 910
         set ProtoEventRequiredChoice[924] = 2
@@ -57910,7 +57910,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[925] = 1
         set ProtoEventStory[925] = "|cFF006B8F마코토|r는 선택지의 전제를 살폈고 안은 사람마다 다른 사정을 말했다. |cFF006B8F아케치|r는 누가 결론을 정했는지 따져 물었다. 쉬운 답 하나로 묶을 수 없는 이야기였다."
         set ProtoEventIntro[925] = "팰리스의 질문을 지나며 동료들과 기준을 되짚던 |cFF80560C기억|r이다."
-        set ProtoEventIcon[925] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_makoto.tga"
+        set ProtoEventIcon[925] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_makoto.blp"
         set ProtoEventImageAspect[925] = 1.777778
         set ProtoEventRequired[925] = 911
         set ProtoEventRequiredChoice[925] = 2
@@ -57957,7 +57957,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[926] = 1
         set ProtoEventStory[926] = "구하려 했던 사람과 사라진 관계가 같은 |cFF80560C기록|r에 남아 있었다. |cFF006B8F조커|r와 안은 그 마음을 이해하려 했지만, 이해한다고 같은 답을 고를 수는 없었다. 기록 속 |cFF006B8F마루키|r의 표정이 오래 남는다."
         set ProtoEventIntro[926] = "|cFF006B8F마루키|r의 과거를 담은 |cFF80560C기록|r을 보았던 때를 떠올린다."
-        set ProtoEventIcon[926] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga"
+        set ProtoEventIcon[926] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.blp"
         set ProtoEventImageAspect[926] = 1.777778
         set ProtoEventRequired[926] = 912
         set ProtoEventRequiredChoice[926] = 1
@@ -58004,7 +58004,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[927] = 1
         set ProtoEventStory[927] = "|cFF006B8F류지|r는 앞에서 길을 잡고 |cFF006B8F모르가나|r는 돌아올 방향을 확인했다. 하루는 힘을 쓰기 좋은 자리를 살폈다. 빠름과 강함이 같은 순서 안에서 맞물렸다."
         set ProtoEventIntro[927] = "|cFF865500메멘토스|r에서 돌아와 이동 순서를 짚었던 준비를 회상한다."
-        set ProtoEventIcon[927] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ryuji.tga"
+        set ProtoEventIcon[927] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ryuji.blp"
         set ProtoEventImageAspect[927] = 1.777778
         set ProtoEventRequired[927] = 911
         set ProtoEventRequiredChoice[927] = 1
@@ -58051,7 +58051,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[928] = 1
         set ProtoEventStory[928] = "언니에게 배운 것을 |cFF704261버려야만 자신이 되는 것|r은 아니었다. |cFF006B8F스미레|r는 자신이 좋아하는 동작을 골랐다. |cFF006B8F조커|r는 결과를 서두르지 않았고 안은 그 선택에 귀를 기울였다."
         set ProtoEventIntro[928] = "|cFF006B8F스미레|r가 자신으로 연습하겠다고 말한 뒤의 대화를 떠올린다."
-        set ProtoEventIcon[928] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[928] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[928] = 1.777778
         set ProtoEventRequired[928] = 910
         set ProtoEventRequiredChoice[928] = 1
@@ -58098,7 +58098,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[929] = 1
         set ProtoEventStory[929] = "한 번 멈추었다고 배운 것이 모두 없어지지는 않았다. 어떤 부분을 이어 가고 무엇을 바꿀지 직접 고르는 과정이 필요했다."
         set ProtoEventIntro[929] = "|cFF006B8F스미레|r와 다음 연습을 돌아보았던 |cFF80560C기억|r을 다시 펼친다."
-        set ProtoEventIcon[929] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga"
+        set ProtoEventIcon[929] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.blp"
         set ProtoEventImageAspect[929] = 1.777778
         set ProtoEventRequired[929] = 910
         set ProtoEventRequiredChoice[929] = 1
@@ -58145,7 +58145,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[930] = 1
         set ProtoEventStory[930] = "화면을 정리하니 아직 확인하지 못한 흐름이 선명해졌다. |cFF006B8F마코토|r는 반드시 볼 항목을 고르고 |cFF006B8F조커|r는 새로운 변화에 쓸 여유를 생각했다."
         set ProtoEventIntro[930] = "|cFF006B8F후타바|r와 |cFF80560C기록|r을 비교했던 뒤의 남은 메모를 떠올린다."
-        set ProtoEventIcon[930] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.tga"
+        set ProtoEventIcon[930] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.blp"
         set ProtoEventImageAspect[930] = 1.777778
         set ProtoEventRequired[930] = 910
         set ProtoEventRequiredChoice[930] = 2
@@ -58192,7 +58192,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[931] = 1
         set ProtoEventStory[931] = "다른 사람을 지킨다는 말이 그 사람의 뜻을 덮을 수도 있었다. |cFF006B8F조커|r는 |cFF006B8F아케치|r의 말을 그대로 떠올리고 |cFF006B8F모르가나|r와 자신들이 고른 길을 확인했다."
         set ProtoEventIntro[931] = "|cFF006B8F아케치|r가 자신의 답을 말하던 때를 다시 생각한다."
-        set ProtoEventIcon[931] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.tga"
+        set ProtoEventIcon[931] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.blp"
         set ProtoEventImageAspect[931] = 1.777778
         set ProtoEventRequired[931] = 913
         set ProtoEventRequiredChoice[931] = 1
@@ -58239,7 +58239,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[932] = 1
         set ProtoEventStory[932] = "|cFF006B8F후타바|r는 알려야 할 것을 줄이고 |cFF006B8F류지|r는 움직일 순서를 되짚었다. |cFF006B8F유스케|r는 길을 가로막는 형태를 살폈다. 답을 정한 뒤에도 준비는 구체적이어야 했다."
         set ProtoEventIntro[932] = "최종 잠입을 앞두고 마지막으로 손짓을 맞췄던 때를 떠올린다."
-        set ProtoEventIcon[932] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.tga"
+        set ProtoEventIcon[932] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.blp"
         set ProtoEventImageAspect[932] = 1.777778
         set ProtoEventRequired[932] = 913
         set ProtoEventRequiredChoice[932] = 2
@@ -58286,7 +58286,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[933] = 1
         set ProtoEventStory[933] = "같은 장소에 남겠다는 |cFF80560C약속|r 대신 각자가 직접 이어 갈 계획을 말했다. |cFF006B8F류지|r는 다시 뛰려는 마음을, 안은 더 넓게 보고 싶은 뜻을, 하루는 자신의 손으로 시작할 일을 떠올렸다."
         set ProtoEventIntro[933] = "봄에 각자의 미래를 이야기했던 마지막 모임을 떠올린다."
-        set ProtoEventIcon[933] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ann.tga"
+        set ProtoEventIcon[933] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_ann.blp"
         set ProtoEventImageAspect[933] = 1.777778
         set ProtoEventRequired[933] = 0
         set ProtoEventRequiredChoice[933] = 0
@@ -58333,7 +58333,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[934] = 1
         set ProtoEventStory[934] = "|cFF006B8F마루키|r는 차를 몰아 역으로 향할 길을 도왔다. |cFF006B8F스미레|r는 |cFF006B8F조커|r에게 짧은 인사를 건넸다. 길지 않은 만남이었지만, 누군가 정해 준 무대 밖에서도 각자 움직이고 있음을 느낀다."
         set ProtoEventIntro[934] = "역으로 향한 길과 짧은 작별을 다시 마음에 남긴다."
-        set ProtoEventIcon[934] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga"
+        set ProtoEventIcon[934] = "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.blp"
         set ProtoEventImageAspect[934] = 1.777778
         set ProtoEventRequired[934] = 0
         set ProtoEventRequiredChoice[934] = 0
@@ -58375,7 +58375,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[27] = "hakugyokurou"
         set ProtoHeadName[27] = "백옥루"
         set ProtoHeadIntro[27] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, 꽃으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
-        set ProtoHeadIcon[27] = "war3mapImported\\UI_Card_XP_hakugyokurou_head_Icon.tga"
+        set ProtoHeadIcon[27] = "war3mapImported\\UI_Card_XP_hakugyokurou_head_Icon.blp"
         set ProtoHeadEntryCard[27] = 1572
         set ProtoHeadMainLength[27] = 13
         set ProtoHeadRequiredMain[27] = 0
@@ -58390,7 +58390,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[935] = 1
         set ProtoEventStory[935] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, |cFF80560C꽃|r으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
         set ProtoEventIntro[935] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, 꽃으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
-        set ProtoEventIcon[935] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.tga"
+        set ProtoEventIcon[935] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.blp"
         set ProtoEventImageAspect[935] = 1.777778
         set ProtoHeadEntryEvent[109] = 936
         set ProtoEventKey[936] = "hakugyokurou_entry_1"
@@ -58402,7 +58402,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[936] = 1
         set ProtoEventStory[936] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, |cFF80560C꽃|r으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
         set ProtoEventIntro[936] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, 꽃으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
-        set ProtoEventIcon[936] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.tga"
+        set ProtoEventIcon[936] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.blp"
         set ProtoEventImageAspect[936] = 1.777778
         set ProtoHeadEntryEvent[110] = 937
         set ProtoEventKey[937] = "hakugyokurou_entry_2"
@@ -58414,7 +58414,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[937] = 1
         set ProtoEventStory[937] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, |cFF80560C꽃|r으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
         set ProtoEventIntro[937] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, 꽃으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
-        set ProtoEventIcon[937] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.tga"
+        set ProtoEventIcon[937] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.blp"
         set ProtoEventImageAspect[937] = 1.777778
         set ProtoHeadEntryEvent[111] = 938
         set ProtoEventKey[938] = "hakugyokurou_entry_3"
@@ -58426,7 +58426,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[938] = 1
         set ProtoEventStory[938] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, |cFF80560C꽃|r으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
         set ProtoEventIntro[938] = "오월에도 눈이 그치지 않는다. |cFF006B8F레이무|r는 봄의 흔적을 따라 구름과 결계를 넘고, 꽃으로 가득한 |cFF865500백옥루|r에서 아직 피지 못한 한 그루의 벚나무를 만난다."
-        set ProtoEventIcon[938] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.tga"
+        set ProtoEventIcon[938] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.blp"
         set ProtoEventImageAspect[938] = 1.777778
         set ProtoCardKey[1572] = "pcb_reimu"
         set ProtoCardName[1572] = "하쿠레이 레이무"
@@ -58929,7 +58929,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[939] = 1
         set ProtoEventStory[939] = "두꺼운 옷을 정리하고 바깥으로 나오자 숨부터 하얗다. |cFF006B8F레이무|r는 추위에 투덜대면서도 날아오른다. 눈길 앞을 스쳐 가는 |cFF006B8F치르노|r의 냉기까지 한데 섞여 있다."
         set ProtoEventIntro[939] = "신사 밖에는 아직 눈이 내린다. |cFF006B8F레이무|r가 봄을 찾으러 나선다."
-        set ProtoEventIcon[939] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga"
+        set ProtoEventIcon[939] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.blp"
         set ProtoEventImageAspect[939] = 1.777778
         set ProtoEventRequired[939] = 0
         set ProtoEventRequiredChoice[939] = 0
@@ -58979,7 +58979,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[940] = 1
         set ProtoEventStory[940] = "|cFF006B8F레이무|r에게 지긋지긋한 추위가 |cFF006B8F레티|r에게는 편안한 계절이다. 마주친 두 사람은 물러서지 않는다. 그렇다고 눈을 좋아한다는 이유만으로 모든 이변의 답을 찾은 것은 아니다."
         set ProtoEventIntro[940] = "|cFF006B8F레티|r가 눈 속에 서 있다. 봄을 기다리는 마음은 서로 다르다."
-        set ProtoEventIcon[940] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_letty.tga"
+        set ProtoEventIcon[940] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_letty.blp"
         set ProtoEventImageAspect[940] = 1.777778
         set ProtoEventRequired[940] = 0
         set ProtoEventRequiredChoice[940] = 0
@@ -59029,7 +59029,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[941] = 1
         set ProtoEventStory[941] = "길을 잃기 쉬운 곳에서 |cFF006B8F첸|r이 |cFF006B8F레이무|r를 가로막는다. 빠른 움직임을 따라 고개를 돌리면 다른 방향이 비어 보인다. 레이무는 위협에 주저앉는 대신 나아갈 길을 고른다."
         set ProtoEventIntro[941] = "낯선 집과 길 사이로 |cFF006B8F첸|r이 뛰어든다."
-        set ProtoEventIcon[941] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.tga"
+        set ProtoEventIcon[941] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.blp"
         set ProtoEventImageAspect[941] = 1.777778
         set ProtoEventRequired[941] = 0
         set ProtoEventRequiredChoice[941] = 0
@@ -59079,7 +59079,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[942] = 1
         set ProtoEventStory[942] = "앞서 스친 |cFF006B8F앨리스|r가 다시 |cFF006B8F레이무|r 앞에 선다. 눈길은 어느새 인형들의 움직임으로 복잡해졌다. 말다툼 사이에서 레이무는 |cFF865500누군가 봄을 모으고 있다는 실마리|r를 얻는다."
         set ProtoEventIntro[942] = "|cFF006B8F앨리스|r의 인형들이 길을 가른다. 봄을 모으는 누군가의 이야기도 들린다."
-        set ProtoEventIcon[942] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.tga"
+        set ProtoEventIcon[942] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.blp"
         set ProtoEventImageAspect[942] = 1.777778
         set ProtoEventRequired[942] = 0
         set ProtoEventRequiredChoice[942] = 0
@@ -59134,7 +59134,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[943] = 2
         set ProtoEventStory[943] = "아래에서는 눈을 맞았는데 구름 위 공기는 다르다. |cFF006B8F릴리 화이트|r가 지나가며 퍼뜨리는 기척은 |cFF006B8F레이무|r에게 또 하나의 방해로 다가온다. 입씨름을 할 틈도 없이 날아오는 것을 피해야 한다."
         set ProtoEventIntro[943] = "위로 올라갈수록 꽃잎이 늘어난다. |cFF006B8F릴리 화이트|r가 앞을 가로지른다."
-        set ProtoEventIcon[943] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lily.tga"
+        set ProtoEventIcon[943] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lily.blp"
         set ProtoEventImageAspect[943] = 1.777778
         set ProtoEventRequired[943] = 0
         set ProtoEventRequiredChoice[943] = 0
@@ -59184,7 +59184,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[944] = 2
         set ProtoEventStory[944] = "구름 위 꽃잎을 따라온 |cFF006B8F레이무|r에게 |cFF006B8F루나사|r가 응답한다. 곧 |cFF006B8F메를랑|r과 |cFF006B8F리리카|r도 끼어들고 이야기는 더 시끄러워진다. 세 자매는 저택의 꽃놀이에 연주하러 가는 길이다."
         set ProtoEventIntro[944] = "|cFF006B8F루나사|r가 나타난 뒤 |cFF006B8F메를랑|r과 리리카도 모습을 보인다."
-        set ProtoEventIcon[944] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lunasa.tga"
+        set ProtoEventIcon[944] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lunasa.blp"
         set ProtoEventImageAspect[944] = 1.777778
         set ProtoEventRequired[944] = 0
         set ProtoEventRequiredChoice[944] = 0
@@ -59234,7 +59234,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[945] = 2
         set ProtoEventStory[945] = "|cFF006B8F루나사|r의 선을 따라가면 |cFF006B8F메를랑|r의 소리가 옆에서 밀려온다. 그 틈을 |cFF006B8F리리카|r가 채운다. |cFF006B8F레이무|r는 한 사람의 박자만 외워서는 빠져나가기 어렵다는 것을 느낀다."
         set ProtoEventIntro[945] = "현악기와 관악기와 건반이 한꺼번에 길을 메운다."
-        set ProtoEventIcon[945] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_merlin.tga"
+        set ProtoEventIcon[945] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_merlin.blp"
         set ProtoEventImageAspect[945] = 1.777778
         set ProtoEventRequired[945] = 0
         set ProtoEventRequiredChoice[945] = 0
@@ -59289,7 +59289,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[946] = 2
         set ProtoEventStory[946] = "긴 계단 앞에서 반은 인간이고 반은 유령인 검사가 나타난다. |cFF006B8F요우무|r는 |cFF006B8F레이무|r가 가져온 봄마저 필요하다고 한다. 위쪽에는 아래 세상과 어울리지 않는 |cFF80560C꽃|r이 보인다."
         set ProtoEventIntro[946] = "|cFF865500명계|r로 이어지는 길에서 |cFF006B8F요우무|r가 봄을 요구한다."
-        set ProtoEventIcon[946] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.tga"
+        set ProtoEventIcon[946] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.blp"
         set ProtoEventImageAspect[946] = 1.777778
         set ProtoEventRequired[946] = 0
         set ProtoEventRequiredChoice[946] = 0
@@ -59339,7 +59339,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[947] = 3
         set ProtoEventStory[947] = "|cFF006B8F요우무|r는 정원의 벚나무를 만개시키기 위해 봄을 모았다고 밝힌다. |cFF006B8F레이무|r에게는 이곳에 이미 충분한 |cFF80560C꽃|r이 보인다. 두 사람의 말은 엇갈리고 |cFFA53528검과 부적이 부딪힌다|r."
         set ProtoEventIntro[947] = "|cFF865500백옥루|r의 정원사는 남은 봄을 거두려 한다."
-        set ProtoEventIcon[947] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.tga"
+        set ProtoEventIcon[947] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.blp"
         set ProtoEventImageAspect[947] = 1.777778
         set ProtoEventRequired[947] = 0
         set ProtoEventRequiredChoice[947] = 0
@@ -59389,7 +59389,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[948] = 3
         set ProtoEventStory[948] = "더 들어오지 말라며 다시 막아선 |cFF006B8F요우무|r를 지나자 |cFF006B8F유유코|r가 나타난다. 유유코는 오래된 기록을 읽고 봉인 아래 잠든 누군가에게 관심을 가졌다. |cFF006B8F레이무|r가 바라는 것은 그 호기심을 채우는 일이 아니라 |cFF865500빼앗긴 봄을 돌려받는 것|r이다."
         set ProtoEventIntro[948] = "|cFF006B8F유유코|r는 |cFF865500서행요|r의 봉인을 풀어 누군가를 되살리려 한다."
-        set ProtoEventIcon[948] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.tga"
+        set ProtoEventIcon[948] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.blp"
         set ProtoEventImageAspect[948] = 1.777778
         set ProtoEventRequired[948] = 0
         set ProtoEventRequiredChoice[948] = 0
@@ -59444,7 +59444,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[949] = 3
         set ProtoEventStory[949] = "|cFF80560C꽃|r과 나비 같은 빛이 넓게 퍼진다. |cFF006B8F레이무|r는 가득 찬 하늘을 바라보다가도 |cFF006B8F유유코|r의 위치를 놓치지 않는다. 이 싸움 뒤에 봄을 어떻게 돌려보낼지가 남아 있다."
         set ProtoEventIntro[949] = "|cFF006B8F유유코|r와의 탄막전이 정원의 고요를 깨뜨린다."
-        set ProtoEventIcon[949] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.tga"
+        set ProtoEventIcon[949] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.blp"
         set ProtoEventImageAspect[949] = 1.777778
         set ProtoEventRequired[949] = 0
         set ProtoEventRequiredChoice[949] = 0
@@ -59494,7 +59494,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[950] = 3
         set ProtoEventStory[950] = "|cFF006B8F레이무|r는 긴장을 풀려던 손을 다시 든다. 남은 빛이 모두 지나갈 때까지 길은 열리지 않는다. |cFF865500서행요|r의 |cFF865500봉인 아래 있는 것이 무엇이든|r 지금 더 많은 봄을 넘겨줄 수는 없다."
         set ProtoEventIntro[950] = "승부가 끝난 듯한 정원에 마지막 탄막이 펼쳐진다."
-        set ProtoEventIcon[950] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.tga"
+        set ProtoEventIcon[950] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.blp"
         set ProtoEventImageAspect[950] = 1.777778
         set ProtoEventRequired[950] = 0
         set ProtoEventRequiredChoice[950] = 0
@@ -59544,7 +59544,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[951] = 4
         set ProtoEventStory[951] = "끝내 완전히 피지 못한 나무 아래의 |cFF865500봉인|r은 풀리지 않았다. |cFF006B8F유유코|r는 자신이 되살리려던 존재의 정체를 모른 채 |cFF865500백옥루의 망령|r으로 남는다. |cFF006B8F레이무|r는 신사로 돌아와 꽃놀이를 준비한다.|n|n길게 버티던 겨울이 이제 기억이 된다."
         set ProtoEventIntro[951] = "|cFF865500서행요|r의 |cFF865500봉인|r은 남고, 신사의 벚꽃에는 봄이 돌아온다."
-        set ProtoEventIcon[951] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_ending_memorial.tga"
+        set ProtoEventIcon[951] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_ending_memorial.blp"
         set ProtoEventImageAspect[951] = 1.777778
         set ProtoEventRequired[951] = 0
         set ProtoEventRequiredChoice[951] = 0
@@ -59599,7 +59599,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[952] = 1
         set ProtoEventStory[952] = "하얀 바닥에 작은 색 하나가 눈에 띈다. 같은 길을 서두를 때는 보이지 않던 흔적이다. 지나치기 전에 짧게 주변을 둘러본다."
         set ProtoEventIntro[952] = "눈 사이에 섞인 꽃잎을 살핀다."
-        set ProtoEventIcon[952] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga"
+        set ProtoEventIcon[952] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.blp"
         set ProtoEventImageAspect[952] = 1.777778
         set ProtoEventRequired[952] = 0
         set ProtoEventRequiredChoice[952] = 0
@@ -59646,7 +59646,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[953] = 1
         set ProtoEventStory[953] = "처음 눈길을 나설 때는 아무 방향이나 비슷해 보였다. 지나온 곳을 짚어 보니 넓은 풍경에도 갈림길과 막힌 곳이 남는다."
         set ProtoEventIntro[953] = "지금까지 온 길을 잠깐 돌아본다."
-        set ProtoEventIcon[953] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga"
+        set ProtoEventIcon[953] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.blp"
         set ProtoEventImageAspect[953] = 1.777778
         set ProtoEventRequired[953] = 0
         set ProtoEventRequiredChoice[953] = 0
@@ -59693,7 +59693,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[954] = 1
         set ProtoEventStory[954] = "겨울에 편안해 보였다는 이유만으로 답을 다 얻은 듯했다. 그러나 그곳을 지나온 뒤에도 봄은 돌아오지 않았다. 이제 무엇을 더 살필까?"
         set ProtoEventIntro[954] = "|cFF006B8F레티|r와 마주쳤던 눈길을 되짚는다."
-        set ProtoEventIcon[954] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_letty.tga"
+        set ProtoEventIcon[954] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_letty.blp"
         set ProtoEventImageAspect[954] = 1.777778
         set ProtoEventRequired[954] = 940
         set ProtoEventRequiredChoice[954] = 1
@@ -59740,7 +59740,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[955] = 1
         set ProtoEventStory[955] = "한 번 꺾일 때는 잘 따라갔는데 다음 움직임에서 눈이 늦었다. 길을 다시 그려 보면 단순히 빠르기만 했던 것은 아니다."
         set ProtoEventIntro[955] = "|cFF006B8F첸|r의 빠른 방향 전환을 되짚는다."
-        set ProtoEventIcon[955] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.tga"
+        set ProtoEventIcon[955] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.blp"
         set ProtoEventImageAspect[955] = 1.777778
         set ProtoEventRequired[955] = 941
         set ProtoEventRequiredChoice[955] = 1
@@ -59787,7 +59787,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[956] = 1
         set ProtoEventStory[956] = "어느 길이 진짜 빠른지 재다 보면 이미 뒤처진다. 짧게 망설인 순간의 동작을 세 가지 방법으로 다시 정리해 본다."
         set ProtoEventIntro[956] = "|cFF006B8F첸|r을 떠올리며 좁은 길의 대응을 고른다."
-        set ProtoEventIcon[956] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.tga"
+        set ProtoEventIcon[956] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.blp"
         set ProtoEventImageAspect[956] = 1.777778
         set ProtoEventRequired[956] = 941
         set ProtoEventRequiredChoice[956] = 1
@@ -59834,7 +59834,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[957] = 1
         set ProtoEventStory[957] = "인형 하나를 보고 있으면 다른 쪽이 움직였다. |cFF80560C기억|r 속 장면을 멈춰 보니 가장 먼저 읽어야 했던 것이 따로 있다."
         set ProtoEventIntro[957] = "|cFF006B8F앨리스|r와의 대결에서 시선이 갈라졌던 순간을 떠올린다."
-        set ProtoEventIcon[957] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.tga"
+        set ProtoEventIcon[957] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.blp"
         set ProtoEventImageAspect[957] = 1.777778
         set ProtoEventRequired[957] = 942
         set ProtoEventRequiredChoice[957] = 1
@@ -59881,7 +59881,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[958] = 1
         set ProtoEventStory[958] = "모두를 외우려다 중요한 순간을 놓쳤다. 보고 판단하고 움직이는 일을 작게 나누면 무엇부터 할 수 있을까?"
         set ProtoEventIntro[958] = "|cFF006B8F앨리스|r의 여러 움직임을 한꺼번에 |cFF80560C기억|r하기 어렵다."
-        set ProtoEventIcon[958] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.tga"
+        set ProtoEventIcon[958] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.blp"
         set ProtoEventImageAspect[958] = 1.777778
         set ProtoEventRequired[958] = 942
         set ProtoEventRequiredChoice[958] = 1
@@ -59928,7 +59928,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[959] = 1
         set ProtoEventStory[959] = "설명을 듣기도 전에 길이 환해지고 다시 복잡해졌다. 그 움직임에서 무엇을 읽었는지 손으로 짧은 선을 그어 본다."
         set ProtoEventIntro[959] = "구름 위 릴리의 기척을 떠올린다."
-        set ProtoEventIcon[959] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lily.tga"
+        set ProtoEventIcon[959] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lily.blp"
         set ProtoEventImageAspect[959] = 1.777778
         set ProtoEventRequired[959] = 943
         set ProtoEventRequiredChoice[959] = 1
@@ -59975,7 +59975,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[960] = 1
         set ProtoEventStory[960] = "큰 소리가 아니라 오래 흔들리지 않는 한 줄이 |cFF80560C기억|r에 남는다. 같은 시작을 다시 듣는다면 어디에 귀를 둘까?"
         set ProtoEventIntro[960] = "|cFF006B8F루나사|r의 첫 등장을 되짚는다."
-        set ProtoEventIcon[960] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lunasa.tga"
+        set ProtoEventIcon[960] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lunasa.blp"
         set ProtoEventImageAspect[960] = 1.777778
         set ProtoEventRequired[960] = 944
         set ProtoEventRequiredChoice[960] = 1
@@ -60022,7 +60022,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[961] = 1
         set ProtoEventStory[961] = "강한 소리에만 귀를 기울이면 낮게 이어지는 움직임을 놓친다. 넓은 흐름 안에서 각기 다른 출발점을 나눠 본다."
         set ProtoEventIntro[961] = "|cFF006B8F메를랑|r의 관악기와 다른 소리가 겹치던 때를 되짚는다."
-        set ProtoEventIcon[961] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_merlin.tga"
+        set ProtoEventIcon[961] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_merlin.blp"
         set ProtoEventImageAspect[961] = 1.777778
         set ProtoEventRequired[961] = 945
         set ProtoEventRequiredChoice[961] = 1
@@ -60069,7 +60069,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[962] = 1
         set ProtoEventStory[962] = "모든 순간을 꽉 채우면 다음에 필요한 동작을 넣을 곳이 없다. 짧게 비워 둔 자리를 어떻게 쓸지 정한다."
         set ProtoEventIntro[962] = "|cFF006B8F리리카|r를 떠올리며 준비의 순서를 고친다."
-        set ProtoEventIcon[962] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lyrica.tga"
+        set ProtoEventIcon[962] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lyrica.blp"
         set ProtoEventImageAspect[962] = 1.777778
         set ProtoEventRequired[962] = 945
         set ProtoEventRequiredChoice[962] = 1
@@ -60116,7 +60116,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[963] = 1
         set ProtoEventStory[963] = "둘의 소리가 겹치고 셋이 한꺼번에 움직이던 순간을 다시 나눈다. 무엇을 중심으로 삼느냐에 따라 같은 합주의 길이 달라 보인다."
         set ProtoEventIntro[963] = "자매의 합주는 각자의 움직임을 지우지 않는다."
-        set ProtoEventIcon[963] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lyrica.tga"
+        set ProtoEventIcon[963] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lyrica.blp"
         set ProtoEventImageAspect[963] = 1.777778
         set ProtoEventRequired[963] = 945
         set ProtoEventRequiredChoice[963] = 1
@@ -60163,7 +60163,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[964] = 1
         set ProtoEventStory[964] = "길은 넓어 보여도 칼이 지나가면 움직일 자리는 급격히 줄었다. 발이 늦었던 곳을 하나만 고쳐 본다."
         set ProtoEventIntro[964] = "|cFF006B8F요우무|r의 첫 칼날을 지난 때를 떠올린다."
-        set ProtoEventIcon[964] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.tga"
+        set ProtoEventIcon[964] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.blp"
         set ProtoEventImageAspect[964] = 1.777778
         set ProtoEventRequired[964] = 946
         set ProtoEventRequiredChoice[964] = 1
@@ -60210,7 +60210,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[965] = 1
         set ProtoEventStory[965] = "|cFF80560C꽃|r이 많다고 아무 곳에나 들어설 수 있는 것은 아니었다. |cFF80560C검|r을 다루는 손과 넓은 정원을 돌보는 손에 같은 신중함이 보인다."
         set ProtoEventIntro[965] = "정원사가 지키던 자리의 질서를 떠올린다."
-        set ProtoEventIcon[965] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.tga"
+        set ProtoEventIcon[965] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.blp"
         set ProtoEventImageAspect[965] = 1.777778
         set ProtoEventRequired[965] = 947
         set ProtoEventRequiredChoice[965] = 1
@@ -60257,7 +60257,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[966] = 1
         set ProtoEventStory[966] = "안에 무엇이 있는지 모르니 보고 싶다. 하지만 그것만으로 |cFF865500열어도 된다는 뜻은 아니다|r. 질문을 끝내지 않고도 지금 할 수 있는 일을 고른다."
         set ProtoEventIntro[966] = "|cFF006B8F유유코|r와 나눈 |cFF865500봉인|r 이야기가 마음에 남는다."
-        set ProtoEventIcon[966] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.tga"
+        set ProtoEventIcon[966] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.blp"
         set ProtoEventImageAspect[966] = 1.777778
         set ProtoEventRequired[966] = 948
         set ProtoEventRequiredChoice[966] = 1
@@ -60304,7 +60304,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[967] = 1
         set ProtoEventStory[967] = "한번 지나간 무늬가 눈에 남아 |cFF865500다음 움직임을 가렸다|r. 아름다운 것에서 시선을 떼는 데에도 결심이 필요하다."
         set ProtoEventIntro[967] = "넓은 빛에 시선이 빼앗겼던 때를 되짚는다."
-        set ProtoEventIcon[967] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga"
+        set ProtoEventIcon[967] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.blp"
         set ProtoEventImageAspect[967] = 1.777778
         set ProtoEventRequired[967] = 949
         set ProtoEventRequiredChoice[967] = 1
@@ -60351,7 +60351,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[968] = 1
         set ProtoEventStory[968] = "눈을 치우던 손이 이제 꽃잎을 쓸어 모은다. 모두가 쉬어 갈 자리를 만들려면 어디부터 손댈까?"
         set ProtoEventIntro[968] = "신사에도 봄이 돌아왔다. |cFF006B8F레이무|r가 꽃놀이 자리를 정리한다."
-        set ProtoEventIcon[968] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga"
+        set ProtoEventIcon[968] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.blp"
         set ProtoEventImageAspect[968] = 1.777778
         set ProtoEventRequired[968] = 0
         set ProtoEventRequiredChoice[968] = 0
@@ -60398,7 +60398,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[969] = 1
         set ProtoEventStory[969] = "|cFF006B8F레이무|r는 꽃잎이 눈처럼 보이는 순간을 본다. 이번에는 옷깃을 여밀 필요가 없다. 길에서 만난 이들의 서로 다른 움직임이 조용히 떠오른다."
         set ProtoEventIntro[969] = "돌아온 봄을 바라보며 잠깐 앉는다."
-        set ProtoEventIcon[969] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga"
+        set ProtoEventIcon[969] = "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.blp"
         set ProtoEventImageAspect[969] = 1.777778
         set ProtoEventRequired[969] = 0
         set ProtoEventRequiredChoice[969] = 0
@@ -60440,7 +60440,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadKey[28] = "scarlet_mist"
         set ProtoHeadName[28] = "홍마향"
         set ProtoHeadIntro[28] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 홍마관에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
-        set ProtoHeadIcon[28] = "war3mapImported\\UI_Card_XP_scarlet_mist_head_Icon.tga"
+        set ProtoHeadIcon[28] = "war3mapImported\\UI_Card_XP_scarlet_mist_head_Icon.blp"
         set ProtoHeadEntryCard[28] = 1621
         set ProtoHeadMainLength[28] = 13
         set ProtoHeadRequiredMain[28] = 0
@@ -60455,7 +60455,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[970] = 1
         set ProtoEventStory[970] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 |cFF865500홍마관|r에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
         set ProtoEventIntro[970] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 홍마관에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
-        set ProtoEventIcon[970] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.tga"
+        set ProtoEventIcon[970] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.blp"
         set ProtoEventImageAspect[970] = 1.777778
         set ProtoHeadEntryEvent[113] = 971
         set ProtoEventKey[971] = "scarlet_mist_entry_1"
@@ -60467,7 +60467,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[971] = 1
         set ProtoEventStory[971] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 |cFF865500홍마관|r에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
         set ProtoEventIntro[971] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 홍마관에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
-        set ProtoEventIcon[971] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.tga"
+        set ProtoEventIcon[971] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.blp"
         set ProtoEventImageAspect[971] = 1.777778
         set ProtoHeadEntryEvent[114] = 972
         set ProtoEventKey[972] = "scarlet_mist_entry_2"
@@ -60479,7 +60479,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[972] = 1
         set ProtoEventStory[972] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 |cFF865500홍마관|r에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
         set ProtoEventIntro[972] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 홍마관에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
-        set ProtoEventIcon[972] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.tga"
+        set ProtoEventIcon[972] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.blp"
         set ProtoEventImageAspect[972] = 1.777778
         set ProtoHeadEntryEvent[115] = 973
         set ProtoEventKey[973] = "scarlet_mist_entry_3"
@@ -60491,7 +60491,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[973] = 1
         set ProtoEventStory[973] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 |cFF865500홍마관|r에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
         set ProtoEventIntro[973] = "|cFF865500붉은 안개|r가 여름의 햇빛을 가린다. |cFF006B8F레이무|r는 호수를 건너 홍마관에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다."
-        set ProtoEventIcon[973] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.tga"
+        set ProtoEventIcon[973] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.blp"
         set ProtoEventImageAspect[973] = 1.777778
         set ProtoCardKey[1621] = "eosd_reimu"
         set ProtoCardName[1621] = "하쿠레이 레이무"
@@ -60954,7 +60954,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[974] = 1
         set ProtoEventStory[974] = "익숙한 길도 어둠 속에서는 방향이 흐려진다. |cFF006B8F레이무|r는 느긋하게 떠다니다가 길을 막는 기척을 만난다. |cFF006B8F루미아|r 주변의 어둠과 넓게 퍼진 |cFF865500붉은 안개|r를 한꺼번에 넘겨짚을 수는 없다."
         set ProtoEventIntro[974] = "|cFF865500붉은 안개|r를 살피러 나온 |cFF006B8F레이무|r가 밤길에서 루미아와 만난다."
-        set ProtoEventIcon[974] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.tga"
+        set ProtoEventIcon[974] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.blp"
         set ProtoEventImageAspect[974] = 1.777778
         set ProtoEventRequired[974] = 0
         set ProtoEventRequiredChoice[974] = 0
@@ -61004,7 +61004,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[975] = 1
         set ProtoEventStory[975] = "|cFF006B8F레이무|r의 앞을 어둠이 덮지만 계속 머물 이유는 없다. 빛이 닿는 경계와 기척이 움직이는 거리를 나눠 본다. 이 밤의 첫 상대를 넘는 일과 안개의 원인을 찾는 일은 아직 다르다."
         set ProtoEventIntro[975] = "|cFF006B8F루미아|r의 방해를 넘고 안개의 방향을 다시 찾는다."
-        set ProtoEventIcon[975] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.tga"
+        set ProtoEventIcon[975] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.blp"
         set ProtoEventImageAspect[975] = 1.777778
         set ProtoEventRequired[975] = 0
         set ProtoEventRequiredChoice[975] = 0
@@ -61054,7 +61054,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[976] = 1
         set ProtoEventStory[976] = "건너편을 가린 안개 때문에 호수가 더 넓게 느껴진다. |cFF006B8F레이무|r가 길을 묻자 |cFF006B8F치르노|r는 자신을 더 두려워하라고 나선다. |cFFA53528차가운 공격이 물 위를 가른다.|r"
         set ProtoEventIntro[976] = "호수의 길이 보이지 않는다. |cFF006B8F치르노|r가 |cFF006B8F레이무|r 앞에 선다."
-        set ProtoEventIcon[976] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_cirno.tga"
+        set ProtoEventIcon[976] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_cirno.blp"
         set ProtoEventImageAspect[976] = 1.777778
         set ProtoEventRequired[976] = 0
         set ProtoEventRequiredChoice[976] = 0
@@ -61104,7 +61104,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[977] = 1
         set ProtoEventStory[977] = "|cFF006B8F메이링|r은 혼자서라도 막겠다는 기세로 앞을 지킨다. 잠깐 물러나자 |cFF006B8F레이무|r는 그 뒤를 따라간다. 길 안내를 부탁한 적은 없지만 향하는 곳이 보이기 시작했다."
         set ProtoEventIntro[977] = "홍 |cFF006B8F메이링|r이 길을 막고, 물러선 그녀를 따라 저택으로 향한다."
-        set ProtoEventIcon[977] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.tga"
+        set ProtoEventIcon[977] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.blp"
         set ProtoEventImageAspect[977] = 1.777778
         set ProtoEventRequired[977] = 0
         set ProtoEventRequiredChoice[977] = 0
@@ -61159,7 +61159,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[978] = 2
         set ProtoEventStory[978] = "|cFF006B8F레이무|r는 안개의 주인을 찾고 |cFF006B8F메이링|r은 저택을 지킨다. 앞을 막은 상대의 움직임을 뚫어야 다음 이야기가 이어진다. 문지기는 서 있는 자리에서 공격을 넓게 펼친다."
         set ProtoEventIntro[978] = "|cFF006B8F메이링|r과의 승부를 넘어야 저택 안으로 들어갈 수 있다."
-        set ProtoEventIcon[978] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.tga"
+        set ProtoEventIcon[978] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.blp"
         set ProtoEventImageAspect[978] = 1.777778
         set ProtoEventRequired[978] = 0
         set ProtoEventRequiredChoice[978] = 0
@@ -61209,7 +61209,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[979] = 2
         set ProtoEventStory[979] = "밖에서 보던 것보다 넓은 실내에 |cFF80560C책|r이 가득하다. |cFF006B8F레이무|r가 계속 나아가자 |cFF006B8F파츄리|r가 자신의 서재를 어지럽히지 말라고 나선다. 여기서는 눈앞의 책장만 보고 움직일 수 없다."
         set ProtoEventIntro[979] = "어두운 서재 안에서 |cFF006B8F파츄리|r가 소란을 제지한다."
-        set ProtoEventIcon[979] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.tga"
+        set ProtoEventIcon[979] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.blp"
         set ProtoEventImageAspect[979] = 1.777778
         set ProtoEventRequired[979] = 0
         set ProtoEventRequiredChoice[979] = 0
@@ -61259,7 +61259,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[980] = 2
         set ProtoEventStory[980] = "같은 방 안에서도 공격의 간격과 방향은 계속 달라진다. |cFF006B8F레이무|r는 막 지나간 흐름에 익숙해질 때마다 다음 변화를 맞는다. 상대의 많은 수단을 전부 같은 방법으로 넘길 수는 없다."
         set ProtoEventIntro[980] = "|cFF006B8F파츄리|r의 공격이 다른 흐름으로 이어진다."
-        set ProtoEventIcon[980] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.tga"
+        set ProtoEventIcon[980] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.blp"
         set ProtoEventImageAspect[980] = 1.777778
         set ProtoEventRequired[980] = 0
         set ProtoEventRequiredChoice[980] = 0
@@ -61314,7 +61314,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[981] = 2
         set ProtoEventStory[981] = "|cFF006B8F레이무|r가 지나가는 곳마다 저택은 더 소란스러워진다. |cFF006B8F사쿠야|r는 청소가 끝나지 않는다고 불평하며 앞에 선다. 조금 전까지 비어 보인 자리에 |cFFA53528칼날이 나타난다.|r"
         set ProtoEventIntro[981] = "|cFF006B8F사쿠야|r가 바쁜 저택의 복도에서 |cFF006B8F레이무|r를 가로막는다."
-        set ProtoEventIcon[981] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga"
+        set ProtoEventIcon[981] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.blp"
         set ProtoEventImageAspect[981] = 1.777778
         set ProtoEventRequired[981] = 0
         set ProtoEventRequiredChoice[981] = 0
@@ -61364,7 +61364,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[982] = 3
         set ProtoEventStory[982] = "|cFF006B8F사쿠야|r의 움직임은 눈으로 따라가던 예상과 어긋난다. |cFF006B8F레이무|r는 멈춘 듯한 순간 뒤에 달라진 배치를 마주한다. 주인에게 닿기 위해서는 지금의 간격부터 살아 있는 감각으로 다시 읽어야 한다."
         set ProtoEventIntro[982] = "시간을 다루는 |cFF006B8F사쿠야|r와 정면으로 맞선다."
-        set ProtoEventIcon[982] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga"
+        set ProtoEventIcon[982] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.blp"
         set ProtoEventImageAspect[982] = 1.777778
         set ProtoEventRequired[982] = 0
         set ProtoEventRequiredChoice[982] = 0
@@ -61414,7 +61414,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[983] = 3
         set ProtoEventStory[983] = "이미 넘어선 줄 알았던 메이드가 다시 길을 막는다. |cFF006B8F레이무|r는 승부가 끝났다는 생각을 거두고 손을 든다. 짧은 길이라고 준비까지 짧아져서는 안 된다."
         set ProtoEventIntro[983] = "주인에게 이르는 길에서 |cFF006B8F사쿠야|r가 한 번 더 나타난다."
-        set ProtoEventIcon[983] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga"
+        set ProtoEventIcon[983] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.blp"
         set ProtoEventImageAspect[983] = 1.777778
         set ProtoEventRequired[983] = 0
         set ProtoEventRequiredChoice[983] = 0
@@ -61469,7 +61469,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[984] = 3
         set ProtoEventStory[984] = "길 끝에서 만난 작은 흡혈귀에게 안개의 이유가 이어진다. 햇빛을 피하려고 펼친 |cFF865500붉은 안개|r는 |cFF865500저택 밖의 여름까지|r 덮었다. |cFF006B8F레이무|r는 주인의 기분에 맞춰 이변을 그냥 두고 돌아갈 생각이 없다."
         set ProtoEventIntro[984] = "|cFF006B8F레밀리아|r가 |cFF006B8F레이무|r 앞에 나타난다."
-        set ProtoEventIcon[984] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.tga"
+        set ProtoEventIcon[984] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.blp"
         set ProtoEventImageAspect[984] = 1.777778
         set ProtoEventRequired[984] = 0
         set ProtoEventRequiredChoice[984] = 0
@@ -61519,7 +61519,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[985] = 3
         set ProtoEventStory[985] = "|cFFA53528화려한 공격이 하늘을 메운다.|r |cFF006B8F레이무|r는 도중에 만난 모든 상대와 다른 압박을 느끼면서도 자신의 거리를 다시 잡는다. 저택의 주인을 넘으면 안개 바깥으로 돌아갈 수 있다."
         set ProtoEventIntro[985] = "|cFF006B8F레밀리아|r의 탄막을 넘어 |cFF865500붉은 안개|r를 끝내려 한다."
-        set ProtoEventIcon[985] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.tga"
+        set ProtoEventIcon[985] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.blp"
         set ProtoEventImageAspect[985] = 1.777778
         set ProtoEventRequired[985] = 0
         set ProtoEventRequiredChoice[985] = 0
@@ -61569,7 +61569,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[986] = 4
         set ProtoEventStory[986] = "|cFF865500붉은 안개|r가 걷힌 신사에는 다시 맑은 날이 이어진다. |cFF006B8F레이무|r가 맞는 오후에 |cFF006B8F레밀리아|r가 |cFF865500양산|r을 들고 찾아온다. 긴 밤의 상대였던 둘은 이제 눈앞의 햇빛을 두고 실랑이를 벌인다."
         set ProtoEventIntro[986] = "신사에 햇빛이 돌아온다. |cFF006B8F레밀리아|r는 |cFF865500양산|r 아래 새 손님이 된다."
-        set ProtoEventIcon[986] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_ending_memorial.tga"
+        set ProtoEventIcon[986] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_ending_memorial.blp"
         set ProtoEventImageAspect[986] = 1.777778
         set ProtoEventRequired[986] = 0
         set ProtoEventRequiredChoice[986] = 0
@@ -61624,7 +61624,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[987] = 1
         set ProtoEventStory[987] = "안개 때문에 익숙한 풍경도 한 덩어리처럼 보였다. 멀리 볼 수 없다고 아무 데로나 움직일 수는 없었다. 그때 길을 찾기 위해 무엇을 기준으로 삼았는지 떠올린다."
         set ProtoEventIntro[987] = "|cFF865500붉은 안개|r 속으로 처음 나서던 밤을 되짚는다."
-        set ProtoEventIcon[987] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga"
+        set ProtoEventIcon[987] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.blp"
         set ProtoEventImageAspect[987] = 1.777778
         set ProtoEventRequired[987] = 0
         set ProtoEventRequiredChoice[987] = 0
@@ -61671,7 +61671,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[988] = 1
         set ProtoEventStory[988] = "기다란 설명이나 대단한 준비가 필요한 순간은 아니다. 급히 꺼내려다 엉키지 않도록 몇 가지를 바로잡는다."
         set ProtoEventIntro[988] = "다시 움직이기 전에 손에 든 것을 정돈한다."
-        set ProtoEventIcon[988] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga"
+        set ProtoEventIcon[988] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.blp"
         set ProtoEventImageAspect[988] = 1.777778
         set ProtoEventRequired[988] = 0
         set ProtoEventRequiredChoice[988] = 0
@@ -61718,7 +61718,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[989] = 1
         set ProtoEventStory[989] = "한쪽의 어둠을 넘었는데도 |cFF865500붉은 안개|r는 그대로였다. 눈앞의 방해와 먼 원인을 나눠 보는 일이 필요하다."
         set ProtoEventIntro[989] = "|cFF006B8F루미아|r를 지난 뒤 남은 풍경을 떠올린다."
-        set ProtoEventIcon[989] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.tga"
+        set ProtoEventIcon[989] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.blp"
         set ProtoEventImageAspect[989] = 1.777778
         set ProtoEventRequired[989] = 975
         set ProtoEventRequiredChoice[989] = 1
@@ -61765,7 +61765,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[990] = 1
         set ProtoEventStory[990] = "겁을 주려는 상대와 길을 지나가려는 사람은 같은 질문을 하고 있지 않았다. 처음부터 무엇을 확인했으면 좋았을까?"
         set ProtoEventIntro[990] = "밤길에서 서로 엇나갔던 말을 떠올린다."
-        set ProtoEventIcon[990] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.tga"
+        set ProtoEventIcon[990] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.blp"
         set ProtoEventImageAspect[990] = 1.777778
         set ProtoEventRequired[990] = 975
         set ProtoEventRequiredChoice[990] = 1
@@ -61812,7 +61812,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[991] = 1
         set ProtoEventStory[991] = "멀리 보이지 않으니 모든 곳이 먼 듯했다. 돌아보면 가까운 틈까지 놓친 순간이 있다. 다음에는 어느 거리를 기준으로 삼을까?"
         set ProtoEventIntro[991] = "안개 속 물가의 거리감을 되짚는다."
-        set ProtoEventIcon[991] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga"
+        set ProtoEventIcon[991] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.blp"
         set ProtoEventImageAspect[991] = 1.777778
         set ProtoEventRequired[991] = 976
         set ProtoEventRequiredChoice[991] = 1
@@ -61859,7 +61859,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[992] = 1
         set ProtoEventStory[992] = "|cFF006B8F레이무|r는 갈 곳을 물었고 |cFF006B8F치르노|r는 자신을 보라고 했다. 말을 오래 주고받는 사이에도 주변은 차가워졌다."
         set ProtoEventIntro[992] = "|cFF006B8F치르노|r가 길 안내보다 승부를 원했던 때를 떠올린다."
-        set ProtoEventIcon[992] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_cirno.tga"
+        set ProtoEventIcon[992] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_cirno.blp"
         set ProtoEventImageAspect[992] = 1.777778
         set ProtoEventRequired[992] = 976
         set ProtoEventRequiredChoice[992] = 1
@@ -61906,7 +61906,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[993] = 1
         set ProtoEventStory[993] = "멀어지는 상대에게서 눈을 떼면 어디로 향하는지도 놓친다. 뒤를 쫓는 일이 급해져 오히려 길을 잃지 않으려면 무엇이 필요할까?"
         set ProtoEventIntro[993] = "|cFF006B8F메이링|r을 따라가며 저택에 가까워졌던 때를 되짚는다."
-        set ProtoEventIcon[993] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.tga"
+        set ProtoEventIcon[993] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.blp"
         set ProtoEventImageAspect[993] = 1.777778
         set ProtoEventRequired[993] = 977
         set ProtoEventRequiredChoice[993] = 1
@@ -61953,7 +61953,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[994] = 1
         set ProtoEventStory[994] = "한 번 물러서더라도 다음 동작까지 포기할 필요는 없었다. |cFF006B8F메이링|r이 입구를 지키던 자세를 다른 방향에서 살펴본다."
         set ProtoEventIntro[994] = "|cFF006B8F메이링|r을 떠올리며 중심이 흐트러진 순간을 고친다."
-        set ProtoEventIcon[994] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.tga"
+        set ProtoEventIcon[994] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.blp"
         set ProtoEventImageAspect[994] = 1.777778
         set ProtoEventRequired[994] = 978
         set ProtoEventRequiredChoice[994] = 1
@@ -62000,7 +62000,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[995] = 1
         set ProtoEventStory[995] = "바깥에서 짐작한 방과 안에서 보이는 방은 달랐다. 입구에서 세운 예상만 붙들면 깊숙한 곳의 움직임을 놓친다."
         set ProtoEventIntro[995] = "서재에서 |cFF006B8F레이무|r가 낯설어했던 넓이를 떠올린다."
-        set ProtoEventIcon[995] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga"
+        set ProtoEventIcon[995] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.blp"
         set ProtoEventImageAspect[995] = 1.777778
         set ProtoEventRequired[995] = 979
         set ProtoEventRequiredChoice[995] = 1
@@ -62047,7 +62047,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[996] = 1
         set ProtoEventStory[996] = "아무 곳이나 공격한다고 빨리 통과하는 것은 아니다. |cFF80560C책|r이 많은 방에서 힘을 흩뜨렸던 순간을 다시 살핀다."
         set ProtoEventIntro[996] = "|cFF006B8F파츄리|r가 지키려던 서재의 질서를 떠올린다."
-        set ProtoEventIcon[996] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.tga"
+        set ProtoEventIcon[996] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.blp"
         set ProtoEventImageAspect[996] = 1.777778
         set ProtoEventRequired[996] = 980
         set ProtoEventRequiredChoice[996] = 1
@@ -62094,7 +62094,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[997] = 1
         set ProtoEventStory[997] = "한 번 성공한 대응을 반복하다 보면 다음 변화에는 늦는다. |cFF80560C기억|r을 다시 펼쳐 중요한 차이만 남겨 본다."
         set ProtoEventIntro[997] = "|cFF006B8F파츄리|r의 여러 공격을 한 가지로 |cFF80560C기억|r할 수 없다."
-        set ProtoEventIcon[997] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.tga"
+        set ProtoEventIcon[997] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.blp"
         set ProtoEventImageAspect[997] = 1.777778
         set ProtoEventRequired[997] = 980
         set ProtoEventRequiredChoice[997] = 1
@@ -62141,7 +62141,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[998] = 1
         set ProtoEventStory[998] = "하나를 정리하면 다른 쪽이 어지러워진다. 손이 빠르기만 해서는 끝나지 않을 일이라면 무엇부터 바꾸면 좋을까?"
         set ProtoEventIntro[998] = "|cFF006B8F사쿠야|r가 소란스러운 복도를 지키던 모습을 떠올린다."
-        set ProtoEventIcon[998] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga"
+        set ProtoEventIcon[998] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.blp"
         set ProtoEventImageAspect[998] = 1.777778
         set ProtoEventRequired[998] = 981
         set ProtoEventRequiredChoice[998] = 1
@@ -62188,7 +62188,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[999] = 1
         set ProtoEventStory[999] = "무엇이 날아오는지 계속 보는 동안 정작 움직일 곳은 보지 못했다. 시선을 한 번 바꾼다면 어디를 볼까?"
         set ProtoEventIntro[999] = "|cFF006B8F사쿠야|r의 칼날을 따라가다 길을 놓쳤던 순간을 떠올린다."
-        set ProtoEventIcon[999] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga"
+        set ProtoEventIcon[999] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.blp"
         set ProtoEventImageAspect[999] = 1.777778
         set ProtoEventRequired[999] = 982
         set ProtoEventRequiredChoice[999] = 1
@@ -62235,7 +62235,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[1000] = 1
         set ProtoEventStory[1000] = "빠르게만 움직여서는 마지막 일이 자꾸 남는다. 되풀이한 확인을 하나 덜어 내면 다른 행동을 넣을 자리가 생길지도 모른다."
         set ProtoEventIntro[1000] = "|cFF006B8F사쿠야|r를 떠올리며 움직임의 낭비를 줄인다."
-        set ProtoEventIcon[1000] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga"
+        set ProtoEventIcon[1000] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.blp"
         set ProtoEventImageAspect[1000] = 1.777778
         set ProtoEventRequired[1000] = 982
         set ProtoEventRequiredChoice[1000] = 1
@@ -62282,7 +62282,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[1001] = 1
         set ProtoEventStory[1001] = "넘어선 상대를 잊는 것과 경계를 푸는 것은 달랐다. 마지막이라고 여긴 공간에서 손이 늦지 않게 하려면 무엇을 남길까?"
         set ProtoEventIntro[1001] = "|cFF006B8F사쿠야|r가 마지막 길에서 다시 나타났던 때를 되짚는다."
-        set ProtoEventIcon[1001] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga"
+        set ProtoEventIcon[1001] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.blp"
         set ProtoEventImageAspect[1001] = 1.777778
         set ProtoEventRequired[1001] = 983
         set ProtoEventRequiredChoice[1001] = 1
@@ -62329,7 +62329,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[1002] = 1
         set ProtoEventStory[1002] = "자신에게 편한 밤이 바깥의 모두에게도 편한 것은 아니었다. 큰 기세 앞에서 문제의 크기를 다시 잰다."
         set ProtoEventIntro[1002] = "|cFF006B8F레밀리아|r가 안개를 펼친 이유를 되짚는다."
-        set ProtoEventIcon[1002] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.tga"
+        set ProtoEventIcon[1002] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.blp"
         set ProtoEventImageAspect[1002] = 1.777778
         set ProtoEventRequired[1002] = 984
         set ProtoEventRequiredChoice[1002] = 1
@@ -62376,7 +62376,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[1003] = 1
         set ProtoEventStory[1003] = "|cFF006B8F레이무|r는 작은 그늘 아래 선 손님과 넓게 걷힌 하늘을 번갈아 본다. 안개가 없어진 뒤에도 둘의 말다툼은 쉽게 끝나지 않는다."
         set ProtoEventIntro[1003] = "맑아진 신사에 |cFF006B8F레밀리아|r가 |cFF865500양산|r을 들고 찾아온다."
-        set ProtoEventIcon[1003] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.tga"
+        set ProtoEventIcon[1003] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.blp"
         set ProtoEventImageAspect[1003] = 1.777778
         set ProtoEventRequired[1003] = 0
         set ProtoEventRequiredChoice[1003] = 0
@@ -62423,7 +62423,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[1004] = 1
         set ProtoEventStory[1004] = "같은 마당이 다시 밝아졌다. |cFF006B8F레이무|r는 길게 이어졌던 밤을 짧게 되짚고 오후의 일을 시작한다."
         set ProtoEventIntro[1004] = "|cFF865500붉은 안개|r 대신 여름의 소리가 신사를 채운다."
-        set ProtoEventIcon[1004] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga"
+        set ProtoEventIcon[1004] = "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.blp"
         set ProtoEventImageAspect[1004] = 1.777778
         set ProtoEventRequired[1004] = 0
         set ProtoEventRequiredChoice[1004] = 0

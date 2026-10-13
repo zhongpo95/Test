@@ -456,7 +456,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call DzLoadToc("Templates.toc")
 
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Backdrop2.tga", 0)
+        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Backdrop2.blp", 0)
         call DzFrameSetVertexColor(FP_BD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_BD, 255)
         call DzFrameSetSize(FP_BD, 0.80, 0.60)
@@ -479,7 +479,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         endloop
 
         set FP_HeroBBD[0]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_HeroBBD[0], "war3mapImported\\UI_Pick_Frame.tga", 0)
+        call DzFrameSetTexture(FP_HeroBBD[0], "war3mapImported\\UI_Pick_Frame.blp", 0)
         call DzFrameSetVertexColor(FP_HeroBBD[0], DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_HeroBBD[0], 255)
         call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.48)
@@ -508,7 +508,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             call DzFrameSetPoint(FP_HeroImgBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
 
             set FP_HeroNameBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
-            call DzFrameSetTexture(FP_HeroNameBD[i], "war3mapImported\\UI_Pick_NameBar.tga", 0)
+            call DzFrameSetTexture(FP_HeroNameBD[i], "war3mapImported\\UI_Pick_NameBar.blp", 0)
             call DzFrameSetSize(FP_HeroNameBD[i], 0.078, 0.016)
             call DzFrameSetPoint(FP_HeroNameBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_BOTTOM, 0.0, -0.012)
 
@@ -556,7 +556,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_SLIDER_VALUE_CHANGED, function ChangePickScrollSlider, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Panel.tga", 0)
+        call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Panel.blp", 0)
         call DzFrameSetVertexColor(FP_PreviewPanel, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_PreviewPanel, 255)
         call DzFrameSetSize(FP_PreviewPanel, 0.245, 0.270)
@@ -574,7 +574,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         endloop
 
         set FP_SkinBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SkinBBD, "war3mapImported\\UI_Pick_Panel.tga", 0)
+        call DzFrameSetTexture(FP_SkinBBD, "war3mapImported\\UI_Pick_Panel.blp", 0)
         call DzFrameSetVertexColor(FP_SkinBBD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_SkinBBD, 255)
         call DzFrameSetSize(FP_SkinBBD, 0.245, 0.190)

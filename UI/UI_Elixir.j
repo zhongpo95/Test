@@ -354,9 +354,9 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         loop
             exitwhen i > 5
             if ready and i == NowMainSelect and El_Lock[pid][i] == 0 then
-                call DzFrameSetTexture(El_Main[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
+                call DzFrameSetTexture(El_Main[i], "war3mapImported\\UI_Upgrade_Selected.blp", 0)
             else
-                call DzFrameSetTexture(El_Main[i], "war3mapImported\\UI_Upgrade_Row.tga", 0)
+                call DzFrameSetTexture(El_Main[i], "war3mapImported\\UI_Upgrade_Row.blp", 0)
             endif
             call DzFrameSetEnable(El_MainB[i], ready and El_Lock[pid][i] == 0)
             call DzFrameShow(ElF_Lock[i], ElSession[pid] and El_Lock[pid][i] != 0)
@@ -373,9 +373,9 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         loop
             exitwhen i > 3
             if ready and NowSelectNumber != 0 and i == NowSelect then
-                call DzFrameSetTexture(El_Select[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
+                call DzFrameSetTexture(El_Select[i], "war3mapImported\\UI_Upgrade_Selected.blp", 0)
             else
-                call DzFrameSetTexture(El_Select[i], "war3mapImported\\UI_Upgrade_Row.tga", 0)
+                call DzFrameSetTexture(El_Select[i], "war3mapImported\\UI_Upgrade_Row.blp", 0)
             endif
             call DzFrameSetEnable(El_Button[i], ready)
             if not ElSession[pid] then
@@ -414,17 +414,17 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         endif
         if not ElPending[pid] and (not ElSession[pid] or (ready and NowSelectNumber != 0 and targetReady)) then
             call DzFrameSetEnable(El_B, true)
-            call DzFrameSetTexture(El_BBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
+            call DzFrameSetTexture(El_BBD, "war3mapImported\\UI_Upgrade_Action.blp", 0)
         else
             call DzFrameSetEnable(El_B, false)
-            call DzFrameSetTexture(El_BBD, "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+            call DzFrameSetTexture(El_BBD, "war3mapImported\\UI_Upgrade_Disabled.blp", 0)
         endif
         set ready = ready and (NowRollCount[pid] > 0 or NowCount[pid] <= 3)
         call DzFrameSetEnable(El_RollB, ready)
         if ready then
-            call DzFrameSetTexture(El_Roll, "war3mapImported\\UI_Upgrade_Action.tga", 0)
+            call DzFrameSetTexture(El_Roll, "war3mapImported\\UI_Upgrade_Action.blp", 0)
         else
-            call DzFrameSetTexture(El_Roll, "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+            call DzFrameSetTexture(El_Roll, "war3mapImported\\UI_Upgrade_Disabled.blp", 0)
         endif
     endfunction
 
@@ -1539,14 +1539,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1558,14 +1558,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1577,14 +1577,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1596,14 +1596,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1615,14 +1615,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1634,14 +1634,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1649,14 +1649,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1668,20 +1668,20 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1690,14 +1690,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call DzFrameShow(ElF_Lock[SelectNumber], true)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1728,21 +1728,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
 
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1844,14 +1844,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call SetPathChance(pid, 1, GetPathChance(pid,1) - 50.0 )
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1862,14 +1862,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call SetPathChance(pid, 2, GetPathChance(pid,2) - 50.0 )
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1880,14 +1880,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call SetPathChance(pid, 3, GetPathChance(pid,3) - 50.0 )
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1898,14 +1898,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call SetPathChance(pid, 4, GetPathChance(pid,4) - 50.0 )
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1916,14 +1916,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call SetPathChance(pid, 5, GetPathChance(pid,5) - 50.0 )
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1934,14 +1934,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) - 50.0 )
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1951,14 +1951,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1968,14 +1968,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -1985,14 +1985,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2002,14 +2002,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2019,14 +2019,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2036,14 +2036,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2053,14 +2053,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2070,14 +2070,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2087,14 +2087,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2104,14 +2104,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2121,14 +2121,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2138,14 +2138,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2155,14 +2155,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2172,14 +2172,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2189,14 +2189,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2206,14 +2206,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2223,14 +2223,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2240,14 +2240,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2257,14 +2257,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2274,14 +2274,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2291,14 +2291,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2308,14 +2308,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2325,14 +2325,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2342,14 +2342,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2361,14 +2361,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2378,14 +2378,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2395,14 +2395,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2412,14 +2412,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2429,14 +2429,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2446,14 +2446,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2463,14 +2463,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2480,14 +2480,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2497,14 +2497,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2514,14 +2514,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2531,14 +2531,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2548,14 +2548,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2565,14 +2565,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2582,14 +2582,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2599,14 +2599,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2616,14 +2616,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2633,14 +2633,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2650,14 +2650,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2671,14 +2671,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2692,14 +2692,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2713,14 +2713,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2729,14 +2729,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = 1
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2745,14 +2745,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = 2
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2761,14 +2761,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = 3
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2777,14 +2777,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = 4
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2793,14 +2793,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = 5
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2809,14 +2809,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = SelectNumber
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2828,7 +2828,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -2836,14 +2836,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2855,7 +2855,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -2863,14 +2863,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2882,7 +2882,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -2890,14 +2890,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2909,7 +2909,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -2917,14 +2917,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2936,7 +2936,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -2944,14 +2944,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2963,7 +2963,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -2971,18 +2971,18 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -2994,14 +2994,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3015,7 +3015,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3023,7 +3023,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri1 == 1 then
@@ -3032,7 +3032,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3043,7 +3043,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3053,7 +3053,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3066,7 +3066,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3074,7 +3074,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri1 == 1 then
@@ -3083,7 +3083,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3093,7 +3093,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3103,7 +3103,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3116,7 +3116,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3124,7 +3124,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri1 == 1 then
@@ -3133,7 +3133,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3143,7 +3143,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3153,7 +3153,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3166,7 +3166,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3174,7 +3174,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri1 == 1 then
@@ -3183,7 +3183,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3193,7 +3193,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3203,7 +3203,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3216,7 +3216,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3224,7 +3224,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri1 == 1 then
@@ -3233,7 +3233,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3243,7 +3243,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3253,7 +3253,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3266,7 +3266,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3274,7 +3274,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri1 == 1 then
@@ -3283,7 +3283,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3293,7 +3293,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3303,7 +3303,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3316,7 +3316,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3324,7 +3324,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3332,7 +3332,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 2 then
@@ -3341,7 +3341,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3349,7 +3349,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 1 then
@@ -3358,7 +3358,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3368,7 +3368,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3378,7 +3378,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3391,7 +3391,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3399,7 +3399,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3407,38 +3407,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3451,7 +3451,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3459,7 +3459,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3467,38 +3467,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3511,7 +3511,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3519,7 +3519,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3527,38 +3527,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3571,7 +3571,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3579,7 +3579,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3587,38 +3587,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3631,7 +3631,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3639,7 +3639,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3647,38 +3647,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri2 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3693,7 +3693,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3701,7 +3701,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3709,7 +3709,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3717,7 +3717,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 3 then
@@ -3726,7 +3726,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3734,7 +3734,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3742,7 +3742,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 2 then
@@ -3751,7 +3751,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3759,7 +3759,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 1 then
@@ -3768,7 +3768,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -3778,7 +3778,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -3788,7 +3788,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3801,7 +3801,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3809,7 +3809,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3817,7 +3817,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3825,7 +3825,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 3 then
@@ -3834,7 +3834,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3842,7 +3842,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3850,38 +3850,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3894,7 +3894,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3902,7 +3902,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3910,7 +3910,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3918,7 +3918,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 3 then
@@ -3927,7 +3927,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3935,7 +3935,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3943,38 +3943,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -3987,7 +3987,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -3995,7 +3995,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4003,7 +4003,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4011,7 +4011,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 3 then
@@ -4020,7 +4020,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4028,7 +4028,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4036,38 +4036,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4080,7 +4080,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4088,7 +4088,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4096,7 +4096,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4104,7 +4104,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 3 then
@@ -4113,7 +4113,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4121,7 +4121,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4129,38 +4129,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4173,7 +4173,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4181,7 +4181,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4189,7 +4189,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4197,7 +4197,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 3 then
@@ -4206,7 +4206,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4214,7 +4214,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4222,38 +4222,38 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 2 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             elseif ri3 == 1 then
                 set El_Level[pid][path] = El_Level[pid][path] + 1
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4268,7 +4268,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4276,7 +4276,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4284,7 +4284,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -4295,7 +4295,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -4305,7 +4305,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4318,7 +4318,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4326,7 +4326,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4334,21 +4334,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4361,7 +4361,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4369,7 +4369,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4377,21 +4377,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4404,7 +4404,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4412,7 +4412,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4420,21 +4420,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4447,7 +4447,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4455,7 +4455,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4463,21 +4463,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4490,7 +4490,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4498,7 +4498,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4506,21 +4506,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4534,7 +4534,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4542,7 +4542,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4550,7 +4550,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4558,7 +4558,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -4569,7 +4569,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -4579,7 +4579,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4592,7 +4592,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4600,7 +4600,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4608,7 +4608,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4616,21 +4616,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4643,7 +4643,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4651,7 +4651,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4659,7 +4659,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4667,21 +4667,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4694,7 +4694,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4702,7 +4702,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4710,7 +4710,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4718,21 +4718,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4745,7 +4745,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4753,7 +4753,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4761,7 +4761,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4769,21 +4769,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4796,7 +4796,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4804,7 +4804,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4812,7 +4812,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4820,21 +4820,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4848,7 +4848,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4856,7 +4856,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -4867,7 +4867,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -4877,7 +4877,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4890,7 +4890,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4898,21 +4898,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4925,7 +4925,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4933,21 +4933,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4960,7 +4960,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -4968,21 +4968,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -4995,7 +4995,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5003,21 +5003,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5030,7 +5030,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5038,21 +5038,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5066,7 +5066,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5074,7 +5074,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5082,7 +5082,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -5093,7 +5093,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -5103,7 +5103,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5116,7 +5116,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5124,7 +5124,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5132,21 +5132,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5159,7 +5159,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5167,7 +5167,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5175,21 +5175,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5202,7 +5202,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5210,7 +5210,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5218,21 +5218,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5245,7 +5245,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5253,7 +5253,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5261,21 +5261,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5288,21 +5288,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5316,7 +5316,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -5327,7 +5327,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -5337,7 +5337,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5350,21 +5350,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5377,21 +5377,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5404,21 +5404,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5431,21 +5431,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5458,21 +5458,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5486,7 +5486,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5494,7 +5494,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
@@ -5505,7 +5505,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
@@ -5515,7 +5515,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                         set El_Level[pid][path] = 10
                     endif
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5528,7 +5528,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5536,21 +5536,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5563,7 +5563,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5571,21 +5571,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5598,7 +5598,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5606,21 +5606,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5633,7 +5633,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5641,21 +5641,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5668,7 +5668,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
                 set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5676,21 +5676,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set El_Level[pid][path] = 10
                 endif
                 if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                     call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
                 endif
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5702,21 +5702,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
 
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5728,7 +5728,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5736,20 +5736,20 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5761,7 +5761,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5769,7 +5769,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5777,20 +5777,20 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5818,21 +5818,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
 
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5859,7 +5859,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5867,20 +5867,20 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5907,7 +5907,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5915,7 +5915,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -5923,20 +5923,20 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -5964,21 +5964,21 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
     
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6005,7 +6005,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6013,20 +6013,20 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6053,7 +6053,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6061,7 +6061,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6069,20 +6069,20 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6094,7 +6094,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6102,14 +6102,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6121,7 +6121,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6129,7 +6129,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6137,14 +6137,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6156,7 +6156,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6164,7 +6164,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6172,7 +6172,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -6180,14 +6180,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 set El_Level[pid][path] = 10
             endif
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6196,14 +6196,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6214,14 +6214,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6230,14 +6230,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6248,14 +6248,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6266,14 +6266,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6282,14 +6282,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6300,14 +6300,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6318,14 +6318,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6338,14 +6338,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -6354,14 +6354,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
                     set El_Level[pid][path] = El_Level[pid][path] + 1
                     if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                         call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
                     endif
                 endif
@@ -7077,17 +7077,17 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
     private function ElActionHover takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         if f == El_B then
-            call DzFrameSetTexture(El_BBD, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+            call DzFrameSetTexture(El_BBD, "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
         elseif f == El_RollB then
-            call DzFrameSetTexture(El_Roll, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+            call DzFrameSetTexture(El_Roll, "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
         elseif f == El_LB then
-            call DzFrameSetTexture(El_LBBD, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+            call DzFrameSetTexture(El_LBBD, "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
         endif
     endfunction
 
     private function ElActionLeave takes nothing returns nothing
         call ElRefresh(GetPlayerId(DzGetTriggerUIEventPlayer()))
-        call DzFrameSetTexture(El_LBBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
+        call DzFrameSetTexture(El_LBBD, "war3mapImported\\UI_Upgrade_Action.blp", 0)
     endfunction
 
     private function Main takes nothing returns nothing
@@ -7098,15 +7098,15 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_BackDrop = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(El_BackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(El_BackDrop, 0.405, 0.475)
-        call DzFrameSetTexture(El_BackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
+        call DzFrameSetTexture(El_BackDrop, "war3mapImported\\UI_Upgrade_Panel.blp", 0)
         call DzFrameSetPriority(El_BackDrop, 110)
-        set Count = ElPanel(El_BackDrop, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.439, 0.365, 0.040)
+        set Count = ElPanel(El_BackDrop, "war3mapImported\\UI_Upgrade_Card.blp", 0.2025, 0.439, 0.365, 0.040)
         set CountText = ElText(El_BackDrop, "엘릭서 연성", 0.2025, 0.439, 0.012)
         set ElHint = ElText(El_BackDrop, "연성을 시작하고 선택지와 대상을 골라 주세요.", 0.2025, 0.407, 0.0085)
         loop
             exitwhen i > 5
             set y = 0.375 - (i-1)*0.052
-            set El_Main[i] = ElPanel(El_BackDrop, "war3mapImported\\UI_Upgrade_Row.tga", 0.2025, y, 0.365, 0.046)
+            set El_Main[i] = ElPanel(El_BackDrop, "war3mapImported\\UI_Upgrade_Row.blp", 0.2025, y, 0.365, 0.046)
             set label = ElText(El_Main[i], "효과 "+I2S(i), 0.032, 0.034, 0.009)
             set El_MainR[i] = ElText(El_Main[i], "연성 확률 --", 0.142, 0.034, 0.0085)
             set El_MainR2[i] = ElText(El_Main[i], "대성공 --", 0.292, 0.034, 0.0085)
@@ -7117,19 +7117,19 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set j = 1
             loop
                 exitwhen j > 10
-                set ElF_Level[i][j] = ElPanel(El_Main[i], "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0.020+(j-1)*0.027, 0.012, 0.019, 0.017)
+                set ElF_Level[i][j] = ElPanel(El_Main[i], "war3mapImported\\UI_Upgrade_StepEmpty.blp", 0.020+(j-1)*0.027, 0.012, 0.019, 0.017)
                 set ElixirEffect[i][j] = DzCreateFrameByTagName("SPRITE", "", El_Main[i], "", FrameCount())
                 call DzFrameSetPoint(ElixirEffect[i][j], JN_FRAMEPOINT_BOTTOMLEFT, ElF_Level[i][j], JN_FRAMEPOINT_CENTER, 0, 0)
                 set j = j + 1
             endloop
-            set ElF_Lock[i] = ElPanel(El_Main[i], "war3mapImported\\UI_Upgrade_Lock.tga", 0.351, 0.012, 0.014, 0.018)
+            set ElF_Lock[i] = ElPanel(El_Main[i], "war3mapImported\\UI_Upgrade_Lock.blp", 0.351, 0.012, 0.014, 0.018)
             call DzFrameShow(ElF_Lock[i], false)
             set i = i + 1
         endloop
         set i = 1
         loop
             exitwhen i > 3
-            set El_Select[i] = ElPanel(El_BackDrop, "war3mapImported\\UI_Upgrade_Row.tga", 0.0785+(i-1)*0.124, 0.095, 0.117, 0.080)
+            set El_Select[i] = ElPanel(El_BackDrop, "war3mapImported\\UI_Upgrade_Row.blp", 0.0785+(i-1)*0.124, 0.095, 0.117, 0.080)
             set ElChoiceTitle[i] = ElText(El_Select[i], "선택지 "+I2S(i), 0.0585, 0.067, 0.009)
             set El_SelectText[i] = ElText(El_Select[i], "연성을 시작하면 선택지가 표시됩니다.", 0.0585, 0.034, 0.008)
             call DzFrameSetSize(El_SelectText[i], 0.101, 0.050)
@@ -7142,7 +7142,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_B = DzCreateFrameByTagName("BUTTON", "", El_BackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(El_B, JN_FRAMEPOINT_CENTER, El_BackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.124, 0.026)
         call DzFrameSetSize(El_B, 0.155, 0.034)
-        set El_BBD = ElPanel(El_B, "war3mapImported\\UI_Upgrade_Action.tga", 0.0775, 0.017, 0.155, 0.034)
+        set El_BBD = ElPanel(El_B, "war3mapImported\\UI_Upgrade_Action.blp", 0.0775, 0.017, 0.155, 0.034)
         set El_BT = ElText(El_B, "연성 시작", 0.0775, 0.017, 0.011)
         call DzFrameSetTextColor(El_BT, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(El_B, JN_FRAMEEVENT_MOUSE_UP, function ClickLButton, false)
@@ -7151,7 +7151,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_RollB = DzCreateFrameByTagName("BUTTON", "", El_BackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(El_RollB, JN_FRAMEPOINT_CENTER, El_BackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.296, 0.026)
         call DzFrameSetSize(El_RollB, 0.145, 0.034)
-        set El_Roll = ElPanel(El_RollB, "war3mapImported\\UI_Upgrade_Action.tga", 0.0725, 0.017, 0.145, 0.034)
+        set El_Roll = ElPanel(El_RollB, "war3mapImported\\UI_Upgrade_Action.blp", 0.0725, 0.017, 0.145, 0.034)
         set El_RollT = ElText(El_RollB, "재선택", 0.0725, 0.017, 0.010)
         call DzFrameSetTextColor(El_RollT, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(El_RollB, JN_FRAMEEVENT_MOUSE_UP, function ClickLButton, false)
@@ -7162,19 +7162,19 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_BackDrop2 = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(El_BackDrop2, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(El_BackDrop2, 0.405, 0.475)
-        call DzFrameSetTexture(El_BackDrop2, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
+        call DzFrameSetTexture(El_BackDrop2, "war3mapImported\\UI_Upgrade_Panel.blp", 0)
         call DzFrameSetPriority(El_BackDrop2, 110)
         set EL_LevelTextC = ElText(El_BackDrop2, "연성 결과", 0.2025, 0.428, 0.014)
-        set EL_LevelA = ElPanel(El_BackDrop2, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.330, 0.365, 0.100)
+        set EL_LevelA = ElPanel(El_BackDrop2, "war3mapImported\\UI_Upgrade_Card.blp", 0.2025, 0.330, 0.365, 0.100)
         set label = ElText(EL_LevelA, "첫 번째 효과", 0.1825, 0.075, 0.010)
         set EL_LevelTextA = ElText(EL_LevelA, "", 0.1825, 0.036, 0.020)
-        set EL_LevelB = ElPanel(El_BackDrop2, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.205, 0.365, 0.100)
+        set EL_LevelB = ElPanel(El_BackDrop2, "war3mapImported\\UI_Upgrade_Card.blp", 0.2025, 0.205, 0.365, 0.100)
         set label = ElText(EL_LevelB, "두 번째 효과", 0.1825, 0.075, 0.010)
         set EL_LevelTextB = ElText(EL_LevelB, "", 0.1825, 0.036, 0.020)
         set El_LB = DzCreateFrameByTagName("BUTTON", "", El_BackDrop2, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(El_LB, JN_FRAMEPOINT_CENTER, El_BackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.2025, 0.090)
         call DzFrameSetSize(El_LB, 0.170, 0.036)
-        set El_LBBD = ElPanel(El_LB, "war3mapImported\\UI_Upgrade_Action.tga", 0.085, 0.018, 0.170, 0.036)
+        set El_LBBD = ElPanel(El_LB, "war3mapImported\\UI_Upgrade_Action.blp", 0.085, 0.018, 0.170, 0.036)
         set El_LBT = ElText(El_LB, "결과 받기", 0.085, 0.018, 0.011)
         call DzFrameSetTextColor(El_LBT, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(El_LB, JN_FRAMEEVENT_MOUSE_UP, function ClickLButton3, false)
@@ -7292,7 +7292,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                     set j = 0 
                     loop
                         set j = j + 1
-                        call DzFrameSetTexture(ElF_Level[i][j], "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0)
+                        call DzFrameSetTexture(ElF_Level[i][j], "war3mapImported\\UI_Upgrade_StepEmpty.blp", 0)
                         exitwhen j == 10
                     endloop
                     exitwhen i == 5

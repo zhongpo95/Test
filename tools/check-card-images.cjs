@@ -5,27 +5,30 @@ const {fresh} = require('./check-expedition-ui.cjs');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const registry = read('Data/Data_PrototypeCardImages.j');
+const blpNames = new Set(JSON.parse(read('content/blp-textures.json')).textures);
+const toBlp = value => value.replace(/[A-Za-z0-9_-]+\.tga/g, name => blpNames.has(name) ? name.slice(0,-4)+'.blp' : name);
 const index = JSON.parse(read('content/card-images/card-index.json'));
 const manifest = JSON.parse(read('content/card-images/texture-manifest.json'));
 const sources = JSON.parse(read('content/card-images/ending-sources.json'));
 const registrations = [...registry.matchAll(/call SetImages\((\d+), "([^"]+)", "([^"]+)"\)/g)]
   .map(m => ({id:Number(m[1]), icon:m[2], art:m[3]}));
 assert.equal(new Set(registrations.map(x=>x.id)).size, registrations.length, '중복 그림 등록 ID');
-const paths = new Set(manifest.assets.map(x=>x.target));
+const paths = new Set(manifest.assets.map(x=>toBlp(x.target)));
 assert.equal(paths.size, manifest.assets.length, '중복 맵 경로');
 const t = fresh(0, true), e = t.e;
 assert.equal(sources.length, Array.from({length:e.PROTO_CARD_LAST-e.PROTO_CARD_FIRST+1},(_,i)=>i+e.PROTO_CARD_FIRST).filter(id=>e.ProtoCardEnding[id]===1).length,'모든 엔딩 기념 카드의 그림 출처 필요');
 for (const x of registrations) e.SetImages(x.id, x.icon, x.art);
 const group = new Map();
 for (const x of index) {
+  x.icon=toBlp(x.icon); x.art=toBlp(x.art);
   assert.ok(!group.has(x.characterId), '중복 캐릭터 카드');
   group.set(x.characterId, x);
   for (const id of x.rewardIds) {
     assert.equal(e.ProtoCardCharacter[id], x.characterId, '그림 공유 기준 변경 ' + id);
     assert.equal(e.ProtoCardHead[id], x.head);
     assert.equal(e.ProtoCardName[id], x.name);
-    assert.equal(e.ProtoCardArt(id), 'war3mapImported\\' + x.icon);
-    assert.equal(e.ProtoCardIllustration(id), 'war3mapImported\\' + x.art);
+    assert.equal(e.ProtoCardArt(id), 'war3mapImported\\' + toBlp(x.icon));
+    assert.equal(e.ProtoCardIllustration(id), 'war3mapImported\\' + toBlp(x.art));
     assert.ok(paths.has(e.ProtoCardArt(id)), '아이콘 파일 누락 ' + id);
     assert.ok(paths.has(e.ProtoCardIllustration(id)), '큰 그림 파일 누락 ' + id);
   }
@@ -47,8 +50,8 @@ if (fs.existsSync(fateReviewFile)) {
   assert.deepEqual(replacements.map(x=>x.cardId), [14,16,17,18,19,20,26]);
   assert.equal(fateReview.animeOnly, true);
   for (const x of fateReview.requestedExclusions) {
-    assert.equal(e.ProtoCardArt(x.characterId), 'war3mapImported\\' + x.icon);
-    assert.equal(e.ProtoCardIllustration(x.characterId), 'war3mapImported\\' + x.art);
+    assert.equal(e.ProtoCardArt(x.characterId), 'war3mapImported\\' + toBlp(x.icon));
+    assert.equal(e.ProtoCardIllustration(x.characterId), 'war3mapImported\\' + toBlp(x.art));
     for (const texture of x.textures) {
       assert.equal(manifest.assets.find(a=>a.target===texture.target).sha256, texture.sha256,
         '사용자가 유지하도록 지정한 그림이 변경됨 ' + x.name);
@@ -68,15 +71,16 @@ if (fs.existsSync(fateReviewFile)) {
 // 실제 JASS Render를 모의 프레임에서 실행하여 목록과 큰 그림이 준비 중 표시로 빠지지 않는지 확인한다.
 e.ExpUIOpen(e.EXP_UI_CARDS);
 for (const x of index) {
+  x.icon=toBlp(x.icon); x.art=toBlp(x.art);
   e.ProtoCharacterOwned[e.ExpKey(0, x.characterId)] = true;
   e.ProtoCardRevision[0]++;
   e.UIPrototypeCards_Selected = x.characterId;
   t.render();
-  assert.equal(t.frame(e.UIPrototypeCards_GalleryArt).texture, 'war3mapImported\\' + x.art);
+  assert.equal(t.frame(e.UIPrototypeCards_GalleryArt).texture, 'war3mapImported\\' + toBlp(x.art));
   assert.equal(t.visible(e.UIPrototypeCards_GalleryEmpty), false);
 }
 const missing = manifest.assets.find(x=>x.role==='portrait');
-const invalidPaths = new Set([...paths].filter(x=>x!==missing.target));
+const invalidPaths = new Set([...paths].filter(x=>x!==toBlp(missing.target)));
 assert.ok(index.some(x=>!invalidPaths.has('war3mapImported\\'+x.art)), '파일 누락 검출 음성 대조군');
 assert.equal(rewards, index.reduce((n,x)=>n+x.rewardIds.length,0));
 console.log(JSON.stringify({rewardDefinitions:rewards,cardPictures:index.length,endingPictures:sources.length,

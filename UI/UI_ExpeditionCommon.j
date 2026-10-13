@@ -65,7 +65,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call DzFrameSetAbsolutePoint(f, JN_FRAMEPOINT_TOPLEFT, (0.8 - width) * 0.5, top)
         call DzFrameSetPriority(f, 90)
         if background then
-            set decoration = ExpUITexture(f, 0, 0, width, height, "war3mapImported\\UI_Upgrade_Background.tga")
+            set decoration = ExpUITexture(f, 0, 0, width, height, "war3mapImported\\UI_Upgrade_Background.blp")
         endif
         set ExpUIRoots[id] = f
         call DzFrameShow(f, false)
@@ -120,13 +120,13 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
             if ButtonTheme[i] == 3 or ButtonTheme[i] == 4 then
                 if Hovered == i or ButtonSelected[i] then
                     if ButtonTheme[i] == 4 then
-                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Cards_Selected.tga", 0)
+                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Cards_Selected.blp", 0)
                     else
                         call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Selected.tga", 0)
                     endif
                 else
                     if ButtonTheme[i] == 4 then
-                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Cards_Slot.tga", 0)
+                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Cards_Slot.blp", 0)
                     else
                         call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Slot.tga", 0)
                     endif
@@ -136,10 +136,10 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                     if ButtonCover[i] then
                         call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Selected.tga", 0)
                     else
-                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Active.tga", 0)
+                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Active.blp", 0)
                     endif
                 elseif not ButtonCover[i] then
-                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Button.tga", 0)
+                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Button.blp", 0)
                 else
                     call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Panel.tga", 0)
                 endif
@@ -157,9 +157,9 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
             endif
         elseif ButtonCover[i] then
             if Hovered == i and ButtonEnabled[i] then
-                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
+                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Selected.blp", 0)
             else
-                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Card.tga", 0)
+                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Card.blp", 0)
             endif
             if ButtonEnabled[i] then
                 call DzFrameSetAlpha(ExpUIButtons[i], 255)
@@ -167,11 +167,11 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                 call DzFrameSetAlpha(ExpUIButtons[i], 155)
             endif
         elseif not ButtonEnabled[i] then
-            call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+            call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Disabled.blp", 0)
         elseif Hovered == i then
-            call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+            call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
         else
-            call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Action.tga", 0)
+            call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Action.blp", 0)
         endif
     endfunction
 
@@ -255,7 +255,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         set ExpUIButtons[i] = DzCreateFrameByTagName("BUTTON", "", parent, "", FrameCount())
         call DzFrameSetPoint(ExpUIButtons[i], JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetSize(ExpUIButtons[i], width, height)
-        set ButtonBackdrops[i] = ExpUITexture(ExpUIButtons[i], 0, 0, width, height, "war3mapImported\\UI_Upgrade_Action.tga")
+        set ButtonBackdrops[i] = ExpUITexture(ExpUIButtons[i], 0, 0, width, height, "war3mapImported\\UI_Upgrade_Action.blp")
         set ExpUIButtonLabels[i] = ExpUILabel(ExpUIButtons[i], 0.010, 0.003, width - 0.020, height - 0.006, 0.010, value)
         set ButtonActions[i] = action
         call ExpUISetButton(i, value, true)
@@ -305,7 +305,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     endfunction
 
     function ExpUIHeader takes integer parent, real width, string title returns integer
-        local integer f = ExpUITexture(parent, 0, 0, width, 0.044, "war3mapImported\\UI_Upgrade_Header.tga")
+        local integer f = ExpUITexture(parent, 0, 0, width, 0.044, "war3mapImported\\UI_Upgrade_Header.blp")
         local integer close = ExpUIPanelToggle(parent, width - 0.048, 0.008, 0.033, 0.026)
         return ExpUILabel(parent, 0.018, 0.013, width - 0.082, 0.026, 0.014, title)
     endfunction
