@@ -6,7 +6,7 @@ const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j','Data/Da
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 function fresh(localPlayer = 0, prototype = false) {
-  const prototypeFiles = prototype ? [...files, 'System/ExpeditionPrototype.j', 'UI/UI_ExpeditionPrototype.j'] : files;
+  const prototypeFiles = prototype ? [...files, 'UI/UI_StoryLineLayout.j', 'System/ExpeditionPrototype.j', 'UI/UI_ExpeditionPrototype.j'] : files;
   const frames = new Map([[0, {id:0,type:'GAME',parent:null,shown:true,enabled:true,x:0,y:.6}]]), packets = [], timers = [], executions = [];
   let e, count = 0, eventFrame = 0, eventPlayer = 0;
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
@@ -45,6 +45,9 @@ function fresh(localPlayer = 0, prototype = false) {
   e.localPlayer = localPlayer;
   e.ExpPrototypeEnabled=prototype;
   if(prototype){
+    e.StoryLineLayout_CharBytes=1; e.StringLength=s=>s.length; e.SubString=(s,a,b)=>s.slice(a,b);
+    e.HaveSavedBoolean=(t,a,b)=>t.has(a+':'+b);
+    for(let code=32;code<127;code++)e.Narrow.set(String.fromCharCode(code)+':0',true);
     e.ProtoStatsInit();e.ProtoCatalogInit();e.ProtoGrowthInit();e.ExpPrototypeEnabled=true;
     e.MapSt[5]=e.MapSt[6]={caster:null};e.MapRectCheck[5]=e.MapRectCheck[6]=true;
     e.EQUIP_SLOT_WEAPON=1;e.MockAttack=100;e.AttackPower=()=>e.MockAttack;e.GetItemTier=()=>2;
@@ -75,7 +78,10 @@ function fresh(localPlayer = 0, prototype = false) {
   const start = () => {render();if(prototype && e.ExpUIPanel!==8){click(common(-98));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
   const roots = () => Array.from({length:10},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
   render();
-  if(prototype){flush();render();}
+  if(prototype){
+    e.StoryLineLayout_CharBytes=1; e.StringLength=s=>s.length; e.SubString=(s,a,b)=>s.slice(a,b);
+    e.HaveSavedBoolean=(t,a,b)=>t.has(a+':'+b);
+    for(let code=32;code<127;code++)e.Narrow.set(String.fromCharCode(code)+':0',true);flush();render();}
   return {e,frames,frame,visible,render,event,packets,flush,click,common,card,start,roots,timers,executions};
 }
 module.exports={fresh};
@@ -120,9 +126,9 @@ check('카드 전체 클릭, 장식의 입력 차단 방지, 마우스 강조와
   const t=fresh(),e=t.e;t.start();const id=t.card('Choice',1),index=e.UIExpeditionChoice_ChoiceCards[1];
   for(const f of t.frames.values())if(f.parent===id){if(f.type==='TEXT')assert.equal(f.enabled,false);else assert.equal(f.type,'BACKDROP');}
   const bg=t.frame(e.UIExpeditionChoice_CardActionBackground[index]);
-  t.event(id,2);assert(bg.texture.endsWith('ActionHover.tga'));
+  t.event(id,2);assert(bg.texture.endsWith('ActionHover.blp'));
   assert(t.frame(e.UIExpeditionChoice_CardBorder[index]).texture.endsWith('Blue.blp'));
-  t.event(id,3);assert(bg.texture.endsWith('Action.tga'));
+  t.event(id,3);assert(bg.texture.endsWith('Action.blp'));
   assert(t.frame(e.UIExpeditionChoice_CardBorder[index]).texture.endsWith('White.blp'));
   const points=e.ExpPoints[0];t.click(id);assert.equal(e.ExpPoints[0],points+10);assert.equal(e.ExpDone[0],true);assert.deepEqual(t.roots(),[]);
 });
@@ -147,7 +153,7 @@ check('배분은 보상 확정과 분리되고 전투 중에는 수정할 수 �
 check('이동·투표·보상·상점에서 스탯 배분, 포인트 부족·한도·전투 제한 표시',()=>{
   for(const state of ['EXP_START','EXP_MOVE','EXP_VOTE','EXP_REWARD','EXP_SHOP']){
     const t=fresh(),e=t.e;t.start();e.ExpState=e[state];e.ExpRevision++;t.render();e.ExpUIOpen(e.EXP_UI_STATS);t.render();
-    t.event(t.common(101),2);assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[e.UIExpeditionStats_AddCrit]).texture.endsWith('ActionHover.tga'));
+    t.event(t.common(101),2);assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[e.UIExpeditionStats_AddCrit]).texture.endsWith('ActionHover.blp'));
     t.click(t.common(101));t.click(t.common(102));assert.equal(e.ExpCritPoints[0],1);assert.equal(e.ExpSwiftPoints[0],1);
     assert.equal(e.ExpDone[0],false);t.click(t.common(103));assert.equal(e.ExpCritPoints[0]+e.ExpSwiftPoints[0],0);
     e.ExpPoints[0]=1;t.render();t.click(t.common(101));
@@ -209,7 +215,7 @@ check('상점 잔액과 불가 사유 갱신, 일반 구매 버튼의 강조 및
   assert(label(4).includes('부족'));assert(label(6).includes('부족'));
   const cardIndex=e.UIExpeditionChoice_ShopCards[1];assert(t.frame(e.UIExpeditionChoice_CardActionText[cardIndex]).text.includes('골드 부족'));
   e.ExpGold[0]=450;t.render();t.event(t.common(4),2);
-  assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[e.UIExpeditionChoice_ShopButtons[4]]).texture.endsWith('ActionHover.tga'));
+  assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[e.UIExpeditionChoice_ShopButtons[4]]).texture.endsWith('ActionHover.blp'));
   t.click(t.common(4));assert.equal(e.ExpFixedCrit[0],100);assert.equal(e.ExpGold[0],150);assert(gold().includes('150 G'));
   assert(label(4).includes('구매 완료'));assert(label(5).includes('구매 완료'));assert.equal(t.frame(t.common(5)).enabled,false);
   const charges=e.PlayerItem1[0].charges;t.click(t.common(6));t.click(t.common(6));

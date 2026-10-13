@@ -68,13 +68,13 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
 
     function ProtoCardFrame takes integer grade returns string
         if grade == 4 then
-            return "war3mapImported\\UI_Card_Frame_Prism.tga"
+            return "war3mapImported\\UI_Card_Frame_Prism.blp"
         elseif grade == 3 then
-            return "war3mapImported\\UI_Card_Frame_Epic.tga"
+            return "war3mapImported\\UI_Card_Frame_Epic.blp"
         elseif grade == 2 then
-            return "war3mapImported\\UI_Card_Frame_Rare.tga"
+            return "war3mapImported\\UI_Card_Frame_Rare.blp"
         endif
-        return "war3mapImported\\UI_Card_Frame_Normal.tga"
+        return "war3mapImported\\UI_Card_Frame_Normal.blp"
     endfunction
 
     // 검토한 캐릭터 아이콘을 공유하고 미등록 캐릭터는 기존 지역 아이콘을 사용한다.

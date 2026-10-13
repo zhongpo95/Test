@@ -64,13 +64,13 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
 
     private function PortraitFrame takes integer grade returns string
         if grade == 4 then
-            return "war3mapImported\\UI_Cards_Portrait_Prism.tga"
+            return "war3mapImported\\UI_Cards_Portrait_Prism.blp"
         elseif grade == 3 then
-            return "war3mapImported\\UI_Cards_Portrait_Epic.tga"
+            return "war3mapImported\\UI_Cards_Portrait_Epic.blp"
         elseif grade == 2 then
-            return "war3mapImported\\UI_Cards_Portrait_Rare.tga"
+            return "war3mapImported\\UI_Cards_Portrait_Rare.blp"
         endif
-        return "war3mapImported\\UI_Cards_Portrait_Normal.tga"
+        return "war3mapImported\\UI_Cards_Portrait_Normal.blp"
     endfunction
 
     private function Enter takes nothing returns nothing
@@ -320,14 +320,14 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         local real x
         local real y
         set Root = ExpUIRoot(EXP_UI_CARDS, 0.76, 0.558, 0.584, false)
-        set f = ExpUITexture(Root, 0, 0, 0.76, 0.558, "war3mapImported\\UI_Cards_Archive.tga")
+        set f = ExpUITexture(Root, 0, 0, 0.76, 0.558, "war3mapImported\\UI_Cards_Archive.blp")
         set f = Label(Root, 0.026, 0.016, 0.22, 0.022, 0.010, "|cffd9c094A R C A N A")
         set f = Label(Root, 0.026, 0.039, 0.23, 0.034, 0.023, "보유 카드")
         set Summary = Label(Root, 0.473, 0.027, 0.235, 0.024, 0.012, "")
         call JNFrameSetTextAlignment(Summary, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_RIGHT)
         set f = ExpUIPanelToggle(Root, 0.721, 0.014, 0.026, 0.028)
         call ExpUIThemeButton(f, 1)
-        set f = ExpUITexture(Root, 0.016, 0.093, 0.387, 0.417, "war3mapImported\\UI_Cards_Collection.tga")
+        set f = ExpUITexture(Root, 0.016, 0.093, 0.387, 0.417, "war3mapImported\\UI_Cards_Collection.blp")
         set f = Label(Root, 0.031, 0.108, 0.13, 0.022, 0.012, "보유 목록")
         set RegionSort = ExpUIButton(Root, 0.235, 0.107, 0.069, 0.026, "지역순", 0)
         set GradeSort = ExpUIButton(Root, 0.311, 0.107, 0.078, 0.026, "희귀도순", 0)
@@ -358,7 +358,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             call DzFrameSetScriptByCode(ExpUIButtons[Cells[i]], JN_FRAMEEVENT_MOUSE_UP, function Click, false)
             set i = i + 1
         endloop
-        set f = ExpUITexture(Root, 0.415, 0.070, 0.326, 0.443, "war3mapImported\\UI_Cards_Gallery.tga")
+        set f = ExpUITexture(Root, 0.415, 0.070, 0.326, 0.443, "war3mapImported\\UI_Cards_Gallery.blp")
         set GalleryArt = ExpUITexture(Root, 0.428, 0.082, 0.300, 0.400, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
         set GalleryBorder = ExpUITexture(Root, 0.415, 0.070, 0.326, 0.443, PortraitFrame(1))
         // 이름과 보조 문구의 영역을 하단 장식선 위에 두고 상단 정렬로 고정한다.
@@ -385,7 +385,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         call DzFrameSetScriptByCode(ExpUIButtons[Next], JN_FRAMEEVENT_MOUSE_UP, function Click, false)
         call DzFrameSetScriptByCode(ExpUIButtons[RegionSort], JN_FRAMEEVENT_MOUSE_UP, function Click, false)
         call DzFrameSetScriptByCode(ExpUIButtons[GradeSort], JN_FRAMEEVENT_MOUSE_UP, function Click, false)
-        set Tooltip = ExpUITexture(Root, 0, 0, 0.268, 0.300, "war3mapImported\\UI_Cards_Tooltip.tga")
+        set Tooltip = ExpUITexture(Root, 0, 0, 0.268, 0.300, "war3mapImported\\UI_Cards_Tooltip.blp")
         call DzFrameSetPriority(Tooltip, 110)
         set TooltipIcon = ExpUITexture(Tooltip, 0.012, 0.012, 0.034, 0.0453, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
         set TooltipBorder = ExpUITexture(Tooltip, 0.012, 0.012, 0.034, 0.0453, ProtoCardFrame(1))

@@ -963,7 +963,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call ExpUIThemeButton(RerollButton, 2)
         call ExpUIThemeButton(ResumeButton, 2)
         // 장식 BACKDROP과 입력을 받지 않는 TEXT만 사용하며 후보 클릭 콜백은 그대로 둔다.
-        set EntryTooltip = ExpUITexture(EventRoot, 0, 0, 0.266, 0.176, "war3mapImported\\UI_Cards_Tooltip.tga")
+        set EntryTooltip = ExpUITexture(EventRoot, 0, 0, 0.266, 0.176, "war3mapImported\\UI_Cards_Tooltip.blp")
         call DzFrameSetPriority(EntryTooltip, 110)
         set EntryTooltipIcon = ExpUITexture(EntryTooltip, 0.012, 0.044, 0.046, 0.0613, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
         set EntryTooltipBorder = ExpUITexture(EntryTooltip, 0.012, 0.044, 0.046, 0.0613, ProtoCardFrame(1))
@@ -979,7 +979,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameSetSize(HuntHUD, 0.40, 0.074)
         call DzFrameSetAbsolutePoint(HuntHUD, JN_FRAMEPOINT_TOPLEFT, 0.245, 0.600)
         call DzFrameSetPriority(HuntHUD, 85)
-        set f = ExpUITexture(HuntHUD, 0, 0, 0.40, 0.074, "war3mapImported\\UI_Upgrade_Panel.tga")
+        set f = ExpUITexture(HuntHUD, 0, 0, 0.40, 0.074, "war3mapImported\\UI_Upgrade_Panel.blp")
         set HuntStatus = ExpUILabel(HuntHUD, 0.012, 0.006, 0.376, 0.044, 0.0085, "")
         set HuntReady = ExpUIButton(HuntHUD, 0.125, 0.052, 0.164, 0.020, "준비 완료", 2500)
         call DzFrameShow(HuntHUD, false)
