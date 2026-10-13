@@ -40,10 +40,10 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
             exitwhen i > 4
             set name = JNStringSplit("출발|조우 · 전투|상점|보스", "|", i - 1)
             if ExpMember[pid] and i == current then
-                call DzFrameSetTexture(Nodes[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
+                call DzFrameSetTexture(Nodes[i], "war3mapImported\\UI_Upgrade_Selected.blp", 0)
                 set name = "|cff07516b현재 위치|r|n" + name
             else
-                call DzFrameSetTexture(Nodes[i], "war3mapImported\\UI_Upgrade_Card.tga", 0)
+                call DzFrameSetTexture(Nodes[i], "war3mapImported\\UI_Upgrade_Card.blp", 0)
             endif
             if ExpPrototypeEnabled then
                 set name = JNStringSplit("머리 카드 준비|개인 사냥 · 사건|준비 완료|보스 합류", "|", i - 1)
@@ -96,7 +96,7 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
         set Status = ExpUILabel(Root, 0.025, 0.066, 0.58, 0.043, 0.011, "")
         loop
             exitwhen i > 4
-            set Nodes[i] = ExpUITexture(Root, 0.024 + (i - 1) * 0.152, 0.128, 0.137, 0.085, "war3mapImported\\UI_Upgrade_Card.tga")
+            set Nodes[i] = ExpUITexture(Root, 0.024 + (i - 1) * 0.152, 0.128, 0.137, 0.085, "war3mapImported\\UI_Upgrade_Card.blp")
             set NodeLabels[i] = ExpUILabel(Root, 0.035 + (i - 1) * 0.152, 0.150, 0.115, 0.048, 0.011, "")
             if i < 4 then
                 set f = ExpUILabel(Root, 0.162 + (i - 1) * 0.152, 0.156, 0.015, 0.023, 0.013, ">")

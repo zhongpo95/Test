@@ -6,8 +6,8 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
     endglobals
 
     private function SetImages takes integer character, string icon, string art returns nothing
-        set ProtoCharacterIconPath[character] = "war3mapImported\\" + icon + ".tga"
-        set ProtoCharacterArtPath[character] = "war3mapImported\\" + art + ".tga"
+        set ProtoCharacterIconPath[character] = "war3mapImported\\" + icon + ".blp"
+        set ProtoCharacterArtPath[character] = "war3mapImported\\" + art + ".blp"
     endfunction
 
     private function Init takes nothing returns nothing

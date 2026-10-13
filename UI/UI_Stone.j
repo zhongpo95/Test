@@ -149,9 +149,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set StoneStartReady = ready
         call DzFrameSetText(StoneStatus, reason)
         if ready then
-            call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
+            call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Action.blp", 0)
         else
-            call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+            call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Disabled.blp", 0)
         endif
         // 조건이 바뀐 뒤에도 클릭으로 재검사할 수 있으며 차감은 StoneStart에서만 수행합니다.
         loop
@@ -159,9 +159,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             call DzFrameSetEnable(F_ArcanaButton[i], StoneActive[pid] and not StonePending[pid] and (StoneTemporaryMode or PLAYER_DATA_SERVER_READY[pid]))
             if not StoneActive[pid] or StonePending[pid] or (i == 1 and Arcana1[9] != 0) or (i == 2 and Arcana2[9] != 0) or (i == 3 and Arcana3[9] != 0) then
                 call DzFrameSetEnable(F_ArcanaButton[i], false)
-                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Disabled.blp", 0)
             else
-                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Action.tga", 0)
+                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Action.blp", 0)
             endif
             set i = i + 1
         endloop
@@ -261,9 +261,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             set Arcana1[i] = 0
             set Arcana2[i] = 0
             set Arcana3[i] = 0
-            call DzFrameSetTexture(F_Arcana1[i], "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0)
-            call DzFrameSetTexture(F_Arcana2[i], "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0)
-            call DzFrameSetTexture(F_Arcana3[i], "war3mapImported\\UI_Upgrade_StepRisk.tga", 0)
+            call DzFrameSetTexture(F_Arcana1[i], "war3mapImported\\UI_Upgrade_StepEmpty.blp", 0)
+            call DzFrameSetTexture(F_Arcana2[i], "war3mapImported\\UI_Upgrade_StepEmpty.blp", 0)
+            call DzFrameSetTexture(F_Arcana3[i], "war3mapImported\\UI_Upgrade_StepRisk.blp", 0)
             exitwhen i == 9
             set i = i + 1
         endloop
@@ -399,14 +399,14 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         local integer i = 1
         if f == StoneStartButton then
             if StoneStartReady then
-                call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+                call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
             endif
             return
         endif
         loop
             exitwhen i > 3
             if f == F_ArcanaButton[i] then
-                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
             endif
             set i = i + 1
         endloop
@@ -425,9 +425,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set F_StoneBackDrop = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(F_StoneBackDrop, 0.405, 0.475)
-        call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
+        call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.blp", 0)
         call DzFrameSetPriority(F_StoneBackDrop, 110)
-        set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.421, 0.365, 0.073)
+        set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Card.blp", 0.2025, 0.421, 0.365, 0.073)
         set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.072, 0.010)
         set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "세공 확률 75%", 0.2025, 0.421, 0.014)
         set F_StoneCancelButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
@@ -436,7 +436,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         loop
             exitwhen row > 3
             set y = 0.325 - (row - 1) * 0.092
-            set F_StoneBackDrop2[row] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Row.tga", 0.2025, y, 0.365, 0.080)
+            set F_StoneBackDrop2[row] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Row.blp", 0.2025, y, 0.365, 0.080)
             if row < 3 then
                 set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+"  ·  6 / 7.5 / 10.5 / 12%", 0.170, y+0.025, 0.010)
             else
@@ -446,7 +446,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             set F_ArcanaButton[row] = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetPoint(F_ArcanaButton[row], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.340, y-0.008)
             call DzFrameSetSize(F_ArcanaButton[row], 0.065, 0.029)
-            set F_ArcanaButton2BackDrop[row+3] = StonePanel(F_ArcanaButton[row], "war3mapImported\\UI_Upgrade_Action.tga", 0.0325, 0.0145, 0.065, 0.029)
+            set F_ArcanaButton2BackDrop[row+3] = StonePanel(F_ArcanaButton[row], "war3mapImported\\UI_Upgrade_Action.blp", 0.0325, 0.0145, 0.065, 0.029)
             set StoneButtonText[row] = StoneText(F_ArcanaButton[row], "부여", 0.0325, 0.0145, 0.009)
             call DzFrameSetTextColor(StoneButtonText[row], JNConvertColor(255,255,255,255))
             call DzFrameSetScriptByCode(F_ArcanaButton[row], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
@@ -458,9 +458,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetText(StoneButtonText[3], "균열")
         loop
             exitwhen i > 9
-            set F_Arcana1[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0.045+i*0.025, 0.320, 0.019, 0.020)
-            set F_Arcana2[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0.045+i*0.025, 0.228, 0.019, 0.020)
-            set F_Arcana3[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepRisk.tga", 0.045+i*0.025, 0.136, 0.019, 0.020)
+            set F_Arcana1[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepEmpty.blp", 0.045+i*0.025, 0.320, 0.019, 0.020)
+            set F_Arcana2[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepEmpty.blp", 0.045+i*0.025, 0.228, 0.019, 0.020)
+            set F_Arcana3[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepRisk.blp", 0.045+i*0.025, 0.136, 0.019, 0.020)
             set i = i + 1
         endloop
         set i = 0
@@ -479,7 +479,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set StoneStartButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(StoneStartButton, JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.2025, 0.035)
         call DzFrameSetSize(StoneStartButton, 0.170, 0.036)
-        set StoneStartBD = StonePanel(StoneStartButton, "war3mapImported\\UI_Upgrade_Action.tga", 0.085, 0.018, 0.170, 0.036)
+        set StoneStartBD = StonePanel(StoneStartButton, "war3mapImported\\UI_Upgrade_Action.blp", 0.085, 0.018, 0.170, 0.036)
         set StoneStartText = StoneText(StoneStartButton, "부여 시작", 0.085, 0.018, 0.011)
         call DzFrameSetTextColor(StoneStartText, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(StoneStartButton, JN_FRAMEEVENT_MOUSE_UP, function StoneBegin, false)
@@ -542,7 +542,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                     if loopA != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then
                             //성공
-                            call DzFrameSetTexture(F_Arcana1[loopA], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                            call DzFrameSetTexture(F_Arcana1[loopA], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                             set Arcana1[loopA] = 1
                             set ArcanaProbability = ArcanaProbability + 1
                             if ArcanaProbability > 5 then
@@ -574,7 +574,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             endif
                         else
                             //실패
-                            call DzFrameSetTexture(F_Arcana1[loopA], "war3mapImported\\UI_Upgrade_StepFail.tga", 0)
+                            call DzFrameSetTexture(F_Arcana1[loopA], "war3mapImported\\UI_Upgrade_StepFail.blp", 0)
                             set Arcana1[loopA] = 2
                             set ArcanaProbability = ArcanaProbability - 1
                             if ArcanaProbability < 0 then
@@ -613,7 +613,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                     if loopB != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then
                             //성공
-                            call DzFrameSetTexture(F_Arcana2[loopB], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
+                            call DzFrameSetTexture(F_Arcana2[loopB], "war3mapImported\\UI_Upgrade_StepSuccess.blp", 0)
                             set Arcana2[loopB] = 1
                             set ArcanaProbability = ArcanaProbability + 1
                             if ArcanaProbability > 5 then
@@ -645,7 +645,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             endif
                         else
                             //실패
-                            call DzFrameSetTexture(F_Arcana2[loopB], "war3mapImported\\UI_Upgrade_StepFail.tga", 0)
+                            call DzFrameSetTexture(F_Arcana2[loopB], "war3mapImported\\UI_Upgrade_StepFail.blp", 0)
                             set Arcana2[loopB] = 2
                             set ArcanaProbability = ArcanaProbability - 1
                             if ArcanaProbability < 0 then
@@ -693,7 +693,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                     if loopC != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then
                             //성공
-                            call DzFrameSetTexture(F_Arcana3[loopC], "war3mapImported\\UI_Upgrade_StepPenalty.tga", 0)
+                            call DzFrameSetTexture(F_Arcana3[loopC], "war3mapImported\\UI_Upgrade_StepPenalty.blp", 0)
                             set Arcana3[loopC] = 1
                             set ArcanaProbability = ArcanaProbability + 1
                             if ArcanaProbability > 5 then
@@ -722,7 +722,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             endif
                         else
                             //실패
-                            call DzFrameSetTexture(F_Arcana3[loopC], "war3mapImported\\UI_Upgrade_StepFail.tga", 0)
+                            call DzFrameSetTexture(F_Arcana3[loopC], "war3mapImported\\UI_Upgrade_StepFail.blp", 0)
                             set Arcana3[loopC] = 2
                             set ArcanaProbability = ArcanaProbability - 1
                             if ArcanaProbability < 0 then

@@ -457,7 +457,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         //메뉴 배경
         set F_InfoBackDrop2=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
-        call DzFrameSetTexture(F_InfoBackDrop2, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetTexture(F_InfoBackDrop2, "war3mapImported\\UI_Pick_Backdrop.blp", 0)
         call DzFrameSetAbsolutePoint(F_InfoBackDrop2, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
         call DzFrameSetSize(F_InfoBackDrop2, 0.40, 0.43)
 
@@ -651,7 +651,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
 
         set F_ItemStatsIcon2=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsIcon2, JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.070, 0.380)
-        call DzFrameSetTexture(F_ItemStatsIcon2, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetTexture(F_ItemStatsIcon2, "war3mapImported\\UI_Pick_Backdrop.blp", 0)
         call DzFrameSetSize(F_ItemStatsIcon2, 0.06, 0.06)
         
         

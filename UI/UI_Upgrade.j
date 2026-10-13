@@ -33,10 +33,10 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         loop
             exitwhen i > 3
             if i == selectedTab then
-                call DzFrameSetTexture(F_UpgradeTabBD[i], "war3mapImported\\UI_Upgrade_TabActive.tga", 0)
+                call DzFrameSetTexture(F_UpgradeTabBD[i], "war3mapImported\\UI_Upgrade_TabActive.blp", 0)
                 call DzFrameSetText(F_UpgradeTabText[i], "|cff2699be" + UpgradeTabName(i) + "|r")
             else
-                call DzFrameSetTexture(F_UpgradeTabBD[i], "war3mapImported\\UI_Upgrade_TabIdle.tga", 0)
+                call DzFrameSetTexture(F_UpgradeTabBD[i], "war3mapImported\\UI_Upgrade_TabIdle.blp", 0)
                 call DzFrameSetText(F_UpgradeTabText[i], UpgradeTabName(i))
             endif
             set i = i + 1
@@ -155,7 +155,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         loop
             exitwhen i > 3
             if DzGetTriggerUIEventFrame() == F_UpgradeTab[i] and F_UpgradeCurrentTab[pid] != i then
-                call DzFrameSetTexture(F_UpgradeTabBD[i], "war3mapImported\\UI_Upgrade_TabHover.tga", 0)
+                call DzFrameSetTexture(F_UpgradeTabBD[i], "war3mapImported\\UI_Upgrade_TabHover.blp", 0)
             endif
             set i = i + 1
         endloop
@@ -187,7 +187,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetPriority(F_UpgradeRoot, 100)
         set F_UpgradeBackground = DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "", FrameCount())
         call DzFrameSetAllPoints(F_UpgradeBackground, F_UpgradeRoot)
-        call DzFrameSetTexture(F_UpgradeBackground, "war3mapImported\\UI_Upgrade_Background.tga", 0)
+        call DzFrameSetTexture(F_UpgradeBackground, "war3mapImported\\UI_Upgrade_Background.blp", 0)
 
         call DzFrameSetParent(F_EnchantBackDrop, F_UpgradeRoot)
         call DzFrameSetParent(F_StoneBackDrop, F_UpgradeRoot)
@@ -201,13 +201,13 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         set label = UpgradeLabel(F_UpgradeNav, "|cff709db1ESC  닫기|r", 0.006, -0.538, 0.008)
 
         set F_UpgradeTitleBD = DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "", FrameCount())
-        call DzFrameSetTexture(F_UpgradeTitleBD, "war3mapImported\\UI_Upgrade_Header.tga", 0)
+        call DzFrameSetTexture(F_UpgradeTitleBD, "war3mapImported\\UI_Upgrade_Header.blp", 0)
         call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.060)
         call DzFrameSetPoint(F_UpgradeTitleBD, JN_FRAMEPOINT_TOPLEFT, F_UpgradeRoot, JN_FRAMEPOINT_TOPLEFT, 0.120, -0.010)
         set F_UpgradeTitle = UpgradeLabel(F_UpgradeTitleBD, "|cff244f65장비강화|r", 0.016, -0.025, 0.016)
 
         set F_UpgradeNpcPanel = DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "", FrameCount())
-        call DzFrameSetTexture(F_UpgradeNpcPanel, "war3mapImported\\UI_Upgrade_Portrait.tga", 0)
+        call DzFrameSetTexture(F_UpgradeNpcPanel, "war3mapImported\\UI_Upgrade_Portrait.blp", 0)
         call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.568)
         call DzFrameSetPoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_TOPRIGHT, F_UpgradeRoot, JN_FRAMEPOINT_TOPRIGHT, 0.0, 0.0)
 
@@ -230,7 +230,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetSize(F_UpgradeClose, 0.026, 0.026)
         set F_UpgradeCloseBD = DzCreateFrameByTagName("BACKDROP", "", F_UpgradeClose, "", FrameCount())
         call DzFrameSetAllPoints(F_UpgradeCloseBD, F_UpgradeClose)
-        call DzFrameSetTexture(F_UpgradeCloseBD, "war3mapImported\\UI_Upgrade_Close.tga", 0)
+        call DzFrameSetTexture(F_UpgradeCloseBD, "war3mapImported\\UI_Upgrade_Close.blp", 0)
         call DzFrameSetScriptByCode(F_UpgradeClose, JN_FRAMEEVENT_MOUSE_UP, function ClickUpgradeClose, false)
         set F_UpgradeHint = UpgradeLabel(F_UpgradeRoot, "", 0.140, -0.120, 0.010)
         call DzFrameShow(F_UpgradeHint, false)

@@ -760,20 +760,20 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         if DzGetTriggerUIEventFrame() == F_EnchantButton2 then
             set f = F_EnchantButtonBD2
         endif
-        call DzFrameSetTexture(f, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+        call DzFrameSetTexture(f, "war3mapImported\\UI_Upgrade_ActionHover.blp", 0)
     endfunction
 
     private function EnchantActionLeave takes nothing returns nothing
-        call DzFrameSetTexture(F_EnchantButtonBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
-        call DzFrameSetTexture(F_EnchantButtonBD2, "war3mapImported\\UI_Upgrade_Action.tga", 0)
+        call DzFrameSetTexture(F_EnchantButtonBD, "war3mapImported\\UI_Upgrade_Action.blp", 0)
+        call DzFrameSetTexture(F_EnchantButtonBD2, "war3mapImported\\UI_Upgrade_Action.blp", 0)
     endfunction
 
     private function EnchantLayout takes nothing returns nothing
-        call DzFrameSetTexture(F_EnchantBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
-        call DzFrameSetTexture(F_EnchantWeaponPanel, "war3mapImported\\UI_Upgrade_Card.tga", 0)
+        call DzFrameSetTexture(F_EnchantBackDrop, "war3mapImported\\UI_Upgrade_Panel.blp", 0)
+        call DzFrameSetTexture(F_EnchantWeaponPanel, "war3mapImported\\UI_Upgrade_Card.blp", 0)
         call EnchantPlace(F_EnchantWeaponPanel, 0.2025, -0.078)
         call DzFrameSetSize(F_EnchantWeaponPanel, 0.365, 0.120)
-        call DzFrameSetTexture(F_EnchantInfoPanel, "war3mapImported\\UI_Upgrade_Card.tga", 0)
+        call DzFrameSetTexture(F_EnchantInfoPanel, "war3mapImported\\UI_Upgrade_Card.blp", 0)
         call EnchantPlace(F_EnchantInfoPanel, 0.2025, -0.283)
         call DzFrameSetSize(F_EnchantInfoPanel, 0.365, 0.244)
         call EnchantPlace(F_EEItemButtons[EQUIP_SLOT_WEAPON], 0.065, -0.086)
