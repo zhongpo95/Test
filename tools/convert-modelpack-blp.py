@@ -9,7 +9,7 @@ import struct
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageChops
 
 
 def digest(path):
@@ -21,6 +21,41 @@ def levels(image):
     while image.size != (1, 1):
         image = image.resize(tuple(max(1, n // 2) for n in image.size), Image.Resampling.LANCZOS)
         yield image
+
+
+def raw_bgra_jpeg(image, quality):
+    # BLP1은 일반 JPEG의 YCbCr 대신 B/G/R/A 네 성분을 그대로 사용한다.
+    # Pillow의 CMYK 저장 시 반전을 미리 상쇄하고 색상 해석용 APP 마커를 제외한다.
+    r, g, b, a = image.split()
+    packed = ImageChops.invert(Image.merge('CMYK', (b, g, r, a)))
+    stream = io.BytesIO()
+    packed.save(stream, format='JPEG', quality=quality, subsampling=0)
+    data = stream.getvalue()
+    output, pos = bytearray(data[:2]), 2
+    while pos < len(data):
+        assert data[pos] == 255
+        marker = data[pos+1]
+        size = int.from_bytes(data[pos+2:pos+4], 'big')
+        end = pos + 2 + size
+        if marker == 0xDA:
+            output.extend(data[pos:])
+            break
+        if not (0xE0 <= marker <= 0xEF or marker == 0xFE):
+            output.extend(data[pos:end])
+        pos = end
+    return bytes(output)
+
+
+def decode_raw_bgra_jpeg(data):
+    image = Image.open(io.BytesIO(data))
+    if image.mode != 'CMYK':
+        raise ValueError('BLP JPEG must have four raw BGRA components, not RGB/YCbCr')
+    # CMYK->RGB 색 변환이나 Adobe 방식 반전 없이 원시 성분을 읽는다.
+    tile = image.tile[0]
+    image.tile = [tile._replace(args=('CMYK', ''))]
+    image.load()
+    b, g, r, a = image.split()
+    return Image.merge('RGBA', (r, g, b, a))
 
 
 def encode(image, quality):
@@ -37,10 +72,7 @@ def encode(image, quality):
     else:
         extra = struct.pack('<I', 2) + b'\xff\xd8'
         for mip in levels(image):
-            r, g, b = mip.convert('RGB').split()
-            stream = io.BytesIO()
-            Image.merge('RGB', (b, g, r)).save(stream, format='JPEG', quality=quality, subsampling=0)
-            data = stream.getvalue()
+            data = raw_bgra_jpeg(mip, quality)
             assert data[:2] == b'\xff\xd8'
             chunks.append(data[2:])
     offsets, lengths = [0]*16, [0]*16
@@ -64,9 +96,8 @@ def decode_verify(data, original):
         payload = data[start:start+size]
         if compression == 0:
             shared = struct.unpack_from('<I', data, 156)[0]
-            decoded = Image.open(io.BytesIO(data[160:160+shared] + payload)).convert('RGB')
-            b, g, r = decoded.split()
-            decoded = Image.merge('RGB', (r, g, b)).convert('RGBA')
+            decoded = decode_raw_bgra_jpeg(data[160:160+shared] + payload)
+            assert decoded.getchannel('A').getextrema() == (255, 255)
         else:
             pixels = mip.width*mip.height
             assert size == pixels*2 and alpha == 8 and kind == 4
@@ -124,7 +155,7 @@ def main():
             decoded, psnr, mip_count = decode_verify(data, original)
             out.write_bytes(data)
             alpha = original.getchannel('A').getextrema() != (255, 255)
-            row.update(encoding='palette256-alpha8' if alpha else f'JPEG-{args.quality}-444',
+            row.update(encoding='palette256-alpha8' if alpha else f'JPEG-rawBGRA-{args.quality}-444',
                        size=list(original.size), psnr=psnr, mipCount=mip_count, alphaExact=True)
             if n <= 3 or 'karakura_head' in path.stem or 'academy_head' in path.stem or psnr < 30:
                 board = Image.new('RGB', (original.width*2, original.height), '#ece9df')
