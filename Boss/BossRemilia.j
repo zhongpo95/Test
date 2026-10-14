@@ -4866,8 +4866,18 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                     // 원정: 결과 화면·귀환은 원정 쪽이 한다
                 elseif win then
                     call SuccessStart(f.mem[i])
+                    static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+                        set ArcanaRecArgPid = GetPlayerId(GetOwningPlayer(f.mem[i]))
+                        set ArcanaRecArgFlag = true
+                        call TriggerEvaluate(ArcanaRecTrigBossEnd)
+                    endif
                 else
                     call FailedStart(f.mem[i])
+                    static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+                        set ArcanaRecArgPid = GetPlayerId(GetOwningPlayer(f.mem[i]))
+                        set ArcanaRecArgFlag = false
+                        call TriggerEvaluate(ArcanaRecTrigBossEnd)
+                    endif
                 endif
                 call OverlayStop(GetPlayerId(GetOwningPlayer(f.mem[i])))
             endif
@@ -5234,6 +5244,20 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
 
         set MapRectCheck[f.rect] = false
         set f.t = tick.create(f)
+        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 단독 보스 시작(원정 안 보스는 기록하지 않음)
+            if not f.exp then
+                set ArcanaRecArgText = "remilia"
+                set ArcanaRecArgN = f.memN
+                set n = 0
+                loop
+                    exitwhen n >= f.memN
+                    set ArcanaRecArgUnit[n] = f.mem[n]
+                    set n = n + 1
+                endloop
+                call TriggerEvaluate(ArcanaRecTrigBossBegin)
+            endif
+        endif
         call f.t.start(TICK, true, function BattleTick)
     endfunction
 

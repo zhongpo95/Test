@@ -657,6 +657,11 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
 
     private function Finish takes boolean clear returns nothing
         local integer pid = 0
+        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 원정 종료(ExpMember 를 지우기 전). 남은 참가자만 보낸다
+            set ArcanaRecArgFlag = clear
+            call TriggerEvaluate(ArcanaRecTrigRunEnd)
+        endif
         call ExpCombatStop()
         if ExpPrototypeActive then
             call TriggerExecute(ExpPrototypeCleanup)

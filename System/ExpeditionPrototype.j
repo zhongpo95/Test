@@ -146,6 +146,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n획득 가능한 카드가 없어 골드 +100."
             return
         endif
+        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 카드 획득 수
+            set ArcanaRecArgPid = pid
+            set ArcanaRecArgText = ProtoCardKey[card]
+            call TriggerEvaluate(ArcanaRecTrigCard)
+        endif
         if not ExpCardOwned[key] then
             // 정확히 선택한 보상 ID는 후속 사건 조건과 도감에 별도로 남긴다.
             set ExpCardOwned[key] = true
@@ -337,6 +343,23 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoSelected[pid] = 0
         set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
         call ProtoSetPause(pid, true)
+        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 제시한 사건 ID 목록
+            set ArcanaRecArgText = ""
+            set slot = 1
+            loop
+                exitwhen slot > ProtoChoices[pid] or slot > 4
+                if ProtoCandidates[ExpKey(pid, slot)] > 0 then
+                    if ArcanaRecArgText != "" then
+                        set ArcanaRecArgText = ArcanaRecArgText + ","
+                    endif
+                    set ArcanaRecArgText = ArcanaRecArgText + I2S(ProtoCandidates[ExpKey(pid, slot)])
+                endif
+                set slot = slot + 1
+            endloop
+            set ArcanaRecArgPid = pid
+            call TriggerEvaluate(ArcanaRecTrigOffer)
+        endif
     endfunction
 
     function ProtoEventCardPreview takes integer pid, integer card returns string
@@ -672,6 +695,27 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ProtoStage[pid] != 2 or not ProtoDialogueChoiceAllowed(pid, choice) then
             return
         endif
+        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 선택지 단계. 제시 = 허용 선택지(고른 것은 항상 포함), 시간 초과 자동 선택은 auto
+            if DialogueNode[pid] == 0 then
+                set ArcanaRecArgText = ""
+                set key = 1
+                loop
+                    exitwhen key > ProtoEventChoices[id] or key > 20
+                    if key == choice or ProtoBranchAllowed(pid, key) then
+                        if ArcanaRecArgText != "" then
+                            set ArcanaRecArgText = ArcanaRecArgText + ","
+                        endif
+                        set ArcanaRecArgText = ArcanaRecArgText + I2S(key)
+                    endif
+                    set key = key + 1
+                endloop
+                set ArcanaRecArgPid = pid
+                set ArcanaRecArgId = id
+                set ArcanaRecArgChoice = choice
+                call TriggerEvaluate(ArcanaRecTrigBranch)
+            endif
+        endif
         if ProtoEventDialogueEnabled[id] == 0 then
             call ProtoResolve(pid, choice)
             return
@@ -719,6 +763,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer choice = 1
         local integer selected = 0
         local integer key
+        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 이어지는 ProtoChoose 는 시간 초과 자동 선택
+            set ArcanaRecAuto[pid] = true
+        endif
         if DialogueNode[pid] > 0 then
             call ProtoChoose(pid, 1)
             return
@@ -1023,6 +1071,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             set pid = pid + 1
         endloop
+        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 런 시작
+            call TriggerEvaluate(ArcanaRecTrigRunBegin)
+        endif
         call TriggerExecute(ExpRefresh)
     endfunction
 
@@ -1067,6 +1119,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             call ProtoResetDialogue(pid)
             set ProtoSelected[pid] = id
+            static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+                // 단계 7 기록(09 3.4): 사건 선택
+                set ArcanaRecArgPid = pid
+                set ArcanaRecArgId = id
+                call TriggerEvaluate(ArcanaRecTrigPick)
+            endif
             set ProtoAP[pid] = ProtoAP[pid] - ProtoEventAPCost[id]
             set ProtoStage[pid] = 2
             set ProtoDeadline[pid] = PROTO_CHOICE_SECONDS

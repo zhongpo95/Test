@@ -204,6 +204,7 @@
 //! import "D:\Work\GitHub\Test\Library\ArcanaSaveConfig.j"
 //! import "D:\Work\GitHub\Test\Library\ArcanaSaveNet3Natives.j"
 //! import "D:\Work\GitHub\Test\Library\ArcanaStashNet.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaRecord.j"
 // duplicate direct import removed: JNStashNet.j is imported by the map script
 
 // === Root: ESC ===
