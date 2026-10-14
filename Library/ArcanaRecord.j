@@ -5,7 +5,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     // - 동기 경로: 훅(게임 코드가 TriggerEvaluate 로 부름), 버퍼 기록, 상태 변경. 모든 클라이언트에서 같은 순서.
     // - 소유자 로컬 블록: 문서 만들기(ArcanaDoc*), 전송(ArcanaRecordSend), 결과 조회·재시도. 동기 상태와 난수를 건드리지 않는다.
     // 훅을 부르는 라이브러리는 requires 를 늘리지 않는다(라이브러리 초기화 순서 보존, 09 7절 K2). 훅 트리거·인자 전역은 모두가 이미 쓰는
-    // DataExpedition(Data_Expedition.j)에 있고, 훅 자리에서는 인자를 넣고 TriggerExecute 만 한다. 이 라이브러리는 아무도 requires 하지 않으며
+    // DataExpedition(Data_Expedition.j)에 있고, 훅 자리에서는 인자를 넣고 TriggerEvaluate 만 한다(09 9절 K12). 이 라이브러리는 아무도 requires 하지 않으며
     // 두 상수가 모두 참일 때만 초기화에서 트리거를 만들고 동작을 붙인다.
     // 두 상수(ARCANA_SAVE_BACKEND, ARCANA_RECORDS_ENABLED) 중 하나라도 거짓이면 훅 호출이 static if 로 빠지고 이 라이브러리는 아무 일도 하지 않는다.
 
@@ -312,7 +312,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     //==========================================================================
     // 동기 훅
     //==========================================================================
-    private function OnRunBegin takes nothing returns nothing
+    private function OnRunBegin takes nothing returns boolean
         local integer pid = 0
         set RunOn = true
         set RunKey = GameKey + "-" + I2S(ExpRun)
@@ -331,7 +331,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             endif
             set pid = pid + 1
         endloop
-        return
+        return false
     endfunction
 
     // 새 단계를 연다. 64단계를 넘으면 버리고 표시만 한다.
@@ -355,10 +355,10 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endfunction
 
     // RecOffer: 인자 pid, 제시 목록(쉼표, 사건 ID)
-    private function OnOffer takes nothing returns nothing
+    private function OnOffer takes nothing returns boolean
         set ArcanaRecAuto[ArcanaRecArgPid] = false
         call NewStep(ArcanaRecArgPid, "event", ArcanaRecArgText, "")
-        return
+        return false
     endfunction
 
     // 쉼표 목록 list 에 item 이 정확히 있는지(목록은 4~10개 이하로 짧다).
@@ -380,22 +380,22 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endfunction
 
     // RecPick: 인자 pid, 사건 ID. 마지막 event 단계의 선택으로 기록한다(제시 목록에 있을 때만, 서버 검증과 같다).
-    private function OnPick takes nothing returns nothing
+    private function OnPick takes nothing returns boolean
         local integer pid = ArcanaRecArgPid
         local integer i
         set ArcanaRecAuto[pid] = false
         if not RunOn or pid < 0 or pid >= 4 or not RunMember[pid] or StepN[pid] == 0 then
-            return
+            return false
         endif
         set i = pid * MAX_STEPS + StepN[pid] - 1
         if StepKind[i] == "event" and StepPicked[i] == "" and InList(StepOffered[i], I2S(ArcanaRecArgId)) then
             set StepPicked[i] = I2S(ArcanaRecArgId)
         endif
-        return
+        return false
     endfunction
 
     // RecBranch: 인자 pid, 사건 ID, 선택 번호, 허용 선택지 목록(쉼표)
-    private function OnBranch takes nothing returns nothing
+    private function OnBranch takes nothing returns boolean
         local integer pid = ArcanaRecArgPid
         local integer i = NewStep(pid, "branch", ArcanaRecArgText, I2S(ArcanaRecArgId))
         if i >= 0 and InList(ArcanaRecArgText, I2S(ArcanaRecArgChoice)) then
@@ -403,21 +403,21 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             set StepAuto[i] = ArcanaRecAuto[pid]
         endif
         set ArcanaRecAuto[pid] = false
-        return
+        return false
     endfunction
 
     // RecCard: 인자 pid, 카드 키
-    private function OnCard takes nothing returns nothing
+    private function OnCard takes nothing returns boolean
         local integer pid = ArcanaRecArgPid
         local integer i = 0
         if not RunOn or pid < 0 or pid >= 4 or not RunMember[pid] or ArcanaRecArgText == "" then
-            return
+            return false
         endif
         loop
             exitwhen i >= CardN[pid]
             if CardKey[pid * MAX_CARDS + i] == ArcanaRecArgText then
                 set CardCopies[pid * MAX_CARDS + i] = CardCopies[pid * MAX_CARDS + i] + 1
-                return
+                return false
             endif
             set i = i + 1
         endloop
@@ -426,15 +426,15 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             set CardCopies[pid * MAX_CARDS + CardN[pid]] = 1
             set CardN[pid] = CardN[pid] + 1
         endif
-        return
+        return false
     endfunction
 
     // RecRunEnd: 인자 Flag = 완주 여부. 끝까지 남은 참가자(ExpMember)만 보낸다(중도 이탈은 보내지 않음).
-    private function OnRunEnd takes nothing returns nothing
+    private function OnRunEnd takes nothing returns boolean
         local integer pid = 0
         local boolean clear = ArcanaRecArgFlag
         if not RunOn then
-            return
+            return false
         endif
         set RunOn = false
         loop
@@ -446,11 +446,11 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             endif
             set pid = pid + 1
         endloop
-        return
+        return false
     endfunction
 
     // RecBossBegin: 인자 Text = 보스 키, N·Unit[] = 참가자
-    private function OnBossBegin takes nothing returns nothing
+    private function OnBossBegin takes nothing returns boolean
         local integer i = 0
         local integer pid
         local string key
@@ -472,14 +472,14 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             set i = i + 1
         endloop
         set key = null
-        return
+        return false
     endfunction
 
     // RecBossEnd: 인자 pid, Flag = 승리
-    private function OnBossEnd takes nothing returns nothing
+    private function OnBossEnd takes nothing returns boolean
         local integer pid = ArcanaRecArgPid
         if pid < 0 or pid >= 4 or not BossOn[pid] then
-            return
+            return false
         endif
         set BossOn[pid] = false
         if ArcanaStashNetIsReady(pid) then
@@ -487,7 +487,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
                 call SendBoss(pid, ArcanaRecArgFlag)
             endif
         endif
-        return
+        return false
     endfunction
 
     private function onInit takes nothing returns nothing
@@ -497,21 +497,21 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             call TimerStart(Clock, 1000000.0, false, null)
             call TimerStart(CreateTimer(), POLL, true, function Poll)
             set ArcanaRecTrigRunBegin = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigRunBegin, function OnRunBegin)
+            call TriggerAddCondition(ArcanaRecTrigRunBegin, Condition(function OnRunBegin))
             set ArcanaRecTrigOffer = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigOffer, function OnOffer)
+            call TriggerAddCondition(ArcanaRecTrigOffer, Condition(function OnOffer))
             set ArcanaRecTrigPick = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigPick, function OnPick)
+            call TriggerAddCondition(ArcanaRecTrigPick, Condition(function OnPick))
             set ArcanaRecTrigBranch = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigBranch, function OnBranch)
+            call TriggerAddCondition(ArcanaRecTrigBranch, Condition(function OnBranch))
             set ArcanaRecTrigCard = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigCard, function OnCard)
+            call TriggerAddCondition(ArcanaRecTrigCard, Condition(function OnCard))
             set ArcanaRecTrigRunEnd = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigRunEnd, function OnRunEnd)
+            call TriggerAddCondition(ArcanaRecTrigRunEnd, Condition(function OnRunEnd))
             set ArcanaRecTrigBossBegin = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigBossBegin, function OnBossBegin)
+            call TriggerAddCondition(ArcanaRecTrigBossBegin, Condition(function OnBossBegin))
             set ArcanaRecTrigBossEnd = CreateTrigger()
-            call TriggerAddAction(ArcanaRecTrigBossEnd, function OnBossEnd)
+            call TriggerAddCondition(ArcanaRecTrigBossEnd, Condition(function OnBossEnd))
         endif
     endfunction
 endlibrary

@@ -4869,14 +4869,14 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                     static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
                         set ArcanaRecArgPid = GetPlayerId(GetOwningPlayer(f.mem[i]))
                         set ArcanaRecArgFlag = true
-                        call TriggerExecute(ArcanaRecTrigBossEnd)
+                        call TriggerEvaluate(ArcanaRecTrigBossEnd)
                     endif
                 else
                     call FailedStart(f.mem[i])
                     static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
                         set ArcanaRecArgPid = GetPlayerId(GetOwningPlayer(f.mem[i]))
                         set ArcanaRecArgFlag = false
-                        call TriggerExecute(ArcanaRecTrigBossEnd)
+                        call TriggerEvaluate(ArcanaRecTrigBossEnd)
                     endif
                 endif
                 call OverlayStop(GetPlayerId(GetOwningPlayer(f.mem[i])))
@@ -5255,7 +5255,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                     set ArcanaRecArgUnit[n] = f.mem[n]
                     set n = n + 1
                 endloop
-                call TriggerExecute(ArcanaRecTrigBossBegin)
+                call TriggerEvaluate(ArcanaRecTrigBossBegin)
             endif
         endif
         call f.t.start(TICK, true, function BattleTick)

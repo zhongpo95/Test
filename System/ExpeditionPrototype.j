@@ -150,7 +150,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             // 단계 7 기록(09 3.4): 카드 획득 수
             set ArcanaRecArgPid = pid
             set ArcanaRecArgText = ProtoCardKey[card]
-            call TriggerExecute(ArcanaRecTrigCard)
+            call TriggerEvaluate(ArcanaRecTrigCard)
         endif
         if not ExpCardOwned[key] then
             // 정확히 선택한 보상 ID는 후속 사건 조건과 도감에 별도로 남긴다.
@@ -358,7 +358,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set slot = slot + 1
             endloop
             set ArcanaRecArgPid = pid
-            call TriggerExecute(ArcanaRecTrigOffer)
+            call TriggerEvaluate(ArcanaRecTrigOffer)
         endif
     endfunction
 
@@ -713,7 +713,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set ArcanaRecArgPid = pid
                 set ArcanaRecArgId = id
                 set ArcanaRecArgChoice = choice
-                call TriggerExecute(ArcanaRecTrigBranch)
+                call TriggerEvaluate(ArcanaRecTrigBranch)
             endif
         endif
         if ProtoEventDialogueEnabled[id] == 0 then
@@ -1073,7 +1073,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endloop
         static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
             // 단계 7 기록(09 3.4): 런 시작
-            call TriggerExecute(ArcanaRecTrigRunBegin)
+            call TriggerEvaluate(ArcanaRecTrigRunBegin)
         endif
         call TriggerExecute(ExpRefresh)
     endfunction
@@ -1123,7 +1123,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 // 단계 7 기록(09 3.4): 사건 선택
                 set ArcanaRecArgPid = pid
                 set ArcanaRecArgId = id
-                call TriggerExecute(ArcanaRecTrigPick)
+                call TriggerEvaluate(ArcanaRecTrigPick)
             endif
             set ProtoAP[pid] = ProtoAP[pid] - ProtoEventAPCost[id]
             set ProtoStage[pid] = 2
