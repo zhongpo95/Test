@@ -2,18 +2,45 @@
 library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ, FrameCount, UIInputGate, JNCommon
     globals
         private constant integer SKILL_HUD_COUNT = 12
-        private constant real SKILL_HUD_SIZE = 0.0275
+        // 프리즘 유리 HUD (시안 07). 16:9 화면에서 칸이 정사각형에 가깝게 보이도록 가로/세로를 따로 둔다
+        private constant real SKILL_W = 0.0292
+        private constant real SKILL_H = 0.0376
+        private constant real ITEM_W = 0.0262
+        private constant real ITEM_H = 0.0320
+        private constant integer ITEM_HOVER_BASE = 100
+        // 칸 격자: 0열(X Z) + Q W E R 4열. 0행 포션 3칸(C V 칸은 숨김), 1행 X Q W E R, 2행 Z A S D F
+        private constant real GRID_X0 = 0.5683
+        private constant real GRID_DX = 0.0341
+        private constant real ROW1_TOP = 0.1204
+        private constant real ROW_DY = 0.0439
+        // 영웅 이미지
+        private constant real HERO_HUD_LEFT = 0.1597
+        private constant real HERO_HUD_BOTTOM = 0.0357
+        private constant real HERO_HUD_WIDTH = 0.0773
+        private constant real HERO_HUD_HEIGHT = 0.0932
+        private constant string HUD_SLOT_BG = "war3mapImported\\HUD_SlotBG.tga"
+        private constant string HUD_SLOT_BORDER = "war3mapImported\\HUD_SlotBorder.tga"
+        private constant string HUD_HERO_BORDER = "war3mapImported\\HUD_HeroBorder.tga"
         private integer array SkillHUDIcon
+        private integer array SkillHUDArt
+        private integer array SkillHUDBorder
         private integer array SkillHUDCooldown
         private integer array SkillHUDCooldownText
         private integer array SkillHUDHotkeyText
         private integer array SkillHUDDisabledCover
         private integer array SkillHUDDisabledDark
+        private integer SkillHUDDashStack
         private integer array SkillHUDAbility
         private real array SkillHUDCooldownTotal
         private real array SkillHUDCooldownPrevious
         private integer array ItemHUDIcon
         private integer array ItemHUDCharges
+        private integer array ItemHUDSlot
+        private integer array ItemHUDBorder
+        private integer HeroHUDFrame
+        private integer HeroHUDImage
+        private integer HeroHUDBorder
+        private integer HeroHUDNumber = -1
         private integer SkillHUDTip
         private integer SkillHUDTipName
         private integer SkillHUDTipDescription
@@ -78,6 +105,42 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         return 'A002'
     endfunction
 
+    // 대쉬 남은 횟수: SkillDash.j가 A006(3) > A005(2) > A004(1) > A002(0) 순으로 능력을 바꿔 끼운다
+    private function DashStackCount takes unit u returns integer
+        if GetUnitAbilityLevel(u, 'A006') > 0 then
+            return 3
+        elseif GetUnitAbilityLevel(u, 'A005') > 0 then
+            return 2
+        elseif GetUnitAbilityLevel(u, 'A004') > 0 then
+            return 1
+        endif
+        return 0
+    endfunction
+
+    // 루시아 스킬은 오브젝트 요구 조건(더미 유닛)으로 열리고 닫힌다. 기본 명령창 대신 이 HUD가 같은 조건으로 비활성화를 표시한다.
+    private function LuciaReqAlive takes unit r, integer typeId returns boolean
+        return r != null and GetUnitTypeId(r) == typeId and not IsUnitType(r, UNIT_TYPE_DEAD)
+    endfunction
+
+    private function LuciaSlotReady takes integer pid, integer slot returns boolean
+        local boolean small = LuciaReqAlive(LuciaFormUnit[pid], 'e05H')
+        local boolean big = LuciaReqAlive(LuciaFormUnit[pid], 'e05I')
+        if slot == 0 then
+            return small
+        elseif slot == 1 then
+            return LuciaReqAlive(LuciaCheckUnit[pid], 'e04Y')
+        elseif slot == 3 then
+            return small and LuciaReqAlive(LuciaR[pid], 'e05J')
+        elseif slot == 4 or slot == 5 then
+            return big
+        elseif slot == 6 then
+            return big and LuciaReqAlive(LuciaD[pid], 'e05L')
+        elseif slot == 7 then
+            return big and LuciaReqAlive(LuciaF[pid], 'e05K')
+        endif
+        return true
+    endfunction
+
     private function IsAbilityAvailable takes unit u, integer pid, integer index, integer slot, integer abilId returns boolean
         if slot == 9 then
             return IsDashAbilityReady(u, DashAbilityId(u))
@@ -87,6 +150,9 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         endif
         if index == 14 and slot == 3 then
             return GetUnitAbilityLevel(u, abilId) > 0 and NarForm[pid] == 0
+        endif
+        if index == 17 then
+            return GetUnitAbilityLevel(u, abilId) > 0 and LuciaSlotReady(pid, slot)
         endif
         return GetUnitAbilityLevel(u, abilId) > 0
     endfunction
@@ -118,12 +184,57 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         return "V"
     endfunction
 
+    // 슬롯 번호 -> 격자 칸. 0~3 QWER, 4~7 ASDF, 8 Z, 9 X(대시), 10 C, 11 V
+    private function SlotCol takes integer slot returns integer
+        if slot < 8 then
+            return ModuloInteger(slot, 4) + 1
+        elseif slot == 10 then
+            return 3
+        elseif slot == 11 then
+            return 4
+        endif
+        return 0
+    endfunction
+
+    private function SlotRow takes integer slot returns integer
+        if slot < 4 or slot == 9 then
+            return 1
+        elseif slot < 9 then
+            return 2
+        endif
+        return 0
+    endfunction
+
     private function SlotX takes integer slot returns real
-        return 0.6075 + 0.0368 * I2R(ModuloInteger(slot, 4))
+        return GRID_X0 + GRID_DX * I2R(SlotCol(slot))
     endfunction
 
     private function SlotY takes integer slot returns real
-        return 0.1205 - 0.0365 * I2R(slot / 4)
+        return ROW1_TOP + ROW_DY * I2R(1 - SlotRow(slot))
+    endfunction
+
+    // 포션은 0행의 X Q W 칸에 두고, 아래쪽을 C V 칸과 맞춘다
+    private function ItemSlotX takes integer slot returns real
+        return GRID_X0 + GRID_DX * I2R(slot) + (SKILL_W - ITEM_W) * 0.5
+    endfunction
+
+    private function ItemSlotY takes nothing returns real
+        return ROW1_TOP + ROW_DY - SKILL_H + ITEM_H
+    endfunction
+
+    private function HeroHUDTexture takes integer heroNumber returns string
+        if heroNumber <= 0 then
+            return "Empty.blp"
+        endif
+        return "UI_HeroPot" + I2S(heroNumber) + ".blp"
+    endfunction
+
+    private function SetFrameVisible takes boolean show returns nothing
+        call DzFrameShow(HeroHUDFrame, show)
+        call DzFrameShow(HeroHUDImage, show)
+        call DzFrameShow(ItemHUDSlot[0], show)
+        call DzFrameShow(ItemHUDSlot[1], show)
+        call DzFrameShow(ItemHUDSlot[2], show)
     endfunction
 
     private function HideTip takes nothing returns nothing
@@ -142,6 +253,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
                 set slot = slot + 1
             endloop
         else
+            call SetFrameVisible(false)
             loop
                 exitwhen slot >= SKILL_HUD_COUNT
                 call DzFrameShow(SkillHUDIcon[slot], false)
@@ -175,6 +287,17 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         call DzFrameShow(SkillHUDTip, true)
     endfunction
 
+    // 포션 칸 설명. 호버 번호는 ITEM_HOVER_BASE + 칸 번호로 스킬과 구분한다
+    private function ShowItemTip takes item it returns nothing
+        local string desc = JNGetItemExtendedTooltip(it)
+        if desc == "" or desc == null then
+            set desc = JNGetItemDescription(it)
+        endif
+        call DzFrameSetText(SkillHUDTipName, GetItemName(it) + "  |cffffdc64x" + I2S(GetItemCharges(it)) + "|r")
+        call DzFrameSetText(SkillHUDTipDescription, desc)
+        call DzFrameShow(SkillHUDTip, true)
+    endfunction
+
     private function UpdateHover takes unit u returns nothing
         local real mx = I2R(DzGetMouseXRelative()) / I2R(DzGetWindowWidth()) * 0.8
         local real my = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
@@ -183,12 +306,30 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         local boolean altShown = DzIsKeyDown(JN_OSKEY_ALT)
         local real x
         local real y
+        local item heldItem
         loop
             exitwhen slot >= SKILL_HUD_COUNT
             set x = SlotX(slot)
             set y = SlotY(slot)
-            if SkillHUDAbility[slot] != 0 and mx >= x and mx <= x + SKILL_HUD_SIZE and my <= y and my >= y - SKILL_HUD_SIZE then
+            if SkillHUDAbility[slot] != 0 and mx >= x and mx <= x + SKILL_W and my <= y and my >= y - SKILL_H then
                 set hover = slot
+            endif
+            set slot = slot + 1
+        endloop
+        set slot = 0
+        loop
+            exitwhen slot >= 3 or hover >= 0
+            set x = ItemSlotX(slot)
+            set y = ItemSlotY()
+            if mx >= x and mx <= x + ITEM_W and my <= y and my >= y - ITEM_H then
+                set heldItem = UnitItemInSlot(u, slot)
+                if heldItem != null then
+                    set SkillHUDHover = ITEM_HOVER_BASE + slot
+                    set SkillHUDAltShown = altShown
+                    call ShowItemTip(heldItem)
+                    set heldItem = null
+                    return
+                endif
             endif
             set slot = slot + 1
         endloop
@@ -231,9 +372,16 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
                 call DzFrameShow(ItemHUDIcon[slot], false)
                 set slot = slot + 1
             endloop
+            call SetFrameVisible(false)
             call HideTip()
             set u = null
             return
+        endif
+
+        call SetFrameVisible(true)
+        if HeroHUDNumber != PlayerSlotNumber[pid] then
+            set HeroHUDNumber = PlayerSlotNumber[pid]
+            call DzFrameSetTexture(HeroHUDImage, HeroHUDTexture(HeroHUDNumber), 0)
         endif
 
         if not FirstHeroUpdateLogged then
@@ -247,7 +395,8 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
             if slot == 9 then
                 set stateAbilId = DashAbilityId(u)
             endif
-            if abilId == 0 then
+            // C(10) V(11) 칸은 화면에 두지 않는다 (2026-10-14 요청)
+            if abilId == 0 or slot >= 10 then
                 call DzFrameShow(SkillHUDIcon[slot], false)
             else
                 call DzFrameShow(SkillHUDIcon[slot], true)
@@ -255,7 +404,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
                     set SkillHUDAbility[slot] = abilId
                     set SkillHUDCooldownTotal[slot] = 0.0
                     set SkillHUDCooldownPrevious[slot] = 0.0
-                    call DzFrameSetTexture(SkillHUDIcon[slot], EXExecuteScript("(require'jass.slk').ability[" + I2S(abilId) + "].Art"), 0)
+                    call DzFrameSetTexture(SkillHUDArt[slot], EXExecuteScript("(require'jass.slk').ability[" + I2S(abilId) + "].Art"), 0)
                 endif
 
                 set level = GetUnitAbilityLevel(u, abilId)
@@ -264,15 +413,15 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
                     set remain = EXGetAbilityState(EXGetUnitAbility(u, stateAbilId), ABILITY_STATE_COOLDOWN)
                 endif
                 if IsAbilityAvailable(u, pid, index, slot, abilId) then
-                    call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
+                    call DzFrameSetAlpha(SkillHUDArt[slot], 255)
                     call DzFrameShow(SkillHUDDisabledCover[slot], false)
                     call DzFrameShow(SkillHUDDisabledDark[slot], false)
                 elseif slot == 9 and remain > 0.0 then
-                    call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
+                    call DzFrameSetAlpha(SkillHUDArt[slot], 255)
                     call DzFrameShow(SkillHUDDisabledCover[slot], false)
                     call DzFrameShow(SkillHUDDisabledDark[slot], false)
                 else
-                    call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
+                    call DzFrameSetAlpha(SkillHUDArt[slot], 255)
                     call DzFrameShow(SkillHUDDisabledCover[slot], true)
                     call DzFrameShow(SkillHUDDisabledDark[slot], true)
                 endif
@@ -286,16 +435,19 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
                     else
                         set ratio = 0.0
                     endif
-                    call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE * ratio)
+                    call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_W - 0.002, (SKILL_H - 0.0026) * ratio)
                     call DzFrameSetAlpha(SkillHUDCooldown[slot], 150)
                     call DzFrameSetText(SkillHUDCooldownText[slot], I2S(R2I(remain + 0.99)))
                 else
                     set SkillHUDCooldownTotal[slot] = 0.0
-                    call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_HUD_SIZE, 0.0)
+                    call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_W - 0.002, 0.0)
                     call DzFrameSetAlpha(SkillHUDCooldown[slot], 0)
                     call DzFrameSetText(SkillHUDCooldownText[slot], "")
                 endif
                 set SkillHUDCooldownPrevious[slot] = remain
+                if slot == 9 then
+                    call DzFrameSetText(SkillHUDDashStack, "|cffffdc64" + I2S(DashStackCount(u)) + "|r")
+                endif
             endif
             set slot = slot + 1
         endloop
@@ -365,7 +517,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         if not PickCheck[GetPlayerId(GetLocalPlayer())] then
             return
         endif
-        if DzGetTriggerKeyPlayer() == GetLocalPlayer() and DzIsKeyDown(JN_OSKEY_ALT) and SkillHUDHover >= 0 then
+        if DzGetTriggerKeyPlayer() == GetLocalPlayer() and DzIsKeyDown(JN_OSKEY_ALT) and SkillHUDHover >= 0 and SkillHUDHover < SKILL_HUD_COUNT then
             call DzSyncData("SkillHUDPing", I2S(SkillHUDHover))
         endif
     endfunction
@@ -373,8 +525,6 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
     private function Create takes nothing returns nothing
         local integer parent = GetGameplayUI()
         local integer slot = 0
-        local integer row
-        local integer column
         local real x
         local real y
 
@@ -384,68 +534,102 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
             set slot = slot + 1
         endloop
 
+        // 3D 포트레잇 대신 영웅 이미지: 칸 배경 > 이미지 > 테두리 순으로 부모-자식으로 쌓는다
+        set HeroHUDFrame = DzCreateFrameByTagName("BACKDROP", "HeroHUDFrame", parent, "", 0)
+        call DzFrameSetTexture(HeroHUDFrame, HUD_SLOT_BG, 0)
+        call DzFrameSetAbsolutePoint(HeroHUDFrame, JN_FRAMEPOINT_BOTTOMLEFT, HERO_HUD_LEFT, HERO_HUD_BOTTOM)
+        call DzFrameSetAbsolutePoint(HeroHUDFrame, JN_FRAMEPOINT_TOPRIGHT, HERO_HUD_LEFT + HERO_HUD_WIDTH, HERO_HUD_BOTTOM + HERO_HUD_HEIGHT)
+        call DzFrameShow(HeroHUDFrame, false)
+        set HeroHUDImage = DzCreateFrameByTagName("BACKDROP", "HeroHUDImage", HeroHUDFrame, "", 0)
+        call DzFrameSetTexture(HeroHUDImage, "Empty.blp", 0)
+        call DzFrameSetAbsolutePoint(HeroHUDImage, JN_FRAMEPOINT_BOTTOMLEFT, HERO_HUD_LEFT + 0.0012, HERO_HUD_BOTTOM + 0.0016)
+        call DzFrameSetAbsolutePoint(HeroHUDImage, JN_FRAMEPOINT_TOPRIGHT, HERO_HUD_LEFT + HERO_HUD_WIDTH - 0.0012, HERO_HUD_BOTTOM + HERO_HUD_HEIGHT - 0.0016)
+        set HeroHUDBorder = DzCreateFrameByTagName("BACKDROP", "HeroHUDBorder", HeroHUDImage, "", 0)
+        call DzFrameSetTexture(HeroHUDBorder, HUD_HERO_BORDER, 0)
+        call DzFrameSetAbsolutePoint(HeroHUDBorder, JN_FRAMEPOINT_BOTTOMLEFT, HERO_HUD_LEFT, HERO_HUD_BOTTOM)
+        call DzFrameSetAbsolutePoint(HeroHUDBorder, JN_FRAMEPOINT_TOPRIGHT, HERO_HUD_LEFT + HERO_HUD_WIDTH, HERO_HUD_BOTTOM + HERO_HUD_HEIGHT)
+
+        // 스킬 칸: SkillHUDIcon(칸 배경, 보이기/숨기기 기준) > SkillHUDArt(아이콘) > 쿨다운 그늘, 테두리 > 글자
         set slot = 0
         loop
             exitwhen slot >= SKILL_HUD_COUNT
-            set row = slot / 4
-            set column = ModuloInteger(slot, 4)
-            set x = 0.6075 + 0.0368 * I2R(column)
-            set y = 0.1205 - 0.0365 * I2R(row)
+            set x = SlotX(slot)
+            set y = SlotY(slot)
 
             set SkillHUDIcon[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDIcon" + I2S(slot), parent, "", slot)
-            call DzFrameSetSize(SkillHUDIcon[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
+            call DzFrameSetTexture(SkillHUDIcon[slot], HUD_SLOT_BG, 0)
+            call DzFrameSetSize(SkillHUDIcon[slot], SKILL_W, SKILL_H)
             call DzFrameSetAbsolutePoint(SkillHUDIcon[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
-            call DzFrameSetPriority(SkillHUDIcon[slot], 21)
             call DzFrameShow(SkillHUDIcon[slot], false)
 
-            set SkillHUDCooldown[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDCooldown" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
-            call DzFrameSetAbsolutePoint(SkillHUDCooldown[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
-            call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_HUD_SIZE, 0.0)
+            set SkillHUDArt[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDArt" + I2S(slot), SkillHUDIcon[slot], "", slot)
+            call DzFrameSetSize(SkillHUDArt[slot], SKILL_W - 0.002, SKILL_H - 0.0026)
+            call DzFrameSetAbsolutePoint(SkillHUDArt[slot], JN_FRAMEPOINT_TOPLEFT, x + 0.001, y - 0.0013)
+
+            set SkillHUDCooldown[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDCooldown" + I2S(slot), SkillHUDArt[slot], "SkillHUD_CooldownShade", slot)
+            call DzFrameSetAbsolutePoint(SkillHUDCooldown[slot], JN_FRAMEPOINT_TOPLEFT, x + 0.001, y - 0.0013)
+            call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_W - 0.002, 0.0)
             call DzFrameSetAlpha(SkillHUDCooldown[slot], 0)
-            call DzFrameSetPriority(SkillHUDCooldown[slot], 22)
 
-            set SkillHUDCooldownText[slot] = DzCreateFrameByTagName("TEXT", "SkillHUDCooldownText" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownText", slot)
-            call DzFrameSetAbsolutePoint(SkillHUDCooldownText[slot], JN_FRAMEPOINT_CENTER, x + SKILL_HUD_SIZE * 0.5, y - SKILL_HUD_SIZE * 0.5)
-            call DzFrameSetEnable(SkillHUDCooldownText[slot], false)
-            call DzFrameSetPriority(SkillHUDCooldownText[slot], 23)
-
-            set SkillHUDHotkeyText[slot] = DzCreateFrameByTagName("TEXT", "SkillHUDHotkeyText" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_HotkeyText", slot)
-            call DzFrameSetAbsolutePoint(SkillHUDHotkeyText[slot], JN_FRAMEPOINT_BOTTOMLEFT, x + 0.0015, y - SKILL_HUD_SIZE + 0.0015)
-            call DzFrameSetText(SkillHUDHotkeyText[slot], Hotkey(slot))
-            call DzFrameSetEnable(SkillHUDHotkeyText[slot], false)
-            call DzFrameSetPriority(SkillHUDHotkeyText[slot], 23)
-
-            set SkillHUDDisabledCover[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledCover" + I2S(slot), SkillHUDIcon[slot], "", slot)
-            call DzFrameSetAbsolutePoint(SkillHUDDisabledCover[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
-            call DzFrameSetSize(SkillHUDDisabledCover[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
+            set SkillHUDDisabledCover[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledCover" + I2S(slot), SkillHUDArt[slot], "", slot)
+            call DzFrameSetAbsolutePoint(SkillHUDDisabledCover[slot], JN_FRAMEPOINT_TOPLEFT, x + 0.001, y - 0.0013)
+            call DzFrameSetSize(SkillHUDDisabledCover[slot], SKILL_W - 0.002, SKILL_H - 0.0026)
             call DzFrameSetTexture(SkillHUDDisabledCover[slot], "war3mapImported\\DISBTN.blp", 0)
-            call DzFrameSetPriority(SkillHUDDisabledCover[slot], 24)
             call DzFrameShow(SkillHUDDisabledCover[slot], false)
 
-            set SkillHUDDisabledDark[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledDark" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
-            call DzFrameSetAbsolutePoint(SkillHUDDisabledDark[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
-            call DzFrameSetSize(SkillHUDDisabledDark[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
+            set SkillHUDDisabledDark[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledDark" + I2S(slot), SkillHUDArt[slot], "SkillHUD_CooldownShade", slot)
+            call DzFrameSetAbsolutePoint(SkillHUDDisabledDark[slot], JN_FRAMEPOINT_TOPLEFT, x + 0.001, y - 0.0013)
+            call DzFrameSetSize(SkillHUDDisabledDark[slot], SKILL_W - 0.002, SKILL_H - 0.0026)
             call DzFrameSetAlpha(SkillHUDDisabledDark[slot], 150)
-            call DzFrameSetPriority(SkillHUDDisabledDark[slot], 25)
             call DzFrameShow(SkillHUDDisabledDark[slot], false)
+
+            set SkillHUDBorder[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDBorder" + I2S(slot), SkillHUDArt[slot], "", slot)
+            call DzFrameSetTexture(SkillHUDBorder[slot], HUD_SLOT_BORDER, 0)
+            call DzFrameSetSize(SkillHUDBorder[slot], SKILL_W, SKILL_H)
+            call DzFrameSetAbsolutePoint(SkillHUDBorder[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
+
+            set SkillHUDCooldownText[slot] = DzCreateFrameByTagName("TEXT", "SkillHUDCooldownText" + I2S(slot), SkillHUDBorder[slot], "SkillHUD_CooldownText", slot)
+            call DzFrameSetAbsolutePoint(SkillHUDCooldownText[slot], JN_FRAMEPOINT_CENTER, x + SKILL_W * 0.5, y - SKILL_H * 0.5)
+            call DzFrameSetEnable(SkillHUDCooldownText[slot], false)
+
+            set SkillHUDHotkeyText[slot] = DzCreateFrameByTagName("TEXT", "SkillHUDHotkeyText" + I2S(slot), SkillHUDBorder[slot], "SkillHUD_HotkeyText", slot)
+            call DzFrameSetAbsolutePoint(SkillHUDHotkeyText[slot], JN_FRAMEPOINT_BOTTOMLEFT, x + 0.0022, y - SKILL_H + 0.0022)
+            call DzFrameSetText(SkillHUDHotkeyText[slot], "|cffffffff" + Hotkey(slot) + "|r")
+            call DzFrameSetEnable(SkillHUDHotkeyText[slot], false)
+
+            if slot == 9 then
+                // 대쉬 칸 오른쪽 위에 남은 대쉬 횟수
+                set SkillHUDDashStack = DzCreateFrameByTagName("TEXT", "SkillHUDDashStack", SkillHUDBorder[slot], "SkillHUD_HotkeyText", slot)
+                call DzFrameSetAbsolutePoint(SkillHUDDashStack, JN_FRAMEPOINT_TOPRIGHT, x + SKILL_W - 0.0022, y - 0.0018)
+                call DzFrameSetText(SkillHUDDashStack, "")
+                call DzFrameSetEnable(SkillHUDDashStack, false)
+            endif
 
             set slot = slot + 1
         endloop
 
+        // 포션 칸: ItemHUDSlot(칸 배경) > ItemHUDIcon(아이콘, 비면 숨김) > 테두리 > 개수
         set slot = 0
         loop
             exitwhen slot >= 3
-            set x = 0.5475
-            set y = 0.1185 - 0.03675 * I2R(slot)
-            set ItemHUDIcon[slot] = DzCreateFrameByTagName("BACKDROP", "ItemHUDIcon" + I2S(slot), parent, "", slot)
-            call DzFrameSetSize(ItemHUDIcon[slot], 0.0225, 0.0225)
-            call DzFrameSetAbsolutePoint(ItemHUDIcon[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
-            call DzFrameSetPriority(ItemHUDIcon[slot], 21)
+            set x = ItemSlotX(slot)
+            set y = ItemSlotY()
+            set ItemHUDSlot[slot] = DzCreateFrameByTagName("BACKDROP", "ItemHUDSlot" + I2S(slot), parent, "", slot)
+            call DzFrameSetTexture(ItemHUDSlot[slot], HUD_SLOT_BG, 0)
+            call DzFrameSetSize(ItemHUDSlot[slot], ITEM_W, ITEM_H)
+            call DzFrameSetAbsolutePoint(ItemHUDSlot[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
+            call DzFrameShow(ItemHUDSlot[slot], false)
+            set ItemHUDIcon[slot] = DzCreateFrameByTagName("BACKDROP", "ItemHUDIcon" + I2S(slot), ItemHUDSlot[slot], "", slot)
+            call DzFrameSetSize(ItemHUDIcon[slot], ITEM_W - 0.002, ITEM_H - 0.0026)
+            call DzFrameSetAbsolutePoint(ItemHUDIcon[slot], JN_FRAMEPOINT_TOPLEFT, x + 0.001, y - 0.0013)
             call DzFrameShow(ItemHUDIcon[slot], false)
-            set ItemHUDCharges[slot] = DzCreateFrameByTagName("TEXT", "ItemHUDCharges" + I2S(slot), ItemHUDIcon[slot], "SkillHUD_HotkeyText", slot)
-            call DzFrameSetAbsolutePoint(ItemHUDCharges[slot], JN_FRAMEPOINT_BOTTOMRIGHT, x + 0.021, y - 0.021)
+            set ItemHUDBorder[slot] = DzCreateFrameByTagName("BACKDROP", "ItemHUDBorder" + I2S(slot), ItemHUDIcon[slot], "", slot)
+            call DzFrameSetTexture(ItemHUDBorder[slot], HUD_SLOT_BORDER, 0)
+            call DzFrameSetSize(ItemHUDBorder[slot], ITEM_W, ITEM_H)
+            call DzFrameSetAbsolutePoint(ItemHUDBorder[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
+            set ItemHUDCharges[slot] = DzCreateFrameByTagName("TEXT", "ItemHUDCharges" + I2S(slot), ItemHUDBorder[slot], "SkillHUD_HotkeyText", slot)
+            call DzFrameSetAbsolutePoint(ItemHUDCharges[slot], JN_FRAMEPOINT_BOTTOMRIGHT, x + ITEM_W - 0.0022, y - ITEM_H + 0.0022)
             call DzFrameSetEnable(ItemHUDCharges[slot], false)
-            call DzFrameSetPriority(ItemHUDCharges[slot], 22)
             set slot = slot + 1
         endloop
 
@@ -455,7 +639,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         set SkillHUDTipName = DzCreateFrameByTagName("TEXT", "SkillHUDTipName", SkillHUDTip, "SkillHUD_TipName", 0)
         call DzFrameSetPoint(SkillHUDTipName, JN_FRAMEPOINT_TOPLEFT, SkillHUDTip, JN_FRAMEPOINT_TOPLEFT, 0.01, -0.01)
         set SkillHUDTipDescription = DzCreateFrameByTagName("TEXT", "SkillHUDTipDescription", SkillHUDTip, "SkillHUD_TipDescription", 0)
-        call DzFrameSetAbsolutePoint(SkillHUDTipDescription, JN_FRAMEPOINT_BOTTOMRIGHT, 0.795, 0.165)
+        call DzFrameSetAbsolutePoint(SkillHUDTipDescription, JN_FRAMEPOINT_BOTTOMRIGHT, 0.795, 0.185)
         call DzFrameSetSize(SkillHUDTipDescription, 0.21, 0.0)
         call DzFrameSetPoint(SkillHUDTip, JN_FRAMEPOINT_TOPLEFT, SkillHUDTipDescription, JN_FRAMEPOINT_TOPLEFT, -0.005, 0.023)
         call DzFrameSetPoint(SkillHUDTip, JN_FRAMEPOINT_BOTTOMRIGHT, SkillHUDTipDescription, JN_FRAMEPOINT_BOTTOMRIGHT, 0.005, -0.005)

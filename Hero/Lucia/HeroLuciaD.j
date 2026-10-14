@@ -22,9 +22,7 @@ private function splashD takes nothing returns nothing
     local integer random
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if HeroDeal('A02I',splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,true,false) then
-            call NarNabiPlus(pid,6)
-        endif
+        call HeroDeal('A07G',splash.source,GetEnumUnit(),HeroSkillVelue6[17]*Velue,false,false,true,false)
         //call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         set random = GetRandomInt(0,2)
         if random == 0 then
@@ -63,6 +61,7 @@ private function EffectFunction takes nothing returns nothing
         elseif fx.i == 2 then
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
             call UnitEffectTime2('e057',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.5,0,fx.pid)
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
             //call SetUnitSafeXY(fx.caster, GetWidgetX(fx.caster) + PolarX( 300, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) + PolarY( 300, GetUnitFacing(fx.caster) ) )
 
             call UnitAddAbility(fx.caster,'Arav')
@@ -81,6 +80,7 @@ private function EffectFunction takes nothing returns nothing
             call t.start( Time2 / fx.speed, false, function EffectFunction )
         elseif fx.i == 3 then
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
             if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
                 set e = AddSpecialEffect(".mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster) )
             else
@@ -165,7 +165,7 @@ private function DSyncData takes nothing returns nothing
     local real y
     local real angle
 
-    if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID0[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
+    if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID6[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
         set data=SubString(data,valueLen+1,dataLen)

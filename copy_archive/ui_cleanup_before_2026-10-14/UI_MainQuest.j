@@ -1,0 +1,180 @@
+// 메인퀘스트 초반 안내와 짧은 저장 키 관리
+library UIMainQuest initializer Init requires FrameCount, UIItem
+    globals
+        private integer F_MQBackDrop
+        private integer F_MQTitleText
+        private integer F_MQBodyText
+        private boolean OverlayHidden = false
+        private constant integer MQ_STEP_INHERIT = 1
+        private constant integer MQ_STEP_STAGGER = 2
+        private constant integer MQ_STEP_ENCHANT = 3
+        private constant integer MQ_STEP_COUNTER = 4
+        private constant integer MQ_STEP_AOE = 5
+        private constant integer MQ_STEP_REAL = 6
+        private constant integer MQ_STEP_DONE = 7
+        private constant integer MQ_STAGGER_GOLD = 100
+    endglobals
+
+    // Q = 메인퀘스트 단계, QB = 첫 보스 처치 카운터.
+    private function MainQuestKey takes integer heroNumber, string key returns string
+        return "영웅"+I2S(heroNumber)+"."+key
+    endfunction
+
+    function MainQuestGetStep takes integer pid, integer heroNumber returns integer
+        return S2I(StashLoad(PLAYER_DATA[pid], MainQuestKey(heroNumber, "Q"), "0"))
+    endfunction
+
+    function MainQuestCanSelectBoss takes integer pid, integer heroNumber, integer bossOrder returns boolean
+        local integer step = MainQuestGetStep(pid, heroNumber)
+        if step == MQ_STEP_STAGGER or step == MQ_STEP_ENCHANT then
+            return bossOrder <= 1
+        elseif step == MQ_STEP_COUNTER then
+            return bossOrder <= 2
+        elseif step == MQ_STEP_AOE then
+            return bossOrder <= 3
+        elseif step == MQ_STEP_REAL or step == MQ_STEP_DONE then
+            return bossOrder <= 4
+        endif
+        return false
+    endfunction
+
+    private function MainQuestSetStep takes integer pid, integer heroNumber, integer step returns nothing
+        call StashSave(PLAYER_DATA[pid], MainQuestKey(heroNumber, "Q"), I2S(step))
+    endfunction
+
+    private function MainQuestSetBossCount takes integer pid, integer heroNumber, integer count returns nothing
+        call StashSave(PLAYER_DATA[pid], MainQuestKey(heroNumber, "QB"), I2S(count))
+    endfunction
+
+    function MainQuestRefresh takes integer pid, integer heroNumber returns nothing
+        local integer step = MainQuestGetStep(pid, heroNumber)
+        if GetLocalPlayer() == Player(pid) then
+            if OverlayHidden then
+                call DzFrameShow(F_MQBackDrop, false)
+            elseif step == MQ_STEP_INHERIT then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가까이 가서 클릭한 후 시작 무기 클릭하고 계승하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            elseif step == MQ_STEP_STAGGER then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 무력화 보스를 처치하고 다음 강화에 쓸 골드를 획득하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            elseif step == MQ_STEP_ENCHANT then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "첫 보스 보상 골드로 무기를 한 번 강화하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            elseif step == MQ_STEP_COUNTER then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 카운터 훈련을 완료하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            elseif step == MQ_STEP_AOE then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 장판 회피 훈련을 완료하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            elseif step == MQ_STEP_REAL then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 실전 보스를 처치하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            else
+                call DzFrameShow(F_MQBackDrop, false)
+            endif
+        endif
+    endfunction
+
+    function MainQuestSetOverlayHidden takes integer pid, boolean hidden returns nothing
+        if GetLocalPlayer() == Player(pid) and OverlayHidden != hidden then
+            set OverlayHidden = hidden
+            call MainQuestRefresh(pid, PlayerSlotNumber[pid])
+        endif
+    endfunction
+
+    function MainQuestNew takes integer pid, integer heroNumber returns nothing
+        call MainQuestSetStep(pid, heroNumber, MQ_STEP_INHERIT)
+        call MainQuestSetBossCount(pid, heroNumber, 0)
+        call MainQuestRefresh(pid, heroNumber)
+    endfunction
+
+    function MainQuestLoad takes integer pid, integer heroNumber, integer weaponId, integer weaponUp returns nothing
+        local integer step = MainQuestGetStep(pid, heroNumber)
+        if step == 0 then
+            if weaponId == 10 then
+                set step = MQ_STEP_INHERIT
+            elseif weaponId == 3 and weaponUp == 0 then
+                set step = MQ_STEP_STAGGER
+            elseif weaponId == 3 and weaponUp > 0 then
+                set step = MQ_STEP_COUNTER
+            else
+                set step = MQ_STEP_STAGGER
+            endif
+            call MainQuestSetStep(pid, heroNumber, step)
+            call MainQuestSetBossCount(pid, heroNumber, 0)
+        endif
+        call MainQuestRefresh(pid, heroNumber)
+    endfunction
+
+    function MainQuestAfterFirstSuccess takes integer pid, integer heroNumber returns nothing
+        if MainQuestGetStep(pid, heroNumber) == MQ_STEP_INHERIT then
+            call MainQuestSetStep(pid, heroNumber, MQ_STEP_STAGGER)
+            call MainQuestRefresh(pid, heroNumber)
+        endif
+    endfunction
+
+    function MainQuestAfterGoldEnchant takes integer pid, integer heroNumber, integer tier, integer up returns nothing
+        if MainQuestGetStep(pid, heroNumber) == MQ_STEP_ENCHANT and tier == 2 and up >= 1 then
+            call MainQuestSetStep(pid, heroNumber, MQ_STEP_COUNTER)
+            call MainQuestRefresh(pid, heroNumber)
+        endif
+    endfunction
+
+    function MainQuestAddGold takes player p, integer amount returns nothing
+        local integer pid = GetPlayerId(p)
+        local integer gold = 0
+        if GetLocalPlayer() == p then
+            set gold = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + amount
+            call StashSave(PLAYER_DATA[pid], "골드", I2S(gold))
+            call DzFrameSetText(F_GoldText, I2S(gold))
+            call VJDebugMsg("골드 "+I2S(amount)+" 획득")
+        endif
+    endfunction
+
+    function MainQuestAfterTutorialBoss takes player p, integer heroNumber, integer bossOrder returns nothing
+        local integer pid = GetPlayerId(p)
+        local integer step = 0
+        local integer count = 0
+        if GetLocalPlayer() == p then
+            set step = MainQuestGetStep(pid, heroNumber)
+            set count = S2I(StashLoad(PLAYER_DATA[pid], MainQuestKey(heroNumber, "QB"), "0")) + 1
+            call MainQuestSetBossCount(pid, heroNumber, count)
+            if bossOrder == 1 and step == MQ_STEP_STAGGER then
+                call MainQuestAddGold(p, MQ_STAGGER_GOLD)
+                call MainQuestSetStep(pid, heroNumber, MQ_STEP_ENCHANT)
+            elseif bossOrder == 2 and step == MQ_STEP_COUNTER then
+                call MainQuestSetStep(pid, heroNumber, MQ_STEP_AOE)
+            elseif bossOrder == 3 and step == MQ_STEP_AOE then
+                call MainQuestSetStep(pid, heroNumber, MQ_STEP_REAL)
+            elseif bossOrder == 4 and step == MQ_STEP_REAL then
+                call MainQuestSetStep(pid, heroNumber, MQ_STEP_DONE)
+            endif
+            call MainQuestRefresh(pid, heroNumber)
+        endif
+    endfunction
+
+    private function Init takes nothing returns nothing
+        set F_MQBackDrop = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
+        call DzFrameSetTexture(F_MQBackDrop, "QuestT.blp", 0)
+        call DzFrameSetAbsolutePoint(F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.000, 0.540)
+        call DzFrameSetSize(F_MQBackDrop, 0.200, 0.060)
+        call DzFrameSetAlpha(F_MQBackDrop, 220)
+        set F_MQTitleText = DzCreateFrameByTagName("TEXT", "", F_MQBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_MQTitleText, JN_FRAMEPOINT_TOPLEFT, F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.090, -0.006)
+        call DzFrameSetSize(F_MQTitleText, 0.200, 0.014)
+        call DzFrameSetFont(F_MQTitleText, "Fonts\\DFHeiMd.ttf", 0.010, 0)
+        call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+        set F_MQBodyText = DzCreateFrameByTagName("TEXT", "", F_MQBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_MQBodyText, JN_FRAMEPOINT_TOPLEFT, F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.008, -0.026)
+        call DzFrameSetSize(F_MQBodyText, 0.200, 0.030)
+        call DzFrameSetFont(F_MQBodyText, "Fonts\\DFHeiMd.ttf", 0.009, 0)
+        call DzFrameSetText(F_MQBodyText, "")
+        call DzFrameShow(F_MQBackDrop, false)
+    endfunction
+endlibrary

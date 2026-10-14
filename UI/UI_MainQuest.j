@@ -48,8 +48,9 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
 
     function MainQuestRefresh takes integer pid, integer heroNumber returns nothing
         local integer step = MainQuestGetStep(pid, heroNumber)
+        // 출발 준비를 보스 이동 NPC에서 열게 되어 왼쪽 목표 안내는 표시하지 않는다.
         if GetLocalPlayer() == Player(pid) then
-            if OverlayHidden then
+            if true then
                 call DzFrameShow(F_MQBackDrop, false)
             elseif step == MQ_STEP_INHERIT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")

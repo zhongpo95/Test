@@ -14,6 +14,10 @@ globals
     private constant real NPC_TOWN_TOP = 28288.00
     private real NPCSpawnX = 0.00
     private real NPCSpawnY = 0.00
+    //데미지 테스트 샌드백 (마을 왼쪽 아래). 죽지 않도록 체력을 계속 채운다
+    unit TownSandbag = null
+    private constant real SANDBAG_HP = 10000000.00
+    private timer SandbagTimer = CreateTimer()
     //영웅타입
     boolean array UnitHeroCheck
     //대쉬모션번호
@@ -249,6 +253,77 @@ private function NPCTownPickSpawn takes nothing returns nothing
     endloop
     set NPCSpawnX = (NPC_TOWN_LEFT + NPC_TOWN_RIGHT) / 2
     set NPCSpawnY = (NPC_TOWN_BOTTOM + NPC_TOWN_TOP) / 2
+endfunction
+
+//마을 왼쪽 아래 구석에서 가장 가까운, 주변 128까지 걸을 수 있는 자리를 NPCSpawnX/Y 에 넣는다
+private function SandbagPickSpot takes nothing returns nothing
+    local real bx = NPC_TOWN_LEFT + 500.00
+    local real by = NPC_TOWN_BOTTOM + 500.00
+    local real r = 0.00
+    local real a
+    local real x
+    local real y
+    loop
+        set a = 0.00
+        loop
+            set x = bx + r * Cos(a * bj_DEGTORAD)
+            set y = by + r * Sin(a * bj_DEGTORAD)
+            if x > NPC_TOWN_LEFT + 128.00 and y > NPC_TOWN_BOTTOM + 128.00 and NPCTownWalkable(x, y) and NPCTownWalkable(x + 128.00, y) and NPCTownWalkable(x - 128.00, y) and NPCTownWalkable(x, y + 128.00) and NPCTownWalkable(x, y - 128.00) then
+                set NPCSpawnX = x
+                set NPCSpawnY = y
+                return
+            endif
+            set a = a + 30.00
+            exitwhen a >= 360.00 or r == 0.00
+        endloop
+        set r = r + 64.00
+        exitwhen r > 1600.00
+    endloop
+    set NPCSpawnX = bx
+    set NPCSpawnY = by
+endfunction
+
+//샌드백 체력을 1초마다 가득 채운다 (피해 숫자는 그대로 뜨고 죽지 않음)
+private function SandbagRefill takes nothing returns nothing
+    local integer idx
+    if TownSandbag == null then
+        return
+    endif
+    set idx = IndexUnit(TownSandbag)
+    set UnitHPMAX[idx] = SANDBAG_HP
+    set UnitHP[idx] = SANDBAG_HP
+    call SetUnitState(TownSandbag, UNIT_STATE_LIFE, GetUnitState(TownSandbag, UNIT_STATE_MAX_LIFE))
+endfunction
+
+//데미지 테스트 샌드백: 기존 샌드백 유닛(h002, 방어력 10000 = 보스와 같음)을 적대 중립으로 만든다
+private function SandbagSpawn takes nothing returns nothing
+    local integer idx
+    call SandbagPickSpot()
+    set TownSandbag = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), 'h002', NPCSpawnX, NPCSpawnY, 270.00)
+    if TownSandbag == null then
+        return
+    endif
+    call UnitRemoveAbility(TownSandbag, 'Aatk')
+    //보스와 같은 방식: 메뚜기(Aloc)는 그대로, 이동 능력(Amov)을 빼고 멈춘 뒤 SetUnitPosition.
+    //이렇게 해야 선택은 안 되지만 영웅 스킬의 범위 검색에 잡힌다
+    if GetUnitAbilityLevel(TownSandbag, 'Aloc') == 0 then
+        call UnitAddAbility(TownSandbag, 'Aloc')
+    endif
+    call UnitRemoveAbility(TownSandbag, 'Amov')
+    call SetUnitPathing(TownSandbag, false)
+    call PauseUnit(TownSandbag, true)
+    call SetUnitPosition(TownSandbag, NPCSpawnX, NPCSpawnY)
+    call SetUnitAcquireRange(TownSandbag, 0.00)
+    call SetUnitInvulnerable(TownSandbag, false)
+    set idx = IndexUnit(TownSandbag)
+    set Unitstate[idx] = 0
+    set UnitArm[idx] = UnitSetArm[2]
+    set UnitSD[idx] = 0.00
+    set UnitSDMAX[idx] = 0.00
+    set UnitCasting[idx] = false
+    call SetUnitState(TownSandbag, UNIT_STATE_MAX_LIFE, 1000000.00)
+    call SandbagRefill()
+    call TimerStart(SandbagTimer, 1.00, true, function SandbagRefill)
 endfunction
 
 private function NPCRoleDummyFollowPeriodic takes nothing returns nothing
@@ -751,15 +826,15 @@ private function init takes nothing returns nothing
     set HeroSkillID6[17] = 'A07G'
     set HeroSkillID7[17] = 'A07H'
     //V
-    set HeroSkillID8[17] = 'A06K'
-    //C
-    set HeroSkillID9[17] = 'A06D'
-    //Z
-    set HeroSkillID10[17] = 'A06M'
+    set HeroSkillID8[17] = 'A02Q'
+    //C (루시아 C 스킬 없음)
+    set HeroSkillID9[17] = 0
+    //Z (루시아 Z 스킬 없음)
+    set HeroSkillID10[17] = 0
 
     set HeroSkillTpye0[17] = "일반, 카운터"
     set HeroSkillStr0[17] = "전방의 적을 두 번 공격합니다. 첫 번째 타격은 카운터 판정을 가집니다."
-    set HeroSkillCD0[17] = 6.00
+    set HeroSkillCD0[17] = 1.50
     set HeroSkillVCount0[17] = 1
     set HeroSkillVelue0[17] = (1.00) / 10.0
     set HeroSkill0Text1[17] = "사용 시 자원 40을 얻고 차지 진행도를 8 올립니다. 차지 진행도는 최대 25입니다."
@@ -768,65 +843,66 @@ private function init takes nothing returns nothing
 
     set HeroSkillTpye1[17] = "헤드어택, 차지"
     set HeroSkillStr1[17] = "전방으로 여섯 차례 참격을 내보냅니다."
-    set HeroSkillCD1[17] = 8.00
+    set HeroSkillCD1[17] = 1.50
     set HeroSkillVCount1[17] = 1
-    set HeroSkillVelue1[17] = (0.66) / 10.0
+    set HeroSkillVelue1[17] = (1.00) / 10.0
     set HeroSkill1Text1[17] = "사용과 각 참격 생성 시 자원을 20씩 얻습니다."
     set HeroSkill1Text2[17] = "참격이 지나가는 동안 범위 안의 적을 반복 타격합니다."
     set HeroSkill1Text3[17] = ""
 
     set HeroSkillTpye2[17] = "헤드어택, 차지"
     set HeroSkillStr2[17] = "키를 누르면 차지 진행도가 올라갑니다. 최대 차지 전에 놓으면 자세에 따라 돌진 공격을 합니다."
-    set HeroSkillCD2[17] = 10.00
-    set HeroSkillVCount2[17] = 1
-    set HeroSkillVelue2[17] = (5.0) / 10.0
-    set HeroSkill2Text1[17] = "최대 차지는 돌진과 연속 베기 연출을 실행하고 차지 진행도를 초기화합니다. 현재 최대 차지 연출에는 직접 피해 판정이 없습니다."
-    set HeroSkill2Text2[17] = ""
+    set HeroSkillCD2[17] = 5.00
+    set HeroSkillVCount2[17] = 2
+    set HeroSkillVelue2[17] = (1.00) / 10.0
+    set HeroSkillVelue22[17] = (1.00) / 10.0
+    set HeroSkill2Text1[17] = "최대 차지 시 돌진 후 잔상 베기로 주변 적에게 두 번째 계수의 피해를 주고 차지 진행도를 초기화합니다."
+    set HeroSkill2Text2[17] = "최대 차지를 하면 R과 D를 사용할 수 있습니다."
     set HeroSkill2Text3[17] = ""
 
     set HeroSkillTpye3[17] = "일반"
-    set HeroSkillStr3[17] = "자세를 전환하고 차지 진행도를 초기화합니다."
-    set HeroSkillCD3[17] = 2.75
-    set HeroSkillVCount3[17] = 2
+    set HeroSkillStr3[17] = "자세를 전환하며 주변 적을 베고 차지 진행도를 초기화합니다."
+    set HeroSkillCD3[17] = 3.00
+    set HeroSkillVCount3[17] = 1
     set HeroSkillVelue3[17] = (1.00) / 10.0
-    set HeroSkillVelue23[17] = (1.00) / 10.0
-    set HeroSkill3Text1[17] = "현재 시전 경로에는 직접 피해 판정이 없습니다."
+    set HeroSkill3Text1[17] = "전환 순간 주변 적에게 한 번 피해를 줍니다."
     set HeroSkill3Text2[17] = ""
     set HeroSkill3Text3[17] = ""
-    
+
     set HeroSkillTpye4[17] = "헤드어택, 카운터"
     set HeroSkillStr4[17] = "전방으로 돌진한 뒤 적을 공격합니다."
     set HeroSkillCD4[17] = 8.00
     set HeroSkillVCount4[17] = 1
-    set HeroSkillVelue4[17] = (0.35) / 10.0
+    set HeroSkillVelue4[17] = (5.13) / 10.0
     set HeroSkill4Text1[17] = "사용 시 차지 진행도를 8 올립니다. 차지 진행도는 최대 25입니다."
     set HeroSkill4Text2[17] = ""
     set HeroSkill4Text3[17] = ""
 
     set HeroSkillTpye5[17] = "일반, 카운터"
     set HeroSkillStr5[17] = "전방으로 돌진하며 세 번 공격합니다."
-    set HeroSkillCD5[17] = 10.00
+    set HeroSkillCD5[17] = 5.00
     set HeroSkillVCount5[17] = 1
     set HeroSkillVelue5[17] = (1.00) / 10.0
     set HeroSkill5Text1[17] = "사용 시 차지 진행도를 8 올립니다. 차지 진행도는 최대 25입니다."
     set HeroSkill5Text2[17] = ""
     set HeroSkill5Text3[17] = ""
 
-    set HeroSkillTpye6[17] = "일반"
-    set HeroSkillStr6[17] = "전방으로 베기 연출을 실행합니다."
-    set HeroSkillCD6[17] = 10.00
+    set HeroSkillTpye6[17] = "일반, 카운터"
+    set HeroSkillStr6[17] = "전방으로 뛰어올라 내려찍은 뒤 폭발을 일으킵니다."
+    set HeroSkillCD6[17] = 4.00
     set HeroSkillVCount6[17] = 1
     set HeroSkillVelue6[17] = (1.00) / 10.0
-    set HeroSkill6Text1[17] = "현재 시전 경로에는 직접 피해 판정이 없습니다."
+    set HeroSkill6Text1[17] = "착지와 폭발 때 각각 주변 적에게 피해를 줍니다."
     set HeroSkill6Text2[17] = ""
     set HeroSkill6Text3[17] = ""
 
     set HeroSkillTpye7[17] = "일반"
-    set HeroSkillStr7[17] = "자세를 전환하고 차지 진행도를 초기화한 뒤 연속 공격 연출을 실행합니다."
-    set HeroSkillCD7[17] = 10.00
-    set HeroSkillVCount7[17] = 1
-    set HeroSkillVelue7[17] = (1.00) / 10.0
-    set HeroSkill7Text1[17] = "현재 시전 경로에는 직접 피해 판정이 없습니다."
+    set HeroSkillStr7[17] = "자세를 전환하고 차지 진행도를 초기화한 뒤 연속 공격을 합니다."
+    set HeroSkillCD7[17] = 5.00
+    set HeroSkillVCount7[17] = 2
+    set HeroSkillVelue7[17] = (0.50) / 10.0
+    set HeroSkillVelue27[17] = (5.00) / 10.0
+    set HeroSkill7Text1[17] = "연속 공격 동안 주변 적을 반복 타격하고, 마지막 일격은 두 번째 계수의 피해를 줍니다."
     set HeroSkill7Text2[17] = ""
     set HeroSkill7Text3[17] = ""
     
@@ -991,6 +1067,7 @@ private function init takes nothing returns nothing
 
 
     call t.start(0.03, true, function NPCRoleDummyFollowPeriodic)
+    call TimerStart(CreateTimer(), 0.50, false, function SandbagSpawn)
 endfunction
 
 endlibrary

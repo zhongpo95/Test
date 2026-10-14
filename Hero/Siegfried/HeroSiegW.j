@@ -112,7 +112,8 @@ private function Main takes nothing returns nothing
         set fx.speed = SiegSpeed(fx.pid)
         set fx.step = 0
         set fx.empowered = SiegStack[fx.pid] >= StackCost
-        if fx.empowered then
+        // 용기 해방 중에는 용기를 소모하지 않는다(10 고정).
+        if fx.empowered and not SiegZOn[fx.pid] then
             set SiegStack[fx.pid] = SiegStack[fx.pid] - StackCost
         endif
         call SiegFace(u, GetSpellTargetX(), GetSpellTargetY())

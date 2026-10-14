@@ -1,4 +1,4 @@
-// M 키로 원정의 경로와 현재 위치만 확인하는 지도를 표시한다.
+// 원정 지도 창. M 키 연결은 없앴고 창만 남아 있다.
 library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
     globals
         private integer Root
@@ -66,17 +66,6 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
         call ExpUIText(Status, status)
     endfunction
 
-    private function Toggle takes nothing returns nothing
-        local integer pid = GetPlayerId(GetLocalPlayer())
-        if pid < 4 and PickCheck[pid] then
-            if ExpUIPanel == EXP_UI_MAP then
-                call ExpUIOpen(0)
-            else
-                call ExpUIOpen(EXP_UI_MAP)
-            endif
-        endif
-    endfunction
-
     function SetMapLine takes integer pid returns nothing
         // 영웅 선택의 기존 진입점은 출발 준비 창에 연결한다.
         if GetLocalPlayer() == Player(pid) then
@@ -106,19 +95,11 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
         call TriggerAddAction(ExpRefresh, function Render)
     endfunction
 
-    private function BindInput takes nothing returns boolean
-        if Root == 0 then
-            return false
-        endif
-        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_M, 1, false, function Toggle)
-        return true
-    endfunction
-
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         call TriggerRegisterTimerEventSingle(t, 0.03)
         call TriggerAddAction(t, function Build)
         set t = null
-        call UIInputAfterPick(function BindInput)
+        // 원정 지도는 쓰지 않아 M 키를 연결하지 않는다.
     endfunction
 endlibrary

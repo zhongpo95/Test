@@ -1,8 +1,9 @@
 //! import "JAPIItemState.j"
 library ItemPickUp initializer init requires DataItem, UIItem, ITEM
     globals
-        constant integer POTION_HEAL_DUNGEON_CHARGES = 1
-        constant integer POTION_BUFF_DUNGEON_CHARGES = 1
+        // 보스전 정비소 보충량: 회복 3 / 최종 대미지 증가 3 / 무적 1
+        constant integer POTION_HEAL_DUNGEON_CHARGES = 3
+        constant integer POTION_BUFF_DUNGEON_CHARGES = 3
         constant integer POTION_INVULNERABLE_DUNGEON_CHARGES = 1
     endglobals
 

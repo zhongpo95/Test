@@ -71,7 +71,7 @@ private struct TEvAfterB extends array
         call TriggerAddAction(t, function Main)
         
         set t=CreateTrigger()
-        call DzTriggerRegisterSyncData(t,("NarV"),(false))
+        call DzTriggerRegisterSyncData(t,("LuciaV"),(false))
         call TriggerAddAction(t,function VSyncData)
 
         set t = null

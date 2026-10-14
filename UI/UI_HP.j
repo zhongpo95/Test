@@ -9,19 +9,33 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
         integer MPTextFrame
         unit SelecttingUnit = null
         boolean array HPBshow
+        // 프리즘 유리 HUD (시안 07): 영웅 이미지 오른쪽에 짧은 체력바, 그 위에 보호막 줄과 숫자
+        private constant real HP_LEFT = 0.2496
+        private constant real HP_RIGHT = 0.3907
+        private constant real HP_BOTTOM = 0.0376
+        private constant real HP_TOP = 0.0478
+        private constant real HP_INSET_X = 0.0012
+        private constant real HP_INSET_Y = 0.0015
+        private constant real SD_TOP = 0.0512
+        private constant string HP_FRAME_TEX = "war3mapImported\\HUD_HPFrame.tga"
+        private constant string HP_FILL_TEX = "war3mapImported\\HUD_HPFill.tga"
     endglobals
     
+    private function PlaceHPBar takes nothing returns nothing
+        call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,HP_LEFT,HP_TOP)
+        call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,HP_RIGHT,HP_BOTTOM)
+        call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_TOPLEFT,HP_LEFT+HP_INSET_X,HP_TOP-HP_INSET_Y)
+        call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_BOTTOMRIGHT,HP_RIGHT-HP_INSET_X,HP_BOTTOM+HP_INSET_Y)
+        call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_TOPLEFT,HP_LEFT+HP_INSET_X,SD_TOP)
+        call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_BOTTOMRIGHT,HP_RIGHT-HP_INSET_X,HP_TOP+0.0004)
+    endfunction
+
     function PlayersHPBarShow takes player p , boolean state returns nothing
         set HPBshow[GetPlayerId(p)] = state
         if p == GetLocalPlayer() then
             if state then
                 call DzFrameShow(HPTextFrame,true)
-                call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,.180,.0300)
-                call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.520,.0140)
-                call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0300-.0025)
-                call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0140+.0025)
-                call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0380-.0025)
-                call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0300-.0025)
+                call PlaceHPBar()
                 //call DzFrameSetAbsolutePoint(MPBarBorder,JN_FRAMEPOINT_TOPLEFT,.320,.0300)
                 //call DzFrameSetAbsolutePoint(MPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.480,.0200)
                 //call DzFrameSetAbsolutePoint(MPBar,JN_FRAMEPOINT_TOPLEFT,.320+.0025,.0300-.0025)
@@ -138,25 +152,21 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
     
     private function MyBarCreate takes nothing returns nothing
         set HPBarBorder=DzCreateFrameByTagName("SIMPLESTATUSBAR","",DzFrameFindByName("InfoPanelIconBackdrop",0),"", 0)
-        call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,.180,.0300)
-        call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.520,.0140)
-        call DzFrameSetTexture(HPBarBorder,"war3mapImported\\HPBarBackDrop.tga",0)
+        call DzFrameSetTexture(HPBarBorder,HP_FRAME_TEX,0)
         call DzFrameSetMinMaxValue(HPBarBorder,0,'d')
         call DzFrameSetValue(HPBarBorder,'d')
         set HPBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"", 0)
-        call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0300-.0025)
-        call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0140+.0025)
-        call DzFrameSetTexture(HPBar,"war3mapImported\\HPBar.tga",0)
+        call DzFrameSetTexture(HPBar,HP_FILL_TEX,0)
         call DzFrameSetMinMaxValue(HPBar,0,'d')
         call DzFrameSetValue(HPBar,'d')
         set SDBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"", 0)
-        call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0380-.0025)
-        call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0300-.0025)
         call DzFrameSetTexture(SDBar,"war3mapImported\\BSDBar.tga",0)
         call DzFrameSetMinMaxValue(SDBar,0,'d')
         call DzFrameSetValue(SDBar,0)
+        call PlaceHPBar()
+        //체력 숫자는 바 위 왼쪽에 둔다
         set HPTextFrame=DzCreateFrameByTagName("TEXT","",GetGameplayUI(),"", 0)
-        call DzFrameSetAbsolutePoint(HPTextFrame,JN_FRAMEPOINT_CENTER,.3575,.0220)
+        call DzFrameSetAbsolutePoint(HPTextFrame,JN_FRAMEPOINT_TOPLEFT,HP_LEFT,SD_TOP+.0100)
         call DzFrameSetFont(HPTextFrame, "Fonts\\DFHeiMd.ttf", 0.010, 0)
         call DzFrameSetText(HPTextFrame,"0/0")
         call PlayersHPBarShow(GetLocalPlayer(),false)
@@ -179,4 +189,4 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
         
         set t = null
     endfunction
-endlibrary
+endlibrary

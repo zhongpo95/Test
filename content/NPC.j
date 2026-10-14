@@ -1,4 +1,4 @@
-library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIUpgrade, UIOFF, ITEM, UIBossStart
+library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIUpgrade, UIOFF, ITEM, UIBossStart, UIExpeditionCommon
                 
     private function Action takes nothing returns nothing
         local unit u = GetTriggerUnit()
@@ -35,8 +35,11 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIUpgrade, U
                         endif
                     //라이자
                     elseif DataUnitIndex(u) == 7 then
+                        // 원정 프로토타입에서는 보스 선택 대신 출발 준비 창을 연다.
+                        if ExpPrototypeEnabled and (ExpState == EXP_LOBBY or ExpState == EXP_RESULT) then
+                            call ExpUIOpen(8)
                         //이미 열려있음
-                        if FBS_OnOff[pid] == false then
+                        elseif FBS_OnOff[pid] == false then
                             call DzFrameShow(FBS_BD, true)
                             set FBS_OnOff[pid] = true
                             call BossStartRefreshTextures(pid)

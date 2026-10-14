@@ -112,15 +112,17 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             return "나루메아"
         elseif heroNumber == 3 then
             return "반디"
+        elseif heroNumber == 4 then
+            return "루시아"
         elseif heroNumber == 5 then
             return "지크프리트"
         endif
         return "잠금 "+I2S(heroNumber)
     endfunction
 
-    // 선택 가능한 영웅. 4번 칸은 다른 영웅용으로 비워 두고 지크프리트는 5번 칸을 쓴다.
+    // 선택 가능한 영웅. 4번 칸은 루시아, 지크프리트는 5번 칸을 쓴다.
     private function PickHeroAvailable takes integer heroNumber returns boolean
-        return (heroNumber >= 1 and heroNumber <= MaxHero) or heroNumber == 5
+        return (heroNumber >= 1 and heroNumber <= MaxHero) or heroNumber == 4 or heroNumber == 5
     endfunction
 
     private function PickPreviewTexture takes integer heroNumber, integer skinNumber returns string
@@ -196,6 +198,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             return 'H00I'
         elseif heroNumber == 3 then
             return 'H00K'
+        elseif heroNumber == 4 then
+            return 'H00P'
         elseif heroNumber == 5 then
             if skinNumber == 2 then
                 return 'H01T'
@@ -682,6 +686,15 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             set BanBisul2[pid] = 0
             set BandiForm[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
             set BandiState[pid] = 1
+        elseif SlotHero == 4 then
+            // 루시아: 소태도 상태로 시작 (Q·W·E·R 쪽 요구 유닛 e05H, 아덴 게이지 표시)
+            set LuciaForm[pid] = 0
+            set LuciaMu[pid] = 0
+            if LuciaFormUnit[pid] != null and not IsUnitType(LuciaFormUnit[pid], UNIT_TYPE_DEAD) then
+                call KillUnit(LuciaFormUnit[pid])
+            endif
+            set LuciaFormUnit[pid] = CreateUnit(Player(pid),'e05H',0,0,0)
+            call LuciaAdenShow(p,1,true)
         endif
 
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
@@ -849,6 +862,15 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             set BanBisul2[pid] = 0
             set BandiForm[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
             set BandiState[pid] = 1
+        elseif SlotHero == 4 then
+            // 루시아: 소태도 상태로 시작 (Q·W·E·R 쪽 요구 유닛 e05H, 아덴 게이지 표시)
+            set LuciaForm[pid] = 0
+            set LuciaMu[pid] = 0
+            if LuciaFormUnit[pid] != null and not IsUnitType(LuciaFormUnit[pid], UNIT_TYPE_DEAD) then
+                call KillUnit(LuciaFormUnit[pid])
+            endif
+            set LuciaFormUnit[pid] = CreateUnit(Player(pid),'e05H',0,0,0)
+            call LuciaAdenShow(p,1,true)
         endif
 
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)

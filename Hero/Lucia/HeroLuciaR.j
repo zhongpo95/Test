@@ -1,6 +1,15 @@
 scope HeroLuciaR
 globals
+    private constant real scale = 500
+    private constant real distance = 400
 endglobals
+
+// 자세 전환 폭발 (루시아 R 계수)
+private function splashD takes nothing returns nothing
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal('A07D',splash.source,GetEnumUnit(),HeroSkillVelue3[17],false,false,false,false)
+    endif
+endfunction
 
 private function EffectF takes nothing returns nothing
     local tick t = tick.getExpired()
@@ -31,6 +40,7 @@ private function EffectFunction takes nothing returns nothing
         //call EXSetEffectSize(e,1.0)
         call EXSetEffectZ(e, EXGetEffectZ(e) + 175)
         call DestroyEffect(e)
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
 
         //특수효과
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then

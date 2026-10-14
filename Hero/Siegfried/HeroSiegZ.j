@@ -1,5 +1,6 @@
 // 지크프리트 Z: 용기 해방 (아이덴티티)
-// 용기 10이 필요하다. 12초 동안 C가 모두 저스트로 판정되고 용기가 줄지 않는다. 끝나면 용기가 0이 된다.
+// 용기 10이 필요하다. 12초 동안 C가 모두 저스트로 판정되고 용기가 10으로 고정된다. 끝나면 용기가 0이 된다.
+// 지속 중에는 Z를 다시 쓸 수 없다(쿨다운을 남은 지속시간으로 걸어 둔다).
 scope HeroSiegZ
 globals
     private constant real HitTime = 1.20
@@ -22,9 +23,11 @@ private struct FxEffect
 endstruct
 
 private struct ZEnd
+    unit caster
     integer pid
     integer serial
     method destroy takes nothing returns nothing
+        set caster = null
         call deallocate()
     endmethod
 endstruct
@@ -39,6 +42,8 @@ private function Expire takes nothing returns nothing
             call DestroyEffect(ZEffect[b.pid])
             set ZEffect[b.pid] = null
         endif
+        // 지속 동안 걸어 둔 Z 쿨다운을 끝낸다(용기가 0이라 바로 다시 쓸 수는 없다).
+        call CooldownSet(b.caster, 'A0SZ', 0.0)
     endif
     call b.destroy()
     call t.destroy()
@@ -57,11 +62,15 @@ private function EffectFunction takes nothing returns nothing
     endif
     if fx.serial == SiegSerial[pid] and SiegCanAct(u) then
         set SiegZOn[pid] = true
+        set SiegStack[pid] = SIEG_MAX_STACK
         set ZSerial[pid] = ZSerial[pid] + 1
+        // 지속 중에는 Z 버튼을 쿨다운으로 막아 둔다.
+        call CooldownSet(u, 'A0SZ', Duration)
         if ZEffect[pid] == null then
             set ZEffect[pid] = AddSpecialEffectTarget("Abilities\\Spells\\Orc\\Bloodlust\\BloodlustTarget.mdl", u, "origin")
         endif
         set zt = tick.create(ZEnd.create())
+        set ZEnd(zt.data).caster = u
         set ZEnd(zt.data).pid = pid
         set ZEnd(zt.data).serial = ZSerial[pid]
         call zt.start(Duration, false, function Expire)
@@ -106,7 +115,7 @@ private function SyncData takes nothing returns nothing
     local integer pid = GetPlayerId(p)
     local unit u = MainUnit[pid]
 
-    if SiegIsHero(u) and SiegCanAct(u) and not SiegBusy[pid] and EXGetAbilityState(EXGetUnitAbility(u, HeroSkillID10[SIEG_INDEX]), ABILITY_STATE_COOLDOWN) == 0 and SiegStack[pid] >= SIEG_MAX_STACK then
+    if SiegIsHero(u) and SiegCanAct(u) and not SiegBusy[pid] and not SiegZOn[pid] and EXGetAbilityState(EXGetUnitAbility(u, HeroSkillID10[SIEG_INDEX]), ABILITY_STATE_COOLDOWN) == 0 and SiegStack[pid] >= SIEG_MAX_STACK then
         call SiegUnlock(GetPlayerId(GetOwningPlayer(u)))
         call SiegFace(u, SiegSplitReal(data, 0), SiegSplitReal(data, 1))
         call IssuePointOrder(u, "autodispel", SiegSplitReal(data, 0), SiegSplitReal(data, 1))

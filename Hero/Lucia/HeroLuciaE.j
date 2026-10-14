@@ -36,7 +36,7 @@ private function splashD takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         set Velue = Velue * 2.00
 
-        call HeroDeal('A07C',splash.source,GetEnumUnit(),HeroSkillVelue3[17]*Velue,true,false,false,true)
+        call HeroDeal('A07C',splash.source,GetEnumUnit(),HeroSkillVelue2[17]*Velue,true,false,false,true)
     endif
 endfunction
 
@@ -47,10 +47,17 @@ private function splashD2 takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         set Velue = Velue * 2.00
 
-        call HeroDeal('A07C',splash.source,GetEnumUnit(),HeroSkillVelue3[17]*Velue,true,false,false,true)
+        call HeroDeal('A07C',splash.source,GetEnumUnit(),HeroSkillVelue2[17]*Velue,true,false,false,true)
     endif
 endfunction
 
+
+// 풀차지 잔상 베기 (루시아 E 풀차지 계수)
+private function splashFull takes nothing returns nothing
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal('A07C',splash.source,GetEnumUnit(),HeroSkillVelue22[17],true,false,false,true)
+    endif
+endfunction
 
 //대태도 잔상
 private function EffectFunction7 takes nothing returns nothing
@@ -65,6 +72,7 @@ private function EffectFunction7 takes nothing returns nothing
 
     set x = fx.TargetX+PolarX( (MoveD3/5) * fx.i, fx.r)
     set y = fx.TargetY+PolarY( (MoveD3/5) * fx.i, fx.r)
+    call splash.range( splash.ENEMY, fx.caster, x, y, scale, function splashFull )
 
     if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
         set e = AddSpecialEffect(".mdl", x, y)
@@ -264,6 +272,7 @@ private function EffectFunction6 takes nothing returns nothing
 
     set x = fx.TargetX+PolarX( (MoveD/5) * (fx.i-1), fx.r)
     set y = fx.TargetY+PolarY( (MoveD/5) * (fx.i-1), fx.r)
+    call splash.range( splash.ENEMY, fx.caster, x, y, scale, function splashFull )
 
     if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
         set e = AddSpecialEffect(".mdl", x, y)
@@ -684,7 +693,7 @@ private function ESyncData takes nothing returns nothing
     local real y
     local real angle
 
-    if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
+    if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID2[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
         set data=SubString(data,valueLen+1,dataLen)

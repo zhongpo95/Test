@@ -349,7 +349,8 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         set ShownRun = ExpRun
         set ShownRevision = ExpRevision
         set ShownOffer = ExpOfferVersion[pid]
-        call DzFrameShow(Navigation, visible and not (ExpPrototypeEnabled and (ExpUIPanel == EXP_UI_STATS or ExpUIPanel == EXP_UI_CARDS or ExpUIPanel == 8)))
+        // 지도·출발 준비·능력치 버튼은 화면에 두지 않는다. 능력치는 Tab, 출발 준비는 보스 이동 NPC로 연다.
+        call DzFrameShow(Navigation, false)
         call DzFrameShow(ExpUIButtons[ActivityButton], activity != 0)
         call DzFrameShow(ExpUIButtons[StatsButton], ExpMember[pid] or ExpPrototypeEnabled)
         // 선택 버튼이 없는 전투 중에는 스탯 버튼을 당겨 보스 체력바 자리를 비운다.

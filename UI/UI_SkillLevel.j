@@ -255,7 +255,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
         elseif types == 8 and index == 26 then
             set desc = SkillFrameBaseDescription("버프", 4.0, "용기 10을 모두 모으면 쓸 수 있습니다. 12초 동안 C가 모두 저스트로 판정됩니다.")
             if detail then
-                set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA지속 중에는 용기가 줄지 않고, 끝나면 용기가 0이 됩니다. 시전 중 약 1.2초간 피해와 제어 효과를 막습니다.|r")
+                set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA지속 중에는 용기가 10으로 고정되고(W도 용기를 소모하지 않음) Z를 다시 쓸 수 없습니다. 끝나면 용기가 즉시 0이 됩니다. 시전 중 약 1.2초간 피해와 제어 효과를 막습니다.|r")
             endif
         elseif types == 8 and (index == 15 or index == 17) then
             set desc = SkillFrameBaseDescription("버프", 4.0, "완전연소 자원을 사용하고 완전연소 변신 연출을 실행합니다.")

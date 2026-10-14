@@ -11,6 +11,8 @@ globals
     
     private constant real scale = 400
     private constant real distance = 300
+    //대쉬 캔슬용 (SkillDash.j에서 false로 바꿈)
+    boolean array IsCastingLuciaQ
 endglobals
 
 
@@ -44,7 +46,12 @@ private function EffectFunction takes nothing returns nothing
 
     set fx.r = fx.r + 0.03125
 
-    if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+    //대쉬로 캔슬됐거나 스턴/에어본이면 남은 이동과 타격을 멈춤
+    if IsCastingLuciaQ[fx.pid] == false or GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 then
+        set IsCastingLuciaQ[fx.pid] = false
+        call fx.stop()
+        call t.destroy()
+    else
         if fx.r >= Time1/fx.speed and fx.i == 0 then
             call Sound3D(fx.caster,'A07M')
             set fx.i = 1
@@ -57,6 +64,7 @@ private function EffectFunction takes nothing returns nothing
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
             call UnitEffectTimeEX2('e04T',GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY( 25, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.2,fx.pid)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster)), GetWidgetY(fx.caster)+PolarY( 25, GetUnitFacing(fx.caster)), scale, function splashD2 )
+            set IsCastingLuciaQ[fx.pid] = false
             call fx.stop()
             call t.destroy()
         elseif fx.r <= Time1/fx.speed then
@@ -89,6 +97,7 @@ private function Main takes nothing returns nothing
         set fx.index = IndexUnit(MainUnit[fx.pid])
         set fx.r = 0
         set fx.i = 0
+        set IsCastingLuciaQ[fx.pid] = true
 
         call Overlay2Count(fx.pid,'A07B')
         call LuciaMuPlus(fx.pid, 40)

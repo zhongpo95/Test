@@ -1,6 +1,22 @@
 scope HeroLuciaF
 globals
+    private constant real scale = 600
+    private constant real distance = 500
 endglobals
+
+// 연속 베기 (루시아 F 계수)
+private function splashD takes nothing returns nothing
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal('A07H',splash.source,GetEnumUnit(),HeroSkillVelue7[17],false,false,false,false)
+    endif
+endfunction
+
+// 마무리 폭발 (루시아 F 마무리 계수)
+private function splashD2 takes nothing returns nothing
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal('A07H',splash.source,GetEnumUnit(),HeroSkillVelue27[17],false,false,false,false)
+    endif
+endfunction
 
 private struct SkillRarR
     unit caster
@@ -49,6 +65,9 @@ private function EffectFunction takes nothing returns nothing
     set fx.i = fx.i + 1
 
     if fx.i < 44 then
+        if fx.i - (fx.i / 4) * 4 == 0 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        endif
         if GetRandomInt(0,1) == 0 then
             set r = GetRandomReal(0,360)
             set r2 = GetRandomReal(0,SquareRoot(500*500))
@@ -115,6 +134,7 @@ private function EffectFunction takes nothing returns nothing
             set e = AddSpecialEffect("ZK_BM_Mine blasting.mdl", fx.TargetX, fx.TargetY)
         endif
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
+        call splash.range( splash.ENEMY, fx.caster, fx.TargetX, fx.TargetY, scale, function splashD2 )
         call EXSetEffectSize(e, 1.5)
         call DestroyEffect(e)
         call fx.stop()

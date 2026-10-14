@@ -20,7 +20,7 @@ private function splashD takes nothing returns nothing
 
     if IsCastingLuciaA[pid] == true then
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            call HeroDeal('A019',splash.source,GetEnumUnit(),HeroSkillVelue2[4]*Velue,true,false,true,false)
+            call HeroDeal('A07E',splash.source,GetEnumUnit(),HeroSkillVelue4[17]*Velue,true,false,true,false)
         endif
     endif
 endfunction
@@ -167,7 +167,7 @@ private function ASyncData takes nothing returns nothing
     local real y
     local real angle
 
-    if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID0[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
+    if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID4[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
         set data=SubString(data,valueLen+1,dataLen)

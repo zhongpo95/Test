@@ -402,6 +402,10 @@ endfunction
             //캐스팅중일시 캔슬
             //반디(차지중엔 캔슬불가)
             if DataUnitIndex(MainUnit[pid]) == 17 then
+                if IsCastingLuciaQ[pid] == true then
+                    set IsCastingLuciaQ[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
                 if IsCastingLuciaA[pid] == true then
                     set IsCastingLuciaA[pid] = false
                     call UnitRemoveAbility( MainUnit[pid], 'B000' )

@@ -126,7 +126,7 @@ endfunction
 
 function SiegAddStack takes integer pid, integer n returns nothing
     set SiegStack[pid] = SiegStack[pid] + n
-    if SiegStack[pid] > SIEG_MAX_STACK then
+    if SiegStack[pid] > SIEG_MAX_STACK or SiegZOn[pid] then
         set SiegStack[pid] = SIEG_MAX_STACK
     endif
 endfunction
@@ -1214,7 +1214,7 @@ private function KeyDown takes nothing returns nothing
             call DzSyncData("SiegD", pos)
         endif
     elseif key == JN_OSKEY_Z then
-        if EXGetAbilityState(EXGetUnitAbility(u, HeroSkillID10[SIEG_INDEX]), ABILITY_STATE_COOLDOWN) == 0 and SiegStack[i] >= SIEG_MAX_STACK then
+        if not SiegZOn[i] and EXGetAbilityState(EXGetUnitAbility(u, HeroSkillID10[SIEG_INDEX]), ABILITY_STATE_COOLDOWN) == 0 and SiegStack[i] >= SIEG_MAX_STACK then
             call DzSyncData("SiegZ", pos)
         endif
     endif

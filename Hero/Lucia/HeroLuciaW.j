@@ -29,10 +29,12 @@ private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
-    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+    //참격(투사체) 하나당 적 하나에 한 번만 피해
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) and IsUnitInGroup(GetEnumUnit(), CheckG) == false then
+        call GroupAddUnit(CheckG, GetEnumUnit())
         set Velue = Velue * 2.00
 
-        call HeroDeal('A01B',splash.source,GetEnumUnit(),HeroSkillVelue7[4]*Velue,true,false,false,true)
+        call HeroDeal('A07A',splash.source,GetEnumUnit(),HeroSkillVelue1[17]*Velue,true,false,false,true)
     endif
 endfunction
 
