@@ -213,6 +213,24 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     //==========================================================================
     // 공용 도구
     //==========================================================================
+    // 정확히 8바이트이고 모두 0~9 인지(09 2.1 서버 날짜).
+    private function Digits8 takes string s returns boolean
+        local integer i = 0
+        local string c
+        if StringLength(s) != 8 then
+            return false
+        endif
+        loop
+            exitwhen i >= 8
+            set c = SubString(s, i, i + 1)
+            if c != "0" and c != "1" and c != "2" and c != "3" and c != "4" and c != "5" and c != "6" and c != "7" and c != "8" and c != "9" then
+                return false
+            endif
+            set i = i + 1
+        endloop
+        return true
+    endfunction
+
     private function Fire takes trigger cb, player user, stash s, boolean result, string message, integer max, integer progress returns nothing
         local player pUser = EV_USER
         local stash pStash = EV_STASH
@@ -511,7 +529,12 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             elseif state == 2 and err == 3 then
                 // 신규(서버에 저장 없음). 빈 Stash 로 성공(06 11.2). 실패와 구별한다.
                 set Rev[pid] = 0
-                set LoadInfo[pid] = "new"
+                // 09 2.1·D9: "new" 또는 "new;day=" + 숫자 8자리만 받는다. 그 밖(빈 값, 다른 문자, 길이 초과, 자릿수 틀림)은 "new".
+                if StringLength(payload) == 16 and SubString(payload, 0, 8) == "new;day=" and Digits8(SubString(payload, 8, 16)) then
+                    set LoadInfo[pid] = payload
+                else
+                    set LoadInfo[pid] = "new"
+                endif
                 call FlushChildHashtable(Raw, pid)
                 set RawN[pid] = 0
                 set ApplyStash[pid] = CreateStash()
@@ -613,7 +636,12 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                 call Send(pid, 0, N_Packets(LReq[pid]), K_LOAD_READY, 1, 0, N_Revision(LReq[pid]), N_Result(LReq[pid]))
                 set LPhase[pid] = 2
             elseif st != 0 then
-                call Send(pid, 0, 0, K_LOAD_READY, 2, N_Error(LReq[pid]), N_Revision(LReq[pid]), "")
+                // 09 2.1: 신규(오류 3)일 때만 DLL 결과("new;day=YYYYMMDD")를 함께 보낸다. 다른 오류는 지금처럼 빈 문자열.
+                if N_Error(LReq[pid]) == 3 then
+                    call Send(pid, 0, 0, K_LOAD_READY, 2, 3, N_Revision(LReq[pid]), N_Result(LReq[pid]))
+                else
+                    call Send(pid, 0, 0, K_LOAD_READY, 2, N_Error(LReq[pid]), N_Revision(LReq[pid]), "")
+                endif
                 call N_Release(LReq[pid])
                 set LReq[pid] = 0
                 set LPhase[pid] = 0
@@ -858,6 +886,21 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     endfunction
     function ArcanaStashNetGetLoadInfo takes integer pid returns string
         return LoadInfo[pid]
+    endfunction
+    // 09 2.1: 마지막 로드의 서버 날짜(KST, YYYYMMDD 정수). LoadInfo 끝의 ";day=" + 8자리를 읽고, 없거나 형식이 틀리면 0.
+    // LoadInfo 는 동기화된 값이라 모든 클라이언트에서 같은 값을 돌려준다.
+    function ArcanaStashNetGetServerDay takes integer pid returns integer
+        local string s = LoadInfo[pid]
+        local integer n = StringLength(s)
+        local string d
+        if n < 13 or SubString(s, n - 13, n - 8) != ";day=" then
+            return 0
+        endif
+        set d = SubString(s, n - 8, n)
+        if not Digits8(d) then
+            return 0
+        endif
+        return S2I(d)
     endfunction
     function ArcanaStashNetIsBusy takes integer pid returns boolean
         return Phase[pid] != 0
