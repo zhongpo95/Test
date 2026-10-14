@@ -262,13 +262,34 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         return S2I(s)
     endfunction
 
-    // revision 은 -1(없음)을 허용한다. 그 밖의 음수·형식 오류는 -2
+    // revision 은 -1(없음) 또는 0~2,000,000,000(08 2.4 상한, JASS 정수 범위 안). 숫자만, 최대 10자리. 그 밖은 -2
     private function RevField takes string s returns integer
+        local integer len = StringLength(s)
+        local integer i = 0
+        local string c
         if s == "-1" then
             return -1
         endif
-        if Nat(s) < 0 then
+        if s == null or len < 1 or len > 10 then
             return -2
+        endif
+        loop
+            exitwhen i >= len
+            set c = SubString(s, i, i + 1)
+            if c != "0" and c != "1" and c != "2" and c != "3" and c != "4" and c != "5" and c != "6" and c != "7" and c != "8" and c != "9" then
+                return -2
+            endif
+            set i = i + 1
+        endloop
+        // 10자리는 S2I 전에 자릿값으로 상한을 확인한다(2147483648 이상이 정수로 넘치지 않게). 첫 자리 3~9 거부, 2 이면 나머지가 모두 0 이어야 한다
+        if len == 10 then
+            set c = SubString(s, 0, 1)
+            if c != "0" and c != "1" and c != "2" then
+                return -2
+            endif
+            if c == "2" and SubString(s, 1, 10) != "000000000" then
+                return -2
+            endif
         endif
         return S2I(s)
     endfunction
