@@ -13,6 +13,18 @@ library ArcanaStashNetDiag initializer onInit requires ArcanaStashNet, ArcanaSav
         private string array LastDeleted
         private trigger LoadCb = CreateTrigger()
         private trigger SaveCb = CreateTrigger()
+        // 참고 해시는 한 번에 계산하지 않고 0.05초마다 HASH_PER_TICK 항목씩 나눠 계산한다(997항목 두 개를 한 번에 돌리면 진단 줄이 나오지 않았다, Codex 05:48).
+        private constant integer HASH_PER_TICK = 100
+        private constant real HASH_TICK = 0.05
+        private timer HashTimer = CreateTimer()
+        private integer HJobPid = -1
+        private integer HJobStage = 0          // 0 로드 Stash, 1 작업 Stash
+        private integer HJobIdx = 0
+        private integer HJobAcc = 7
+        private integer HJobLoadedHash = -1
+        private integer HJobTicks = 0
+        private stash HJobLoaded = 0
+        private stash HJobWork = 0
     endglobals
 
     private function YesNo takes boolean b returns string
@@ -44,25 +56,27 @@ library ArcanaStashNetDiag initializer onInit requires ArcanaStashNet, ArcanaSav
     endfunction
 
     // 참고용 해시. StringHash 는 대소문자·슬래시를 구분하지 않아 정확 일치의 증거가 아니다. 정확 대조는 -a3비교 / -a3원문.
-    private function HintHash takes stash s returns integer
+    // 한 번 부를 때 s 의 index HJobIdx 부터 최대 HASH_PER_TICK 칸만 본다. 끝까지 보면 참을 돌려준다(HJobAcc 에 누적).
+    private function HashStep takes stash s returns boolean
         local integer size
-        local integer i = 0
-        local integer h = 7
+        local integer stop
         local string v
         if s == 0 or not StashExists(s) then
-            return -1
+            set HJobAcc = -1
+            return true
         endif
         set size = StashSize(s)
+        set stop = HJobIdx + HASH_PER_TICK
         loop
-            exitwhen i >= size
-            set v = StashValueAt(s, i, null)
+            exitwhen HJobIdx >= size or HJobIdx >= stop
+            set v = StashValueAt(s, HJobIdx, null)
             if v != null then
-                set h = ModuloInteger(h * 31 + ModuloInteger(StringHash(StashKeyAt(s, i) + "=" + v), 1000003), 1000003)
+                set HJobAcc = ModuloInteger(HJobAcc * 31 + ModuloInteger(StringHash(StashKeyAt(s, HJobIdx) + "=" + v), 1000003), 1000003)
             endif
-            set i = i + 1
+            set HJobIdx = HJobIdx + 1
         endloop
         set v = null
-        return h
+        return HJobIdx >= size
     endfunction
 
     private function Count takes stash s returns integer
@@ -200,9 +214,48 @@ library ArcanaStashNetDiag initializer onInit requires ArcanaStashNet, ArcanaSav
         set p = null
     endfunction
 
+    // 0.05초 동기 타이머. 로드 Stash 다음 작업 Stash 를 HASH_PER_TICK 항목씩 해시하고, 끝나면 한 줄을 출력한다.
+    private function HashTick takes nothing returns nothing
+        local integer pid = HJobPid
+        set HJobTicks = HJobTicks + 1
+        if HJobStage == 0 then
+            if HashStep(HJobLoaded) then
+                set HJobLoadedHash = HJobAcc
+                set HJobStage = 1
+                set HJobIdx = 0
+                set HJobAcc = 7
+            endif
+            return
+        endif
+        if HashStep(HJobWork) then
+            call PauseTimer(HashTimer)
+            set HJobPid = -1
+            if HJobLoaded != Loaded[pid] or HJobWork != Work[pid] then
+                call Say("p" + I2S(pid) + " 참고해시: 계산 중 Stash 가 바뀌어 버림. 다시 -a3검증")
+            else
+                call Say("p" + I2S(pid) + " 참고해시 로드/작업=" + I2S(HJobLoadedHash) + "/" + I2S(HJobAcc) + " (" + I2S(HJobTicks) + "틱, 일치 판정은 -a3비교·-a3원문)")
+            endif
+            set HJobLoaded = 0
+            set HJobWork = 0
+        endif
+    endfunction
+
+    // 비용 상한: 이 함수 자체는 반복이 없다(Count 는 StashRemaining 한 번). 해시는 HashTick 이 틱마다 최대 HASH_PER_TICK 항목만 본다.
     private function ShowDiag takes integer pid returns nothing
-        call Say("p" + I2S(pid) + " " + StateName(ArcanaStashNetGetState(pid)) + " rev=" + I2S(ArcanaStashNetGetRevision(pid)) + " 바쁨=" + YesNo(ArcanaStashNetIsBusy(pid)) + " 로드항목=" + I2S(Count(Loaded[pid])) + " 작업항목=" + I2S(Count(Work[pid])) + " 참고해시 로드/작업=" + I2S(HintHash(Loaded[pid])) + "/" + I2S(HintHash(Work[pid])))
         call Say("공통 MaxStash=" + I2S(MaxStashCount()) + " AliveStash=" + I2S(AliveStashCount()) + " 대기열=" + I2S(ArcanaStashNetQueueLength()) + " DLL=" + ArcanaSaveDllVersion() + " 로드정보=" + ArcanaStashNetGetLoadInfo(pid))
+        call Say("p" + I2S(pid) + " " + StateName(ArcanaStashNetGetState(pid)) + " rev=" + I2S(ArcanaStashNetGetRevision(pid)) + " 바쁨=" + YesNo(ArcanaStashNetIsBusy(pid)) + " 로드항목=" + I2S(Count(Loaded[pid])) + " 작업항목=" + I2S(Count(Work[pid])))
+        if HJobPid != -1 then
+            call Say("참고해시: p" + I2S(HJobPid) + " 계산이 진행 중이라 이번 요청은 해시를 생략")
+            return
+        endif
+        set HJobPid = pid
+        set HJobStage = 0
+        set HJobIdx = 0
+        set HJobAcc = 7
+        set HJobTicks = 0
+        set HJobLoaded = Loaded[pid]
+        set HJobWork = Work[pid]
+        call TimerStart(HashTimer, HASH_TICK, true, function HashTick)
     endfunction
 
     private function StartsWith takes string msg, string cmd returns boolean
