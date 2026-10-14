@@ -1,5 +1,5 @@
 // 상점 가격. JN 판은 공용 SHOP 캐릭터를 읽고 쓴다. Arcana 판은 JN 을 부르지 않고 기본 가격(50000)을 쓴다(09 2.3).
-library Market initializer init requires ArcanaSaveConfig
+library Market initializer init
     globals
         integer array Price
     endglobals
