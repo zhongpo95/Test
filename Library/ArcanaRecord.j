@@ -329,7 +329,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endfunction
 
     // 새 단계를 연다. 64단계를 넘으면 버리고 표시만 한다.
-    private function NewStep takes integer pid, string kind, string offered, string event returns integer
+    private function NewStep takes integer pid, string kind, string offered, string ev returns integer
         local integer i
         if not RunOn or pid < 0 or pid >= 4 or not RunMember[pid] or offered == "" then
             return -1
@@ -342,7 +342,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
         set StepKind[i] = kind
         set StepOffered[i] = offered
         set StepPicked[i] = ""
-        set StepEvent[i] = event
+        set StepEvent[i] = ev
         set StepAuto[i] = false
         set StepN[pid] = StepN[pid] + 1
         return i
@@ -356,14 +356,14 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endfunction
 
     // 쉼표 목록 list 에 item 이 정확히 있는지(목록은 4~10개 이하로 짧다).
-    private function InList takes string list, string item returns boolean
-        local integer n = StringLength(list)
+    private function InList takes string lst, string it returns boolean
+        local integer n = StringLength(lst)
         local integer i = 0
         local integer start = 0
         loop
             exitwhen i > n
-            if i == n or SubString(list, i, i + 1) == "," then
-                if SubString(list, start, i) == item then
+            if i == n or SubString(lst, i, i + 1) == "," then
+                if SubString(lst, start, i) == it then
                     return true
                 endif
                 set start = i + 1
