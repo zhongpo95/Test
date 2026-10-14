@@ -1,5 +1,5 @@
 // 서버 저장 요청과 완료 상태 및 재시도 대기열을 관리한다.
-library PlayerSave initializer onInit requires UIItem, JNStashNet
+library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveConfig, ArcanaStashNet
 
     globals
         trigger DOWNLOAD_CALLBACK = CreateTrigger( )
@@ -13,6 +13,28 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         integer array PlayerSaveStatus
         private trigger SAVE_REQUEST_CALLBACK = CreateTrigger()
     endglobals
+
+    // 단계 5-3. ARCANA_SAVE_BACKEND(ArcanaSaveConfig)가 참이면 JNStashNet 대신 ArcanaStashNet 을 쓴다. 거짓 판은 아래 static if 의 else 쪽이 원래 코드 그대로다.
+    // Arcana 판의 PLAYER_DATA_SERVER_READY 는 로드 성공(상태 1·2)에만 참이 되고, 충돌·임대 상실·결과 불명(4·5·6)은 READY 를 유지한 채 어댑터가 저장만 막는다(06 11.1).
+
+    // Arcana 판에서 어댑터가 저장을 막은 상태면 소유자에게 이유를 보여 주고 참을 돌려준다. JN 판에서는 항상 거짓이다. 동기 경로에서 부른다.
+    private function ArcanaSaveBlockedNotice takes integer pid returns boolean
+        local integer st
+        static if ARCANA_SAVE_BACKEND then
+            set st = ArcanaStashNetGetState(pid)
+            if st == ARCANA_STASH_CONFLICT then
+                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 15, "다른 곳에 더 최신 저장이 있어 이 게임의 저장이 막혔습니다. 다시 접속하면 최신 데이터를 불러옵니다.")
+                return true
+            elseif st == ARCANA_STASH_LEASE_LOST then
+                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 15, "다른 게임에서 같은 계정으로 접속했습니다. 이 게임의 이후 진행은 저장되지 않습니다.")
+                return true
+            elseif st == ARCANA_STASH_RESULT_UNKNOWN then
+                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 15, "저장 결과를 확인하지 못했습니다. 다시 접속해야 저장할 수 있습니다.")
+                return true
+            endif
+        endif
+        return false
+    endfunction
 
     private function IsValidPickHeroNumber takes integer heroNumber returns boolean
         return heroNumber >= 1
@@ -32,6 +54,37 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
     endfunction
 
     private function downloadCallback takes nothing returns nothing
+        static if ARCANA_SAVE_BACKEND then
+        // 어댑터는 완료 때만 이벤트를 내고 신규 계정도 빈 Stash 성공으로 낸다. JNObjectMapInit 은 소비자가 없어 부르지 않는다(06 15절).
+        local player user = ArcanaStashNetGetPlayer()
+        local integer pid = GetPlayerId(user)
+        local integer j = 0
+        local string str = null
+        if ArcanaStashNetGetFinished( ) then
+            if ArcanaStashNetGetResult( ) then
+                set PLAYER_DATA[pid] = ArcanaStashNetGetStash( )
+                set PLAYER_DATA_SERVER_READY[pid] = true
+                //빅휠 카운트
+                set str = StashLoad(PLAYER_DATA[pid], "BigWheelCount", "0" )
+                set j = 0
+                loop
+                    set str = StashLoad(PLAYER_DATA[pid], "창고"+I2S(j), "없음")
+                    if str != "없음" and str != null then
+                        call AddStItem(pid,j, str)
+                        set str = null
+                    endif
+                    set j = j + 1
+                exitwhen j == 100
+                endloop
+            else
+                // 로드 실패를 성공으로 바꾸지 않는다. 빈 Stash 는 화면용이고 READY 가 거짓이라 어떤 경로로도 저장되지 않는다.
+                set PLAYER_DATA_SERVER_READY[pid] = false
+                set PLAYER_DATA[pid] = CreateStash()
+                call DisplayTimedTextToPlayer(user, 0, 0, 20, "서버 데이터를 불러오지 못했습니다. 이 게임의 진행은 저장되지 않습니다. (" + ArcanaStashNetGetMessage( ) + ")")
+            endif
+        endif
+        set user = null
+        else
         local player user = JNStashNetGetPlayer()
         local integer pid
         local integer j = 0
@@ -77,9 +130,19 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         else
             //call VJDebugMsg( "로드 중 : " + I2S(JNStashNetGetProgress()) + "/" + I2S(JNStashNetGetMaximum()) )
         endif
+        endif
     endfunction
     
     private function uploadCallback takes nothing returns nothing
+        static if ARCANA_SAVE_BACKEND then
+        if ArcanaStashNetGetFinished( ) then
+            if ArcanaStashNetGetResult( ) then
+                call VJDebugMsg( "저장 성공!" )
+            else
+                call VJDebugMsg( "저장 실패! 이유 : " + ArcanaStashNetGetMessage( ) )
+            endif
+        endif
+        else
         if JNStashNetGetFinished( ) then
             if JNStashNetGetResult( ) then
                 call VJDebugMsg( "저장 성공!" )
@@ -88,6 +151,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
             endif
         else
             //call VJDebugMsg( JNStashNetGetMessage( ) )
+        endif
         endif
     endfunction
 
@@ -105,10 +169,20 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         set SaveQueued[pid] = false
         set PLAYER_DATA_UPLOAD_BUSY[pid] = true
         set PlayerSaveStatus[pid] = 1
-        if not JNStashNetUploadUser(Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], SAVE_REQUEST_CALLBACK) then
-            set PLAYER_DATA_UPLOAD_BUSY[pid] = false
-            set PlayerSaveStatus[pid] = 3
-            return false
+        static if ARCANA_SAVE_BACKEND then
+            // 어댑터는 상태 1·2 이고 진행 중 작업이 없을 때만 받는다. 충돌·임대 상실·결과 불명이면 여기서 막힌다.
+            if not ArcanaStashNetUploadUser(Player(pid), PLAYER_DATA[pid], SAVE_REQUEST_CALLBACK) then
+                set PLAYER_DATA_UPLOAD_BUSY[pid] = false
+                set PlayerSaveStatus[pid] = 3
+                call ArcanaSaveBlockedNotice(pid)
+                return false
+            endif
+        else
+            if not JNStashNetUploadUser(Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], SAVE_REQUEST_CALLBACK) then
+                set PLAYER_DATA_UPLOAD_BUSY[pid] = false
+                set PlayerSaveStatus[pid] = 3
+                return false
+            endif
         endif
         return true
     endfunction
@@ -128,6 +202,25 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
     endfunction
 
     private function requestedSaveFinished takes nothing returns nothing
+        static if ARCANA_SAVE_BACKEND then
+        local integer pid = GetPlayerId(ArcanaStashNetGetPlayer())
+        if not ArcanaStashNetGetFinished() then
+            return
+        endif
+        set PLAYER_DATA_UPLOAD_BUSY[pid] = false
+        if ArcanaStashNetGetResult() then
+            set PlayerSaveStatus[pid] = 2
+            if SaveQueued[pid] then
+                call RequestPlayerSave(pid)
+            endif
+        else
+            set PlayerSaveStatus[pid] = 3
+            // 충돌·임대 상실·결과 불명은 다시 저장해도 막히므로 그 이유를 보여 준다. 그 밖의 실패(예: 로드 불가 거절)는 데이터가 그대로라 기존 문구를 쓴다.
+            if not ArcanaSaveBlockedNotice(pid) then
+                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "저장 실패. -save로 같은 데이터를 다시 저장할 수 있습니다.")
+            endif
+        endif
+        else
         local integer pid = GetPlayerId(JNStashNetGetPlayer())
         if not JNStashNetGetFinished() then
             return
@@ -142,6 +235,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
             set PlayerSaveStatus[pid] = 3
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "저장 실패. -save로 같은 데이터를 다시 저장할 수 있습니다.")
         endif
+        endif
     endfunction
 
     private function download takes nothing returns nothing
@@ -150,7 +244,12 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         
         loop
             if GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING then
-                call JNStashNetDownloadUser( Player(i), MapName, GetPlayerName(Player(i)), MapApi, DOWNLOAD_CALLBACK )
+                static if ARCANA_SAVE_BACKEND then
+                    // 어댑터가 요청 순서대로 0.5초씩 어긋나게 시작한다(07 D11).
+                    call ArcanaStashNetDownloadUser( Player(i), DOWNLOAD_CALLBACK )
+                else
+                    call JNStashNetDownloadUser( Player(i), MapName, GetPlayerName(Player(i)), MapApi, DOWNLOAD_CALLBACK )
+                endif
                 set j = 0
                 loop
                     set Eitem[i][j] = null

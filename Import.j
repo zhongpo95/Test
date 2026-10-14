@@ -200,6 +200,10 @@
 //! import "D:\Work\GitHub\Test\System\Filter.j"
 
 // === Library: external API ===
+// Arcana self-hosted save (stage 5-3). Backend is chosen by ARCANA_SAVE_BACKEND in ArcanaSaveConfig.j (false = JN).
+//! import "D:\Work\GitHub\Test\Library\ArcanaSaveConfig.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaSaveNet3Natives.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaStashNet.j"
 // duplicate direct import removed: JNStashNet.j is imported by the map script
 
 // === Root: ESC ===

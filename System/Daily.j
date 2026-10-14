@@ -1,4 +1,4 @@
-library Daily initializer init requires Stash, UIQuest
+library Daily initializer init requires Stash, UIQuest, ArcanaSaveConfig, ArcanaStashNet
     globals
     endglobals
 
@@ -35,10 +35,19 @@ library Daily initializer init requires Stash, UIQuest
             endif
         else
             if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
-                if JNObjectCharacterServerConnectCheck() then
-                    call VJDebugMsg("이미 출석함")
+                static if ARCANA_SAVE_BACKEND then
+                    // 출석 자체는 단계 6까지 JN 에 남는다. 연결 문구만 Arcana 저장 준비 상태로 고른다(06 12.2).
+                    if ArcanaStashNetIsReady(pid) then
+                        call VJDebugMsg("이미 출석함")
+                    else
+                        call VJDebugMsg("서버에 연결되지 않았습니다.")
+                    endif
                 else
-                    call VJDebugMsg("서버에 연결되지 않았습니다.")
+                    if JNObjectCharacterServerConnectCheck() then
+                        call VJDebugMsg("이미 출석함")
+                    else
+                        call VJDebugMsg("서버에 연결되지 않았습니다.")
+                    endif
                 endif
             endif
         endif

@@ -1,5 +1,5 @@
 //1
-library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest, Daily, FrameCount, ItemPickUp, DzAPIHardware, UIMap, JNCommon
+library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest, Daily, FrameCount, ItemPickUp, DzAPIHardware, UIMap, JNCommon, ArcanaSaveConfig, PlayerSave
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
@@ -102,7 +102,12 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
         endloop
-        call JNStashNetUploadUser( Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
+        static if ARCANA_SAVE_BACKEND then
+            // 단계 5-3. 로드 성공(READY) 없이 저장하지 않도록 -save 와 같은 RequestPlayerSave 경로로 보낸다(06 12.3 1번).
+            call RequestPlayerSave(pid)
+        else
+            call JNStashNetUploadUser( Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
+        endif
     endfunction
 
     private function PickHeroName takes integer heroNumber returns string

@@ -1,5 +1,5 @@
 // 카드부여 화면과 재료 확인 및 부여 진행을 관리합니다.
-library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, FrameCount
+library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, FrameCount, ArcanaSaveConfig, ArcanaStashNet
     globals
         integer F_StoneBackDrop                 //인포 배경
         integer array F_StoneBackDrop2          //인포 배경
@@ -78,7 +78,12 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         if not PLAYER_DATA_SERVER_READY[pid] then
             return false
         endif
-        return JNObjectCharacterServerConnectCheck()
+        static if ARCANA_SAVE_BACKEND then
+            // Arcana 판에는 JN 캐릭터 연결이 없으므로 어댑터 준비 상태(로드 성공)를 본다(06 12.2).
+            return ArcanaStashNetIsReady(pid)
+        else
+            return JNObjectCharacterServerConnectCheck()
+        endif
     endfunction
 
     private function StoneStageText takes integer count, integer threshold, string value, string color returns string
