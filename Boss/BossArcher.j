@@ -5032,14 +5032,14 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                     static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
                         set ArcanaRecArgPid = GetPlayerId(GetOwningPlayer(f.mem[i]))
                         set ArcanaRecArgFlag = true
-                        call TriggerEvaluate(ArcanaRecTrigBossEnd)
+                        call TriggerExecute(ArcanaRecTrigBossEnd)
                     endif
                 else
                     call FailedStart(f.mem[i])
                     static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
                         set ArcanaRecArgPid = GetPlayerId(GetOwningPlayer(f.mem[i]))
                         set ArcanaRecArgFlag = false
-                        call TriggerEvaluate(ArcanaRecTrigBossEnd)
+                        call TriggerExecute(ArcanaRecTrigBossEnd)
                     endif
                 endif
                 call OverlayStop(GetPlayerId(GetOwningPlayer(f.mem[i])))
@@ -5454,7 +5454,7 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
                     set ArcanaRecArgUnit[n] = f.mem[n]
                     set n = n + 1
                 endloop
-                call TriggerEvaluate(ArcanaRecTrigBossBegin)
+                call TriggerExecute(ArcanaRecTrigBossBegin)
             endif
         endif
         call f.t.start(TICK, true, function BattleTick)

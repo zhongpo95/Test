@@ -4,7 +4,9 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     // 실행 위치 규칙(ArcanaStashNet 과 같다)
     // - 동기 경로: 훅(게임 코드가 TriggerEvaluate 로 부름), 버퍼 기록, 상태 변경. 모든 클라이언트에서 같은 순서.
     // - 소유자 로컬 블록: 문서 만들기(ArcanaDoc*), 전송(ArcanaRecordSend), 결과 조회·재시도. 동기 상태와 난수를 건드리지 않는다.
-    // 훅을 부르는 라이브러리는 requires 를 늘리지 않도록(라이브러리 초기화 순서 보존) 공개 전역 인자 + 트리거로 부른다.
+    // 훅을 부르는 라이브러리는 requires 를 늘리지 않는다(라이브러리 초기화 순서 보존, 09 7절 K2). 훅 트리거·인자 전역은 모두가 이미 쓰는
+    // DataExpedition(Data_Expedition.j)에 있고, 훅 자리에서는 인자를 넣고 TriggerExecute 만 한다. 이 라이브러리는 아무도 requires 하지 않으며
+    // 두 상수가 모두 참일 때만 초기화에서 트리거를 만들고 동작을 붙인다.
     // 두 상수(ARCANA_SAVE_BACKEND, ARCANA_RECORDS_ENABLED) 중 하나라도 거짓이면 훅 호출이 static if 로 빠지고 이 라이브러리는 아무 일도 하지 않는다.
 
     static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
@@ -13,29 +15,15 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endif
 
     globals
-        // 훅 인자(호출하는 쪽이 채운 뒤 해당 트리거를 TriggerEvaluate 한다)
-        integer ArcanaRecArgPid = 0
-        integer ArcanaRecArgId = 0
-        integer ArcanaRecArgChoice = 0
-        boolean ArcanaRecArgFlag = false
-        string ArcanaRecArgText = ""
-        integer ArcanaRecArgN = 0
-        unit array ArcanaRecArgUnit
-        // 시간 초과 자동 선택 표시(ProtoResolveTimeout 이 참으로, RecBranch·RecOffer·RecPick 이 거짓으로)
-        boolean array ArcanaRecAuto
-        trigger ArcanaRecTrigRunBegin = CreateTrigger()
-        trigger ArcanaRecTrigOffer = CreateTrigger()
-        trigger ArcanaRecTrigPick = CreateTrigger()
-        trigger ArcanaRecTrigBranch = CreateTrigger()
-        trigger ArcanaRecTrigCard = CreateTrigger()
-        trigger ArcanaRecTrigRunEnd = CreateTrigger()
-        trigger ArcanaRecTrigBossBegin = CreateTrigger()
-        trigger ArcanaRecTrigBossEnd = CreateTrigger()
 
         private constant integer MAX_STEPS = 64
         private constant integer MAX_CARDS = 64
-        private constant integer ENTRY_LIMIT = 256       // 09 3.2 DLL 한도
-        private constant integer BYTE_LIMIT = 16384
+        // 09 8.3: DLL 한도(256항목, 16384B)보다 작게 잡고, 잘림 표식 두 개 자리(2항목, 40B)를 처음부터 남긴다
+        private constant integer ENTRY_TARGET = 250
+        private constant integer BYTE_TARGET = 16000
+        private constant integer RESERVE_ENTRIES = 2
+        private constant integer RESERVE_BYTES = 40
+        private constant integer SEND_CARDS = 40
         private constant integer CLEAR_MS_MAX = 21600000
         private constant real POLL = 0.05
         private constant integer RETRY_WAIT_1 = 40        // 2초
@@ -75,7 +63,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
         private integer LDoc = 0
         private integer LEntries = 0
         private integer LBytes = 0
-        private boolean LFull = false
+        private boolean LFailed = false
     endglobals
 
     private function Two takes integer n returns string
@@ -96,32 +84,29 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     //==========================================================================
     // 소유자 로컬: 문서 만들기와 전송
     //==========================================================================
-    // 한 항목을 문서에 넣는다. 빈 값은 넣지 않고(09 3.5), 한도를 넘으면 넣지 않고 LFull 을 켠다.
-    private function Put takes string k, string v returns boolean
-        local integer b
+    // 남은 예산(목표 - 표식 자리) 안에 entries 항목, bytes 바이트를 더 넣을 수 있는지.
+    private function Fits takes integer entries, integer bytes returns boolean
+        return LEntries + entries <= ENTRY_TARGET - RESERVE_ENTRIES and LBytes + bytes <= BYTE_TARGET - RESERVE_BYTES
+    endfunction
+
+    // 한 항목을 넣는다. 빈 값은 넣지 않는다(09 3.5). 예산은 호출자가 Fits 로 먼저 본다.
+    private function Add takes string k, string v returns nothing
         if v == null or v == "" then
-            return true
-        endif
-        set b = StringLength(k) + StringLength(v)
-        if LEntries + 1 > ENTRY_LIMIT or LBytes + b > BYTE_LIMIT then
-            set LFull = true
-            return false
+            return
         endif
         static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
             if ArcanaDocAdd(LDoc, k, v) != 1 then
-                set LFull = true
-                return false
+                set LFailed = true
             endif
         endif
         set LEntries = LEntries + 1
-        set LBytes = LBytes + b
-        return true
+        set LBytes = LBytes + StringLength(k) + StringLength(v)
     endfunction
 
     private function Begin takes nothing returns boolean
         set LEntries = 0
         set LBytes = 0
-        set LFull = false
+        set LFailed = false
         set LDoc = 0
         static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
             set LDoc = ArcanaDocNew()
@@ -133,6 +118,12 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     private function Send takes integer pid, string kind returns nothing
         local integer id = 0
         static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            if LFailed then
+                // 빌더가 넣지 못한 항목이 있으면 DLL 이 0 을 돌려주므로 보내지 않는다(문서는 DLL 이 소비)
+                call ArcanaRecordSend("", LDoc, pid)
+                set LDoc = 0
+                return
+            endif
             set id = ArcanaRecordSend(kind, LDoc, pid)      // 문서는 DLL 이 소비한다
             set LDoc = 0
             if id == 0 then
@@ -157,71 +148,86 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
         endif
     endfunction
 
-    // 원정 기록 문서(09 3.5). 공통 → 카드 → 단계 순으로 넣고, 한도에 걸리면 이후 단계를 버리고 steps_truncated=1.
+    // 원정 기록 문서(09 3.5, 8.3). 공통 키 → 카드(획득 순, 최대 40) → 단계(0번부터, 단계 키를 모두 넣을 수 있을 때만).
+    // 카드가 넘치면 cards_truncated=1, 단계가 넘치면 steps_truncated=1. 표식 두 개 자리는 처음부터 남겨 둔다.
     private function SendRun takes integer pid, boolean clear returns nothing
         local integer ms = ElapsedMs(RunStart)
         local integer n = 0
         local integer i
-        local integer need
+        local integer e
+        local integer b
         local string nn
         local string mode = "solo"
-        local boolean cut = Truncated[pid]
+        local boolean stepsCut = Truncated[pid]
+        local boolean cardsCut = false
         if ms > CLEAR_MS_MAX or not Begin() then
             return
         endif
         if RunSize > 1 then
             set mode = "party"
         endif
-        call Put("v", "1")
-        call Put("run_key", RunKey)
-        call Put("mode", mode)
-        call Put("party_size", I2S(RunSize))
-        call Put("hero", RunHero[pid])
+        call Add("v", "1")
+        call Add("run_key", RunKey)
+        call Add("mode", mode)
+        call Add("party_size", I2S(RunSize))
+        call Add("hero", RunHero[pid])
         if clear then
-            call Put("result", "clear")
+            call Add("result", "clear")
         else
-            call Put("result", "fail")
+            call Add("result", "fail")
         endif
-        call Put("clear_ms", I2S(ms))
-        call Put("boss_rounds", I2S(ProtoBossRound))
-        call Put("battles", I2S(ExpConfirmedBattles[pid]))
+        call Add("clear_ms", I2S(ms))
+        call Add("boss_rounds", I2S(ProtoBossRound))
+        call Add("battles", I2S(ExpConfirmedBattles[pid]))
         set i = 0
         loop
             exitwhen i >= CardN[pid]
-            call Put("card." + CardKey[pid * MAX_CARDS + i], I2S(CardCopies[pid * MAX_CARDS + i]))
+            set nn = "card." + CardKey[pid * MAX_CARDS + i]
+            if i >= SEND_CARDS or not Fits(1, StringLength(nn) + StringLength(I2S(CardCopies[pid * MAX_CARDS + i]))) then
+                set cardsCut = true
+                exitwhen true
+            endif
+            call Add(nn, I2S(CardCopies[pid * MAX_CARDS + i]))
             set i = i + 1
         endloop
         loop
             exitwhen n >= StepN[pid]
             set i = pid * MAX_STEPS + n
-            set need = 2
+            set nn = "step." + Two(n) + "."
+            // 이 단계의 항목 수·바이트를 정확히 센다
+            set e = 2
+            set b = StringLength(nn) * 2 + 4 + 7 + StringLength(StepKind[i]) + StringLength(StepOffered[i])
             if StepPicked[i] != "" then
-                set need = need + 1
+                set e = e + 1
+                set b = b + StringLength(nn) + 6 + StringLength(StepPicked[i])
+                if StepAuto[i] then
+                    set e = e + 1
+                    set b = b + StringLength(nn) + 4 + 1
+                endif
             endif
             if StepEvent[i] != "" then
-                set need = need + 1
+                set e = e + 1
+                set b = b + StringLength(nn) + 5 + StringLength(StepEvent[i])
             endif
-            if StepAuto[i] then
-                set need = need + 1
-            endif
-            // steps_truncated 한 칸과 30바이트를 남긴다
-            if LEntries + need + 1 > ENTRY_LIMIT or LBytes + need * 12 + StringLength(StepOffered[i]) + StringLength(StepEvent[i]) + StringLength(StepPicked[i]) + 30 > BYTE_LIMIT then
-                set cut = true
+            if not Fits(e, b) then
+                set stepsCut = true
                 exitwhen true
             endif
-            set nn = "step." + Two(n) + "."
-            call Put(nn + "kind", StepKind[i])
-            call Put(nn + "offered", StepOffered[i])
-            call Put(nn + "picked", StepPicked[i])
-            call Put(nn + "event", StepEvent[i])
-            if StepAuto[i] then
-                call Put(nn + "auto", "1")
+            call Add(nn + "kind", StepKind[i])
+            call Add(nn + "offered", StepOffered[i])
+            call Add(nn + "picked", StepPicked[i])
+            call Add(nn + "event", StepEvent[i])
+            if StepAuto[i] and StepPicked[i] != "" then
+                call Add(nn + "auto", "1")
             endif
             set n = n + 1
         endloop
-        if cut or LFull then
-            set LFull = false
-            call Put("steps_truncated", "1")
+        // 표식은 남겨 둔 자리에 넣는다
+        if cardsCut then
+            call Add("cards_truncated", "1")
+        endif
+        if stepsCut then
+            call Add("steps_truncated", "1")
         endif
         call Send(pid, "expedition")
         set nn = null
@@ -233,22 +239,22 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
         if ms > CLEAR_MS_MAX or not Begin() then
             return
         endif
-        call Put("v", "1")
-        call Put("run_key", BossKey[pid])
+        call Add("v", "1")
+        call Add("run_key", BossKey[pid])
         if BossSize[pid] > 1 then
-            call Put("mode", "party")
+            call Add("mode", "party")
         else
-            call Put("mode", "solo")
+            call Add("mode", "solo")
         endif
-        call Put("party_size", I2S(BossSize[pid]))
-        call Put("hero", BossHero[pid])
+        call Add("party_size", I2S(BossSize[pid]))
+        call Add("hero", BossHero[pid])
         if win then
-            call Put("result", "win")
+            call Add("result", "win")
         else
-            call Put("result", "fail")
+            call Add("result", "fail")
         endif
-        call Put("clear_ms", I2S(ms))
-        call Put("boss", BossName[pid])
+        call Add("clear_ms", I2S(ms))
+        call Add("boss", BossName[pid])
         call Send(pid, "boss")
     endfunction
 
@@ -306,7 +312,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     //==========================================================================
     // 동기 훅
     //==========================================================================
-    private function OnRunBegin takes nothing returns boolean
+    private function OnRunBegin takes nothing returns nothing
         local integer pid = 0
         set RunOn = true
         set RunKey = GameKey + "-" + I2S(ExpRun)
@@ -325,7 +331,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             endif
             set pid = pid + 1
         endloop
-        return false
+        return
     endfunction
 
     // 새 단계를 연다. 64단계를 넘으면 버리고 표시만 한다.
@@ -349,10 +355,10 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endfunction
 
     // RecOffer: 인자 pid, 제시 목록(쉼표, 사건 ID)
-    private function OnOffer takes nothing returns boolean
+    private function OnOffer takes nothing returns nothing
         set ArcanaRecAuto[ArcanaRecArgPid] = false
         call NewStep(ArcanaRecArgPid, "event", ArcanaRecArgText, "")
-        return false
+        return
     endfunction
 
     // 쉼표 목록 list 에 item 이 정확히 있는지(목록은 4~10개 이하로 짧다).
@@ -374,22 +380,22 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endfunction
 
     // RecPick: 인자 pid, 사건 ID. 마지막 event 단계의 선택으로 기록한다(제시 목록에 있을 때만, 서버 검증과 같다).
-    private function OnPick takes nothing returns boolean
+    private function OnPick takes nothing returns nothing
         local integer pid = ArcanaRecArgPid
         local integer i
         set ArcanaRecAuto[pid] = false
         if not RunOn or pid < 0 or pid >= 4 or not RunMember[pid] or StepN[pid] == 0 then
-            return false
+            return
         endif
         set i = pid * MAX_STEPS + StepN[pid] - 1
         if StepKind[i] == "event" and StepPicked[i] == "" and InList(StepOffered[i], I2S(ArcanaRecArgId)) then
             set StepPicked[i] = I2S(ArcanaRecArgId)
         endif
-        return false
+        return
     endfunction
 
     // RecBranch: 인자 pid, 사건 ID, 선택 번호, 허용 선택지 목록(쉼표)
-    private function OnBranch takes nothing returns boolean
+    private function OnBranch takes nothing returns nothing
         local integer pid = ArcanaRecArgPid
         local integer i = NewStep(pid, "branch", ArcanaRecArgText, I2S(ArcanaRecArgId))
         if i >= 0 and InList(ArcanaRecArgText, I2S(ArcanaRecArgChoice)) then
@@ -397,21 +403,21 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             set StepAuto[i] = ArcanaRecAuto[pid]
         endif
         set ArcanaRecAuto[pid] = false
-        return false
+        return
     endfunction
 
     // RecCard: 인자 pid, 카드 키
-    private function OnCard takes nothing returns boolean
+    private function OnCard takes nothing returns nothing
         local integer pid = ArcanaRecArgPid
         local integer i = 0
         if not RunOn or pid < 0 or pid >= 4 or not RunMember[pid] or ArcanaRecArgText == "" then
-            return false
+            return
         endif
         loop
             exitwhen i >= CardN[pid]
             if CardKey[pid * MAX_CARDS + i] == ArcanaRecArgText then
                 set CardCopies[pid * MAX_CARDS + i] = CardCopies[pid * MAX_CARDS + i] + 1
-                return false
+                return
             endif
             set i = i + 1
         endloop
@@ -420,15 +426,15 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             set CardCopies[pid * MAX_CARDS + CardN[pid]] = 1
             set CardN[pid] = CardN[pid] + 1
         endif
-        return false
+        return
     endfunction
 
     // RecRunEnd: 인자 Flag = 완주 여부. 끝까지 남은 참가자(ExpMember)만 보낸다(중도 이탈은 보내지 않음).
-    private function OnRunEnd takes nothing returns boolean
+    private function OnRunEnd takes nothing returns nothing
         local integer pid = 0
         local boolean clear = ArcanaRecArgFlag
         if not RunOn then
-            return false
+            return
         endif
         set RunOn = false
         loop
@@ -440,11 +446,11 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             endif
             set pid = pid + 1
         endloop
-        return false
+        return
     endfunction
 
     // RecBossBegin: 인자 Text = 보스 키, N·Unit[] = 참가자
-    private function OnBossBegin takes nothing returns boolean
+    private function OnBossBegin takes nothing returns nothing
         local integer i = 0
         local integer pid
         local string key
@@ -466,14 +472,14 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             set i = i + 1
         endloop
         set key = null
-        return false
+        return
     endfunction
 
     // RecBossEnd: 인자 pid, Flag = 승리
-    private function OnBossEnd takes nothing returns boolean
+    private function OnBossEnd takes nothing returns nothing
         local integer pid = ArcanaRecArgPid
         if pid < 0 or pid >= 4 or not BossOn[pid] then
-            return false
+            return
         endif
         set BossOn[pid] = false
         if ArcanaStashNetIsReady(pid) then
@@ -481,7 +487,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
                 call SendBoss(pid, ArcanaRecArgFlag)
             endif
         endif
-        return false
+        return
     endfunction
 
     private function onInit takes nothing returns nothing
@@ -490,14 +496,22 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
             set GameKey = I2S(GetRandomInt(100000, 999999)) + I2S(GetRandomInt(100000, 999999))
             call TimerStart(Clock, 1000000.0, false, null)
             call TimerStart(CreateTimer(), POLL, true, function Poll)
-            call TriggerAddCondition(ArcanaRecTrigRunBegin, Condition(function OnRunBegin))
-            call TriggerAddCondition(ArcanaRecTrigOffer, Condition(function OnOffer))
-            call TriggerAddCondition(ArcanaRecTrigPick, Condition(function OnPick))
-            call TriggerAddCondition(ArcanaRecTrigBranch, Condition(function OnBranch))
-            call TriggerAddCondition(ArcanaRecTrigCard, Condition(function OnCard))
-            call TriggerAddCondition(ArcanaRecTrigRunEnd, Condition(function OnRunEnd))
-            call TriggerAddCondition(ArcanaRecTrigBossBegin, Condition(function OnBossBegin))
-            call TriggerAddCondition(ArcanaRecTrigBossEnd, Condition(function OnBossEnd))
+            set ArcanaRecTrigRunBegin = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigRunBegin, function OnRunBegin)
+            set ArcanaRecTrigOffer = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigOffer, function OnOffer)
+            set ArcanaRecTrigPick = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigPick, function OnPick)
+            set ArcanaRecTrigBranch = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigBranch, function OnBranch)
+            set ArcanaRecTrigCard = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigCard, function OnCard)
+            set ArcanaRecTrigRunEnd = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigRunEnd, function OnRunEnd)
+            set ArcanaRecTrigBossBegin = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigBossBegin, function OnBossBegin)
+            set ArcanaRecTrigBossEnd = CreateTrigger()
+            call TriggerAddAction(ArcanaRecTrigBossEnd, function OnBossEnd)
         endif
     endfunction
 endlibrary
