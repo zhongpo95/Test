@@ -445,7 +445,16 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
     endfunction
 
     private function Main2 takes nothing returns nothing
+        // Arcana 판은 로그인·로드가 끝난 플레이어 화면에서만 연다(ArcanaSavePickShow)
+        static if not ARCANA_SAVE_BACKEND then
         if true then
+            call DzFrameShow(FP_BD, true)
+        endif
+        endif
+    endfunction
+
+    function ArcanaSavePickShow takes nothing returns nothing
+        if GetLocalPlayer() == Player(ARCANA_PICK_SHOW_PID) then
             call DzFrameShow(FP_BD, true)
         endif
     endfunction
@@ -952,6 +961,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         set t = CreateTrigger()
         call TriggerRegisterTimerEventSingle( t, 5.0 )
         call TriggerAddAction( t, function Main2 )
+        static if ARCANA_SAVE_BACKEND then
+            call TriggerAddAction(ARCANA_PICK_SHOW, function ArcanaSavePickShow)
+        endif
         //*/
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NewPick"),(false))

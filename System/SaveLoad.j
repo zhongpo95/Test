@@ -74,6 +74,9 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
             if ArcanaStashNetGetResult( ) then
                 set PLAYER_DATA[pid] = ArcanaStashNetGetStash( )
                 set PLAYER_DATA_SERVER_READY[pid] = true
+                // 로그인 뒤 로드가 끝났다: 그 플레이어 화면에 영웅 선택 창을 연다(UIPick)
+                set ARCANA_PICK_SHOW_PID = pid
+                call TriggerExecute(ARCANA_PICK_SHOW)
                 //빅휠 카운트
                 set str = StashLoad(PLAYER_DATA[pid], "BigWheelCount", "0" )
                 set j = 0
@@ -90,7 +93,9 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
                 // 로드 실패를 성공으로 바꾸지 않는다. 빈 Stash 는 화면용이고 READY 가 거짓이라 어떤 경로로도 저장되지 않는다.
                 set PLAYER_DATA_SERVER_READY[pid] = false
                 set PLAYER_DATA[pid] = CreateStash()
-                call DisplayTimedTextToPlayer(user, 0, 0, 20, "서버 데이터를 불러오지 못했습니다. 이 게임의 진행은 저장되지 않습니다. (" + ArcanaStashNetGetMessage( ) + ")")
+                // 로그인을 풀어 입력칸을 다시 연다(다시 로그인하면 다시 불러온다)
+                set ARCANA_LOGIN_DONE[pid] = false
+                call DisplayTimedTextToPlayer(user, 0, 0, 20, "서버 데이터를 불러오지 못했습니다. 다시 로그인하세요. (" + ArcanaStashNetGetMessage( ) + ")")
             endif
         endif
         set user = null
@@ -319,8 +324,10 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         loop
             if GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING then
                 static if ARCANA_SAVE_BACKEND then
-                    // 어댑터가 요청 순서대로 0.5초씩 어긋나게 시작한다(07 D11).
-                    call ArcanaStashNetDownloadUser( Player(i), DOWNLOAD_CALLBACK )
+                    // 로그인한 뒤에 불러온다(ArcanaSaveLogin → ArcanaSaveLoginLoad). 그 전에는 화면용 빈 Stash, READY 거짓(저장 안 됨).
+                    // 모든 클라이언트에서 같은 순서로 만든다.
+                    set PLAYER_DATA_SERVER_READY[i] = false
+                    set PLAYER_DATA[i] = CreateStash()
                 else
                     call JNStashNetDownloadUser( Player(i), MapName, GetPlayerName(Player(i)), MapApi, DOWNLOAD_CALLBACK )
                 endif
@@ -336,6 +343,17 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         endloop
     endfunction
     
+    // Arcana 판: 로그인 성공(동기) 뒤 그 플레이어 데이터를 불러온다. 이미 불러왔으면(READY) 다시 불러오지 않는다.
+    function ArcanaSaveLoginLoad takes nothing returns nothing
+        local integer pid = ARCANA_LOGIN_OK_PID
+        if pid < 0 or pid >= bj_MAX_PLAYERS or PLAYER_DATA_SERVER_READY[pid] then
+            return
+        endif
+        if not ArcanaStashNetDownloadUser(Player(pid), DOWNLOAD_CALLBACK) then
+            call JNWriteLog("[ARC-SAVE] login load refused (busy) pid=" + I2S(pid))
+        endif
+    endfunction
+
     private function onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
         local integer index = 0
@@ -357,6 +375,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         call TriggerAddAction( UPLOAD_CALLBACK, function uploadCallback )
         call TriggerAddAction(SAVE_REQUEST_CALLBACK, function requestedSaveFinished)
         static if ARCANA_SAVE_BACKEND then
+            call TriggerAddAction(ARCANA_LOGIN_OK, function ArcanaSaveLoginLoad)
             set ARCANA_EQUIP_SAVE_HOOK = CreateTrigger()
             call TriggerAddCondition(ARCANA_EQUIP_SAVE_HOOK, Condition(function ArcanaSaveEquipHook))
         endif

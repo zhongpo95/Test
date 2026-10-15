@@ -10,6 +10,8 @@ library ArcanaSaveNet3Natives requires ArcanaSaveConfig
         native ArcanaSaveBegin takes string slot, integer doc, integer expectedRev returns integer
         native ArcanaLoadBegin takes string slot, string mapVersion, integer seat returns integer
         native ArcanaStatusBegin takes string requestId, integer seal returns integer
+        // DLL 0.6.0(api=5): 홈페이지 계정 로그인. 결과는 ArcanaNetPoll/ArcanaNetResult(표시 이름 또는 실패 이유)
+        native ArcanaLogin takes string loginId, string password returns integer
         native ArcanaLoadPackets takes integer id returns integer
         native ArcanaLoadPacket takes integer id, integer index returns string
         // api=2 와 같은 이름의 결과 조회 native. api=3 DLL이 핸들 범위로 api=3 요청을 처리한다.

@@ -10,6 +10,12 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     // - 같은 송신자의 DzSyncData 는 보낸 순서대로 모든 클라이언트에 도착한다(lockstep). 로드 패킷 수신은 이 순서를 전제로 한다.
 
     globals
+        // 게임 로그인 연결(ArcanaSaveLogin → PlayerSave → UIPick). requires 를 늘리지 않으려고 이 라이브러리에 둔다. Arcana 판 초기화에서만 만든다.
+        trigger ARCANA_LOGIN_OK = null
+        integer ARCANA_LOGIN_OK_PID = -1
+        boolean array ARCANA_LOGIN_DONE
+        trigger ARCANA_PICK_SHOW = null
+        integer ARCANA_PICK_SHOW_PID = -1
         private constant string PREFIX = "ARCSAVE"
         private constant real TICK = 0.05
         private constant integer BUILD_PER_TICK = 200       // 07 D12
@@ -969,6 +975,8 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     private function onInit takes nothing returns nothing
         local trigger t
         static if ARCANA_SAVE_BACKEND then
+            set ARCANA_LOGIN_OK = CreateTrigger()
+            set ARCANA_PICK_SHOW = CreateTrigger()
             set GameNonce = GetRandomInt(1, 999999)
             set t = CreateTrigger()
             call DzTriggerRegisterSyncData(t, PREFIX, false)
