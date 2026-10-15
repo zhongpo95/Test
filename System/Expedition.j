@@ -683,6 +683,7 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 call ReleaseReward(pid)
                 static if ARCANA_SAVE_BACKEND then
                     // 원정 종료 저장(승리·실패 모두). 남은 참가자만, READY 검사는 RequestPlayerSave 안에서 한다
+                    call JNWriteLog("[ARC-SAVE] request why=expedition-end pid=" + I2S(pid))
                     call RequestPlayerSave(pid)
                 endif
                 set ExpMember[pid] = false
