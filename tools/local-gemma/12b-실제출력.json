@@ -1,0 +1,114 @@
+{
+  "testedAt": "2026-09-30T21:44:30.060Z",
+  "model": {
+    "name": "gemma4:12b-it-qat",
+    "model": "gemma4:12b-it-qat",
+    "modified_at": "2026-10-01T06:42:58.2578008+09:00",
+    "size": 7151003754,
+    "digest": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma4",
+      "families": [
+        "gemma4"
+      ],
+      "parameter_size": "11.9B",
+      "quantization_level": "Q4_0",
+      "context_length": 262144,
+      "embedding_length": 3840
+    },
+    "capabilities": [
+      "completion",
+      "vision",
+      "audio",
+      "tools",
+      "thinking"
+    ]
+  },
+  "running": {
+    "models": [
+      {
+        "name": "gemma4:12b-it-qat",
+        "model": "gemma4:12b-it-qat",
+        "size": 7661735115,
+        "digest": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "11.9B",
+          "quantization_level": "Q4_0"
+        },
+        "expires_at": "2026-10-01T06:46:30.0421636+09:00",
+        "size_vram": 7661735115,
+        "context_length": 8192
+      }
+    ]
+  },
+  "records": [
+    {
+      "input": {
+        "name": "중국어 게임 설명",
+        "mode": "translate",
+        "language": "ko",
+        "text": "|cff00ff00获得100金币。|r|n恢复药水+1次。",
+        "glossary": "金币=골드\n恢复药水=회복 물약"
+      },
+      "status": 200,
+      "wallSeconds": 25.709,
+      "text": "|cff00ff00100골드를 획득합니다.|r|n회복 물약+1회.",
+      "doneReason": "stop",
+      "seconds": 25.6895971,
+      "tokensPerSecond": 6.584273988320815
+    },
+    {
+      "input": {
+        "name": "영어 변수 및 경로 설명",
+        "mode": "translate",
+        "language": "ko",
+        "text": "Deal 25% damage to {target}. Cooldown: %d seconds.\nIcon: war3mapImported\\Potion.blp, ID 'I0CC'.",
+        "glossary": "damage=피해\nCooldown=재사용 대기시간\nIcon=아이콘"
+      },
+      "status": 200,
+      "wallSeconds": 0.775,
+      "text": "{target}에게 25% 피해를 입힙니다. 재사용 대기시간: %d초.\nIcon: war3mapImported\\Potion.blp, ID 'I0CC'.",
+      "doneReason": "stop",
+      "seconds": 0.7695114,
+      "tokensPerSecond": 70.41394008243125
+    },
+    {
+      "input": {
+        "name": "새로운 세계관 사건",
+        "mode": "story",
+        "world": "original",
+        "text": "폐허가 된 역에서 주인 잃은 편지를 발견하는 개인 사건을 만들어 줘. 선택 A는 비용 없이 100골드 획득, 선택 B는 50골드 지불 후 다음 사건의 단서 획득. 600자 이내. 비용 없는 떠나기를 포함하고 실제 인물이나 기존 작품은 사용하지 말아 줘.",
+        "glossary": ""
+      },
+      "status": 200,
+      "wallSeconds": 5.187,
+      "text": "**제목: 버려진 역의 유품**\n\n**등장 조건**\n개인 사건 (개인 자원만 영향)\n\n**상황**\n먼지가 자욱하게 내려앉은 폐허가 된 역의 한구석에서 누군가 남긴 낡은 편지 한 통을 발견합니다. 빛바랜 종이 위에는 누군가에게 전하지 못한 절박한 고백과 목적지가 적혀 있습니다.\n\n**선택 A: 편지를 읽고 소중히 간직한다.**\n*   **비용:** 없음\n*   **보상:** 100골드 획득\n*   **결과:** 편지에 적힌 사소한 정보나 감정에 집중하며 즉시 소정의 보상을 얻습니다.\n\n**선택 B: 편지에 적힌 단서를 추적한다.**\n*   **비용:** 50골드 지불\n*   **보상:** 다음 사건의 단서 획득\n*   **결과:** 편지에 적힌 경로를 따라 이동하며 다음 목적지에 대한 구체적인 정보를 파악합니다.\n\n**선택 C: 편지를 무시하고 지나친다.**\n*   **비용:** 없음\n*   **보상:** 없음\n*   **결과:** 아무것도 얻지 못한 채 현재 위치에서 벗어납니다.\n\n**연결 사건 제안**\n1. 편지의 내용이 가리키는 장소에 도착하는 사건\n2. 편지를 쓴 주인의 행방을 쫓는 추적 사건\n3. 역의 잔해 속에서 다른 유품을 찾는 탐색 사건",
+      "doneReason": "stop",
+      "seconds": 5.1763476,
+      "tokensPerSecond": 70.73713317672025
+    },
+    {
+      "input": {
+        "name": "홍마관 사건",
+        "mode": "story",
+        "world": "scarlet",
+        "text": "홍마관 도서관에서 소악마와 함께 책의 잘못 꽂힌 위치를 찾는 새로운 개인 사건. 선택 A는 비용 없이 회복 물약 1회 획득, 선택 B는 100골드 지불 후 마도서 카드 1장 획득. 600자 이내. 기존 문장은 복제하지 않고 결과와 무료 떠나기를 써 줘.",
+        "glossary": "소악마=소악마\n마도서=마도서"
+      },
+      "status": 200,
+      "wallSeconds": 6.365,
+      "text": "**제목: 엉켜버린 기록의 미로**\n\n**등장 조건**\n홍마관 내에서 소악마와 대면할 때 발생.\n\n**상황**\n소악마가 도서관 구석에서 곤란한 표정으로 당신을 불러세웁니다. 수많은 책이 뒤섞여 원래 있어야 할 위치를 찾지 못해 쩔쩔매고 있으며, 파츄리의 눈치를 보느라 속도를 내지 못하는 듯합니다. 당신은 이 혼란스러운 책더미를 정리하는 일을 도울지 결정해야 합니다.\n\n**선택 A: 가볍게 짐을 옮겨주다**\n*   **비용:** 없음\n*   **보상:** 회복 물약 1회 획득\n*   **결과:** 소악마가 고마워하며 근처에 떨어진 비상용 물약을 건네줍니다.\n\n**선택 B: 마도서의 위치를 정확히 파악하다**\n*   **비용:** 100골드\n*   **보상:** 마도서 카드 1장 획득\n*   **결과:** 당신은 소악마에게 정교한 분류법을 전수받는 대가로 희귀한 마도서 한 권을 확보합니다.\n\n**선택 C: 바쁜 일정을 핑계로 자리를 피하다**\n*   **비용:** 없음\n*   **보상:** 없음\n*   **결과:** 소악마의 부탁을 거절하고 도서관을 빠져나옵니다.\n\n**연결 사건 제안**\n1. 소악마의 부탁을 수락한 후, 파츄리와의 대화 발생.\n2. 마도서를 획득한 후, 도서관의 금서 구역 발견.\n3. 회복 물약을 받은 후, 메이링의 수련 장소로 이동.",
+      "doneReason": "stop",
+      "seconds": 6.3616293,
+      "tokensPerSecond": 69.31014795306523
+    }
+  ]
+}
