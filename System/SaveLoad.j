@@ -274,6 +274,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         set PLAYER_DATA_UPLOAD_BUSY[pid] = false
         if ArcanaStashNetGetResult() then
             set PlayerSaveStatus[pid] = 2
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cff40ff40저장 완료|r")
             if SaveQueued[pid] then
                 call RequestPlayerSave(pid)
             endif
