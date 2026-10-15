@@ -3,7 +3,7 @@
 // - 로그인(ArcanaLogin)은 그 플레이어 화면(로컬)에서만 DLL 로 하고, 결과(성공 여부·표시 이름)만 "ALG" 로 동기화한다. 비밀번호는 동기화하지 않는다.
 // - 성공을 받으면(동기) ARCANA_LOGIN_OK 를 실행한다. PlayerSave 가 그 플레이어 로드를 시작하고, 로드가 끝나면 영웅 선택 창이 열린다.
 // - 로드가 실패하면(ARCANA_LOGIN_DONE 거짓으로 돌아옴) 입력칸이 다시 열린다.
-library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfig, ArcanaSaveNet3Natives, ArcanaStashNet, DzAPISync, DzAPIFrameHandle
+library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfig, ArcanaSaveNet3Natives, ArcanaStashNet, DzAPISync, DzAPIFrameHandle, DzAPIHardware
 
     globals
         string array ARCANA_LOGIN_NAME
@@ -17,6 +17,8 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
         string ARCANA_LOGIN_MASK = ""
         integer ARCANA_LOGIN_REQ = 0
         boolean ARCANA_LOGIN_SHOWN = false
+        // 지금 입력 중인 칸(로컬). Tab 으로 아이디 ↔ 비밀번호를 오간다
+        boolean ARCANA_LOGIN_ON_PW = false
     endglobals
 
     function ArcanaSaveLoginHint takes string s returns nothing
@@ -65,6 +67,40 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
         set id = null
     endfunction
 
+    // 로컬: 입력 칸 옮기기
+    function ArcanaSaveLoginFocus takes boolean pw returns nothing
+        set ARCANA_LOGIN_ON_PW = pw
+        if pw then
+            call JNFrameSetFocus(ARCANA_LOGIN_ID_BOX, false)
+            call JNFrameSetFocus(ARCANA_LOGIN_PW_BOX, true)
+        else
+            call JNFrameSetFocus(ARCANA_LOGIN_PW_BOX, false)
+            call JNFrameSetFocus(ARCANA_LOGIN_ID_BOX, true)
+        endif
+    endfunction
+
+    // 로컬: Tab 키(로그인 창이 열려 있을 때만)
+    function ArcanaSaveLoginTab takes nothing returns nothing
+        if ARCANA_LOGIN_SHOWN and ARCANA_LOGIN_PANEL != 0 then
+            // 아이디 칸에 Tab 문자가 들어갔으면 지운다
+            call DzFrameSetText(ARCANA_LOGIN_ID_BOX, JNStringTrim(DzFrameGetText(ARCANA_LOGIN_ID_BOX)))
+            call ArcanaSaveLoginFocus(not ARCANA_LOGIN_ON_PW)
+        endif
+    endfunction
+
+    function ArcanaSaveLoginIdChanged takes nothing returns nothing
+        set ARCANA_LOGIN_ON_PW = false
+    endfunction
+
+    // 로컬: 아이디 칸에서 Enter — 비밀번호가 비어 있으면 비밀번호 칸으로, 아니면 로그인
+    function ArcanaSaveLoginIdEnter takes nothing returns nothing
+        if ARCANA_LOGIN_PW == "" then
+            call ArcanaSaveLoginFocus(true)
+        else
+            call ArcanaSaveLoginSubmit()
+        endif
+    endfunction
+
     // 로컬: 비밀번호 칸을 * 로 가린다. 바뀐 글자만 실제 비밀번호에 반영한다(끝에 덧붙임·지움 기준)
     function ArcanaSaveLoginPwChanged takes nothing returns nothing
         local string t = DzFrameGetText(ARCANA_LOGIN_PW_BOX)
@@ -73,6 +109,7 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
         if t == null then
             set t = ""
         endif
+        set ARCANA_LOGIN_ON_PW = true
         if t == ARCANA_LOGIN_MASK then
             set t = null
             return
@@ -178,9 +215,12 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
         call DzFrameSetText(ARCANA_LOGIN_HINT, "아이디·비밀번호 입력 후 Enter 또는 로그인")
         call DzFrameSetScriptByCode(ARCANA_LOGIN_PW_BOX, JN_FRAMEEVENT_EDITBOX_TEXT_CHANGED, function ArcanaSaveLoginPwChanged, false)
         call DzFrameSetScriptByCode(ARCANA_LOGIN_PW_BOX, JN_FRAMEEVENT_EDITBOX_ENTER, function ArcanaSaveLoginSubmit, false)
-        call DzFrameSetScriptByCode(ARCANA_LOGIN_ID_BOX, JN_FRAMEEVENT_EDITBOX_ENTER, function ArcanaSaveLoginSubmit, false)
+        call DzFrameSetScriptByCode(ARCANA_LOGIN_ID_BOX, JN_FRAMEEVENT_EDITBOX_ENTER, function ArcanaSaveLoginIdEnter, false)
+        call DzFrameSetScriptByCode(ARCANA_LOGIN_ID_BOX, JN_FRAMEEVENT_EDITBOX_TEXT_CHANGED, function ArcanaSaveLoginIdChanged, false)
+        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_TAB, 1, false, function ArcanaSaveLoginTab)
         call DzFrameSetScriptByCode(ARCANA_LOGIN_BUTTON, JN_FRAMEEVENT_MOUSE_UP, function ArcanaSaveLoginSubmit, false)
         call ArcanaSaveLoginShow(true)
+        call ArcanaSaveLoginFocus(false)
         call DestroyTimer(GetExpiredTimer())
     endfunction
 
