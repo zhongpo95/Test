@@ -651,7 +651,10 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 endif
             endif
             call ClaimMaterials(pid)
-            call RequestPlayerSave(pid)
+            // Arcana 판: 원정 종료(Finish) 때 한 번 저장한다
+            static if not ARCANA_SAVE_BACKEND then
+                call RequestPlayerSave(pid)
+            endif
         endif
     endfunction
 
@@ -678,6 +681,10 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 endif
                 call ReleaseEvent(pid)
                 call ReleaseReward(pid)
+                static if ARCANA_SAVE_BACKEND then
+                    // 원정 종료 저장(승리·실패 모두). 남은 참가자만, READY 검사는 RequestPlayerSave 안에서 한다
+                    call RequestPlayerSave(pid)
+                endif
                 set ExpMember[pid] = false
                 call PlayerStatsSet(pid)
                 call ItemUIStatsSet(pid)
@@ -1060,7 +1067,10 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 call TryStart()
             elseif action == 2 then
                 call ClaimMaterials(pid)
-                call RequestPlayerSave(pid)
+                // Arcana 판: 보관 재료 받기는 다음 저장(원정 종료·-save)에 들어간다
+                static if not ARCANA_SAVE_BACKEND then
+                    call RequestPlayerSave(pid)
+                endif
             endif
         elseif not ExpMember[pid] then
             return

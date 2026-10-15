@@ -515,6 +515,10 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         local integer C
         local string items
         local string sn = I2S(PlayerSlotNumber[pid])
+        static if ARCANA_SAVE_BACKEND then
+            // 재료 사용 저장(강화·승급·카드 부여). 재료 소비는 아래 소유자 로컬에서, 저장은 장착 동기화 뒤 또는 대기 시간 뒤에 한다
+            call ArcanaSaveAfterMaterialUse(GetPlayerId(p))
+        endif
         
         if p == GetLocalPlayer() then
             set StonePending[pid] = false

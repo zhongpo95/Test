@@ -378,6 +378,10 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         local integer length = 0
         local integer l = 1
         local string sn = I2S(PlayerSlotNumber[pid])
+        static if ARCANA_SAVE_BACKEND then
+            // 재료 사용 저장(강화·승급·카드 부여). 재료 소비는 아래 소유자 로컬에서, 저장은 장착 동기화 뒤 또는 대기 시간 뒤에 한다
+            call ArcanaSaveAfterMaterialUse(pid)
+        endif
         
         if Player(pid) == GetLocalPlayer() then
             if true then
@@ -529,6 +533,10 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         local integer l = 1
         local integer m = 0
         local string sn = I2S(PlayerSlotNumber[pid])
+        static if ARCANA_SAVE_BACKEND then
+            // 재료 사용 저장(강화·승급·카드 부여). 재료 소비는 아래 소유자 로컬에서, 저장은 장착 동기화 뒤 또는 대기 시간 뒤에 한다
+            call ArcanaSaveAfterMaterialUse(pid)
+        endif
         
         set A = GetRandomInt(1,10000)
         

@@ -103,8 +103,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             set i = i + 1
         endloop
         static if ARCANA_SAVE_BACKEND then
-            // 단계 5-3. 로드 성공(READY) 없이 저장하지 않도록 -save 와 같은 RequestPlayerSave 경로로 보낸다(06 12.3 1번).
-            call RequestPlayerSave(pid)
+            // Arcana 판은 영웅 선택 때 저장하지 않는다(저장 시점 정책, 멀티_끊김_조사 13절). 장비 키는 위에서 Stash 에 썼고 다음 저장에 들어간다.
         else
             call JNStashNetUploadUser( Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
         endif

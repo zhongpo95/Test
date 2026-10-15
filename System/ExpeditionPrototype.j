@@ -87,7 +87,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             if GetLocalPlayer() == Player(pid) then
                 call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "머리도감." + ProtoHeadKey[head], "1")
             endif
-            call RequestPlayerSave(pid)
+            // Arcana 판: 도감은 원정 종료 저장에 함께 들어간다
+            static if not ARCANA_SAVE_BACKEND then
+                call RequestPlayerSave(pid)
+            endif
         endif
     endfunction
 
@@ -95,7 +98,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if GetLocalPlayer() == Player(pid) then
             call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드도감." + ProtoCardKey[card], "1")
         endif
-        call RequestPlayerSave(pid)
+        static if not ARCANA_SAVE_BACKEND then
+            call RequestPlayerSave(pid)
+        endif
     endfunction
 
     function ProtoGrantHead takes integer pid, integer head returns nothing
@@ -1365,7 +1370,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     if GetLocalPlayer() == Player(pid) then
                         call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드각성도감." + ProtoCardKey[id], "1")
                     endif
-                    call RequestPlayerSave(pid)
+                    static if not ARCANA_SAVE_BACKEND then
+                        call RequestPlayerSave(pid)
+                    endif
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 else
                     set previous = id

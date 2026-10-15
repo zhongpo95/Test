@@ -12,6 +12,16 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         // 0 미요청, 1 저장 중, 2 저장 완료, 3 실패, 4 서버 로드 미완료.
         integer array PlayerSaveStatus
         private trigger SAVE_REQUEST_CALLBACK = CreateTrigger()
+        // Arcana 판 저장 시점(2026-10-15 사용자 지정): 게임 시작 로드, 원정 종료 저장, 마을에서 -save(게임당 2회),
+        // 강화·승급·카드 부여(재료 사용) 저장. 영웅 선택·도감 획득 때의 즉시 저장은 하지 않는다(멀티_끊김_조사 13절).
+        constant integer ARCANA_MANUAL_SAVE_LIMIT = 2
+        integer array ARCANA_MANUAL_SAVE_USED
+        // 재료 사용 저장: 장착 동기화(StatsSet 의 "장착")가 새 장비를 반영한 뒤 저장한다. 장착이 오지 않으면 대기 시간 뒤 저장한다.
+        constant real ARCANA_MATERIAL_SAVE_FALLBACK = 3.0
+        boolean array ARCANA_MATERIAL_SAVE_PENDING
+        timer array ARCANA_MATERIAL_SAVE_TIMER
+        trigger ARCANA_EQUIP_SAVE_HOOK = null
+        integer ARCANA_EQUIP_SAVE_PID = -1
     endglobals
 
     // 단계 5-3. ARCANA_SAVE_BACKEND(ArcanaSaveConfig)가 참이면 JNStashNet 대신 ArcanaStashNet 을 쓴다. 거짓 판은 아래 static if 의 else 쪽이 원래 코드 그대로다.
@@ -187,9 +197,63 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         return true
     endfunction
 
+    // 재료 사용 저장 대기분을 내보낸다(동기 경로).
+    function ArcanaSaveFlushMaterial takes integer pid returns nothing
+        if pid >= 0 and pid < bj_MAX_PLAYERS and ARCANA_MATERIAL_SAVE_PENDING[pid] then
+            set ARCANA_MATERIAL_SAVE_PENDING[pid] = false
+            call RequestPlayerSave(pid)
+        endif
+    endfunction
+
+    function ArcanaSaveMaterialFire takes nothing returns nothing
+        local timer t = GetExpiredTimer()
+        local integer pid = 0
+        loop
+            exitwhen pid >= bj_MAX_PLAYERS
+            if ARCANA_MATERIAL_SAVE_TIMER[pid] == t then
+                call ArcanaSaveFlushMaterial(pid)
+            endif
+            set pid = pid + 1
+        endloop
+        set t = null
+    endfunction
+
+    function ArcanaSaveEquipHook takes nothing returns boolean
+        call ArcanaSaveFlushMaterial(ARCANA_EQUIP_SAVE_PID)
+        return false
+    endfunction
+
+    // 강화·승급·카드 부여 처리(동기 수신부) 끝에서 부른다. 재료 소비는 소유자 로컬에서 끝났고, 장비 변경은 뒤따르는 "장착" 동기화로 온다.
+    function ArcanaSaveAfterMaterialUse takes integer pid returns nothing
+        if pid < 0 or pid >= bj_MAX_PLAYERS then
+            return
+        endif
+        set ARCANA_MATERIAL_SAVE_PENDING[pid] = true
+        if ARCANA_MATERIAL_SAVE_TIMER[pid] == null then
+            set ARCANA_MATERIAL_SAVE_TIMER[pid] = CreateTimer()
+        endif
+        call TimerStart(ARCANA_MATERIAL_SAVE_TIMER[pid], ARCANA_MATERIAL_SAVE_FALLBACK, false, function ArcanaSaveMaterialFire)
+    endfunction
+
     private function upload takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())
         local integer heroNumber = PlayerSlotNumber[pid]
+        static if ARCANA_SAVE_BACKEND then
+        // -save 는 마을에서만, 게임당 ARCANA_MANUAL_SAVE_LIMIT 회. 원정 중에는 원정 종료 때 저장된다.
+        if ExpMember[pid] or MainUnit[pid] == null or not RectContainsUnit(gg_rct_Home, MainUnit[pid]) then
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "-save 는 마을에서만 할 수 있습니다. 원정은 끝날 때 저장됩니다.")
+            return
+        endif
+        if ARCANA_MANUAL_SAVE_USED[pid] >= ARCANA_MANUAL_SAVE_LIMIT then
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "이번 게임의 -save 횟수(" + I2S(ARCANA_MANUAL_SAVE_LIMIT) + "회)를 모두 사용했습니다.")
+            return
+        endif
+        if RequestPlayerSave(pid) then
+            set ARCANA_MANUAL_SAVE_USED[pid] = ARCANA_MANUAL_SAVE_USED[pid] + 1
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "저장을 요청했습니다. (이번 게임 " + I2S(ARCANA_MANUAL_SAVE_USED[pid]) + "/" + I2S(ARCANA_MANUAL_SAVE_LIMIT) + "회)")
+        endif
+        return
+        endif
         /*
         if JNGetConnectionState() == 1280266064 then
             call BJDebugMsg("현재 싱글 플레이중입니다.")
@@ -282,6 +346,10 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         call TriggerAddAction( DOWNLOAD_CALLBACK, function downloadCallback )
         call TriggerAddAction( UPLOAD_CALLBACK, function uploadCallback )
         call TriggerAddAction(SAVE_REQUEST_CALLBACK, function requestedSaveFinished)
+        static if ARCANA_SAVE_BACKEND then
+            set ARCANA_EQUIP_SAVE_HOOK = CreateTrigger()
+            call TriggerAddCondition(ARCANA_EQUIP_SAVE_HOOK, Condition(function ArcanaSaveEquipHook))
+        endif
         
         set t = null
     endfunction
