@@ -5,7 +5,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     // - 동기 경로(모든 클라이언트): 공개 함수 호출, 0.05초 동기 타이머, DzSyncData 수신 콜백.
     //   CreateStash·StashCopy·DestroyStash·StashSave(적용), 상태·대기열·tag 변경, 콜백 발생은 여기서만 한다.
     //   Stash.j 의 생성 함수가 MAX_STASH 를 늘리므로 이것을 로컬 블록에서 부르면 클라이언트마다 핸들 번호가 달라진다.
-    // - 소유자 로컬 블록(GetLocalPlayer() == p): DLL 호출(Arcana*/ArcanaNet*), DzSyncData 송신, Stash 읽기(StashKeyAt/StashValueAt)만 한다.
+    // - 소유자 로컬 블록(GetLocalPlayer() == p): DLL 호출(Arcana*/ArcanaNet*), DzSyncData 송신, 동기 경로가 채운 표(SnapTab) 읽기만 한다. Stash 는 읽지 않는다.
     //   로컬 블록의 결과는 반드시 DzSyncData 패킷으로 보내고, 받은 쪽 동기 콜백에서 상태에 반영한다.
     // - 같은 송신자의 DzSyncData 는 보낸 순서대로 모든 클라이언트에 도착한다(lockstep). 로드 패킷 수신은 이 순서를 전제로 한다.
 
@@ -69,6 +69,12 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         private hashtable Buf = InitHashtable()
         // 마지막 로드의 받은 패킷 본문 원문(정확 대조용, 동기 경로에서만 기록)
         private hashtable Raw = InitHashtable()
+        // 저장 스냅숏 읽기는 동기 경로(모든 클라이언트)에서 한다. Stash 읽기(StashKeyAt/StashValueAt)는 ForForce 를 써서
+        // 소유자 로컬 블록에서 부르면 같은 PC 두 창 LAN 에서 다른 창이 끊겼다(멀티_끊김_조사 19절). 소유자 로컬은 이 표만 읽는다.
+        private hashtable SnapTab = InitHashtable()
+        private integer array SnapN
+        private integer array SnapCur
+        private boolean array SnapReady
         private integer array RawN
 
         // 공용 송신 대기열(07 D11). 모든 클라이언트에서 같다.
@@ -471,6 +477,10 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             call DestroyStash(Snap[pid])
             set Snap[pid] = 0
         endif
+        call FlushChildHashtable(SnapTab, pid)
+        set SnapN[pid] = 0
+        set SnapCur[pid] = 0
+        set SnapReady[pid] = false
         set Phase[pid] = 0
         set St[pid] = state
         call Fire(CbSave[pid], Player(pid), 0, result, message, 0, 0)
@@ -595,22 +605,42 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         set LPhase[pid] = 0
     endfunction
 
-    private function LocalBuild takes integer pid returns nothing
+    // 동기 경로: 스냅숏을 표(SnapTab)로 옮긴다. 삭제된 항목(값 null)은 넣지 않는다(07 D8).
+    private function SnapCopyStep takes integer pid returns nothing
         local stash s = Snap[pid]
         local integer size = StashSize(s)
         local integer n = 0
         local string v
         loop
-            exitwhen LCursor[pid] >= size or n >= BUILD_PER_TICK
-            set v = StashValueAt(s, LCursor[pid], null)
-            // 삭제된 항목(값 null)은 넣지 않는다(07 D8)
+            exitwhen SnapCur[pid] >= size or n >= BUILD_PER_TICK
+            set v = StashValueAt(s, SnapCur[pid], null)
             if v != null then
-                call N_DocAdd(LDoc[pid], StashKeyAt(s, LCursor[pid]), v)
+                call SaveStr(SnapTab, pid, SnapN[pid] * 2, StashKeyAt(s, SnapCur[pid]))
+                call SaveStr(SnapTab, pid, SnapN[pid] * 2 + 1, v)
+                set SnapN[pid] = SnapN[pid] + 1
             endif
+            set SnapCur[pid] = SnapCur[pid] + 1
+            set n = n + 1
+        endloop
+        if SnapCur[pid] >= size then
+            set SnapReady[pid] = true
+        endif
+        set v = null
+    endfunction
+
+    // 소유자 로컬: 동기 경로가 채운 표만 읽어 DLL 문서를 만든다(Stash 를 직접 읽지 않는다).
+    private function LocalBuild takes integer pid returns nothing
+        local integer n = 0
+        if not SnapReady[pid] then
+            return
+        endif
+        loop
+            exitwhen LCursor[pid] >= SnapN[pid] or n >= BUILD_PER_TICK
+            call N_DocAdd(LDoc[pid], LoadStr(SnapTab, pid, LCursor[pid] * 2), LoadStr(SnapTab, pid, LCursor[pid] * 2 + 1))
             set LCursor[pid] = LCursor[pid] + 1
             set n = n + 1
         endloop
-        if LCursor[pid] >= size then
+        if LCursor[pid] >= SnapN[pid] then
             set LReq[pid] = N_SaveBegin(LDoc[pid], Rev[pid])
             set LDoc[pid] = 0   // 성공·실패와 관계없이 DLL이 소비했다
             if LReq[pid] == 0 then
@@ -620,7 +650,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                 set LPhase[pid] = 6
             endif
         endif
-        set v = null
     endfunction
 
     private function IsUnknown takes integer state, integer err returns boolean
@@ -752,6 +781,9 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             elseif (Phase[pid] == 5 or Phase[pid] == 6) and Now > Deadline[pid] then
                 call FinishSave(pid, ARCANA_STASH_RESULT_UNKNOWN, false, "저장 응답 시간 초과(다시 로드 필요)")
             endif
+            if (Phase[pid] == 5 or Phase[pid] == 6) and Snap[pid] != 0 and not SnapReady[pid] then
+                call SnapCopyStep(pid)
+            endif
             if GetLocalPlayer() == Player(pid) and LPhase[pid] != 0 then
                 call LocalStep(pid)
             endif
@@ -816,6 +848,10 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         set CbSave[pid] = callback
         // 스냅숏은 동기 경로에서 만든다(MAX_STASH 일치). 내용 읽기만 소유자 로컬에서 한다.
         set Snap[pid] = StashCopy(whichStash)
+        call FlushChildHashtable(SnapTab, pid)
+        set SnapN[pid] = 0
+        set SnapCur[pid] = 0
+        set SnapReady[pid] = false
         set Phase[pid] = 5
         set Deadline[pid] = Now + SAVE_TIMEOUT_TICKS
         if GetLocalPlayer() == user then
