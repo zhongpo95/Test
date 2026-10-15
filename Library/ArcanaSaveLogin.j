@@ -28,6 +28,14 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
     function ArcanaSaveLoginShow takes boolean show returns nothing
         set ARCANA_LOGIN_SHOWN = show
         if ARCANA_LOGIN_PANEL != 0 then
+            // 숨길 때 입력칸 포커스를 풀고 비활성화한다(숨긴 입력칸이 키보드를 잡아 F10·Enter 등이 안 먹던 문제)
+            if not show then
+                call JNFrameSetFocus(ARCANA_LOGIN_ID_BOX, false)
+                call JNFrameSetFocus(ARCANA_LOGIN_PW_BOX, false)
+            endif
+            call JNFrameSetEnable(ARCANA_LOGIN_ID_BOX, show)
+            call JNFrameSetEnable(ARCANA_LOGIN_PW_BOX, show)
+            call JNFrameSetEnable(ARCANA_LOGIN_BUTTON, show)
             call DzFrameShow(ARCANA_LOGIN_PANEL, show)
         endif
     endfunction
