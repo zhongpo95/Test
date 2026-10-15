@@ -153,6 +153,8 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
                         call ArcanaSaveLoginHint("|cffff4040아이디 또는 비밀번호가 틀렸습니다.|r")
                     elseif r == "too_many_attempts" then
                         call ArcanaSaveLoginHint("|cffff4040시도가 너무 많습니다. 잠시 뒤 다시 하세요.|r")
+                    elseif r == "map_not_allowed" then
+                        call ArcanaSaveLoginHint("|cffff4040등록되지 않은 맵입니다. 디스코드에서 최신 맵을 받으세요.|r")
                     elseif r == "account_locked" then
                         call ArcanaSaveLoginHint("|cffff4040잠긴 계정입니다. 관리자에게 문의하세요.|r")
                     else
