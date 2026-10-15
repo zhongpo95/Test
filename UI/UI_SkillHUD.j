@@ -518,7 +518,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
             return
         endif
         if DzGetTriggerKeyPlayer() == GetLocalPlayer() and DzIsKeyDown(JN_OSKEY_ALT) and SkillHUDHover >= 0 and SkillHUDHover < SKILL_HUD_COUNT then
-            call DzSyncData("SkillHUDPing", I2S(SkillHUDHover))
+            call DzSyncData("HPing", I2S(SkillHUDHover))
         endif
     endfunction
 
@@ -664,7 +664,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         call DzLoadToc("UnifiedUI.toc")
         call TriggerRegisterTimerEventSingle(t, 0.00)
         call TriggerAddAction(t, function Create)
-        call DzTriggerRegisterSyncData(syncTrigger, "SkillHUDPing", false)
+        call DzTriggerRegisterSyncData(syncTrigger, "HPing", false)
         call TriggerAddAction(syncTrigger, function SyncPing)
         set t = null
         set syncTrigger = null

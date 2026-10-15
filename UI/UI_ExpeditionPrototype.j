@@ -463,7 +463,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                 set packet = packet + "|" + StashLoad(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "머리도감." + ProtoHeadKey[i], "0")
                 set i = i + 1
             endloop
-            call DzSyncData("ProtoCodex", packet)
+            call DzSyncData("PCdx", packet)
         endif
         set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n이번 원정 머리 2장부터 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
         call ExpUIText(LobbyInfo, value)

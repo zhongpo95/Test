@@ -1453,7 +1453,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         set ExpPrototypeEnabled = true
-        call DzTriggerRegisterSyncData(t, "ProtoCodex", false)
+        call DzTriggerRegisterSyncData(t, "PCdx", false)
         call TriggerAddAction(t, function ProtoCodexSync)
         call TriggerAddAction(ExpPrototypeRequest, function ProtoDispatch)
         call TriggerAddAction(ExpPrototypeCleanup, function ProtoCleanup)
