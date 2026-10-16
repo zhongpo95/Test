@@ -189,7 +189,10 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
             if not ArcanaStashNetUploadUser(Player(pid), PLAYER_DATA[pid], SAVE_REQUEST_CALLBACK) then
                 set PLAYER_DATA_UPLOAD_BUSY[pid] = false
                 set PlayerSaveStatus[pid] = 3
-                call ArcanaSaveBlockedNotice(pid)
+                if ArcanaSaveBlockedNotice(pid) then
+                    // 저장이 막혀 있으면 지금 데이터를 증거 파일로 남긴다(30초에 한 번까지)
+                    call ArcanaStashNetClaimUser(Player(pid), PLAYER_DATA[pid], "blocked state=" + I2S(ArcanaStashNetGetState(pid)))
+                endif
                 return false
             endif
         else
@@ -298,6 +301,8 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
             if not ArcanaSaveBlockedNotice(pid) then
                 call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "저장 실패. -save로 같은 데이터를 다시 저장할 수 있습니다.")
             endif
+            // 저장하지 못한 데이터를 증거 파일로 남긴다(관리자에게 보내면 확인 후 반영)
+            call ArcanaStashNetClaimLast(pid, "save failed: " + ArcanaStashNetGetMessage())
         endif
         else
         local integer pid = GetPlayerId(JNStashNetGetPlayer())

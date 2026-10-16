@@ -14,6 +14,9 @@ library ArcanaSaveNet3Natives requires ArcanaSaveConfig
         native ArcanaLogin takes string loginId, string password returns integer
         // DLL 0.8.1: 진단 줄을 DLL 로그(%TEMP%\ArcanaSaveNet\savenet3-<pid>.log)에 바로 쓴다(게임 상태에 영향 없음)
         native ArcanaLog takes string line returns nothing
+        // DLL 0.9.0: 저장 실패 증거 파일(문서\ArcanaSave\*.arcsave). 마지막 실패한 저장 / 맵이 만든 지금 데이터 문서(소비됨). 경로를 돌려준다
+        native ArcanaSaveClaim takes string reason returns string
+        native ArcanaSaveClaimDoc takes integer doc, string reason returns string
         native ArcanaLoadPackets takes integer id returns integer
         native ArcanaLoadPacket takes integer id, integer index returns string
         // api=2 와 같은 이름의 결과 조회 native. api=3 DLL이 핸들 범위로 api=3 요청을 처리한다.

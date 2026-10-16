@@ -78,6 +78,14 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         // 저장 스냅숏 읽기는 동기 경로(모든 클라이언트)에서 한다. Stash 읽기(StashKeyAt/StashValueAt)는 ForForce 를 써서
         // 소유자 로컬 블록에서 부르면 같은 PC 두 창 LAN 에서 다른 창이 끊겼다(멀티_끊김_조사 19절). 소유자 로컬은 이 표만 읽는다.
         private hashtable SnapTab = InitHashtable()
+        // 증거 파일용 지금 데이터 복사(저장이 막혔을 때). 동기 경로에서 표로 옮기고, 소유자 화면에서만 DLL 로 파일을 쓴다
+        private hashtable ClaimTab = InitHashtable()
+        private integer array CPhase
+        private stash array CStash
+        private integer array CCur
+        private integer array CN
+        private integer array CLast
+        private string array CReason
         private integer array SnapN
         private integer array SnapCur
         private boolean array SnapReady
@@ -212,6 +220,20 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             return ArcanaNetRetry(id)
         else
             return 0
+        endif
+    endfunction
+    private function N_ClaimLast takes string reason returns string
+        static if ARCANA_SAVE_BACKEND then
+            return ArcanaSaveClaim(reason)
+        else
+            return ""
+        endif
+    endfunction
+    private function N_ClaimDoc takes integer doc, string reason returns string
+        static if ARCANA_SAVE_BACKEND then
+            return ArcanaSaveClaimDoc(doc, reason)
+        else
+            return ""
         endif
     endfunction
     private function N_Release takes integer id returns nothing
@@ -636,6 +658,58 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         set v = null
     endfunction
 
+    private function ClaimNotice takes integer pid, string path returns nothing
+        if path != null and path != "" then
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 30, "|cffffcc00저장하지 못한 데이터를 파일로 남겼습니다.|r 디스코드로 관리자에게 보내 주세요: " + path)
+        endif
+    endfunction
+
+    // 동기 경로: 증거 파일용 지금 데이터 복사. 끝나면 소유자 화면에서만 문서를 만들어 DLL 로 파일을 쓴다
+    private function ClaimStep takes integer pid returns nothing
+        local stash s = CStash[pid]
+        local integer size = StashSize(s)
+        local integer n = 0
+        local integer i
+        local integer doc
+        local string v
+        local string path
+        loop
+            exitwhen CCur[pid] >= size or n >= BUILD_PER_TICK
+            set v = StashValueAt(s, CCur[pid], null)
+            if v != null then
+                call SaveStr(ClaimTab, pid, CN[pid] * 2, StashKeyAt(s, CCur[pid]))
+                call SaveStr(ClaimTab, pid, CN[pid] * 2 + 1, v)
+                set CN[pid] = CN[pid] + 1
+            endif
+            set CCur[pid] = CCur[pid] + 1
+            set n = n + 1
+        endloop
+        if CCur[pid] < size then
+            set v = null
+            return
+        endif
+        if GetLocalPlayer() == Player(pid) then
+            set doc = N_DocNew()
+            if doc != 0 then
+                set i = 0
+                loop
+                    exitwhen i >= CN[pid]
+                    call N_DocAdd(doc, LoadStr(ClaimTab, pid, i * 2), LoadStr(ClaimTab, pid, i * 2 + 1))
+                    set i = i + 1
+                endloop
+                set path = N_ClaimDoc(doc, CReason[pid])
+                call ClaimNotice(pid, path)
+            endif
+        endif
+        call ArcanaSaveTrace("[ARC-NET] claim (current data) pid=" + I2S(pid) + " entries=" + I2S(CN[pid]) + " reason=" + CReason[pid])
+        call DestroyStash(CStash[pid])
+        set CStash[pid] = 0
+        call FlushChildHashtable(ClaimTab, pid)
+        set CPhase[pid] = 0
+        set v = null
+        set path = null
+    endfunction
+
     // 소유자 로컬: 동기 경로가 채운 표만 읽어 DLL 문서를 만든다(Stash 를 직접 읽지 않는다).
     private function LocalBuild takes integer pid returns nothing
         local integer n = 0
@@ -793,6 +867,9 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             if (Phase[pid] == 5 or Phase[pid] == 6) and Snap[pid] != 0 and not SnapReady[pid] then
                 call SnapCopyStep(pid)
             endif
+            if CPhase[pid] == 1 then
+                call ClaimStep(pid)
+            endif
             if GetLocalPlayer() == Player(pid) and LPhase[pid] != 0 then
                 call LocalStep(pid)
             endif
@@ -873,6 +950,35 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                 call LocalSaveFinal(pid, 2, 12, -1)
             endif
         endif
+        return true
+    endfunction
+
+    // 마지막 저장이 실패했을 때 그 데이터를 증거 파일로 남긴다(동기 경로에서 부르고, 파일은 소유자 화면에서만 쓴다)
+    function ArcanaStashNetClaimLast takes integer pid, string reason returns nothing
+        local string path
+        if GetLocalPlayer() == Player(pid) then
+            set path = N_ClaimLast(reason)
+            call ClaimNotice(pid, path)
+        endif
+        set path = null
+    endfunction
+
+    // 저장이 막힌 상태(결과 불명·임대 상실·충돌)에서 지금 데이터를 증거 파일로 남긴다. 30초에 한 번까지. 동기 경로에서 부른다
+    function ArcanaStashNetClaimUser takes player user, stash whichStash, string reason returns boolean
+        local integer pid = GetPlayerId(user)
+        static if not ARCANA_SAVE_BACKEND then
+            return false
+        endif
+        if CPhase[pid] != 0 or not StashExists(whichStash) or (CLast[pid] > 0 and Now - CLast[pid] < 600) then
+            return false
+        endif
+        set CStash[pid] = StashCopy(whichStash)
+        call FlushChildHashtable(ClaimTab, pid)
+        set CCur[pid] = 0
+        set CN[pid] = 0
+        set CReason[pid] = reason
+        set CLast[pid] = Now
+        set CPhase[pid] = 1
         return true
     endfunction
 
