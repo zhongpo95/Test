@@ -12,6 +12,8 @@ library ArcanaSaveNet3Natives requires ArcanaSaveConfig
         native ArcanaStatusBegin takes string requestId, integer seal returns integer
         // DLL 0.6.0(api=5): 홈페이지 계정 로그인. 결과는 ArcanaNetPoll/ArcanaNetResult(표시 이름 또는 실패 이유)
         native ArcanaLogin takes string loginId, string password returns integer
+        // DLL 0.8.1: 진단 줄을 DLL 로그(%TEMP%\ArcanaSaveNet\savenet3-<pid>.log)에 바로 쓴다(게임 상태에 영향 없음)
+        native ArcanaLog takes string line returns nothing
         native ArcanaLoadPackets takes integer id returns integer
         native ArcanaLoadPacket takes integer id, integer index returns string
         // api=2 와 같은 이름의 결과 조회 native. api=3 DLL이 핸들 범위로 api=3 요청을 처리한다.
@@ -24,6 +26,13 @@ library ArcanaSaveNet3Natives requires ArcanaSaveConfig
         native ArcanaNetRelease takes integer id returns integer
         native ArcanaNetRetry takes integer id returns integer
     endif
+
+    // 저장 진단 기록. JN 판에서는 아무것도 하지 않는다.
+    function ArcanaSaveTrace takes string s returns nothing
+        static if ARCANA_SAVE_BACKEND then
+            call ArcanaLog(s)
+        endif
+    endfunction
 
     // 하위 판 차이를 로그로 남기는 용도다(07 4.1). 호환 판정에는 쓰지 않는다.
     function ArcanaSaveDllVersion takes nothing returns string

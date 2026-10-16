@@ -210,7 +210,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
             if ARCANA_MATERIAL_SAVE_TIMER[pid] != null then
                 call PauseTimer(ARCANA_MATERIAL_SAVE_TIMER[pid])
             endif
-            call JNWriteLog("[ARC-SAVE] request why=" + why + " pid=" + I2S(pid))
+            call ArcanaSaveTrace("[ARC-SAVE] request why=" + why + " pid=" + I2S(pid))
             call RequestPlayerSave(pid)
         endif
     endfunction
@@ -238,7 +238,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
         if pid < 0 or pid >= bj_MAX_PLAYERS then
             return
         endif
-        call JNWriteLog("[ARC-SAVE] material use pid=" + I2S(pid) + " pending=" + I2S(IntegerTertiaryOp(ARCANA_MATERIAL_SAVE_PENDING[pid], 1, 0)))
+        call ArcanaSaveTrace("[ARC-SAVE] material use pid=" + I2S(pid) + " pending=" + I2S(IntegerTertiaryOp(ARCANA_MATERIAL_SAVE_PENDING[pid], 1, 0)))
         set ARCANA_MATERIAL_SAVE_PENDING[pid] = true
         if ARCANA_MATERIAL_SAVE_TIMER[pid] == null then
             set ARCANA_MATERIAL_SAVE_TIMER[pid] = CreateTimer()
@@ -259,7 +259,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "이번 게임의 -save 횟수(" + I2S(ARCANA_MANUAL_SAVE_LIMIT) + "회)를 모두 사용했습니다.")
             return
         endif
-        call JNWriteLog("[ARC-SAVE] request why=manual pid=" + I2S(pid))
+        call ArcanaSaveTrace("[ARC-SAVE] request why=manual pid=" + I2S(pid))
         if RequestPlayerSave(pid) then
             set ARCANA_MANUAL_SAVE_USED[pid] = ARCANA_MANUAL_SAVE_USED[pid] + 1
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "저장을 요청했습니다. (이번 게임 " + I2S(ARCANA_MANUAL_SAVE_USED[pid]) + "/" + I2S(ARCANA_MANUAL_SAVE_LIMIT) + "회)")
@@ -284,12 +284,12 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
             return
         endif
         set PLAYER_DATA_UPLOAD_BUSY[pid] = false
-        call JNWriteLog("[ARC-SAVE] finished pid=" + I2S(pid) + " ok=" + I2S(IntegerTertiaryOp(ArcanaStashNetGetResult(), 1, 0)) + " queued=" + I2S(IntegerTertiaryOp(SaveQueued[pid], 1, 0)) + " rev=" + I2S(ArcanaStashNetGetRevision(pid)))
+        call ArcanaSaveTrace("[ARC-SAVE] finished pid=" + I2S(pid) + " ok=" + I2S(IntegerTertiaryOp(ArcanaStashNetGetResult(), 1, 0)) + " queued=" + I2S(IntegerTertiaryOp(SaveQueued[pid], 1, 0)) + " rev=" + I2S(ArcanaStashNetGetRevision(pid)))
         if ArcanaStashNetGetResult() then
             set PlayerSaveStatus[pid] = 2
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cff40ff40저장 완료|r")
             if SaveQueued[pid] then
-                call JNWriteLog("[ARC-SAVE] request why=queued pid=" + I2S(pid))
+                call ArcanaSaveTrace("[ARC-SAVE] request why=queued pid=" + I2S(pid))
                 call RequestPlayerSave(pid)
             endif
         else
@@ -350,7 +350,7 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet, ArcanaSaveCon
             return
         endif
         if not ArcanaStashNetDownloadUser(Player(pid), DOWNLOAD_CALLBACK) then
-            call JNWriteLog("[ARC-SAVE] login load refused (busy) pid=" + I2S(pid))
+            call ArcanaSaveTrace("[ARC-SAVE] login load refused (busy) pid=" + I2S(pid))
         endif
     endfunction
 

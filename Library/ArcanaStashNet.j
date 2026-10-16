@@ -478,6 +478,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     endfunction
 
     private function FinishSave takes integer pid, integer state, boolean result, string message returns nothing
+        call ArcanaSaveTrace("[ARC-NET] save finish pid=" + I2S(pid) + " ok=" + I2S(IntegerTertiaryOp(result, 1, 0)) + " state=" + I2S(state) + " phase=" + I2S(Phase[pid]) + " snapN=" + I2S(SnapN[pid]) + " ready=" + I2S(IntegerTertiaryOp(SnapReady[pid], 1, 0)) + " now=" + I2S(Now) + " msg=" + message)
         call LocalCleanup(pid)
         if Snap[pid] != 0 then
             call DestroyStash(Snap[pid])
@@ -630,6 +631,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         endloop
         if SnapCur[pid] >= size then
             set SnapReady[pid] = true
+            call ArcanaSaveTrace("[ARC-NET] snapshot ready pid=" + I2S(pid) + " size=" + I2S(size) + " live=" + I2S(SnapN[pid]) + " now=" + I2S(Now))
         endif
         set v = null
     endfunction
@@ -648,6 +650,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         endloop
         if LCursor[pid] >= SnapN[pid] then
             set LReq[pid] = N_SaveBegin(LDoc[pid], Rev[pid])
+            call ArcanaSaveTrace("[ARC-NET] save begin pid=" + I2S(pid) + " doc entries=" + I2S(SnapN[pid]) + " expected=" + I2S(Rev[pid]) + " req=" + I2S(LReq[pid]))
             set LDoc[pid] = 0   // 성공·실패와 관계없이 DLL이 소비했다
             if LReq[pid] == 0 then
                 call LocalSaveFinal(pid, 2, 12, -1)
@@ -854,6 +857,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         set CbSave[pid] = callback
         // 스냅숏은 동기 경로에서 만든다(MAX_STASH 일치). 내용 읽기만 소유자 로컬에서 한다.
         set Snap[pid] = StashCopy(whichStash)
+        call ArcanaSaveTrace("[ARC-NET] upload pid=" + I2S(pid) + " src=" + I2S(whichStash) + " snap=" + I2S(Snap[pid]) + " st=" + I2S(St[pid]) + " rev=" + I2S(Rev[pid]) + " now=" + I2S(Now))
         call FlushChildHashtable(SnapTab, pid)
         set SnapN[pid] = 0
         set SnapCur[pid] = 0

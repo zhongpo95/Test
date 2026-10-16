@@ -55,6 +55,7 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
                 return
             endif
             set ARCANA_LOGIN_REQ = ArcanaLogin(id, ARCANA_LOGIN_PW)
+            call ArcanaSaveTrace("[ARC-LOGIN] submit req=" + I2S(ARCANA_LOGIN_REQ))
             set ARCANA_LOGIN_PW = ""
             set ARCANA_LOGIN_MASK = ""
             call DzFrameSetText(ARCANA_LOGIN_PW_BOX, "")
@@ -98,6 +99,17 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
             call ArcanaSaveLoginFocus(true)
         else
             call ArcanaSaveLoginSubmit()
+        endif
+    endfunction
+
+    // 로컬: Enter 키(키보드 이벤트). 입력칸의 Enter 이벤트가 오지 않는 환경을 위해 같이 받는다(중복 요청은 Submit 이 막는다)
+    function ArcanaSaveLoginEnterKey takes nothing returns nothing
+        if ARCANA_LOGIN_SHOWN and ARCANA_LOGIN_PANEL != 0 then
+            if ARCANA_LOGIN_ON_PW then
+                call ArcanaSaveLoginSubmit()
+            else
+                call ArcanaSaveLoginIdEnter()
+            endif
         endif
     endfunction
 
@@ -147,6 +159,7 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
                     call DzSyncData("ALG", "1|" + r)
                 elseif st != 0 then
                     set r = ArcanaNetResult(ARCANA_LOGIN_REQ)
+                    call ArcanaSaveTrace("[ARC-LOGIN] failed st=" + I2S(st) + " why=" + r)
                     call ArcanaNetRelease(ARCANA_LOGIN_REQ)
                     set ARCANA_LOGIN_REQ = 0
                     if r == "bad_credentials" then
@@ -220,6 +233,7 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
         call DzFrameSetScriptByCode(ARCANA_LOGIN_ID_BOX, JN_FRAMEEVENT_EDITBOX_ENTER, function ArcanaSaveLoginIdEnter, false)
         call DzFrameSetScriptByCode(ARCANA_LOGIN_ID_BOX, JN_FRAMEEVENT_EDITBOX_TEXT_CHANGED, function ArcanaSaveLoginIdChanged, false)
         call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_TAB, 1, false, function ArcanaSaveLoginTab)
+        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_RETURN, 1, false, function ArcanaSaveLoginEnterKey)
         call DzFrameSetScriptByCode(ARCANA_LOGIN_BUTTON, JN_FRAMEEVENT_MOUSE_UP, function ArcanaSaveLoginSubmit, false)
         call ArcanaSaveLoginShow(true)
         call ArcanaSaveLoginFocus(false)
