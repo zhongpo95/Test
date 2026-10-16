@@ -1,0 +1,2 @@
+# 적용 패치의 줄바꿈을 보존하여 Windows에서도 동일한 문맥을 검사한다.
+integration.patch text eol=lf
