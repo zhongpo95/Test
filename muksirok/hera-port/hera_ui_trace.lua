@@ -1,0 +1,50 @@
+-- 로컬 UI 이벤트와 JASS 호출 전후를 슬롯별 파일에 기록하며 게임 객체를 생성하지 않는다.
+local M = {}
+local path, context
+local sequence, calls, lines = 0, 0, 0
+local counts = {}
+local names = {[1]="click", [2]="enter", [3]="leave", [4]="up", [5]="down"}
+local writer
+local function write(text)
+  if not writer then return end
+  pcall(function()
+    local clock = ac and ac.clock and ac.clock() or -1
+    writer.write(tostring(clock) .. " " .. text)
+  end)
+end
+function M.install(common)
+  if path then return end
+  pcall(function()
+    path = "Logs/Hera_RPG_UITrace_v160_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
+    writer = require("hera_trace_ring").new(path)
+  end)
+end
+function M.begin_event(frame, event, player)
+  local previous = context
+  sequence = sequence + 1
+  context = sequence
+  local totals = {}
+  for op = 1, 50 do
+    if counts[op] then totals[#totals+1] = tostring(op) .. "=" .. tostring(counts[op]) end
+  end
+  write("EVENT BEGIN id=" .. sequence .. " kind=" .. tostring(names[event] or event) .. " frame=" .. tostring(frame) .. " player=" .. tostring(player) .. " calls=" .. calls .. " ops=" .. table.concat(totals, ","))
+  return previous
+end
+function M.end_event(previous, ok, result)
+  write("EVENT END id=" .. tostring(context) .. " ok=" .. tostring(ok) .. (ok and "" or " error=" .. tostring(result)))
+  context = previous
+end
+function M.before(operation, arguments)
+  calls = calls + 1
+  counts[operation] = (counts[operation] or 0) + 1
+  local detailed = context ~= nil or calls <= 20 or calls % 1000 == 0
+  if detailed then
+    local info = debug.getinfo(3, "Sl") or {}
+    write("EXEC BEGIN call=" .. calls .. " event=" .. tostring(context) .. " op=" .. operation .. " frame=" .. tostring(arguments.IntA) .. " @" .. tostring(info.short_src) .. ":" .. tostring(info.currentline))
+  end
+  return detailed and calls or nil
+end
+function M.after(ticket, ok, result)
+  if ticket then write("EXEC END call=" .. ticket .. " ok=" .. tostring(ok) .. (ok and "" or " error=" .. tostring(result))) end
+end
+return M
