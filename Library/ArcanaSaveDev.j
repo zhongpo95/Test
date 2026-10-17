@@ -7,6 +7,7 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
     //  -a5fill   꽉 찬 합성 계정(영웅 5, 모든 칸, 도감 전부)을 0.05초마다 한 묶음씩 SCRATCH 에 채운다
     //  -a5build  A9: 입력한 사람 화면에서 SCRATCH 문서를 한 번에 만든다(ArcanaDocNew → BuildStep → ArcanaDocDrop, 서버로 보내지 않음)
     //            "-a5build 200" 처럼 예산을 주면 그 예산으로 한 번만 부르고 끝났는지 보여 준다
+    //  -a5ops    실행 한도 재기: 일정한 반복을 2.5만~30만 단계(게임 밖 모의 실행 기준)로 각각 새 스레드에서 돌리고, 끝까지 간 단계마다 한 줄씩 남긴다
     //  -a5dump   P1: 아이템 번호 1~200 의 rawcode·SLK 종류(Tip)·단계(Level)·이름을 DLL 로그에 한 줄씩 남긴다([A5DUMP])
     //  -a5datacheck P1: 생성 배열(ARCANA_ITEM_RAW/TYPE/TIER)과 ItemData·SLK(Tip·Level) 값을 비교해 어긋난 번호만 남긴다
     // 결과 줄이 나오지 않으면 그 스레드가 실행 한도에 걸려 멈춘 것이다.
@@ -17,6 +18,14 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         private constant string MATERIAL = "ID24;중첩수35;"
         private timer FillTimer = CreateTimer()
         private integer FillStage = 0
+        // 무거운 적용 하나를 새 스레드에서 돌린다(실행 한도가 새로 시작). 결과는 ApplyOk
+        private trigger ApplyTrig = CreateTrigger()
+        private string ApplyKey = ""
+        private string ApplyValue = ""
+        private boolean ApplyOk = false
+        private string CardsText = ""
+        private string HeadsText = ""
+        private integer OpsN = 0
     endglobals
 
     private function Say takes string msg returns nothing
@@ -51,6 +60,50 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         return "U" + Repeat("V", 15) + "1"
     endfunction
 
+    private function ApplyCond takes nothing returns boolean
+        set ApplyOk = ArcanaSaveApply(SCRATCH, ApplyKey, ApplyValue)
+        return false
+    endfunction
+
+    private function ApplyThread takes string k, string v returns boolean
+        set ApplyKey = k
+        set ApplyValue = v
+        set ApplyOk = false
+        call TriggerEvaluate(ApplyTrig)
+        return ApplyOk
+    endfunction
+
+    // 한 바퀴 = 모의 실행 기준 OPS_PER_ITER 단계(run_dev_mock 로 잼)
+    private function OpsCond takes nothing returns boolean
+        local integer i = 0
+        local integer x = 0
+        local string s = "0123456789"
+        loop
+            exitwhen i >= OpsN
+            set x = x + StringLength(SubString(s, i - (i / 10) * 10, 10))
+            set i = i + 1
+        endloop
+        call Say("A0 실행량 " + I2S(OpsN) + "바퀴 끝(" + I2S(x) + ")")
+        set s = null
+        return false
+    endfunction
+
+    private function CmdOps takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        local integer k = 1
+        call TriggerAddCondition(t, Condition(function OpsCond))
+        loop
+            exitwhen k > 12
+            // 바퀴 수: 1000, 2000, ... 12000
+            set OpsN = k * 1000
+            call TriggerEvaluate(t)
+            set k = k + 1
+        endloop
+        call Say("A0 실행량 시험 끝(마지막으로 나온 줄까지 견딤)")
+        call DestroyTrigger(t)
+        set t = null
+    endfunction
+
     private function CmdHash takes nothing returns nothing
         local string a = "0123456789ABCDEFGHIJKLMNOPQRSTUV"
         local integer i = 0
@@ -74,68 +127,80 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
     endfunction
 
     private function CmdCodex takes nothing returns nothing
-        local string cards = FullCards()
-        local string heads = FullHeads()
+        local string cards = CardsText
+        local string heads = HeadsText
         local boolean ok
         call Say("A2 시작: 카드 " + I2S(StringLength(cards)) + "자, 머리 " + I2S(StringLength(heads)) + "자")
         call ArcanaSaveReset(SCRATCH)
         set ok = ArcanaSaveApply(SCRATCH, "v", "2") and ArcanaSaveApply(SCRATCH, "dv", "1")
-        set ok = ok and ArcanaSaveApply(SCRATCH, "c.c", cards)
-        set ok = ok and ArcanaSaveApply(SCRATCH, "c.a", cards)
-        set ok = ok and ArcanaSaveApply(SCRATCH, "c.h", heads)
+        // 410자 해독은 각각 새 스레드에서(어댑터도 로드 항목을 틱 예산으로 나눠 적용한다)
+        set ok = ok and ApplyThread("c.c", cards)
+        call Say("A2 카드 해독 끝: " + I2S(ArcanaSaveCodexCount(SCRATCH, ARCANA_CODEX_CARD)))
+        set ok = ok and ApplyThread("c.a", cards)
+        set ok = ok and ApplyThread("c.h", heads)
         call Say("A2 끝: 해독 " + YesNo(ok) + ", 카드 " + I2S(ArcanaSaveCodexCount(SCRATCH, ARCANA_CODEX_CARD)) + "/2035, 각성 " + I2S(ArcanaSaveCodexCount(SCRATCH, ARCANA_CODEX_AWAKE)) + "/2035, 머리 " + I2S(ArcanaSaveCodexCount(SCRATCH, ARCANA_CODEX_HEAD)) + "/80, 1665번 " + YesNo(ArcanaSaveCodexHas(SCRATCH, ARCANA_CODEX_CARD, 1665)) + ", 12번 " + YesNo(ArcanaSaveCodexHas(SCRATCH, ARCANA_CODEX_CARD, 12)))
         set cards = null
         set heads = null
     endfunction
 
+    // 한 틱에 칸 10개씩 채운다(쓰기마다 아이템 문법 검사가 바이트 수만큼 돈다, 실행 한도). 단계: 0 계정·도감, 1~10 창고, 그 뒤 영웅마다 11단계
     private function FillStep takes nothing returns nothing
         local integer s = 0
-        local integer h = FillStage - 1
-        if FillStage == 0 then
+        local integer st = FillStage
+        local integer h
+        local integer part
+        if st == 0 then
             call ArcanaSaveReset(SCRATCH)
             call ArcanaSaveApply(SCRATCH, "v", "2")
             call ArcanaSaveApply(SCRATCH, "dv", "1")
-            call ArcanaSaveApply(SCRATCH, "c.c", FullCards())
-            call ArcanaSaveApply(SCRATCH, "c.a", FullCards())
-            call ArcanaSaveApply(SCRATCH, "c.h", FullHeads())
+            call ApplyThread("c.c", CardsText)
+            call ApplyThread("c.a", CardsText)
+            call ApplyThread("c.h", HeadsText)
             call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_GOLD, 2000000000)
             call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_BIGWHEEL, 3)
             call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_TOTALDAILY, 999)
             call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_DAILYLAST, 20261017)
+        elseif st <= 10 then
+            set s = (st - 1) * 10
             loop
-                exitwhen s >= 100
+                exitwhen s >= st * 10
                 call ArcanaSaveSetStore(SCRATCH, s, ACCESSORY)
                 set s = s + 1
             endloop
-        elseif FillStage <= 5 then
-            call ArcanaSaveHeroCreate(SCRATCH, h, 2)
-            call ArcanaSaveSetSkinOwned(SCRATCH, h, 1)
-            call ArcanaSaveSetSkinOwned(SCRATCH, h, 2)
-            set s = 1
-            loop
-                exitwhen s > ARCANA_HF_X_DONE
-                call ArcanaSaveSetHeroInt(SCRATCH, h, s, 99)
-                set s = s + 1
-            endloop
-            set s = 0
-            loop
-                exitwhen s >= 10
-                call ArcanaSaveSetEquip(SCRATCH, h, s, ACCESSORY)
-                set s = s + 1
-            endloop
-            set s = 0
-            loop
-                exitwhen s >= 100
-                if s < 50 then
-                    call ArcanaSaveSetInv(SCRATCH, h, s, ACCESSORY)
-                else
-                    call ArcanaSaveSetInv(SCRATCH, h, s, MATERIAL)
-                endif
-                set s = s + 1
-            endloop
+        elseif st <= 65 then
+            set h = (st - 11) / 11 + 1
+            set part = st - 11 - (h - 1) * 11
+            if part == 0 then
+                call ArcanaSaveHeroCreate(SCRATCH, h, 2)
+                call ArcanaSaveSetSkinOwned(SCRATCH, h, 1)
+                call ArcanaSaveSetSkinOwned(SCRATCH, h, 2)
+                set s = 1
+                loop
+                    exitwhen s > ARCANA_HF_X_DONE
+                    call ArcanaSaveSetHeroInt(SCRATCH, h, s, 99)
+                    set s = s + 1
+                endloop
+                set s = 0
+                loop
+                    exitwhen s >= 10
+                    call ArcanaSaveSetEquip(SCRATCH, h, s, ACCESSORY)
+                    set s = s + 1
+                endloop
+            else
+                set s = (part - 1) * 10
+                loop
+                    exitwhen s >= part * 10
+                    if s < 50 then
+                        call ArcanaSaveSetInv(SCRATCH, h, s, ACCESSORY)
+                    else
+                        call ArcanaSaveSetInv(SCRATCH, h, s, MATERIAL)
+                    endif
+                    set s = s + 1
+                endloop
+            endif
         endif
         set FillStage = FillStage + 1
-        if FillStage > 5 then
+        if FillStage > 65 then
             call PauseTimer(FillTimer)
             call Say("합성 계정 채움: 골드 " + I2S(ArcanaSaveGetInt(SCRATCH, ARCANA_SF_GOLD)) + ", 영웅5 i99 " + ArcanaSaveInv(SCRATCH, 5, 99, "없음") + ", 카드 " + I2S(ArcanaSaveCodexCount(SCRATCH, ARCANA_CODEX_CARD)))
         endif
@@ -203,7 +268,9 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
     private function OnChat takes nothing returns nothing
         local string msg = GetEventPlayerChatString()
         local integer budget = ARCANA_SAVE_BUILD_BUDGET
-        if msg == "-a5hash" then
+        if msg == "-a5ops" then
+            call CmdOps()
+        elseif msg == "-a5hash" then
             call CmdHash()
         elseif msg == "-a5codex" then
             call CmdCodex()
@@ -232,6 +299,9 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
             set i = i + 1
         endloop
         call TriggerAddAction(t, function OnChat)
+        call TriggerAddCondition(ApplyTrig, Condition(function ApplyCond))
+        set CardsText = FullCards()
+        set HeadsText = FullHeads()
         set t = null
     endfunction
 

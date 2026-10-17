@@ -6,13 +6,17 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
     // - 수명 함수(Reset/Apply/ApplyEnd)는 어댑터가 동기 경로에서만 부른다. BuildBegin/BuildStep 은 어댑터가 소유자 로컬에서만 부른다(DLL 호출).
     // - 데이터는 소유자 기준이다. 로드 직후에는 모든 클라이언트가 같고, 소유자 로컬 쓰기 뒤에는 다른 클라이언트 사본이 낡을 수 있다.
     //   동기 판정(유닛·아이템 생성, 난수, 동기 분기)에 저장 데이터를 직접 쓰지 않는다.
+    // 실행량(JASS 실행 한도): 실게임에서 410자 도감 두 개를 글자마다 비트 5개로 펼치는 해독이 한 스레드에서 멈췄다(2026-10-17 -a5codex).
+    // 그래서 도감은 글자 값 하나를 정수 칸 하나로 두고(비트는 읽을 때 계산), 로드 적용은 아이템 문자열을 짧게만 검사하며(전체 문법은 서버가 저장 때 본다),
+    // 저장 문서는 영웅·칸 단위의 촘촘한 반복으로 만든다.
     // 서버 참조 코덱: tools\arcana-save\server\save_schema.py. 키 표·값 문법·정해진 순서가 같아야 한다(save_v2_vectors.json).
 
     globals
         constant integer ARCANA_SAVE_SCHEMA = 2
         constant integer ARCANA_SAVE_ITEM_MAX = 200
         constant integer ARCANA_SAVE_INT_MAX = 2000000000
-        constant integer ARCANA_SAVE_BUILD_BUDGET = 1300
+        // 저장 문서 만들기 한 번에 돌 묶음 수(전체 16 = 한 번에 끝남)
+        constant integer ARCANA_SAVE_BUILD_BUDGET = 16
         // 계정 숫자
         constant integer ARCANA_SF_GOLD = 0
         constant integer ARCANA_SF_BIGWHEEL = 1
@@ -34,20 +38,36 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
 
         // 부모 키 = pid * 16 + 섹션. 0 계정 숫자, 1 창고, 2 알 수 없는 키, 3~5 도감(카드·각성·머리), 6 스킨
         // 영웅: 부모 키 = 1000 + pid * 16 + N. 자식 0~9 장착, 100~199 인벤토리, 299 손댐(쓴 적 있음), 300 있음, 301~308 숫자
-        // 도감 섹션 자식: 번호 = 비트(참), 10000 + 글자 위치 = 그 글자 값, -1 = 개수, -2 = 글자 수
+        // 도감 섹션 자식: 10000 + 글자 위치 = 그 글자 값(번호 5k~5k+4 의 비트), -1 = 개수, -2 = 글자 수
         hashtable ARCANA_SAVE_DB = InitHashtable()
         boolean array ARCANA_SAVE_LOADED
-        // 마지막 BuildStep 이 넘긴 항목 수(진단)
+        // 소유자 로컬: 마지막 BuildStep 이 넘긴 항목 수(진단), 그 플레이어 문서를 만드는 중인지(만드는 중 쓰기 진단)
         integer ARCANA_SAVE_BUILD_COUNT = 0
+        boolean array ARCANA_SAVE_BUILDING
 
         private constant string B32 = "0123456789ABCDEFGHIJKLMNOPQRSTUV"
         private hashtable CharTab = InitHashtable()
         private string array B32C
+        private integer array Pop
+        private integer array Pow2
+        // 아이템 문법 검사용 글자 분류: StringHash(글자) -> 1~10 숫자 0~9, 11 ';', 12 '|'. ClassChar 로 다시 확인한다(해시 충돌 방지)
+        private hashtable ClassTab = InitHashtable()
+        private string array ClassChar
+        // 문서 키 표(만들 때 문자열 이어 붙이기를 줄인다)
+        private string array KeyStore
+        private string array KeyInv
+        private string array KeyEquip
+        private string array KeyHero
+        private string array KeyHeroField
         private boolean array SawV
         private boolean array SawDv
         private integer array LoadDv
-        // 소유자 로컬 진행 위치(BuildStep)
+        // 소유자 로컬 진행 위치(BuildStep, 묶음 번호)와 묶음 스레드 인자
         private integer array BCur
+        private integer BArgPid = 0
+        private integer BArgDoc = 0
+        private integer BArgSec = 0
+        private trigger BuildTrig = null
     endglobals
 
     //==========================================================================
@@ -70,9 +90,25 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         call ArcanaSaveTrace("[ARC-SAVE] reject " + what + " pid=" + I2S(pid) + " " + detail)
     endfunction
 
-    // 한 바이트가 숫자인지. 비교 10번 대신 S2I 왕복(실행량, 로드 때 아이템 문자열마다 글자 수만큼 부른다)
+    // 소유자가 문서를 만드는 도중에 쓰기가 있으면 진단 줄을 남긴다(10 11.2). 게임 상태에는 영향이 없다(로그만).
+    private function NoteWrite takes integer pid, string what returns nothing
+        if ARCANA_SAVE_BUILDING[pid] then
+            call ArcanaSaveTrace("[ARC-SAVE] write during build pid=" + I2S(pid) + " " + what)
+        endif
+    endfunction
+
+    // 한 바이트 분류: 1~10 숫자(값+1), 11 ';', 12 '|', 0 그 밖
+    private function Cls takes string c returns integer
+        local integer v = LoadInteger(ClassTab, 0, StringHash(c))
+        if v != 0 and ClassChar[v] != c then
+            return 0
+        endif
+        return v
+    endfunction
+
     private function IsDigit takes string c returns boolean
-        return I2S(S2I(c)) == c
+        local integer v = Cls(c)
+        return v >= 1 and v <= 10
     endfunction
 
     // base32hex 글자 값, 아니면 -1
@@ -89,46 +125,56 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         return v == null or v == "" or v == "0" or v == "없음"
     endfunction
 
-    // 아이템 문자열 문법(10 3.3): (태그 숫자;)+, 첫 태그 ID, 숫자는 0 또는 앞자리 0 없는 10자리 이하, | 없음, 200B 이하
+    // 아이템 문자열 문법(10 3.3): (태그 숫자;)+, 첫 태그 ID, 숫자는 0 또는 앞자리 0 없는 10자리 이하, | 없음, 200B 이하. 쓰기(Set) 때 쓴다.
     function ArcanaSaveItemOk takes string s returns boolean
         local integer n = StringLength(s)
-        local integer i = 0
-        local integer t
+        local integer i = 2
         local integer d
-        local string c
+        local integer k
+        local boolean tag = false
         if n < 4 or n > ARCANA_SAVE_ITEM_MAX or SubString(s, 0, 2) != "ID" or not IsDigit(SubString(s, 2, 3)) then
+            // 첫 태그는 정확히 ID(바로 뒤가 숫자)
             return false
         endif
+        // 상태: tag 참 = 태그 글자 안, 거짓 = 숫자 자리 시작(첫 태그 ID 뒤)
+        set d = -1
         loop
             exitwhen i >= n
-            set t = i
-            loop
-                exitwhen i >= n
-                set c = SubString(s, i, i + 1)
-                exitwhen c == ";" or IsDigit(c)
-                if c == "|" then
+            set k = Cls(SubString(s, i, i + 1))
+            if k == 12 then
+                return false
+            elseif k == 11 then
+                // ';' 는 숫자 바로 뒤에만
+                if d < 0 or i - d > 10 or (i - d > 1 and SubString(s, d, d + 1) == "0") then
                     return false
                 endif
-                set i = i + 1
-            endloop
-            if i == t or i >= n then
-                return false
-            endif
-            set d = i
-            loop
-                exitwhen i >= n or not IsDigit(SubString(s, i, i + 1))
-                set i = i + 1
-            endloop
-            if i == d or i - d > 10 or i >= n or SubString(s, i, i + 1) != ";" then
-                return false
-            endif
-            if i - d > 1 and SubString(s, d, d + 1) == "0" then
-                return false
+                set d = -1
+                set tag = true
+            elseif k >= 1 then
+                if d < 0 then
+                    if tag and i > 0 and Cls(SubString(s, i - 1, i)) == 11 then
+                        // 태그가 비었다(';' 바로 뒤 숫자)
+                        return false
+                    endif
+                    set d = i
+                endif
+            else
+                // 태그 글자. 숫자 자리 도중이면 틀림(숫자 뒤에는 ';' 만)
+                if d >= 0 then
+                    return false
+                endif
+                set tag = true
             endif
             set i = i + 1
         endloop
-        set c = null
-        return true
+        // 끝은 ';' 이어야 한다
+        return d < 0 and Cls(SubString(s, n - 1, n)) == 11
+    endfunction
+
+    // 로드 적용 때의 짧은 검사(길이, ID 로 시작, ';' 로 끝남). 전체 문법은 서버가 저장 때 본다(10 9.2). 실행량 때문에 바이트마다 보지 않는다.
+    private function ItemQuick takes string s returns boolean
+        local integer n = StringLength(s)
+        return n >= 4 and n <= ARCANA_SAVE_ITEM_MAX and SubString(s, 0, 2) == "ID" and SubString(s, n - 1, n) == ";"
     endfunction
 
     // 정수 문법: 0 또는 앞자리 0 없는 10자리 이하, 2,000,000,000 이하. 아니면 -1
@@ -182,6 +228,7 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
             call ArcanaSaveTraceReject("int", pid, "f=" + I2S(f) + " v=" + I2S(v))
             return
         endif
+        call NoteWrite(pid, "int")
         if v == 0 then
             call RemoveSavedInteger(ARCANA_SAVE_DB, Sec(pid, 0), f)
         else
@@ -209,6 +256,7 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         if hero < 1 or hero > 9 or skin < 1 or skin > 99 or LoadBoolean(ARCANA_SAVE_DB, p, hero * 100 + skin) then
             return
         endif
+        call NoteWrite(pid, "skin")
         call SaveBoolean(ARCANA_SAVE_DB, p, hero * 100 + skin, true)
         call SaveInteger(ARCANA_SAVE_DB, p, -1, LoadInteger(ARCANA_SAVE_DB, p, -1) + 1)
     endfunction
@@ -235,6 +283,7 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
             call ArcanaSaveTraceReject("hero int", pid, "h=" + I2S(h) + " f=" + I2S(f) + " v=" + I2S(v))
             return
         endif
+        call NoteWrite(pid, "hero int")
         call Touch(pid, h)
         if v == 0 then
             call RemoveSavedInteger(ARCANA_SAVE_DB, HeroKey(pid, h), 301 + f)
@@ -254,6 +303,7 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
 
     // 아이템 칸 쓰기 공통: 빈 칸 표시는 지우고, 문법이 틀리면 쓰지 않고 기존 값을 둔다(10 4.2).
     private function PutItem takes integer pid, integer parent, integer child, string itemStr, string where returns nothing
+        call NoteWrite(pid, where)
         if ArcanaSaveIsEmptyItem(itemStr) then
             call RemoveSavedString(ARCANA_SAVE_DB, parent, child)
         elseif ArcanaSaveItemOk(itemStr) then
@@ -322,11 +372,15 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
     endfunction
 
     function ArcanaSaveCodexHas takes integer pid, integer kind, integer id returns boolean
-        return LoadBoolean(ARCANA_SAVE_DB, Sec(pid, 3 + kind), id)
-    endfunction
-
-    function ArcanaSaveCodexCount takes integer pid, integer kind returns integer
-        return LoadInteger(ARCANA_SAVE_DB, Sec(pid, 3 + kind), -1)
+        local integer g = id / 5
+        local integer bit
+        local integer x
+        if id < 0 or kind < 0 or kind > ARCANA_CODEX_HEAD then
+            return false
+        endif
+        set bit = Pow2[id - g * 5]
+        set x = LoadInteger(ARCANA_SAVE_DB, Sec(pid, 3 + kind), 10000 + g)
+        return x / bit - (x / (bit * 2)) * 2 == 1
     endfunction
 
     // 머리 도감 동기화 패킷용("1"/"0")
@@ -337,21 +391,18 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         return "0"
     endfunction
 
+    function ArcanaSaveCodexCount takes integer pid, integer kind returns integer
+        return LoadInteger(ARCANA_SAVE_DB, Sec(pid, 3 + kind), -1)
+    endfunction
+
     function ArcanaSaveCodexAdd takes integer pid, integer kind, integer id returns nothing
         local integer p = Sec(pid, 3 + kind)
         local integer g = id / 5
-        local integer j = id - g * 5
-        local integer bit = 1
-        if kind < 0 or kind > ARCANA_CODEX_HEAD or id < 0 or g >= CodexChars(kind) or LoadBoolean(ARCANA_SAVE_DB, p, id) then
+        if kind < 0 or kind > ARCANA_CODEX_HEAD or id < 0 or g >= CodexChars(kind) or ArcanaSaveCodexHas(pid, kind, id) then
             return
         endif
-        loop
-            exitwhen j <= 0
-            set bit = bit * 2
-            set j = j - 1
-        endloop
-        call SaveBoolean(ARCANA_SAVE_DB, p, id, true)
-        call SaveInteger(ARCANA_SAVE_DB, p, 10000 + g, LoadInteger(ARCANA_SAVE_DB, p, 10000 + g) + bit)
+        call NoteWrite(pid, "codex")
+        call SaveInteger(ARCANA_SAVE_DB, p, 10000 + g, LoadInteger(ARCANA_SAVE_DB, p, 10000 + g) + Pow2[id - g * 5])
         call SaveInteger(ARCANA_SAVE_DB, p, -1, LoadInteger(ARCANA_SAVE_DB, p, -1) + 1)
         if g + 1 > LoadInteger(ARCANA_SAVE_DB, p, -2) then
             call SaveInteger(ARCANA_SAVE_DB, p, -2, g + 1)
@@ -384,13 +435,12 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         return true
     endfunction
 
+    // 도감 글자열 -> 글자 값 칸. 글자마다 SubString·해시 조회·저장 한 번(410자 약 6천 단계)
     private function ApplyCodex takes integer pid, integer kind, string v returns boolean
         local integer p = Sec(pid, 3 + kind)
         local integer n = StringLength(v)
         local integer k = 0
         local integer x = 0
-        local integer j
-        local integer bit
         local integer count = 0
         if n < 1 or n > CodexChars(kind) or LoadInteger(ARCANA_SAVE_DB, p, -2) != 0 then
             return false
@@ -403,17 +453,7 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
             endif
             if x > 0 then
                 call SaveInteger(ARCANA_SAVE_DB, p, 10000 + k, x)
-                set j = 0
-                set bit = 1
-                loop
-                    exitwhen j >= 5
-                    if x / bit - (x / (bit * 2)) * 2 == 1 then
-                        call SaveBoolean(ARCANA_SAVE_DB, p, 5 * k + j, true)
-                        set count = count + 1
-                    endif
-                    set bit = bit * 2
-                    set j = j + 1
-                endloop
+                set count = count + Pop[x]
             endif
             set k = k + 1
         endloop
@@ -510,27 +550,17 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
             return true
         endif
         set r = SubString(k, 3, n)
-        set f = HeroField(r)
-        if f >= 0 then
-            set s = ParseInt(v)
-            if s < 0 then
-                return false
-            endif
-            call ArcanaSaveSetHeroInt(pid, h, f, s)
-            return true
-        endif
         set c = SubString(r, 0, 1)
         if c == "e" or c == "i" then
-            if c == "e" then
-                set s = ParseSlot(SubString(r, 1, StringLength(r)), 9)
-                if StringLength(r) != 2 then
-                    set s = -1
-                endif
-            else
+            if c == "e" and StringLength(r) == 2 then
+                set s = ParseSlot(SubString(r, 1, 2), 9)
+            elseif c == "i" then
                 set s = ParseSlot(SubString(r, 1, StringLength(r)), 99)
+            else
+                set s = -1
             endif
             if s >= 0 then
-                if not ArcanaSaveItemOk(v) then
+                if not ItemQuick(v) then
                     return false
                 endif
                 if c == "e" then
@@ -541,10 +571,20 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
                 return true
             endif
         endif
+        set f = HeroField(r)
+        if f >= 0 then
+            set s = ParseInt(v)
+            if s < 0 then
+                return false
+            endif
+            call ArcanaSaveSetHeroInt(pid, h, f, s)
+            return true
+        endif
         return KeepUnknown(pid, k, v)
     endfunction
 
-    // 로드 항목 하나를 해석해 넣는다. 문법 오류면 거짓(어댑터가 로드 실패로 끝낸다). 표에 없는 키는 그대로 보존한다(10 3.5).
+    // 로드 항목 하나를 해석해 넣는다. 형식 오류면 거짓(어댑터가 로드 실패로 끝낸다). 표에 없는 키는 그대로 보존한다(10 3.5).
+    // 자주 나오는 키(영웅·창고)를 먼저 본다(실행량).
     function ArcanaSaveApply takes integer pid, string k, string v returns boolean
         local integer n = StringLength(k)
         local string c0 = SubString(k, 0, 1)
@@ -552,14 +592,27 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         if v == null then
             return false
         endif
-        if k == "v" then
-            if v != "2" then
+        if not SawV[pid] then
+            // v 는 첫 항목이어야 한다
+            if k == "v" and v == "2" then
+                set SawV[pid] = true
+                return true
+            endif
+            return false
+        endif
+        if c0 == "h" and n >= 2 then
+            return ApplyHero(pid, k, v)
+        elseif c0 == "s" and SubString(k, 1, 2) == "." then
+            set s = ParseSlot(SubString(k, 2, n), 99)
+            if s < 0 then
+                return KeepUnknown(pid, k, v)
+            endif
+            if not ItemQuick(v) then
                 return false
             endif
-            set SawV[pid] = true
+            call SaveStr(ARCANA_SAVE_DB, Sec(pid, 1), s, v)
             return true
-        elseif not SawV[pid] then
-            // v 는 첫 항목이어야 한다
+        elseif k == "v" then
             return false
         elseif k == "dv" then
             set LoadDv[pid] = ParseInt(v)
@@ -581,18 +634,6 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
             return ApplyCodex(pid, ARCANA_CODEX_AWAKE, v)
         elseif k == "c.h" then
             return ApplyCodex(pid, ARCANA_CODEX_HEAD, v)
-        elseif c0 == "s" and SubString(k, 1, 2) == "." then
-            set s = ParseSlot(SubString(k, 2, n), 99)
-            if s < 0 then
-                return KeepUnknown(pid, k, v)
-            endif
-            if not ArcanaSaveItemOk(v) then
-                return false
-            endif
-            call SaveStr(ARCANA_SAVE_DB, Sec(pid, 1), s, v)
-            return true
-        elseif c0 == "h" and n >= 2 then
-            return ApplyHero(pid, k, v)
         endif
         return KeepUnknown(pid, k, v)
     endfunction
@@ -664,102 +705,111 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         endif
     endfunction
 
-    private function HeroFieldKey takes integer f returns string
-        if f == ARCANA_HF_SKIN then
-            return ".sk"
-        elseif f == ARCANA_HF_LOGINS then
-            return ".lg"
-        elseif f == ARCANA_HF_Q then
-            return ".q"
-        elseif f == ARCANA_HF_QB then
-            return ".qb"
-        elseif f == ARCANA_HF_TQUEST then
-            return ".tq"
-        elseif f == ARCANA_HF_X_STORE then
-            return ".x.st"
-        elseif f == ARCANA_HF_X_WIN then
-            return ".x.win"
+    // 영웅 h 묶음 전체(있음, 숫자 8, 장착 10, 인벤토리 100)
+    private function BuildHero takes integer pid, integer doc, integer h returns nothing
+        local integer p = HeroKey(pid, h)
+        local string hk = KeyHero[h]
+        local integer s = 0
+        if not LoadBoolean(ARCANA_SAVE_DB, p, 299) then
+            set hk = null
+            return
         endif
-        return ".x.done"
+        if LoadBoolean(ARCANA_SAVE_DB, p, 300) then
+            call Emit(doc, hk, "1")
+        endif
+        loop
+            exitwhen s > 7
+            call EmitInt(doc, hk + KeyHeroField[s], LoadInteger(ARCANA_SAVE_DB, p, 301 + s))
+            set s = s + 1
+        endloop
+        set s = 0
+        loop
+            exitwhen s > 9
+            if HaveSavedString(ARCANA_SAVE_DB, p, s) then
+                call Emit(doc, hk + KeyEquip[s], LoadStr(ARCANA_SAVE_DB, p, s))
+            endif
+            set s = s + 1
+        endloop
+        set s = 0
+        loop
+            exitwhen s > 99
+            if HaveSavedString(ARCANA_SAVE_DB, p, 100 + s) then
+                call Emit(doc, hk + KeyInv[s], LoadStr(ARCANA_SAVE_DB, p, 100 + s))
+            endif
+            set s = s + 1
+        endloop
+        set hk = null
     endfunction
 
-    // 정해진 순서(10 3.2)의 위치 하나. 0~9 계정·도감, 10~109 창고, 110~1180 영웅(9명 × 119), 1181~ 알 수 없는 키
-    // 정해진 순서(10 3.2)의 위치 하나. 0~9 계정·도감, 10~109 창고, 110~1180 영웅(9명 × 119), 1181~ 알 수 없는 키.
-    // 가장 많은 영웅 칸을 먼저 본다(실행량).
-    private function BuildSlot takes integer pid, integer doc, integer c returns nothing
-        local integer h
-        local integer j
+    // 묶음 하나. 0 v·dv·계정 숫자, 1 스킨, 2~4 도감(카드·각성·머리), 5 창고, 6~14 영웅 1~9, 15 알 수 없는 키(정해진 순서 10 3.2)
+    private function BuildSection takes integer pid, integer doc, integer sec returns nothing
+        local integer s = 0
         local integer p
-        if c >= 110 and c < 1181 then
-            set h = (c - 110) / 119 + 1
-            set j = c - 110 - (h - 1) * 119
-            set p = HeroKey(pid, h)
-            if j >= 19 then
-                if HaveSavedString(ARCANA_SAVE_DB, p, 81 + j) then
-                    call Emit(doc, "h" + I2S(h) + ".i" + I2S(j - 19), LoadStr(ARCANA_SAVE_DB, p, 81 + j))
-                endif
-            elseif j >= 9 then
-                if HaveSavedString(ARCANA_SAVE_DB, p, j - 9) then
-                    call Emit(doc, "h" + I2S(h) + ".e" + I2S(j - 9), LoadStr(ARCANA_SAVE_DB, p, j - 9))
-                endif
-            elseif j >= 1 then
-                call EmitInt(doc, "h" + I2S(h) + HeroFieldKey(j - 1), LoadInteger(ARCANA_SAVE_DB, p, 300 + j))
-            elseif LoadBoolean(ARCANA_SAVE_DB, p, 300) then
-                call Emit(doc, "h" + I2S(h), "1")
-            endif
-        elseif c >= 10 and c < 110 then
-            if HaveSavedString(ARCANA_SAVE_DB, Sec(pid, 1), c - 10) then
-                call Emit(doc, "s." + I2S(c - 10), LoadStr(ARCANA_SAVE_DB, Sec(pid, 1), c - 10))
-            endif
-        elseif c >= 1181 then
-            set p = Sec(pid, 2)
-            set j = c - 1181
-            call Emit(doc, LoadStr(ARCANA_SAVE_DB, p, j * 2), LoadStr(ARCANA_SAVE_DB, p, j * 2 + 1))
-        elseif c == 0 then
+        if sec == 0 then
             call Emit(doc, "v", I2S(ARCANA_SAVE_SCHEMA))
-        elseif c == 1 then
             call Emit(doc, "dv", I2S(ARCANA_DATA_VERSION))
-        elseif c == 2 then
             call EmitInt(doc, "a.g", ArcanaSaveGetInt(pid, ARCANA_SF_GOLD))
-        elseif c == 3 then
             call EmitInt(doc, "a.bw", ArcanaSaveGetInt(pid, ARCANA_SF_BIGWHEEL))
-        elseif c == 4 then
             call EmitInt(doc, "a.td", ArcanaSaveGetInt(pid, ARCANA_SF_TOTALDAILY))
-        elseif c == 5 then
             call EmitInt(doc, "a.dl", ArcanaSaveGetInt(pid, ARCANA_SF_DAILYLAST))
-        elseif c == 6 then
+        elseif sec == 1 then
             call EmitStr(doc, "a.sk", SkinText(pid))
-        elseif c == 7 then
+        elseif sec == 2 then
             call EmitStr(doc, "c.c", CodexText(pid, ARCANA_CODEX_CARD))
-        elseif c == 8 then
+        elseif sec == 3 then
             call EmitStr(doc, "c.a", CodexText(pid, ARCANA_CODEX_AWAKE))
-        else
+        elseif sec == 4 then
             call EmitStr(doc, "c.h", CodexText(pid, ARCANA_CODEX_HEAD))
+        elseif sec == 5 then
+            set p = Sec(pid, 1)
+            loop
+                exitwhen s > 99
+                if HaveSavedString(ARCANA_SAVE_DB, p, s) then
+                    call Emit(doc, KeyStore[s], LoadStr(ARCANA_SAVE_DB, p, s))
+                endif
+                set s = s + 1
+            endloop
+        elseif sec <= 14 then
+            call BuildHero(pid, doc, sec - 5)
+        else
+            set p = Sec(pid, 2)
+            loop
+                exitwhen s >= LoadInteger(ARCANA_SAVE_DB, p, -1)
+                call Emit(doc, LoadStr(ARCANA_SAVE_DB, p, s * 2), LoadStr(ARCANA_SAVE_DB, p, s * 2 + 1))
+                set s = s + 1
+            endloop
         endif
+    endfunction
+
+    private function BuildSectionCond takes nothing returns boolean
+        call BuildSection(BArgPid, BArgDoc, BArgSec)
+        return false
     endfunction
 
     function ArcanaSaveBuildBegin takes integer pid returns nothing
         set BCur[pid] = 0
         set ARCANA_SAVE_BUILD_COUNT = 0
+        set ARCANA_SAVE_BUILDING[pid] = true
     endfunction
 
-    // 정해진 순서대로 항목을 문서에 넘긴다. 한 번에 위치 budget 개까지, 끝나면 참(10 4.3: 기본 예산이면 한 번에 끝난다).
+    // 정해진 순서(10 3.2)대로 항목을 문서에 넘긴다. 묶음(16개)마다 TriggerEvaluate 로 새 스레드에서 돌린다: 실행 한도가 묶음마다 새로 시작하고,
+    // 모두 같은 틱 안에서 차례로 끝나므로 만드는 도중의 변경이 섞이지 않는다(10 4.3). budget = 한 번에 돌 묶음 수, 끝나면 참.
     function ArcanaSaveBuildStep takes integer pid, integer doc, integer budget returns boolean
-        local integer c = BCur[pid]
-        local integer last = 1181 + LoadInteger(ARCANA_SAVE_DB, Sec(pid, 2), -1)
         local integer n = 0
         loop
-            exitwhen c >= last or n >= budget
-            if c >= 110 and c < 1181 and c - 110 - ((c - 110) / 119) * 119 == 0 and not LoadBoolean(ARCANA_SAVE_DB, HeroKey(pid, (c - 110) / 119 + 1), 299) then
-                set c = c + 119
-            else
-                call BuildSlot(pid, doc, c)
-                set c = c + 1
-            endif
+            exitwhen BCur[pid] >= 16 or n >= budget
+            set BArgPid = pid
+            set BArgDoc = doc
+            set BArgSec = BCur[pid]
+            call TriggerEvaluate(BuildTrig)
+            set BCur[pid] = BCur[pid] + 1
             set n = n + 1
         endloop
-        set BCur[pid] = c
-        return c >= last
+        if BCur[pid] >= 16 then
+            set ARCANA_SAVE_BUILDING[pid] = false
+            return true
+        endif
+        return false
     endfunction
 
     private function onInit takes nothing returns nothing
@@ -768,8 +818,45 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
             exitwhen i >= 32
             set B32C[i] = SubString(B32, i, i + 1)
             call SaveInteger(CharTab, 0, StringHash(B32C[i]), i + 1)
+            set Pop[i] = Pop[i / 2] + i - (i / 2) * 2
             set i = i + 1
         endloop
+        set Pow2[0] = 1
+        set Pow2[1] = 2
+        set Pow2[2] = 4
+        set Pow2[3] = 8
+        set Pow2[4] = 16
+        set i = 0
+        loop
+            exitwhen i > 9
+            set ClassChar[i + 1] = I2S(i)
+            call SaveInteger(ClassTab, 0, StringHash(I2S(i)), i + 1)
+            set KeyEquip[i] = ".e" + I2S(i)
+            set KeyHero[i] = "h" + I2S(i)
+            set i = i + 1
+        endloop
+        set ClassChar[11] = ";"
+        call SaveInteger(ClassTab, 0, StringHash(";"), 11)
+        set ClassChar[12] = "|"
+        call SaveInteger(ClassTab, 0, StringHash("|"), 12)
+        set i = 0
+        loop
+            exitwhen i > 99
+            set KeyStore[i] = "s." + I2S(i)
+            set KeyInv[i] = ".i" + I2S(i)
+            set i = i + 1
+        endloop
+        set KeyHeroField[0] = ".sk"
+        set KeyHeroField[1] = ".lg"
+        set KeyHeroField[2] = ".q"
+        set KeyHeroField[3] = ".qb"
+        set KeyHeroField[4] = ".tq"
+        set KeyHeroField[5] = ".x.st"
+        set KeyHeroField[6] = ".x.win"
+        set KeyHeroField[7] = ".x.done"
+        // 맵 시작 때 모든 클라이언트에서 한 번 만든다(이 라이브러리가 만드는 핸들은 이것 하나)
+        set BuildTrig = CreateTrigger()
+        call TriggerAddCondition(BuildTrig, Condition(function BuildSectionCond))
     endfunction
 
 endlibrary

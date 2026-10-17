@@ -17,8 +17,9 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         integer ARCANA_PICK_SHOW_PID = -1
         private constant string PREFIX = "ARCSAVE"
         private constant real TICK = 0.05
-        // 적용 예산(틱당). 항목 하나 = 1 + 값 바이트 / 16 (410자 도감 항목은 약 27, 68바이트 아이템은 5). 10 4.3·A2
+        // 적용 예산(틱당, 동기). 보통 항목 1, 도감 항목(c.*) 80. 적용은 플레이어마다 새 스레드에서 돈다(실행 한도, 10 4.3·A2)
         private constant integer APPLY_PER_TICK = 200
+        private constant integer APPLY_CODEX_COST = 80
         private constant integer LOAD_STAGGER_TICKS = 10    // 0.5초, 07 D11
         private constant integer LOAD_HTTP_TIMEOUT_TICKS = 900   // 45초(DLL 20초 + 여유)
         private constant integer LOAD_IDLE_TICKS = 200           // 10초. 여기에 현재 대기열 인원 × 2틱을 더한다(07 6.5)
@@ -75,6 +76,11 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         // 증거 파일(저장이 막혔을 때) 마지막 시각. 30초에 한 번까지
         private integer array CLast
         private integer array RawN
+
+        // 로드 적용 스레드 인자·결과(동기 경로)
+        private trigger ApplyTrig = null
+        private integer ApplyArgPid = 0
+        private boolean ApplyArgOk = true
 
         // 공용 송신 대기열(07 D11). 모든 클라이언트에서 같다.
         private integer array QPid
@@ -389,6 +395,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             set LStatus[pid] = 0
             set LDoc[pid] = 0
             set LPhase[pid] = 0
+            set ARCANA_SAVE_BUILDING[pid] = false
         endif
     endfunction
 
@@ -658,12 +665,33 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     //==========================================================================
     // 동기 경로: 0.05초 타이머
     //==========================================================================
+    // 동기 경로: 로드 항목을 이번 틱 예산만큼 적용한다(새 스레드). 결과는 ApplyArgOk
+    private function ApplyCond takes nothing returns boolean
+        local integer pid = ApplyArgPid
+        local integer n = 0
+        local string k
+        local boolean ok = true
+        loop
+            exitwhen ApplyIdx[pid] >= BufN[pid] or n >= APPLY_PER_TICK or not ok
+            set k = LoadStr(Buf, pid, ApplyIdx[pid] * 2)
+            set ok = ArcanaSaveApply(pid, k, LoadStr(Buf, pid, ApplyIdx[pid] * 2 + 1))
+            set ApplyIdx[pid] = ApplyIdx[pid] + 1
+            if SubString(k, 0, 2) == "c." then
+                set n = n + APPLY_CODEX_COST
+            else
+                set n = n + 1
+            endif
+        endloop
+        set ApplyArgOk = ok
+        set k = null
+        return false
+    endfunction
+
     private function Tick takes nothing returns nothing
         local integer pid = 0
         local integer n
         local integer p
         local boolean ok
-        local string v
         set Now = Now + 1
         loop
             exitwhen pid >= bj_MAX_PLAYERS
@@ -684,15 +712,10 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                 // 마지막 진행 뒤 10초 + 현재 대기열 인원 × 2틱 동안 다음 패킷이 없으면 누락(Codex 검토 3)
                 call FinishLoad(pid, ARCANA_STASH_FAILED, false, "로드 패킷 누락")
             elseif Phase[pid] == 4 then
-                set n = 0
-                set ok = true
-                loop
-                    exitwhen ApplyIdx[pid] >= BufN[pid] or n >= APPLY_PER_TICK or not ok
-                    set v = LoadStr(Buf, pid, ApplyIdx[pid] * 2 + 1)
-                    set ok = ArcanaSaveApply(pid, LoadStr(Buf, pid, ApplyIdx[pid] * 2), v)
-                    set ApplyIdx[pid] = ApplyIdx[pid] + 1
-                    set n = n + 1 + StringLength(v) / 16
-                endloop
+                set ApplyArgPid = pid
+                set ApplyArgOk = true
+                call TriggerEvaluate(ApplyTrig)
+                set ok = ApplyArgOk
                 if not ok then
                     call ArcanaSaveTrace("[ARC-NET] load apply refused pid=" + I2S(pid) + " entry=" + I2S(ApplyIdx[pid] - 1) + " key=" + LoadStr(Buf, pid, (ApplyIdx[pid] - 1) * 2))
                     call FinishLoad(pid, ARCANA_STASH_FAILED, false, "저장 형식 오류")
@@ -876,6 +899,8 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         local trigger t
         set ARCANA_LOGIN_OK = CreateTrigger()
         set ARCANA_PICK_SHOW = CreateTrigger()
+        set ApplyTrig = CreateTrigger()
+        call TriggerAddCondition(ApplyTrig, Condition(function ApplyCond))
         set GameNonce = GetRandomInt(1, 999999)
         set t = CreateTrigger()
         call DzTriggerRegisterSyncData(t, PREFIX, false)
