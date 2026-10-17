@@ -623,6 +623,18 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         set PickScrollOffset = 0
         call RefreshPickScroll()
     endfunction
+    // 불러온 인벤토리 칸의 아이콘만 그린다. 저장 데이터에는 이미 같은 값이 있으므로 다시 쓰지 않는다.
+    // (AddIvItem 은 쓰기 때 아이템 문법 검사를 글자마다 돌린다. 꽉 찬 인벤토리 100칸이면 소유자 화면에서만 실행 한도에 걸려
+    //  선택 처리가 중간에 멈췄다: PickCheck 거짓, 체력바·키 입력 미연결, 멀티에서는 상태가 갈라진다.)
+    private function PickInvIcon takes integer pid, integer number, string items returns nothing
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetTexture(F_ItemButtonsBackDrop[number], GetItemArt(items), 0)
+            if number <= 49 then
+                call DzFrameShow(F_ItemButtonLock[number], GetItemLock(items) != 0)
+            endif
+        endif
+    endfunction
+
     private function LoadPickF takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string f = DzGetTriggerSyncData()
@@ -714,7 +726,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         loop
             set str = ArcanaSaveInv(pid, SlotHero, j, "없음")
             if str != "없음" and str != null then
-                call AddIvItem(pid, j, str)
+                call PickInvIcon(pid, j, str)
                 set str = null
             endif
             set j = j + 1
@@ -724,7 +736,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         loop
             set str = ArcanaSaveInv(pid, SlotHero, j, "없음")
             if str != "없음" and str != null then
-                call AddIvItem(pid, j, str)
+                call PickInvIcon(pid, j, str)
                 set str = null
             endif
             set j = j + 1

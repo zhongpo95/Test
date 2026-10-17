@@ -59,6 +59,16 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
         endloop
     endfunction
 
+    // 불러온 창고 칸의 아이콘만 그린다. 저장 데이터에는 이미 같은 값이 있으므로 다시 쓰지 않는다(AddStItem 의 쓰기 검사는 100칸이면 실행 한도에 걸린다).
+    private function StoreIcon takes integer pid, integer number, string items returns nothing
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetTexture(F_Storage_ButtonsBackDrop[number], GetItemArt(items), 0)
+            if number <= 49 then
+                call DzFrameShow(F_Storage_ButtonLock[number], GetItemLock(items) != 0)
+            endif
+        endif
+    endfunction
+
     private function downloadCallback takes nothing returns nothing
         // 어댑터는 완료 때만 이벤트를 내고 신규 계정도 빈 데이터 성공으로 낸다. 데이터는 어댑터가 ArcanaSaveData 에 이미 적용했다(세이브 v2).
         local player user = ArcanaStashNetGetPlayer()
@@ -75,7 +85,7 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
                 loop
                     set str = ArcanaSaveStore(pid, j, "없음")
                     if str != "없음" and str != null then
-                        call AddStItem(pid,j, str)
+                        call StoreIcon(pid, j, str)
                         set str = null
                     endif
                     set j = j + 1
