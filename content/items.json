@@ -164,17 +164,17 @@
    "id": 1,
    "raw": "I007",
    "key": "item1",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 3,
+   "tier": 7,
+   "name": "귀걸이"
   },
   {
    "id": 2,
    "raw": "I006",
    "key": "item2",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 2,
+   "tier": 7,
+   "name": "목걸이"
   },
   {
    "id": 3,
@@ -182,7 +182,7 @@
    "key": "weapon_t2",
    "type": 1,
    "tier": 2,
-   "name": null
+   "name": "무기2"
   },
   {
    "id": 4,
@@ -190,7 +190,7 @@
    "key": "weapon_t3",
    "type": 1,
    "tier": 3,
-   "name": null
+   "name": "무기3"
   },
   {
    "id": 5,
@@ -198,7 +198,7 @@
    "key": "weapon_t4",
    "type": 1,
    "tier": 4,
-   "name": null
+   "name": "무기4"
   },
   {
    "id": 6,
@@ -206,7 +206,7 @@
    "key": "weapon_t5",
    "type": 1,
    "tier": 5,
-   "name": null
+   "name": "무기5"
   },
   {
    "id": 7,
@@ -214,7 +214,7 @@
    "key": "weapon_t6",
    "type": 1,
    "tier": 6,
-   "name": null
+   "name": "무기6"
   },
   {
    "id": 8,
@@ -222,7 +222,7 @@
    "key": "weapon_t7",
    "type": 1,
    "tier": 7,
-   "name": null
+   "name": "무기7"
   },
   {
    "id": 9,
@@ -230,7 +230,7 @@
    "key": "weapon_t8",
    "type": 1,
    "tier": 8,
-   "name": null
+   "name": "무기8"
   },
   {
    "id": 10,
@@ -238,31 +238,31 @@
    "key": "weapon_t1",
    "type": 1,
    "tier": 1,
-   "name": null
+   "name": "무기"
   },
   {
    "id": 11,
    "raw": "I00E",
    "key": "item11",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 4,
+   "tier": 7,
+   "name": "반지"
   },
   {
    "id": 12,
    "raw": "I00D",
    "key": "item12",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 4,
+   "tier": 1,
+   "name": "반지"
   },
   {
    "id": 13,
    "raw": "I00K",
    "key": "card",
    "type": 6,
-   "tier": null,
-   "name": null,
+   "tier": 1,
+   "name": "아르카나 카드",
    "fields": {
     "A": [
      0,
@@ -282,225 +282,225 @@
    "id": 14,
    "raw": "I00G",
    "key": "item14",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "강화템(3)"
   },
   {
    "id": 15,
    "raw": "I00C",
    "key": "item15",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "강화템(3)"
   },
   {
    "id": 16,
    "raw": "I00A",
    "key": "item16",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "존야 (2)"
   },
   {
    "id": 17,
    "raw": "I00I",
    "key": "item17",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "존야 (2)"
   },
   {
    "id": 18,
    "raw": "I00J",
    "key": "item18",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "회복약 (1)"
   },
   {
    "id": 19,
    "raw": "I009",
    "key": "item19",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "회복약 (1)"
   },
   {
    "id": 20,
    "raw": "I025",
    "key": "item20",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "000"
   },
   {
    "id": 21,
    "raw": "I026",
    "key": "item21",
    "type": null,
-   "tier": null,
-   "name": null
+   "tier": 1,
+   "name": "1111"
   },
   {
    "id": 22,
    "raw": "I027",
    "key": "item22",
    "type": null,
-   "tier": null,
-   "name": null
+   "tier": 1,
+   "name": "222"
   },
   {
    "id": 23,
    "raw": "I01Y",
    "key": "item23",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "2티어 강화 재료"
   },
   {
    "id": 24,
    "raw": "I00L",
    "key": "item24",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "2티어 재료"
   },
   {
    "id": 25,
    "raw": "I028",
    "key": "item25",
    "type": null,
-   "tier": null,
-   "name": null
+   "tier": 1,
+   "name": "3333"
   },
   {
    "id": 26,
    "raw": "I01Z",
    "key": "item26",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "3티어 강화 재료"
   },
   {
    "id": 27,
    "raw": "I01S",
    "key": "item27",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "3티어 재료"
   },
   {
    "id": 28,
    "raw": "I029",
    "key": "item28",
    "type": null,
-   "tier": null,
-   "name": null
+   "tier": 1,
+   "name": "444"
   },
   {
    "id": 29,
    "raw": "I020",
    "key": "item29",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "4티어 강화 재료"
   },
   {
    "id": 30,
    "raw": "I01T",
    "key": "item30",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "4티어 재료"
   },
   {
    "id": 31,
    "raw": "I021",
    "key": "item31",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "5티어 강화 재료"
   },
   {
    "id": 32,
    "raw": "I01U",
    "key": "item32",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "5티어 재료"
   },
   {
    "id": 33,
    "raw": "I022",
    "key": "item33",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "6티어 강화 재료"
   },
   {
    "id": 34,
    "raw": "I01V",
    "key": "item34",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "6티어 재료"
   },
   {
    "id": 35,
    "raw": "I023",
    "key": "item35",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "7티어 강화 재료"
   },
   {
    "id": 36,
    "raw": "I01W",
    "key": "item36",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "7티어 재료"
   },
   {
    "id": 37,
    "raw": "I024",
    "key": "item37",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "8티어 강화 재료"
   },
   {
    "id": 38,
    "raw": "I01X",
    "key": "item38",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "8티어 재료"
   },
   {
    "id": 39,
    "raw": "I000",
    "key": "item39",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "아르카나 티켓"
   },
   {
    "id": 40,
    "raw": "I008",
    "key": "item40",
-   "type": null,
-   "tier": null,
-   "name": null
+   "type": 0,
+   "tier": 1,
+   "name": "빈 아이템"
   },
   {
    "id": 41,
    "raw": "I003",
    "key": "elixir",
    "type": 0,
-   "tier": null,
-   "name": null,
+   "tier": 1,
+   "name": "엘릭서",
    "fields": {
     "A": [
      0,
