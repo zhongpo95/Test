@@ -1,5 +1,5 @@
 // 출석 확인. 로드 때 받은 서버 날짜(KST)와 저장 키 daily.last 로 판정한다(09 2.1).
-library Daily initializer init requires Stash, UIQuest, ArcanaSaveConfig, ArcanaStashNet
+library Daily initializer init requires UIQuest, ArcanaSaveConfig, ArcanaStashNet
     globals
     endglobals
 

@@ -1,4 +1,4 @@
-library UIQuest initializer init requires Stash, FrameCount
+library UIQuest initializer init requires FrameCount
 
     globals
         integer QuestMain
