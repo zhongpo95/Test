@@ -203,13 +203,12 @@
 //! import "D:\Work\GitHub\Test\System\Filter.j"
 
 // === Library: external API ===
-// Arcana self-hosted save (stage 5-3). Backend is chosen by ARCANA_SAVE_BACKEND in ArcanaSaveConfig.j (false = JN).
+// Arcana 자체 저장 서버(DLL). 저장 데이터 계층은 맨 위 ArcanaSaveData.j(세이브 v2).
 //! import "D:\Work\GitHub\Test\Library\ArcanaSaveConfig.j"
 //! import "D:\Work\GitHub\Test\Library\ArcanaSaveNet3Natives.j"
 //! import "D:\Work\GitHub\Test\Library\ArcanaStashNet.j"
 //! import "D:\Work\GitHub\Test\Library\ArcanaSaveLogin.j"
 //! import "D:\Work\GitHub\Test\Library\ArcanaRecord.j"
-// duplicate direct import removed: JNStashNet.j is imported by the map script
 
 // === Root: ESC ===
 //! import "D:\Work\GitHub\Test\ESC.j"
