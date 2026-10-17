@@ -18,13 +18,13 @@ library Daily initializer init requires Stash, UIQuest, ArcanaSaveConfig, Arcana
             call VJDebugMsg("출석 정보를 받지 못했습니다.")
             return
         endif
-        if StashLoad(PLAYER_DATA[pid], "daily.last", "") == I2S(day) then
+        if ArcanaSaveGetInt(pid, ARCANA_SF_DAILYLAST) == day then
             call VJDebugMsg("이미 출석함")
             return
         endif
-        call StashSave(PLAYER_DATA[pid], "daily.last", I2S(day))
-        call StashSave(PLAYER_DATA[pid], "Totaldaily", I2S(S2I(StashLoad(PLAYER_DATA[pid],"Totaldaily","0")) + 1 ) )
-        call StashSave(PLAYER_DATA[pid], "BigWheelCount", "3" )
+        call ArcanaSaveSetInt(pid, ARCANA_SF_DAILYLAST, day)
+        call ArcanaSaveSetInt(pid, ARCANA_SF_TOTALDAILY, ArcanaSaveGetInt(pid, ARCANA_SF_TOTALDAILY) + 1)
+        call ArcanaSaveSetInt(pid, ARCANA_SF_BIGWHEEL, 3)
         call VJDebugMsg("출석 보상!")
     endfunction
     

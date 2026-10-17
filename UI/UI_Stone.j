@@ -55,7 +55,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         endif
         loop
             exitwhen i >= limit
-            set value = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
+            set value = ArcanaSaveInv(pid, S2I(sn), i, "0")
             if material then
                 if not IsEmptyItem(value) then
                     if GetItemIDs(value) == 39 and GetItemCharge(value) > 0 then
@@ -103,7 +103,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set slot = 50
         loop
             exitwhen slot >= 100
-            set value = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(PlayerSlotNumber[pid])+".아이템"+I2S(slot), "0")
+            set value = ArcanaSaveInv(pid, PlayerSlotNumber[pid], slot, "0")
             // 빈 슬롯은 JN 정규식 기반 아이템 파서에 넘기지 않습니다.
             if not IsEmptyItem(value) then
                 if GetItemIDs(value) == 39 then
@@ -245,13 +245,13 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                 return false
             endif
             set cardSlot = StoneSlot(pid, true)
-            set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), "0")
+            set items = ArcanaSaveInv(pid, S2I(sn), cardSlot, "0")
             set charge = GetItemCharge(items)
             if charge <= 1 then
                 call DzFrameSetTexture(F_ItemButtonsBackDrop[cardSlot], "UI_Inventory.blp", 0)
-                call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot))
+                call ArcanaSaveSetInv(pid, S2I(sn), cardSlot, null)
             else
-                call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), SetItemCharge(items, charge-1))
+                call ArcanaSaveSetInv(pid, S2I(sn), cardSlot, SetItemCharge(items, charge-1))
             endif
         endif
         set StoneActive[pid] = true

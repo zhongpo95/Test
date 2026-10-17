@@ -329,6 +329,14 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
         return LoadInteger(ARCANA_SAVE_DB, Sec(pid, 3 + kind), -1)
     endfunction
 
+    // 머리 도감 동기화 패킷용("1"/"0")
+    function ArcanaSaveCodexFlag takes integer pid, integer kind, integer id returns string
+        if ArcanaSaveCodexHas(pid, kind, id) then
+            return "1"
+        endif
+        return "0"
+    endfunction
+
     function ArcanaSaveCodexAdd takes integer pid, integer kind, integer id returns nothing
         local integer p = Sec(pid, 3 + kind)
         local integer g = id / 5

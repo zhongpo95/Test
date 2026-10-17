@@ -460,7 +460,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set packet = I2S(PlayerSlotNumber[pid])
             loop
                 exitwhen i > PROTO_HEAD_COUNT
-                set packet = packet + "|" + StashLoad(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "머리도감." + ProtoHeadKey[i], "0")
+                set packet = packet + "|" + ArcanaSaveCodexFlag(pid, ARCANA_CODEX_HEAD, i)
                 set i = i + 1
             endloop
             call DzSyncData("PCdx", packet)

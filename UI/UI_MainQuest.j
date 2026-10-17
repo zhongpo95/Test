@@ -21,7 +21,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
     endfunction
 
     function MainQuestGetStep takes integer pid, integer heroNumber returns integer
-        return S2I(StashLoad(PLAYER_DATA[pid], MainQuestKey(heroNumber, "Q"), "0"))
+        return ArcanaSaveHeroInt(pid, heroNumber, ARCANA_HF_Q)
     endfunction
 
     function MainQuestCanSelectBoss takes integer pid, integer heroNumber, integer bossOrder returns boolean
@@ -39,11 +39,11 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
     endfunction
 
     private function MainQuestSetStep takes integer pid, integer heroNumber, integer step returns nothing
-        call StashSave(PLAYER_DATA[pid], MainQuestKey(heroNumber, "Q"), I2S(step))
+        call ArcanaSaveSetHeroInt(pid, heroNumber, ARCANA_HF_Q, step)
     endfunction
 
     private function MainQuestSetBossCount takes integer pid, integer heroNumber, integer count returns nothing
-        call StashSave(PLAYER_DATA[pid], MainQuestKey(heroNumber, "QB"), I2S(count))
+        call ArcanaSaveSetHeroInt(pid, heroNumber, ARCANA_HF_QB, count)
     endfunction
 
     function MainQuestRefresh takes integer pid, integer heroNumber returns nothing
@@ -131,8 +131,8 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         local integer pid = GetPlayerId(p)
         local integer gold = 0
         if GetLocalPlayer() == p then
-            set gold = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + amount
-            call StashSave(PLAYER_DATA[pid], "골드", I2S(gold))
+            set gold = ArcanaSaveGetInt(pid, ARCANA_SF_GOLD) + amount
+            call ArcanaSaveSetInt(pid, ARCANA_SF_GOLD, gold)
             call DzFrameSetText(F_GoldText, I2S(gold))
             call VJDebugMsg("골드 "+I2S(amount)+" 획득")
         endif
@@ -144,7 +144,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         local integer count = 0
         if GetLocalPlayer() == p then
             set step = MainQuestGetStep(pid, heroNumber)
-            set count = S2I(StashLoad(PLAYER_DATA[pid], MainQuestKey(heroNumber, "QB"), "0")) + 1
+            set count = ArcanaSaveHeroInt(pid, heroNumber, ARCANA_HF_QB) + 1
             call MainQuestSetBossCount(pid, heroNumber, count)
             if bossOrder == 1 and step == MQ_STEP_STAGGER then
                 call MainQuestAddGold(p, MQ_STAGGER_GOLD)

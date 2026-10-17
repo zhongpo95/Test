@@ -617,16 +617,15 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         local integer count
         local integer slot
         local string itemData
-        local string key = "영웅" + I2S(PlayerSlotNumber[pid]) + ".시험원정.보관재료"
         // 기존 인벤토리도 소유 클라이언트에서만 변경된다. 이 분기는 원정 상태를 바꾸지 않는다.
         if GetLocalPlayer() == Player(pid) and PLAYER_DATA_SERVER_READY[pid] then
-            set count = S2I(StashLoad(PLAYER_DATA[pid], key, "0"))
+            set count = ArcanaSaveHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_X_STORE)
             loop
                 exitwhen count <= 0
                 set slot = 50
                 loop
                     exitwhen slot == 100
-                    set itemData = StashLoad(PLAYER_DATA[pid], "영웅" + I2S(PlayerSlotNumber[pid]) + ".아이템" + I2S(slot), "0")
+                    set itemData = ArcanaSaveInv(pid, PlayerSlotNumber[pid], slot, "0")
                     exitwhen itemData == null or itemData == "" or itemData == "0"
                     exitwhen GetItemIDs(itemData) == 0 or GetItemIDs(itemData) == 27
                     set slot = slot + 1
@@ -635,19 +634,19 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 call additem(Player(pid), "ID27;")
                 set count = count - 1
             endloop
-            call StashSave(PLAYER_DATA[pid], key, I2S(count))
+            call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_X_STORE, count)
         endif
     endfunction
 
     private function ConfirmVictory takes integer pid, boolean clear returns nothing
-        local string key = "영웅" + I2S(PlayerSlotNumber[pid]) + ".시험원정."
+        local integer h = PlayerSlotNumber[pid]
         set ExpConfirmedBattles[pid] = ExpConfirmedBattles[pid] + 1
         if PLAYER_DATA_SERVER_READY[pid] then
             if GetLocalPlayer() == Player(pid) then
-                call StashSave(PLAYER_DATA[pid], key + "보관재료", I2S(S2I(StashLoad(PLAYER_DATA[pid], key + "보관재료", "0")) + 1))
-                call StashSave(PLAYER_DATA[pid], key + "전투승리", I2S(S2I(StashLoad(PLAYER_DATA[pid], key + "전투승리", "0")) + 1))
+                call ArcanaSaveSetHeroInt(pid, h, ARCANA_HF_X_STORE, ArcanaSaveHeroInt(pid, h, ARCANA_HF_X_STORE) + 1)
+                call ArcanaSaveSetHeroInt(pid, h, ARCANA_HF_X_WIN, ArcanaSaveHeroInt(pid, h, ARCANA_HF_X_WIN) + 1)
                 if clear then
-                    call StashSave(PLAYER_DATA[pid], key + "완주", I2S(S2I(StashLoad(PLAYER_DATA[pid], key + "완주", "0")) + 1))
+                    call ArcanaSaveSetHeroInt(pid, h, ARCANA_HF_X_DONE, ArcanaSaveHeroInt(pid, h, ARCANA_HF_X_DONE) + 1)
                 endif
             endif
             call ClaimMaterials(pid)

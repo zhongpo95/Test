@@ -97,7 +97,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         set i = 0
         loop
             if Eitem[pid][i] != null then
-                call StashSave(PLAYER_DATA[pid], "영웅"+ str + ".E"+I2S(i), Eitem[pid][i])
+                call ArcanaSaveSetEquip(pid, S2I(str), i, Eitem[pid][i])
             endif
             exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
@@ -166,7 +166,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
     endfunction
 
     private function PickSkinUnlocked takes integer pid, integer heroNumber, integer skinNumber returns boolean
-        local string unlocked = null
         if skinNumber == 1 then
             return true
         endif
@@ -174,8 +173,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         if heroNumber == 5 and skinNumber == 2 then
             return true
         endif
-        set unlocked = StashLoad(PLAYER_DATA[pid], "계정.skin."+I2S(heroNumber)+"."+I2S(skinNumber), "0")
-        return unlocked != null and unlocked != "" and unlocked != "0"
+        return ArcanaSaveSkinOwned(pid, heroNumber, skinNumber)
     endfunction
 
     private function PickSelectedSkinNumber takes integer pid, integer heroNumber returns integer
@@ -184,7 +182,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
     private function PickStoredSkinNumber takes integer pid, integer heroNumber, integer skinNumber returns integer
         if skinNumber < 1 then
-            set skinNumber = S2I(StashLoad(PLAYER_DATA[pid], "영웅"+I2S(heroNumber)+".skin", "1"))
+            // 저장된 스킨이 없으면 0, PickValidSkinNumber 가 1 로 바꾼다
+            set skinNumber = ArcanaSaveHeroInt(pid, heroNumber, ARCANA_HF_SKIN)
         endif
         return PickValidSkinNumber(heroNumber, skinNumber)
     endfunction
@@ -209,16 +208,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         return 0
     endfunction
 
-    private function PickHeroValue takes integer pid, integer heroNumber returns string
-        return StashLoad(PLAYER_DATA[pid], "영웅"+I2S(heroNumber), null)
-    endfunction
-
     private function PickHeroIsSaved takes integer pid, integer heroNumber returns boolean
-        local string value = PickHeroValue(pid, heroNumber)
-        if value == null or value == "" or value == "없음" then
-            return false
-        endif
-        return true
+        return ArcanaSaveHeroExists(pid, heroNumber)
     endfunction
     private function PickMaxScrollOffset takes nothing returns integer
         local integer maxOffset = PickCardCount - PickVisibleCardCount
@@ -715,13 +706,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         set i = 0
         loop
-            set Eitem[pid][i] = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(SlotHero)+".E"+I2S(i), "0")
+            set Eitem[pid][i] = ArcanaSaveEquip(pid, SlotHero, i, "0")
             exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
         endloop
         set j = 0
         loop
-            set str = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(SlotHero)+".아이템"+I2S(j), "없음")
+            set str = ArcanaSaveInv(pid, SlotHero, j, "없음")
             if str != "없음" and str != null then
                 call AddIvItem(pid, j, str)
                 set str = null
@@ -731,7 +722,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         endloop
 
         loop
-            set str = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(SlotHero)+".아이템"+I2S(j), "없음")
+            set str = ArcanaSaveInv(pid, SlotHero, j, "없음")
             if str != "없음" and str != null then
                 call AddIvItem(pid, j, str)
                 set str = null
@@ -740,7 +731,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         exitwhen j == 100
         endloop
         if GetLocalPlayer() == Player(pid) then
-            call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
+            call DzFrameSetText(F_GoldText, I2S(ArcanaSaveGetInt(pid, ARCANA_SF_GOLD)))
             set i = 0
             loop
                 if Eitem[pid][i] != "" and Eitem[pid][i] != "0" then
@@ -802,7 +793,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         call MainQuestLoad(pid, SlotHero, GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON]), GetItemUp(Eitem[pid][EQUIP_SLOT_WEAPON]))
 
-        call StashSave(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", I2S( S2I(StashLoad(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")) + 1 ) )
+        call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_LOGINS, ArcanaSaveHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_LOGINS) + 1)
 
         call TracePick(pid, "before-upload")
         call upload2(pid)
@@ -829,8 +820,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             return
         endif
 
-        call StashSave(PLAYER_DATA[pid], "영웅"+I2S(SlotHero), I2S(SlotHero))
-        call StashSave(PLAYER_DATA[pid], "영웅"+I2S(SlotHero)+".skin", I2S(SkinNumber))
+        call ArcanaSaveHeroCreate(pid, SlotHero, SkinNumber)
         set PlayerSlotNumber[pid] = SlotHero
         set HeroTypeId = PickHeroTypeId(SlotHero, SkinNumber)
 
@@ -898,7 +888,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         // 장착 슬롯: 0엘릭서, 1무기, 2목걸이, 3귀걸이1, 4귀걸이2, 5반지1, 6반지2, 7팔찌, 8카드
         if GetLocalPlayer() == Player(pid) then
-            call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
+            call DzFrameSetText(F_GoldText, I2S(ArcanaSaveGetInt(pid, ARCANA_SF_GOLD)))
             call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemArt(Eitem[pid][EQUIP_SLOT_WEAPON]), 0)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemArt(Eitem[pid][EQUIP_SLOT_WEAPON]), 0)
             call DzSyncData("리셋",I2S(pid))
@@ -933,7 +923,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         call MainQuestNew(pid, SlotHero)
 
-        call StashSave(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")
+        call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_LOGINS, 0)
 
         call TracePick(pid, "before-upload")
         call upload2(pid)

@@ -84,17 +84,14 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     private function ProtoRememberHead takes integer pid, integer head returns nothing
         if not ProtoHeadKnown[ExpKey(pid, head)] then
             set ProtoHeadKnown[ExpKey(pid, head)] = true
-            if GetLocalPlayer() == Player(pid) then
-                call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "머리도감." + ProtoHeadKey[head], "1")
-            endif
-            // Arcana 판: 도감은 원정 종료 저장에 함께 들어간다
+            // 세이브 v2(10 4.5): 동기 경로이므로 모든 클라이언트에서 같이 쓴다(사본이 갈라지지 않는다). 도감은 원정 종료 저장에 함께 들어간다
+            call ArcanaSaveCodexAdd(pid, ARCANA_CODEX_HEAD, head)
         endif
     endfunction
 
     private function ProtoRememberCard takes integer pid, integer card returns nothing
-        if GetLocalPlayer() == Player(pid) then
-            call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드도감." + ProtoCardKey[card], "1")
-        endif
+        // 세이브 v2(10 4.5): 동기 경로, 모든 클라이언트에서 쓴다
+        call ArcanaSaveCodexAdd(pid, ARCANA_CODEX_CARD, card)
     endfunction
 
     function ProtoGrantHead takes integer pid, integer head returns nothing
@@ -1361,9 +1358,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     call ProtoStatAddCard(pid, id, true)
                     set changed = true
                     call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoDisplayCardName(pid, id) + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCharacterEffectsText(pid, id))
-                    if GetLocalPlayer() == Player(pid) then
-                        call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드각성도감." + ProtoCardKey[id], "1")
-                    endif
+                    // 세이브 v2(10 4.5): 동기 경로, 모든 클라이언트에서 쓴다
+                    call ArcanaSaveCodexAdd(pid, ARCANA_CODEX_AWAKE, id)
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 else
                     set previous = id

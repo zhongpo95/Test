@@ -51,9 +51,9 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
         local integer i = 0
         loop
             if Eitem[pid][i] == null or Eitem[pid][i] == "" then
-                call StashSave(PLAYER_DATA[pid], "영웅"+I2S(heroNumber)+".E"+I2S(i), "0")
+                call ArcanaSaveSetEquip(pid, heroNumber, i, "0")
             else
-                call StashSave(PLAYER_DATA[pid], "영웅"+I2S(heroNumber)+".E"+I2S(i), Eitem[pid][i])
+                call ArcanaSaveSetEquip(pid, heroNumber, i, Eitem[pid][i])
             endif
             exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
@@ -74,10 +74,10 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
                 set ARCANA_PICK_SHOW_PID = pid
                 call TriggerExecute(ARCANA_PICK_SHOW)
                 //빅휠 카운트
-                set str = StashLoad(PLAYER_DATA[pid], "BigWheelCount", "0" )
+                set str = I2S(ArcanaSaveGetInt(pid, ARCANA_SF_BIGWHEEL))
                 set j = 0
                 loop
-                    set str = StashLoad(PLAYER_DATA[pid], "창고"+I2S(j), "없음")
+                    set str = ArcanaSaveStore(pid, j, "없음")
                     if str != "없음" and str != null then
                         call AddStItem(pid,j, str)
                         set str = null

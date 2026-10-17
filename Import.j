@@ -1,3 +1,6 @@
+// 세이브 v2(10 4.1·A6): 저장 데이터 접근 계층은 맨 앞에 둔다(모든 라이브러리가 requires 없이 부른다). P2 는 Stash 판, P3 에서 ArcanaSaveData.j 로 바꾼다.
+//! import "D:\Work\GitHub\Test\Data\Data_ItemGen.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaSaveDataStash.j"
 // === Expedition ===
 //! import "D:\Work\GitHub\Test\Data\Data_PrototypeStats.j"
 //! import "D:\Work\GitHub\Test\Data\Data_PrototypeCatalog.j"

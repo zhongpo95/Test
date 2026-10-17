@@ -45,7 +45,7 @@ library UIQuest initializer init requires Stash, FrameCount
             call DzFrameShow(Quest[1], true)
             call DzFrameShow(Quest[2], true)
             set Quest_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")
+            call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST, 0)
         endif
     endfunction
 
@@ -55,7 +55,7 @@ library UIQuest initializer init requires Stash, FrameCount
         local integer q
         if GetLocalPlayer() == Player(pid) then
             if PLAYER_DATA_SERVER_READY[pid] then
-                set q = S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0"))
+                set q = ArcanaSaveHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST)
                 if q >= 7 then
                     set QuestNumber = 0
                 elseif q >= 5 then
@@ -104,9 +104,9 @@ library UIQuest initializer init requires Stash, FrameCount
     function TodayQuestPlus takes integer pid returns nothing
         local integer q
         if GetLocalPlayer() == Player(pid) then
-            set q = S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")) + 1
+            set q = ArcanaSaveHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST) + 1
             call BJDebugMsg(I2S(q))
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", I2S(q))
+            call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST, q)
 
             if q >= 7 then
                 if q == 7 then
