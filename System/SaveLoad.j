@@ -5,7 +5,6 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
         trigger DOWNLOAD_CALLBACK = CreateTrigger( )
         trigger UPLOAD_CALLBACK = CreateTrigger( )
         
-        stash array PLAYER_DATA
         boolean array PLAYER_DATA_SERVER_READY
         boolean array PLAYER_DATA_UPLOAD_BUSY
         private boolean array SaveQueued
@@ -61,20 +60,17 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
     endfunction
 
     private function downloadCallback takes nothing returns nothing
-        // 어댑터는 완료 때만 이벤트를 내고 신규 계정도 빈 Stash 성공으로 낸다. JNObjectMapInit 은 소비자가 없어 부르지 않는다(06 15절).
+        // 어댑터는 완료 때만 이벤트를 내고 신규 계정도 빈 데이터 성공으로 낸다. 데이터는 어댑터가 ArcanaSaveData 에 이미 적용했다(세이브 v2).
         local player user = ArcanaStashNetGetPlayer()
         local integer pid = GetPlayerId(user)
         local integer j = 0
         local string str = null
         if ArcanaStashNetGetFinished( ) then
             if ArcanaStashNetGetResult( ) then
-                set PLAYER_DATA[pid] = ArcanaStashNetGetStash( )
                 set PLAYER_DATA_SERVER_READY[pid] = true
                 // 로그인 뒤 로드가 끝났다: 그 플레이어 화면에 영웅 선택 창을 연다(UIPick)
                 set ARCANA_PICK_SHOW_PID = pid
                 call TriggerExecute(ARCANA_PICK_SHOW)
-                //빅휠 카운트
-                set str = I2S(ArcanaSaveGetInt(pid, ARCANA_SF_BIGWHEEL))
                 set j = 0
                 loop
                     set str = ArcanaSaveStore(pid, j, "없음")
@@ -86,9 +82,8 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
                 exitwhen j == 100
                 endloop
             else
-                // 로드 실패를 성공으로 바꾸지 않는다. 빈 Stash 는 화면용이고 READY 가 거짓이라 어떤 경로로도 저장되지 않는다.
+                // 로드 실패를 성공으로 바꾸지 않는다. 데이터는 어댑터가 비웠고(화면용) READY 가 거짓이라 어떤 경로로도 저장되지 않는다.
                 set PLAYER_DATA_SERVER_READY[pid] = false
-                set PLAYER_DATA[pid] = CreateStash()
                 // 로그인을 풀어 입력칸을 다시 연다(다시 로그인하면 다시 불러온다)
                 set ARCANA_LOGIN_DONE[pid] = false
                 call DisplayTimedTextToPlayer(user, 0, 0, 20, "서버 데이터를 불러오지 못했습니다. 다시 로그인하세요. (" + ArcanaStashNetGetMessage( ) + ")")
@@ -122,12 +117,12 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
         set PLAYER_DATA_UPLOAD_BUSY[pid] = true
         set PlayerSaveStatus[pid] = 1
         // 어댑터는 상태 1·2 이고 진행 중 작업이 없을 때만 받는다. 충돌·임대 상실·결과 불명이면 여기서 막힌다.
-        if not ArcanaStashNetUploadUser(Player(pid), PLAYER_DATA[pid], SAVE_REQUEST_CALLBACK) then
+        if not ArcanaStashNetUploadUser(Player(pid), SAVE_REQUEST_CALLBACK) then
             set PLAYER_DATA_UPLOAD_BUSY[pid] = false
             set PlayerSaveStatus[pid] = 3
             if ArcanaSaveBlockedNotice(pid) then
                 // 저장이 막혀 있으면 지금 데이터를 증거 파일로 남긴다(30초에 한 번까지)
-                call ArcanaStashNetClaimUser(Player(pid), PLAYER_DATA[pid], "blocked state=" + I2S(ArcanaStashNetGetState(pid)))
+                call ArcanaStashNetClaimUser(Player(pid), "blocked state=" + I2S(ArcanaStashNetGetState(pid)))
             endif
             return false
         endif
@@ -238,10 +233,9 @@ library PlayerSave initializer onInit requires UIItem, ArcanaSaveConfig, ArcanaS
         
         loop
             if GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING then
-                // 로그인한 뒤에 불러온다(ArcanaSaveLogin → ArcanaSaveLoginLoad). 그 전에는 화면용 빈 Stash, READY 거짓(저장 안 됨).
-                // 모든 클라이언트에서 같은 순서로 만든다.
+                // 로그인한 뒤에 불러온다(ArcanaSaveLogin → ArcanaSaveLoginLoad). 그 전에는 빈 데이터, READY 거짓(저장 안 됨). 모든 클라이언트에서 같이 한다.
                 set PLAYER_DATA_SERVER_READY[i] = false
-                set PLAYER_DATA[i] = CreateStash()
+                call ArcanaSaveReset(i)
                 set j = 0
                 loop
                     set Eitem[i][j] = null

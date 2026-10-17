@@ -1,11 +1,10 @@
-// Arcana 자체 저장 서버(api=3)용 Stash 저장·불러오기 어댑터다. JNStashNet 과 같은 이벤트 인터페이스를 주고 결과는 동기화 경로에서만 적용한다.
-library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet3Natives, Stash, DzAPISync
+// Arcana 자체 저장 서버(api=3)용 저장·불러오기 어댑터다. 받은 문서는 동기 경로에서 ArcanaSaveData(세이브 v2)에 적용하고, 저장 문서는 소유자 로컬에서 ArcanaSaveData 를 읽어 만든다.
+library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet3Natives, ArcanaSaveData, DzAPISync
 
     // 실행 위치 규칙 (Codex 검토, 07 6.5·6.6)
     // - 동기 경로(모든 클라이언트): 공개 함수 호출, 0.05초 동기 타이머, DzSyncData 수신 콜백.
-    //   CreateStash·StashCopy·DestroyStash·StashSave(적용), 상태·대기열·tag 변경, 콜백 발생은 여기서만 한다.
-    //   Stash.j 의 생성 함수가 MAX_STASH 를 늘리므로 이것을 로컬 블록에서 부르면 클라이언트마다 핸들 번호가 달라진다.
-    // - 소유자 로컬 블록(GetLocalPlayer() == p): DLL 호출(Arcana*/ArcanaNet*), DzSyncData 송신, 동기 경로가 채운 표(SnapTab) 읽기만 한다. Stash 는 읽지 않는다.
+    //   ArcanaSaveReset·ArcanaSaveApply(적용), 상태·대기열·tag 변경, 콜백 발생은 여기서만 한다.
+    // - 소유자 로컬 블록(GetLocalPlayer() == p): DLL 호출(Arcana*/ArcanaNet*), DzSyncData 송신, ArcanaSaveBuildStep(해시테이블 읽기, 10 4.3)만 한다.
     //   로컬 블록의 결과는 반드시 DzSyncData 패킷으로 보내고, 받은 쪽 동기 콜백에서 상태에 반영한다.
     // - 같은 송신자의 DzSyncData 는 보낸 순서대로 모든 클라이언트에 도착한다(lockstep). 로드 패킷 수신은 이 순서를 전제로 한다.
 
@@ -18,8 +17,9 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         integer ARCANA_PICK_SHOW_PID = -1
         private constant string PREFIX = "ARCSAVE"
         private constant real TICK = 0.05
-        private constant integer BUILD_PER_TICK = 200       // 07 D12
+        // 적용 예산(틱당, 동기). 보통 항목 1, 도감 항목(c.*) 80. 적용은 플레이어마다 새 스레드에서 돈다(실행 한도, 10 4.3·A2)
         private constant integer APPLY_PER_TICK = 200
+        private constant integer APPLY_CODEX_COST = 80
         private constant integer LOAD_STAGGER_TICKS = 10    // 0.5초, 07 D11
         private constant integer LOAD_HTTP_TIMEOUT_TICKS = 900   // 45초(DLL 20초 + 여유)
         private constant integer LOAD_IDLE_TICKS = 200           // 10초. 여기에 현재 대기열 인원 × 2틱을 더한다(07 6.5)
@@ -68,28 +68,19 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         private integer array Trailer
         private integer array ApplyIdx
         private string array LoadInfo
-        private stash array ApplyStash
-        private stash array Snap
         private trigger array CbLoad
         private trigger array CbSave
         private hashtable Buf = InitHashtable()
         // 마지막 로드의 받은 패킷 본문 원문(정확 대조용, 동기 경로에서만 기록)
         private hashtable Raw = InitHashtable()
-        // 저장 스냅숏 읽기는 동기 경로(모든 클라이언트)에서 한다. Stash 읽기(StashKeyAt/StashValueAt)는 ForForce 를 써서
-        // 소유자 로컬 블록에서 부르면 같은 PC 두 창 LAN 에서 다른 창이 끊겼다(멀티_끊김_조사 19절). 소유자 로컬은 이 표만 읽는다.
-        private hashtable SnapTab = InitHashtable()
-        // 증거 파일용 지금 데이터 복사(저장이 막혔을 때). 동기 경로에서 표로 옮기고, 소유자 화면에서만 DLL 로 파일을 쓴다
-        private hashtable ClaimTab = InitHashtable()
-        private integer array CPhase
-        private stash array CStash
-        private integer array CCur
-        private integer array CN
+        // 증거 파일(저장이 막혔을 때) 마지막 시각. 30초에 한 번까지
         private integer array CLast
-        private string array CReason
-        private integer array SnapN
-        private integer array SnapCur
-        private boolean array SnapReady
         private integer array RawN
+
+        // 로드 적용 스레드 인자·결과(동기 경로)
+        private trigger ApplyTrig = null
+        private integer ApplyArgPid = 0
+        private boolean ApplyArgOk = true
 
         // 공용 송신 대기열(07 D11). 모든 클라이언트에서 같다.
         private integer array QPid
@@ -104,7 +95,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         private integer array LPhase
         private integer array LReq
         private integer array LDoc
-        private integer array LCursor
         private integer array LTries
         private integer array LWait
         private integer array LStatus
@@ -112,7 +102,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
 
         // 이벤트(JNStashNet 과 같은 의미)
         private player EV_USER = null
-        private stash EV_STASH = 0
         private boolean EV_FINISHED = false
         private boolean EV_RESULT = false
         private string EV_MESSAGE = ""
@@ -199,9 +188,8 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         return true
     endfunction
 
-    private function Fire takes trigger cb, player user, stash s, boolean result, string message, integer max, integer progress returns nothing
+    private function Fire takes trigger cb, player user, boolean result, string message, integer max, integer progress returns nothing
         local player pUser = EV_USER
-        local stash pStash = EV_STASH
         local boolean pFinished = EV_FINISHED
         local boolean pResult = EV_RESULT
         local string pMessage = EV_MESSAGE
@@ -212,7 +200,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             return
         endif
         set EV_USER = user
-        set EV_STASH = s
         set EV_FINISHED = true
         set EV_RESULT = result
         set EV_MESSAGE = message
@@ -220,7 +207,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         set EV_PROGRESS = progress
         call TriggerExecute(cb)
         set EV_USER = pUser
-        set EV_STASH = pStash
         set EV_FINISHED = pFinished
         set EV_RESULT = pResult
         set EV_MESSAGE = pMessage
@@ -409,44 +395,36 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
             set LStatus[pid] = 0
             set LDoc[pid] = 0
             set LPhase[pid] = 0
+            set ARCANA_SAVE_BUILDING[pid] = false
         endif
     endfunction
 
     private function FinishLoad takes integer pid, integer state, boolean result, string message returns nothing
-        local stash s = ApplyStash[pid]
         call LocalCleanup(pid)
         call QueueRemove(pid)
-        call FlushChildHashtable(Buf, pid)
-        set BufN[pid] = 0
-        set BufBytes[pid] = 0
         set Phase[pid] = 0
         set St[pid] = state
         if not result then
-            if s != 0 then
-                call DestroyStash(s)
-            endif
-            set s = 0
+            // 실패한 로드의 일부 적용분을 남기지 않는다(빈 데이터, READY 거짓이라 저장되지 않는다)
+            call ArcanaSaveReset(pid)
             call FlushChildHashtable(Raw, pid)
             set RawN[pid] = 0
+        else
+            set ARCANA_SAVE_LOADED[pid] = true
         endif
-        set ApplyStash[pid] = 0
-        call Fire(CbLoad[pid], Player(pid), s, result, message, Total[pid], Got[pid])
+        call ArcanaSaveTrace("[ARC-NET] load finish pid=" + I2S(pid) + " ok=" + I2S(IntegerTertiaryOp(result, 1, 0)) + " state=" + I2S(state) + " entries=" + I2S(BufN[pid]) + " dv=" + I2S(ArcanaSaveLoadedDataVersion(pid)) + " now=" + I2S(Now) + " msg=" + message)
+        call FlushChildHashtable(Buf, pid)
+        set BufN[pid] = 0
+        set BufBytes[pid] = 0
+        call Fire(CbLoad[pid], Player(pid), result, message, Total[pid], Got[pid])
     endfunction
 
     private function FinishSave takes integer pid, integer state, boolean result, string message returns nothing
-        call ArcanaSaveTrace("[ARC-NET] save finish pid=" + I2S(pid) + " ok=" + I2S(IntegerTertiaryOp(result, 1, 0)) + " state=" + I2S(state) + " phase=" + I2S(Phase[pid]) + " snapN=" + I2S(SnapN[pid]) + " ready=" + I2S(IntegerTertiaryOp(SnapReady[pid], 1, 0)) + " now=" + I2S(Now) + " msg=" + message)
+        call ArcanaSaveTrace("[ARC-NET] save finish pid=" + I2S(pid) + " ok=" + I2S(IntegerTertiaryOp(result, 1, 0)) + " state=" + I2S(state) + " phase=" + I2S(Phase[pid]) + " now=" + I2S(Now) + " msg=" + message)
         call LocalCleanup(pid)
-        if Snap[pid] != 0 then
-            call DestroyStash(Snap[pid])
-            set Snap[pid] = 0
-        endif
-        call FlushChildHashtable(SnapTab, pid)
-        set SnapN[pid] = 0
-        set SnapCur[pid] = 0
-        set SnapReady[pid] = false
         set Phase[pid] = 0
         set St[pid] = state
-        call Fire(CbSave[pid], Player(pid), 0, result, message, 0, 0)
+        call Fire(CbSave[pid], Player(pid), result, message, 0, 0)
     endfunction
 
     //==========================================================================
@@ -500,7 +478,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                 set Deadline[pid] = Now + LOAD_IDLE_TICKS
                 call QueueAdd(pid)
             elseif state == 2 and err == 3 then
-                // 신규(서버에 저장 없음). 빈 Stash 로 성공(06 11.2). 실패와 구별한다.
+                // 신규(서버에 저장 없음). 빈 데이터로 성공(06 11.2). 실패와 구별한다.
                 set Rev[pid] = 0
                 // 09 2.1·D9: "new" 또는 "new;day=" + 숫자 8자리만 받는다. 그 밖(빈 값, 다른 문자, 길이 초과, 자릿수 틀림)은 "new".
                 if StringLength(payload) == 16 and SubString(payload, 0, 8) == "new;day=" and Digits8(SubString(payload, 8, 16)) then
@@ -510,7 +488,8 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                 endif
                 call FlushChildHashtable(Raw, pid)
                 set RawN[pid] = 0
-                set ApplyStash[pid] = CreateStash()
+                // 신규(서버에 저장 없음)는 빈 데이터로 성공한다. 첫 저장에 v·dv 가 들어간다(10 4.3-2)
+                call ArcanaSaveReset(pid)
                 call FinishLoad(pid, ARCANA_STASH_NEW, true, "신규")
             else
                 call FinishLoad(pid, ARCANA_STASH_FAILED, false, "로드 실패 오류 " + I2S(err))
@@ -528,7 +507,7 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                     if Trailer[pid] != BufN[pid] then
                         call FinishLoad(pid, ARCANA_STASH_FAILED, false, "항목 수 불일치")
                     else
-                        set ApplyStash[pid] = CreateStash()
+                        call ArcanaSaveReset(pid)
                         set ApplyIdx[pid] = 0
                         set Phase[pid] = 4
                     endif
@@ -568,29 +547,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         set LPhase[pid] = 0
     endfunction
 
-    // 동기 경로: 스냅숏을 표(SnapTab)로 옮긴다. 삭제된 항목(값 null)은 넣지 않는다(07 D8).
-    private function SnapCopyStep takes integer pid returns nothing
-        local stash s = Snap[pid]
-        local integer size = StashSize(s)
-        local integer n = 0
-        local string v
-        loop
-            exitwhen SnapCur[pid] >= size or n >= BUILD_PER_TICK
-            set v = StashValueAt(s, SnapCur[pid], null)
-            if v != null then
-                call SaveStr(SnapTab, pid, SnapN[pid] * 2, StashKeyAt(s, SnapCur[pid]))
-                call SaveStr(SnapTab, pid, SnapN[pid] * 2 + 1, v)
-                set SnapN[pid] = SnapN[pid] + 1
-            endif
-            set SnapCur[pid] = SnapCur[pid] + 1
-            set n = n + 1
-        endloop
-        if SnapCur[pid] >= size then
-            set SnapReady[pid] = true
-            call ArcanaSaveTrace("[ARC-NET] snapshot ready pid=" + I2S(pid) + " size=" + I2S(size) + " live=" + I2S(SnapN[pid]) + " now=" + I2S(Now))
-        endif
-        set v = null
-    endfunction
 
     private function ClaimNotice takes integer pid, string path returns nothing
         if path != null and path != "" then
@@ -598,67 +554,15 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         endif
     endfunction
 
-    // 동기 경로: 증거 파일용 지금 데이터 복사. 끝나면 소유자 화면에서만 문서를 만들어 DLL 로 파일을 쓴다
-    private function ClaimStep takes integer pid returns nothing
-        local stash s = CStash[pid]
-        local integer size = StashSize(s)
-        local integer n = 0
-        local integer i
-        local integer doc
-        local string v
-        local string path
-        loop
-            exitwhen CCur[pid] >= size or n >= BUILD_PER_TICK
-            set v = StashValueAt(s, CCur[pid], null)
-            if v != null then
-                call SaveStr(ClaimTab, pid, CN[pid] * 2, StashKeyAt(s, CCur[pid]))
-                call SaveStr(ClaimTab, pid, CN[pid] * 2 + 1, v)
-                set CN[pid] = CN[pid] + 1
-            endif
-            set CCur[pid] = CCur[pid] + 1
-            set n = n + 1
-        endloop
-        if CCur[pid] < size then
-            set v = null
-            return
-        endif
-        if GetLocalPlayer() == Player(pid) then
-            set doc = N_DocNew()
-            if doc != 0 then
-                set i = 0
-                loop
-                    exitwhen i >= CN[pid]
-                    call N_DocAdd(doc, LoadStr(ClaimTab, pid, i * 2), LoadStr(ClaimTab, pid, i * 2 + 1))
-                    set i = i + 1
-                endloop
-                set path = N_ClaimDoc(doc, CReason[pid])
-                call ClaimNotice(pid, path)
-            endif
-        endif
-        call ArcanaSaveTrace("[ARC-NET] claim (current data) pid=" + I2S(pid) + " entries=" + I2S(CN[pid]) + " reason=" + CReason[pid])
-        call DestroyStash(CStash[pid])
-        set CStash[pid] = 0
-        call FlushChildHashtable(ClaimTab, pid)
-        set CPhase[pid] = 0
-        set v = null
-        set path = null
-    endfunction
 
-    // 소유자 로컬: 동기 경로가 채운 표만 읽어 DLL 문서를 만든다(Stash 를 직접 읽지 않는다).
+    // 소유자 로컬: 해시테이블(ArcanaSaveData)을 정해진 순서로 읽어 DLL 문서를 만든다(10 4.3). 기본 예산이면 한 번에 끝난다.
     private function LocalBuild takes integer pid returns nothing
-        local integer n = 0
-        if not SnapReady[pid] then
+        if not ArcanaSaveBuildStep(pid, LDoc[pid], ARCANA_SAVE_BUILD_BUDGET) then
             return
         endif
-        loop
-            exitwhen LCursor[pid] >= SnapN[pid] or n >= BUILD_PER_TICK
-            call N_DocAdd(LDoc[pid], LoadStr(SnapTab, pid, LCursor[pid] * 2), LoadStr(SnapTab, pid, LCursor[pid] * 2 + 1))
-            set LCursor[pid] = LCursor[pid] + 1
-            set n = n + 1
-        endloop
-        if LCursor[pid] >= SnapN[pid] then
+        if true then
             set LReq[pid] = N_SaveBegin(LDoc[pid], Rev[pid])
-            call ArcanaSaveTrace("[ARC-NET] save begin pid=" + I2S(pid) + " doc entries=" + I2S(SnapN[pid]) + " expected=" + I2S(Rev[pid]) + " req=" + I2S(LReq[pid]))
+            call ArcanaSaveTrace("[ARC-NET] save begin pid=" + I2S(pid) + " doc entries=" + I2S(ARCANA_SAVE_BUILD_COUNT) + " expected=" + I2S(Rev[pid]) + " req=" + I2S(LReq[pid]))
             set LDoc[pid] = 0   // 성공·실패와 관계없이 DLL이 소비했다
             if LReq[pid] == 0 then
                 call LocalSaveFinal(pid, 2, 12, -1)
@@ -734,8 +638,9 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                     call N_Release(LStatus[pid])
                     set LReq[pid] = 0
                     set LStatus[pid] = 0
+                    // 봉인됨(미도착 확정): 지금 데이터로 새 요청 ID 문서를 다시 만든다
                     set LDoc[pid] = N_DocNew()
-                    set LCursor[pid] = 0
+                    call ArcanaSaveBuildBegin(pid)
                     set LPhase[pid] = 5
                     if LDoc[pid] == 0 then
                         call LocalSaveFinal(pid, 2, 12, -1)
@@ -760,10 +665,33 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     //==========================================================================
     // 동기 경로: 0.05초 타이머
     //==========================================================================
+    // 동기 경로: 로드 항목을 이번 틱 예산만큼 적용한다(새 스레드). 결과는 ApplyArgOk
+    private function ApplyCond takes nothing returns boolean
+        local integer pid = ApplyArgPid
+        local integer n = 0
+        local string k
+        local boolean ok = true
+        loop
+            exitwhen ApplyIdx[pid] >= BufN[pid] or n >= APPLY_PER_TICK or not ok
+            set k = LoadStr(Buf, pid, ApplyIdx[pid] * 2)
+            set ok = ArcanaSaveApply(pid, k, LoadStr(Buf, pid, ApplyIdx[pid] * 2 + 1))
+            set ApplyIdx[pid] = ApplyIdx[pid] + 1
+            if SubString(k, 0, 2) == "c." then
+                set n = n + APPLY_CODEX_COST
+            else
+                set n = n + 1
+            endif
+        endloop
+        set ApplyArgOk = ok
+        set k = null
+        return false
+    endfunction
+
     private function Tick takes nothing returns nothing
         local integer pid = 0
         local integer n
         local integer p
+        local boolean ok
         set Now = Now + 1
         loop
             exitwhen pid >= bj_MAX_PLAYERS
@@ -784,25 +712,24 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
                 // 마지막 진행 뒤 10초 + 현재 대기열 인원 × 2틱 동안 다음 패킷이 없으면 누락(Codex 검토 3)
                 call FinishLoad(pid, ARCANA_STASH_FAILED, false, "로드 패킷 누락")
             elseif Phase[pid] == 4 then
-                set n = 0
-                loop
-                    exitwhen ApplyIdx[pid] >= BufN[pid] or n >= APPLY_PER_TICK
-                    call StashSave(ApplyStash[pid], LoadStr(Buf, pid, ApplyIdx[pid] * 2), LoadStr(Buf, pid, ApplyIdx[pid] * 2 + 1))
-                    set ApplyIdx[pid] = ApplyIdx[pid] + 1
-                    set n = n + 1
-                endloop
-                if ApplyIdx[pid] >= BufN[pid] then
-                    set Rev[pid] = LoadRev[pid]
-                    call FinishLoad(pid, ARCANA_STASH_LOADED, true, "로드 성공")
+                set ApplyArgPid = pid
+                set ApplyArgOk = true
+                call TriggerEvaluate(ApplyTrig)
+                set ok = ApplyArgOk
+                if not ok then
+                    call ArcanaSaveTrace("[ARC-NET] load apply refused pid=" + I2S(pid) + " entry=" + I2S(ApplyIdx[pid] - 1) + " key=" + LoadStr(Buf, pid, (ApplyIdx[pid] - 1) * 2))
+                    call FinishLoad(pid, ARCANA_STASH_FAILED, false, "저장 형식 오류")
+                elseif ApplyIdx[pid] >= BufN[pid] then
+                    if ArcanaSaveApplyEnd(pid) then
+                        set Rev[pid] = LoadRev[pid]
+                        call FinishLoad(pid, ARCANA_STASH_LOADED, true, "로드 성공")
+                    else
+                        // v·dv 가 없는 문서(v1 이거나 맵이 모르는 판)는 로드 실패다(신규 아님, 저장 차단). 10 3.7
+                        call FinishLoad(pid, ARCANA_STASH_FAILED, false, "저장 형식 판 오류")
+                    endif
                 endif
             elseif (Phase[pid] == 5 or Phase[pid] == 6) and Now > Deadline[pid] then
                 call FinishSave(pid, ARCANA_STASH_RESULT_UNKNOWN, false, "저장 응답 시간 초과(다시 로드 필요)")
-            endif
-            if (Phase[pid] == 5 or Phase[pid] == 6) and Snap[pid] != 0 and not SnapReady[pid] then
-                call SnapCopyStep(pid)
-            endif
-            if CPhase[pid] == 1 then
-                call ClaimStep(pid)
             endif
             if GetLocalPlayer() == Player(pid) and LPhase[pid] != 0 then
                 call LocalStep(pid)
@@ -853,29 +780,26 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
         return true
     endfunction
 
-    function ArcanaStashNetUploadUser takes player user, stash whichStash, trigger callback returns boolean
+    function ArcanaStashNetUploadUser takes player user, trigger callback returns boolean
         local integer pid = GetPlayerId(user)
-        if Phase[pid] != 0 or (St[pid] != ARCANA_STASH_LOADED and St[pid] != ARCANA_STASH_NEW) or not StashExists(whichStash) then
+        if Phase[pid] != 0 or (St[pid] != ARCANA_STASH_LOADED and St[pid] != ARCANA_STASH_NEW) then
             return false
         endif
         set Tag[pid] = Tag[pid] + 1
         set CbSave[pid] = callback
-        // 스냅숏은 동기 경로에서 만든다(MAX_STASH 일치). 내용 읽기만 소유자 로컬에서 한다.
-        set Snap[pid] = StashCopy(whichStash)
-        call ArcanaSaveTrace("[ARC-NET] upload pid=" + I2S(pid) + " src=" + I2S(whichStash) + " snap=" + I2S(Snap[pid]) + " st=" + I2S(St[pid]) + " rev=" + I2S(Rev[pid]) + " now=" + I2S(Now))
-        call FlushChildHashtable(SnapTab, pid)
-        set SnapN[pid] = 0
-        set SnapCur[pid] = 0
-        set SnapReady[pid] = false
+        call ArcanaSaveTrace("[ARC-NET] upload pid=" + I2S(pid) + " st=" + I2S(St[pid]) + " rev=" + I2S(Rev[pid]) + " now=" + I2S(Now))
         set Phase[pid] = 5
         set Deadline[pid] = Now + SAVE_TIMEOUT_TICKS
         if GetLocalPlayer() == user then
             set LDoc[pid] = N_DocNew()
-            set LCursor[pid] = 0
             set LTries[pid] = 0
             set LPhase[pid] = 5
             if LDoc[pid] == 0 then
                 call LocalSaveFinal(pid, 2, 12, -1)
+            else
+                // 이 틱에 문서를 만든다(만드는 도중의 변경이 섞이지 않게, 10 4.3)
+                call ArcanaSaveBuildBegin(pid)
+                call LocalBuild(pid)
             endif
         endif
         return true
@@ -892,65 +816,32 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     endfunction
 
     // 저장이 막힌 상태(결과 불명·임대 상실·충돌)에서 지금 데이터를 증거 파일로 남긴다. 30초에 한 번까지. 동기 경로에서 부른다
-    function ArcanaStashNetClaimUser takes player user, stash whichStash, string reason returns boolean
+    function ArcanaStashNetClaimUser takes player user, string reason returns boolean
         local integer pid = GetPlayerId(user)
-        if CPhase[pid] != 0 or not StashExists(whichStash) or (CLast[pid] > 0 and Now - CLast[pid] < 600) then
+        local integer doc
+        local string path
+        if CLast[pid] > 0 and Now - CLast[pid] < 600 then
             return false
         endif
-        set CStash[pid] = StashCopy(whichStash)
-        call FlushChildHashtable(ClaimTab, pid)
-        set CCur[pid] = 0
-        set CN[pid] = 0
-        set CReason[pid] = reason
         set CLast[pid] = Now
-        set CPhase[pid] = 1
+        // 저장 문서를 만드는 중(LPhase 5)이면 그 진행 위치를 건드리지 않는다(소유자 로컬 상태라 로컬 블록 안에서만 본다)
+        if GetLocalPlayer() == user and LPhase[pid] != 5 then
+            set doc = N_DocNew()
+            if doc != 0 then
+                call ArcanaSaveBuildBegin(pid)
+                if ArcanaSaveBuildStep(pid, doc, 100000) then
+                    set path = N_ClaimDoc(doc, reason)
+                    call ClaimNotice(pid, path)
+                else
+                    call N_DocDrop(doc)
+                endif
+            endif
+        endif
+        call ArcanaSaveTrace("[ARC-NET] claim (current data) pid=" + I2S(pid) + " reason=" + reason)
+        set path = null
         return true
     endfunction
 
-    // 정확 대조(Codex 검토 5). s 의 살아 있는 항목을 07 2.4 와 같은 규칙으로 다시 묶어 마지막 로드에서 받은 패킷 원문과 바이트 단위로 비교한다.
-    // 반환: 비교한 바이트 수(일치), -1 불일치, -2 비교할 로드 원문 없음. 동기 경로에서 부른다(모든 클라이언트에서 같은 결과).
-    function ArcanaStashNetVerifyExact takes integer pid, stash s returns integer
-        local integer size
-        local integer i = 0
-        local integer seq = 0
-        local integer count = 0
-        local integer bytes = 0
-        local string cur = ""
-        local string enc
-        local string k
-        local string v
-        if RawN[pid] <= 0 or s == 0 or not StashExists(s) then
-            return -2
-        endif
-        set size = StashSize(s)
-        loop
-            exitwhen i >= size
-            set v = StashValueAt(s, i, null)
-            if v != null then
-                set k = StashKeyAt(s, i)
-                set enc = I2S(StringLength(k)) + ":" + I2S(StringLength(v)) + ":" + k + v
-                if StringLength(cur) + StringLength(enc) > ENTRY_ENC_MAX then
-                    if seq >= RawN[pid] or LoadStr(Raw, pid, seq) != cur then
-                        return -1
-                    endif
-                    set bytes = bytes + StringLength(cur)
-                    set seq = seq + 1
-                    set cur = ""
-                endif
-                set cur = cur + enc
-                set count = count + 1
-            endif
-            set i = i + 1
-        endloop
-        set cur = cur + "#" + I2S(count)
-        if seq != RawN[pid] - 1 or LoadStr(Raw, pid, seq) != cur then
-            return -1
-        endif
-        set k = null
-        set v = null
-        set enc = null
-        return bytes + StringLength(cur)
-    endfunction
 
     function ArcanaStashNetIsReady takes integer pid returns boolean
         return St[pid] == ARCANA_STASH_LOADED or St[pid] == ARCANA_STASH_NEW
@@ -1003,14 +894,13 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     function ArcanaStashNetGetProgress takes nothing returns integer
         return EV_PROGRESS
     endfunction
-    function ArcanaStashNetGetStash takes nothing returns stash
-        return EV_STASH
-    endfunction
 
     private function onInit takes nothing returns nothing
         local trigger t
         set ARCANA_LOGIN_OK = CreateTrigger()
         set ARCANA_PICK_SHOW = CreateTrigger()
+        set ApplyTrig = CreateTrigger()
+        call TriggerAddCondition(ApplyTrig, Condition(function ApplyCond))
         set GameNonce = GetRandomInt(1, 999999)
         set t = CreateTrigger()
         call DzTriggerRegisterSyncData(t, PREFIX, false)
