@@ -117,16 +117,22 @@ library ITEM requires DataItem
         if IsEmptyItem(items) then
             return -1
         endif
-        set raw = S2I(EXExecuteScript("(require'jass.slk').item["+I2S(LoadInteger(ItemData, StringHash("ITEMID"), GetItemIDs(items)))+"].Tip"))
-        if raw >= ITEM_TYPE_ELIXIR and raw <= ITEM_TYPE_GEM then
-            return raw
+        // 세이브 v2 P1: SLK Tip 대신 생성 표(content/items.json -> Data_ItemGen.j). 값은 -a5datacheck 로 SLK 와 대조한다
+        set raw = GetItemIDs(items)
+        if raw < 0 or raw > ARCANA_ITEM_ID_MAX then
+            return -1
         endif
-        return -1
+        return ARCANA_ITEM_TYPE[raw]
     endfunction
 
     //티어
     function GetItemTier takes string items returns integer
-        return S2I(EXExecuteScript("(require'jass.slk').item["+I2S(LoadInteger(ItemData, StringHash("ITEMID"), GetItemIDs(items)))+"].Level"))
+        // 세이브 v2 P1: SLK Level 대신 생성 표. 표에 없는 번호는 0(예전 item[0].Level 과 같다)
+        local integer id = GetItemIDs(items)
+        if id < 0 or id > ARCANA_ITEM_ID_MAX then
+            return 0
+        endif
+        return ARCANA_ITEM_TIER[id]
     endfunction
 
     //이미지
