@@ -5,6 +5,7 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
     //  -a5hash   A1: "a"=="A", StringHash 대소문자, base32hex 32글자의 해시가 서로 다른지, 한글 바이트 길이
     //  -a5codex  A2: 410자 카드·각성 도감과 17자 머리 도감을 한 틱에 해독하고 개수를 확인한다
     //  -a5fill   꽉 찬 합성 계정(영웅 5, 모든 칸, 도감 전부)을 0.05초마다 한 묶음씩 SCRATCH 에 채운다
+    //  -a5fillme 같은 합성 데이터를 입력한 사람 자신의 저장 데이터에 채운다(시험 계정 전용, 로드 시간 측정용)
     //  -a5build  A9: 입력한 사람 화면에서 SCRATCH 문서를 한 번에 만든다(ArcanaDocNew → BuildStep → ArcanaDocDrop, 서버로 보내지 않음)
     //            "-a5build 200" 처럼 예산을 주면 그 예산으로 한 번만 부르고 끝났는지 보여 준다
     //  -a5ops    실행 한도 재기: 일정한 반복을 2.5만~30만 단계(게임 밖 모의 실행 기준)로 각각 새 스레드에서 돌리고, 끝까지 간 단계마다 한 줄씩 남긴다
@@ -26,6 +27,8 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         private string CardsText = ""
         private string HeadsText = ""
         private integer OpsN = 0
+        private integer FillPid = 27
+        private integer ApplyPid = 27
     endglobals
 
     private function Say takes string msg returns nothing
@@ -61,11 +64,12 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
     endfunction
 
     private function ApplyCond takes nothing returns boolean
-        set ApplyOk = ArcanaSaveApply(SCRATCH, ApplyKey, ApplyValue)
+        set ApplyOk = ArcanaSaveApply(ApplyPid, ApplyKey, ApplyValue)
         return false
     endfunction
 
     private function ApplyThread takes string k, string v returns boolean
+        set ApplyPid = FillPid
         set ApplyKey = k
         set ApplyValue = v
         set ApplyOk = false
@@ -131,6 +135,7 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         local string heads = HeadsText
         local boolean ok
         call Say("A2 시작: 카드 " + I2S(StringLength(cards)) + "자, 머리 " + I2S(StringLength(heads)) + "자")
+        set FillPid = SCRATCH
         call ArcanaSaveReset(SCRATCH)
         set ok = ArcanaSaveApply(SCRATCH, "v", "2") and ArcanaSaveApply(SCRATCH, "dv", "1")
         // 410자 해독은 각각 새 스레드에서(어댑터도 로드 항목을 틱 예산으로 나눠 적용한다)
@@ -150,40 +155,40 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         local integer h
         local integer part
         if st == 0 then
-            call ArcanaSaveReset(SCRATCH)
-            call ArcanaSaveApply(SCRATCH, "v", "2")
-            call ArcanaSaveApply(SCRATCH, "dv", "1")
+            call ArcanaSaveReset(FillPid)
+            call ArcanaSaveApply(FillPid, "v", "2")
+            call ArcanaSaveApply(FillPid, "dv", "1")
             call ApplyThread("c.c", CardsText)
             call ApplyThread("c.a", CardsText)
             call ApplyThread("c.h", HeadsText)
-            call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_GOLD, 2000000000)
-            call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_BIGWHEEL, 3)
-            call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_TOTALDAILY, 999)
-            call ArcanaSaveSetInt(SCRATCH, ARCANA_SF_DAILYLAST, 20261017)
+            call ArcanaSaveSetInt(FillPid, ARCANA_SF_GOLD, 2000000000)
+            call ArcanaSaveSetInt(FillPid, ARCANA_SF_BIGWHEEL, 3)
+            call ArcanaSaveSetInt(FillPid, ARCANA_SF_TOTALDAILY, 999)
+            call ArcanaSaveSetInt(FillPid, ARCANA_SF_DAILYLAST, 20261017)
         elseif st <= 10 then
             set s = (st - 1) * 10
             loop
                 exitwhen s >= st * 10
-                call ArcanaSaveSetStore(SCRATCH, s, ACCESSORY)
+                call ArcanaSaveSetStore(FillPid, s, ACCESSORY)
                 set s = s + 1
             endloop
         elseif st <= 65 then
             set h = (st - 11) / 11 + 1
             set part = st - 11 - (h - 1) * 11
             if part == 0 then
-                call ArcanaSaveHeroCreate(SCRATCH, h, 2)
-                call ArcanaSaveSetSkinOwned(SCRATCH, h, 1)
-                call ArcanaSaveSetSkinOwned(SCRATCH, h, 2)
+                call ArcanaSaveHeroCreate(FillPid, h, 2)
+                call ArcanaSaveSetSkinOwned(FillPid, h, 1)
+                call ArcanaSaveSetSkinOwned(FillPid, h, 2)
                 set s = 1
                 loop
                     exitwhen s > ARCANA_HF_X_DONE
-                    call ArcanaSaveSetHeroInt(SCRATCH, h, s, 99)
+                    call ArcanaSaveSetHeroInt(FillPid, h, s, 99)
                     set s = s + 1
                 endloop
                 set s = 0
                 loop
                     exitwhen s >= 10
-                    call ArcanaSaveSetEquip(SCRATCH, h, s, ACCESSORY)
+                    call ArcanaSaveSetEquip(FillPid, h, s, ACCESSORY)
                     set s = s + 1
                 endloop
             else
@@ -191,9 +196,9 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
                 loop
                     exitwhen s >= part * 10
                     if s < 50 then
-                        call ArcanaSaveSetInv(SCRATCH, h, s, ACCESSORY)
+                        call ArcanaSaveSetInv(FillPid, h, s, ACCESSORY)
                     else
-                        call ArcanaSaveSetInv(SCRATCH, h, s, MATERIAL)
+                        call ArcanaSaveSetInv(FillPid, h, s, MATERIAL)
                     endif
                     set s = s + 1
                 endloop
@@ -202,7 +207,7 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         set FillStage = FillStage + 1
         if FillStage > 65 then
             call PauseTimer(FillTimer)
-            call Say("합성 계정 채움: 골드 " + I2S(ArcanaSaveGetInt(SCRATCH, ARCANA_SF_GOLD)) + ", 영웅5 i99 " + ArcanaSaveInv(SCRATCH, 5, 99, "없음") + ", 카드 " + I2S(ArcanaSaveCodexCount(SCRATCH, ARCANA_CODEX_CARD)))
+            call Say("합성 계정 채움: 골드 " + I2S(ArcanaSaveGetInt(FillPid, ARCANA_SF_GOLD)) + ", 영웅5 i99 " + ArcanaSaveInv(FillPid, 5, 99, "없음") + ", 카드 " + I2S(ArcanaSaveCodexCount(FillPid, ARCANA_CODEX_CARD)))
         endif
     endfunction
 
@@ -278,7 +283,12 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
             call CmdDataCheck()
         elseif msg == "-a5dump" then
             call CmdDump()
-        elseif msg == "-a5fill" then
+        elseif msg == "-a5fill" or msg == "-a5fillme" then
+            // -a5fillme: 입력한 사람 자신의 데이터를 꽉 찬 합성 계정으로 덮는다(시험 계정 전용, 다음 저장에 들어간다)
+            set FillPid = SCRATCH
+            if msg == "-a5fillme" then
+                set FillPid = GetPlayerId(GetTriggerPlayer())
+            endif
             set FillStage = 0
             call TimerStart(FillTimer, 0.05, true, function FillStep)
         elseif SubString(msg, 0, 8) == "-a5build" then
