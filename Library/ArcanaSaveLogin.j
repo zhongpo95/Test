@@ -1,4 +1,4 @@
-// Arcana 판 게임 로그인(홈페이지에서 만든 아이디·비밀번호). JN 판(ARCANA_SAVE_BACKEND 거짓)에서는 아무것도 하지 않는다.
+// 게임 로그인(홈페이지에서 만든 아이디·비밀번호).
 // - 각자 화면에 아이디·비밀번호 칸과 로그인 버튼을 띄운다. 비밀번호 칸은 * 로 가린다.
 // - 로그인(ArcanaLogin)은 그 플레이어 화면(로컬)에서만 DLL 로 하고, 결과(성공 여부·표시 이름)만 "ALG" 로 동기화한다. 비밀번호는 동기화하지 않는다.
 // - 성공을 받으면(동기) ARCANA_LOGIN_OK 를 실행한다. PlayerSave 가 그 플레이어 로드를 시작하고, 로드가 끝나면 영웅 선택 창이 열린다.
@@ -45,25 +45,23 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
     // 로컬: 입력칸 내용을 읽어 로그인 요청. 버튼·Enter 에서 부른다
     function ArcanaSaveLoginSubmit takes nothing returns nothing
         local string id
-        static if ARCANA_SAVE_BACKEND then
-            if ARCANA_LOGIN_REQ != 0 or ARCANA_LOGIN_DONE[GetPlayerId(GetLocalPlayer())] then
-                return
-            endif
-            set id = DzFrameGetText(ARCANA_LOGIN_ID_BOX)
-            if id == null or id == "" or ARCANA_LOGIN_PW == "" then
-                call ArcanaSaveLoginHint("|cffffcc00아이디와 비밀번호를 입력하세요.|r")
-                return
-            endif
-            set ARCANA_LOGIN_REQ = ArcanaLogin(id, ARCANA_LOGIN_PW)
-            call ArcanaSaveTrace("[ARC-LOGIN] submit req=" + I2S(ARCANA_LOGIN_REQ))
-            set ARCANA_LOGIN_PW = ""
-            set ARCANA_LOGIN_MASK = ""
-            call DzFrameSetText(ARCANA_LOGIN_PW_BOX, "")
-            if ARCANA_LOGIN_REQ == 0 then
-                call ArcanaSaveLoginHint("|cffff4040로그인을 시작하지 못했습니다(DLL 설정 확인).|r")
-            else
-                call ArcanaSaveLoginHint("로그인 중...")
-            endif
+        if ARCANA_LOGIN_REQ != 0 or ARCANA_LOGIN_DONE[GetPlayerId(GetLocalPlayer())] then
+            return
+        endif
+        set id = DzFrameGetText(ARCANA_LOGIN_ID_BOX)
+        if id == null or id == "" or ARCANA_LOGIN_PW == "" then
+            call ArcanaSaveLoginHint("|cffffcc00아이디와 비밀번호를 입력하세요.|r")
+            return
+        endif
+        set ARCANA_LOGIN_REQ = ArcanaLogin(id, ARCANA_LOGIN_PW)
+        call ArcanaSaveTrace("[ARC-LOGIN] submit req=" + I2S(ARCANA_LOGIN_REQ))
+        set ARCANA_LOGIN_PW = ""
+        set ARCANA_LOGIN_MASK = ""
+        call DzFrameSetText(ARCANA_LOGIN_PW_BOX, "")
+        if ARCANA_LOGIN_REQ == 0 then
+            call ArcanaSaveLoginHint("|cffff4040로그인을 시작하지 못했습니다(DLL 설정 확인).|r")
+        else
+            call ArcanaSaveLoginHint("로그인 중...")
         endif
         set id = null
     endfunction
@@ -148,36 +146,34 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
     function ArcanaSaveLoginTick takes nothing returns nothing
         local integer st
         local string r
-        static if ARCANA_SAVE_BACKEND then
-            if ARCANA_LOGIN_REQ != 0 then
-                set st = ArcanaNetPoll(ARCANA_LOGIN_REQ)
-                if st == 1 then
-                    set r = ArcanaNetResult(ARCANA_LOGIN_REQ)
-                    call ArcanaNetRelease(ARCANA_LOGIN_REQ)
-                    set ARCANA_LOGIN_REQ = 0
-                    call ArcanaSaveLoginHint("로그인 성공. 다른 플레이어에게 알리는 중...")
-                    call DzSyncData("ALG", "1|" + r)
-                elseif st != 0 then
-                    set r = ArcanaNetResult(ARCANA_LOGIN_REQ)
-                    call ArcanaSaveTrace("[ARC-LOGIN] failed st=" + I2S(st) + " why=" + r)
-                    call ArcanaNetRelease(ARCANA_LOGIN_REQ)
-                    set ARCANA_LOGIN_REQ = 0
-                    if r == "bad_credentials" then
-                        call ArcanaSaveLoginHint("|cffff4040아이디 또는 비밀번호가 틀렸습니다.|r")
-                    elseif r == "too_many_attempts" then
-                        call ArcanaSaveLoginHint("|cffff4040시도가 너무 많습니다. 잠시 뒤 다시 하세요.|r")
-                    elseif r == "map_not_allowed" then
-                        call ArcanaSaveLoginHint("|cffff4040등록되지 않은 맵입니다. 디스코드에서 최신 맵을 받으세요.|r")
-                    elseif r == "account_locked" then
-                        call ArcanaSaveLoginHint("|cffff4040잠긴 계정입니다. 관리자에게 문의하세요.|r")
-                    else
-                        call ArcanaSaveLoginHint("|cffff4040서버에 연결하지 못했습니다(" + r + "). 다시 시도하세요.|r")
-                    endif
+        if ARCANA_LOGIN_REQ != 0 then
+            set st = ArcanaNetPoll(ARCANA_LOGIN_REQ)
+            if st == 1 then
+                set r = ArcanaNetResult(ARCANA_LOGIN_REQ)
+                call ArcanaNetRelease(ARCANA_LOGIN_REQ)
+                set ARCANA_LOGIN_REQ = 0
+                call ArcanaSaveLoginHint("로그인 성공. 다른 플레이어에게 알리는 중...")
+                call DzSyncData("ALG", "1|" + r)
+            elseif st != 0 then
+                set r = ArcanaNetResult(ARCANA_LOGIN_REQ)
+                call ArcanaSaveTrace("[ARC-LOGIN] failed st=" + I2S(st) + " why=" + r)
+                call ArcanaNetRelease(ARCANA_LOGIN_REQ)
+                set ARCANA_LOGIN_REQ = 0
+                if r == "bad_credentials" then
+                    call ArcanaSaveLoginHint("|cffff4040아이디 또는 비밀번호가 틀렸습니다.|r")
+                elseif r == "too_many_attempts" then
+                    call ArcanaSaveLoginHint("|cffff4040시도가 너무 많습니다. 잠시 뒤 다시 하세요.|r")
+                elseif r == "map_not_allowed" then
+                    call ArcanaSaveLoginHint("|cffff4040등록되지 않은 맵입니다. 디스코드에서 최신 맵을 받으세요.|r")
+                elseif r == "account_locked" then
+                    call ArcanaSaveLoginHint("|cffff4040잠긴 계정입니다. 관리자에게 문의하세요.|r")
+                else
+                    call ArcanaSaveLoginHint("|cffff4040서버에 연결하지 못했습니다(" + r + "). 다시 시도하세요.|r")
                 endif
-            elseif not ARCANA_LOGIN_SHOWN and not ARCANA_LOGIN_DONE[GetPlayerId(GetLocalPlayer())] and ARCANA_LOGIN_PANEL != 0 then
-                // 로드 실패 등으로 로그인이 풀리면 입력칸을 다시 연다
-                call ArcanaSaveLoginShow(true)
             endif
+        elseif not ARCANA_LOGIN_SHOWN and not ARCANA_LOGIN_DONE[GetPlayerId(GetLocalPlayer())] and ARCANA_LOGIN_PANEL != 0 then
+            // 로드 실패 등으로 로그인이 풀리면 입력칸을 다시 연다
+            call ArcanaSaveLoginShow(true)
         endif
         set r = null
     endfunction
@@ -242,14 +238,12 @@ library ArcanaSaveLogin initializer ArcanaSaveLoginInit requires ArcanaSaveConfi
 
     function ArcanaSaveLoginInit takes nothing returns nothing
         local trigger t
-        static if ARCANA_SAVE_BACKEND then
-            set t = CreateTrigger()
-            call DzTriggerRegisterSyncData(t, "ALG", false)
-            call TriggerAddAction(t, function ArcanaSaveLoginOnSync)
-            call TimerStart(CreateTimer(), 0.1, true, function ArcanaSaveLoginTick)
-            // 프레임은 모든 클라이언트에서 같은 순서로 만든다(입력은 각자 화면에서만 쓰인다)
-            call TimerStart(CreateTimer(), 1.0, false, function ArcanaSaveLoginMakeFrames)
-        endif
+        set t = CreateTrigger()
+        call DzTriggerRegisterSyncData(t, "ALG", false)
+        call TriggerAddAction(t, function ArcanaSaveLoginOnSync)
+        call TimerStart(CreateTimer(), 0.1, true, function ArcanaSaveLoginTick)
+        // 프레임은 모든 클라이언트에서 같은 순서로 만든다(입력은 각자 화면에서만 쓰인다)
+        call TimerStart(CreateTimer(), 1.0, false, function ArcanaSaveLoginMakeFrames)
         set t = null
     endfunction
 

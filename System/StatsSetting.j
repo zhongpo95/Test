@@ -730,12 +730,10 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         set Eitem[S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0))][S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 1))] = s
         call PlayerStatsSet( S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0)) )
         call ItemUIStatsSet(GetPlayerId(DzGetTriggerSyncPlayer()))
-        static if ARCANA_SAVE_BACKEND then
-            // 재료 사용 저장 대기분이 있으면 새 장비를 반영한 지금 저장한다(PlayerSave 를 requires 없이 트리거로 부른다)
-            if ARCANA_EQUIP_SAVE_HOOK != null then
-                set ARCANA_EQUIP_SAVE_PID = GetPlayerId(DzGetTriggerSyncPlayer())
-                call TriggerEvaluate(ARCANA_EQUIP_SAVE_HOOK)
-            endif
+        // 재료 사용 저장 대기분이 있으면 새 장비를 반영한 지금 저장한다(PlayerSave 를 requires 없이 트리거로 부른다)
+        if ARCANA_EQUIP_SAVE_HOOK != null then
+            set ARCANA_EQUIP_SAVE_PID = GetPlayerId(DzGetTriggerSyncPlayer())
+            call TriggerEvaluate(ARCANA_EQUIP_SAVE_HOOK)
         endif
     endfunction
     

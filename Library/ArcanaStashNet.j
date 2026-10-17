@@ -121,126 +121,60 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     endglobals
 
     //==========================================================================
-    // DLL 호출 감싸기. JN 판(ARCANA_SAVE_BACKEND 거짓)에서는 native 참조가 빠지고 0/빈 값을 돌려준다.
+    // DLL 호출 감싸기.
     // 모두 소유자 로컬 블록에서만 부른다.
     //==========================================================================
     private function N_LoadBegin takes integer seat returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaLoadBegin("main", ARCANA_MAP_VERSION, seat)
-        else
-            return 0
-        endif
+        return ArcanaLoadBegin("main", ARCANA_MAP_VERSION, seat)
     endfunction
     private function N_SaveBegin takes integer doc, integer expected returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaSaveBegin("main", doc, expected)
-        else
-            return 0
-        endif
+        return ArcanaSaveBegin("main", doc, expected)
     endfunction
     private function N_StatusBegin takes string rid returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaStatusBegin(rid, 1)
-        else
-            return 0
-        endif
+        return ArcanaStatusBegin(rid, 1)
     endfunction
     private function N_DocNew takes nothing returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaDocNew()
-        else
-            return 0
-        endif
+        return ArcanaDocNew()
     endfunction
     private function N_DocAdd takes integer doc, string k, string v returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaDocAdd(doc, k, v)
-        else
-            return 0
-        endif
+        return ArcanaDocAdd(doc, k, v)
     endfunction
     private function N_DocDrop takes integer doc returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaDocDrop(doc)
-        else
-            return 0
-        endif
+        return ArcanaDocDrop(doc)
     endfunction
     private function N_Packets takes integer id returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaLoadPackets(id)
-        else
-            return -1
-        endif
+        return ArcanaLoadPackets(id)
     endfunction
     private function N_Packet takes integer id, integer i returns string
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaLoadPacket(id, i)
-        else
-            return ""
-        endif
+        return ArcanaLoadPacket(id, i)
     endfunction
     private function N_Poll takes integer id returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaNetPoll(id)
-        else
-            return 4
-        endif
+        return ArcanaNetPoll(id)
     endfunction
     private function N_Error takes integer id returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaNetError(id)
-        else
-            return 8
-        endif
+        return ArcanaNetError(id)
     endfunction
     private function N_Revision takes integer id returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaNetRevision(id)
-        else
-            return -1
-        endif
+        return ArcanaNetRevision(id)
     endfunction
     private function N_Result takes integer id returns string
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaNetResult(id)
-        else
-            return ""
-        endif
+        return ArcanaNetResult(id)
     endfunction
     private function N_RequestId takes integer id returns string
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaNetRequestId(id)
-        else
-            return ""
-        endif
+        return ArcanaNetRequestId(id)
     endfunction
     private function N_Retry takes integer id returns integer
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaNetRetry(id)
-        else
-            return 0
-        endif
+        return ArcanaNetRetry(id)
     endfunction
     private function N_ClaimLast takes string reason returns string
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaSaveClaim(reason)
-        else
-            return ""
-        endif
+        return ArcanaSaveClaim(reason)
     endfunction
     private function N_ClaimDoc takes integer doc, string reason returns string
-        static if ARCANA_SAVE_BACKEND then
-            return ArcanaSaveClaimDoc(doc, reason)
-        else
-            return ""
-        endif
+        return ArcanaSaveClaimDoc(doc, reason)
     endfunction
     private function N_Release takes integer id returns nothing
-        static if ARCANA_SAVE_BACKEND then
-            if id != 0 then
-                call ArcanaNetRelease(id)
-            endif
+        if id != 0 then
+            call ArcanaNetRelease(id)
         endif
     endfunction
 
@@ -904,9 +838,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     //==========================================================================
     function ArcanaStashNetDownloadUser takes player user, trigger callback returns boolean
         local integer pid = GetPlayerId(user)
-        static if not ARCANA_SAVE_BACKEND then
-            return false
-        endif
         if Phase[pid] != 0 then
             return false
         endif
@@ -924,9 +855,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
 
     function ArcanaStashNetUploadUser takes player user, stash whichStash, trigger callback returns boolean
         local integer pid = GetPlayerId(user)
-        static if not ARCANA_SAVE_BACKEND then
-            return false
-        endif
         if Phase[pid] != 0 or (St[pid] != ARCANA_STASH_LOADED and St[pid] != ARCANA_STASH_NEW) or not StashExists(whichStash) then
             return false
         endif
@@ -966,9 +894,6 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
     // 저장이 막힌 상태(결과 불명·임대 상실·충돌)에서 지금 데이터를 증거 파일로 남긴다. 30초에 한 번까지. 동기 경로에서 부른다
     function ArcanaStashNetClaimUser takes player user, stash whichStash, string reason returns boolean
         local integer pid = GetPlayerId(user)
-        static if not ARCANA_SAVE_BACKEND then
-            return false
-        endif
         if CPhase[pid] != 0 or not StashExists(whichStash) or (CLast[pid] > 0 and Now - CLast[pid] < 600) then
             return false
         endif
@@ -1084,15 +1009,13 @@ library ArcanaStashNet initializer onInit requires ArcanaSaveConfig, ArcanaSaveN
 
     private function onInit takes nothing returns nothing
         local trigger t
-        static if ARCANA_SAVE_BACKEND then
-            set ARCANA_LOGIN_OK = CreateTrigger()
-            set ARCANA_PICK_SHOW = CreateTrigger()
-            set GameNonce = GetRandomInt(1, 999999)
-            set t = CreateTrigger()
-            call DzTriggerRegisterSyncData(t, PREFIX, false)
-            call TriggerAddAction(t, function OnSync)
-            call TimerStart(CreateTimer(), TICK, true, function Tick)
-        endif
+        set ARCANA_LOGIN_OK = CreateTrigger()
+        set ARCANA_PICK_SHOW = CreateTrigger()
+        set GameNonce = GetRandomInt(1, 999999)
+        set t = CreateTrigger()
+        call DzTriggerRegisterSyncData(t, PREFIX, false)
+        call TriggerAddAction(t, function OnSync)
+        call TimerStart(CreateTimer(), TICK, true, function Tick)
         set t = null
     endfunction
 

@@ -88,18 +88,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "머리도감." + ProtoHeadKey[head], "1")
             endif
             // Arcana 판: 도감은 원정 종료 저장에 함께 들어간다
-            static if not ARCANA_SAVE_BACKEND then
-                call RequestPlayerSave(pid)
-            endif
         endif
     endfunction
 
     private function ProtoRememberCard takes integer pid, integer card returns nothing
         if GetLocalPlayer() == Player(pid) then
             call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드도감." + ProtoCardKey[card], "1")
-        endif
-        static if not ARCANA_SAVE_BACKEND then
-            call RequestPlayerSave(pid)
         endif
     endfunction
 
@@ -151,7 +145,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n획득 가능한 카드가 없어 골드 +100."
             return
         endif
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             // 단계 7 기록(09 3.4): 카드 획득 수
             set ArcanaRecArgPid = pid
             set ArcanaRecArgText = ProtoCardKey[card]
@@ -348,7 +342,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoSelected[pid] = 0
         set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
         call ProtoSetPause(pid, true)
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             // 단계 7 기록(09 3.4): 제시한 사건 ID 목록
             set ArcanaRecArgText = ""
             set slot = 1
@@ -700,7 +694,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ProtoStage[pid] != 2 or not ProtoDialogueChoiceAllowed(pid, choice) then
             return
         endif
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             // 단계 7 기록(09 3.4, 8.4): 선택지 단계. 제시 = 허용 선택지 1~4(고른 것은 항상 포함), 시간 초과 자동 선택은 auto
             if DialogueNode[pid] == 0 then
                 set ArcanaRecArgText = ""
@@ -768,7 +762,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer choice = 1
         local integer selected = 0
         local integer key
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             // 단계 7 기록(09 3.4): 이어지는 ProtoChoose 는 시간 초과 자동 선택
             set ArcanaRecAuto[pid] = true
         endif
@@ -1076,7 +1070,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             set pid = pid + 1
         endloop
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             // 단계 7 기록(09 3.4): 런 시작
             call TriggerEvaluate(ArcanaRecTrigRunBegin)
         endif
@@ -1124,7 +1118,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             call ProtoResetDialogue(pid)
             set ProtoSelected[pid] = id
-            static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+            static if ARCANA_RECORDS_ENABLED then
                 // 단계 7 기록(09 3.4): 사건 선택
                 set ArcanaRecArgPid = pid
                 set ArcanaRecArgId = id
@@ -1369,9 +1363,6 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoDisplayCardName(pid, id) + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCharacterEffectsText(pid, id))
                     if GetLocalPlayer() == Player(pid) then
                         call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드각성도감." + ProtoCardKey[id], "1")
-                    endif
-                    static if not ARCANA_SAVE_BACKEND then
-                        call RequestPlayerSave(pid)
                     endif
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 else

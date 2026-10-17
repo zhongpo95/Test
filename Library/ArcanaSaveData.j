@@ -602,9 +602,7 @@ library ArcanaSaveData initializer onInit requires ArcanaSaveNet3Natives, Arcana
     // 저장 문서 만들기(소유자 로컬 전용, 어댑터만 부른다)
     //==========================================================================
     private function Emit takes integer doc, string k, string v returns nothing
-        static if ARCANA_SAVE_BACKEND then
-            call ArcanaDocAdd(doc, k, v)
-        endif
+        call ArcanaDocAdd(doc, k, v)
         set ARCANA_SAVE_BUILD_COUNT = ARCANA_SAVE_BUILD_COUNT + 1
     endfunction
 

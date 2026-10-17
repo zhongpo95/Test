@@ -50,7 +50,6 @@ library UIQuest initializer init requires Stash, FrameCount
     endfunction
 
     function TodaySet takes integer pid returns nothing
-        static if ARCANA_SAVE_BACKEND then
         // Arcana 판(09 2.4): JN 연결 대신 이 게임의 로드 성공 여부(PLAYER_DATA_SERVER_READY)를 본다. 지금은 호출되지 않는 함수다.
         // 어댑터 함수 대신 전역을 읽어 requires 를 늘리지 않는다(라이브러리 초기화 순서 보존, DESIGN_FEEDBACK_09 K2).
         local integer q
@@ -88,44 +87,6 @@ library UIQuest initializer init requires Stash, FrameCount
             else
                 call BJDebugMsg("서버에 연결되어 있지 않아 퀘스트를 갱신할 수 없습니다.")
             endif
-        endif
-        else
-        local integer q
-        if GetLocalPlayer() == Player(pid) then
-            if JNUse( ) then
-                set q = S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0"))
-                if q >= 7 then
-                    set QuestNumber = 0
-                elseif q >= 5 then
-                    call DzFrameSetText( QuestText[0], "일일 보스 처치" )
-                    call DzFrameSetText( QuestText2[0], "보스 처치 "+I2S(q)+"/7" )
-                    call DzFrameShow(Quest[0], true)
-                    set QuestNumber = 1
-                elseif q >= 3 then
-                    call DzFrameSetText( QuestText[0], "일일 보스 처치" )
-                    call DzFrameSetText( QuestText2[0], "보스 처치 "+I2S(q)+"/7" )
-                    call DzFrameSetText( QuestText[1], "일일 보스 처치" )
-                    call DzFrameSetText( QuestText2[1], "보스 처치 "+I2S(q)+"/5" )
-                    call DzFrameShow(Quest[0], true)
-                    call DzFrameShow(Quest[1], true)
-                    set QuestNumber = 2
-                else
-                    call DzFrameSetText( QuestText[0], "일일 보스 처치" )
-                    call DzFrameSetText( QuestText2[0], "보스 처치 "+I2S(q)+"/7" )
-                    call DzFrameSetText( QuestText[1], "일일 보스 처치" )
-                    call DzFrameSetText( QuestText2[1], "보스 처치 "+I2S(q)+"/5" )
-                    call DzFrameSetText( QuestText[2], "일일 보스 처치" )
-                    call DzFrameSetText( QuestText2[2], "보스 처치 "+I2S(q)+"/3" )
-                    call DzFrameShow(Quest[0], true)
-                    call DzFrameShow(Quest[1], true)
-                    call DzFrameShow(Quest[2], true)
-                    set QuestNumber = 3
-                endif
-                set Quest_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-            else
-                call BJDebugMsg("서버에 연결되어 있지 않아 퀘스트를 갱신할 수 없습니다.")
-            endif
-        endif
         endif
     endfunction
 

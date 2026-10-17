@@ -7,9 +7,9 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     // 훅을 부르는 라이브러리는 requires 를 늘리지 않는다(라이브러리 초기화 순서 보존, 09 7절 K2). 훅 트리거·인자 전역은 모두가 이미 쓰는
     // DataExpedition(Data_Expedition.j)에 있고, 훅 자리에서는 인자를 넣고 TriggerEvaluate 만 한다(09 9절 K12). 이 라이브러리는 아무도 requires 하지 않으며
     // 두 상수가 모두 참일 때만 초기화에서 트리거를 만들고 동작을 붙인다.
-    // 두 상수(ARCANA_SAVE_BACKEND, ARCANA_RECORDS_ENABLED) 중 하나라도 거짓이면 훅 호출이 static if 로 빠지고 이 라이브러리는 아무 일도 하지 않는다.
+    // ARCANA_RECORDS_ENABLED 가 거짓이면 훅 호출이 static if 로 빠지고 이 라이브러리는 아무 일도 하지 않는다.
 
-    static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+    static if ARCANA_RECORDS_ENABLED then
         // 09 3.2 api=4. 이 선언이 있는 맵은 DLL 0.4.0 이상에서만 실행된다.
         native ArcanaRecordSend takes string kind, integer doc, integer seat returns integer
     endif
@@ -94,7 +94,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
         if v == null or v == "" then
             return
         endif
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             if ArcanaDocAdd(LDoc, k, v) != 1 then
                 set LFailed = true
             endif
@@ -108,7 +108,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
         set LBytes = 0
         set LFailed = false
         set LDoc = 0
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             set LDoc = ArcanaDocNew()
         endif
         return LDoc != 0
@@ -117,7 +117,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     // 문서를 보내고 결과 핸들을 플레이어 칸에 넣는다. 칸이 차 있으면 가장 오래된 것을 버린다(09 3.3).
     private function Send takes integer pid, string kind returns nothing
         local integer id = 0
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             if LFailed then
                 // 빌더가 넣지 못한 항목이 있으면 DLL 이 0 을 돌려주므로 보내지 않는다(문서는 DLL 이 소비)
                 call ArcanaRecordSend("", LDoc, pid)
@@ -274,7 +274,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
                     exitwhen k >= 2
                     set s = pid * 2 + k
                     if LReq[s] != 0 then
-                        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+                        static if ARCANA_RECORDS_ENABLED then
                             if LWait[s] > 0 then
                                 set LWait[s] = LWait[s] - 1
                                 if LWait[s] == 0 then
@@ -491,7 +491,7 @@ library ArcanaRecord initializer onInit requires ArcanaSaveConfig, ArcanaSaveNet
     endfunction
 
     private function onInit takes nothing returns nothing
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             // 게임 키: 동기 난수(모든 클라이언트 같음). 어댑터 GameNonce 와 별개(09 3.3).
             set GameKey = I2S(GetRandomInt(100000, 999999)) + I2S(GetRandomInt(100000, 999999))
             call TimerStart(Clock, 1000000.0, false, null)

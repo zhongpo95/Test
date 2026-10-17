@@ -652,15 +652,12 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
             endif
             call ClaimMaterials(pid)
             // Arcana 판: 원정 종료(Finish) 때 한 번 저장한다
-            static if not ARCANA_SAVE_BACKEND then
-                call RequestPlayerSave(pid)
-            endif
         endif
     endfunction
 
     private function Finish takes boolean clear returns nothing
         local integer pid = 0
-        static if ARCANA_SAVE_BACKEND and ARCANA_RECORDS_ENABLED then
+        static if ARCANA_RECORDS_ENABLED then
             // 단계 7 기록(09 3.4): 원정 종료(ExpMember 를 지우기 전). 남은 참가자만 보낸다
             set ArcanaRecArgFlag = clear
             call TriggerEvaluate(ArcanaRecTrigRunEnd)
@@ -681,11 +678,9 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 endif
                 call ReleaseEvent(pid)
                 call ReleaseReward(pid)
-                static if ARCANA_SAVE_BACKEND then
-                    // 원정 종료 저장(승리·실패 모두). 남은 참가자만, READY 검사는 RequestPlayerSave 안에서 한다
-                    call ArcanaSaveTrace("[ARC-SAVE] request why=expedition-end pid=" + I2S(pid))
-                    call RequestPlayerSave(pid)
-                endif
+                // 원정 종료 저장(승리·실패 모두). 남은 참가자만, READY 검사는 RequestPlayerSave 안에서 한다
+                call ArcanaSaveTrace("[ARC-SAVE] request why=expedition-end pid=" + I2S(pid))
+                call RequestPlayerSave(pid)
                 set ExpMember[pid] = false
                 call PlayerStatsSet(pid)
                 call ItemUIStatsSet(pid)
@@ -1069,9 +1064,6 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
             elseif action == 2 then
                 call ClaimMaterials(pid)
                 // Arcana 판: 보관 재료 받기는 다음 저장(원정 종료·-save)에 들어간다
-                static if not ARCANA_SAVE_BACKEND then
-                    call RequestPlayerSave(pid)
-                endif
             endif
         elseif not ExpMember[pid] then
             return

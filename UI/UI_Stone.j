@@ -78,12 +78,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         if not PLAYER_DATA_SERVER_READY[pid] then
             return false
         endif
-        static if ARCANA_SAVE_BACKEND then
-            // Arcana 판에는 JN 캐릭터 연결이 없으므로 어댑터 준비 상태(로드 성공)를 본다(06 12.2).
-            return ArcanaStashNetIsReady(pid)
-        else
-            return JNObjectCharacterServerConnectCheck()
-        endif
+        // Arcana 판에는 JN 캐릭터 연결이 없으므로 어댑터 준비 상태(로드 성공)를 본다(06 12.2).
+        return ArcanaStashNetIsReady(pid)
     endfunction
 
     private function StoneStageText takes integer count, integer threshold, string value, string color returns string
@@ -515,10 +511,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         local integer C
         local string items
         local string sn = I2S(PlayerSlotNumber[pid])
-        static if ARCANA_SAVE_BACKEND then
-            // 재료 사용 저장(강화·승급·카드 부여). 재료 소비는 아래 소유자 로컬에서, 저장은 장착 동기화 뒤 또는 대기 시간 뒤에 한다
-            call ArcanaSaveAfterMaterialUse(GetPlayerId(p))
-        endif
+        // 재료 사용 저장(강화·승급·카드 부여). 재료 소비는 아래 소유자 로컬에서, 저장은 장착 동기화 뒤 또는 대기 시간 뒤에 한다
+        call ArcanaSaveAfterMaterialUse(GetPlayerId(p))
         
         if p == GetLocalPlayer() then
             set StonePending[pid] = false

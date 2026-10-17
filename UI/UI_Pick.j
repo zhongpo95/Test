@@ -102,11 +102,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
         endloop
-        static if ARCANA_SAVE_BACKEND then
-            // Arcana 판은 영웅 선택 때 저장하지 않는다(저장 시점 정책, 멀티_끊김_조사 13절). 장비 키는 위에서 Stash 에 썼고 다음 저장에 들어간다.
-        else
-            call JNStashNetUploadUser( Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
-        endif
+        // Arcana 판은 영웅 선택 때 저장하지 않는다(저장 시점 정책, 멀티_끊김_조사 13절). 장비 키는 위에서 Stash 에 썼고 다음 저장에 들어간다.
     endfunction
 
     private function PickHeroName takes integer heroNumber returns string
@@ -446,11 +442,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
     private function Main2 takes nothing returns nothing
         // Arcana 판은 로그인·로드가 끝난 플레이어 화면에서만 연다(ArcanaSavePickShow)
-        static if not ARCANA_SAVE_BACKEND then
-        if true then
-            call DzFrameShow(FP_BD, true)
-        endif
-        endif
     endfunction
 
     function ArcanaSavePickShow takes nothing returns nothing
@@ -961,9 +952,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         set t = CreateTrigger()
         call TriggerRegisterTimerEventSingle( t, 5.0 )
         call TriggerAddAction( t, function Main2 )
-        static if ARCANA_SAVE_BACKEND then
-            call TriggerAddAction(ARCANA_PICK_SHOW, function ArcanaSavePickShow)
-        endif
+        call TriggerAddAction(ARCANA_PICK_SHOW, function ArcanaSavePickShow)
         //*/
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NewPick"),(false))

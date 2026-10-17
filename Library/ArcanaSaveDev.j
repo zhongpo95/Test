@@ -8,6 +8,7 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
     //  -a5build  A9: 입력한 사람 화면에서 SCRATCH 문서를 한 번에 만든다(ArcanaDocNew → BuildStep → ArcanaDocDrop, 서버로 보내지 않음)
     //            "-a5build 200" 처럼 예산을 주면 그 예산으로 한 번만 부르고 끝났는지 보여 준다
     //  -a5dump   P1: 아이템 번호 1~200 의 rawcode·SLK 종류(Tip)·단계(Level)·이름을 DLL 로그에 한 줄씩 남긴다([A5DUMP])
+    //  -a5datacheck P1: 생성 배열(ARCANA_ITEM_RAW/TYPE/TIER)과 ItemData·SLK(Tip·Level) 값을 비교해 어긋난 번호만 남긴다
     // 결과 줄이 나오지 않으면 그 스레드가 실행 한도에 걸려 멈춘 것이다.
 
     globals
@@ -144,14 +145,12 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         local integer doc
         local boolean done = false
         if GetLocalPlayer() == p then
-            static if ARCANA_SAVE_BACKEND then
-                set doc = ArcanaDocNew()
-                call Say("A9 시작: 예산 " + I2S(budget) + " 문서 " + I2S(doc))
-                call ArcanaSaveBuildBegin(SCRATCH)
-                set done = ArcanaSaveBuildStep(SCRATCH, doc, budget)
-                call Say("A9 끝: 완료 " + YesNo(done) + ", 항목 " + I2S(ARCANA_SAVE_BUILD_COUNT) + " (꽉 찬 합성 계정은 705)")
-                call ArcanaDocDrop(doc)
-            endif
+            set doc = ArcanaDocNew()
+            call Say("A9 시작: 예산 " + I2S(budget) + " 문서 " + I2S(doc))
+            call ArcanaSaveBuildBegin(SCRATCH)
+            set done = ArcanaSaveBuildStep(SCRATCH, doc, budget)
+            call Say("A9 끝: 완료 " + YesNo(done) + ", 항목 " + I2S(ARCANA_SAVE_BUILD_COUNT) + " (꽉 찬 합성 계정은 705)")
+            call ArcanaDocDrop(doc)
         endif
     endfunction
 
@@ -174,6 +173,33 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
         set it = null
     endfunction
 
+    private function SlkField takes integer raw, string field returns string
+        return EXExecuteScript("(require'jass.slk').item[" + I2S(raw) + "]." + field)
+    endfunction
+
+    private function CmdDataCheck takes nothing returns nothing
+        local integer id = 1
+        local integer bad = 0
+        local integer raw
+        local integer t
+        loop
+            exitwhen id > 200
+            set raw = LoadInteger(ItemData, StringHash("ITEMID"), id)
+            if raw != 0 or (id <= ARCANA_ITEM_ID_MAX and ARCANA_ITEM_RAW[id] != 0) then
+                set t = S2I(SlkField(raw, "Tip"))
+                if t < 0 or t > 7 then
+                    set t = -1
+                endif
+                if id > ARCANA_ITEM_ID_MAX or raw != ARCANA_ITEM_RAW[id] or t != ARCANA_ITEM_TYPE[id] or S2I(SlkField(raw, "Level")) != ARCANA_ITEM_TIER[id] then
+                    set bad = bad + 1
+                    call ArcanaSaveTrace("[A5DATA] id=" + I2S(id) + " raw=" + I2S(raw) + "/" + I2S(ARCANA_ITEM_RAW[id]) + " type=" + I2S(t) + "/" + I2S(ARCANA_ITEM_TYPE[id]) + " tier=" + SlkField(raw, "Level") + "/" + I2S(ARCANA_ITEM_TIER[id]))
+                endif
+            endif
+            set id = id + 1
+        endloop
+        call Say("데이터 대조: 어긋난 번호 " + I2S(bad) + "개(DLL 로그 [A5DATA]), 데이터 판 " + I2S(ARCANA_DATA_VERSION))
+    endfunction
+
     private function OnChat takes nothing returns nothing
         local string msg = GetEventPlayerChatString()
         local integer budget = ARCANA_SAVE_BUILD_BUDGET
@@ -181,6 +207,8 @@ library ArcanaSaveDev initializer onInit requires ArcanaSaveData, ArcanaSaveNet3
             call CmdHash()
         elseif msg == "-a5codex" then
             call CmdCodex()
+        elseif msg == "-a5datacheck" then
+            call CmdDataCheck()
         elseif msg == "-a5dump" then
             call CmdDump()
         elseif msg == "-a5fill" then
