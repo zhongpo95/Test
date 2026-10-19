@@ -97,9 +97,10 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
         return ""
     endfunction
 
-    // 선택한 보상의 증분만 25개 슬롯에 더한다. 보유 카드 전체를 재계산하지 않는다.
+    // 선택한 보상의 증분만 능력치 슬롯에 더한다. 보유 카드 전체를 재계산하지 않는다.
     function ProtoStatAddCard takes integer pid, integer card, boolean evolved returns nothing
         local integer kind = 1
+        local integer targetKind
         local integer character = ProtoCardCharacter[card]
         local real value
         loop
@@ -112,9 +113,13 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
                     set value = value + LoadReal(ProtoEffectData, card, kind + PROTO_STAT_STRIDE)
                 endif
             endif
+            set targetKind = kind
+            if kind == PROTO_STAT_CHOSEN_SKILL then
+                set targetKind = PROTO_STAT_SKILL_Q + ProtoRewardSkill[pid]
+            endif
             if value != 0.0 then
-                set ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] = ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] + value
-                call SaveReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind, LoadReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind) + value)
+                set ProtoStatValues[pid * PROTO_STAT_STRIDE + targetKind] = ProtoStatValues[pid * PROTO_STAT_STRIDE + targetKind] + value
+                call SaveReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + targetKind, LoadReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + targetKind) + value)
             endif
             set kind = kind + 1
         endloop

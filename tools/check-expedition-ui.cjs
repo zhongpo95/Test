@@ -11,10 +11,10 @@ function fresh(localPlayer = 0, prototype = false) {
   let e, count = 0, eventFrame = 0, eventPlayer = 0;
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
   const {env} = environment(prototypeFiles, {
-    F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0,
+    F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0, JN_FRAMEPOINT_CENTER: 4,
     Equip_Damage:[100,100,100,100], Equip_DamageP:[0,0,0,0], Stats_Crit:[5,5,5,5], Hero_CriDeal:[50,50,50,50], Equip_CriDeal:[0,0,0,0], SkillSpeed:()=>0, CooldownRate:()=>1,
     Arcana_CriDeal:[0,0,0,0], Equip_ED:[0,0,0,0], Equip_WDP:[0,0,0,0], Equip_DP:[1,1,1,1], FinalDamageBonus:pid=>env.ProtoStat(pid,env.PROTO_STAT_FINAL),
-    JN_TEXT_JUSTIFY_CENTER: 1, JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0, JN_TEXT_JUSTIFY_RIGHT: 5,
+    JN_TEXT_JUSTIFY_CENTER: 1, JN_TEXT_JUSTIFY_MIDDLE: 2, JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0, JN_TEXT_JUSTIFY_RIGHT: 5,
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,
     DzGetTriggerKeyPlayer: () => e.eventPlayer, JNMemoryGetByte: () => e.chatOpen || 0, JNGetModuleHandle: () => 0,
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
@@ -75,7 +75,7 @@ function fresh(localPlayer = 0, prototype = false) {
     throw Error('No visible button for action '+action);
   };
   const card = (group,i) => e.UIExpeditionChoice_CardButton[e['UIExpeditionChoice_'+group+'Cards'][i]];
-  const start = () => {render();if(prototype && e.ExpUIPanel!==8){click(common(-98));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
+  const start = () => {render();if(prototype){e.ExpUIOpen(8);render();if(!e.ProtoStartHead[0])click(common(2003));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
   const roots = () => Array.from({length:10},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
   render();
   if(prototype){
@@ -86,6 +86,18 @@ function fresh(localPlayer = 0, prototype = false) {
 }
 module.exports={fresh};
 if(require.main===module){
+check('개편 원정의 출발 머리·행동력 100·선택 스킬 버튼과 동기화',()=>{
+  const t=fresh(0,true),e=t.e;t.start();
+  assert.equal(e.ProtoAP[0],100);assert.equal(e.ProtoHeadCount[0],1);
+  assert(e.ExpCardOwned[e.ExpKey(0,e.ProtoHeadEntryCard[e.ProtoStartHead[0]])]);
+  let event=0;
+  for(let id=1;id<=e.PROTO_EVENT_COUNT;id++)if(e.LoadReal(e.ProtoEffectData,e.ProtoBranchCard[e.ProtoChoiceKey(id,1)],e.PROTO_STAT_CHOSEN_SKILL)>0){event=id;break;}
+  assert(event);e.ProtoSelected[0]=event;e.ProtoStage[0]=2;e.ExpOfferVersion[0]++;t.render();
+  assert.deepEqual(t.roots(),[9]);const version=e.ExpOfferVersion[0];t.click(t.common(2600));
+  assert.equal(e.ProtoRewardSkill[0],1);assert.equal(e.ExpOfferVersion[0],version+1);
+  assert([...t.frames.values()].some(f=>t.visible(f.id)&&f.text?.includes('강화할 스킬 · W')));
+  e.ProtoStage[0]=0;e.ExpOfferVersion[0]++;t.render();assert(![...t.frames.values()].some(f=>t.visible(f.id)&&f.text?.includes('강화할 스킬 ·')));
+});
 check('한 명만 선택해도 로컬 창 조작은 트리거를 실행하지 않고 전원 같은 타이머로 갱신',()=>{
   const clients=[0,1,4].map(pid=>{
     const t=fresh(pid);t.e.online=[true,true,false,false];
@@ -100,26 +112,26 @@ check('한 명만 선택해도 로컬 창 조작은 트리거를 실행하지 �
   for(const t of clients){t.e.ExpMember[0]=true;t.render();}
   const owner=clients[0],e=owner.e;
   e.ExpUIOpen(0);owner.render();assert.deepEqual(owner.roots(),[]);
-  e.UIMap_Toggle();owner.render();assert.deepEqual(owner.roots(),[e.EXP_UI_MAP]);
-  owner.event(owner.common(-e.EXP_UI_STATS),4);owner.render();assert.deepEqual(owner.roots(),[e.EXP_UI_STATS]);
+  e.ExpUIOpen(e.EXP_UI_MAP);owner.render();assert.deepEqual(owner.roots(),[e.EXP_UI_MAP]);
+  e.ExpUIOpen(e.EXP_UI_STATS);owner.render();assert.deepEqual(owner.roots(),[e.EXP_UI_STATS]);
   e.eventPlayer=0;e.UIExpeditionCommon_Escape();owner.render();assert.deepEqual(owner.roots(),[]);
   assert(clients.every(t=>t.executions.length===0));
   assert(clients.every(t=>t.packets.length===0),'로컬 창 조작에 네트워크 요청이 추가됨');
 });
-check('영웅 선택 후 준비창, 시작 보상 5개, M 지도와 스탯창의 독립 전환',()=>{
+check('영웅 선택 후 준비창, 시작 보상 5개, 지도와 스탯창 API의 독립 전환',()=>{
   const t=fresh(),e=t.e;t.start();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   assert.equal(Array.from({length:10},(_,i)=>t.card('Choice',i+1)).filter(Boolean).filter(t.visible).length,5);
-  e.UIMap_Toggle();t.render();assert.deepEqual(t.roots(),[e.EXP_UI_MAP]);
+  e.ExpUIOpen(e.EXP_UI_MAP);t.render();assert.deepEqual(t.roots(),[e.EXP_UI_MAP]);
   assert(![...t.frames.values()].some(f=>f.type==='BUTTON'&&t.visible(f.id)&&f.parent===e.ExpUIRoots[e.EXP_UI_MAP]));
-  t.click(t.common(-e.EXP_UI_STATS));assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
-  t.click(t.common(-98));assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
+  e.ExpUIOpen(e.EXP_UI_STATS);t.render();assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
+  e.ExpUIOpen(e.ExpUIActivity(0));t.render();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   assert(e.UIMainQuest_OverlayHidden);
 });
-check('원정 중 마을 안내 갱신이 선택창에 겹치지 않고 마을에서 다시 표시됨',()=>{
+check('폐지된 마을 목표 안내는 창 전환과 원정 종료 후에도 숨김',()=>{
   const t=fresh(),e=t.e;e.MainQuestNew(0,1);assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,false);
-  e.ExpUIOpen(0);t.render();assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,true);
+  e.ExpUIOpen(0);t.render();assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,false);
   e.ExpUIOpen(e.EXP_UI_LOBBY);t.render();t.start();e.MainQuestRefresh(0,1);assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,false);
-  e.ExpMember[0]=false;e.ExpState=e.EXP_LOBBY;e.ExpRevision++;t.render();e.ExpUIOpen(0);t.render();assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,true);
+  e.ExpMember[0]=false;e.ExpState=e.EXP_LOBBY;e.ExpRevision++;t.render();e.ExpUIOpen(0);t.render();assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,false);
   assert.equal(e.MainQuestGetStep(0,1),1);
 });
 check('카드 전체 클릭, 장식의 입력 차단 방지, 마우스 강조와 복원',()=>{
@@ -143,7 +155,7 @@ check('시작 후보 5개의 실제 동기화 요청, 타인 UI 이벤트 차단
   }
 });
 check('배분은 보상 확정과 분리되고 전투 중에는 수정할 수 없음',()=>{
-  const t=fresh(),e=t.e;t.start();t.click(t.common(-e.EXP_UI_STATS));t.click(t.common(101));
+  const t=fresh(),e=t.e;t.start();e.ExpUIOpen(e.EXP_UI_STATS);t.render();t.click(t.common(101));
   assert.equal(e.ExpCritPoints[0],1);assert.equal(e.ExpDone[0],false);assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
   t.click(t.common(103));assert.equal(e.ExpCritPoints[0],0);
   e.ExpState=e.EXP_BATTLE;e.ExpRevision++;t.render();e.ExpUIOpen(e.EXP_UI_STATS);t.render();
@@ -170,7 +182,7 @@ check('접기와 ESC 후 후보 유지, 상태 변경 시 자동 표시, 강화�
   t.click(toggle);assert.deepEqual(t.roots(),[]);t.click(toggle);assert.equal(e.ExpStartCard[0],offered);assert.equal(e.ExpOfferVersion[0],version);
   e.UIExpeditionCommon_Escape();t.render();assert.deepEqual(t.roots(),[]);
   e.Enter(e.EXP_REWARD);assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
-  e.F_UpgradeOnOff[0]=true;t.render();assert.deepEqual(t.roots(),[]);e.UIMap_Toggle();t.render();assert.equal(e.ExpUIPanel,e.EXP_UI_CHOICE);
+  e.F_UpgradeOnOff[0]=true;t.render();assert.deepEqual(t.roots(),[]);assert.equal(typeof e.UIMap_Toggle,'undefined');assert.equal(e.ExpUIPanel,e.EXP_UI_CHOICE);
   e.F_UpgradeOnOff[0]=false;t.render();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
 });
 check('보상 리롤의 비용과 후보 버전, 오래된 요청 거부 및 사건 선택 화면 전환',()=>{

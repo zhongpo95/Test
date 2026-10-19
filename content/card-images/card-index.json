@@ -94,7 +94,8 @@
       56,
       69,
       70,
-      71
+      71,
+      1666
     ],
     "icon": "UI_Card_FateCalm_archer_Icon.tga",
     "art": "UI_Card_FateCalm_archer_Art.tga",
@@ -213,7 +214,8 @@
     "name": "크리스",
     "rewardIds": [
       86,
-      102
+      102,
+      1669
     ],
     "icon": "UI_Card_KSB_MST26_chris_Icon.tga",
     "art": "UI_Card_KSB_MST26_chris_Art.tga",
@@ -459,7 +461,8 @@
     "name": "리쿠하치마 아루",
     "rewardIds": [
       161,
-      165
+      165,
+      1672
     ],
     "icon": "UI_Card_BAM2_10000_Icon.tga",
     "art": "UI_Card_BAM1_10000_Art.tga",
@@ -616,7 +619,8 @@
     "head": 4,
     "name": "콘고 미츠코",
     "rewardIds": [
-      230
+      230,
+      1676
     ],
     "icon": "UI_Card_RGT_34_Icon.tga",
     "art": "UI_Card_RGT_34_Art.tga",
@@ -627,7 +631,8 @@
     "head": 4,
     "name": "완나이 키누호",
     "rewardIds": [
-      231
+      231,
+      1675
     ],
     "icon": "UI_Card_RGT_35_Icon.tga",
     "art": "UI_Card_RGT_35_Art.tga",
@@ -880,7 +885,8 @@
     "rewardIds": [
       357,
       365,
-      377
+      377,
+      1681
     ],
     "icon": "UI_Card_SAOFD_agil_Icon.tga",
     "art": "UI_Card_SAOFD_agil_Art.tga",
@@ -954,7 +960,8 @@
       375,
       401,
       402,
-      403
+      403,
+      1682
     ],
     "icon": "UI_Card_SAOFD_lisbeth_Icon.tga",
     "art": "UI_Card_SAOFD_lisbeth_Art.tga",
@@ -1054,7 +1061,8 @@
       453,
       469,
       470,
-      471
+      471,
+      1691
     ],
     "icon": "UI_Card_GBF_rackam_Icon.tga",
     "art": "UI_Card_GBF_rackam_Art.tga",
@@ -1083,7 +1091,9 @@
     "name": "오이겐",
     "rewardIds": [
       427,
-      441
+      441,
+      1685,
+      1694
     ],
     "icon": "UI_Card_GBF_eugen_Icon.tga",
     "art": "UI_Card_GBF_eugen_Art.tga",
@@ -1107,7 +1117,8 @@
     "head": 7,
     "name": "나루메아",
     "rewardIds": [
-      429
+      429,
+      1687
     ],
     "icon": "UI_Card_GBF_narmaya_Icon.tga",
     "art": "UI_Card_GBF_narmaya_Art.tga",
@@ -1118,7 +1129,9 @@
     "head": 7,
     "name": "베인",
     "rewardIds": [
-      430
+      430,
+      1688,
+      1690
     ],
     "icon": "UI_Card_GBF_vane_Icon.tga",
     "art": "UI_Card_GBF_vane_Art.tga",
@@ -1140,7 +1153,8 @@
     "head": 7,
     "name": "칼리오스트로",
     "rewardIds": [
-      432
+      432,
+      1686
     ],
     "icon": "UI_Card_GBF_cagliostro_Icon.tga",
     "art": "UI_Card_GBF_cagliostro_Art.tga",
@@ -1152,7 +1166,8 @@
     "name": "로제타",
     "rewardIds": [
       434,
-      442
+      442,
+      1689
     ],
     "icon": "UI_Card_GBF_rosetta_Icon.tga",
     "art": "UI_Card_GBF_rosetta_Art.tga",
@@ -1261,7 +1276,11 @@
     "head": 0,
     "name": "야토",
     "rewardIds": [
-      490
+      490,
+      1695,
+      1696,
+      1698,
+      1701
     ],
     "icon": "UI_Card_NRO1_yato_Icon.tga",
     "art": "UI_Card_NRO1_yato_Art.tga",
@@ -1296,7 +1315,8 @@
     "name": "호로",
     "rewardIds": [
       493,
-      495
+      495,
+      1700
     ],
     "icon": "UI_Card_SWO1_holo_Icon.tga",
     "art": "UI_Card_SWO1_holo_Art.tga",
@@ -1307,7 +1327,9 @@
     "head": 0,
     "name": "크래프트 로렌스",
     "rewardIds": [
-      494
+      494,
+      1697,
+      1699
     ],
     "icon": "UI_Card_SWO1_lawrence_Icon.tga",
     "art": "UI_Card_SWO1_lawrence_Art.tga",
@@ -1332,7 +1354,8 @@
     "name": "나즈린",
     "rewardIds": [
       498,
-      499
+      499,
+      1702
     ],
     "icon": "UI_Card_LW_nazrin-l1_Icon.tga",
     "art": "UI_Card_LW_nazrin-l1_Art.tga",
@@ -1343,7 +1366,8 @@
     "head": 8,
     "name": "해피",
     "rewardIds": [
-      502
+      502,
+      1712
     ],
     "icon": "UI_Card_FT_happy_Icon.tga",
     "art": "UI_Card_FT_happy_Art.tga",
@@ -1410,7 +1434,9 @@
       536,
       558,
       559,
-      560
+      560,
+      1708,
+      1709
     ],
     "icon": "UI_Card_FT_gray-fullbuster_Icon.tga",
     "art": "UI_Card_FT_gray-fullbuster_Art.tga",
@@ -1429,7 +1455,8 @@
       539,
       555,
       556,
-      557
+      557,
+      1707
     ],
     "icon": "UI_Card_FT_erza-scarlet_Icon.tga",
     "art": "UI_Card_FT_erza-scarlet_Art.tga",
@@ -1441,7 +1468,10 @@
     "name": "웬디 마벨",
     "rewardIds": [
       508,
-      518
+      518,
+      1703,
+      1704,
+      1705
     ],
     "icon": "UI_Card_FT_wendy-marvell_Icon.tga",
     "art": "UI_Card_FT_wendy-marvell_Art.tga",
@@ -1465,7 +1495,8 @@
     "name": "가질 레드폭스",
     "rewardIds": [
       511,
-      523
+      523,
+      1706
     ],
     "icon": "UI_Card_FTG_gajeel_Icon.tga",
     "art": "UI_Card_FTG_gajeel_Art.tga",
@@ -1542,7 +1573,9 @@
     "name": "콘",
     "rewardIds": [
       570,
-      594
+      594,
+      1715,
+      1726
     ],
     "icon": "UI_Card_BBS_kon_Icon.tga",
     "art": "UI_Card_BBS_kon_Art.tga",
@@ -1585,7 +1618,8 @@
     "rewardIds": [
       572,
       579,
-      588
+      588,
+      1718
     ],
     "icon": "UI_Card_BBO1_uryu_Icon.tga",
     "art": "UI_Card_BBO1_uryu_Art.tga",
@@ -1638,7 +1672,9 @@
       624,
       637,
       638,
-      639
+      639,
+      1722,
+      1723
     ],
     "icon": "UI_Card_BBO1_rukia_Icon.tga",
     "art": "UI_Card_BBO1_rukia_Art.tga",
@@ -1653,7 +1689,10 @@
       590,
       607,
       608,
-      609
+      609,
+      1719,
+      1720,
+      1721
     ],
     "icon": "UI_Card_BBO2_urahara_Icon.tga",
     "art": "UI_Card_BBO2_urahara_Art.tga",
@@ -1665,7 +1704,10 @@
     "name": "사도 야스토라",
     "rewardIds": [
       577,
-      591
+      591,
+      1713,
+      1714,
+      1716
     ],
     "icon": "UI_Card_BBO2_sado_Icon.tga",
     "art": "UI_Card_BBO2_sado_Art.tga",
@@ -1677,7 +1719,8 @@
     "name": "쿠로사키 유즈",
     "rewardIds": [
       580,
-      592
+      592,
+      1717
     ],
     "icon": "UI_Card_QU7_yuzu_Icon.tga",
     "art": "UI_Card_QU7_yuzu_Art.tga",
@@ -1882,7 +1925,10 @@
       650,
       655,
       665,
-      699
+      699,
+      1728,
+      1729,
+      1730
     ],
     "icon": "UI_Card_HSR_1301_Icon.tga",
     "art": "UI_Card_HSR_1301_Art.tga",
@@ -1894,7 +1940,8 @@
     "name": "아케론",
     "rewardIds": [
       653,
-      669
+      669,
+      1727
     ],
     "icon": "UI_Card_HSR_1308_Icon.tga",
     "art": "UI_Card_HSR_1308_Art.tga",
@@ -2060,7 +2107,8 @@
     "name": "셰스카",
     "rewardIds": [
       721,
-      731
+      731,
+      1735
     ],
     "icon": "UI_Card_FMA_21_Icon.tga",
     "art": "UI_Card_FMA_21_Art.tga",
@@ -2072,7 +2120,8 @@
     "name": "알렉스 루이 암스트롱",
     "rewardIds": [
       722,
-      739
+      739,
+      1733
     ],
     "icon": "UI_Card_FMO1_armstrong_Icon.tga",
     "art": "UI_Card_FMO1_armstrong_Art.tga",
@@ -2116,7 +2165,9 @@
     "name": "리자 호크아이",
     "rewardIds": [
       726,
-      733
+      733,
+      1734,
+      1738
     ],
     "icon": "UI_Card_FMO3_riza_Icon.tga",
     "art": "UI_Card_FMO3_riza_Art.tga",
@@ -2128,7 +2179,8 @@
     "name": "마스 휴즈",
     "rewardIds": [
       727,
-      732
+      732,
+      1736
     ],
     "icon": "UI_Card_FMO1_hughes_Icon.tga",
     "art": "UI_Card_FMO1_hughes_Art.tga",
@@ -2152,7 +2204,9 @@
     "name": "시그 커티스",
     "rewardIds": [
       729,
-      735
+      735,
+      1737,
+      1739
     ],
     "icon": "UI_Card_FMA_26_Icon.tga",
     "art": "UI_Card_FMA_26_Art.tga",
@@ -2219,7 +2273,8 @@
       800,
       815,
       816,
-      817
+      817,
+      1743
     ],
     "icon": "UI_Card_KNYS_aoi_Icon.tga",
     "art": "UI_Card_KNYS_aoi_Art.tga",
@@ -2297,7 +2352,8 @@
     "name": "아가츠마 젠이츠",
     "rewardIds": [
       798,
-      804
+      804,
+      1742
     ],
     "icon": "UI_Card_KMO1_zenitsu_Icon.tga",
     "art": "UI_Card_KMO1_zenitsu_Art.tga",
@@ -2313,7 +2369,8 @@
       813,
       842,
       843,
-      844
+      844,
+      1744
     ],
     "icon": "UI_Card_KMO2_inosuke_Icon.tga",
     "art": "UI_Card_KMO2_inosuke_Art.tga",
@@ -2525,7 +2582,9 @@
     "head": 1,
     "name": "함께 걷는 이상",
     "rewardIds": [
-      924
+      924,
+      1667,
+      1668
     ],
     "icon": "UI_Card_Ending_fuyuki_Icon.tga",
     "art": "UI_Card_Ending_fuyuki_Art.tga",
@@ -2536,7 +2595,9 @@
     "head": 2,
     "name": "돌아갈 집은 지켰다",
     "rewardIds": [
-      925
+      925,
+      1670,
+      1671
     ],
     "icon": "UI_Card_Ending_axel_Icon.tga",
     "art": "UI_Card_Ending_axel_Art.tga",
@@ -2547,7 +2608,9 @@
     "head": 3,
     "name": "다섯 자리가 있는 교실",
     "rewardIds": [
-      926
+      926,
+      1673,
+      1674
     ],
     "icon": "UI_Card_Ending_abydos_Icon.tga",
     "art": "UI_Card_Ending_abydos_Art.tga",
@@ -2558,7 +2621,9 @@
     "head": 4,
     "name": "번호 너머의 내일",
     "rewardIds": [
-      927
+      927,
+      1677,
+      1678
     ],
     "icon": "UI_Card_Ending_academy_Icon.tga",
     "art": "UI_Card_Ending_academy_Art.tga",
@@ -2569,7 +2634,9 @@
     "head": 5,
     "name": "이어지는 리본",
     "rewardIds": [
-      928
+      928,
+      1679,
+      1680
     ],
     "icon": "UI_Card_Ending_mitakihara_Icon.tga",
     "art": "UI_Card_Ending_mitakihara_Art.tga",
@@ -2580,7 +2647,9 @@
     "head": 6,
     "name": "현실로 이어진 약속",
     "rewardIds": [
-      929
+      929,
+      1683,
+      1684
     ],
     "icon": "UI_Card_Ending_aincrad_Icon.tga",
     "art": "UI_Card_Ending_aincrad_Art.tga",
@@ -2591,7 +2660,9 @@
     "head": 7,
     "name": "돌아온 안내인의 일지",
     "rewardIds": [
-      930
+      930,
+      1692,
+      1693
     ],
     "icon": "UI_Card_Ending_zegagrande_Icon.tga",
     "art": "UI_Card_Ending_zegagrande_Art.tga",
@@ -2602,7 +2673,9 @@
     "head": 8,
     "name": "내가 돌아올 길드",
     "rewardIds": [
-      931
+      931,
+      1710,
+      1711
     ],
     "icon": "UI_Card_Ending_magnolia_Icon.tga",
     "art": "UI_Card_Ending_magnolia_Art.tga",
@@ -2613,7 +2686,9 @@
     "head": 9,
     "name": "사신대행증",
     "rewardIds": [
-      932
+      932,
+      1724,
+      1725
     ],
     "icon": "UI_Card_Ending_karakura_Icon.tga",
     "art": "UI_Card_Ending_karakura_Art.tga",
@@ -2624,7 +2699,9 @@
     "head": 10,
     "name": "우린 꿈에서 깨어날 거니까",
     "rewardIds": [
-      933
+      933,
+      1731,
+      1732
     ],
     "icon": "UI_Card_Ending_penacony_Icon.tga",
     "art": "UI_Card_Ending_penacony_Art.tga",
@@ -2635,7 +2712,9 @@
     "head": 11,
     "name": "함께 돌아온 두 손",
     "rewardIds": [
-      934
+      934,
+      1740,
+      1741
     ],
     "icon": "UI_Card_Ending_amestris_Icon.tga",
     "art": "UI_Card_Ending_amestris_Art.tga",
@@ -2646,7 +2725,9 @@
     "head": 12,
     "name": "다음 새벽의 호흡",
     "rewardIds": [
-      935
+      935,
+      1745,
+      1746
     ],
     "icon": "UI_Card_Ending_butterfly_Icon.tga",
     "art": "UI_Card_Ending_butterfly_Art.tga",
@@ -2657,7 +2738,9 @@
     "head": 13,
     "name": "네 사람이 앉는 식탁",
     "rewardIds": [
-      936
+      936,
+      1747,
+      1748
     ],
     "icon": "UI_Card_Ending_gourmet_Icon.tga",
     "art": "UI_Card_Ending_gourmet_Art.tga",
@@ -2676,7 +2759,8 @@
       958,
       978,
       986,
-      993
+      993,
+      1757
     ],
     "icon": "UI_Card_XP_amphoreus_tribbie_Icon.tga",
     "art": "UI_Card_XP_amphoreus_tribbie_Art.tga",
@@ -2736,7 +2820,8 @@
     "name": "카스토리스",
     "rewardIds": [
       941,
-      961
+      961,
+      1759
     ],
     "icon": "UI_Card_XP_amphoreus_castorice_Icon.tga",
     "art": "UI_Card_XP_amphoreus_castorice_Art.tga",
@@ -2768,7 +2853,9 @@
       963,
       967,
       972,
-      990
+      990,
+      1751,
+      1758
     ],
     "icon": "UI_Card_XP_amphoreus_hyacine_Icon.tga",
     "art": "UI_Card_XP_amphoreus_hyacine_Art.tga",
@@ -2781,7 +2868,9 @@
     "rewardIds": [
       944,
       962,
-      970
+      970,
+      1752,
+      1755
     ],
     "icon": "UI_Card_XP_amphoreus_cipher_Icon.tga",
     "art": "UI_Card_XP_amphoreus_cipher_Art.tga",
@@ -2811,7 +2900,9 @@
     "rewardIds": [
       946,
       980,
-      982
+      982,
+      1754,
+      1756
     ],
     "icon": "UI_Card_XP_amphoreus_cerydra_Icon.tga",
     "art": "UI_Card_XP_amphoreus_cerydra_Art.tga",
@@ -2824,7 +2915,8 @@
     "rewardIds": [
       947,
       979,
-      983
+      983,
+      1753
     ],
     "icon": "UI_Card_XP_amphoreus_hysilens_Icon.tga",
     "art": "UI_Card_XP_amphoreus_hysilens_Art.tga",
@@ -2835,7 +2927,9 @@
     "head": 14,
     "name": "미래에 남겨 둔 불씨",
     "rewardIds": [
-      994
+      994,
+      1749,
+      1750
     ],
     "icon": "UI_Card_XP_amphoreus_head_Icon.tga",
     "art": "UI_Card_XP_amphoreus_head_Art.tga",
@@ -2852,7 +2946,9 @@
       1020,
       1023,
       1025,
-      1029
+      1029,
+      1762,
+      1764
     ],
     "icon": "UI_Card_XP_phantom_blood_speedwagon_Icon.tga",
     "art": "UI_Card_XP_phantom_blood_speedwagon_Art.tga",
@@ -2895,7 +2991,8 @@
       997,
       1002,
       1006,
-      1014
+      1014,
+      1765
     ],
     "icon": "UI_Card_XP_phantom_blood_dio_Icon.tga",
     "art": "UI_Card_XP_phantom_blood_dio_Art.tga",
@@ -2910,7 +3007,9 @@
       1016,
       1021,
       1026,
-      1028
+      1028,
+      1763,
+      1766
     ],
     "icon": "UI_Card_XP_phantom_blood_zeppeli_Icon.tga",
     "art": "UI_Card_XP_phantom_blood_zeppeli_Art.tga",
@@ -2934,7 +3033,9 @@
     "head": 15,
     "name": "톤페티",
     "rewardIds": [
-      1000
+      1000,
+      1767,
+      1768
     ],
     "icon": "UI_Card_XP_phantom_blood_tonpetty_Icon.tga",
     "art": "UI_Card_XP_phantom_blood_tonpetty_Art.tga",
@@ -2945,7 +3046,9 @@
     "head": 15,
     "name": "마지막 파문",
     "rewardIds": [
-      1034
+      1034,
+      1760,
+      1761
     ],
     "icon": "UI_Card_XP_phantom_blood_head_Icon.tga",
     "art": "UI_Card_XP_phantom_blood_head_Art.tga",
@@ -2977,7 +3080,8 @@
       1055,
       1059,
       1065,
-      1073
+      1073,
+      1773
     ],
     "icon": "UI_Card_XP_madolche_puddingcess_Icon.tga",
     "art": "UI_Card_XP_madolche_puddingcess_Art.tga",
@@ -2990,7 +3094,8 @@
     "rewardIds": [
       1037,
       1067,
-      1075
+      1075,
+      1774
     ],
     "icon": "UI_Card_XP_madolche_tiaramisu_Icon.tga",
     "art": "UI_Card_XP_madolche_tiaramisu_Art.tga",
@@ -3066,7 +3171,9 @@
       1051,
       1058,
       1066,
-      1072
+      1072,
+      1771,
+      1772
     ],
     "icon": "UI_Card_XP_madolche_glassouffle_Icon.tga",
     "art": "UI_Card_XP_madolche_glassouffle_Art.tga",
@@ -3077,7 +3184,9 @@
     "head": 16,
     "name": "돌아올 자리가 있는 다과회",
     "rewardIds": [
-      1076
+      1076,
+      1769,
+      1770
     ],
     "icon": "UI_Card_XP_madolche_head_Icon.tga",
     "art": "UI_Card_XP_madolche_head_Art.tga",
@@ -3151,7 +3260,9 @@
       1102,
       1106,
       1113,
-      1117
+      1117,
+      1777,
+      1778
     ],
     "icon": "UI_Card_XP_tengu_kotori_Icon.tga",
     "art": "UI_Card_XP_tengu_kotori_Art.tga",
@@ -3190,7 +3301,9 @@
     "head": 17,
     "name": "텐구시의 기억",
     "rewardIds": [
-      1119
+      1119,
+      1775,
+      1776
     ],
     "icon": "UI_Card_XP_tengu_head_Icon.tga",
     "art": "UI_Card_XP_tengu_head_Art.tga",
@@ -3259,7 +3372,8 @@
       1123,
       1132,
       1146,
-      1150
+      1150,
+      1785
     ],
     "icon": "UI_Card_XP_ikebukuro_anri_Icon.tga",
     "art": "UI_Card_XP_ikebukuro_anri_Art.tga",
@@ -3274,7 +3388,8 @@
       1133,
       1137,
       1144,
-      1155
+      1155,
+      1784
     ],
     "icon": "UI_Card_XP_ikebukuro_izaya_Icon.tga",
     "art": "UI_Card_XP_ikebukuro_izaya_Art.tga",
@@ -3298,7 +3413,8 @@
     "name": "키시타니 신라",
     "rewardIds": [
       1126,
-      1142
+      1142,
+      1782
     ],
     "icon": "UI_Card_XP_ikebukuro_shinra_Icon.tga",
     "art": "UI_Card_XP_ikebukuro_shinra_Art.tga",
@@ -3312,7 +3428,9 @@
       1127,
       1147,
       1154,
-      1161
+      1161,
+      1781,
+      1783
     ],
     "icon": "UI_Card_XP_ikebukuro_kadota_Icon.tga",
     "art": "UI_Card_XP_ikebukuro_kadota_Art.tga",
@@ -3323,7 +3441,9 @@
     "head": 18,
     "name": "이케부쿠로의 기억",
     "rewardIds": [
-      1162
+      1162,
+      1779,
+      1780
     ],
     "icon": "UI_Card_XP_ikebukuro_head_Icon.tga",
     "art": "UI_Card_XP_ikebukuro_head_Art.tga",
@@ -3374,7 +3494,8 @@
       1165,
       1187,
       1189,
-      1198
+      1198,
+      1790
     ],
     "icon": "UI_Card_XP_frieren_stark_Icon.tga",
     "art": "UI_Card_XP_frieren_stark_Art.tga",
@@ -3413,7 +3534,8 @@
     "rewardIds": [
       1168,
       1184,
-      1188
+      1188,
+      1788
     ],
     "icon": "UI_Card_XP_frieren_eisen_Icon.tga",
     "art": "UI_Card_XP_frieren_eisen_Art.tga",
@@ -3464,7 +3586,8 @@
     "name": "덴켄",
     "rewardIds": [
       1172,
-      1204
+      1204,
+      1789
     ],
     "icon": "UI_Card_XP_frieren_denken_Icon.tga",
     "art": "UI_Card_XP_frieren_denken_Art.tga",
@@ -3499,7 +3622,9 @@
     "head": 19,
     "name": "프리렌 일행",
     "rewardIds": [
-      1208
+      1208,
+      1786,
+      1787
     ],
     "icon": "UI_Card_XP_frieren_head_Icon.tga",
     "art": "UI_Card_XP_frieren_head_Art.tga",
@@ -3591,7 +3716,9 @@
     "name": "파린",
     "rewardIds": [
       1213,
-      1242
+      1242,
+      1794,
+      1796
     ],
     "icon": "UI_Card_XP_dungeon_meshi_falin_Icon.tga",
     "art": "UI_Card_XP_dungeon_meshi_falin_Art.tga",
@@ -3603,7 +3730,8 @@
     "name": "나마리",
     "rewardIds": [
       1214,
-      1244
+      1244,
+      1795
     ],
     "icon": "UI_Card_XP_dungeon_meshi_namari_Icon.tga",
     "art": "UI_Card_XP_dungeon_meshi_namari_Art.tga",
@@ -3614,7 +3742,8 @@
     "head": 20,
     "name": "슈로",
     "rewardIds": [
-      1215
+      1215,
+      1793
     ],
     "icon": "UI_Card_XP_dungeon_meshi_shuro_Icon.tga",
     "art": "UI_Card_XP_dungeon_meshi_shuro_Art.tga",
@@ -3626,7 +3755,8 @@
     "name": "카블루",
     "rewardIds": [
       1216,
-      1232
+      1232,
+      1797
     ],
     "icon": "UI_Card_XP_dungeon_meshi_kabru_Icon.tga",
     "art": "UI_Card_XP_dungeon_meshi_kabru_Art.tga",
@@ -3637,7 +3767,9 @@
     "head": 20,
     "name": "다시 마주 앉은 식탁",
     "rewardIds": [
-      1256
+      1256,
+      1791,
+      1792
     ],
     "icon": "UI_Card_XP_dungeon_meshi_head_Icon.tga",
     "art": "UI_Card_XP_dungeon_meshi_head_Art.tga",
@@ -3677,7 +3809,10 @@
       1280,
       1284,
       1287,
-      1304
+      1304,
+      1800,
+      1803,
+      1804
     ],
     "icon": "UI_Card_XP_hunter_exam_killua_Icon.tga",
     "art": "UI_Card_XP_hunter_exam_killua_Art.tga",
@@ -3695,7 +3830,9 @@
       1283,
       1285,
       1289,
-      1298
+      1298,
+      1801,
+      1805
     ],
     "icon": "UI_Card_XP_hunter_exam_kurapika_Icon.tga",
     "art": "UI_Card_XP_hunter_exam_kurapika_Art.tga",
@@ -3727,7 +3864,8 @@
     "rewardIds": [
       1261,
       1293,
-      1295
+      1295,
+      1806
     ],
     "icon": "UI_Card_XP_hunter_exam_hisoka_Icon.tga",
     "art": "UI_Card_XP_hunter_exam_hisoka_Art.tga",
@@ -3752,7 +3890,8 @@
     "rewardIds": [
       1263,
       1273,
-      1303
+      1303,
+      1802
     ],
     "icon": "UI_Card_XP_hunter_exam_satotz_Icon.tga",
     "art": "UI_Card_XP_hunter_exam_satotz_Art.tga",
@@ -3765,7 +3904,8 @@
     "rewardIds": [
       1264,
       1281,
-      1302
+      1302,
+      1807
     ],
     "icon": "UI_Card_XP_hunter_exam_netero_Icon.tga",
     "art": "UI_Card_XP_hunter_exam_netero_Art.tga",
@@ -3776,7 +3916,9 @@
     "head": 21,
     "name": "합격증 너머의 친구",
     "rewardIds": [
-      1266
+      1266,
+      1798,
+      1799
     ],
     "icon": "UI_Card_XP_hunter_exam_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_hunter_exam_ending_memorial_Art.tga",
@@ -3815,7 +3957,8 @@
       1318,
       1330,
       1334,
-      1341
+      1341,
+      1812
     ],
     "icon": "UI_Card_XP_roswaal_mansion_emilia_Icon.tga",
     "art": "UI_Card_XP_roswaal_mansion_emilia_Art.tga",
@@ -3881,7 +4024,8 @@
     "name": "로즈월 L. 메이더스",
     "rewardIds": [
       1311,
-      1352
+      1352,
+      1813
     ],
     "icon": "UI_Card_XP_roswaal_mansion_roswaal_Icon.tga",
     "art": "UI_Card_XP_roswaal_mansion_roswaal_Art.tga",
@@ -3895,7 +4039,9 @@
       1312,
       1324,
       1335,
-      1342
+      1342,
+      1810,
+      1811
     ],
     "icon": "UI_Card_XP_roswaal_mansion_puck_Icon.tga",
     "art": "UI_Card_XP_roswaal_mansion_puck_Art.tga",
@@ -3906,7 +4052,9 @@
     "head": 22,
     "name": "모두가 있는 저택의 아침",
     "rewardIds": [
-      1355
+      1355,
+      1808,
+      1809
     ],
     "icon": "UI_Card_XP_roswaal_mansion_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_roswaal_mansion_ending_memorial_Art.tga",
@@ -3994,7 +4142,8 @@
     "rewardIds": [
       1360,
       1385,
-      1393
+      1393,
+      1816
     ],
     "icon": "UI_Card_XP_z_city_bang_Icon.tga",
     "art": "UI_Card_XP_z_city_bang_Art.tga",
@@ -4018,7 +4167,8 @@
     "name": "아토믹 사무라이",
     "rewardIds": [
       1362,
-      1396
+      1396,
+      1817
     ],
     "icon": "UI_Card_XP_z_city_atomic_Icon.tga",
     "art": "UI_Card_XP_z_city_atomic_Art.tga",
@@ -4030,7 +4180,8 @@
     "name": "금속배트",
     "rewardIds": [
       1363,
-      1397
+      1397,
+      1818
     ],
     "icon": "UI_Card_XP_z_city_metalbat_Icon.tga",
     "art": "UI_Card_XP_z_city_metalbat_Art.tga",
@@ -4053,7 +4204,9 @@
     "head": 23,
     "name": "내일도 히어로",
     "rewardIds": [
-      1402
+      1402,
+      1814,
+      1815
     ],
     "icon": "UI_Card_XP_z_city_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_z_city_ending_memorial_Art.tga",
@@ -4108,7 +4261,8 @@
       1405,
       1425,
       1446,
-      1459
+      1459,
+      1825
     ],
     "icon": "UI_Card_XP_witch_prison_anan_Icon.tga",
     "art": "UI_Card_XP_witch_prison_anan_Art.tga",
@@ -4135,7 +4289,8 @@
     "rewardIds": [
       1407,
       1427,
-      1449
+      1449,
+      1821
     ],
     "icon": "UI_Card_XP_witch_prison_hanna_Icon.tga",
     "art": "UI_Card_XP_witch_prison_hanna_Art.tga",
@@ -4147,7 +4302,9 @@
     "name": "타치바나 셰리",
     "rewardIds": [
       1408,
-      1428
+      1428,
+      1826,
+      1828
     ],
     "icon": "UI_Card_XP_witch_prison_sherry_Icon.tga",
     "art": "UI_Card_XP_witch_prison_sherry_Art.tga",
@@ -4161,7 +4318,8 @@
       1409,
       1421,
       1438,
-      1450
+      1450,
+      1823
     ],
     "icon": "UI_Card_XP_witch_prison_leia_Icon.tga",
     "art": "UI_Card_XP_witch_prison_leia_Art.tga",
@@ -4176,7 +4334,8 @@
       1417,
       1423,
       1424,
-      1452
+      1452,
+      1827
     ],
     "icon": "UI_Card_XP_witch_prison_miria_Icon.tga",
     "art": "UI_Card_XP_witch_prison_miria_Art.tga",
@@ -4204,7 +4363,8 @@
     "rewardIds": [
       1412,
       1419,
-      1443
+      1443,
+      1822
     ],
     "icon": "UI_Card_XP_witch_prison_koko_Icon.tga",
     "art": "UI_Card_XP_witch_prison_koko_Art.tga",
@@ -4216,7 +4376,8 @@
     "name": "호쇼 마고",
     "rewardIds": [
       1413,
-      1440
+      1440,
+      1824
     ],
     "icon": "UI_Card_XP_witch_prison_margo_Icon.tga",
     "art": "UI_Card_XP_witch_prison_margo_Art.tga",
@@ -4242,7 +4403,9 @@
     "head": 24,
     "name": "철문 너머의 내일",
     "rewardIds": [
-      1460
+      1460,
+      1819,
+      1820
     ],
     "icon": "UI_Card_XP_witch_prison_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_witch_prison_ending_memorial_Art.tga",
@@ -4278,7 +4441,9 @@
       1481,
       1488,
       1506,
-      1510
+      1510,
+      1831,
+      1832
     ],
     "icon": "UI_Card_XP_persona5_morgana_Icon.tga",
     "art": "UI_Card_XP_persona5_morgana_Art.tga",
@@ -4295,7 +4460,8 @@
       1484,
       1490,
       1504,
-      1511
+      1511,
+      1835
     ],
     "icon": "UI_Card_XP_persona5_ryuji_Icon.tga",
     "art": "UI_Card_XP_persona5_ryuji_Art.tga",
@@ -4311,7 +4477,8 @@
       1480,
       1487,
       1508,
-      1513
+      1513,
+      1833
     ],
     "icon": "UI_Card_XP_persona5_ann_Icon.tga",
     "art": "UI_Card_XP_persona5_ann_Art.tga",
@@ -4371,7 +4538,8 @@
       1469,
       1489,
       1491,
-      1502
+      1502,
+      1836
     ],
     "icon": "UI_Card_XP_persona5_haru_Icon.tga",
     "art": "UI_Card_XP_persona5_haru_Art.tga",
@@ -4409,7 +4577,8 @@
     "name": "사쿠라 소지로",
     "rewardIds": [
       1472,
-      1516
+      1516,
+      1834
     ],
     "icon": "UI_Card_XP_persona5_sojiro_Icon.tga",
     "art": "UI_Card_XP_persona5_sojiro_Art.tga",
@@ -4420,7 +4589,9 @@
     "head": 25,
     "name": "다시 이어질 우리의 길",
     "rewardIds": [
-      1519
+      1519,
+      1829,
+      1830
     ],
     "icon": "UI_Card_XP_persona5_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_persona5_ending_memorial_Art.tga",
@@ -4455,7 +4626,8 @@
       1535,
       1553,
       1563,
-      1569
+      1569,
+      1843
     ],
     "icon": "UI_Card_XP_persona5_royal_morgana_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_morgana_Art.tga",
@@ -4468,7 +4640,8 @@
     "rewardIds": [
       1522,
       1548,
-      1565
+      1565,
+      1844
     ],
     "icon": "UI_Card_XP_persona5_royal_ryuji_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_ryuji_Art.tga",
@@ -4480,7 +4653,8 @@
     "name": "타카마키 안",
     "rewardIds": [
       1523,
-      1559
+      1559,
+      1841
     ],
     "icon": "UI_Card_XP_persona5_royal_ann_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_ann_Art.tga",
@@ -4492,7 +4666,8 @@
     "name": "키타가와 유스케",
     "rewardIds": [
       1524,
-      1557
+      1557,
+      1845
     ],
     "icon": "UI_Card_XP_persona5_royal_yusuke_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_yusuke_Art.tga",
@@ -4505,7 +4680,9 @@
     "rewardIds": [
       1525,
       1554,
-      1556
+      1556,
+      1840,
+      1842
     ],
     "icon": "UI_Card_XP_persona5_royal_makoto_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_makoto_Art.tga",
@@ -4534,7 +4711,8 @@
     "rewardIds": [
       1527,
       1547,
-      1560
+      1560,
+      1839
     ],
     "icon": "UI_Card_XP_persona5_royal_haru_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_haru_Art.tga",
@@ -4567,7 +4745,8 @@
       1542,
       1543,
       1551,
-      1552
+      1552,
+      1846
     ],
     "icon": "UI_Card_XP_persona5_royal_yoshizawa_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_yoshizawa_Art.tga",
@@ -4592,7 +4771,9 @@
     "head": 26,
     "name": "우리 손으로 고른 내일",
     "rewardIds": [
-      1571
+      1571,
+      1837,
+      1838
     ],
     "icon": "UI_Card_XP_persona5_royal_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_persona5_royal_ending_memorial_Art.tga",
@@ -4627,7 +4808,8 @@
     "name": "치르노",
     "rewardIds": [
       1573,
-      1585
+      1585,
+      1849
     ],
     "icon": "UI_Card_XP_hakugyokurou_cirno_Icon.tga",
     "art": "UI_Card_XP_hakugyokurou_cirno_Art.tga",
@@ -4653,7 +4835,8 @@
     "rewardIds": [
       1575,
       1590,
-      1591
+      1591,
+      1851
     ],
     "icon": "UI_Card_XP_hakugyokurou_chen_Icon.tga",
     "art": "UI_Card_XP_hakugyokurou_chen_Art.tga",
@@ -4666,7 +4849,8 @@
     "rewardIds": [
       1576,
       1593,
-      1594
+      1594,
+      1852
     ],
     "icon": "UI_Card_XP_hakugyokurou_alice_Icon.tga",
     "art": "UI_Card_XP_hakugyokurou_alice_Art.tga",
@@ -4692,7 +4876,8 @@
     "rewardIds": [
       1578,
       1599,
-      1602
+      1602,
+      1854
     ],
     "icon": "UI_Card_XP_hakugyokurou_lunasa_Icon.tga",
     "art": "UI_Card_XP_hakugyokurou_lunasa_Art.tga",
@@ -4705,7 +4890,8 @@
     "rewardIds": [
       1579,
       1600,
-      1603
+      1603,
+      1850
     ],
     "icon": "UI_Card_XP_hakugyokurou_merlin_Icon.tga",
     "art": "UI_Card_XP_hakugyokurou_merlin_Art.tga",
@@ -4734,7 +4920,8 @@
       1605,
       1607,
       1608,
-      1609
+      1609,
+      1853
     ],
     "icon": "UI_Card_XP_hakugyokurou_youmu_Icon.tga",
     "art": "UI_Card_XP_hakugyokurou_youmu_Art.tga",
@@ -4761,7 +4948,9 @@
     "head": 27,
     "name": "돌아온 봄의 자리",
     "rewardIds": [
-      1620
+      1620,
+      1847,
+      1848
     ],
     "icon": "UI_Card_XP_hakugyokurou_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_hakugyokurou_ending_memorial_Art.tga",
@@ -4799,7 +4988,8 @@
       1622,
       1630,
       1632,
-      1634
+      1634,
+      1857
     ],
     "icon": "UI_Card_XP_scarlet_mist_rumia_Icon.tga",
     "art": "UI_Card_XP_scarlet_mist_rumia_Art.tga",
@@ -4812,7 +5002,8 @@
     "rewardIds": [
       1623,
       1635,
-      1637
+      1637,
+      1858
     ],
     "icon": "UI_Card_XP_scarlet_mist_cirno_Icon.tga",
     "art": "UI_Card_XP_scarlet_mist_cirno_Art.tga",
@@ -4827,7 +5018,9 @@
       1639,
       1640,
       1641,
-      1642
+      1642,
+      1859,
+      1860
     ],
     "icon": "UI_Card_XP_scarlet_mist_meiling_Icon.tga",
     "art": "UI_Card_XP_scarlet_mist_meiling_Art.tga",
@@ -4886,7 +5079,9 @@
     "head": 28,
     "name": "안개 뒤에 돌아온 여름",
     "rewardIds": [
-      1665
+      1665,
+      1855,
+      1856
     ],
     "icon": "UI_Card_XP_scarlet_mist_ending_memorial_Icon.tga",
     "art": "UI_Card_XP_scarlet_mist_ending_memorial_Art.tga",

@@ -91,48 +91,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         set ttag = null
     endfunction
 
-    //때린유닛,맞은유닛
-    function TestDeal takes unit target returns nothing
-        local tick t = tick.create(0)
-        set t.data = IndexUnit(target)
-        set TestUnit[t.data] = target
-        call SetUnitVertexColorBJ( target, 50, 50, 100, 0 )
-        //call VJDebugMsg("맞음")
-        call t.start(1.0, false, function Reset)
-    endfunction
-
-    //컷인딜 대상, 체력계수 ex)13% 0.13
-    function CutInDeal takes unit target, real rate returns nothing
-        local integer UnitIndex = GetUnitIndex(target)
-        local texttag ttag
-        local real dmg
-        local string s
-        
-        if UnitDamageLock[UnitIndex] then
-            return
-        endif
-
-        set dmg = UnitHPMAX[UnitIndex] * rate
-
-        set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
-        if UnitHPFloorOn[UnitIndex] and UnitHP[UnitIndex] < UnitHPFloor[UnitIndex] then
-            set UnitHP[UnitIndex] = UnitHPFloor[UnitIndex]
-        endif
-        call ExpSyncEnemyLife(target)
-        set ttag = CreateTextTag()
-        set s = FormatDamageText(dmg)
-        call SetTextTagText(ttag, s + " !", 0.030)
-        call SetTextTagPosUnit(ttag, target, 5.00)
-        call SetTextTagColor(ttag, 255, 255, 0, 229)
-        call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
-        call SetTextTagFadepoint(ttag, 0.8)
-        call SetTextTagLifespan(ttag, 1.0)
-        call SetTextTagPermanent(ttag, false)
-        call SetTextTagVisibility(ttag, true)
-        set ttag=null
-
-    endfunction
-    
     // 스킬 코드로 누른 키를 찾는다. 0 Q,1 W,2 E,3 R,4 A,5 S,6 D,7 F,8 C. 코드 2는 C(평타)다. 모르면 -1
     function HeroSkillKey takes integer pid, integer skillCode returns integer
         local integer hero = DataUnitIndex(MainUnit[pid])
@@ -175,9 +133,54 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         if skillCode == 'A02L' or skillCode == 'A0SF' then
             set bonus = bonus + Stat_SkillDamage[pid * 9 + 8] + ProtoStat(pid, PROTO_STAT_SKILL_C)
         endif
+        if skillCode == 2 then
+            set bonus = bonus + ProtoStat(pid, PROTO_STAT_BASIC)
+        endif
         return bonus
     endfunction
 
+    //때린유닛,맞은유닛
+    function TestDeal takes unit target returns nothing
+        local tick t = tick.create(0)
+        set t.data = IndexUnit(target)
+        set TestUnit[t.data] = target
+        call SetUnitVertexColorBJ( target, 50, 50, 100, 0 )
+        //call VJDebugMsg("맞음")
+        call t.start(1.0, false, function Reset)
+    endfunction
+
+    //컷인딜 대상, 체력계수 ex)13% 0.13
+    function CutInDeal takes unit target, real rate returns nothing
+        local integer UnitIndex = GetUnitIndex(target)
+        local texttag ttag
+        local real dmg
+        local string s
+        
+        if UnitDamageLock[UnitIndex] then
+            return
+        endif
+
+        set dmg = UnitHPMAX[UnitIndex] * rate
+
+        set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
+        if UnitHPFloorOn[UnitIndex] and UnitHP[UnitIndex] < UnitHPFloor[UnitIndex] then
+            set UnitHP[UnitIndex] = UnitHPFloor[UnitIndex]
+        endif
+        call ExpSyncEnemyLife(target)
+        set ttag = CreateTextTag()
+        set s = FormatDamageText(dmg)
+        call SetTextTagText(ttag, s + " !", 0.030)
+        call SetTextTagPosUnit(ttag, target, 5.00)
+        call SetTextTagColor(ttag, 255, 255, 0, 229)
+        call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
+        call SetTextTagFadepoint(ttag, 0.8)
+        call SetTextTagLifespan(ttag, 1.0)
+        call SetTextTagPermanent(ttag, false)
+        call SetTextTagVisibility(ttag, true)
+        set ttag=null
+
+    endfunction
+    
     //때린유닛,맞은유닛,계수,헤드판정,백판정,카운터,차지
     function HeroDeal takes integer SkillCode, unit source, unit target, real rate, boolean head, boolean back, boolean counter, boolean charge returns boolean
         local integer pid = GetPlayerId(GetOwningPlayer(source))

@@ -6,7 +6,7 @@
     "intro": "죠스타 저택에서 시작한 두 사람의 인연이 석가면과 파문의 싸움으로 이어진다. 동료가 건넨 용기와 마지막까지 지키려 했던 삶을 따라간다.",
     "effects": [
       {
-        "stat": "healthy_damage",
+        "stat": "directional_damage",
         "value": 3
       }
     ],
@@ -15,15 +15,14 @@
       "title": "이어지는 용기의 파문",
       "length": 12,
       "focus": [
-        "healthy_damage",
-        "boss_damage_percent",
-        "crit_chance"
+        "directional_damage"
       ],
       "source": "TV 애니메이션 팬텀 블러드 1~9화",
       "adaptation": "원작 사건의 순서에 창작 대화를 더한 기억이다. 어느 답도 다음 장과 결말을 잠그지 않는다."
     },
     "icon": "war3mapImported\\UI_Card_XP_phantom_blood_head_Icon.tga",
-    "entryIcon": "war3mapImported\\UI_Event_XP_phantom_blood_head.tga"
+    "entryIcon": "war3mapImported\\UI_Event_XP_phantom_blood_head.tga",
+    "completionText": "헤드·백 피해 +40%"
   },
   "sources": [
     "https://jojo-portal.com/anime/pb-bt/story/pb/",
@@ -39,16 +38,12 @@
       "key": "pb_speedwagon",
       "name": "스피드왜건",
       "effectName": "거친 골목의 동료",
-      "keyword": "공격 · 피해 감소",
+      "keyword": "치명타 피해 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "crit_damage",
+          "value": 4
         }
       ],
       "evolution": {
@@ -57,22 +52,19 @@
         "effects": []
       },
       "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "entry"
     },
     {
       "key": "pb_jonathan",
       "name": "죠나단 죠스타",
       "effectName": "무너지지 않는 호흡",
-      "keyword": "공격 · 내 체력 65% 이상 피해",
+      "keyword": "치명타 피해 +8%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "crit_damage",
+          "value": 8
         }
       ],
       "evolution": {
@@ -81,22 +73,19 @@
         "effects": []
       },
       "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pb_dio",
       "name": "디오 브란도",
       "effectName": "석가면의 그림자",
-      "keyword": "보스 · 흡수",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "leech",
-          "value": 1.5
+          "stat": "directional_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -105,22 +94,19 @@
         "effects": []
       },
       "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pb_zeppeli",
       "name": "윌 A. 체펠리",
       "effectName": "호흡을 가르치는 손",
-      "keyword": "신속 · 내 체력 65% 이상 피해",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "directional_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -129,22 +115,19 @@
         "effects": []
       },
       "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pb_erina",
       "name": "에리나 펜들턴",
       "effectName": "끝까지 지킨 약속",
-      "keyword": "공격 · 재생",
+      "keyword": "헤드·백 피해 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "directional_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -153,22 +136,19 @@
         "effects": []
       },
       "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pb_tonpetty",
       "name": "톤페티",
       "effectName": "호흡을 가다듬는 시간",
-      "keyword": "보스 · 피해 감소",
+      "keyword": "헤드·백 피해 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "directional_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -177,22 +157,19 @@
         "effects": []
       },
       "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "phantom_blood_main_01_1",
       "name": "죠나단 죠스타",
       "effectName": "거절 뒤에도 남은 마음",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 5
+          "stat": "directional_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -201,21 +178,18 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_01_2",
       "name": "디오 브란도",
       "effectName": "웃음 뒤의 계산",
-      "keyword": "메인 · 선택",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -225,22 +199,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_01_3",
       "name": "죠나단 죠스타",
       "effectName": "혼자 두지 않는 자리",
-      "keyword": "메인 · 선택",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -249,22 +220,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_02_1",
       "name": "에리나 펜들턴",
       "effectName": "말하지 않아도 곁에",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 5
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "directional_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -273,22 +241,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_02_2",
       "name": "죠나단 죠스타",
       "effectName": "맞서야 할 이유",
-      "keyword": "메인 · 선택",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 5
+          "value": 4
         }
       ],
       "evolution": {
@@ -297,22 +262,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_02_3",
       "name": "디오 브란도",
       "effectName": "도발의 순서",
-      "keyword": "메인 · 선택",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -321,22 +283,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_03_1",
       "name": "죠나단 죠스타",
       "effectName": "흩어진 징후의 연결",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
-          "value": 4
+          "stat": "directional_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -345,22 +304,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "phantom_blood_main_03_2",
       "name": "죠나단 죠스타",
       "effectName": "돌아올 자리를 남기고",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "directional_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -369,21 +325,18 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "phantom_blood_main_03_3",
       "name": "죠나단 죠스타",
       "effectName": "서두르되 흐트러지지 않게",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "directional_damage",
           "value": 3
         }
       ],
@@ -393,22 +346,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "phantom_blood_main_04_1",
       "name": "죠나단 죠스타",
       "effectName": "멈출 줄 아는 주먹",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
+          "stat": "directional_damage",
           "value": 3
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
         }
       ],
       "evolution": {
@@ -417,21 +367,18 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "phantom_blood_main_04_2",
       "name": "스피드왜건",
       "effectName": "골목이 알려 준 단서",
-      "keyword": "메인 · 선택",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -441,21 +388,18 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_04_3",
       "name": "스피드왜건",
       "effectName": "늦기 전에 돌아가는 발",
-      "keyword": "메인 · 선택",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -465,22 +409,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_05_1",
       "name": "죠나단 죠스타",
       "effectName": "불길 앞의 한 걸음",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 3
+          "stat": "directional_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -489,22 +430,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_05_2",
       "name": "디오 브란도",
       "effectName": "인간을 벗어난 빈틈",
-      "keyword": "메인 · 선택",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "crit_damage",
-          "value": 6
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -513,22 +451,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_05_3",
       "name": "죠나단 죠스타",
       "effectName": "잃은 자리에서 버티는 힘",
-      "keyword": "메인 · 선택",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -537,93 +472,18 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_06_1",
       "name": "윌 A. 체펠리",
       "effectName": "첫 호흡의 박자",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "damage_percent",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
-    },
-    {
-      "key": "phantom_blood_main_06_2",
-      "name": "에리나 펜들턴",
-      "effectName": "회복 뒤에 지킬 약속",
-      "keyword": "메인 · 선택",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "healthy_damage",
-          "value": 7
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
-    },
-    {
-      "key": "phantom_blood_main_06_3",
-      "name": "죠나단 죠스타",
-      "effectName": "다시 맞설 준비",
-      "keyword": "메인 · 선택",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "penetration",
-          "value": 3
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
-    },
-    {
-      "key": "phantom_blood_main_07_1",
-      "name": "죠나단 죠스타",
-      "effectName": "보이지 않는 틈의 감각",
-      "keyword": "메인 · 선택",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "crit_damage",
+          "stat": "directional_damage",
           "value": 6
         }
       ],
@@ -633,22 +493,82 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "phantom_blood_main_06_2",
+      "name": "에리나 펜들턴",
+      "effectName": "회복 뒤에 지킬 약속",
+      "keyword": "공격력 +4%",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "phantom_blood_main_06_3",
+      "name": "죠나단 죠스타",
+      "effectName": "다시 맞설 준비",
+      "keyword": "헤드·백 피해 +3%",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "phantom_blood_main_07_1",
+      "name": "죠나단 죠스타",
+      "effectName": "보이지 않는 틈의 감각",
+      "keyword": "헤드·백 피해 +3%",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "phantom_blood_main_07_2",
       "name": "스피드왜건",
       "effectName": "뒤를 지키는 경고",
-      "keyword": "메인 · 선택",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -657,93 +577,18 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_07_3",
       "name": "윌 A. 체펠리",
       "effectName": "실전으로 이어진 수련",
-      "keyword": "메인 · 선택",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "damage_percent",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
-    },
-    {
-      "key": "phantom_blood_main_08_1",
-      "name": "죠나단 죠스타",
-      "effectName": "맡겨진 용기를 쥐다",
-      "keyword": "메인 · 선택",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
-    },
-    {
-      "key": "phantom_blood_main_08_2",
-      "name": "스피드왜건",
-      "effectName": "슬픔 속에서도 찾은 길",
-      "keyword": "메인 · 선택",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "damage_percent",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
-    },
-    {
-      "key": "phantom_blood_main_08_3",
-      "name": "죠나단 죠스타",
-      "effectName": "적의 얼굴 뒤를 보다",
-      "keyword": "메인 · 선택",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "penetration",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -753,22 +598,82 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "phantom_blood_main_08_1",
+      "name": "죠나단 죠스타",
+      "effectName": "맡겨진 용기를 쥐다",
+      "keyword": "헤드·백 피해 +3%",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "phantom_blood_main_08_2",
+      "name": "스피드왜건",
+      "effectName": "슬픔 속에서도 찾은 길",
+      "keyword": "헤드·백 피해 +12%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "phantom_blood_main_08_3",
+      "name": "죠나단 죠스타",
+      "effectName": "적의 얼굴 뒤를 보다",
+      "keyword": "헤드·백 피해 +3%",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "phantom_blood_main_09_1",
       "name": "스피드왜건",
       "effectName": "작은 용기를 받치는 목소리",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
+          "stat": "directional_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -777,22 +682,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_09_2",
       "name": "윌 A. 체펠리",
       "effectName": "멈추지 않는 구출의 박자",
-      "keyword": "메인 · 선택",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "damage_percent",
-          "value": 5
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -801,22 +703,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_09_3",
       "name": "죠나단 죠스타",
       "effectName": "갇힌 자리에서 읽은 틈",
-      "keyword": "메인 · 선택",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 4
-        },
-        {
-          "stat": "crit_damage",
-          "value": 8
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -825,22 +724,19 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_10_1",
       "name": "윌 A. 체펠리",
       "effectName": "제자에게 건넨 마지막 호흡",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 9
+          "stat": "directional_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -849,21 +745,18 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_10_2",
       "name": "스피드왜건",
       "effectName": "흩어지지 않게 잡은 어깨",
-      "keyword": "메인 · 선택",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -873,21 +766,60 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "phantom_blood_main_10_3",
       "name": "죠나단 죠스타",
       "effectName": "이어받은 힘의 방향",
-      "keyword": "메인 · 선택",
+      "keyword": "헤드·백 피해 +3%",
       "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "phantom_blood_main_11_1",
+      "name": "죠나단 죠스타",
+      "effectName": "냉기 사이의 한 순간",
+      "keyword": "헤드·백 피해 +6%",
+      "grade": 3,
+      "effects": [
         {
-          "stat": "penetration",
+          "stat": "directional_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "phantom_blood_main_11_2",
+      "name": "죠나단 죠스타",
+      "effectName": "배운 힘을 잇는 발상",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -897,19 +829,136 @@
         "effects": []
       },
       "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
-      "key": "phantom_blood_main_11_1",
+      "key": "phantom_blood_main_11_3",
       "name": "죠나단 죠스타",
-      "effectName": "냉기 사이의 한 순간",
-      "keyword": "메인 · 선택",
+      "effectName": "돌아갈 사람을 위한 결전",
+      "keyword": "헤드·백 피해 +3%",
       "grade": 3,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 4
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "phantom_blood_ending_memorial",
+      "name": "마지막 파문",
+      "effectName": "바다에 남긴 용기",
+      "keyword": "헤드·백 피해 +40% · 공격력 +8%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 40
         },
+        {
+          "stat": "attack_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "죠나단이 끝까지 사람을 지키려 했던 마음을 간직하는 기념 카드다. 작품의 완결 특화 효과를 얻는다.",
+      "uncertain": [],
+      "endingCard": true,
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "phantom_blood_ending_memorial_growth_1",
+      "name": "마지막 파문",
+      "effectName": "바다에 남긴 용기",
+      "keyword": "헤드·백 피해 +40% · 치명타 피해 +16%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 40
+        },
+        {
+          "stat": "crit_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "죠나단이 끝까지 사람을 지키려 했던 마음을 간직하는 기념 카드다. 작품의 완결 특화 효과를 얻는다.",
+      "uncertain": [],
+      "endingCard": true,
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "phantom_blood_ending_memorial_growth_2",
+      "name": "마지막 파문",
+      "effectName": "바다에 남긴 용기",
+      "keyword": "헤드·백 피해 +40% · 스킬가속 +8",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 40
+        },
+        {
+          "stat": "skill_haste",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "죠나단이 끝까지 사람을 지키려 했던 마음을 간직하는 기념 카드다. 작품의 완결 특화 효과를 얻는다.",
+      "uncertain": [],
+      "endingCard": true,
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "pb_speedwagon_growth_7",
+      "name": "스피드왜건",
+      "effectName": "거친 골목의 동료",
+      "keyword": "헤드·백 피해 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "pb_zeppeli_growth_5",
+      "name": "윌 A. 체펠리",
+      "effectName": "호흡을 가르치는 손",
+      "keyword": "치명타 피해 +8%",
+      "grade": 1,
+      "effects": [
         {
           "stat": "crit_damage",
           "value": 8
@@ -920,46 +969,19 @@
         "goal": 0,
         "effects": []
       },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
-      "key": "phantom_blood_main_11_2",
-      "name": "죠나단 죠스타",
-      "effectName": "배운 힘을 잇는 발상",
-      "keyword": "메인 · 선택",
-      "grade": 3,
+      "key": "pb_speedwagon_growth_8",
+      "name": "스피드왜건",
+      "effectName": "거친 골목의 동료",
+      "keyword": "치명타 피해 +8%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "penetration",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
-    },
-    {
-      "key": "phantom_blood_main_11_3",
-      "name": "죠나단 죠스타",
-      "effectName": "돌아갈 사람을 위한 결전",
-      "keyword": "메인 · 선택",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "max_health_percent",
+          "stat": "crit_damage",
           "value": 8
         }
       ],
@@ -968,24 +990,93 @@
         "goal": 0,
         "effects": []
       },
-      "canonFact": "당시의 선택을 기억하는 ARCANA의 창작 능력치 보상이다.",
-      "uncertain": []
+      "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
-      "key": "phantom_blood_ending_memorial",
-      "name": "마지막 파문",
-      "effectName": "바다에 남긴 용기",
-      "keyword": "엔딩 · 기억",
-      "grade": 4,
-      "effects": [],
+      "key": "pb_dio_growth_4",
+      "name": "디오 브란도",
+      "effectName": "석가면의 그림자",
+      "keyword": "헤드·백 피해 +12%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 12
+        }
+      ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
       },
-      "canonFact": "죠나단이 끝까지 사람을 지키려 했던 마음을 간직하는 기념 카드다. 전투 효과는 없다.",
+      "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
       "uncertain": [],
-      "endingCard": true
+      "rewardRole": "shop"
+    },
+    {
+      "key": "pb_zeppeli_growth_6",
+      "name": "윌 A. 체펠리",
+      "effectName": "호흡을 가르치는 손",
+      "keyword": "헤드·백 피해 +12%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "pb_tonpetty_growth_1",
+      "name": "톤페티",
+      "effectName": "호흡을 가다듬는 시간",
+      "keyword": "헤드·백 피해 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "pb_tonpetty_growth_2",
+      "name": "톤페티",
+      "effectName": "호흡을 가다듬는 시간",
+      "keyword": "치명타 피해 +8%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "1부 인물의 관계와 행동을 소재로 한 ARCANA의 창작 보상이다. 원작 기술 전체를 구현한다는 뜻은 아니다.",
+      "uncertain": [],
+      "rewardRole": "shop"
     }
   ],
   "events": [
@@ -995,7 +1086,7 @@
       "intro": "새로 온 디오와 죠나단의 첫 인사가 어긋난다.",
       "story": "죠스타 저택에 디오가 들어온 날, 죠나단은 함께 지낼 또래를 반기려 한다. 그러나 디오는 가까워지려는 손길을 밀어내고 저택 안의 시선도 자기 쪽으로 돌린다. 죠나단은 한집에 산다는 이유만으로 서로를 이해할 수 없다는 사실을 처음 배운다.",
       "mainStage": 1,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1037,7 +1128,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1045,7 +1136,9 @@
         "commonResult": "두 사람은 같은 지붕 아래에서 자란다. 겉으로 보이는 우수함과 사람을 대하는 태도 사이의 간격은 사라지지 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_02",
@@ -1053,7 +1146,7 @@
       "intro": "에리나와의 만남까지 디오가 침범한다.",
       "story": "디오의 괴롭힘은 저택 안에서 끝나지 않는다. 죠나단과 가까워진 에리나마저 모욕을 당한다. 자신을 겨냥한 일이라면 참아 왔던 죠나단도 다른 사람의 마음을 짓밟는 행위를 넘길 수 없다.\n\n에리나에게 필요한 것을 먼저 살피면서 디오에게 맞설 이유는 또렷해진다.",
       "mainStage": 2,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1095,7 +1188,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1103,7 +1196,9 @@
         "commonResult": "죠나단은 디오에게 맞선다. 싸움의 승패보다 가까운 사람을 지키겠다는 결심이 이후의 걸음을 바꾼다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_erina.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_erina.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_03",
@@ -1111,7 +1206,7 @@
       "intro": "아버지의 쇠약과 과거의 기록이 겹친다.",
       "story": "대학생이 된 죠나단은 아버지의 상태를 걱정한다. 우연히 읽은 디오의 아버지가 남긴 편지에는 낯익은 병세가 적혀 있다. 지금의 쇠약과 닮은 대목을 확인해야 한다. 의심만으로 고발할 수는 없지만, 확인을 미룰수록 아버지에게 남은 시간도 줄어든다.",
       "mainStage": 3,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1119,7 +1214,7 @@
         {
           "label": "편지의 증상과 현재의 병세를 대조한다.",
           "result": "한두 단어가 닮았다고 결론부터 내리지 않는다. 되풀이되는 경과를 비교하자 조사할 의혹이 구체화된다.",
-          "card": "phantom_blood_main_03_1",
+          "card": "phantom_blood_main_01_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1131,7 +1226,7 @@
         {
           "label": "아버지 곁을 비울 준비부터 한다.",
           "result": "집사에게 아버지의 상태를 살펴 달라고 부탁하고 돌아올 길을 확인한다. 죠나단은 서둘러 떠나면서도 집에 남은 사람을 잊지 않는다.",
-          "card": "phantom_blood_main_03_2",
+          "card": "phantom_blood_main_02_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1143,7 +1238,7 @@
         {
           "label": "디오에게 들키지 않게 조사 동선을 정한다.",
           "result": "의심이 그대로 드러나면 증거를 잃을 수 있다. 물어볼 곳과 돌아올 길을 나누어 움직인다.",
-          "card": "phantom_blood_main_03_3",
+          "card": "phantom_blood_main_01_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1153,7 +1248,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1176,7 +1271,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_04",
@@ -1184,7 +1281,7 @@
       "intro": "험한 거리에서 뜻밖의 동료를 만난다.",
       "story": "독의 출처를 찾아 런던의 식시귀 거리에 들어선 죠나단은 스피드왜건 일행과 부딪힌다. 공격을 막아 내면서도 쓰러진 상대를 끝까지 몰아붙이지 않는 태도에 스피드왜건은 귀족 청년을 다시 본다. 두 사람의 만남은 조사할 통로가 되고, 이어질 위험을 함께 볼 동료를 남긴다.",
       "mainStage": 4,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1192,7 +1289,7 @@
         {
           "label": "공격을 막되 넘어진 상대에게는 손을 거둔다.",
           "result": "싸움이 끝났는데 힘을 과시할 이유는 없다. 스피드왜건은 상대를 쓰러뜨릴 수 있으면서 멈춘 선택을 기억한다.",
-          "card": "phantom_blood_main_04_1",
+          "card": "phantom_blood_main_01_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1226,7 +1323,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1234,7 +1331,9 @@
         "commonResult": "스피드왜건은 죠나단을 돕기로 한다. 독을 둘러싼 단서를 얻은 죠나단은 아버지가 있는 저택으로 돌아간다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_05",
@@ -1242,7 +1341,7 @@
       "intro": "정체가 드러난 디오가 석가면에 손을 댄다.",
       "story": "진실을 추궁받은 디오는 반성하는 듯한 모습을 보인다. 그러나 스피드왜건은 그 태도에 속지 않는다. 몰린 디오는 석가면을 쓰고 인간을 벗어난 힘을 얻는다.\n\n아버지를 잃은 죠나단에게 남은 것은 더 큰 피해를 막아야 한다는 의지다. 저택은 두 사람의 싸움 속에서 불길에 휩싸인다.",
       "mainStage": 5,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1284,7 +1383,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1292,7 +1391,9 @@
         "commonResult": "죠나단은 불타는 저택에서 디오와 싸운 끝에 살아남는다. 가족과 집은 돌아오지 않고 석가면의 행방도 확인되지 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_06",
@@ -1300,7 +1401,7 @@
       "intro": "회복 중인 죠나단 앞에 체펠리가 나타난다.",
       "story": "크게 다친 죠나단을 돌보는 것은 다시 만난 에리나다. 잠시 얻은 평온 속에 윌 A.\n\n체펠리가 나타나 파문을 보여 준다. 디오가 죽었다고 단정할 수 없다는 말은 죠나단을 흔든다. 무작정 뛰쳐나가는 대신 새로운 싸움에 필요한 것을 제대로 배워야 한다.",
       "mainStage": 6,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1332,7 +1433,7 @@
         {
           "label": "디오가 살아 있다면 무엇을 준비할지 묻는다.",
           "result": "상대가 돌아올 가능성을 외면하지 않는다. 체펠리는 파문을 배우는 이유가 힘의 경쟁만은 아님을 짚어 준다.",
-          "card": "phantom_blood_main_06_3",
+          "card": "phantom_blood_main_05_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1342,7 +1443,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1350,7 +1451,9 @@
         "commonResult": "죠나단은 체펠리에게 파문을 배우기 시작한다. 에리나와 스피드왜건도 그가 다시 짊어질 위험을 알게 된다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_07",
@@ -1358,7 +1461,7 @@
       "intro": "보이지 않는 위협 앞에서 호흡을 유지해야 한다.",
       "story": "체펠리와 스피드왜건이 동행한 길에서 죠나단은 배운 것을 실제 위협에 사용해야 한다. 어두운 통로에서는 보이는 움직임만 좇기 어렵다. 체펠리는 당황해 호흡을 끊지 말라고 한다. 죠나단은 위험이 숨어 있는 방향과 동료가 설 위치를 구분하려 한다.",
       "mainStage": 7,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1366,7 +1469,7 @@
         {
           "label": "조급한 숨을 가라앉히고 전해지는 감각을 읽는다.",
           "result": "어둠을 한꺼번에 밝힐 수는 없다. 손끝과 발밑에서 얻는 정보부터 이어 공격할 순간을 찾는다.",
-          "card": "phantom_blood_main_07_1",
+          "card": "phantom_blood_main_05_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1400,7 +1503,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1423,7 +1526,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_08",
@@ -1431,7 +1536,7 @@
       "intro": "쓰러진 브루포드에게서 다른 표정을 본다.",
       "story": "디오가 되살린 기사 브루포드와 싸우며 죠나단은 원한만으로 설명할 수 없는 기개를 느낀다. 파문이 닿은 뒤 인간의 감각을 되찾은 브루포드는 마지막에 검을 맡긴다.\n\n죠나단은 그것을 승리의 전리품처럼 받아들일 수 없다. 검을 쥔 손에 기사의 뜻까지 남는다.",
       "mainStage": 8,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1439,7 +1544,7 @@
         {
           "label": "검을 받기 전에 기사의 마지막 뜻을 듣는다.",
           "result": "누가 어떤 마음으로 건넸는지가 남는다. 죠나단은 그 뜻을 다음 싸움에 가져간다.",
-          "card": "phantom_blood_main_08_1",
+          "card": "phantom_blood_main_05_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1451,7 +1556,7 @@
         {
           "label": "다가오는 타커스를 살피며 퇴로를 찾는다.",
           "result": "기사를 존중하는 마음과 살아 있는 동료를 지킬 일은 충돌하지 않는다. 잠시 얻은 틈을 움직일 길로 만든다.",
-          "card": "phantom_blood_main_08_2",
+          "card": "phantom_blood_main_07_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1463,7 +1568,7 @@
         {
           "label": "디오가 사람의 명예까지 이용한 흔적을 기억한다.",
           "result": "눈앞의 적이 모두 같은 이유로 싸우는 것은 아니다. 힘 뒤에 남은 사정을 잊지 않은 채 다음 상대를 본다.",
-          "card": "phantom_blood_main_08_3",
+          "card": "phantom_blood_main_05_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1473,7 +1578,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1481,7 +1586,9 @@
         "commonResult": "브루포드는 사라지고 검은 죠나단에게 남는다. 그러나 타커스의 위협이 이어져 일행은 슬퍼할 시간도 없이 움직인다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_09",
@@ -1489,7 +1596,7 @@
       "intro": "잠긴 방 안의 죠나단을 구할 방법이 필요하다.",
       "story": "옛 수련장에서 일행은 타커스가 만든 위기에 빠진다. 죠나단은 쇠사슬에 묶여 안쪽에 갇히고 문 바깥의 동료들은 손을 뻗을 수 없다.\n\n포코가 두려움을 이겨 내고 작은 틈으로 들어가려 한다. 어른들이 할 수 없는 일을 아이가 맡은 순간, 밖에서는 무엇을 해 줄 수 있을까?",
       "mainStage": 9,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1531,7 +1638,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1539,7 +1646,9 @@
         "commonResult": "포코의 용기로 문이 열린다. 체펠리는 안으로 뛰어들고 죠나단에게 닥친 위기는 아직 끝나지 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_10",
@@ -1547,7 +1656,7 @@
       "intro": "체펠리는 돌아서지 않고 죠나단에게 향한다.",
       "story": "체펠리는 자신에게 예고된 운명을 떠올리면서도 죠나단을 구하러 간다. 타커스에게 치명상을 입은 그는 남은 힘을 제자에게 전한다.\n\n죠나단은 강해졌다는 기쁨을 느낄 수 없다. 누군가의 마지막 결심이 자신에게 도착했다는 사실부터 받아들여야 한다.",
       "mainStage": 10,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1579,7 +1688,7 @@
         {
           "label": "전해 받은 힘을 낭비하지 않을 첫 동작에 집중한다.",
           "result": "분노를 크게 터뜨리는 것보다 지금 맞혀야 할 지점을 찾는다. 죠나단은 희생을 다음 한 수에 담는다.",
-          "card": "phantom_blood_main_10_3",
+          "card": "phantom_blood_main_09_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1589,7 +1698,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1612,7 +1721,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_11",
@@ -1620,7 +1731,7 @@
       "intro": "디오의 냉기가 파문을 막으려 한다.",
       "story": "포코의 누나를 구한 죠나단은 다시 디오 앞에 선다. 디오는 파문을 끊을 냉기를 준비하고, 죠나단은 맡겨진 검과 동료에게 배운 감각을 가져온다.\n\n힘의 양만 겨루는 승부가 아니다. 얼어붙는 순간을 넘을 방법을 찾아야 한다.",
       "mainStage": 11,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1652,7 +1763,7 @@
         {
           "label": "대결 뒤에 남겨질 사람들을 먼저 떠올린다.",
           "result": "디오를 쓰러뜨리는 일이 끝이 아니다. 구해 낸 사람과 기다리는 이를 위해 끝까지 버틴다.",
-          "card": "phantom_blood_main_11_3",
+          "card": "phantom_blood_main_09_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1662,7 +1773,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1670,7 +1781,9 @@
         "commonResult": "죠나단은 냉기를 넘어 파문을 전하며 디오와의 결전에 승리한다. 남은 사람들은 석가면을 파괴하고 오랜 위협이 끝났다고 믿는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "phantom_blood_main_12",
@@ -1678,7 +1791,7 @@
       "intro": "신혼여행의 배에서 끝난 줄 알았던 인연이 돌아온다.",
       "story": "디오를 쓰러뜨렸다고 믿은 죠나단은 에리나와 결혼하고 배를 탄다. 선내에서 왕 첸을 발견하며 평온은 무너진다.\n\n살아남은 디오의 위협이 다시 닿고, 사람들은 도망칠 곳을 찾아야 한다. 죠나단은 자신이 돌아갈 가능성보다 아직 구할 수 있는 생명을 먼저 본다.",
       "mainStage": 12,
-      "actionCost": 1,
+      "actionCost": 8,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1698,7 +1811,7 @@
         {
           "label": "죠나단이 디오를 붙들 동안 주변을 정리한다.",
           "result": "죠나단 대신 탈출을 방해하는 위험을 살핀다. 이별을 받아들이기 어려워도 구할 수 있는 사람은 남아 있다.",
-          "card": "phantom_blood_ending_memorial",
+          "card": "phantom_blood_ending_memorial_growth_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1710,7 +1823,7 @@
         {
           "label": "에리나에게 남겨진 아기를 알린다.",
           "result": "자기 슬픔만 생각할 수 없는 순간이 온다. 에리나는 아이를 품고 배에서 벗어날 길을 찾는다.",
-          "card": "phantom_blood_ending_memorial",
+          "card": "phantom_blood_ending_memorial_growth_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1720,7 +1833,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 팬텀 블러드 9화 소개에서 결혼·신혼여행의 배·왕 첸과의 재회를 확인하고, 공식 전투조류 10화 소개에서 죠나단의 사망과 에리나의 생존을 확인했다. 배 안에서 죠나단이 디오를 붙들고 최후를 맞으며 에리나가 아기를 구해 탈출하는 세부는 RENOTE의 작품 해설과 대조했다. 마지막 세부의 근거는 공식 영상 직접 시청이 아닌 보조 해설이며 선택 대사는 창작이다. 죠나단이 살아 돌아오는 대체 결말은 만들지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1757,59 +1870,63 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_erina.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_erina.tga",
+      "growthRole": "main_final",
+      "rewardPreview": "완결 · 헤드·백 피해 +40%"
     },
     {
       "key": "phantom_blood_quiet_step",
       "title": "문 앞에서 고른 말",
       "intro": "할 말을 고르느라 문고리를 잡은 손이 멈췄다.",
       "story": "죠나단이 에리나에게 할 말을 연습하다 스스로 어색해한다. 스피드왜건은 긴 설명을 준비할수록 문 앞에 오래 서 있을 뿐이라며 웃는다. 큰 싸움 밖에도 마음을 정해야 하는 순간은 있다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "잘 지냈는지 묻는 말부터 시작한다.",
-          "result": "에리나는 거창한 인사보다 솔직한 안부를 반긴다. 멈췄던 대화가 짧은 질문에서 열린다.",
-          "card": "pb_erina",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "에리나는 거창한 인사보다 솔직한 안부를 반긴다. 멈췄던 대화가 짧은 질문에서 열린다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "phantom_blood_main_02_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "연습한 말 대신 지금 생각을 전한다.",
-          "result": "죠나단은 외운 문장을 내려놓는다. 서툴러도 자신이 하려던 말이라는 사실은 분명하다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "죠나단은 외운 문장을 내려놓는다. 서툴러도 자신이 하려던 말이라는 사실은 분명하다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "스피드왜건에게 잠깐 자리를 비켜 달라고 한다.",
-          "result": "스피드왜건은 괜한 참견을 거두고 한발 물러난다. 도와준다는 것이 항상 대신 말하는 일은 아니다.",
-          "card": "pb_speedwagon",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "스피드왜건은 괜한 참견을 거두고 한발 물러난다. 도와준다는 것이 항상 대신 말하는 일은 아니다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "phantom_blood_main_08_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_breathing_cup",
@@ -1822,46 +1939,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "팔보다 호흡의 박자를 먼저 고친다.",
-          "result": "체펠리는 잔을 내리라고 하지 않는다. 죠나단은 같은 자세 안에서도 긴장을 줄일 부분을 찾는다.",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "체펠리는 잔을 내리라고 하지 않는다. 죠나단은 같은 자세 안에서도 긴장을 줄일 부분을 찾는다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
           "card": "pb_zeppeli",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "오래 버틸 수 있는 발의 간격을 찾는다.",
-          "result": "발밑이 안정되자 팔에 몰렸던 힘이 나뉜다. 죠나단은 버티는 일이 전신의 일임을 느낀다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "발밑이 안정되자 팔에 몰렸던 힘이 나뉜다. 죠나단은 버티는 일이 전신의 일임을 느낀다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "옆에서 본 흔들림을 기록해 달라고 한다.",
-          "result": "스피드왜건은 잔이 기울기 시작한 순간을 짚는다. 안에서 느낀 감각과 밖에서 본 움직임이 맞물린다.",
-          "card": "pb_speedwagon",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "스피드왜건은 잔이 기울기 시작한 순간을 짚는다. 안에서 느낀 감각과 밖에서 본 움직임이 맞물린다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "phantom_blood_main_08_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_street_turn",
@@ -1874,98 +1993,102 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "스피드왜건과 먼저 통로 폭을 확인한다.",
-          "result": "골목을 돌아본 스피드왜건이 좁은 구간을 짚는다. 뒤따를 이들이 멈추지 않도록 경로를 바꾼다.",
-          "card": "pb_speedwagon",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "골목을 돌아본 스피드왜건이 좁은 구간을 짚는다. 뒤따를 이들이 멈추지 않도록 경로를 바꾼다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "pb_speedwagon_growth_7",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "짧은 길보다 함께 갈 수 있는 길을 고른다.",
-          "result": "죠나단은 늦어진 거리를 탓하지 않는다. 모두가 따라올 수 있는 속도로 걸음을 맞춘다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "죠나단은 늦어진 거리를 탓하지 않는다. 모두가 따라올 수 있는 속도로 걸음을 맞춘다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "에리나와 뒤쪽 사람들의 걸음을 살핀다.",
-          "result": "앞에서 보지 못한 피로가 뒤에 쌓였다. 에리나는 잠시 쉴 지점을 정하고 이동을 잇는다.",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "앞에서 보지 못한 피로가 뒤에 쌓였다. 에리나는 잠시 쉴 지점을 정하고 이동을 잇는다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
           "card": "pb_erina",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_after_rain",
       "title": "비가 갠 뒤의 소매",
       "intro": "젖은 옷을 정리하는 짧은 틈이 생겼다.",
       "story": "여행의 한때, 일행은 처마 아래에서 비가 잦아들기를 기다린다. 체펠리는 급하다고 젖은 채 뛰어나갈 필요는 없다고 하고, 스피드왜건은 다시 묶을 짐을 찾는다. 죠나단은 기다리는 동안 할 일을 나누려 한다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "짐끈을 고쳐 묶어 다음 출발을 돕는다.",
-          "result": "스피드왜건은 풀리던 매듭을 다시 조인다. 서둘러 돌아갔다가 짐을 쏟을 일을 줄인다.",
-          "card": "pb_speedwagon",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "스피드왜건은 풀리던 매듭을 다시 조인다. 서둘러 돌아갔다가 짐을 쏟을 일을 줄인다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "pb_speedwagon_growth_7",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "소매와 자세를 정리하며 호흡을 가다듬는다.",
-          "result": "체펠리는 쉬는 시간에도 몸을 살필 수 있다고 말한다. 힘을 쓰지 않는 동안에도 감각은 이어진다.",
-          "card": "pb_zeppeli",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "체펠리는 쉬는 시간에도 몸을 살필 수 있다고 말한다. 힘을 쓰지 않는 동안에도 감각은 이어진다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "pb_zeppeli_growth_5",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "다시 움직일 사람들의 상태를 살핀다.",
-          "result": "에리나에게 돌봄을 받던 때를 떠올린다. 괜찮다고 말한 동료도 한 번 더 살피며 출발에 필요한 준비를 나눈다.",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "에리나에게 돌봄을 받던 때를 떠올린다. 괜찮다고 말한 동료도 한 번 더 살피며 출발에 필요한 준비를 나눈다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
           "card": "pb_erina",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_witness",
@@ -1978,46 +2101,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "디오가 이득을 얻는 쪽부터 따져 본다.",
-          "result": "행동이 바뀐 순간마다 무엇을 얻었는지 정리한다. 서로 다른 증언이 오히려 하나의 의도를 가리킨다.",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "행동이 바뀐 순간마다 무엇을 얻었는지 정리한다. 서로 다른 증언이 오히려 하나의 의도를 가리킨다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
           "card": "pb_dio",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "목격자가 두려워하는 일을 먼저 듣는다.",
-          "result": "스피드왜건은 상대를 몰아세우지 않는다. 말을 숨길 이유를 줄이자 이전에 빠졌던 장면이 나온다.",
-          "card": "pb_speedwagon",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "스피드왜건은 상대를 몰아세우지 않는다. 말을 숨길 이유를 줄이자 이전에 빠졌던 장면이 나온다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "pb_speedwagon_growth_8",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "관찰한 사실과 짐작을 나누어 적는다.",
-          "result": "죠나단은 자신이 믿고 싶은 결론을 잠시 보류한다. 확인한 것부터 이어 붙인다.",
-          "card": "pb_jonathan",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "죠나단은 자신이 믿고 싶은 결론을 잠시 보류한다. 확인한 것부터 이어 붙인다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "phantom_blood_main_03_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_next_lesson",
@@ -2027,49 +2152,51 @@
       "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
-      "requiredCard": "pb_zeppeli",
+      "requiredCard": null,
       "choices": [
         {
-          "label": "속도를 낮추고 끊기는 지점을 확인한다.",
-          "result": "체펠리는 빠른 동작을 요구하지 않는다. 흐름을 잃는 순간을 알아야 다시 잇는 연습도 할 수 있다.",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "체펠리는 빠른 동작을 요구하지 않는다. 흐름을 잃는 순간을 알아야 다시 잇는 연습도 할 수 있다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
           "card": "pb_zeppeli",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "자세가 무너지지 않는 범위에서 한 걸음 더 간다.",
-          "result": "죠나단은 버티는 거리보다 유지한 자세를 본다. 몸이 감당할 수 있는 범위를 조금씩 넓힌다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "죠나단은 버티는 거리보다 유지한 자세를 본다. 몸이 감당할 수 있는 범위를 조금씩 넓힌다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "스승이 배웠던 기초를 다시 떠올린다.",
-          "result": "톤페티의 가르침으로 이어지는 호흡의 계보를 생각한다. 지름길을 찾기보다 처음의 원리를 되짚는다.",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "톤페티의 가르침으로 이어지는 호흡의 계보를 생각한다. 지름길을 찾기보다 처음의 원리를 되짚는다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
           "card": "pb_tonpetty",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_listening_street",
@@ -2079,49 +2206,51 @@
       "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
-      "requiredCard": "pb_speedwagon",
+      "requiredCard": null,
       "choices": [
         {
-          "label": "스피드왜건이 말을 아끼던 이유를 묻는다.",
-          "result": "그는 처음부터 모두를 믿는 사람은 아니라고 답한다. 그래도 상대가 보여 준 행동을 보고 판단을 바꿀 수는 있다.",
-          "card": "pb_speedwagon",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "그는 처음부터 모두를 믿는 사람은 아니라고 답한다. 그래도 상대가 보여 준 행동을 보고 판단을 바꿀 수는 있다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "pb_speedwagon_growth_7",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "죠나단이 손을 거뒀던 순간을 다시 본다.",
-          "result": "이길 수 있으면서도 멈춘 행동이 남았다. 죠나단은 말로 다 설명하지 못한 마음이 전해질 수 있음을 안다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "이길 수 있으면서도 멈춘 행동이 남았다. 죠나단은 말로 다 설명하지 못한 마음이 전해질 수 있음을 안다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "디오의 친절과 무엇이 달랐는지 비교한다.",
-          "result": "친절해 보이는 표정보다 상대에게 남기는 선택을 본다. 마음을 빼앗는 말과 믿음을 주는 행동을 구분한다.",
-          "card": "pb_dio",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "친절해 보이는 표정보다 상대에게 남기는 선택을 본다. 마음을 빼앗는 말과 믿음을 주는 행동을 구분한다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "pb_dio_growth_4",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_sword_weight",
@@ -2134,46 +2263,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "검을 쥔 채 무엇을 지킬지 생각한다.",
-          "result": "죠나단은 물건에 갇혀 움직이지 못하는 대신 그것으로 지킬 사람을 떠올린다.",
-          "card": "pb_jonathan",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "죠나단은 물건에 갇혀 움직이지 못하는 대신 그것으로 지킬 사람을 떠올린다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "phantom_blood_main_01_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "검보다 먼저 남은 이야기를 정리한다.",
-          "result": "스피드왜건은 어떻게 전해졌는지 잊지 않겠다고 한다. 물건이 없어져도 기억은 이어질 수 있다.",
-          "card": "pb_speedwagon",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "스피드왜건은 어떻게 전해졌는지 잊지 않겠다고 한다. 물건이 없어져도 기억은 이어질 수 있다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "pb_speedwagon_growth_8",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "사용하기 전에 흔들린 호흡부터 바로잡는다.",
-          "result": "체펠리에게 배운 기본을 떠올린다. 마음을 담는 것과 몸을 무리하게 쓰는 것은 다르다.",
-          "card": "pb_zeppeli",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "체펠리에게 배운 기본을 떠올린다. 마음을 담는 것과 몸을 무리하게 쓰는 것은 다르다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "pb_zeppeli_growth_6",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_unspoken_care",
@@ -2186,46 +2317,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "어디가 힘든지 솔직하게 말한다.",
-          "result": "에리나는 들은 내용을 바탕으로 필요한 도움을 고른다. 말할 수 있다는 것도 서로를 믿는 방법이다.",
-          "card": "pb_erina",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "에리나는 들은 내용을 바탕으로 필요한 도움을 고른다. 말할 수 있다는 것도 서로를 믿는 방법이다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "phantom_blood_main_02_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "할 수 있는 일과 맡길 일을 나눈다.",
-          "result": "죠나단은 전부 혼자 하겠다는 말을 거둔다. 자기 몫을 지키기 위해 도움받을 부분을 인정한다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "죠나단은 전부 혼자 하겠다는 말을 거둔다. 자기 몫을 지키기 위해 도움받을 부분을 인정한다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "스피드왜건에게 전달을 도와 달라고 한다.",
-          "result": "말이 꼬이자 동료가 옆에서 정리해 준다. 대신 결정하는 것이 아니라 표현할 틈을 마련한다.",
-          "card": "pb_speedwagon",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "말이 꼬이자 동료가 옆에서 정리해 준다. 대신 결정하는 것이 아니라 표현할 틈을 마련한다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "phantom_blood_main_08_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_old_warning",
@@ -2238,46 +2371,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "예고보다 실제로 택한 행동을 기억한다.",
-          "result": "톤페티가 전한 말에 체펠리의 삶 전체를 가두지 않는다. 마지막 걸음을 내디딘 것은 그 자신이었다.",
-          "card": "pb_tonpetty",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "톤페티가 전한 말에 체펠리의 삶 전체를 가두지 않는다. 마지막 걸음을 내디딘 것은 그 자신이었다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "pb_tonpetty_growth_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "스승이 남긴 연습을 계속한다.",
-          "result": "죠나단은 슬픔만 되풀이하지 않고 배운 자세를 다시 잡는다. 이어받은 것을 사용하는 방식이 답이 된다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "죠나단은 슬픔만 되풀이하지 않고 배운 자세를 다시 잡는다. 이어받은 것을 사용하는 방식이 답이 된다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "기다리는 사람의 마음도 함께 생각한다.",
-          "result": "에리나의 돌봄을 떠올리자 살아 돌아가려는 노력 또한 가벼운 일이 아님을 느낀다.",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "에리나의 돌봄을 떠올리자 살아 돌아가려는 노력 또한 가벼운 일이 아님을 느낀다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
           "card": "pb_erina",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_tonpetty.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_tonpetty.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_cold_answer",
@@ -2290,46 +2425,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "상대가 기다리는 동작을 먼저 지운다.",
-          "result": "디오는 익숙한 대응을 믿는다. 그가 유리해지는 순간을 피하면서 다음 수를 생각한다.",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "디오는 익숙한 대응을 믿는다. 그가 유리해지는 순간을 피하면서 다음 수를 생각한다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
           "card": "pb_dio",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "기본 호흡이 끊기는 순간을 살핀다.",
-          "result": "체펠리에게 배운 흐름으로 돌아간다. 막힌 지점을 알아야 다른 경로도 찾을 수 있다.",
-          "card": "pb_zeppeli",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "체펠리에게 배운 흐름으로 돌아간다. 막힌 지점을 알아야 다른 경로도 찾을 수 있다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "pb_zeppeli_growth_5",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "동료가 위험해지지 않을 거리를 확보한다.",
-          "result": "죠나단은 시험하듯 동료를 위험에 세우지 않는다. 자신이 감당할 위치부터 정한다.",
-          "card": "pb_jonathan",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "죠나단은 시험하듯 동료를 위험에 세우지 않는다. 자신이 감당할 위치부터 정한다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "phantom_blood_main_03_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_roadside_signal",
@@ -2342,152 +2479,158 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "앞에서 속도를 조절한다.",
-          "result": "스피드왜건은 뒤를 확인하며 길을 고른다. 먼저 도착하는 것보다 같이 도착하는 것이 이번에는 중요하다.",
-          "card": "pb_speedwagon",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "스피드왜건은 뒤를 확인하며 길을 고른다. 먼저 도착하는 것보다 같이 도착하는 것이 이번에는 중요하다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "pb_speedwagon_growth_7",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "뒤에서 동료의 호흡을 맞춰 준다.",
-          "result": "체펠리는 숨을 재촉하지 않는다. 유지할 수 있는 리듬을 함께 찾아 걸음을 이어 간다.",
-          "card": "pb_zeppeli",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "체펠리는 숨을 재촉하지 않는다. 유지할 수 있는 리듬을 함께 찾아 걸음을 이어 간다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "pb_zeppeli_growth_5",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "쉬는 동안 필요한 일을 대신 맡는다.",
-          "result": "에리나에게 돌봄을 받았던 때를 떠올리며 쉬어야 할 동료의 짐을 나눠 든다. 도움을 받는 사람이 눈치 보지 않게 작은 일부터 대신한다.",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "에리나에게 돌봄을 받았던 때를 떠올리며 쉬어야 할 동료의 짐을 나눠 든다. 도움을 받는 사람이 눈치 보지 않게 작은 일부터 대신한다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
           "card": "pb_erina",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_epilogue_erina",
       "title": "바다 뒤의 아침",
       "intro": "살아남은 사람이 다음 날을 마주한다.",
       "story": "죠나단의 마지막 여정을 마친 뒤 에리나에게 남은 삶을 생각한다. 배에서 벗어났다고 상실이 작아지는 것은 아니다. 그러나 구해 낸 생명을 놓지 않는 일과 함께한 사람을 기억하는 일은 같은 하루 안에서 이어질 수 있다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "에리나가 내일을 견딜 힘을 응원한다.",
-          "result": "슬픔을 빨리 잊으라고 말하지 않는다. 남은 삶을 살아가는 속도를 존중하며 에리나의 기억을 간직한다.",
-          "card": "pb_erina",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "슬픔을 빨리 잊으라고 말하지 않는다. 남은 삶을 살아가는 속도를 존중하며 에리나의 기억을 간직한다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
+          "card": "phantom_blood_main_02_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "죠나단이 마지막까지 지키려던 뜻을 돌아본다.",
-          "result": "힘을 증명하는 대신 생명을 남겼던 선택이 떠오른다. 죠나단의 기억에서 그 의지를 다시 얻는다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "힘을 증명하는 대신 생명을 남겼던 선택이 떠오른다. 죠나단의 기억에서 그 의지를 다시 얻는다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "pb_jonathan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "스피드왜건이 기억할 동료의 모습을 떠올린다.",
-          "result": "강한 모습만이 전부는 아니다. 낯선 거리에서 손을 거둘 줄 알던 청년 또한 같은 사람이었다.",
-          "card": "pb_speedwagon",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "강한 모습만이 전부는 아니다. 낯선 거리에서 손을 거둘 줄 알던 청년 또한 같은 사람이었다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "phantom_blood_main_08_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
       "epilogue": true,
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     },
     {
       "key": "phantom_blood_epilogue_teaching",
       "title": "스승의 목소리를 기억하는 법",
       "intro": "이미 끝난 대화가 다음 선택에 남는다.",
       "story": "톤페티에게서 체펠리로, 다시 죠나단에게 이어진 호흡을 떠올린다. 가르치던 목소리는 들을 수 없어도 몸이 기억하는 자세는 남았다. 다음 걸음을 내딛기 전에 누구에게서 무엇을 배웠는지 돌아본다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "체펠리의 첫 시범을 천천히 되짚는다.",
-          "result": "화려한 마지막보다 처음의 작은 동작을 떠올린다. 기본을 가르쳤던 시간이 오래 남는다.",
+          "label": "기본 구매 · 헤드·백 피해 +6%",
+          "result": "화려한 마지막보다 처음의 작은 동작을 떠올린다. 기본을 가르쳤던 시간이 오래 남는다.\n350골드를 지불하고 헤드·백 피해 +6% 효과를 얻었다.",
           "card": "pb_zeppeli",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "톤페티에게 이어진 배움의 계보를 기억한다.",
-          "result": "한 사람이 갑자기 강해진 것이 아니었다. 전해 준 사람들과 받아들인 사람의 선택이 겹쳐 있었다.",
-          "card": "pb_tonpetty",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "한 사람이 갑자기 강해진 것이 아니었다. 전해 준 사람들과 받아들인 사람의 선택이 겹쳐 있었다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "pb_tonpetty_growth_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "배운 힘을 누구에게 쓸지 다시 고른다.",
-          "result": "죠나단은 앞에 있는 사람을 버리지 않았다. 그 태도를 기억하는 것이 배움을 잇는 방법이 된다.",
-          "card": "pb_jonathan",
+          "label": "집중 구매 · 헤드·백 피해 +12%",
+          "result": "죠나단은 앞에 있는 사람을 버리지 않았다. 그 태도를 기억하는 것이 배움을 잇는 방법이 된다.\n875골드를 지불하고 헤드·백 피해 +12% 효과를 얻었다.",
+          "card": "phantom_blood_main_03_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "원작 인물의 관계를 소재로 한 독립된 창작 기억이다. 원작에서 실제 벌어진 사건이나 대사의 재현이라고 주장하지 않는다.",
       "uncertain": [],
       "epilogue": true,
-      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga"
+      "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
     }
   ],
   "reviewRecords": [
@@ -2504,5 +2647,6 @@
       "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
       "scope": "첫 검토 후 바꾼 5작품 14개 사건"
     }
-  ]
+  ],
+  "balanceVersion": 1
 }

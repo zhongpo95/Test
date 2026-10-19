@@ -38,9 +38,14 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         constant integer PROTO_STAT_SKILL_D = 34
         constant integer PROTO_STAT_SKILL_F = 35
         constant integer PROTO_STAT_SKILL_C = 36
-        constant integer PROTO_STAT_LAST = 36
+        constant integer PROTO_STAT_BASIC = 37
+        constant integer PROTO_STAT_MOVE_SCALE = 38
+        constant integer PROTO_STAT_RECOVERY_SPEED = 39
+        constant integer PROTO_STAT_CHOSEN_SKILL = 40
+        constant integer PROTO_STAT_LAST = 40
         // 플레이어·캐릭터별 스탯 칸 간격이자 진화 효과 저장 위치. 종류가 이 값보다 작아야 한다
         constant integer PROTO_STAT_STRIDE = 64
+        integer array ProtoRewardSkill
         integer array ProtoCardStacks
         integer array ProtoCardRevision
         hashtable ProtoEffectData = InitHashtable()
@@ -146,14 +151,13 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
     endfunction
 
     function ProtoStatRefreshDerived takes integer pid returns nothing
-        local integer previousMax = IMaxBJ(PROTO_BASE_AP, ProtoAPMax[pid])
         local integer nextMax
         set ProtoGoldBonus[pid] = R2I(ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_GOLD])
         set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(3, 3 + R2I(ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_CHOICES])))
-        set nextMax = PROTO_BASE_AP + IMaxBJ(0, R2I(ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_CAPACITY]))
+        set nextMax = PROTO_BASE_AP
         // 화면과 유닛 능력치 갱신으로 행동력을 다시 충전하지 않는다.
         if ExpPrototypeActive and ExpMember[pid] then
-            set ProtoAP[pid] = IMinBJ(nextMax, IMaxBJ(0, ProtoAP[pid] + IMaxBJ(0, nextMax - previousMax)))
+            set ProtoAP[pid] = IMinBJ(nextMax, IMaxBJ(0, ProtoAP[pid]))
         endif
         set ProtoAPMax[pid] = nextMax
     endfunction
@@ -184,7 +188,11 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         set ProtoStatNames[PROTO_STAT_CHARGE_DAMAGE] = "차지 공격 대미지 증가"
         set ProtoStatNames[PROTO_STAT_HEALTHY] = "체력 65% 이상에서 대미지 증가"
         set ProtoStatNames[PROTO_STAT_CAPACITY] = "행동력 최대치"
-        set ProtoStatNames[PROTO_STAT_COOLDOWN] = "쿨타임 가속"
+        set ProtoStatNames[PROTO_STAT_CHOSEN_SKILL] = "선택한 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_BASIC] = "일반 공격 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_MOVE_SCALE] = "추가 이동속도 1%당 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_RECOVERY_SPEED] = "흡혈 회복 속도 증가"
+        set ProtoStatNames[PROTO_STAT_COOLDOWN] = "스킬가속"
         set ProtoStatNames[PROTO_STAT_DASH_COOLDOWN] = "대시 재사용 감소"
         set ProtoStatNames[PROTO_STAT_SKILL_Q] = "Q 스킬 대미지 증가"
         set ProtoStatNames[PROTO_STAT_SKILL_W] = "W 스킬 대미지 증가"

@@ -11,6 +11,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer LobbyInfo
         private integer LobbyLoadout
         private integer LobbyParty
+        private integer LobbyHead
         private integer LobbyReady
         private integer EventRoot
         private integer EventTitle
@@ -74,6 +75,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer array BranchHeader
         private integer array BranchStrip
         private integer HoverBranch = 0
+        private integer RewardSkillButton
         private integer RerollButton
         private integer ResumeButton
         private integer HuntHUD
@@ -377,7 +379,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call PlaceCoverPart(CandidateRegion[i], cover, 0.012, 0.012, 0.150, 0.038)
         call PlaceEventImage(CandidateIcon[i], cover, 0.012, 0.052, 0.150, 0.108, id)
         call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.168, 0.150, 0.034)
-        if opening or ProtoEventRequiredCard[id] > 0 then
+        if opening or ProtoEventRequiredCard[id] > 0 or ProtoEventRewardPreview[id] != "" then
             set introHeight = 0.077
             call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.210, 0.150, 0.077)
             call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.302, 0.150, 0.044)
@@ -398,24 +400,27 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endif
             // 머리 효과 두 줄 뒤의 고정 위치에서 입문 보상을 시작한다.
             call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.302, 0.150, 0.030)
-            call SetDetailLines(4 + i, CandidateBonus[i], "머리 효과 · " + ProtoHeadEffectText(head), PAPER_GAIN, 0.150, 0.030, 0.011)
+            call SetDetailLines(4 + i, CandidateBonus[i], "완결 · " + ProtoHeadCompletionText[head], PAPER_GAIN, 0.150, 0.030, 0.011)
             call PlaceCoverPart(CandidateEntry[i], cover, 0.012, 0.332, 0.150, 0.030)
             call SetDetailLines(13 + i, CandidateEntry[i], entryReward, PAPER_GAIN, 0.150, 0.030, 0.011)
         elseif ProtoEventMainStage[id] > 0 then
             set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
         elseif ProtoEventEpilogue[id] > 0 then
             set tag = tag + " · 후일담"
-        elseif ProtoEventRequired[id] > 0 then
-            set tag = tag + " · 후속"
+        elseif ProtoEventChainStage[id] > 0 then
+            set tag = tag + " · 서브 " + I2S(ProtoEventChainStage[id]) + "/" + I2S(ProtoEventChainLength[id])
         endif
         if not opening and ProtoEventRequiredCard[id] > 0 then
             call SetDetailLines(4 + i, CandidateBonus[i], "보유 조건|n" + ProtoDisplayCardName(pid, ProtoEventRequiredCard[id]) + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]], PAPER_META, 0.150, 0.044, 0.011)
+        endif
+        if not opening and ProtoEventRewardPreview[id] != "" then
+            call SetDetailLines(4 + i, CandidateBonus[i], ProtoEventRewardPreview[id], PAPER_GAIN, 0.150, 0.070, 0.010)
         endif
         call PaperText(CandidateRegion[i], tag + "|n" + ProtoGradeColor(ProtoEventGrade[id]) + ExpEventGradeName(ProtoEventGrade[id]) + " 보상 가능|r", PAPER_META)
         call PaperText(CandidateTitle[i], ProtoEventName[id], PAPER_TITLE)
         call SetDetailLines(i, CandidateIntro[i], ProtoEventIntro[id], PAPER_BODY, 0.150, introHeight, 0.012)
         call DzFrameSetTexture(CandidateIcon[i], ProtoEventIcon[id], 0)
-        call DzFrameShow(CandidateBonus[i], opening or ProtoEventRequiredCard[id] > 0)
+        call DzFrameShow(CandidateBonus[i], opening or ProtoEventRequiredCard[id] > 0 or ProtoEventRewardPreview[id] != "")
         call DzFrameShow(CandidateEntry[i], opening)
         if not eligible then
             set action = "선택 불가 · 후보 갱신 대기"
@@ -465,19 +470,20 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endloop
             call DzSyncData("ProtoCodex", packet)
         endif
-        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n이번 원정 머리 2장부터 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
+        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 100|n이번 원정 머리 1장부터 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n휴식 행동력 1 → 2 → 3 · 이후 3 유지"
         call ExpUIText(LobbyInfo, value)
         set value = "출발 장비|n|n출발 머리 · "
         if ProtoStartHead[pid] > 0 then
-            set value = value + ProtoHeadName[ProtoStartHead[pid]]
+            set value = value + ProtoHeadName[ProtoStartHead[pid]] + "|n완결 · " + ProtoHeadCompletionText[ProtoStartHead[pid]]
         else
             set value = value + "없음"
         endif
-        set value = value + "|n머리 선택은 추후 도감에서 설정합니다.|n|n장착 공격력 " + I2S(R2I(AttackPower(pid))) + "|n"
+        set value = value + "|n왼쪽 버튼으로 출발 머리를 선택하세요.|n|n장착 공격력 " + I2S(R2I(AttackPower(pid))) + "|n"
         if AttackPower(pid) < 100.0 or not UnitAlive(MainUnit[pid]) or not RectContainsUnit(gg_rct_Home, MainUnit[pid]) or PlayerSlotNumber[pid] <= 0 or not ProtoStartHeadReady(pid) then
             set value = value + "T2 무기 · 공격력 100 · 마을에서 출발 가능|n"
         endif
         call ExpUIText(LobbyLoadout, value)
+        call ExpUISetButton(LobbyHead, "출발 머리 변경 · " + ProtoHeadName[ProtoStartHead[pid]], not ExpReady[pid])
         set value = "파티 준비 상태|n"
         set i = 0
         loop
@@ -504,7 +510,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set value = "보스 합류 대기 · " + value
         endif
         call ExpUIText(HuntStatus, value)
-        call ExpUISetButton(HuntReady, "준비 완료", ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and not ProtoReady[pid] and UnitAlive(MainUnit[pid]))
+        call ExpUISetButton(HuntReady, "행동력 포기", ProtoCanFinishGrowth(pid) and not ProtoReady[pid] and UnitAlive(MainUnit[pid]))
         if ProtoDeadline[pid] <= 10 then
             set clockColor = PAPER_COST
         endif
@@ -618,13 +624,15 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                 call SetStoryText(ProtoDialogueStoryText(pid), storyTop, storyHeight)
             endif
         endif
+        call DzFrameShow(ExpUIButtons[RewardSkillButton], ProtoCanSelectRewardSkill(pid))
+        call ExpUISetButton(RewardSkillButton, "강화할 스킬 · " + SubString("QWERASDFC", ProtoRewardSkill[pid], ProtoRewardSkill[pid] + 1) + " · 변경", true)
         call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1)
-        call ExpUISetButton(RerollButton, "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", ExpGold[pid] >= 500 + ProtoRerolls[pid] * 100)
+        call ExpUISetButton(RerollButton, "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), ProtoAP[pid] >= ProtoRestCost(pid))
         call DzFrameSetAlpha(ExpUIButtons[RerollButton], 255)
-        if ExpGold[pid] >= 500 + ProtoRerolls[pid] * 100 then
-            call PaperText(ExpUIButtonLabels[RerollButton], "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", PAPER_GOLD)
+        if ProtoAP[pid] >= ProtoRestCost(pid) then
+            call PaperText(ExpUIButtonLabels[RerollButton], "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), PAPER_GOLD)
         else
-            call PaperText(ExpUIButtonLabels[RerollButton], "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", PAPER_META)
+            call PaperText(ExpUIButtonLabels[RerollButton], "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), PAPER_META)
         endif
         call DzFrameShow(ExpUIButtons[ResumeButton], ProtoStage[pid] == 3)
         if ProtoDialoguePending(pid) then
@@ -869,6 +877,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set LobbyParty = ExpUILabel(LobbyRoot, 0.436, 0.371, 0.308, 0.088, 0.011, "")
         call JNFrameSetTextAlignment(LobbyParty, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         call JNFrameSetTextAlignment(LobbyInfo, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        set LobbyHead = ExpUIButton(LobbyRoot, 0.054, 0.440, 0.307, 0.041, "출발 머리 선택", 2003)
         set LobbyReady = ExpUIButton(LobbyRoot, 0.416, 0.473, 0.348, 0.041, "출발 준비", 2001)
         call ExpUIThemeButton(LobbyReady, 1)
         set EventRoot = ExpUIRoot(9, 0.8, 0.6, 0.6, false)
@@ -958,6 +967,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call DzFrameShow(OutcomeLineFrames[i], false)
             set i = i + 1
         endloop
+        set RewardSkillButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "강화할 스킬 · Q", 2600)
         set RerollButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "사건 리롤", 2300)
         set ResumeButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "확인 · 사냥 재개", 2400)
         call ExpUIThemeButton(RerollButton, 2)

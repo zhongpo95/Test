@@ -6,8 +6,8 @@
     "intro": "상처를 입고 나비저택에 도착한 탄지로와 동료들이 다시 검을 잡을 준비를 한다. 재활의 작은 진전 끝에서, 다음 임무로 향하는 열차가 기다린다.",
     "effects": [
       {
-        "stat": "swift",
-        "value": 90
+        "stat": "charge_speed",
+        "value": 2.5
       }
     ],
     "entryCard": "kny_aoi",
@@ -16,13 +16,13 @@
       "title": "다시 호흡하며 이어 가는 뜻",
       "length": 14,
       "focus": [
-        "swift",
-        "healthy_damage"
+        "charge_speed"
       ],
       "source": "나비저택 재활부터 무한열차 편",
       "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
     },
-    "entryIcon": "war3mapImported\\UI_Head_Official_butterfly_Icon.tga"
+    "entryIcon": "war3mapImported\\UI_Head_Official_butterfly_Icon.tga",
+    "completionText": "차지 속도 +40% · 차지 공격 대미지 +50%"
   },
   "sources": [
     "https://kimetsu.com/anime/risshihen/story/?story=24",
@@ -45,12 +45,12 @@
       "key": "kny_aoi",
       "name": "칸자키 아오이",
       "effectName": "다시 시작할 준비",
-      "keyword": "고정 신속",
+      "keyword": "차지 공격 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
+          "stat": "charge_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -59,22 +59,19 @@
         "effects": []
       },
       "canonFact": "나비저택 수련의 준비를 작은 입문 효과로 각색한다. 신규 기술이나 현재 체력 즉시 회복이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "entry"
     },
     {
       "key": "kny_tanjiro",
       "name": "카마도 탄지로",
       "effectName": "끊기지 않는 호흡",
-      "keyword": "신속 · 내 체력 65% 이상 피해",
+      "keyword": "차지 속도 +5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -83,22 +80,23 @@
         "effects": []
       },
       "canonFact": "일상에도 전집중 호흡을 이어가는 수련을 행동 준비와 고체력 조건으로 각색한다. 호흡 기술을 새로 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "kny_kanao",
       "name": "츠유리 카나오",
       "effectName": "먼저 읽는 움직임",
-      "keyword": "치명 · 고정 신속",
+      "keyword": "차지 속도 +7.5% · 차지 공격 대미지 +7.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
+          "stat": "charge_speed",
+          "value": 7.5
         },
         {
-          "stat": "swift",
-          "value": 90
+          "stat": "charge_damage",
+          "value": 7.5
         }
       ],
       "evolution": {
@@ -107,26 +105,23 @@
         "effects": []
       },
       "canonFact": "높은 신체 능력과 탄지로의 수련 상대 역할을 반응과 정확한 공격 준비로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "kny_shinobu",
       "name": "코쵸 시노부",
       "effectName": "출발 전에 남긴 당부",
-      "keyword": "재생 · 생존",
+      "keyword": "차지 속도 +7.5% · 차지 공격 대미지 +7.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "charge_speed",
+          "value": 7.5
         },
         {
-          "stat": "damage_reduction",
-          "value": 2
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "charge_damage",
+          "value": 7.5
         }
       ],
       "evolution": {
@@ -135,26 +130,19 @@
         "effects": []
       },
       "canonFact": "약학 지식과 저택의 치료 역할을 전투 중 재생 준비로 각색한다. 독 기술·부활·즉시 완전 회복을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "kny_zenitsu",
       "name": "아가츠마 젠이츠",
       "effectName": "한순간에 모은 힘",
-      "keyword": "차지 · 치명",
+      "keyword": "차지 속도 +5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 4
-        },
-        {
-          "stat": "crit_damage",
-          "value": 4
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -163,26 +151,19 @@
         "effects": []
       },
       "canonFact": "날카로운 청각과 번개의 호흡을 집중한 한 번의 공격 준비로 각색한다. 플레이어의 실신·수면이나 신규 돌진을 요구하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "kny_inosuke",
       "name": "하시비라 이노스케",
       "effectName": "머뭇거리지 않는 돌파",
-      "keyword": "일반 · 비방향 · 받는 피해 증가",
+      "keyword": "차지 공격 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "normal_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "nondirectional_damage",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": -2
+          "stat": "charge_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -191,26 +172,19 @@
         "effects": []
       },
       "canonFact": "돌진하는 호전성을 일반 적·비방향 공격과 방어 부담으로 각색한다. 실제 쌍검 기술이나 방향 적중 공격 보너스는 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "kny_aoi_supply",
       "name": "칸자키 아오이",
       "effectName": "필요한 몫을 먼저",
-      "keyword": "재생 · 처치 골드",
+      "keyword": "차지 공격 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "regeneration",
-          "value": 0.2
-        },
-        {
-          "stat": "kill_gold",
-          "value": 1
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "charge_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -219,22 +193,19 @@
         "effects": []
       },
       "canonFact": "저택의 치료·수련 지원을 전투 중 회복 준비와 처치 뒤 수급 정리로 각색. 원작에 처치골드 능력이 있다는 뜻이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_kanao_quiet",
       "name": "츠유리 카나오",
       "effectName": "발이 움직이기 전에",
-      "keyword": "고정 신속 · 치명 확률",
+      "keyword": "차지 공격 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "crit_chance",
-          "value": 2
+          "stat": "charge_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -243,22 +214,19 @@
         "effects": []
       },
       "canonFact": "높은 신체 능력과 반응 수련 상대 역할을 이동 준비와 정확한 공격으로 각색. 실제 회피 확률·동전·자동 이동 없음.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_tanjiro_smell",
       "name": "카마도 탄지로",
       "effectName": "겹친 흔적 사이",
-      "keyword": "헤드·백 적중 피해 · 관통",
+      "keyword": "차지 공격 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "directional_damage",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 4
+          "stat": "charge_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -267,22 +235,19 @@
         "effects": []
       },
       "canonFact": "후각과 상대 급소를 읽는 공식 인물 소재를 방향 적중 피해와 개인 방어 관통으로 각색. 냄새 탐지 UI·새 호흡 기술 없음.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_shinobu_points",
       "name": "코쵸 시노부",
       "effectName": "상대를 먼저 알기",
-      "keyword": "관통 · 보스",
+      "keyword": "차지 속도 +5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "penetration",
-          "value": 4
-        },
-        {
-          "stat": "boss_damage_percent",
-          "value": 4
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -291,22 +256,23 @@
         "effects": []
       },
       "canonFact": "공식 약학·독 전투의 소재를 상대 특성에 맞는 공격 준비로 각색. 실제 독·지속피해·전염·즉사 기술 지급 없음.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_zenitsu_listen",
       "name": "아가츠마 젠이츠",
       "effectName": "소리 사이의 한순간",
-      "keyword": "차지 속도 · 보스",
+      "keyword": "차지 속도 +7.5% · 차지 공격 대미지 +7.5%",
       "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 4
+          "value": 7.5
         },
         {
-          "stat": "boss_damage_percent",
-          "value": 4
+          "stat": "charge_damage",
+          "value": 7.5
         }
       ],
       "evolution": {
@@ -315,22 +281,23 @@
         "effects": []
       },
       "canonFact": "공식 청각과 한순간 집중한 공격의 소재를 차지 준비로 각색. 새 소리 감지 기능·실신 필요 없음.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "kny_inosuke_terrain",
       "name": "하시비라 이노스케",
       "effectName": "먼저 발을 내딛는 길",
-      "keyword": "고정 신속 · 일반 적",
+      "keyword": "차지 속도 +7.5% · 차지 공격 대미지 +7.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
+          "stat": "charge_speed",
+          "value": 7.5
         },
         {
-          "stat": "normal_damage_percent",
-          "value": 5
+          "stat": "charge_damage",
+          "value": 7.5
         }
       ],
       "evolution": {
@@ -339,26 +306,19 @@
         "effects": []
       },
       "canonFact": "산에서 자란 감각과 돌파 성향을 길을 읽는 이동 준비와 일반 적 상대 준비로 각색. 실제 벽 통과·쌍검 기술 없음.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "kny_murata_senior",
       "name": "무라타",
       "effectName": "강함과 다른 선배의 몫",
-      "keyword": "최대 체력 · 피해 감소",
+      "keyword": "차지 속도 +5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -367,22 +327,19 @@
         "effects": []
       },
       "canonFact": "공식 소개의 선배 귀살대원이라는 역할을 힘을 과시하지 않고 자기 몫을 버티는 성장으로 각색한다. 물의 호흡·선배 보너스·동행은 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_tanjiro_return",
       "name": "카마도 탄지로",
       "effectName": "돌아오게 하는 꾸준함",
-      "keyword": "고정 신속 · 보스",
+      "keyword": "차지 속도 +10%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "boss_damage_percent",
-          "value": 4
+          "stat": "charge_speed",
+          "value": 10
         }
       ],
       "evolution": {
@@ -391,22 +348,19 @@
         "effects": []
       },
       "canonFact": "공식 25화에서 탄지로의 꾸준함을 보고 동료들이 훈련에 복귀하는 모습을 동작을 이어 가며 큰 상대를 준비하는 성장으로 각색한다. 카나오를 가르치거나 원작의 호흡 기술을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_nezuko_will",
       "name": "카마도 네즈코",
       "effectName": "겁내는 이의 앞에서",
-      "keyword": "재생 · 내 체력 65% 이상 피해",
+      "keyword": "차지 속도 +5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "regeneration",
-          "value": 0.2
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -415,22 +369,19 @@
         "effects": []
       },
       "canonFact": "네즈코가 자기 의지와 암시로 사람을 해치지 않는 특징을 동요 속에서 좋은 상태를 유지하는 성장으로 각색한다. 귀화·암시·즉시 치료·공격 통제·혈귀술은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_gourd_breath",
       "name": "카마도 탄지로",
       "effectName": "크기보다 긴 한숨",
-      "keyword": "차지 피해 · 고정 신속",
+      "keyword": "차지 속도 +2.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 4
-        },
-        {
-          "stat": "swift",
-          "value": 90
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -439,22 +390,19 @@
         "effects": []
       },
       "canonFact": "표주박과 전집중 상중 훈련 관계에서 여행자의 힘을 급히 쓰지 않는 기억으로 각색한다. 실제 표주박 장비·호흡 스킬·차지속도·현재체력 소모를 주지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "kny_morning_breath",
       "name": "카마도 탄지로",
       "effectName": "인사 다음에도 이어지는 숨",
-      "keyword": "재생 · 내 체력 65% 이상 피해",
+      "keyword": "차지 속도 +2.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "regeneration",
-          "value": 0.2
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -463,22 +411,19 @@
         "effects": []
       },
       "canonFact": "온종일 호흡을 유지하려는 훈련을 여행자의 계속 잇는 기억으로 각색한다. 초당 최대체력0.4%재생과 현재체력65%이상에서 가하는피해10%이며 즉시회복·원작 호흡완성·새 지속호흡 스킬은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "kny_kanao_return_hand",
       "name": "츠유리 카나오",
       "effectName": "다음 손을 거두는 때",
-      "keyword": "고정 신속 · 헤드·백 적중 피해",
+      "keyword": "차지 속도 +5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "directional_damage",
-          "value": 4
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -487,22 +432,19 @@
         "effects": []
       },
       "canonFact": "회복 훈련 상대 카나오와 여행자가 손을 다시 거두는 창작 기억이다. 일반 행동속도와 헤드/백 플래그와 해당 위치의 유효 각도가 함께 맞아 실제 헤드·백 적중한 공격의 피해다. 실제 카운터/회피/차 승부/동전으로 마음을 해방하는 기능은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_kanao_small_motion",
       "name": "츠유리 카나오",
       "effectName": "작게 움직여도 늦지 않게",
-      "keyword": "치명타 확률 · 고정 신속",
+      "keyword": "차지 속도 +10%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "swift",
-          "value": 90
+          "stat": "charge_speed",
+          "value": 10
         }
       ],
       "evolution": {
@@ -511,22 +453,19 @@
         "effects": []
       },
       "canonFact": "창작 손동작의 범위를 줄여 타이밍을 보는 기억이다. 치명확률6%p와 이동속도4%이며 모든 공격이 치명/회피가 되는 것이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_inosuke_partition",
       "name": "하시비라 이노스케",
       "effectName": "안 보인다고 없는 것은",
-      "keyword": "방어 관통 · 비방향",
+      "keyword": "차지 속도 +10%",
       "grade": 1,
       "effects": [
         {
-          "stat": "penetration",
-          "value": 4
-        },
-        {
-          "stat": "nondirectional_damage",
-          "value": 4
+          "stat": "charge_speed",
+          "value": 10
         }
       ],
       "evolution": {
@@ -535,22 +474,27 @@
         "effects": []
       },
       "canonFact": "촉각으로 시야 밖 위치도 아는 설정에서 가림막 역할을 바꿔 보는 창작 기억이다. 헤드/백 플래그 없는 공격 대미지12%와방관8%이며 실제투시·적감지·자동조준·새스킬을 주지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "kny_gourd_second",
       "name": "카마도 탄지로",
       "effectName": "터뜨린 뒤에 남은 호흡",
-      "keyword": "차지 속도 · 차지 피해",
+      "keyword": "차지 속도 +5.63% · 차지 공격 대미지 +7.5% · 공격력 +3%",
       "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 4
+          "value": 5.63
         },
         {
           "stat": "charge_damage",
-          "value": 4
+          "value": 7.5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -559,22 +503,19 @@
         "effects": []
       },
       "canonFact": "자기 표주박 첫 도전 성공1번 뒤에만 남는 창작 훈련 기억이다. 차지 준비속도9%와차지태그공격피해10%이며 일반행동속도·실제표주박장비·탄지로원작성취완성은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "butterfly_main_01_1",
       "name": "칸자키 아오이",
       "effectName": "나비저택에 도착한 사람들 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -583,22 +524,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "butterfly_main_01_2",
       "name": "칸자키 아오이",
       "effectName": "나비저택에 도착한 사람들 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +10%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 45
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 5
+          "stat": "charge_speed",
+          "value": 10
         }
       ],
       "evolution": {
@@ -607,26 +545,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "butterfly_main_01_3",
       "name": "칸자키 아오이",
       "effectName": "나비저택에 도착한 사람들 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 45
-        },
-        {
           "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "value": 4
         }
       ],
       "evolution": {
@@ -635,22 +566,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_02_1",
       "name": "츠유리 카나오",
       "effectName": "훈련장에서 확인한 격차 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +2.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -659,22 +587,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_02_2",
       "name": "츠유리 카나오",
       "effectName": "훈련장에서 확인한 격차 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 45
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 5
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -683,26 +608,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_02_3",
       "name": "츠유리 카나오",
       "effectName": "훈련장에서 확인한 격차 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 45
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -711,22 +629,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_03_1",
       "name": "코쵸 시노부",
       "effectName": "분노 속에서도 남긴 바람 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +10%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 10
         }
       ],
       "evolution": {
@@ -735,22 +650,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "butterfly_main_03_2",
       "name": "코쵸 시노부",
       "effectName": "분노 속에서도 남긴 바람 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 45
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 5
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -759,26 +671,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_03_3",
       "name": "코쵸 시노부",
       "effectName": "분노 속에서도 남긴 바람 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 45
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -787,22 +692,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_04_1",
       "name": "츠유리 카나오",
       "effectName": "카나오의 조용한 대답 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -811,22 +713,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_04_2",
       "name": "츠유리 카나오",
       "effectName": "카나오의 조용한 대답 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -835,25 +734,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_04_3",
       "name": "츠유리 카나오",
       "effectName": "카나오의 조용한 대답 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -863,22 +755,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_05_1",
       "name": "카마도 탄지로",
       "effectName": "밤에도 이어지는 호흡 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -887,22 +776,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_05_2",
       "name": "카마도 탄지로",
       "effectName": "밤에도 이어지는 호흡 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -911,25 +797,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_05_3",
       "name": "카마도 탄지로",
       "effectName": "밤에도 이어지는 호흡 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -939,22 +818,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_06_1",
       "name": "츠유리 카나오",
       "effectName": "자신의 마음으로 고를 길 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +2.5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -963,22 +839,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_06_2",
       "name": "츠유리 카나오",
       "effectName": "자신의 마음으로 고를 길 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +2.5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -987,26 +860,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_06_3",
       "name": "츠유리 카나오",
       "effectName": "자신의 마음으로 고를 길 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +2.5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 3
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -1015,22 +881,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_07_1",
       "name": "렌고쿠 쿄쥬로",
       "effectName": "열차에서 만난 큰 목소리 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -1039,22 +902,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_07_2",
       "name": "렌고쿠 쿄쥬로",
       "effectName": "열차에서 만난 큰 목소리 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -1063,25 +923,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_07_3",
       "name": "렌고쿠 쿄쥬로",
       "effectName": "열차에서 만난 큰 목소리 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1091,22 +944,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_08_1",
       "name": "카마도 탄지로",
       "effectName": "꿈에 놓인 집의 풍경 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +2.5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -1115,22 +965,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_08_2",
       "name": "카마도 탄지로",
       "effectName": "꿈에 놓인 집의 풍경 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +2.5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -1139,26 +986,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_08_3",
       "name": "카마도 탄지로",
       "effectName": "꿈에 놓인 집의 풍경 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +2.5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 3
+          "stat": "charge_speed",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -1167,22 +1007,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_09_1",
       "name": "카마도 네즈코",
       "effectName": "깨어날 때 붙잡는 이름 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -1191,22 +1028,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_09_2",
       "name": "카마도 네즈코",
       "effectName": "깨어날 때 붙잡는 이름 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -1215,25 +1049,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_09_3",
       "name": "카마도 네즈코",
       "effectName": "깨어날 때 붙잡는 이름 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1243,22 +1070,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_10_1",
       "name": "하시비라 이노스케",
       "effectName": "객차마다 이어진 준비 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 2,
+      "keyword": "차지 속도 +5%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -1267,22 +1091,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "butterfly_main_10_2",
       "name": "하시비라 이노스케",
       "effectName": "객차마다 이어진 준비 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 7
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -1291,26 +1112,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_10_3",
       "name": "하시비라 이노스케",
       "effectName": "객차마다 이어진 준비 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
           "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 3
+          "value": 4
         }
       ],
       "evolution": {
@@ -1319,22 +1133,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_11_1",
       "name": "렌고쿠 쿄쥬로",
       "effectName": "열차의 위협을 넘긴 뒤 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "차지 속도 +5%",
       "grade": 3,
       "effects": [
         {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "charge_speed",
+          "value": 5
         }
       ],
       "evolution": {
@@ -1343,22 +1154,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_11_2",
       "name": "렌고쿠 쿄쥬로",
       "effectName": "열차의 위협을 넘긴 뒤 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 9
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -1367,267 +1175,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "butterfly_main_11_3",
       "name": "렌고쿠 쿄쥬로",
       "effectName": "열차의 위협을 넘긴 뒤 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "butterfly_main_12_1",
-      "name": "렌고쿠 쿄쥬로",
-      "effectName": "아카자가 묻는 강함 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "butterfly_main_12_2",
-      "name": "렌고쿠 쿄쥬로",
-      "effectName": "아카자가 묻는 강함 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 9
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "butterfly_main_12_3",
-      "name": "렌고쿠 쿄쥬로",
-      "effectName": "아카자가 묻는 강함 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "butterfly_main_13_1",
-      "name": "카마도 탄지로",
-      "effectName": "남겨진 마지막 말 · 결의",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "butterfly_main_13_2",
-      "name": "카마도 탄지로",
-      "effectName": "남겨진 마지막 말 · 물음",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 9
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "butterfly_main_13_3",
-      "name": "카마도 탄지로",
-      "effectName": "남겨진 마지막 말 · 인연",
-      "keyword": "메인 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "butterfly_main_14_1",
-      "name": "카마도 탄지로",
-      "effectName": "이어지는 뜻의 호흡",
-      "keyword": "메인 완결 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 4,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 225
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
-        },
-        {
-          "stat": "final_damage_percent",
-          "value": 5
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": [],
-      "retiredMainReward": true
-    },
-    {
-      "key": "butterfly_main_14_2",
-      "name": "카마도 탄지로",
-      "effectName": "돌아올 곳과 지킬 사람",
-      "keyword": "메인 완결 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 4,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 12
-        },
-        {
-          "stat": "final_damage_percent",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": [],
-      "retiredMainReward": true
-    },
-    {
-      "key": "butterfly_main_14_3",
-      "name": "카마도 탄지로",
-      "effectName": "함께 남겨 둔 이름",
-      "keyword": "메인 완결 · 다시 호흡하며 이어 가는 뜻",
-      "grade": 4,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 6
-        },
-        {
-          "stat": "final_damage_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1638,15 +1197,217 @@
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": [],
-      "retiredMainReward": true
+      "rewardRole": "main"
+    },
+    {
+      "key": "butterfly_main_12_1",
+      "name": "렌고쿠 쿄쥬로",
+      "effectName": "아카자가 묻는 강함 · 결의",
+      "keyword": "차지 속도 +2.5%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 2.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "butterfly_main_12_2",
+      "name": "렌고쿠 쿄쥬로",
+      "effectName": "아카자가 묻는 강함 · 물음",
+      "keyword": "차지 속도 +2.5%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 2.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "butterfly_main_12_3",
+      "name": "렌고쿠 쿄쥬로",
+      "effectName": "아카자가 묻는 강함 · 인연",
+      "keyword": "차지 속도 +2.5%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 2.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "butterfly_main_13_1",
+      "name": "카마도 탄지로",
+      "effectName": "남겨진 마지막 말 · 결의",
+      "keyword": "차지 속도 +5%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "butterfly_main_13_2",
+      "name": "카마도 탄지로",
+      "effectName": "남겨진 마지막 말 · 물음",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "butterfly_main_13_3",
+      "name": "카마도 탄지로",
+      "effectName": "남겨진 마지막 말 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "butterfly_main_14_1",
+      "name": "카마도 탄지로",
+      "effectName": "이어지는 뜻의 호흡",
+      "keyword": "차지 속도 +2.5%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 2.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "butterfly_main_14_2",
+      "name": "카마도 탄지로",
+      "effectName": "돌아올 곳과 지킬 사람",
+      "keyword": "차지 속도 +2.5%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 2.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "butterfly_main_14_3",
+      "name": "카마도 탄지로",
+      "effectName": "함께 남겨 둔 이름",
+      "keyword": "차지 속도 +2.5%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 2.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "butterfly_main_ending_memorial",
       "name": "다음 새벽의 호흡",
       "effectName": "메인 엔딩 기념 · 효과 설계 중",
-      "keyword": "승객들은 살아 돌아왔고 렌고쿠는 돌아오지 못했다. 남겨진 사람들은 슬픔을 지우는 대신 그가 지켜 준 생명으로 다음 길을 준비한다.",
+      "keyword": "차지 속도 +40% · 차지 공격 대미지 +50% · 공격력 +8%",
       "grade": 4,
-      "effects": [],
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 40
+        },
+        {
+          "stat": "charge_damage",
+          "value": 50
+        },
+        {
+          "stat": "attack_percent",
+          "value": 8
+        }
+      ],
       "evolution": {
         "kind": 0,
         "goal": 0,
@@ -1656,7 +1417,135 @@
       "canonFact": "승객들은 살아 돌아왔고 렌고쿠는 돌아오지 못했다. 남겨진 사람들은 슬픔을 지우는 대신 그가 지켜 준 생명으로 다음 길을 준비한다.",
       "uncertain": [
         "효과와 수치는 검수 후 설계한다."
-      ]
+      ],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "kny_zenitsu_growth_2",
+      "name": "아가츠마 젠이츠",
+      "effectName": "한순간에 모은 힘",
+      "keyword": "차지 속도 +10%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "날카로운 청각과 번개의 호흡을 집중한 한 번의 공격 준비로 각색한다. 플레이어의 실신·수면이나 신규 돌진을 요구하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "butterfly_main_01_3_growth_5",
+      "name": "칸자키 아오이",
+      "effectName": "나비저택에 도착한 사람들 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "butterfly_main_10_3_growth_6",
+      "name": "하시비라 이노스케",
+      "effectName": "객차마다 이어진 준비 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "butterfly_main_ending_memorial_growth_1",
+      "name": "다음 새벽의 호흡",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "차지 속도 +40% · 차지 공격 대미지 +50% · 치명타 피해 +16%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 40
+        },
+        {
+          "stat": "charge_damage",
+          "value": 50
+        },
+        {
+          "stat": "crit_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "승객들은 살아 돌아왔고 렌고쿠는 돌아오지 못했다. 남겨진 사람들은 슬픔을 지우는 대신 그가 지켜 준 생명으로 다음 길을 준비한다.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "butterfly_main_ending_memorial_growth_2",
+      "name": "다음 새벽의 호흡",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "차지 속도 +40% · 차지 공격 대미지 +50% · 스킬가속 +8",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 40
+        },
+        {
+          "stat": "charge_damage",
+          "value": 50
+        },
+        {
+          "stat": "skill_haste",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "승객들은 살아 돌아왔고 렌고쿠는 돌아오지 못했다. 남겨진 사람들은 슬픔을 지우는 대신 그가 지켜 준 생명으로 다음 길을 준비한다.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ],
+      "rewardRole": "main_final"
     }
   ],
   "events": [
@@ -1673,12 +1562,12 @@
           "card": "kny_zenitsu",
           "card2": null,
           "label": "등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다",
-          "result": "등불과 밧줄에160골드를 내고 소리를 따라 길을 잃은 보급꾼을 찾았다. 보급꾼이 돌아갈 길을 묻자 젠이츠는 들어온 소리와 나갈 발소리를 다시 나누어 듣는다.",
-          "cost": 160,
+          "result": "보급꾼이 돌아갈 길을 묻자 젠이츠는 들어온 소리와 나갈 발소리를 다시 나누어 듣는다.",
+          "cost": 0,
           "gold": 0,
-          "level": 1,
+          "level": 0,
           "density": 0,
-          "chance": 70,
+          "chance": 100,
           "potions": 0
         },
         {
@@ -1698,7 +1587,7 @@
           "card2": null,
           "label": "탄지로와 서두르지 않고 남은 짐을 운반한다",
           "result": "탄지로의 조언대로 서두르지 않고 짐을 묶는 도구를 사용해 무거운 짐을 안정적으로 옮긴다. 짐을 운반하는 동안 호흡이 흐트러지지 않는 법을 배우지만, 보급꾼의 소재는 파악되지 않는다.",
-          "cost": 220,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1706,10 +1595,16 @@
           "potions": 0
         }
       ],
-      "failure": "보급꾼의 목소리로 짐작한 소리는 다른 울음이었고, 준비비를 쓴 수색은 허탕으로 끝났다. 사람을 찾지 못한 기록과 맡은 구역의 더 강한 적이 남아 돌아갈 짐을 다시 꾸린다.",
+      "failure": null,
       "canonFact": "공식 인물 소개의 젠이츠 청각·이노스케 감각과 호전성·탄지로 성실한 수련을 쓴다. 밤길 정찰과 판정·비용은 맵 창작이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga",
+      "actionCost": 4,
+      "growthRole": "chain",
+      "chainStage": 1,
+      "chainLength": 2,
+      "chainRoot": "kny_night_path",
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%"
     },
     {
       "key": "kny_night_found",
@@ -1725,7 +1620,7 @@
           "card2": null,
           "label": "카나오와 반응 훈련을 위한 도구를 마련한다",
           "result": "훈련 도구를 마련하고 정찰 기록에 맞춰 발을 옮길 순간을 연습했다. 카나오에게 상대의 움직임을 읽고 정확히 반응하는 법을 배워 앞서 익힌 준비에 더했다.",
-          "cost": 240,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1733,11 +1628,11 @@
           "potions": 0
         },
         {
-          "card": "kny_kanao_quiet",
+          "card": "kny_kanao",
           "card2": null,
-          "label": "180골드로 도구를 챙겨 카나오가 발견한 흔적을 조사한다",
+          "label": "츠유리 카나오와 함께 다음 길을 준비한다",
           "result": "카나오가 가리킨 지점에 도구를 사용해 세밀하게 흔적을 훑는다. 보급꾼이 남긴 일지에서 주요 물품의 위치를 파악한다.",
-          "cost": 180,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1747,9 +1642,9 @@
         {
           "card": "kny_zenitsu_listen",
           "card2": null,
-          "label": "180골드로 짐 소리를 줄일 천을 마련하고 젠이츠와 움직일 순간을 맞춘다",
-          "result": "짐 소리를 줄일 천에180골드를 내고 젠이츠와 움직일 순간을 맞췄다. 소리 사이의 한순간을 기억해 차지 준비속도와 보스에게 가하는 피해를 높였다. 젠이츠가 다시 귀를 기울일 때 네가 먼저 짐을 들어 소리를 내자, 그는 아직 움직일 때가 아니라고 손을 세운다.",
-          "cost": 180,
+          "label": "아가츠마 젠이츠와 함께 다음 길을 준비한다",
+          "result": "소리 사이의 한순간을 기억해 차지 준비속도와 보스에게 가하는 피해를 높였다. 젠이츠가 다시 귀를 기울일 때 네가 먼저 짐을 들어 소리를 내자, 그는 아직 움직일 때가 아니라고 손을 세운다.",
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1760,15 +1655,21 @@
       "failure": null,
       "canonFact": "소리를 확인한 자기 성공 기록을 요구하는 맵 전용 후속이다. 실제 청각 스킬·새 적 종족을 지급하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga",
+      "actionCost": 6,
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "kny_night_path",
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%"
     },
     {
       "key": "kny_night_wrong",
       "title": "잘못 짚은 소리의 값",
-      "story": "수색에 실패하고 빈손으로 돌아온 기록지에는 같은 길을 맴돈 흔적만 남았다. 시노부는 다음 임무를 위한 회복 준비를 강조하고, 이노스케는 더욱 직접적인 돌파 방식을 요구한다.",
+      "story": "밤의 수색 기록을 정리하던 시노부가 같은 길을 맴돈 옛 기록을 펼친다. 다음 임무에서는 소리만 따라가지 않도록 돌아올 길과 확인 순서를 짚는다. 이노스케는 직접 앞장서겠다며 너의 대답을 기다린다.",
       "intro": "다시 나설 준비를 갖출지, 위험을 감수하고 돌파할지, 남은 길을 줄일지 정한다.",
       "previous": "kny_night_path",
-      "previousChoice": -1,
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -1776,7 +1677,7 @@
           "card2": null,
           "label": "시노부와 다음 출발의 회복 준비를 갖춘다",
           "result": "새 준비 비용을 내고 시노부와 다음 전투에 가져갈 약을 정리했다. 비어 있는 수색 기록은 덮어 두고, 무리하게 버티기 전에 회복을 이어갈 준비를 챙긴다.",
-          "cost": 160,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1784,23 +1685,23 @@
           "potions": 0
         },
         {
-          "card": "kny_inosuke",
+          "card": "kny_inosuke_terrain",
           "card2": null,
           "label": "이노스케에게 더 강한 구역을 맡는 자세를 묻는다",
           "result": "이노스케에게 몸을 사리는 대신 공격을 이어가는 순서를 전수받는다. 현재보다 강한 적을 상대해야 하는 위험과 방어의 빈틈이 생기지만 돌파력은 강화된다.",
           "cost": 0,
           "gold": 0,
-          "level": 1,
+          "level": 0,
           "density": 0,
           "chance": 100,
           "potions": 0
         },
         {
-          "card": "kny_inosuke_partition",
+          "card": "kny_inosuke_terrain",
           "card2": null,
-          "label": "180골드로 확인 도구를 준비해 이노스케와 사각지대를 살핀다",
+          "label": "하시비라 이노스케와 함께 다음 길을 준비한다",
           "result": "이노스케와 협력하여 시야가 닿지 않는 구석까지 꼼꼼하게 살핀다. 헛된 소리에 휘둘리지 않고 정확한 보급 경로를 기억한다.",
-          "cost": 180,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1811,7 +1712,13 @@
       "failure": null,
       "canonFact": "실패 자체를 무료 성장으로 환급하지 않는다. 자기 실패 기록에서 추가 행동력으로 보완하는 창작이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
+      "actionCost": 6,
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "kny_night_path",
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%"
     },
     {
       "key": "kny_unread_bottles",
@@ -1823,11 +1730,11 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_shinobu",
+          "card": "kny_shinobu_points",
           "card2": null,
-          "label": "새 이름표를 사서 시노부와 병의 기록을 대조한다",
-          "result": "이름표 값을 치르고 기록과 맞는 병을 나누었다. 시노부에게 출발 전에 회복 준비를 확인하는 요령을 듣고 챙겼다. 끝내 읽히지 않는 병은 따로 남겨 함부로 사용하지 않는다.",
-          "cost": 220,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "이름표 값을 치르고 기록과 맞는 병을 나누었다. 시노부에게 출발 전에 회복 준비를 확인하는 요령을 듣고 챙겼다. 끝내 읽히지 않는 병은 따로 남겨 함부로 사용하지 않는다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1837,9 +1744,9 @@
         {
           "card": "kny_aoi_supply",
           "card2": null,
-          "label": "포장 재료를 사서 아오이와 확인된 보급만 챙긴다",
-          "result": "포장 재료를 마련해 확인된 보급만 묶었다. 아오이가 짐을 나누는 순서와 회복 준비를 보여 준다. 기록을 전부 복원하지는 않고, 모르는 병은 다음 확인자에게 남긴다.",
-          "cost": 140,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "포장 재료를 마련해 확인된 보급만 묶었다. 아오이가 짐을 나누는 순서와 회복 준비를 보여 준다. 기록을 전부 복원하지는 않고, 모르는 병은 다음 확인자에게 남긴다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1847,11 +1754,11 @@
           "potions": 0
         },
         {
-          "card": "kny_shinobu_points",
+          "card": "butterfly_main_03_1",
           "card2": null,
-          "label": "260골드로 기록 대조 도구를 마련하고 시노부와 다음 상대에 맞는 준비를 구별한다",
-          "result": "기록 대조 도구에260골드를 내고 시노부와 다음 상대에 맞춰 가져갈 준비를 구별했다. 상대를 먼저 살피는 기억으로 방어관통과 보스에게 가하는 피해를 높였다. 시노부는 끝내 읽히지 않은 병을 네 짐에서 빼고 다음 확인자에게 남겨 둔다.",
-          "cost": 260,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "상대를 먼저 살피는 기억으로 방어관통과 보스에게 가하는 피해를 높였다. 시노부는 끝내 읽히지 않은 병을 네 짐에서 빼고 다음 확인자에게 남겨 둔다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1862,7 +1769,10 @@
       "failure": null,
       "canonFact": "공식 저택 치료·시노부 약학·아오이 지원에서 별도 젖은 보급 문제를 창작한다. 보급병·기록지는 실제 퀘스트 물품이 아니며 미확인 약 사용이나 즉시 치료를 구현하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_white_linen",
@@ -1874,11 +1784,11 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_aoi_supply",
+          "card": "butterfly_main_01_1",
           "card2": null,
-          "label": "새 천을 마련하고 아오이와 보급 묶음을 나눈다",
-          "result": "새 천 값을 내고 필요한 몫을 나누어 묶었다. 아오이에게 다시 빠뜨리지 않도록 보급을 정리하는 준비를 배웠다. 젖은 천은 그대로 말려 두고 오늘 쓸 분량부터 건넨다.",
-          "cost": 180,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "새 천 값을 내고 필요한 몫을 나누어 묶었다. 아오이에게 다시 빠뜨리지 않도록 보급을 정리하는 준비를 배웠다. 젖은 천은 그대로 말려 두고 오늘 쓸 분량부터 건넨다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1886,11 +1796,11 @@
           "potions": 0
         },
         {
-          "card": "kny_inosuke_terrain",
+          "card": "kny_inosuke",
           "card2": null,
-          "label": "이노스케와 협력하여 보급로를 넓게 확보하며 이동한다",
-          "result": "이노스케가 제안한 대로 보급로의 범위를 넓게 확보하며 나아간다. 확보된 경로를 따라 말린 천의 수량과 위치를 머릿속에 새긴다.",
-          "cost": 0,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "이노스케가 제안한 대로 보급로의 범위를 넓게 확보하며 나아간다. 확보된 경로를 따라 말린 천의 수량과 위치를 머릿속에 새긴다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1900,9 +1810,9 @@
         {
           "card": "kny_inosuke_partition",
           "card2": null,
-          "label": "180골드로 도구를 마련해 이노스케와 보이지 않는 구간을 살핀다",
-          "result": "정교한 도구를 활용해 눈에 띄지 않는 사각지대까지 확인한다. 이노스케의 직관과 결합하여 보급품의 배치 정보를 얻는다.",
-          "cost": 180,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "정교한 도구를 활용해 눈에 띄지 않는 사각지대까지 확인한다. 이노스케의 직관과 결합하여 보급품의 배치 정보를 얻는다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1913,7 +1823,10 @@
       "failure": null,
       "canonFact": "공식 나비저택 치료와 아오이 지원, 이노스케 산 감각에서 마르지 않은 천과 돌아가는 보급길을 별도로 창작한다. 환자 상태·옷 장비·NPC 운반은 생성하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_crow_dispatch",
@@ -1927,9 +1840,9 @@
         {
           "card": "kny_tanjiro",
           "card2": null,
-          "label": "기록용품을 사서 탄지로와 맡을 일을 다시 확인한다",
-          "result": "기록용품을 마련하고 서두를 때도 호흡을 흐트러뜨리지 않으며 안내를 다시 나누어 들었다. 탄지로와 배운 준비를 챙겼지만, 맡기지 않은 임무까지 새로 받지는 않는다.",
-          "cost": 160,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "기록용품을 마련하고 서두를 때도 호흡을 흐트러뜨리지 않으며 안내를 다시 나누어 들었다. 탄지로와 배운 준비를 챙겼지만, 맡기지 않은 임무까지 새로 받지는 않는다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1939,9 +1852,9 @@
         {
           "card": "kny_aoi_supply",
           "card2": null,
-          "label": "부족한 포장을 마련해 아오이와 출발 목록을 맞춘다",
-          "result": "부족한 포장 값을 내고 아오이와 가져갈 몫을 나눴다. 출발 중에도 준비를 이어갈 요령을 챙겼다. 까마귀의 긴 안내를 전부 정리하는 일은 다른 사람에게 남긴다.",
-          "cost": 200,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "부족한 포장 값을 내고 아오이와 가져갈 몫을 나눴다. 출발 중에도 준비를 이어갈 요령을 챙겼다. 까마귀의 긴 안내를 전부 정리하는 일은 다른 사람에게 남긴다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1951,9 +1864,9 @@
         {
           "card": "kny_tanjiro_return",
           "card2": null,
-          "label": "180골드로 반복할 준비를 마련하고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞춘다",
-          "result": "반복할 준비에180골드를 내고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞췄다. 꾸준히 되짚은 준비를 기억해 일반 행동속도와 보스에게 가하는 피해를 높였다. 까마귀가 안내를 다시 읽자 탄지로는 이번에는 네가 맡을 동작부터 기다린다.",
-          "cost": 180,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "꾸준히 되짚은 준비를 기억해 일반 행동속도와 보스에게 가하는 피해를 높였다. 까마귀가 안내를 다시 읽자 탄지로는 이번에는 네가 맡을 동작부터 기다린다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1964,7 +1877,10 @@
       "failure": null,
       "canonFact": "공식 26화의 전령 까마귀와 새 임무 안내에서 별도 기록 혼선을 창작한다. 특정 본편 임무를 해결하거나 실제 목적지·남은 시간을 바꾸지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_midday_noise",
@@ -1976,11 +1892,11 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_zenitsu_listen",
+          "card": "kny_zenitsu",
           "card2": null,
-          "label": "완충천을 사서 짐 소리를 줄이고 젠이츠와 움직일 순간을 맞춘다",
-          "result": "완충천 값을 내고 부딪치는 짐을 다시 묶었다. 남은 소리 사이에서 한 번 움직일 순간에 집중하는 젠이츠의 준비를 챙겼다. 모든 소리를 알아듣는 능력을 얻은 것은 아니다.",
-          "cost": 180,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "완충천 값을 내고 부딪치는 짐을 다시 묶었다. 남은 소리 사이에서 한 번 움직일 순간에 집중하는 젠이츠의 준비를 챙겼다. 모든 소리를 알아듣는 능력을 얻은 것은 아니다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1990,9 +1906,9 @@
         {
           "card": "kny_tanjiro_smell",
           "card2": null,
-          "label": "조사 도구를 사서 탄지로와 주변 흔적부터 확인한다",
-          "result": "조사 도구를 마련하고 짐에 묻은 것과 주변 자국을 차례로 비교했다. 탄지로가 짚어 준 상대를 관찰하는 요령을 공격 준비에 남겼다. 소리 자체는 남아 있지만 확인할 순서는 정했다.",
-          "cost": 220,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "조사 도구를 마련하고 짐에 묻은 것과 주변 자국을 차례로 비교했다. 탄지로가 짚어 준 상대를 관찰하는 요령을 공격 준비에 남겼다. 소리 자체는 남아 있지만 확인할 순서는 정했다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2000,11 +1916,11 @@
           "potions": 0
         },
         {
-          "card": "kny_zenitsu",
+          "card": "kny_zenitsu_growth_2",
           "card2": null,
-          "label": "200골드로 연습 도구를 챙겨 젠이츠와 소리 반응을 준비한다",
-          "result": "젠이츠와 함께 소리의 우선순위를 정하며 집중력을 높인다. 복잡한 소음 속에서 보급품이 있는 방향을 정확히 식별한다.",
-          "cost": 200,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "젠이츠와 함께 소리의 우선순위를 정하며 집중력을 높인다. 복잡한 소음 속에서 보급품이 있는 방향을 정확히 식별한다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2015,7 +1931,10 @@
       "failure": null,
       "canonFact": "공식 젠이츠 청각과 탄지로 후각을 별도 소란스러운 출발 장면으로 각색한다. 실종자·밤길 수색을 반복하거나 소리 탐지 UI를 지급하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_mixed_traces",
@@ -2027,23 +1946,23 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_tanjiro_smell",
+          "card": "kny_tanjiro",
           "card2": null,
-          "label": "도구를 마련해 탄지로가 짚은 흔적을 조사한다",
-          "result": "조사 도구에140골드를 내고 탄지로와 서로 다른 흔적을 나누어 확인했다. 탄지로는 한 방향으로 난 자국만 다시 보려는 네게 냄새가 갈라진 곳을 짚어 준다.",
-          "cost": 140,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "탄지로는 한 방향으로 난 자국만 다시 보려는 네게 냄새가 갈라진 곳을 짚어 준다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
-          "level": 1,
+          "level": 0,
           "density": 0,
-          "chance": 70,
+          "chance": 100,
           "potions": 0
         },
         {
-          "card": "kny_inosuke_terrain",
+          "card": "kny_inosuke",
           "card2": null,
-          "label": "이노스케와 주변의 흔적을 나누어 확인한다",
-          "result": "이노스케가 거칠게 수풀을 헤치자 발밑에 가려진 자국이 드러난다. 한 가지 감각에만 기대지 않고 보이는 흔적을 함께 대조하는 법을 익힌다.",
-          "cost": 0,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "이노스케가 거칠게 수풀을 헤치자 발밑에 가려진 자국이 드러난다. 한 가지 감각에만 기대지 않고 보이는 흔적을 함께 대조하는 법을 익힌다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2053,9 +1972,9 @@
         {
           "card": "kny_inosuke_partition",
           "card2": null,
-          "label": "180골드로 도구를 마련해 이노스케와 끊긴 자국을 살핀다",
-          "result": "정교한 도구 덕분에 시야가 넓어지며 보이지 않던 길을 발견한다. 이노스케의 직감과 도구의 정확함이 결합되어 단서를 확보한다.",
-          "cost": 180,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "정교한 도구 덕분에 시야가 넓어지며 보이지 않던 길을 발견한다. 이노스케의 직감과 도구의 정확함이 결합되어 단서를 확보한다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2063,10 +1982,13 @@
           "potions": 0
         }
       ],
-      "failure": "같은 자국에 겹친 냄새를 끝내 나누지 못했다. 조사비는 돌아오지 않고 보상도 없다. 맡기로 한 더 강한 구역은 남는다.",
+      "failure": null,
       "canonFact": "공식 탄지로 후각·이노스케 산 감각에서 별도 보급길 흔적을 창작한다. 확률 70은 맵 판정이며 원작 감각이 실패했다는 본편 장면을 재현하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_before_departure",
@@ -2078,37 +2000,37 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "새 포장을 사서 시노부와 상대에 맞는 준비만 골라 담는다",
-          "result": "새 포장 값을 내고 상대의 특성을 살펴 가져갈 준비를 추렸다. 시노부의 조언을 관통과 강한 상대를 향한 공격 준비에 남겼다. 모든 적에게 쓸 새 독이나 약을 받은 것은 아니다.",
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "새 포장 값을 내고 상대의 특성을 살펴 가져갈 준비를 추렸다. 시노부의 조언을 관통과 강한 상대를 향한 공격 준비에 남겼다. 모든 적에게 쓸 새 독이나 약을 받은 것은 아니다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
           "card": "kny_shinobu_points",
           "card2": null,
           "gold": 0,
-          "cost": 260,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "운반 도구를 사서 카나오와 움직일 순서에 맞춰 짐을 나눈다",
-          "result": "운반 도구를 마련해 발에 걸리는 짐을 나누었다. 카나오가 보여 준 움직임에 맞춰 정확히 공격할 준비를 챙겼다. 다른 사람의 짐까지 전부 정리하지는 않았다.",
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "운반 도구를 마련해 발에 걸리는 짐을 나누었다. 카나오가 보여 준 움직임에 맞춰 정확히 공격할 준비를 챙겼다. 다른 사람의 짐까지 전부 정리하지는 않았다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
           "card": "kny_kanao_quiet",
           "card2": null,
           "gold": 0,
-          "cost": 180,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "이노스케와 큰 짐을 맡고 더 강한 길목도 받는다",
-          "result": "큰 짐을 모아 맡고 이노스케에게 밀고 나가는 자세를 배웠다. 더 강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다. 준비물을 모두 새것으로 바꾼 것은 아니다.",
-          "card": "kny_inosuke",
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "큰 짐을 모아 맡고 이노스케에게 밀고 나가는 자세를 배웠다. 더 강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다. 준비물을 모두 새것으로 바꾼 것은 아니다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "card": "kny_inosuke_partition",
           "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 1,
+          "cost": 750,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
@@ -2117,7 +2039,10 @@
       "failure": null,
       "canonFact": "공식 저택 치료·출발과 시노부 약학·카나오 신체 능력·이노스케 성향을 별도 보급낭 파손으로 각색한다. 새 독 기술·장비 수선 기능·실제 임무 전환은 없다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_senior_challenge",
@@ -2131,9 +2056,9 @@
         {
           "card": "kny_murata_senior",
           "card2": null,
-          "label": "무라타에게 버틸 몫을 묻고 준비 물품을 마련한다",
-          "result": "180골드로 준비 물품을 마련하고 최대 체력을 늘려 받는 피해를 줄이는 요령을 배웠다. 무라타는 큰소리를 낸 사람보다 끝까지 자리를 지킬 사람이 필요할 때도 있다고 말한다. 이노스케는 아직 누가 더 강한지 답을 못 들었다며 다시 묻는다.",
-          "cost": 180,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "무라타는 큰소리를 낸 사람보다 끝까지 자리를 지킬 사람이 필요할 때도 있다고 말한다. 이노스케는 아직 누가 더 강한지 답을 못 들었다며 다시 묻는다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2143,11 +2068,11 @@
         {
           "card": "kny_inosuke",
           "card2": null,
-          "label": "이노스케의 승부를 대신 맡고 더 강한 사냥을 준비한다",
-          "result": "이노스케와 작은 상대와 방향 조건 없는 일격에 힘을 싣는 요령을 배웠다. 이노스케가 다음 상대부터 찾자 무라타는 선배라는 호칭은 아직 바뀌지 않는다고 한다.",
-          "cost": 0,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "이노스케와 작은 상대와 방향 조건 없는 일격에 힘을 싣는 요령을 배웠다. 이노스케가 다음 상대부터 찾자 무라타는 선배라는 호칭은 아직 바뀌지 않는다고 한다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
-          "level": 1,
+          "level": 0,
           "density": 0,
           "chance": 100,
           "potions": 0
@@ -2155,11 +2080,11 @@
         {
           "card": "kny_tanjiro_return",
           "card2": null,
-          "label": "180골드로 연습할 자리를 마련하고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복한다",
-          "result": "연습할 자리를 마련하고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복했다. 무라타가 맡을 자리를 묻자 이노스케는 승부 이야기를 아직 접지 않은 채 그 옆을 돌아본다.",
-          "cost": 180,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "연습할 자리를 마련하고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복했다. 무라타가 맡을 자리를 묻자 이노스케는 승부 이야기를 아직 접지 않은 채 그 옆을 돌아본다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
-          "level": -1,
+          "level": 0,
           "density": 0,
           "chance": 100,
           "potions": 0
@@ -2168,7 +2093,10 @@
       "failure": null,
       "canonFact": "물의 호흡을 쓰는 선배 귀살대원과 호전적인 이노스케라는 공식 소개에서 방문 중 호칭 갈등을 창작했다. 무라타의 이 발언은 원작 대사가 아니다. 실제 NPC 대련·선후배 게이지·호흡 전수가 없고 카드와 개인 필드만 변한다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KNYG_murata_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KNYG_murata_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_return_to_training",
@@ -2180,36 +2108,36 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "탄지로와 반복할 자리를 마련해 두 사람을 부른다",
-          "result": "160골드로 반복할 자리를 마련하고 빠른 동작과 보스에게 힘을 싣는 요령을 배웠다. 탄지로는 어느 쪽이 먼저 왔는지 묻지 않고 두 사람 몫의 자리를 가리킨다. 젠이츠와 이노스케도 문 앞에서 더 버티지는 않는다.",
-          "card": "kny_tanjiro_return",
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "탄지로는 어느 쪽이 먼저 왔는지 묻지 않고 두 사람 몫의 자리를 가리킨다. 젠이츠와 이노스케도 문 앞에서 더 버티지는 않는다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "card": "kny_tanjiro",
           "card2": null,
           "gold": 0,
-          "cost": 160,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "이노스케에게 먼저 도전하라며 맡을 길목을 넓힌다",
-          "result": "이노스케의 승부욕을 자극해 훈련의 범위를 한층 확장한다. 그가 내딛는 발걸음마다 새로운 기술의 자취가 기록된다.",
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "이노스케의 승부욕을 자극해 훈련의 범위를 한층 확장한다. 그가 내딛는 발걸음마다 새로운 기술의 자취가 기록된다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
           "card": "kny_inosuke",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "젠이츠에게 반응을 보여 줄 자리를 맡긴다",
-          "result": "200골드로 반응을 보여 줄 자리를 마련하고 차지 일격과 치명타에 힘을 모으는 요령을 배웠다. 젠이츠가 보는 사람 앞쪽에 서려 하자 탄지로는 이번에는 끝까지 함께하자고 부른다. 이노스케는 멀리서 보지 말고 같이 들어오라고 한다.",
-          "card": "kny_zenitsu",
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "젠이츠가 보는 사람 앞쪽에 서려 하자 탄지로는 이번에는 끝까지 함께하자고 부른다. 이노스케는 멀리서 보지 말고 같이 들어오라고 한다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "card": "kny_zenitsu_growth_2",
           "card2": null,
           "gold": 0,
-          "cost": 200,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -2219,7 +2147,10 @@
       "failure": null,
       "canonFact": "24화의 젠이츠 동기와 25화의 탄지로를 보고 훈련에 복귀한 두 동료를 바탕으로 문 앞의 자존심 충돌을 창작했다. 플레이어가 카나오의 스승이 되거나 본편 대련 결과·연애 성취를 결정하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_frightened_visitor",
@@ -2233,9 +2164,9 @@
         {
           "card": "kny_nezuko_will",
           "card2": null,
-          "label": "두 사람 사이를 비워 두고 네즈코의 행동을 지켜본다",
-          "result": "네즈코가 움직이지 않는 동안 상대의 놀람에도 동요하지 않고 좋은 몸 상태를 유지하는 요령을 배웠다. 탄지로는 동생에게 사람을 해치지 말라고 다시 명령하지 않는다. 방문객도 아무 일 없는 두 사람 사이에서 발을 한 번 멈춘다.",
-          "cost": 0,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "네즈코가 움직이지 않는 동안 상대의 놀람에도 동요하지 않고 좋은 몸 상태를 유지하는 요령을 배웠다. 탄지로는 동생에게 사람을 해치지 말라고 다시 명령하지 않는다. 방문객도 아무 일 없는 두 사람 사이에서 발을 한 번 멈춘다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2243,11 +2174,11 @@
           "potions": 0
         },
         {
-          "card": "kny_tanjiro",
+          "card": "kny_tanjiro_smell",
           "card2": null,
-          "label": "탄지로와 손님이 머무를 자리를 마련한다",
-          "result": "180골드로 손님이 머무를 자리를 마련하고 탄지로에게 신속과 좋은 몸 상태에서 힘을 쓰는 요령을 배웠다. 탄지로는 손님에게 먼저 거리를 두어도 된다고 말한다. 네즈코는 손님을 따라 움직이지 않는다.",
-          "cost": 180,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "탄지로는 손님에게 먼저 거리를 두어도 된다고 말한다. 네즈코는 손님을 따라 움직이지 않는다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2255,11 +2186,11 @@
           "potions": 0
         },
         {
-          "card": "kny_morning_breath",
+          "card": "kny_tanjiro_return",
           "card2": null,
-          "label": "180골드로 자리를 마련하고 탄지로와 숨을 고른다",
-          "result": "차분한 대화의 장을 마련해 탄지로와 감정의 파동을 맞춘다. 방문객의 시선 너머로 동생을 향한 진심 어린 기억을 얻는다.",
-          "cost": 180,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "차분한 대화의 장을 마련해 탄지로와 감정의 파동을 맞춘다. 방문객의 시선 너머로 동생을 향한 진심 어린 기억을 얻는다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2270,7 +2201,10 @@
       "failure": null,
       "canonFact": "네즈코의 자기 의지와 암시·탄지로의 따뜻함이라는 공식 특징을 저택의 야간 방문에 각색했다. 사람을 공격하는 시험·암시 재주입·새 치료·원작 재판 결과·NPC 동행은 없다. 무료 카드도 사건 행동력 1을 소모한다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO1_nezuko_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_nezuko_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_first_gourd",
@@ -2282,23 +2216,11 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_gourd_breath",
+          "card": "kny_tanjiro",
           "card2": null,
-          "label": "도구값120골드를 먼저 내고 숨을 불어 표주박을 터뜨려 본다",
-          "result": "도구값120골드를 먼저 내고 숨을 이어 표주박을 터뜨렸다. 네가 터진 소리를 자랑하려 하자 아오이는 다음에는 설명부터 끝까지 들으라고 한다.",
-          "cost": 120,
-          "gold": 0,
-          "level": 0,
-          "density": 0,
-          "chance": 60,
-          "potions": 0
-        },
-        {
-          "card": "kny_morning_breath",
-          "card2": null,
-          "label": "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 숨을 계속 잇는 연습을 한다",
-          "result": "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 자기 숨을 계속 잇는 연습을 했다. 아오이는 터진 소리를 세기보다 아직 설명하지 않은 다음 숨의 길이를 묻는다.",
-          "cost": 220,
+          "label": "카마도 탄지로와 함께 다음 길을 준비한다",
+          "result": "네가 터진 소리를 자랑하려 하자 아오이는 다음에는 설명부터 끝까지 들으라고 한다.",
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2306,11 +2228,23 @@
           "potions": 0
         },
         {
-          "card": "kny_tanjiro_return",
+          "card": "kny_tanjiro_smell",
           "card2": null,
-          "label": "160골드로 자리를 마련하고 탄지로와 도구 수납을 맞춘다",
+          "label": "카마도 탄지로와 함께 다음 길을 준비한다",
+          "result": "아오이는 터진 소리를 세기보다 아직 설명하지 않은 다음 숨의 길이를 묻는다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro",
+          "card2": null,
+          "label": "카마도 탄지로와 함께 다음 길을 준비한다",
           "result": "서두르지 않고 탄지로의 동작을 세밀하게 관찰하며 순서를 익힌다. 도구를 거두는 절차 속에서 기본기의 핵심을 파악한다.",
-          "cost": 160,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2318,10 +2252,16 @@
           "potions": 0
         }
       ],
-      "failure": "도구값120골드를 먼저 냈지만 숨이 끝나기 전에 박자가 끊겼다. 카드는 얻지 못하고120골드는 돌아오지 않는다. 아오이는 네가 큰 것을 다시 집기 전에 설명부터 끝까지 들으라고 한다.",
+      "failure": null,
       "canonFact": "공식 협업 자료의 표주박/전집중상중관계에서 만든 별도 창작 시험이다. 크기·소리·도구값·60%확률은 원작규칙이 아니고 현재체력지불이나 새미니게임은 없다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
+      "actionCost": 4,
+      "growthRole": "chain",
+      "chainStage": 1,
+      "chainLength": 2,
+      "chainRoot": "kny_first_gourd",
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +5.63% · 차지 공격 대미지 +7.5% · 공격력 +3%"
     },
     {
       "key": "kny_morning_greeting",
@@ -2333,11 +2273,11 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_morning_breath",
+          "card": "kny_tanjiro",
           "card2": null,
-          "label": "180골드로 내 연습 도구를 마련하고 옆에서 자기 숨을 잇는다",
-          "result": "내 연습 도구에180골드를 내고 탄지로 옆에서 자기 숨을 이어 보았다. 탄지로가 남은 질문을 다시 묻자 너도 대답할 말과 이어야 할 숨을 같이 고르게 된다.",
-          "cost": 180,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "탄지로가 남은 질문을 다시 묻자 너도 대답할 말과 이어야 할 숨을 같이 고르게 된다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2345,13 +2285,13 @@
           "potions": 0
         },
         {
-          "card": "kny_tanjiro",
+          "card": "kny_tanjiro_smell",
           "card2": null,
-          "label": "내 사냥의 강함 단계를1올리고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따른다",
-          "result": "내 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따랐다. 탄지로가 아침 인사에 다시 답하자 너도 아직 남은 질문을 잊지 않는다.",
-          "cost": 0,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "내 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따랐다. 탄지로가 아침 인사에 다시 답하자 너도 아직 남은 질문을 잊지 않는다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
-          "level": 1,
+          "level": 0,
           "density": 0,
           "chance": 100,
           "potions": 0
@@ -2359,9 +2299,9 @@
         {
           "card": "kny_tanjiro_return",
           "card2": null,
-          "label": "160골드로 연습할 자리를 마련하고 탄지로와 말한 뒤 움직일 차례까지 반복한다",
-          "result": "연습할 자리에160골드를 내고 탄지로와 말한 뒤 움직일 차례까지 반복했다. 꾸준히 이어가는 기억으로 일반 행동속도와 보스에게 가하는 피해를 높였다. 질문이 끝났다고 손을 내리자 탄지로는 아직 남은 다음 동작을 가리킨다.",
-          "cost": 160,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "꾸준히 이어가는 기억으로 일반 행동속도와 보스에게 가하는 피해를 높였다. 질문이 끝났다고 손을 내리자 탄지로는 아직 남은 다음 동작을 가리킨다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2372,8 +2312,10 @@
       "failure": null,
       "canonFact": "공식25화의 온종일 호흡유지연습을 별도 아침 인사로 각색했다. 실제아침대사·원작훈련완성·탄지로구출·새호흡스킬은 확정하지 않는다.",
       "uncertain": [],
-      "actionCost": 0,
-      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
+      "actionCost": 1,
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_hand_return",
@@ -2387,9 +2329,9 @@
         {
           "card": "kny_kanao_return_hand",
           "card2": null,
-          "label": "200골드로 내 추가 연습 준비를 하고 같은 속도에 다시 맞춘다",
-          "result": "추가 연습 준비에200골드를 내고 같은 속도로 손을 다시 거두었다. 아오이는 손을 내밀 때보다 거둘 때를 지켜보고 카나오는 그 손이 돌아온 다음 차례를 시작한다.",
-          "cost": 200,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "아오이는 손을 내밀 때보다 거둘 때를 지켜보고 카나오는 그 손이 돌아온 다음 차례를 시작한다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2397,11 +2339,11 @@
           "potions": 0
         },
         {
-          "card": "kny_kanao_small_motion",
+          "card": "kny_kanao_quiet",
           "card2": null,
-          "label": "카나오에게 손동작을 작게 줄여 다시 보여 달라고 한다",
-          "result": "카나오는 불필요한 움직임을 거두고 손끝의 작은 간격을 보여 준다. 힘을 더하는 대신 낭비를 줄여 정확하게 움직이는 호흡을 익힌다.",
-          "cost": 0,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "카나오는 불필요한 움직임을 거두고 손끝의 작은 간격을 보여 준다. 힘을 더하는 대신 낭비를 줄여 정확하게 움직이는 호흡을 익힌다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2409,11 +2351,11 @@
           "potions": 0
         },
         {
-          "card": "kny_aoi_supply",
+          "card": "butterfly_main_01_2",
           "card2": null,
-          "label": "180골드로 도구를 다시 묶을 포장을 마련하고 아오이와 다음 차례의 보급을 나눈다",
-          "result": "아오이와 도구를 다시 묶어 다음 차례에 건넬 준비물을 나눈다. 카나오는 네 손이 남아 있던 자리를 다음 사람에게 비워 둔다.",
-          "cost": 180,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "아오이와 도구를 다시 묶어 다음 차례에 건넬 준비물을 나눈다. 카나오는 네 손이 남아 있던 자리를 다음 사람에게 비워 둔다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2424,7 +2366,10 @@
       "failure": null,
       "canonFact": "공식25화의 회복훈련상대카나오를 바탕으로 만든 손동작 연습이다. 원작 찻잔승부규칙/특정대사·동전유래·카나오마음의큰결말을 확정하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_partition_role",
@@ -2436,11 +2381,11 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_inosuke_partition",
+          "card": "butterfly_main_10_1",
           "card2": null,
-          "label": "180골드로 내 연습 준비를 하고 발판의 변화를 살핀다",
-          "result": "내 연습 준비에180골드를 내고 가림막 너머 발판의 변화를 살폈다. 네가 한쪽을 가리키자 이노스케는 방금 전과 다른 곳으로 다시 발을 옮긴다.",
-          "cost": 180,
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "네가 한쪽을 가리키자 이노스케는 방금 전과 다른 곳으로 다시 발을 옮긴다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "cost": 300,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2450,9 +2395,9 @@
         {
           "card": "kny_inosuke",
           "card2": null,
-          "label": "이노스케의 거친 움직임을 쫓으며 막힌 곳의 구조를 파악한다",
-          "result": "이노스케의 돌진 방향을 분석하며 가림막 너머의 지형을 머릿속에 그린다. 복잡하게 얽힌 길의 구조가 선명하게 기억에 남는다.",
-          "cost": 0,
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "이노스케의 돌진 방향을 분석하며 가림막 너머의 지형을 머릿속에 그린다. 복잡하게 얽힌 길의 구조가 선명하게 기억에 남는다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2460,11 +2405,11 @@
           "potions": 0
         },
         {
-          "card": "kny_inosuke_terrain",
+          "card": "kny_inosuke_partition",
           "card2": null,
-          "label": "바닥의 흔적을 세밀하게 살피며 이노스케와 보폭을 맞춘다",
-          "result": "발밑에 남은 흔적들을 조합하여 다음 이동 경로를 정확히 도출해낸다. 이노스케의 보폭에 맞춘 호흡이 지형에 대한 감각을 깨운다.",
-          "cost": 160,
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "발밑에 남은 흔적들을 조합하여 다음 이동 경로를 정확히 도출해낸다. 이노스케의 보폭에 맞춘 호흡이 지형에 대한 감각을 깨운다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "cost": 750,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2475,7 +2420,10 @@
       "failure": null,
       "canonFact": "공식 인물소개 이노스케의 호전성과 촉각에서 만든 별도 가림막놀이이다. 실제맵투시·감지·자동조준·이노스케동료소환은 없다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO2_inosuke_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO2_inosuke_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     },
     {
       "key": "kny_after_first_gourd",
@@ -2489,9 +2437,9 @@
         {
           "card": "kny_gourd_second",
           "card2": null,
-          "label": "140골드로 내 다음 연습 도구를 마련하고 터진 소리 뒤에도 숨을 잇는다",
+          "label": "카마도 탄지로와 함께 다음 길을 준비한다",
           "result": "새 연습 도구를 마련하고 첫 성공 뒤에도 호흡을 이어 간다. 탄지로는 터진 소리를 다시 세는 대신, 다음 숨이 끊기지 않고 이어지는지 지켜본다.",
-          "cost": 140,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2499,23 +2447,23 @@
           "potions": 0
         },
         {
-          "card": "kny_tanjiro_smell",
+          "card": "kny_gourd_second",
           "card2": null,
           "label": "내 사냥의 강함 단계를1올리고 탄지로가 다음 빈틈을 보는 감각을 기억한다",
           "result": "개인 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 빈틈을 보는 감각을 기억했다. 탄지로는 네가 성공한 쪽만 다시 보자 이번에는 다음 동작이 시작되는 쪽을 가리킨다.",
           "cost": 0,
           "gold": 0,
-          "level": 1,
+          "level": 0,
           "density": 0,
           "chance": 100,
           "potions": 0
         },
         {
-          "card": "kny_morning_breath",
+          "card": "kny_gourd_second",
           "card2": null,
-          "label": "180골드로 내 연습 도구를 마련하고 탄지로와 성공 뒤에도 숨을 계속 잇는다",
+          "label": "카마도 탄지로와 함께 다음 길을 준비한다",
           "result": "탄지로와 성공 뒤에도 자기 숨을 계속 잇는 연습을 했다. 아오이는 터진 도구를 치우며 이번에는 설명이 끝나기 전에 네가 움직이는지 살핀다.",
-          "cost": 180,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -2526,7 +2474,13 @@
       "failure": null,
       "canonFact": "자기첫표주박도전성공1번 뒤에만열리는 창작후속이다. 다른플레이어성공/자기실패/자기2번으로열리지않으며 부모카드를반복보상하지않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "actionCost": 6,
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "kny_first_gourd",
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +5.63% · 차지 공격 대미지 +7.5% · 공격력 +3%"
     },
     {
       "key": "butterfly_main_01",
@@ -2534,7 +2488,7 @@
       "intro": "나타구모산에서 다친 일행이 나비저택의 치료를 받는다.",
       "story": "탄지로는 도깨비에게 가족을 잃고, 도깨비로 변한 여동생 네즈코를 인간으로 되돌리려는 소년이다. 도깨비와 싸우는 조직 귀살대의 검사가 되어 동료 젠이츠, 이노스케와 함께했지만 나타구모산 전투에서 크게 다친다.\n\n일행은 귀살대의 강한 검사인 주 가운데 치료에 밝은 시노부가 있는 나비저택으로 옮겨진다.\n\n아오이와 어린 조력자 키요, 스미, 나호가 치료와 돌봄을 맡는다. 네즈코는 도깨비인데도 인간을 해치지 않고 오빠를 돕는 특별한 존재다. 아오이 — 다음 임무를 생각하기 전에, 지금 몸부터 돌봐야 해요.",
       "mainStage": 1,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2554,7 +2508,7 @@
         {
           "label": "탄지로 · 네즈코도 살펴봐 줘서 고마워요.",
           "result": "아오이는 동생을 걱정하는 만큼 자신도 쉬어야 한다고 답한다.",
-          "card": "butterfly_main_01_2",
+          "card": "butterfly_main_01_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2566,7 +2520,7 @@
         {
           "label": "탄지로 · 움직일 수 있을 때부터 차근차근 하겠어요.",
           "result": "아오이는 할 수 있는 만큼부터 시작하면 된다며 무리하지 말라고 한다.",
-          "card": "butterfly_main_01_3",
+          "card": "butterfly_main_01_3_growth_5",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2576,7 +2530,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2584,7 +2538,9 @@
         "commonResult": "동생을 지키며 다음 임무에 나서려면 탄지로부터 몸을 회복해야 한다. 두 주가 지난 뒤 일행은 다시 움직일 힘을 기르는 재활을 시작한다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_02",
@@ -2592,7 +2548,7 @@
       "intro": "재활 훈련에서 카나오와의 실력 차이가 드러난다.",
       "story": "치료가 진행되자 몸풀기와 찻잔 겨루기, 술래잡기 등 재활 훈련이 시작된다. 상대인 카나오는 탄지로와 같은 입대 시험을 통과했지만 시노부에게 직접 배우는 계승자다. 탄지로와 이노스케는 그녀의 움직임을 따라잡지 못한다.\n\n뒤늦게 훈련에 합류한 젠이츠도 처음의 의욕과 달리 계속 패한다. 결국 젠이츠와 이노스케는 훈련에서 물러나고 탄지로만 남는다. 탄지로 — 같은 시험을 통과했는데 이렇게 다를 수 있구나.",
       "mainStage": 2,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2600,7 +2556,7 @@
         {
           "label": "동행자 · 카나오가 무엇을 다르게 하는지 보자.",
           "result": "탄지로는 이기려는 마음에 가려 보지 못한 차이를 다시 살피겠다고 한다.",
-          "card": "butterfly_main_02_1",
+          "card": "kny_kanao_return_hand",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2634,7 +2590,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Head_Official_butterfly_Icon.tga",
@@ -2642,7 +2598,9 @@
         "enabled": true,
         "commonResult": "함께 시험을 통과했다고 같은 실력인 것은 아니었다. 계속 도전해도 차이가 줄지 않자, 탄지로는 자신에게 부족한 것이 무엇인지 고민한다. 세 아이에게 카나오가 호흡을 평소에도 유지한다는 단서를 얻은 그는 홀로 연습한다. 그 도중 시노부와 대화하며 그녀가 싸우는 이유를 듣는다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_03",
@@ -2650,7 +2608,7 @@
       "intro": "홀로 수련하던 탄지로가 시노부의 웃음 뒤를 묻는다.",
       "story": "평소에도 호흡을 유지하려 홀로 수련하던 탄지로는 온화하게 웃는 시노부에게서 억눌린 분노를 느끼고 그 이유를 묻는다.\n\n시노부는 언니 카나에가 도깨비에게 죽었다고 털어놓는다. 시노부 — 언니의 바람을 기억해도 제 마음은 쉽게 따라가지 않네요.",
       "mainStage": 3,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2658,7 +2616,7 @@
         {
           "label": "탄지로 · 그 화를 숨기지 않으셔도 돼요.",
           "result": "시노부는 온화한 얼굴만 보고 지나치지 않았다는 사실에 잠시 말을 멈춘다.",
-          "card": "butterfly_main_03_1",
+          "card": "kny_shinobu_points",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2692,7 +2650,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_BTE_shinobu.tga",
@@ -2715,7 +2673,9 @@
             ]
           }
         ]
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_04",
@@ -2723,7 +2683,7 @@
       "intro": "잠깐의 기술을 하루의 호흡으로 이어야 한다.",
       "story": "시노부와의 대화 뒤에도 탄지로는 키요, 스미, 나호에게 배운 차이를 되짚으며 수련을 잇는다. 카나오는 전집중 호흡을 싸울 때뿐 아니라 하루 종일 유지하고 있었다. 전집중 호흡은 몸의 힘과 움직임을 끌어올리는 호흡법이며, 그것을 평소에도 계속하는 훈련이 상중이다.\n\n키요 — 카나오 님은 호흡을 평소에도 계속하고 계세요.",
       "mainStage": 4,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2765,7 +2725,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Head_Official_butterfly_Icon.tga",
@@ -2773,7 +2733,9 @@
         "enabled": true,
         "commonResult": "탄지로는 순간적으로만 쓰던 기술을 생활 전체로 이어야 한다는 과제를 얻는다. 작은 아이들이 알려 준 사실이 같은 훈련을 반복하면서도 보이지 않던 차이를 구체적으로 바꾼다. 카나오는 여전히 말수가 적고 마음을 표현하는 데 서투르지만, 탄지로는 그녀의 실력에 다가가기 위한 구체적인 훈련에 들어간다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_05",
@@ -2781,7 +2743,7 @@
       "intro": "밤낮으로 곁을 지키는 아이들이 탄지로의 수련을 돕는다.",
       "story": "탄지로는 하루 종일 전집중 호흡을 유지하는 상중 수련에 들어간다. 키요, 스미, 나호는 그가 잠든 뒤에도 호흡이 끊기지 않게 곁에서 돕는다. 표주박을 부는 훈련도 거듭하며 호흡을 지탱할 힘을 기른다.\n\n탄지로 — 잠든 뒤에도 도와준다니, 혼자 하는 훈련은 아니었네.",
       "mainStage": 5,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2823,7 +2785,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_BTE_return.tga",
@@ -2831,7 +2793,9 @@
         "enabled": true,
         "commonResult": "한 번의 깨달음으로 강해지는 대신, 낮의 연습과 밤의 도움을 이어 몸에 익히는 시간이다. 점차 카나오의 움직임에 대응할 수 있게 되자 젠이츠와 이노스케도 훈련으로 돌아온다. 탄지로만 남았던 훈련장에 다시 동료들이 모인다. 회복에 머물렀던 일행은 다음 싸움을 견딜 준비를 갖추고, 새로운 임무를 받고 떠날 때를 기다린다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_06",
@@ -2839,7 +2803,7 @@
       "intro": "새 임무를 받고 떠나기 전 카나오와 마주한다.",
       "story": "임무를 전하는 까마귀가 사람들이 사라지는 무한열차를 조사하라는 소식을 가져온다. 일행은 귀살대의 강한 검사인 염주 렌고쿠와 합류해야 한다. 출발을 앞둔 탄지로는 아오이에게 자신의 싸움이 그녀의 돌봄 덕분이기도 하다며 감사한다.\n\n카나오 — 곧 떠나는구나. 나는 이런 때 무슨 말을 해야 할지 모르겠어.",
       "mainStage": 6,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2847,7 +2811,7 @@
         {
           "label": "탄지로 · 손에 든 동전은 무엇에 쓰는 거야?",
           "result": "카나오는 손안의 동전을 내려다본다. 쉽게 말로 답하지 못했던 이유가 거기에 있다.",
-          "card": "butterfly_main_06_1",
+          "card": "butterfly_main_04_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2859,7 +2823,7 @@
         {
           "label": "탄지로 · 네 마음은 어느 쪽을 바라는지 궁금해.",
           "result": "카나오는 자기 마음을 묻는 말이 낯선 듯 잠시 침묵한다.",
-          "card": "butterfly_main_06_2",
+          "card": "butterfly_main_04_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2871,7 +2835,7 @@
         {
           "label": "탄지로 · 대답을 서두르지 않아도 돼.",
           "result": "카나오는 재촉하지 않는 상대를 바라보며 동전을 쥔 손을 편다.",
-          "card": "butterfly_main_06_3",
+          "card": "butterfly_main_04_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2881,7 +2845,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_BTE_kanao.tga",
@@ -2904,7 +2868,9 @@
             ]
           }
         ]
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_07",
@@ -2912,7 +2878,7 @@
       "intro": "무한열차에서 만난 렌고쿠에게 기술의 단서를 묻는다.",
       "story": "사람들이 사라진 무한열차에 오른 일행은 염주 렌고쿠 쿄쥬로와 합류한다. 탄지로에게는 실종 조사와 함께 묻고 싶은 것이 있다. 가족에게 전해져 전투에서도 사용한 춤, 히노카미 카구라가 불꽃의 호흡과 관련 있는지 알고 싶은 것이다.\n\n렌고쿠 — 내게 묻고 싶은 기술이 있다고 했지?",
       "mainStage": 7,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2954,7 +2920,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2977,7 +2943,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_08",
@@ -2985,7 +2953,7 @@
       "intro": "죽은 가족이 돌아온 꿈은 너무도 떠나기 어렵다.",
       "story": "잠을 조종하는 도깨비 엔무는 일행을 꿈에 가두고 정신의 핵을 파괴하려 한다. 달콤한 꿈을 받기 원하는 인간 협력자들을 잠든 검사들의 꿈속으로 보내는 방식이다. 탄지로는 이미 죽은 가족이 살아 있는 집에서 다시 평범한 하루를 보낸다.\n\n잃어버린 사람들과 머물고 싶은 마음이 강할수록 꿈을 떠나기는 어렵다. 탄지로 — 여기 남고 싶은데, 어딘가 맞지 않는 것 같아.",
       "mainStage": 8,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2993,7 +2961,7 @@
         {
           "label": "기억에 건네는 말 · 현실에 남아 있는 동생을 떠올려.",
           "result": "탄지로는 이 집에서 보이지 않는 동생의 얼굴을 떠올린다.",
-          "card": "butterfly_main_08_1",
+          "card": "butterfly_main_05_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3005,7 +2973,7 @@
         {
           "label": "기억에 건네는 말 · 행복해도 이상한 점을 외면하지 말자.",
           "result": "탄지로는 보고 싶은 것과 실제로 일어난 일을 구분하려 애쓴다.",
-          "card": "butterfly_main_08_2",
+          "card": "butterfly_main_05_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3017,7 +2985,7 @@
         {
           "label": "기억에 건네는 말 · 마지막으로 가족의 얼굴을 마음에 담자.",
           "result": "탄지로는 붙잡고 싶은 얼굴들을 바라보면서도 이상한 감각을 외면하지 못한다.",
-          "card": "butterfly_main_08_3",
+          "card": "butterfly_main_05_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3027,7 +2995,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -3050,7 +3018,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_09",
@@ -3058,7 +3028,7 @@
       "intro": "꿈에서 깨어났어도 열차의 위험은 끝나지 않았다.",
       "story": "꿈이라는 사실을 안 탄지로는 돌아갈 방법을 찾는다. 꿈속에서 아버지의 모습을 만나 깨어날 단서를 얻고, 꿈속의 자기 목을 베어 현실로 돌아온다. 가족을 다시 잃는 듯한 고통을 안고도 실제로 곁에 남은 네즈코를 지키려는 선택이다.\n\n탄지로 — 엔무를 찾아야 해. 다른 동료들도 깨어나야 하고.",
       "mainStage": 9,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3100,7 +3070,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_BTO_awakening.tga",
@@ -3123,7 +3093,9 @@
             ]
           }
         ]
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_10",
@@ -3131,7 +3103,7 @@
       "intro": "승객 보호와 본체 수색을 동시에 해내야 한다.",
       "story": "열차와 하나가 된 엔무의 살덩이와 촉수가 승객들을 덮친다. 이백여 명을 인질로 붙잡은 적 앞에서 탄지로가 목만 찾으러 떠날 수는 없다.\n\n렌고쿠 — 승객들을 맡겠다. 너희는 본체를 찾아라.",
       "mainStage": 10,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3139,7 +3111,7 @@
         {
           "label": "탄지로 · 이노스케와 기관부로 갈게요.",
           "result": "렌고쿠는 서로 맡은 일을 믿고 움직이자며 탄지로를 보낸다.",
-          "card": "butterfly_main_10_1",
+          "card": "butterfly_main_10_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3151,7 +3123,7 @@
         {
           "label": "탄지로 · 객차를 부탁드립니다.",
           "result": "렌고쿠는 승객들 곁을 비우지 않겠다며 짧게 답한다.",
-          "card": "butterfly_main_10_2",
+          "card": "butterfly_main_10_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3163,7 +3135,7 @@
         {
           "label": "탄지로 · 목을 찾을 때까지 서로 버텨요.",
           "result": "렌고쿠는 어느 쪽도 혼자 버티는 싸움이 아니라며 역할을 확인한다.",
-          "card": "butterfly_main_10_3",
+          "card": "butterfly_main_10_3_growth_6",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3173,7 +3145,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_BTO_defenders.tga",
@@ -3181,7 +3153,9 @@
         "enabled": true,
         "commonResult": "렌고쿠가 여러 객차를 맡고 젠이츠와 네즈코가 다른 승객들을 지키며 역할을 나눈다. 그들이 공격을 막는 동안 탄지로와 이노스케가 본체를 찾아 기관부로 향한다. 이노스케의 감각이 숨은 목의 위치를 좁히고, 두 검사는 길을 막는 공격을 넘어 함께 접근한다. 적을 쓰러뜨리는 쪽과 사람들을 보호하는 쪽이 동시에 버텨야 하는 싸움이다. 기관부의 목을 베더라도 열차가 안전하게 멈추리라는 보장은 없기에 객차의 방어는 끝까지 필요하다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_11",
@@ -3189,7 +3163,7 @@
       "intro": "엔무를 쓰러뜨린 뒤 탄지로는 다친 몸을 추스른다.",
       "story": "탄지로와 이노스케가 힘을 합쳐 기관부의 목을 베자 엔무가 쓰러진다. 열차가 탈선해 일행은 밖으로 튕겨 나가지만, 렌고쿠가 승객들을 보호한 덕분에 모두 살아남는다. 싸움에서 다친 탄지로는 움직이기 어렵고 렌고쿠는 호흡으로 출혈을 억제하는 방법을 알려 준다.\n\n나비저택에서 익힌 호흡이 공격뿐 아니라 자신의 몸을 지키는 데도 필요해진다. 렌고쿠 — 그 호흡은 공격할 때만 쓰는 것이 아니다.",
       "mainStage": 11,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3231,7 +3205,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -3254,7 +3228,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_12",
@@ -3262,7 +3238,7 @@
       "intro": "아카자는 렌고쿠에게 인간의 삶을 버리라고 권한다.",
       "story": "아카자는 렌고쿠의 검술을 보고 도깨비가 되라고 권한다. 인간이라면 늙고 죽어 잃을 재능을, 도깨비가 되어 영원히 단련할 수 있다는 제안이다.\n\n렌고쿠 — 오래 살아남는 것만으로 지키려는 것이 같아지지는 않아.",
       "mainStage": 12,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3270,7 +3246,7 @@
         {
           "label": "동행자 · 인간으로 싸우겠다는 뜻을 지켜 주세요.",
           "result": "렌고쿠는 영원히 산다는 약속으로 자신의 뜻을 바꾸지 않겠다고 답한다.",
-          "card": "butterfly_main_12_1",
+          "card": "butterfly_main_11_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3282,7 +3258,7 @@
         {
           "label": "동행자 · 뒤의 사람들도 그 뜻을 믿고 있어요.",
           "result": "렌고쿠는 지켜야 할 사람들이 뒤에 있다는 사실을 한순간도 잊지 않는다.",
-          "card": "butterfly_main_12_2",
+          "card": "butterfly_main_11_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3294,7 +3270,7 @@
         {
           "label": "동행자 · 상처가 남는 몸이라는 걸 잊지 마세요.",
           "result": "렌고쿠는 그 몸으로 여기 서 있는 것 역시 자신의 선택이라고 답한다.",
-          "card": "butterfly_main_12_3",
+          "card": "butterfly_main_11_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3304,7 +3280,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_BTO_flame.tga",
@@ -3327,7 +3303,9 @@
             ]
           }
         ]
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_13",
@@ -3335,7 +3313,7 @@
       "intro": "적은 도망쳤지만 렌고쿠의 상처는 남았다.",
       "story": "치명상을 입은 렌고쿠는 아카자를 붙잡아 해가 뜰 때까지 놓아주지 않으려 한다. 햇빛에 죽는 도깨비인 아카자는 몸을 빼 달아난다.\n\n탄지로는 도망가는 적을 향해, 승객을 한 명도 죽게 하지 않은 렌고쿠가 패배한 것이 아니라고 외친다. 탄지로 — 렌고쿠 씨가 아직 저기 계셔.",
       "mainStage": 13,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3377,7 +3355,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -3400,7 +3378,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "butterfly_main_14",
@@ -3408,7 +3388,7 @@
       "intro": "살아 돌아온 이들은 함께 오지 못한 사람을 기억한다.",
       "story": "열차의 승객들은 살아남았지만 렌고쿠는 일행과 함께 돌아오지 못한다. 탄지로와 젠이츠, 이노스케는 부상을 치료하며 큰 상실을 마주한다. 나비저택에서 익힌 호흡과 동료들의 돌봄은 실제로 사람을 구하는 힘이 되었지만, 모든 죽음을 막아 주지는 못했다.\n\n탄지로 — 구한 사람도 있는데, 함께 돌아오지 못한 사람도 있어.",
       "mainStage": 14,
-      "actionCost": 1,
+      "actionCost": 8,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3428,7 +3408,7 @@
         {
           "label": "동행자 · 렌고쿠 씨가 지킨 생명을 헛되게 하지 말자.",
           "result": "탄지로는 살아남은 이들의 내일도 그가 남긴 것이라며 마음에 새긴다.",
-          "card": "butterfly_main_ending_memorial",
+          "card": "butterfly_main_ending_memorial_growth_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3440,7 +3420,7 @@
         {
           "label": "동행자 · 가족에게 전할 말을 잊지 않을게.",
           "result": "탄지로는 회복한 뒤 반드시 찾아가겠다며 전할 말을 되짚는다.",
-          "card": "butterfly_main_ending_memorial",
+          "card": "butterfly_main_ending_memorial_growth_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3450,7 +3430,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "나비저택 재활부터 무한열차 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -3469,7 +3449,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
+      "growthRole": "main_final",
+      "rewardPreview": "완결 · 차지 속도 +40% · 차지 공격 대미지 +50%"
     },
     {
       "key": "butterfly_epilogue_memory",
@@ -3477,51 +3459,53 @@
       "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
       "story": "열차에서 돌아온 뒤의 하루에는 치료와 훈련, 그리고 떠난 사람을 생각하는 시간이 함께 남는다. 나비저택에서 배운 것은 싸우는 기술만이 아니었다. 아픈 몸을 돌보는 손과 자기 마음으로 고르는 작은 선택도 다음 걸음을 지탱한다.",
       "epilogue": true,
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "“쉬어 갈 자리를 지켜 주는 일도 싸움만큼 소중해.”",
-          "result": "아오이가 챙기던 치료와 훈련을 돌아본다. 전장에 함께 서지 않았어도, 다친 사람이 다시 일어설 때까지 곁을 지킨 돌봄은 그 여정의 일부였다.",
-          "card": "kny_aoi",
+          "label": "기본 구매 · 차지 속도 +5%",
+          "result": "아오이가 챙기던 치료와 훈련을 돌아본다. 전장에 함께 서지 않았어도, 다친 사람이 다시 일어설 때까지 곁을 지킨 돌봄은 그 여정의 일부였다.\n300골드를 지불하고 차지 속도 +5% 효과를 얻었다.",
+          "card": "butterfly_main_01_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "“잊어서 나아가는 것이 아니라, 품고 가는 거겠지.”",
-          "result": "탄지로가 이어 갈 훈련에는 렌고쿠를 잃은 슬픔도 남아 있다. 당장 괜찮아져야 한다고 재촉하기보다, 아픈 날에도 가능한 한 걸음을 응원한다.",
-          "card": "kny_tanjiro",
+          "label": "기본 구매 · 차지 공격 대미지 +6%",
+          "result": "탄지로가 이어 갈 훈련에는 렌고쿠를 잃은 슬픔도 남아 있다. 당장 괜찮아져야 한다고 재촉하기보다, 아픈 날에도 가능한 한 걸음을 응원한다.\n350골드를 지불하고 차지 공격 대미지 +6% 효과를 얻었다.",
+          "card": "kny_tanjiro_smell",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "“다음 선택에는 네 마음도 물어봐.”",
-          "result": "카나오의 동전과 그날의 대화를 떠올린다. 정해진 답을 받아들이는 것과 자신이 원하는 것을 찾아보는 일 사이에 생긴 작은 변화가 오래 남는다.",
-          "card": "kny_kanao",
+          "label": "집중 구매 · 차지 속도 +10%",
+          "result": "카나오의 동전과 그날의 대화를 떠올린다. 정해진 답을 받아들이는 것과 자신이 원하는 것을 찾아보는 일 사이에 생긴 작은 변화가 오래 남는다.\n750골드를 지불하고 차지 속도 +10% 효과를 얻었다.",
+          "card": "kny_kanao_small_motion",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
     }
   ],
   "reviewRecords": [
@@ -3529,5 +3513,6 @@
     "a14194bc-1194-4a3e-8956-be19a49c5aaf",
     "59b17850-99e4-44f9-8ce8-b0318318a7e8",
     "7ad8f35b-ec7a-4639-b16a-e8d7e7b80876"
-  ]
+  ],
+  "balanceVersion": 1
 }

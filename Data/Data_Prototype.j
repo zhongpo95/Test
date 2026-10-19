@@ -40,7 +40,7 @@ library DataPrototype requires DataPrototypeGrowth
         local integer key = ExpKey(pid, character)
         local string value = "|cff90a4b8누적 보상 |cff83e4e6" + I2S(ProtoCardStacks[key] + 1) + "회|r · 강화 |cff83e4e6+" + I2S(ProtoCardStacks[key]) + "|r|n|n"
         if ProtoCardEnding[id] == 1 then
-            return ProtoCardDescription[id] + "|n|n|cffd4b5ed[이야기 완결 기념]|r|n전투 효과 없음"
+            return ProtoCardDescription[id] + "|n|n|cffd4b5ed[메인 완결 보상]|r|n" + ProtoCharacterEffectsText(pid, character)
         endif
         set value = value + "|cff9cddb0[현재 합산 효과]|r|n" + ProtoCharacterEffectsText(pid, character)
         if ProtoStoryChangeDescription(pid, id) != "" then

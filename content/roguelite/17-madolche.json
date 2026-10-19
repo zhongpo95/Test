@@ -6,8 +6,8 @@
     "intro": "마돌체 샤토의 다과회에 주소 없는 초대장이 남았다. 흩어진 안내와 돌아올 자리를 찾아, 누구도 빠뜨리지 않을 연회를 준비하는 창작 모험이다.",
     "effects": [
       {
-        "stat": "damage_percent",
-        "value": 3
+        "stat": "crit_damage",
+        "value": 4
       }
     ],
     "entryCard": "mad_magileine",
@@ -15,15 +15,14 @@
       "title": "돌아올 자리가 있는 다과회",
       "length": 12,
       "focus": [
-        "crit_chance",
-        "boss_damage_percent",
-        "regeneration"
+        "crit_damage"
       ],
       "source": "KONAMI OCG 마돌체 공식 카드명·일러스트·효과",
       "adaptation": "originalEvent. 공식 카드 소재로 만든 ARCANA 창작 연작이며 공식 스토리나 인물 성격의 재현이 아니다."
     },
     "icon": "war3mapImported\\UI_Card_XP_madolche_head_Icon.tga",
-    "entryIcon": "war3mapImported\\UI_Event_XP_madolche_head.tga"
+    "entryIcon": "war3mapImported\\UI_Event_XP_madolche_head.tga",
+    "completionText": "치명타 피해 +100%"
   },
   "sources": [
     "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10270&ope=2&request_locale=ko",
@@ -36,16 +35,12 @@
       "key": "mad_magileine",
       "name": "마돌체 마죠레느",
       "effectName": "첫 손님을 부르는 준비",
-      "keyword": "공격 · 내 체력 65% 이상 피해",
+      "keyword": "치명타 확률 +1.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "crit_chance",
+          "value": 1.5
         }
       ],
       "evolution": {
@@ -54,22 +49,19 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "entry"
     },
     {
       "key": "mad_puddingcess",
       "name": "마돌체 푸딩세스",
       "effectName": "단정한 한 수",
-      "keyword": "치명 · 공격",
+      "keyword": "치명타 피해 +16%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "crit_damage",
+          "value": 16
         }
       ],
       "evolution": {
@@ -78,22 +70,19 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "mad_tiaramisu",
       "name": "퀸마돌체 티아라미스",
       "effectName": "제자리로 돌려보내는 손",
-      "keyword": "보스 · 관통",
+      "keyword": "치명타 피해 +16%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 2
+          "stat": "crit_damage",
+          "value": 16
         }
       ],
       "evolution": {
@@ -102,22 +91,19 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "mad_angelly",
       "name": "마돌체 엔젤리",
       "effectName": "빈자리를 채우는 온기",
-      "keyword": "대미지 · 재생",
+      "keyword": "치명타 피해 +8%",
       "grade": 1,
       "effects": [
         {
-          "stat": "damage_percent",
-          "value": 2
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "crit_damage",
+          "value": 8
         }
       ],
       "evolution": {
@@ -126,22 +112,19 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "mad_hootcake",
       "name": "마돌체 훗케이크",
       "effectName": "빠뜨리지 않는 전달",
-      "keyword": "신속 · 일반 몬스터",
+      "keyword": "치명타 피해 +16%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "normal_damage_percent",
-          "value": 5
+          "stat": "crit_damage",
+          "value": 16
         }
       ],
       "evolution": {
@@ -150,21 +133,18 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "mad_messengelato",
       "name": "마돌체 메신젤라또",
       "effectName": "테이블을 잇는 발걸음",
-      "keyword": "이동 · 대미지",
+      "keyword": "치명타 확률 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 2
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "crit_chance",
           "value": 3
         }
       ],
@@ -174,22 +154,19 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "mad_petingcessoeur",
       "name": "마돌체 푸팅세스루",
       "effectName": "함께 준비하는 차례",
-      "keyword": "신속 · 치명 피해",
+      "keyword": "치명타 피해 +16%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
           "stat": "crit_damage",
-          "value": 4
+          "value": 16
         }
       ],
       "evolution": {
@@ -198,22 +175,19 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "mad_glassouffle",
       "name": "티처마돌체 글래스플레",
       "effectName": "서두르지 않는 마무리",
-      "keyword": "보스 · 피해 감소",
+      "keyword": "치명타 확률 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "crit_chance",
+          "value": 3
         }
       ],
       "evolution": {
@@ -222,22 +196,19 @@
         "effects": []
       },
       "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "madolche_main_01_1",
       "name": "마돌체 마죠레느",
       "effectName": "초대장의 작은 차이",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         }
       ],
       "evolution": {
@@ -246,22 +217,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_01_2",
       "name": "마돌체 메신젤라또",
       "effectName": "소식을 잇는 출발",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -270,22 +238,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_01_3",
       "name": "마돌체 푸딩세스",
       "effectName": "처음부터 남겨 둔 자리",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -294,22 +259,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_02_1",
       "name": "마돌체 마죠레느",
       "effectName": "접힌 면까지 읽는 눈",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +16%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
           "stat": "crit_damage",
-          "value": 4
+          "value": 16
         }
       ],
       "evolution": {
@@ -318,22 +280,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "madolche_main_02_2",
       "name": "마돌체 메신젤라또",
       "effectName": "귀환선을 따라가는 발",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
-          "value": 3
+          "stat": "crit_damage",
+          "value": 4
         }
       ],
       "evolution": {
@@ -342,22 +301,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "madolche_main_02_3",
       "name": "마돌체 푸팅세스루",
       "effectName": "빈손을 나누어 채우기",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
+          "stat": "skill_haste",
           "value": 3
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
         }
       ],
       "evolution": {
@@ -366,22 +322,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_03_1",
       "name": "마돌체 훗케이크",
       "effectName": "바람 뒤에 남은 표시",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         }
       ],
       "evolution": {
@@ -390,22 +343,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_03_2",
       "name": "마돌체 메신젤라또",
       "effectName": "길을 잃기 전의 안내",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
-          "value": 3
+          "stat": "crit_damage",
+          "value": 4
         }
       ],
       "evolution": {
@@ -414,22 +364,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "madolche_main_03_3",
       "name": "티처마돌체 글래스플레",
       "effectName": "다시 흔들리지 않는 바탕",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -438,22 +385,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_04_1",
       "name": "마돌체 푸팅세스루",
       "effectName": "가까운 곳에서 잇는 차례",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
-          "value": 3
+          "stat": "crit_damage",
+          "value": 8
         }
       ],
       "evolution": {
@@ -462,21 +406,18 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_04_2",
       "name": "마돌체 마죠레느",
       "effectName": "왕복 사이의 한 줄",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -486,22 +427,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_04_3",
       "name": "마돌체 엔젤리",
       "effectName": "돌아온 이를 위한 온기",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 5
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -510,22 +448,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_05_1",
       "name": "마돌체 푸딩세스",
       "effectName": "빈자리에서 읽은 시선",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
           "stat": "crit_damage",
-          "value": 6
+          "value": 8
         }
       ],
       "evolution": {
@@ -534,22 +469,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_05_2",
       "name": "마돌체 엔젤리",
       "effectName": "기다림을 채우는 준비",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 7
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -558,22 +490,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_05_3",
       "name": "마돌체 메신젤라또",
       "effectName": "정원 밖으로 잇는 길",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "damage_percent",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -582,22 +511,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_06_1",
       "name": "티처마돌체 글래스플레",
       "effectName": "목록 밖의 사람을 찾다",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
+          "stat": "crit_damage",
           "value": 8
-        },
-        {
-          "stat": "penetration",
-          "value": 3
         }
       ],
       "evolution": {
@@ -606,22 +532,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_06_2",
       "name": "마돌체 푸딩세스",
       "effectName": "서로의 자리를 넓히다",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
           "stat": "attack_percent",
           "value": 4
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 6
         }
       ],
       "evolution": {
@@ -630,22 +553,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_06_3",
       "name": "마돌체 마죠레느",
       "effectName": "이름을 적을 차례",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_percent",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -654,22 +574,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_07_1",
       "name": "마돌체 훗케이크",
       "effectName": "가볍게 나누어 멀리",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "damage_percent",
-          "value": 4
+          "stat": "crit_damage",
+          "value": 8
         }
       ],
       "evolution": {
@@ -678,22 +595,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_07_2",
       "name": "마돌체 메신젤라또",
       "effectName": "지워지지 않는 전달선",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -702,22 +616,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_07_3",
       "name": "마돌체 푸팅세스루",
       "effectName": "다음 손을 기다리지 않게",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
+          "stat": "skill_haste",
           "value": 3
-        },
-        {
-          "stat": "crit_damage",
-          "value": 6
         }
       ],
       "evolution": {
@@ -726,22 +637,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_08_1",
       "name": "마돌체 마죠레느",
       "effectName": "바뀐 조건을 읽는 준비",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
           "stat": "crit_damage",
-          "value": 6
+          "value": 8
         }
       ],
       "evolution": {
@@ -750,45 +658,18 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_08_2",
       "name": "마돌체 푸딩세스",
       "effectName": "잘 보이는 자리보다 가까이",
-      "keyword": "메인 · 창작 모험",
-      "grade": 2,
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 7
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
-    },
-    {
-      "key": "madolche_main_08_3",
-      "name": "티처마돌체 글래스플레",
-      "effectName": "돌아올 길까지 남긴 식탁",
-      "keyword": "메인 · 창작 모험",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "crit_chance",
           "value": 3
         }
       ],
@@ -798,91 +679,37 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "madolche_main_08_3",
+      "name": "티처마돌체 글래스플레",
+      "effectName": "돌아올 길까지 남긴 식탁",
+      "keyword": "스킬가속 +3",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_09_1",
       "name": "퀸마돌체 티아라미스",
       "effectName": "제자리를 가려내는 손",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 3,
       "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "penetration",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
-    },
-    {
-      "key": "madolche_main_09_2",
-      "name": "마돌체 엔젤리",
-      "effectName": "돌아온 이를 놓치지 않게",
-      "keyword": "메인 · 창작 모험",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "healthy_damage",
-          "value": 9
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
-    },
-    {
-      "key": "madolche_main_09_3",
-      "name": "마돌체 푸팅세스루",
-      "effectName": "모두가 따라갈 한 차례",
-      "keyword": "메인 · 창작 모험",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "damage_percent",
-          "value": 5
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
-    },
-    {
-      "key": "madolche_main_10_1",
-      "name": "마돌체 메신젤라또",
-      "effectName": "마지막 한 줄까지 확인",
-      "keyword": "메인 · 창작 모험",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "crit_chance",
-          "value": 4
-        },
         {
           "stat": "crit_damage",
           "value": 8
@@ -894,22 +721,82 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "madolche_main_09_2",
+      "name": "마돌체 엔젤리",
+      "effectName": "돌아온 이를 놓치지 않게",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "madolche_main_09_3",
+      "name": "마돌체 푸팅세스루",
+      "effectName": "모두가 따라갈 한 차례",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "madolche_main_10_1",
+      "name": "마돌체 메신젤라또",
+      "effectName": "마지막 한 줄까지 확인",
+      "keyword": "치명타 피해 +8%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_10_2",
       "name": "마돌체 훗케이크",
       "effectName": "기다림을 끝내는 전달",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "damage_percent",
-          "value": 5
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -918,22 +805,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_10_3",
       "name": "티처마돌체 글래스플레",
       "effectName": "마지막까지 열린 문",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -942,22 +826,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_11_1",
       "name": "마돌체 푸딩세스",
       "effectName": "얼굴을 마주하는 자리",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "치명타 피해 +8%",
       "grade": 3,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_percent",
-          "value": 5
+          "stat": "crit_damage",
+          "value": 8
         }
       ],
       "evolution": {
@@ -966,22 +847,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_main_11_2",
       "name": "마돌체 엔젤리",
       "effectName": "돌보던 이에게 돌아간 온기",
-      "keyword": "메인 · 창작 모험",
-      "grade": 3,
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 9
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.4
+          "stat": "crit_chance",
+          "value": 3
         }
       ],
       "evolution": {
@@ -990,22 +868,19 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "madolche_main_11_3",
       "name": "퀸마돌체 티아라미스",
       "effectName": "마지막 정리의 정확함",
-      "keyword": "메인 · 창작 모험",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "penetration",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1014,15 +889,25 @@
         "effects": []
       },
       "canonFact": "마돌체 카드를 소재로 만든 창작 연작의 보상이다. 효과에 적힌 스탯만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "madolche_ending_memorial",
       "name": "돌아올 자리가 있는 다과회",
       "effectName": "이름 없는 초대장의 끝",
-      "keyword": "엔딩 · 기억",
+      "keyword": "치명타 피해 +100% · 공격력 +8%",
       "grade": 4,
-      "effects": [],
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 100
+        },
+        {
+          "stat": "attack_percent",
+          "value": 8
+        }
+      ],
       "evolution": {
         "kind": 0,
         "goal": 0,
@@ -1030,7 +915,144 @@
       },
       "endingCard": true,
       "canonFact": "공식 마돌체 카드의 소재로 만든 ARCANA 창작 연작을 마친 기념이다. 공식 정사 사건이 아니며 전투 효과가 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "madolche_ending_memorial_growth_1",
+      "name": "돌아올 자리가 있는 다과회",
+      "effectName": "이름 없는 초대장의 끝",
+      "keyword": "치명타 피해 +100% · 대미지 +5%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 100
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "공식 마돌체 카드의 소재로 만든 ARCANA 창작 연작을 마친 기념이다. 공식 정사 사건이 아니며 전투 효과가 없다.",
+      "uncertain": [],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "madolche_ending_memorial_growth_2",
+      "name": "돌아올 자리가 있는 다과회",
+      "effectName": "이름 없는 초대장의 끝",
+      "keyword": "치명타 피해 +100% · 스킬가속 +8",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 100
+        },
+        {
+          "stat": "skill_haste",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "공식 마돌체 카드의 소재로 만든 ARCANA 창작 연작을 마친 기념이다. 공식 정사 사건이 아니며 전투 효과가 없다.",
+      "uncertain": [],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "mad_glassouffle_growth_5",
+      "name": "티처마돌체 글래스플레",
+      "effectName": "서두르지 않는 마무리",
+      "keyword": "치명타 피해 +8%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "mad_glassouffle_growth_6",
+      "name": "티처마돌체 글래스플레",
+      "effectName": "서두르지 않는 마무리",
+      "keyword": "치명타 피해 +16%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "mad_puddingcess_growth_6",
+      "name": "마돌체 푸딩세스",
+      "effectName": "단정한 한 수",
+      "keyword": "치명타 피해 +8%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "mad_tiaramisu_growth_3",
+      "name": "퀸마돌체 티아라미스",
+      "effectName": "제자리로 돌려보내는 손",
+      "keyword": "치명타 피해 +8%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 마돌체 카드의 이름과 도상을 소재로 한 ARCANA의 창작 보상이다. 대화·성격·모험은 공식 정사라고 주장하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "shop"
     }
   ],
   "events": [
@@ -1040,7 +1062,7 @@
       "intro": "다과회 초대장 한 장에 도착할 곳만 적혀 있다.",
       "story": "마돌체 샤토에 도착하자 마죠레느가 이상한 초대장을 보여 준다. 다과회를 여는 장소와 시간은 있는데 받을 사람의 이름이 비었다.\n\n누가 빠졌는지 모른 채 문을 열면 한 손님은 길을 찾지 못할 수 있다. 메신젤라또는 출발하기 전에 이 문제부터 확인하자고 한다.",
       "mainStage": 1,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1082,7 +1104,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1090,7 +1112,9 @@
         "commonResult": "초대장을 버리는 대신 다른 초대장과 발송 목록을 대조하기로 한다. 샤토의 준비는 계속되지만 이름 없는 한 자리는 비워 둔다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_02",
@@ -1098,7 +1122,7 @@
       "intro": "목록의 빈칸보다 접힌 뒷면이 먼저 눈에 들어온다.",
       "story": "메신젤라또가 펼친 발송 목록에는 같은 길 이름이 두 번 쓰여 있다. 마죠레느는 중복을 지우려다가 종이 뒷면의 작은 화살표를 발견한다.\n\n한 길은 가는 길, 다른 길은 돌아오는 길이었다. 누락된 이름을 찾으려면 장소만 세는 방식부터 바꿔야 한다.",
       "mainStage": 2,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1106,7 +1130,7 @@
         {
           "label": "앞뒷면을 나누어 목록을 다시 읽는다.",
           "result": "마죠레느가 서로 다른 기록을 한 줄로 보던 실수를 발견한다. 빈칸이 아니라 방향을 놓친 것이었다.",
-          "card": "madolche_main_02_1",
+          "card": "madolche_main_01_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1118,7 +1142,7 @@
         {
           "label": "돌아오지 않은 전달자의 길을 따라가 본다.",
           "result": "메신젤라또는 짧은 길부터 고집하지 않는다. 누가 어디까지 갔는지 확인할 수 있는 순서로 걷는다.",
-          "card": "madolche_main_02_2",
+          "card": "madolche_main_01_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1140,7 +1164,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1148,7 +1172,9 @@
         "commonResult": "출발 목록과 귀환 목록을 따로 정리한다. 아직 돌아오지 않은 전달자를 찾으면 빈 초대장의 사정도 알 수 있을지 모른다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_03",
@@ -1156,7 +1182,7 @@
       "intro": "훗케이크가 바람 때문에 읽지 못한 안내를 가져왔다.",
       "story": "길에서 돌아온 훗케이크는 갈림길의 안내판들이 바람에 뒤집혔다고 알린다. 그는 비어 있는 초대장을 주웠지만 누구 것인지 보지 못했다.\n\n안내판을 바로잡지 않으면 다른 손님들도 엉뚱한 방향으로 갈 수 있다. 이름 찾기에만 매달릴 때가 아니다.",
       "mainStage": 3,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1176,7 +1202,7 @@
         {
           "label": "메신젤라또와 손님이 오는 쪽에 임시 안내를 둔다.",
           "result": "정식 표지판을 고칠 때까지 기다리게 할 수는 없다. 지금 도착하는 사람이 멈추지 않도록 길목을 맡는다.",
-          "card": "madolche_main_03_2",
+          "card": "madolche_main_01_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1198,7 +1224,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1221,7 +1247,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_04",
@@ -1229,7 +1257,7 @@
       "intro": "먼저 출발한 이들이 다른 문으로 돌아오고 있다.",
       "story": "샤토로 돌아가던 중 푸팅세스루가 서로 다른 문에 도착하는 전달자들을 발견한다. 길은 여러 개인데 받을 곳은 하나뿐이라 도착한 사람마다 다시 돌아가야 한다. 잃어버린 초대장을 찾는 동안에도 불필요한 왕복이 늘고 있었다.",
       "mainStage": 4,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1271,7 +1299,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1279,7 +1307,9 @@
         "commonResult": "돌아온 전달자는 가까운 문에서 쉬고, 소식만 안쪽으로 잇는다. 뒤늦게 도착한 메모에서 마지막 마중 장소가 정원이라는 것을 알아낸다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_petingcessoeur.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_petingcessoeur.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_05",
@@ -1287,7 +1317,7 @@
       "intro": "정원에는 마중하러 나간 사람이 남긴 의자가 있다.",
       "story": "정원에 도착하니 빈 의자 옆에 이름 없는 초대장과 같은 장식 끈이 놓여 있다. 누군가 이곳에서 기다렸지만 지금은 없다.\n\n푸딩세스는 빈 의자를 치우면 정원이 깔끔해질 거라고 했다가 말을 멈춘다. 자리를 정리하는 일과 기다리던 사람의 흔적을 지우는 일은 다르다.",
       "mainStage": 5,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1329,7 +1359,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1337,7 +1367,9 @@
         "commonResult": "의자를 그대로 두고 주변의 흔적을 찾는다. 비어 있는 찻잔 아래에서 연회 준비를 돕느라 초대장을 받지 못한 이를 마중하겠다는 메모가 나온다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_06",
@@ -1345,7 +1377,7 @@
       "intro": "손님 목록에는 연회를 준비하던 이들이 빠져 있다.",
       "story": "메모를 읽은 글래스플레는 초대 목록과 준비 목록이 따로였다는 사실을 짚는다. 도움을 주는 이들은 다과회 안에 있을 거라 생각해 초대장을 만들지 않았던 것이다.\n\n그러나 밖에서 안내를 맡은 사람은 손님이 다 들어온 뒤에야 돌아온다. 이름 없는 초대장이 왜 남았는지 이제 알 것 같다.",
       "mainStage": 6,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1387,7 +1419,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1410,7 +1442,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_glassouffle.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_glassouffle.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_07",
@@ -1418,7 +1452,7 @@
       "intro": "새 초대장을 전달할 길에 바람이 다시 세진다.",
       "story": "새로 쓴 초대장을 훗케이크가 받아 들자 창문이 크게 흔들린다. 공중으로 곧장 가는 길은 빠르지만 바람에 종이를 놓칠 수 있다.\n\n메신젤라또는 땅길을 쓰면 시간이 걸린다고 한다. 전달이 늦는 것과 도착하지 않는 것은 다른 문제다.",
       "mainStage": 7,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1460,7 +1494,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1468,7 +1502,9 @@
         "commonResult": "종이를 안전하게 묶고 각자 감당할 수 있는 경로를 나눈다. 초대장은 한 사람이 전부 운반하지 않고 가까운 길목마다 이어진다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_08",
@@ -1476,7 +1512,7 @@
       "intro": "식탁의 이름표가 섞여 자리 배치가 흔들린다.",
       "story": "바깥 안내가 안정될 무렵, 열린 창으로 바람이 들어와 식탁의 이름표를 섞어 놓는다. 푸딩세스는 처음 계획대로 돌려놓으려 하지만 준비 담당의 자리가 추가된 뒤라 옛 배치는 더는 맞지 않는다.\n\n돌아온 자리로 복원할 것인지, 바뀐 식탁에 맞게 다시 놓을 것인지 결정해야 한다.",
       "mainStage": 8,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1496,7 +1532,7 @@
         {
           "label": "푸딩세스와 서로 가까이 있어야 할 사람을 묻는다.",
           "result": "보기 좋은 순서만으로 정하지 않는다. 대화와 식사에 필요한 거리가 배치의 기준이 된다.",
-          "card": "madolche_main_08_2",
+          "card": "madolche_main_06_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1518,7 +1554,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1526,7 +1562,9 @@
         "commonResult": "옛 계획을 그대로 되풀이하지 않고 지금 앉을 사람을 기준으로 이름표를 다시 놓는다. 티아라미스가 정리를 돕기 위해 식탁에 다가온다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_09",
@@ -1534,7 +1572,7 @@
       "intro": "티아라미스는 처음 모양이 아니라 필요한 자리를 본다.",
       "story": "티아라미스는 흩어진 장식과 이름표를 보며 무엇을 제자리로 돌려놓을지 묻는다. 처음과 똑같이 만들면 새로 마련한 자리는 사라진다. 모두는 이제 되돌림이 과거의 모양을 복사하는 일이 아니라 각자가 돌아올 곳을 찾는 일임을 이해하려 한다.",
       "mainStage": 9,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1576,7 +1614,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1599,7 +1637,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_tiaramisu.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_tiaramisu.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_10",
@@ -1607,7 +1647,7 @@
       "intro": "모두 들어온 줄 알았지만 길목에 한 사람이 남았다.",
       "story": "다과회에 손님들이 들어왔는데 메신젤라또는 한 길목의 확인 표시가 없는 것을 발견한다. 훗케이크가 돌아가 보니 마지막 안내를 맡은 이가 교대 소식을 받지 못한 채 기다리고 있었다.\n\n새 초대가 완성되어도 전달이 끝나지 않으면 같은 빈자리가 다시 생긴다.",
       "mainStage": 10,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1649,7 +1689,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1657,7 +1697,9 @@
         "commonResult": "교대 소식을 전하고 마지막 안내자를 맞이할 길을 밝힌다. 샤토의 문은 다과회 시작 시간을 이유로 닫히지 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_11",
@@ -1665,7 +1707,7 @@
       "intro": "늦게 돌아온 사람이 앉으며 준비가 마무리된다.",
       "story": "마지막 안내자가 돌아오자 엔젤리가 남겨 둔 자리를 가리킨다. 새로 올린 찻잔은 처음 계획한 식탁의 모양과 조금 다르다.\n\n그러나 준비하던 이들까지 같은 자리에 앉은 지금의 풍경이 더 자연스럽다. 푸딩세스는 가장 잘 보이는 장식보다 서로 얼굴을 볼 수 있는 위치를 고른다.",
       "mainStage": 11,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1685,7 +1727,7 @@
         {
           "label": "엔젤리에게 준비를 마친 이의 잔도 챙겨 달라고 한다.",
           "result": "계속 남을 돕던 사람의 몫이 비어 있지 않은지 본다. 돌봄이 한 방향으로만 흐르지 않게 한다.",
-          "card": "madolche_main_11_2",
+          "card": "madolche_main_09_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1707,7 +1749,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체의 카드명·도상·귀환과 연계의 소재로 만든 창작 사건이며 공식 정사가 아니다.",
       "uncertain": [],
       "dialogue": {
@@ -1715,7 +1757,9 @@
         "commonResult": "다과를 나누는 순서가 정해지고 모두가 자리에 앉는다. 이름 없는 초대장은 버려진 실수가 아니라 이번 연회의 시작을 기억할 물건이 된다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "madolche_main_12",
@@ -1723,7 +1767,7 @@
       "intro": "모두 앉은 식탁에서 처음의 빈 초대장을 다시 펼친다.",
       "story": "마죠레느는 처음 발견한 초대장을 식탁 가운데 놓는다. 비어 있던 이름 때문에 출발했지만 찾아낸 것은 한 사람의 이름만이 아니었다.\n\n준비한 사람도 손님이라는 사실과 돌아올 자리를 알려야 한다는 약속이 남았다. 다과회가 끝난 뒤 이 초대장을 어떻게 간직할까?",
       "mainStage": 12,
-      "actionCost": 1,
+      "actionCost": 8,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -1743,7 +1787,7 @@
         {
           "label": "티아라미스에게 다음에도 한 자리를 남겨 달라고 한다.",
           "result": "완성된 배치만 지키는 연회가 되지 않도록 부탁한다. 새로 도착한 사람에게도 돌아갈 자리가 있기를 바란다.",
-          "card": "madolche_ending_memorial",
+          "card": "madolche_ending_memorial_growth_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1755,7 +1799,7 @@
         {
           "label": "메신젤라또와 마지막 안내판을 거둔다.",
           "result": "식탁에서 이야기를 끝내지 않고 바깥길까지 마무리한다. 다음 길을 지날 사람이 오래된 표시에 속지 않게 한다.",
-          "card": "madolche_ending_memorial",
+          "card": "madolche_ending_memorial_growth_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1765,7 +1809,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 창작 다과회 모험의 결말이다. 공식 마돌체의 정사 결말을 대신하지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -1788,59 +1832,63 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
+      "growthRole": "main_final",
+      "rewardPreview": "완결 · 치명타 피해 +100%"
     },
     {
       "key": "madolche_ribbon",
       "title": "잘 묶인 리본의 반대쪽",
       "intro": "장식은 예쁘지만 초대장 글자를 가리고 있다.",
       "story": "마죠레느가 새 초대장에 리본을 매다 글자가 반쯤 가린 것을 발견한다. 푸딩세스는 모양이 마음에 들지만 메신젤라또는 받는 이가 읽지 못하면 소용없다고 한다. 작고 빠르게 끝낼 수 있는 준비에 손을 보탠다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "글자를 피해서 리본 위치를 옮긴다.",
-          "result": "마죠레느가 문구를 다시 확인한다. 장식과 전달할 내용을 함께 살릴 여백을 찾는다.",
-          "card": "mad_magileine",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "마죠레느가 문구를 다시 확인한다. 장식과 전달할 내용을 함께 살릴 여백을 찾는다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_01_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "풀기 쉬운 매듭으로 다시 묶는다.",
-          "result": "메신젤라또는 도착한 손님이 기다리지 않아도 되겠다고 한다. 받는 사람의 손까지 생각한 매듭이다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "메신젤라또는 도착한 손님이 기다리지 않아도 되겠다고 한다. 받는 사람의 손까지 생각한 매듭이다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_messengelato",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "리본을 봉투 밖의 표식으로 활용한다.",
-          "result": "푸딩세스는 마음에 들던 색을 버리지 않고 다른 쓰임으로 옮긴다. 모양을 지키는 방법이 하나만 있는 것은 아니다.",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "푸딩세스는 마음에 들던 색을 버리지 않고 다른 쓰임으로 옮긴다. 모양을 지키는 방법이 하나만 있는 것은 아니다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
           "card": "mad_puddingcess",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_tea_temperature",
@@ -1853,46 +1901,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "엔젤리와 필요한 온도를 조용히 묻는다.",
-          "result": "모두 앞에서 취향을 설명하게 하지 않는다. 손님에게 선택할 틈을 주자 걱정도 줄어든다.",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "모두 앞에서 취향을 설명하게 하지 않는다. 손님에게 선택할 틈을 주자 걱정도 줄어든다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
           "card": "mad_angelly",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "글래스플레와 내는 순서를 조절한다.",
-          "result": "같은 때에 따라야 공평한 것은 아니다. 각자가 마실 수 있는 시간을 맞추는 편이 낫다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "같은 때에 따라야 공평한 것은 아니다. 각자가 마실 수 있는 시간을 맞추는 편이 낫다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_glassouffle",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "푸팅세스루와 쉬어 갈 이야기를 건넨다.",
-          "result": "잔이 식는 시간을 어색한 기다림으로 만들지 않는다. 대화가 이어지며 첫 모금을 서두르지 않아도 된다.",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "잔이 식는 시간을 어색한 기다림으로 만들지 않는다. 대화가 이어지며 첫 모금을 서두르지 않아도 된다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
           "card": "mad_petingcessoeur",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_anjelly.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_anjelly.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_route_fold",
@@ -1905,46 +1955,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "훗케이크에게 멀리서 보이는 표식을 묻는다.",
-          "result": "지도 밖의 길에도 알아볼 수 있는 기준이 있다. 막연히 더 가라는 설명 대신 실제 보일 것을 적는다.",
-          "card": "mad_hootcake",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "지도 밖의 길에도 알아볼 수 있는 기준이 있다. 막연히 더 가라는 설명 대신 실제 보일 것을 적는다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_03_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "메신젤라또와 지도를 한 장 더 이어 붙인다.",
-          "result": "작은 지도 한 장에 억지로 다 넣지 않는다. 길이 이어지는 만큼 안내도 이어지게 한다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "작은 지도 한 장에 억지로 다 넣지 않는다. 길이 이어지는 만큼 안내도 이어지게 한다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_messengelato",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "마죠레느와 길목에서 손님을 직접 안내한다.",
-          "result": "종이에 익숙하지 않은 손님에게 갈림길까지 함께 가겠다고 한다. 설명을 읽지 못한 사람도 도착할 방법이 생긴다.",
-          "card": "mad_magileine",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "종이에 익숙하지 않은 손님에게 갈림길까지 함께 가겠다고 한다. 설명을 읽지 못한 사람도 도착할 방법이 생긴다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
+          "card": "madolche_main_02_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_seat_number",
@@ -1957,46 +2009,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "의자 사이의 통로부터 넓힌다.",
-          "result": "글래스플레는 빈 공간도 필요한 자리라고 설명한다. 앉을 수 있는 수와 머물 수 있는 수를 같게 만든다.",
-          "card": "mad_glassouffle",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "글래스플레는 빈 공간도 필요한 자리라고 설명한다. 앉을 수 있는 수와 머물 수 있는 수를 같게 만든다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "mad_glassouffle_growth_5",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "푸딩세스와 장식 하나를 다른 곳으로 옮긴다.",
-          "result": "눈에 잘 보이던 장식을 고집하지 않는다. 사람들의 움직임을 덜 막는 곳에서도 아름다움은 남는다.",
-          "card": "mad_puddingcess",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "눈에 잘 보이던 장식을 고집하지 않는다. 사람들의 움직임을 덜 막는 곳에서도 아름다움은 남는다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "madolche_main_08_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "티아라미스와 불필요한 배치를 걷어 낸다.",
-          "result": "처음 준비했다는 이유만으로 모두 둘 필요는 없다. 식탁이 감당할 만큼만 남기자 자리가 제 몫을 한다.",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "처음 준비했다는 이유만으로 모두 둘 필요는 없다. 식탁이 감당할 만큼만 남기자 자리가 제 몫을 한다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
           "card": "mad_tiaramisu",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_delayed_note",
@@ -2009,46 +2063,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "메모에 적힌 시각을 먼저 확인한다.",
-          "result": "마죠레느는 마지막 내용만 큰 글씨로 적어 놓는다. 사실이 틀린 것이 아니라 순서를 놓친 문제였다.",
-          "card": "mad_magileine",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "마죠레느는 마지막 내용만 큰 글씨로 적어 놓는다. 사실이 틀린 것이 아니라 순서를 놓친 문제였다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_01_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "전달할 때 바뀐 부분만 함께 읽는다.",
-          "result": "메신젤라또는 같은 설명 전체를 되풀이하지 않는다. 무엇이 달라졌는지 먼저 알려 혼선을 줄인다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "메신젤라또는 같은 설명 전체를 되풀이하지 않는다. 무엇이 달라졌는지 먼저 알려 혼선을 줄인다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_messengelato",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "훗케이크와 받은 표시를 남길 방법을 고른다.",
-          "result": "전달했다는 사실과 상대가 이해했다는 사실을 구분한다. 짧은 확인 하나가 뒤늦은 왕복을 막는다.",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "전달했다는 사실과 상대가 이해했다는 사실을 구분한다. 짧은 확인 하나가 뒤늦은 왕복을 막는다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
           "card": "mad_hootcake",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_open_window",
@@ -2061,46 +2117,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "푸팅세스루와 열 창의 위치를 바꾼다.",
-          "result": "모든 창을 크게 열 필요는 없다. 바람이 식탁을 바로 때리지 않게 작은 통로를 만든다.",
-          "card": "mad_petingcessoeur",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "모든 창을 크게 열 필요는 없다. 바람이 식탁을 바로 때리지 않게 작은 통로를 만든다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_04_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "엔젤리와 흩어질 이름표를 먼저 고정한다.",
-          "result": "불편이 생긴 뒤 쫓아다니기보다 가벼운 물건부터 챙긴다. 방을 환하게 두면서 준비를 지킨다.",
-          "card": "mad_angelly",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "불편이 생긴 뒤 쫓아다니기보다 가벼운 물건부터 챙긴다. 방을 환하게 두면서 준비를 지킨다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "madolche_main_11_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "푸딩세스와 장식을 벽 쪽으로 옮긴다.",
-          "result": "처음 놓은 위치를 고집하지 않는다. 흔들리지 않는 곳에서도 손님이 잘 볼 수 있게 배치한다.",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "처음 놓은 위치를 고집하지 않는다. 흔들리지 않는 곳에서도 손님이 잘 볼 수 있게 배치한다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
           "card": "mad_puddingcess",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_search_again",
@@ -2110,49 +2168,51 @@
       "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
-      "requiredCard": "mad_magileine",
+      "requiredCard": null,
       "choices": [
         {
-          "label": "도움을 받은 장소부터 차례로 적는다.",
-          "result": "마죠레느는 모르는 이름을 억지로 채우지 않는다. 확인할 곳을 남겨 나중에라도 감사할 수 있게 한다.",
-          "card": "mad_magileine",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "마죠레느는 모르는 이름을 억지로 채우지 않는다. 확인할 곳을 남겨 나중에라도 감사할 수 있게 한다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_01_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "전달을 맡았던 메신젤라또에게 물어본다.",
-          "result": "메신젤라또는 자기가 본 것만 말한다. 확인하지 못한 부분을 분명히 하자 다른 이에게 물을 내용이 좁아진다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "메신젤라또는 자기가 본 것만 말한다. 확인하지 못한 부분을 분명히 하자 다른 이에게 물을 내용이 좁아진다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_messengelato",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "티아라미스와 이름 없는 감사의 자리를 만든다.",
-          "result": "모두의 이름을 알아야 마음을 전할 수 있는 것은 아니다. 도움을 준 이를 기억한다는 표시부터 남긴다.",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "모두의 이름을 알아야 마음을 전할 수 있는 것은 아니다. 도움을 준 이를 기억한다는 표시부터 남긴다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
           "card": "mad_tiaramisu",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_second_delivery",
@@ -2162,101 +2222,105 @@
       "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
-      "requiredCard": "mad_messengelato",
+      "requiredCard": null,
       "choices": [
         {
-          "label": "훗케이크의 메모와 먼저 대조한다.",
-          "result": "서로 같은 길을 다른 쪽에서 확인했다. 두 기록을 합치자 다시 갈 필요 없는 구간이 드러난다.",
-          "card": "mad_hootcake",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "서로 같은 길을 다른 쪽에서 확인했다. 두 기록을 합치자 다시 갈 필요 없는 구간이 드러난다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_03_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "메신젤라또에게 꼭 필요한 질문만 정리해 준다.",
-          "result": "다녀와야 할 일이 남아도 전부 되풀이할 필요는 없다. 빠진 한 줄을 분명히 한 뒤 출발한다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "다녀와야 할 일이 남아도 전부 되풀이할 필요는 없다. 빠진 한 줄을 분명히 한 뒤 출발한다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_messengelato",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "글래스플레와 확인을 받을 자리를 바꾼다.",
-          "result": "멀리 갔다가 서류를 맞추는 순서를 줄인다. 다음 전달자는 돌아오는 길에서 확인을 끝낼 수 있다.",
-          "card": "mad_glassouffle",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "멀리 갔다가 서류를 맞추는 순서를 줄인다. 다음 전달자는 돌아오는 길에서 확인을 끝낼 수 있다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
+          "card": "mad_glassouffle_growth_6",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_small_welcome",
       "title": "문 앞의 짧은 환영",
       "intro": "처음 온 손님이 발걸음을 멈춘다.",
       "story": "샤토에 처음 온 손님은 누가 말을 걸어 줄지 몰라 입구에서 망설인다. 푸딩세스는 환영 문구를 외우고 엔젤리는 빈 의자를 가져온다. 완벽한 인사보다 지금 들어와도 된다는 신호가 먼저 필요하다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "푸딩세스와 손님에게 들어오라고 손짓한다.",
-          "result": "길게 준비한 문구를 다 말하지 않아도 마음은 전해진다. 손님이 한발 들어오며 긴장이 풀린다.",
-          "card": "mad_puddingcess",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "길게 준비한 문구를 다 말하지 않아도 마음은 전해진다. 손님이 한발 들어오며 긴장이 풀린다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "mad_puddingcess_growth_6",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "엔젤리와 짐을 놓을 자리를 알려 준다.",
-          "result": "어디에 서야 할지 몰랐던 불편부터 줄인다. 손님은 두 손이 가벼워진 뒤 인사를 건넨다.",
-          "card": "mad_angelly",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "어디에 서야 할지 몰랐던 불편부터 줄인다. 손님은 두 손이 가벼워진 뒤 인사를 건넨다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "madolche_main_11_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "마죠레느와 오늘의 간단한 순서를 설명한다.",
-          "result": "앞으로 무엇을 하는지 알면 기다림도 덜 막막하다. 필요한 정보만 골라 천천히 전한다.",
-          "card": "mad_magileine",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "앞으로 무엇을 하는지 알면 기다림도 덜 막막하다. 필요한 정보만 골라 천천히 전한다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
+          "card": "madolche_main_02_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_crumb_trail",
@@ -2269,46 +2333,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "훗케이크와 흔적이 시작된 지점을 찾는다.",
-          "result": "가장 눈에 띄는 한 조각만 보지 않는다. 이어진 방향을 살피자 확인할 범위가 좁아진다.",
-          "card": "mad_hootcake",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "가장 눈에 띄는 한 조각만 보지 않는다. 이어진 방향을 살피자 확인할 범위가 좁아진다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_03_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "메신젤라또에게 통로를 지난 순서를 묻는다.",
-          "result": "가장 마지막 사람의 잘못이라고 단정하지 않는다. 짐이 지나간 시점과 발견한 시점을 구분한다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "가장 마지막 사람의 잘못이라고 단정하지 않는다. 짐이 지나간 시점과 발견한 시점을 구분한다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_messengelato",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "글래스플레와 먼저 미끄러운 바닥을 정리한다.",
-          "result": "원인을 찾는 동안 다른 사람이 다치게 둘 수 없다. 조사와 안전한 통로를 함께 챙긴다.",
-          "card": "mad_glassouffle",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "원인을 찾는 동안 다른 사람이 다치게 둘 수 없다. 조사와 안전한 통로를 함께 챙긴다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
+          "card": "mad_glassouffle_growth_6",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_extra_plate",
@@ -2321,46 +2387,48 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "마죠레느와 필요한 접시 수를 다시 센다.",
-          "result": "착오인지 여분인지 확인한 뒤 결정한다. 숫자 하나를 맞추려고 이미 잘 준비한 부분을 흔들지 않는다.",
-          "card": "mad_magileine",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "착오인지 여분인지 확인한 뒤 결정한다. 숫자 하나를 맞추려고 이미 잘 준비한 부분을 흔들지 않는다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_01_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "푸딩세스와 나눠 먹기 편한 가운데 자리를 찾는다.",
-          "result": "남는 것을 억지로 숨기지 않는다. 함께 쓰는 접시가 되자 처음의 계획에 없던 쓰임이 생긴다.",
-          "card": "mad_puddingcess",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "남는 것을 억지로 숨기지 않는다. 함께 쓰는 접시가 되자 처음의 계획에 없던 쓰임이 생긴다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "madolche_main_08_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "티아라미스와 늦은 손님을 위한 곳에 둔다.",
-          "result": "당장 채우지 않은 자리도 준비의 일부다. 필요한 순간에 손이 닿도록 따로 남긴다.",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "당장 채우지 않은 자리도 준비의 일부다. 필요한 순간에 손이 닿도록 따로 남긴다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
           "card": "mad_tiaramisu",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_quiet_handover",
@@ -2373,152 +2441,158 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "푸팅세스루와 끝낸 일과 남은 일을 나눈다.",
-          "result": "무엇을 했는지 전부 늘어놓지 않는다. 다음에 할 한 가지를 먼저 알려 인계의 시작점을 만든다.",
-          "card": "mad_petingcessoeur",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "무엇을 했는지 전부 늘어놓지 않는다. 다음에 할 한 가지를 먼저 알려 인계의 시작점을 만든다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "madolche_main_04_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "엔젤리에게 이해한 내용을 다시 말해 달라고 한다.",
-          "result": "대답을 시험하려는 것이 아니다. 서로 다른 그림을 떠올린 부분을 짧게 맞춘다.",
-          "card": "mad_angelly",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "대답을 시험하려는 것이 아니다. 서로 다른 그림을 떠올린 부분을 짧게 맞춘다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "madolche_main_11_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "글래스플레와 조용한 자리로 한 걸음 옮긴다.",
-          "result": "큰 소리로 이기려 하지 않는다. 들을 수 있는 환경을 만드는 편이 설명을 늘리는 것보다 빠르다.",
-          "card": "mad_glassouffle",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "큰 소리로 이기려 하지 않는다. 들을 수 있는 환경을 만드는 편이 설명을 늘리는 것보다 빠르다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
+          "card": "mad_glassouffle_growth_6",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_madolche_anjelly.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_anjelly.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_epilogue_invitation",
       "title": "접어 둔 초대장의 뒷면",
       "intro": "다과회 뒤, 빈칸에서 시작한 하루를 다시 본다.",
       "story": "다과회가 끝난 뒤 마죠레느가 보관한 초대장을 펼친다. 처음에는 한 사람의 이름만 찾으려 했지만, 마지막에는 함께 준비한 이들의 자리까지 찾았다. 뒷면에 남길 짧은 기록을 고른다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "이름보다 먼저 자리를 남긴 일을 적는다.",
-          "result": "푸딩세스가 마련했던 빈자리를 떠올린다. 누구인지 모르더라도 맞이할 준비를 할 수 있었다.",
-          "card": "mad_puddingcess",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "푸딩세스가 마련했던 빈자리를 떠올린다. 누구인지 모르더라도 맞이할 준비를 할 수 있었다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "mad_puddingcess_growth_6",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "흩어진 안내를 다시 이었던 길을 그린다.",
-          "result": "메신젤라또의 전달이 여러 손을 거쳐 완성되었다. 가까운 길 하나를 맡은 사람도 함께 기억한다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "메신젤라또의 전달이 여러 손을 거쳐 완성되었다. 가까운 길 하나를 맡은 사람도 함께 기억한다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "mad_messengelato",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "처음의 빈칸을 지우지 않고 남긴다.",
-          "result": "마죠레느는 무엇을 몰랐는지도 기록한다. 틀린 시작을 숨기지 않아야 다음 질문도 제대로 할 수 있다.",
-          "card": "mad_magileine",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "마죠레느는 무엇을 몰랐는지도 기록한다. 틀린 시작을 숨기지 않아야 다음 질문도 제대로 할 수 있다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
+          "card": "madolche_main_02_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
       "epilogue": true,
-      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     },
     {
       "key": "madolche_epilogue_return",
       "title": "모두 돌아간 뒤의 식탁",
       "intro": "비어 있는 자리를 보며 다음 환영을 생각한다.",
       "story": "손님들이 떠난 샤토의 식탁을 바라본다. 자리가 비었다고 오늘의 일이 없어진 것은 아니다.\n\n티아라미스와 엔젤리, 글래스플레가 각기 다른 방식으로 하루를 정리한다. 같은 모양을 반복하기보다 다음 사람에게 필요한 준비를 남긴다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "티아라미스와 필요 없는 장식을 먼저 걷는다.",
-          "result": "다음에도 같은 손님이 온다고 단정하지 않는다. 새로운 자리를 만들 수 있게 여유를 되찾는다.",
-          "card": "mad_tiaramisu",
+          "label": "기본 구매 · 치명타 피해 +8%",
+          "result": "다음에도 같은 손님이 온다고 단정하지 않는다. 새로운 자리를 만들 수 있게 여유를 되찾는다.\n300골드를 지불하고 치명타 피해 +8% 효과를 얻었다.",
+          "card": "mad_tiaramisu_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "엔젤리와 준비하느라 늦게 쉬는 이를 챙긴다.",
-          "result": "환영의 일은 손님을 보내는 순간 끝나지 않았다. 마지막까지 정리한 이에게도 쉬어 갈 자리를 준다.",
-          "card": "mad_angelly",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "환영의 일은 손님을 보내는 순간 끝나지 않았다. 마지막까지 정리한 이에게도 쉬어 갈 자리를 준다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "madolche_main_11_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "글래스플레와 다음에 바꿀 한 가지를 적는다.",
-          "result": "잘못한 일만 길게 늘어놓지 않는다. 실제로 고칠 수 있는 한 가지를 골라 다음 준비에 남긴다.",
-          "card": "mad_glassouffle",
+          "label": "집중 구매 · 치명타 피해 +16%",
+          "result": "잘못한 일만 길게 늘어놓지 않는다. 실제로 고칠 수 있는 한 가지를 골라 다음 준비에 남긴다.\n750골드를 지불하고 치명타 피해 +16% 효과를 얻었다.",
+          "card": "mad_glassouffle_growth_6",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 750,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "originalEvent. 공식 마돌체 카드의 이름과 그림을 소재로 한 ARCANA 창작 사건이다. 공식 인물 성격이나 정사 일화라고 주장하지 않는다.",
       "uncertain": [],
       "epilogue": true,
-      "icon": "war3mapImported\\UI_Event_XP_madolche_tiaramisu.tga"
+      "icon": "war3mapImported\\UI_Event_XP_madolche_tiaramisu.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
     }
   ],
   "reviewRecords": [
@@ -2535,5 +2609,6 @@
       "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
       "scope": "첫 검토 후 바꾼 5작품 14개 사건"
     }
-  ]
+  ],
+  "balanceVersion": 1
 }

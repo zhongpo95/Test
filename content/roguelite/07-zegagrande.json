@@ -6,7 +6,7 @@
     "intro": "새 공역에 도착한 기공단은 바하무트의 폭주 뒤 루리아와 헤어진다. 낯선 땅에서 만난 롤란과 함께 동료를 되찾을 실마리를 찾는다.",
     "effects": [
       {
-        "stat": "boss_damage_percent",
+        "stat": "c_skill_damage",
         "value": 3
       }
     ],
@@ -16,13 +16,13 @@
       "title": "같은 배로 돌아오는 항로",
       "length": 14,
       "focus": [
-        "final_damage_percent",
-        "boss_damage_percent"
+        "c_skill_damage"
       ],
       "source": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억",
       "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
     },
-    "entryIcon": "war3mapImported\\UI_Head_Official_zegagrande_Icon.tga"
+    "entryIcon": "war3mapImported\\UI_Head_Official_zegagrande_Icon.tga",
+    "completionText": "C 스킬 대미지 +100%"
   },
   "sources": [
     "https://relink.granbluefantasy.jp/world/",
@@ -45,16 +45,12 @@
       "key": "gbf_rackam",
       "name": "라캄",
       "effectName": "항로 점검",
-      "keyword": "고정 신속 · 자원",
+      "keyword": "보스 피해 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "kill_gold",
-          "value": 1
+          "stat": "boss_damage_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -63,22 +59,19 @@
         "effects": []
       },
       "canonFact": "기공정의 조타사 라캄을 항로·수송 준비로 각색했다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "entry"
     },
     {
       "key": "gbf_katalina",
       "name": "카타리나",
       "effectName": "곁을 지키는 검",
-      "keyword": "생존 · 보호막 유지 중 피해",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "damage_reduction",
-          "value": 2
-        },
-        {
-          "stat": "shielded_damage",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -87,26 +80,19 @@
         "effects": []
       },
       "canonFact": "루리아를 지키는 기사라는 카타리나의 역할을 방어·보호막 유지로 각색했다. 새 보호막은 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "gbf_eugen",
       "name": "오이겐",
       "effectName": "숙련된 사격점",
-      "keyword": "차지 · 치명",
+      "keyword": "보스 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 4
-        },
-        {
-          "stat": "crit_damage",
-          "value": 4
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "boss_damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -115,22 +101,19 @@
         "effects": []
       },
       "canonFact": "숙련된 노병 오이겐의 사격을 차지·치명 보너스로 각색했다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "gbf_io",
       "name": "이오",
       "effectName": "마법사의 집중",
-      "keyword": "차지 속도 · 내 체력 65% 이상 피해",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "charge_speed",
-          "value": 4
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -139,22 +122,19 @@
         "effects": []
       },
       "canonFact": "재능 있는 어린 마법사 이오의 역할을 집중·차지 준비로 각색했다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_narmaya",
       "name": "나루메아",
       "effectName": "끝없는 검의 수련",
-      "keyword": "헤드·백 적중 피해 · 치명",
+      "keyword": "보스 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "directional_damage",
-          "value": 4
-        },
-        {
-          "stat": "crit_chance",
-          "value": 2
+          "stat": "boss_damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -163,26 +143,19 @@
         "effects": []
       },
       "canonFact": "무예를 수련하는 검호 나루메아의 역할을 방향 적중·치명 성장으로 각색했다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_vane",
       "name": "베인",
       "effectName": "친구가 돌아올 자리",
-      "keyword": "체력 · 생존",
+      "keyword": "C 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "c_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -191,22 +164,19 @@
         "effects": []
       },
       "canonFact": "동료와 나라를 지키는 베인의 역할을 최대 체력·피해 감소로 각색했다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_zeta",
       "name": "제타",
       "effectName": "봉인 무기의 사선",
-      "keyword": "보스 · 관통",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -215,22 +185,19 @@
         "effects": []
       },
       "canonFact": "성정수를 사냥하는 조직과 알베스의 창을 사용하는 제타의 역할을 보스·관통 성장으로 각색했다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "gbf_cagliostro",
       "name": "칼리오스트로",
       "effectName": "정밀한 연금 조정",
-      "keyword": "공격 · 재생",
+      "keyword": "C 스킬 대미지 +16.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "c_skill_damage",
+          "value": 16.5
         }
       ],
       "evolution": {
@@ -239,22 +206,23 @@
         "effects": []
       },
       "canonFact": "연금술을 창시하고 육체를 연성하는 칼리오스트로의 역할을 공격·재생 성장으로 각색했다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "gbf_rackam_signal",
       "name": "라캄",
       "effectName": "끊기지 않는 귀환 신호",
-      "keyword": "신속 · 내 체력 65% 이상 피해",
+      "keyword": "C 스킬 대미지 +12.38% · 공격력 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
+          "stat": "c_skill_damage",
+          "value": 12.38
         },
         {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "attack_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -263,22 +231,19 @@
         "effects": []
       },
       "canonFact": "기공정 조타수인 라캄의 항로·귀환 역할을 신속과 체력을 유지한 준비로 각색했다. 입문 항로 점검과 다른 후속이며 실제 항로·교신 조작 기능은 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "gbf_rosetta_trace",
       "name": "로제타",
       "effectName": "같은 길에 남은 차이",
-      "keyword": "고정 신속 · 보스",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "boss_damage_percent",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -287,18 +252,19 @@
         "effects": []
       },
       "canonFact": "과거와 현재를 잇는 관찰자 역할을 단서 비교와 큰 상대의 차이를 찾는 성장으로 각색했다. 시간 여행·미래 확정·장미 소환 기능은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_rolan_guide",
       "name": "롤란",
       "effectName": "함께 걸으며 들은 질문",
-      "keyword": "고정 신속",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -307,22 +273,19 @@
         "effects": []
       },
       "canonFact": "서쪽 하늘의 붙임성 좋은 임시 동행자라는 소개를 여러 부탁을 비교하고 이동 동선을 읽는 성장으로 각색했다. 숨겨진 정체·신관 직업·영구 NPC 동행을 단정하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_lancelot_roles",
       "name": "랜슬롯",
       "effectName": "교대 뒤의 한 걸음",
-      "keyword": "고정 신속 · 헤드·백 적중 피해",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "directional_damage",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -331,22 +294,19 @@
         "effects": []
       },
       "canonFact": "기사단장의 병사 통솔을 역할 교대와 공격 위치의 성장으로 각색했다. 군대·쌍검·새 전격 기술을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_percival_share",
       "name": "퍼시벌",
       "effectName": "약한 쪽에 남길 몫",
-      "keyword": "보스 · 일반 적",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "normal_damage_percent",
-          "value": 5
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -355,22 +315,19 @@
         "effects": []
       },
       "canonFact": "약자를 돕는 이상 국가를 추구하는 성격을 상대에 맞는 힘과 책임 배분으로 각색했다. 영구 국가 건설·불 공격·계급 자원은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_yodarha_wait",
       "name": "요달라하",
       "effectName": "찌보다 먼저 움직인 발",
-      "keyword": "신속 · 이동속도 비례 피해",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "moving_damage",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -379,22 +336,19 @@
         "effects": []
       },
       "canonFact": "낚시꾼을 자처하는 숨은 검호를 몸놀림과 움직임에 비례한 공격 요령으로 각색했다. 낚시 성공·물고기 자원·검 장비·원작 검 기술을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_io_smile",
       "name": "이오",
       "effectName": "다시 해 보자는 웃음",
-      "keyword": "내 체력 65% 이상 피해 · 최대 체력",
+      "keyword": "보스 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 4
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "boss_damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -403,22 +357,19 @@
         "effects": []
       },
       "canonFact": "사람들에게 미소를 전하려는 작은 마법사의 역할을 좋은 몸 상태에서 힘을 쓰고 최대 체력을 늘리는 성장으로 각색했다. 기존 이오의 차지 준비와 구분하며 체력 비율 자체의 회복·새 마법·분위기 수치·공연 미니게임은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_rackam_balance",
       "name": "라캄",
       "effectName": "움직이기 전에 묶을 것",
-      "keyword": "고정 신속 · 비방향",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "nondirectional_damage",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -427,26 +378,19 @@
         "effects": []
       },
       "canonFact": "공식 조타사 역할에서 기공정이 움직이기 전에 자신의 짐과 통로를 구분하는 기억이다. 비방향은 헤드/백 플래그 없는 공격이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "gbf_eugen_rest",
       "name": "오이겐",
       "effectName": "다음 조준까지의 쉼",
-      "keyword": "차지 속도 · 받는 피해",
+      "keyword": "C 스킬 대미지 +16.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "charge_speed",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "c_skill_damage",
+          "value": 16.5
         }
       ],
       "evolution": {
@@ -455,22 +399,19 @@
         "effects": []
       },
       "canonFact": "공식 숙련된 노병 역할에서 다음 조준 전에 자신의 자리와 장비를 정돈하는 기억이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "gbf_rosetta_margin",
       "name": "로제타",
       "effectName": "알고 있는 말의 바깥",
-      "keyword": "치명 확률 · 내 체력 65% 이상 피해",
+      "keyword": "보스 피해 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "boss_damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -479,22 +420,19 @@
         "effects": []
       },
       "canonFact": "공식 과거와 현재를 잇는 관찰자 역할에서 알고 있는 말과 아직 듣지 못한 말을 나누는 기억이다. 고체력은 최대체력65%이상이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_rolan_reply",
       "name": "롤란",
       "effectName": "다음 부탁까지 물어보기",
-      "keyword": "행동력 최대치",
+      "keyword": "C 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "action_capacity",
-          "value": 1
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "c_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -503,22 +441,19 @@
         "effects": []
       },
       "canonFact": "공식 붙임성 좋은 임시 동행자 역할에서 다음 방문에 맡을 몫을 답하는 기억이다. 최대치와 현재행동력의 증가분1만 한번 지급하며 사냥 제한시간은 늘지 않는다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gbf_lancelot_side",
       "name": "랜슬롯",
       "effectName": "뒤에서 이어받을 발",
-      "keyword": "고정 신속 · 보스",
+      "keyword": "C 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "boss_damage_percent",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -527,22 +462,19 @@
         "effects": []
       },
       "canonFact": "공식 병사를 통솔하는 기사단장 역할에서 앞자리 다음에 자신의 발을 옮길 준비를 나누는 기억이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_percival_tie",
       "name": "퍼시벌",
       "effectName": "풀지 않을 매듭",
-      "keyword": "공격력 · 치명 피해",
+      "keyword": "C 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "crit_damage",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -551,22 +483,19 @@
         "effects": []
       },
       "canonFact": "공식 약자를 돕는 이상을 추구하는 역할에서 같은 무게가 아닌 맡을 부담을 나누는 기억이다. 런 공격력8%이며 영구 무기 공격력 강화가 아니다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_yodarha_spacing",
       "name": "요달라하",
       "effectName": "서 있을 곳부터 비우기",
-      "keyword": "신속 · 받는 피해",
+      "keyword": "C 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "c_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -575,22 +504,19 @@
         "effects": []
       },
       "canonFact": "공식 낚시꾼을 자처하는 검호 역할에서 자신의 자리를 비우고 다시 서는 기억이다. 고정 신속180이며 이동속도180%가 아니다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gbf_io_pause",
       "name": "이오",
       "effectName": "크게 보이기 전에",
-      "keyword": "최대 체력 · 관통",
+      "keyword": "C 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -599,18 +525,19 @@
         "effects": []
       },
       "canonFact": "공식 사람들에게 웃음을 전하려는 작은 마법사 역할에서 보일 자리를 먼저 정하는 기억이다. 현재체력 즉시회복이나 공연 미니게임이 아니다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "zegagrande_main_01_1",
       "name": "루리아",
       "effectName": "새 공역으로 향한 갑판 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -619,18 +546,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_01_2",
       "name": "루리아",
       "effectName": "새 공역으로 향한 갑판 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -639,22 +567,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_01_3",
       "name": "루리아",
       "effectName": "새 공역으로 향한 갑판 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -663,18 +588,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_02_1",
       "name": "라캄",
       "effectName": "폭주 속에서 놓지 않은 동료 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -683,13 +609,14 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "zegagrande_main_02_2",
       "name": "라캄",
       "effectName": "폭주 속에서 놓지 않은 동료 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "보스 피해 +6%",
       "grade": 1,
       "effects": [
         {
@@ -703,22 +630,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "zegagrande_main_02_3",
       "name": "라캄",
       "effectName": "폭주 속에서 놓지 않은 동료 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
+          "stat": "attack_percent",
           "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
         }
       ],
       "evolution": {
@@ -727,18 +651,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_03_1",
       "name": "롤란",
       "effectName": "롤란의 손길이 닿는 마을 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 4
+          "stat": "c_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -747,18 +672,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "zegagrande_main_03_2",
       "name": "롤란",
       "effectName": "롤란의 손길이 닿는 마을 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -767,22 +693,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_03_3",
       "name": "롤란",
       "effectName": "롤란의 손길이 닿는 마을 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -791,18 +714,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_04_1",
       "name": "카타리나",
       "effectName": "폭풍 속에서 남겨 둔 길 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 5
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -811,18 +735,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_04_2",
       "name": "카타리나",
       "effectName": "폭풍 속에서 남겨 둔 길 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -831,21 +756,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_04_3",
       "name": "카타리나",
       "effectName": "폭풍 속에서 남겨 둔 길 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -855,18 +777,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_05_1",
       "name": "카타리나",
       "effectName": "루리아가 없는 갑판 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 2,
+      "keyword": "보스 피해 +6%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 5
+          "stat": "boss_damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -875,18 +798,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "zegagrande_main_05_2",
       "name": "카타리나",
       "effectName": "루리아가 없는 갑판 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
+          "stat": "c_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -895,21 +819,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "zegagrande_main_05_3",
       "name": "카타리나",
       "effectName": "루리아가 없는 갑판 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "c_skill_damage",
           "value": 3
         }
       ],
@@ -919,18 +840,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "zegagrande_main_06_1",
       "name": "롤란",
       "effectName": "다시 손을 내민 안내인 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 5
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -939,18 +861,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_06_2",
       "name": "롤란",
       "effectName": "다시 손을 내민 안내인 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -959,21 +882,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_06_3",
       "name": "롤란",
       "effectName": "다시 손을 내민 안내인 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -983,18 +903,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_07_1",
       "name": "루리아",
       "effectName": "목소리를 가리는 장치 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 5
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -1003,18 +924,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_07_2",
       "name": "루리아",
       "effectName": "목소리를 가리는 장치 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -1023,21 +945,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_07_3",
       "name": "루리아",
       "effectName": "목소리를 가리는 장치 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1047,18 +966,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_08_1",
       "name": "라캄",
       "effectName": "시드홀름에서 찾는 열쇠 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 2,
+      "keyword": "스킬가속 +3",
+      "grade": 1,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 5
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1067,18 +987,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_08_2",
       "name": "라캄",
       "effectName": "시드홀름에서 찾는 열쇠 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -1087,22 +1008,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_08_3",
       "name": "라캄",
       "effectName": "시드홀름에서 찾는 열쇠 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -1111,18 +1029,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_09_1",
       "name": "이드",
       "effectName": "이드와 함께한 짧은 구출 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 5
+          "stat": "c_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -1131,18 +1050,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_09_2",
       "name": "이드",
       "effectName": "이드와 함께한 짧은 구출 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -1151,21 +1071,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_09_3",
       "name": "이드",
       "effectName": "이드와 함께한 짧은 구출 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1175,18 +1092,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "zegagrande_main_10_1",
       "name": "롤란",
       "effectName": "롤란이 말하는 고향 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "final_damage_percent",
-          "value": 5
+          "stat": "c_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1195,18 +1113,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "zegagrande_main_10_2",
       "name": "롤란",
       "effectName": "롤란이 말하는 고향 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
+          "stat": "c_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1215,21 +1134,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "zegagrande_main_10_3",
       "name": "롤란",
       "effectName": "롤란이 말하는 고향 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "c_skill_damage",
           "value": 3
         }
       ],
@@ -1239,210 +1155,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "zegagrande_main_11_1",
       "name": "루리아",
       "effectName": "도시에서 다시 부른 이름 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
+      "keyword": "C 스킬 대미지 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "final_damage_percent",
+          "stat": "c_skill_damage",
           "value": 6
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_11_2",
-      "name": "루리아",
-      "effectName": "도시에서 다시 부른 이름 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 10
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_11_3",
-      "name": "루리아",
-      "effectName": "도시에서 다시 부른 이름 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_12_1",
-      "name": "이드",
-      "effectName": "탑을 향한 같은 뜻 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "final_damage_percent",
-          "value": 6
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_12_2",
-      "name": "이드",
-      "effectName": "탑을 향한 같은 뜻 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 10
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_12_3",
-      "name": "이드",
-      "effectName": "탑을 향한 같은 뜻 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_13_1",
-      "name": "롤란",
-      "effectName": "다시 빈자리가 된 안내인 · 결의",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "final_damage_percent",
-          "value": 6
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_13_2",
-      "name": "롤란",
-      "effectName": "다시 빈자리가 된 안내인 · 물음",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 10
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_13_3",
-      "name": "롤란",
-      "effectName": "다시 빈자리가 된 안내인 · 인연",
-      "keyword": "메인 · 같은 배로 돌아오는 항로",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "zegagrande_main_14_1",
-      "name": "루리아",
-      "effectName": "모두를 싣고 돌아온 항로",
-      "keyword": "메인 완결 · 같은 배로 돌아오는 항로",
-      "grade": 4,
-      "effects": [
-        {
-          "stat": "final_damage_percent",
-          "value": 10
         }
       ],
       "evolution": {
@@ -1452,21 +1177,38 @@
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": [],
-      "retiredMainReward": true
+      "rewardRole": "main"
     },
     {
-      "key": "zegagrande_main_14_2",
+      "key": "zegagrande_main_11_2",
       "name": "루리아",
-      "effectName": "다음 바람을 고르는 사람",
-      "keyword": "메인 완결 · 같은 배로 돌아오는 항로",
-      "grade": 4,
+      "effectName": "도시에서 다시 부른 이름 · 물음",
+      "keyword": "공격력 +4%",
+      "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 14
-        },
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_11_3",
+      "name": "루리아",
+      "effectName": "도시에서 다시 부른 이름 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
         {
-          "stat": "final_damage_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1477,25 +1219,38 @@
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": [],
-      "retiredMainReward": true
+      "rewardRole": "main"
     },
     {
-      "key": "zegagrande_main_14_3",
-      "name": "루리아",
-      "effectName": "받은 손길을 돌려준 항해",
-      "keyword": "메인 완결 · 같은 배로 돌아오는 항로",
-      "grade": 4,
+      "key": "zegagrande_main_12_1",
+      "name": "이드",
+      "effectName": "탑을 향한 같은 뜻 · 결의",
+      "keyword": "C 스킬 대미지 +6%",
+      "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "c_skill_damage",
           "value": 6
-        },
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_12_2",
+      "name": "이드",
+      "effectName": "탑을 향한 같은 뜻 · 물음",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
         {
-          "stat": "final_damage_percent",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -1506,15 +1261,171 @@
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": [],
-      "retiredMainReward": true
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_12_3",
+      "name": "이드",
+      "effectName": "탑을 향한 같은 뜻 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_13_1",
+      "name": "롤란",
+      "effectName": "다시 빈자리가 된 안내인 · 결의",
+      "keyword": "C 스킬 대미지 +6%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_13_2",
+      "name": "롤란",
+      "effectName": "다시 빈자리가 된 안내인 · 물음",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_13_3",
+      "name": "롤란",
+      "effectName": "다시 빈자리가 된 안내인 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_14_1",
+      "name": "루리아",
+      "effectName": "모두를 싣고 돌아온 항로",
+      "keyword": "C 스킬 대미지 +3%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "zegagrande_main_14_2",
+      "name": "루리아",
+      "effectName": "다음 바람을 고르는 사람",
+      "keyword": "C 스킬 대미지 +3%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "zegagrande_main_14_3",
+      "name": "루리아",
+      "effectName": "받은 손길을 돌려준 항해",
+      "keyword": "C 스킬 대미지 +3%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "zegagrande_main_ending_memorial",
       "name": "돌아온 안내인의 일지",
       "effectName": "메인 엔딩 기념 · 효과 설계 중",
-      "keyword": "끝내지 못한 의뢰를 따라 찾아낸 길. 누군가를 돌려보낸 손을 이번에는 함께 잡고 돌아왔다.",
+      "keyword": "C 스킬 대미지 +100% · 공격력 +8%",
       "grade": 4,
-      "effects": [],
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 100
+        },
+        {
+          "stat": "attack_percent",
+          "value": 8
+        }
+      ],
       "evolution": {
         "kind": 0,
         "goal": 0,
@@ -1524,7 +1435,236 @@
       "canonFact": "끝내지 못한 의뢰를 따라 찾아낸 길. 누군가를 돌려보낸 손을 이번에는 함께 잡고 돌아왔다.",
       "uncertain": [
         "효과와 수치는 검수 후 설계한다."
-      ]
+      ],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "gbf_eugen_rest_growth_2",
+      "name": "오이겐",
+      "effectName": "다음 조준까지의 쉼",
+      "keyword": "C 스킬 대미지 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 숙련된 노병 역할에서 다음 조준 전에 자신의 자리와 장비를 정돈하는 기억이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "chain"
+    },
+    {
+      "key": "gbf_cagliostro_growth_1",
+      "name": "칼리오스트로",
+      "effectName": "정밀한 연금 조정",
+      "keyword": "C 스킬 대미지 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "연금술을 창시하고 육체를 연성하는 칼리오스트로의 역할을 공격·재생 성장으로 각색했다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "gbf_narmaya_growth_1",
+      "name": "나루메아",
+      "effectName": "끝없는 검의 수련",
+      "keyword": "C 스킬 대미지 +12%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "무예를 수련하는 검호 나루메아의 역할을 방향 적중·치명 성장으로 각색했다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "gbf_vane_growth_1",
+      "name": "베인",
+      "effectName": "친구가 돌아올 자리",
+      "keyword": "C 스킬 대미지 +12.38% · 공격력 +3%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 12.38
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "동료와 나라를 지키는 베인의 역할을 최대 체력·피해 감소로 각색했다.",
+      "uncertain": [],
+      "rewardRole": "chain_final"
+    },
+    {
+      "key": "gbf_rosetta_margin_growth_2",
+      "name": "로제타",
+      "effectName": "알고 있는 말의 바깥",
+      "keyword": "C 스킬 대미지 +12%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 과거와 현재를 잇는 관찰자 역할에서 알고 있는 말과 아직 듣지 못한 말을 나누는 기억이다. 고체력은 최대체력65%이상이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "gbf_vane_growth_2",
+      "name": "베인",
+      "effectName": "친구가 돌아올 자리",
+      "keyword": "보스 피해 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "동료와 나라를 지키는 베인의 역할을 최대 체력·피해 감소로 각색했다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "zegagrande_main_08_3_growth_9",
+      "name": "라캄",
+      "effectName": "시드홀름에서 찾는 열쇠 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "zegagrande_main_ending_memorial_growth_1",
+      "name": "돌아온 안내인의 일지",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "C 스킬 대미지 +100% · 치명타 피해 +16%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 100
+        },
+        {
+          "stat": "crit_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "끝내지 못한 의뢰를 따라 찾아낸 길. 누군가를 돌려보낸 손을 이번에는 함께 잡고 돌아왔다.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "zegagrande_main_ending_memorial_growth_2",
+      "name": "돌아온 안내인의 일지",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "C 스킬 대미지 +100% · 스킬가속 +8",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 100
+        },
+        {
+          "stat": "skill_haste",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "끝내지 못한 의뢰를 따라 찾아낸 길. 누군가를 돌려보낸 손을 이번에는 함께 잡고 돌아왔다.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "gbf_eugen_growth_3",
+      "name": "오이겐",
+      "effectName": "숙련된 사격점",
+      "keyword": "C 스킬 대미지 +12%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "c_skill_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "숙련된 노병 오이겐의 사격을 차지·치명 보너스로 각색했다.",
+      "uncertain": [],
+      "rewardRole": "shop"
     }
   ],
   "events": [
@@ -1536,11 +1676,11 @@
       "choices": [
         {
           "label": "보수 자재를 사고 카타리나와 화물을 고정한다",
-          "result": "보수 자재를 사고 카타리나와 화물을 고정했다. 준비에 200골드를 썼다. 카타리나는 묶인 상자와 루리아 쪽의 비워 둔 통로를 따로 확인했다.",
+          "result": "보수 자재를 사고 카타리나와 화물을 고정했다. 카타리나는 묶인 상자와 루리아 쪽의 비워 둔 통로를 따로 확인했다.",
           "card": "gbf_katalina",
           "card2": null,
           "gold": 0,
-          "cost": 200,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1548,12 +1688,12 @@
         },
         {
           "label": "오이겐과 위험한 갑판에서 사격 장비를 옮긴다",
-          "result": "오이겐과 위험한 갑판에서 사격 장비를 옮겼다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 오이겐은 장비를 밀던 끈을 거뒀지만 네가 맡지 않은 상자는 갑판에 남았다.",
+          "result": "오이겐과 위험한 갑판에서 사격 장비를 옮겼다. 오이겐은 장비를 밀던 끈을 거뒀지만 네가 맡지 않은 상자는 갑판에 남았다.",
           "card": "gbf_eugen",
           "card2": null,
           "gold": 0,
           "cost": 0,
-          "level": 1,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
@@ -1562,7 +1702,7 @@
           "label": "라캄과 상자를 먼저 묶고 좁은 통로를 확보한다",
           "card": "gbf_rackam_balance",
           "card2": null,
-          "cost": 160,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1576,7 +1716,13 @@
       "requiredCard": null,
       "failure": null,
       "canonFact": "공식 기공정 조타사 라캄·루리아를 지키는 카타리나·숙련된 오이겐의 역할을 활용한 창작 화물 사건이다. 실제 갑판 전투·기공정 운전·루리아의 운명을 구현하거나 해결하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "actionCost": 4,
+      "growthRole": "chain",
+      "chainStage": 1,
+      "chainLength": 2,
+      "chainRoot": "gbf_airship_crate",
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +16.5%"
     },
     {
       "key": "gbf_deck_position",
@@ -1587,7 +1733,7 @@
         {
           "label": "오이겐과 사선을 고려해 넓은 사격 위치를 확보한다",
           "result": "오이겐의 장비 배치와 사선을 고려하여 최적의 위치를 잡다. 시야를 넓게 확보하며 전방의 위협에 대비한다.",
-          "card": "gbf_eugen",
+          "card": "gbf_eugen_rest",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1598,11 +1744,11 @@
         },
         {
           "label": "칼리오스트로에게 장비 조정을 의뢰한다",
-          "result": "칼리오스트로에게 장비 조정을 의뢰했다. 준비에 240골드를 썼다. 칼리오스트로는 조정할 장비만 따로 두고 갑판의 어느 자리를 맡을지는 네 답을 기다렸다.",
+          "result": "칼리오스트로에게 장비 조정을 의뢰했다. 칼리오스트로는 조정할 장비만 따로 두고 갑판의 어느 자리를 맡을지는 네 답을 기다렸다.",
           "card": "gbf_cagliostro",
           "card2": null,
           "gold": 0,
-          "cost": 240,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1612,7 +1758,7 @@
           "label": "보급을 챙기고 오이겐에게 조준 간격을 묻는다",
           "card": "gbf_eugen_rest",
           "card2": null,
-          "cost": 120,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1627,7 +1773,13 @@
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_eugen_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_eugen_Art.tga",
+      "actionCost": 6,
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "gbf_airship_crate",
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +16.5%"
     },
     {
       "key": "gbf_broken_focus",
@@ -1636,37 +1788,37 @@
       "intro": "이오의 집중을 지킬 통로를 골라야 한다.",
       "choices": [
         {
-          "label": "이오와 안전한 준비 장소를 마련한다",
-          "result": "이오와 안전한 준비 장소를 마련했다. 준비에 190골드를 썼다. 이오는 작은 준비 장소를 다시 살폈지만 더 큰 마법을 쓰겠다고 답하지 않았다.",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "이오와 안전한 준비 장소를 마련했다. 이오는 작은 준비 장소를 다시 살폈지만 더 큰 마법을 쓰겠다고 답하지 않았다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
           "card": "gbf_io",
           "card2": null,
           "gold": 0,
-          "cost": 190,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "나루메아와 함께 넓은 통로를 방어 범위로 삼는다",
-          "result": "나루메아의 제안대로 넓은 통로를 확보하며 방어선을 구축한다. 넓은 공간을 활용해 적의 움직임을 한눈에 파악한다.",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "나루메아의 제안대로 넓은 통로를 확보하며 방어선을 구축한다. 넓은 공간을 활용해 적의 움직임을 한눈에 파악한다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
           "card": "gbf_narmaya",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "베인과 돌아올 길을 지킨다",
-          "result": "베인과 돌아올 길을 지켰다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 베인은 돌아오는 사람의 자리를 먼저 두고 바깥 통로의 몫은 아직 묻지 않았다.",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
+          "result": "베인과 돌아올 길을 지켰다. 베인은 돌아오는 사람의 자리를 먼저 두고 바깥 통로의 몫은 아직 묻지 않았다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다.",
           "card": "gbf_vane",
           "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 1,
+          "cost": 875,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
@@ -1678,7 +1830,10 @@
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_sealed_report",
@@ -1688,33 +1843,33 @@
       "choices": [
         {
           "label": "제타와 위험 구역의 기록을 확인한다",
-          "result": "제타와 위험 구역의 기록을 확인했다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 제타는 확인할 항목만 표시하고 알베스의 창을 네 짐 목록에 넣지 않았다.",
+          "result": "제타와 위험 구역의 기록을 확인했다. 제타는 확인할 항목만 표시하고 알베스의 창을 네 짐 목록에 넣지 않았다.",
           "card": "gbf_zeta",
           "card2": null,
           "gold": 0,
           "cost": 0,
-          "level": 1,
-          "density": 0,
-          "potions": 0,
-          "chance": 100
-        },
-        {
-          "label": "조사 장비 비용을 내고 오이겐을 돕는다",
-          "result": "조사 장비 비용을 내고 오이겐을 도왔다. 준비에 220골드를 썼다. 오이겐은 조사 장비를 내려놓았지만 기록의 빈칸을 확인된 사실로 채우지 않았다.",
-          "card": "gbf_eugen",
-          "card2": null,
-          "gold": 0,
-          "cost": 220,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "160골드로 운반 도구를 사고 조준 몫을 분리한다",
-          "card": "gbf_eugen_rest",
+          "label": "조사 장비 비용을 내고 오이겐을 돕는다",
+          "result": "조사 장비 비용을 내고 오이겐을 도왔다. 오이겐은 조사 장비를 내려놓았지만 기록의 빈칸을 확인된 사실로 채우지 않았다.",
+          "card": "gbf_eugen",
           "card2": null,
-          "cost": 160,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "오이겐와 함께 다음 길을 준비한다",
+          "card": "gbf_eugen_rest_growth_2",
+          "card2": null,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 0,
@@ -1729,7 +1884,13 @@
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_zeta_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_zeta_Art.tga",
+      "actionCost": 4,
+      "growthRole": "chain",
+      "chainStage": 1,
+      "chainLength": 2,
+      "chainRoot": "gbf_sealed_report",
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +12.38% · 공격력 +3%"
     },
     {
       "key": "gbf_alchemy_sample",
@@ -1738,36 +1899,36 @@
       "intro": "연금 조정 전후의 견본이 섞였다.",
       "choices": [
         {
-          "label": "검증 비용을 내고 정밀 조정을 받는다",
-          "result": "검증 비용을 내고 정밀 조정을 받았다. 준비에 210골드를 썼다. 칼리오스트로는 조정할 견본을 골라 놓았지만 나머지까지 같은 결과라고 말하지 않았다.",
-          "card": "gbf_cagliostro",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "검증 비용을 내고 정밀 조정을 받았다. 칼리오스트로는 조정할 견본을 골라 놓았지만 나머지까지 같은 결과라고 말하지 않았다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "gbf_cagliostro_growth_1",
           "card2": null,
           "gold": 0,
-          "cost": 210,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "이오와 위험한 시험 구역을 맡는다",
-          "result": "이오와 위험한 시험 구역을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 이오는 시험에 쓸 자리를 짚었고 칼리오스트로는 비교할 견본 하나를 따로 남겼다.",
-          "card": "gbf_io",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "이오와 위험한 시험 구역을 맡았다. 이오는 시험에 쓸 자리를 짚었고 칼리오스트로는 비교할 견본 하나를 따로 남겼다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
+          "card": "gbf_io_smile",
           "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 1,
+          "cost": 350,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "나루메아와 견본의 작동을 하나씩 확인한다",
-          "result": "견본의 작동을 개별적으로 확인하며 정확한 데이터를 수집한다. 꼼꼼한 확인을 통해 다음 단계의 오류를 방지한다.",
-          "card": "gbf_narmaya",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
+          "result": "견본의 작동을 개별적으로 확인하며 정확한 데이터를 수집한다. 꼼꼼한 확인을 통해 다음 단계의 오류를 방지한다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "gbf_narmaya_growth_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1780,7 +1941,10 @@
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_cagliostro_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_cagliostro_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_return_signal",
@@ -1791,7 +1955,7 @@
         {
           "label": "베인과 함께 동료들이 쉴 자리를 확보한다",
           "result": "베인은 동료들이 안전하게 돌아올 수 있는 자리를 정성껏 마련한다. 당신은 동료들의 안식처를 확보했다는 기록을 기억에 새깁니다.",
-          "card": "gbf_vane",
+          "card": "gbf_vane_growth_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1806,23 +1970,23 @@
           "card": "gbf_rackam_signal",
           "card2": null,
           "gold": 0,
-          "cost": 150,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "100골드로 보급을 마련하고 라캄과 더 약한 귀환 담당 구역을 고른다",
-          "card": "gbf_rackam_balance",
+          "label": "라캄와 함께 다음 길을 준비한다",
+          "card": "gbf_rackam_signal",
           "card2": null,
-          "cost": 100,
+          "cost": 0,
           "gold": 0,
-          "level": -1,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "100골드로 보급을 마련하고 라캄과 더 약한 귀환 담당 구역을 골랐다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 라캄은 더 약한 구역을 맡을 표식을 남겼지만 네가 안쪽을 확인했다고 적지는 않았다."
+          "result": "라캄은 더 약한 구역을 맡을 표식을 남겼지만 네가 안쪽을 확인했다고 적지는 않았다."
         }
       ],
       "previous": "gbf_sealed_report",
@@ -1831,7 +1995,13 @@
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_rackam_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rackam_Art.tga",
+      "actionCost": 6,
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "gbf_sealed_report",
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +12.38% · 공격력 +3%"
     },
     {
       "key": "gbf_rosetta_dates",
@@ -1843,46 +2013,49 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "연락 비용을 내고 예전 기록의 주인을 찾는다",
-          "result": "연락 비용을 내고 예전 기록의 주인을 찾았다. 준비에 160골드를 썼다. 로제타는 확인된 날짜와 네가 아직 지나가지 않은 길을 서로 다른 줄에 놓았다.",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "연락 비용을 내고 예전 기록의 주인을 찾았다. 로제타는 확인된 날짜와 네가 아직 지나가지 않은 길을 서로 다른 줄에 놓았다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
           "card": "gbf_rosetta_trace",
           "card2": null,
           "gold": 0,
-          "cost": 160,
-          "level": 0,
-          "density": 0,
-          "potions": 0,
-          "chance": 70
-        },
-        {
-          "label": "복사 용품을 마련해 로제타와 남은 두 기록을 대조한다",
-          "result": "복사 용품을 마련해 로제타와 남은 두 기록을 대조했다. 준비에 220골드를 썼다. 로제타는 남은 기록을 나란히 두었지만 주인을 만났다는 표시를 덧붙이지 않았다.",
-          "card": "gbf_rosetta_margin",
-          "card2": null,
-          "gold": 0,
-          "cost": 220,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "라캄과 확인된 경로만 기록에 남기기로 한다",
-          "card": "gbf_rackam_balance",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "복사 용품을 마련해 로제타와 남은 두 기록을 대조했다. 로제타는 남은 기록을 나란히 두었지만 주인을 만났다는 표시를 덧붙이지 않았다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
+          "card": "gbf_rosetta_margin",
           "card2": null,
-          "cost": 160,
+          "gold": 0,
+          "cost": 350,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "집중 구매 · C 스킬 대미지 +12%",
+          "card": "zegagrande_main_02_1",
+          "card2": null,
+          "cost": 875,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "라캄은 낡은 기록과 대조하며 확인된 정보만을 항로에 기입하기 시작한다. 당신은 불확실한 정보를 배제하고 정확한 경로를 기억하게 된다."
+          "result": "라캄은 낡은 기록과 대조하며 확인된 정보만을 항로에 기입하기 시작한다. 당신은 불확실한 정보를 배제하고 정확한 경로를 기억하게 된다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다."
         }
       ],
-      "failure": "연락 비용160골드를 썼지만 남은 연락처에서 답이 오지 않아 예전 기록의 주인을 찾지 못했다. 날짜 차이는 아직 확인되지 않아 카드를 받지 못한다. 로제타는 답이 없는 부분을 새 기록의 날짜로 덮지 않았다.",
+      "failure": null,
       "canonFact": "과거와 현재를 잇는 공식 로제타와 조타사 라캄에서 별도 기록의 날짜 문제를 만들었다. 로제타가 미래를 보거나 거짓말 탐지 기능을 지급하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_rosetta_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rosetta_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_rolan_two_questions",
@@ -1894,46 +2067,49 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "표시 용품을 내고 롤란과 목적부터 다시 확인한다",
-          "result": "표시 용품을 내고 롤란과 목적부터 다시 확인했다. 준비에 180골드를 썼다. 롤란은 먼저 들은 목적을 다시 물었고 비는 아직 바꾸지 않은 길의 표시를 거뒀다.",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "표시 용품을 내고 롤란과 목적부터 다시 확인했다. 롤란은 먼저 들은 목적을 다시 물었고 비는 아직 바꾸지 않은 길의 표시를 거뒀다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
           "card": "gbf_rolan_guide",
           "card2": null,
           "gold": 0,
-          "cost": 180,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "라캄과 더 강한 적이 오가는 바깥 길을 확인한다",
-          "result": "라캄과 더 강한 적이 오가는 바깥 길을 확인했다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 라캄은 네가 맡을 바깥의 표시만 챙겼고 롤란의 다른 안내를 그 답에 섞지 않았다.",
-          "card": "gbf_rackam_signal",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "라캄과 더 강한 적이 오가는 바깥 길을 확인했다. 라캄은 네가 맡을 바깥의 표시만 챙겼고 롤란의 다른 안내를 그 답에 섞지 않았다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
+          "card": "zegagrande_main_02_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 1,
+          "cost": 350,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "로제타와 약속한 목적에 맞춰 경로를 확인한다",
-          "card": "gbf_rosetta_margin",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
+          "card": "gbf_rosetta_margin_growth_2",
           "card2": null,
-          "cost": 160,
+          "cost": 875,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "로제타는 가리킨 길과 원래 목적을 구분하여 기억에 저장한다. 당신은 혼동을 방지하기 위해 명확한 목표 지점을 다시 확인한다."
+          "result": "로제타는 가리킨 길과 원래 목적을 구분하여 기억에 저장한다. 당신은 혼동을 방지하기 위해 명확한 목표 지점을 다시 확인한다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다."
         }
       ],
       "failure": null,
       "canonFact": "공식 롤란의 붙임성과 임시 동행, 비의 여행 파트너와 라캄의 조타 역할에서 창작했다. 롤란의 숨겨진 정체·교회·실제 동행 유닛은 등장시키지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_lancelot_shift",
@@ -1945,46 +2121,49 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "표시 용품을 내고 랜슬롯과 교대 순서를 정한다",
-          "result": "표시 용품을 내고 랜슬롯과 교대 순서를 정했다. 준비에 220골드를 썼다. 랜슬롯은 뒤에서 이어받을 자리에도 이름을 적었고 앞에 모인 사람을 다시 나눴다.",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "표시 용품을 내고 랜슬롯과 교대 순서를 정했다. 랜슬롯은 뒤에서 이어받을 자리에도 이름을 적었고 앞에 모인 사람을 다시 나눴다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
           "card": "gbf_lancelot_roles",
           "card2": null,
           "gold": 0,
-          "cost": 220,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "베인과 함께 뒤쪽의 귀환 길목을 지킨다",
-          "result": "베인은 교대 체계 속에서 뒤를 든든하게 받쳐줄 자리를 확정한다. 당신은 동료들이 무사히 돌아올 수 있는 마지막 보루를 기억한다.",
-          "card": "gbf_vane",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "베인은 교대 체계 속에서 뒤를 든든하게 받쳐줄 자리를 확정한다. 당신은 동료들이 무사히 돌아올 수 있는 마지막 보루를 기억한다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
+          "card": "gbf_vane_growth_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "100골드로 보급을 마련하고 랜슬롯과 더 약한 교대 담당 구역을 고른다",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
           "card": "gbf_lancelot_side",
           "card2": null,
-          "cost": 100,
+          "cost": 875,
           "gold": 0,
-          "level": -1,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "100골드로 보급을 마련하고 랜슬롯과 더 약한 교대 담당 구역을 골랐다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 랜슬롯은 더 약한 구역을 따로 표시했고 베인은 돌아오는 사람을 받을 자리를 남겼다."
+          "result": "랜슬롯은 더 약한 구역을 따로 표시했고 베인은 돌아오는 사람을 받을 자리를 남겼다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다."
         }
       ],
       "failure": null,
       "canonFact": "공식 기사단장 랜슬롯의 통솔과 동료를 지키는 베인에서 별도 교대 문제를 만들었다. 실제 병사 소환·호위 임무·자동 전투 승리는 없다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_lancelot_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_lancelot_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_percival_load",
@@ -1996,46 +2175,49 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "묶을 용품을 내고 퍼시벌과 부담을 다시 나눈다",
-          "result": "묶을 용품을 내고 퍼시벌과 부담을 다시 나눴다. 준비에 200골드를 썼다. 퍼시벌은 같은 개수의 짐이라도 사람마다 다르게 묶고 아직 맡지 않은 무게를 남겼다.",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "묶을 용품을 내고 퍼시벌과 부담을 다시 나눴다. 퍼시벌은 같은 개수의 짐이라도 사람마다 다르게 묶고 아직 맡지 않은 무게를 남겼다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
           "card": "gbf_percival_share",
           "card2": null,
           "gold": 0,
-          "cost": 200,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "베인과 더 강한 적이 드나드는 길목을 맡는다",
-          "result": "베인과 더 강한 적이 드나드는 길목을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 베인은 네가 고른 바깥 길을 짚었고 퍼시벌은 약한 여행자의 짐을 그 몫에 더하지 않았다.",
-          "card": "gbf_vane",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "베인과 더 강한 적이 드나드는 길목을 맡았다. 베인은 네가 고른 바깥 길을 짚었고 퍼시벌은 약한 여행자의 짐을 그 몫에 더하지 않았다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
+          "card": "gbf_vane_growth_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 1,
+          "cost": 350,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "퍼시벌과 짐의 무게와 길목을 다시 분배한다",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
           "card": "gbf_percival_tie",
           "card2": null,
-          "cost": 160,
+          "cost": 875,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "퍼시벌은 각자의 역량에 맞춰 짐과 이동 경로를 공정하게 재조정한다. 당신은 무리한 부담을 나누어 효율적으로 운반하는 법을 기억한다."
+          "result": "퍼시벌은 각자의 역량에 맞춰 짐과 이동 경로를 공정하게 재조정한다. 당신은 무리한 부담을 나누어 효율적으로 운반하는 법을 기억한다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다."
         }
       ],
       "failure": null,
       "canonFact": "공식 퍼시벌의 약자를 돕는 이상과 베인의 보호 역할에서 창작한 짐의 부담 문제다. 실제 국가 정책·체력 지불·노동자 시스템·원작 결말을 만들지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_percival_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_percival_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_yodarha_foot",
@@ -2047,47 +2229,49 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "도구 값을 내고 요달라하와 발을 옮길 간격을 짚는다",
-          "result": "도구 값을 내고 요달라하와 발을 옮길 간격을 짚었다. 준비에 210골드를 썼다. 요달라하는 발을 놓을 곳부터 비웠고 낚싯대의 끝은 여전히 물가 쪽에 두었다.",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "도구 값을 내고 요달라하와 발을 옮길 간격을 짚었다. 요달라하는 발을 놓을 곳부터 비웠고 낚싯대의 끝은 여전히 물가 쪽에 두었다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
           "card": "gbf_yodarha_wait",
           "card2": null,
           "gold": 0,
-          "cost": 210,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "나루메아에게 바깥 통로를 함께 살피자고 한다",
-          "result": "나루메아는 발을 놓을 곳부터 확인한 뒤 검을 고쳐 잡는다. 힘을 먼저 쓰기보다 주변의 간격을 살피는 움직임을 기억한다.",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "나루메아는 발을 놓을 곳부터 확인한 뒤 검을 고쳐 잡는다. 힘을 먼저 쓰기보다 주변의 간격을 살피는 움직임을 기억한다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
           "card": "gbf_narmaya",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "160골드를 내고 요달라하의 길목을 좁혀 확보한다",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
           "card": "gbf_yodarha_spacing",
           "card2": null,
-          "cost": 160,
+          "cost": 875,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "요달라하는 네가 지불한 대가를 확인하고는 낚싯대를 고쳐 잡으며 자리를 정리한다. 그는 네가 이동할 경로를 미리 확보해 주며 효율적인 동선을 제시한다."
+          "result": "요달라하는 네가 지불한 대가를 확인하고는 낚싯대를 고쳐 잡으며 자리를 정리한다. 그는 네가 이동할 경로를 미리 확보해 주며 효율적인 동선을 제시한다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다."
         }
       ],
       "failure": null,
       "canonFact": "공식 낚시꾼을 자처하는 검호의 숨은 기량에서 별도 짐을 피하는 장면을 창작했다. 실제 낚시 결과·물고기 판매·비밀 강제 공개·원작 검법은 지급하지 않는다.",
       "uncertain": [],
-      "actionCost": 0,
-      "icon": "war3mapImported\\UI_Card_GBF_yodarha_Art.tga"
+      "actionCost": 1,
+      "icon": "war3mapImported\\UI_Card_GBF_yodarha_Art.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_io_audience",
@@ -2099,46 +2283,49 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "바닥 표시 용품을 내고 이오와 보는 자리를 나눈다",
-          "result": "바닥 표시 용품을 내고 이오와 보는 자리를 나눴다. 준비에 170골드를 썼다. 이오는 앞줄을 나눠 놓고 관객이 보는 방향부터 다시 물었다.",
-          "card": "gbf_io_smile",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "바닥 표시 용품을 내고 이오와 보는 자리를 나눴다. 이오는 앞줄을 나눠 놓고 관객이 보는 방향부터 다시 물었다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "gbf_io",
           "card2": null,
           "gold": 0,
-          "cost": 170,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "라캄에게 바깥 길의 상황을 함께 확인하자고 한다",
-          "result": "라캄은 짐을 내려놓고 아직 확인하지 않은 길을 짚는다. 출발하기 전에 되돌아올 경로까지 살피는 준비를 익힌다.",
-          "card": "gbf_rackam_signal",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "라캄은 짐을 내려놓고 아직 확인하지 않은 길을 짚는다. 출발하기 전에 되돌아올 경로까지 살피는 준비를 익힌다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
+          "card": "zegagrande_main_02_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "140골드로 보급을 마련하고 이오와 크게 보이기 전에 남은 자리를 나눈다",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
           "card": "gbf_io_pause",
           "card2": null,
-          "cost": 140,
+          "cost": 875,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "140골드로 보급을 마련하고 이오와 크게 보이기 전에 남은 자리를 나눴다. 이오는 남은 자리를 짚었지만 작은 시범을 더 크게 한다는 답은 아직 하지 않았다."
+          "result": "이오는 남은 자리를 짚었지만 작은 시범을 더 크게 한다는 답은 아직 하지 않았다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다."
         }
       ],
       "failure": null,
       "canonFact": "공식 이오의 미소를 전하려는 바람과 비의 여행 파트너 역할에서 관객 자리 문제를 창작했다. 추가 마법·관객 유닛·공연 성공 판정·즉시 회복을 만들지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "gbf_rolan_next_request",
@@ -2147,50 +2334,52 @@
       "intro": "익힌 안내 경험으로 다음 부탁의 몫을 정한다.",
       "previous": null,
       "previousChoice": 0,
-      "requiredCard": "gbf_rolan_guide",
+      "requiredCard": null,
       "actionCost": 1,
       "failure": null,
       "canonFact": "공식 임시 동행자 롤란·길을 함께하는 비·관찰자 로제타·조타사 라캄의 역할을 활용한 별도 부탁이다. 자신의 안내카드 보유가 개인 자격이며 같은 날의 선형 본편 진행이나 비밀·신관 직업·세계 위기 해결은 아니다. 행동력 추가는 방문 횟수이며 사냥 제한시간은 늘지 않는다.",
       "uncertain": [],
       "choices": [
         {
-          "label": "220골드로 내 준비를 마련하고 롤란에게 다음 부탁의 몫까지 답한다",
-          "card": "gbf_rolan_reply",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "card": "gbf_rolan_guide",
           "card2": null,
-          "cost": 220,
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "220골드로 내 준비를 마련하고 롤란에게 다음 부탁의 몫까지 답했다. 롤란은 다음에도 맡겠다는 네 답을 남겼고 비는 이번 부탁의 목적을 다시 물었다."
+          "result": "롤란은 다음에도 맡겠다는 네 답을 남겼고 비는 이번 부탁의 목적을 다시 물었다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다."
         },
         {
-          "label": "180골드를 내고 로제타와 부탁 담당 길목을 좁힌다",
+          "label": "기본 구매 · 보스 피해 +6%",
           "card": "gbf_rosetta_margin",
           "card2": null,
-          "cost": 180,
+          "cost": 350,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "로제타는 네가 지불한 비용을 확인하고는 효율적인 업무 배분을 위해 목록을 재정리한다. 그녀는 네가 맡을 구간을 명확히 구분하며 불필요한 동선을 제거한다."
+          "result": "로제타는 네가 지불한 비용을 확인하고는 효율적인 업무 배분을 위해 목록을 재정리한다. 그녀는 네가 맡을 구간을 명확히 구분하며 불필요한 동선을 제거한다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다."
         },
         {
-          "label": "라캄과 협력하여 바깥 길의 짐을 직접 운반한다",
-          "card": "gbf_rackam_balance",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
+          "card": "zegagrande_main_02_1",
           "card2": null,
-          "cost": 0,
+          "cost": 875,
           "gold": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "라캄은 네가 짐을 맡겠다고 하자 든든한 듯 웃으며 무거운 짐꾸러미를 건네준다. 그는 네가 짐을 옮기는 동안 바깥 길의 상황을 실시간으로 파악한다."
+          "result": "라캄은 네가 짐을 맡겠다고 하자 든든한 듯 웃으며 무거운 짐꾸러미를 건네준다. 그는 네가 짐을 옮기는 동안 바깥 길의 상황을 실시간으로 파악한다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다."
         }
       ],
-      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     },
     {
       "key": "zegagrande_main_01",
@@ -2198,7 +2387,7 @@
       "intro": "새로운 공역을 앞두고 루리아가 갑판에서 기다린다.",
       "story": "기공정 그랑사이퍼가 제가 그랑데 공역에 가까워진다. 단장의 목적지는 아버지가 기다린다는 이스타르시아다. 작은 용 비와 동료들이 그 여행을 함께한다.\n\n곁에 선 루리아는 성정수와 마음을 잇는 소녀다. 과거 죽어 가던 단장에게 생명을 나눈 뒤 두 사람의 목숨은 이어졌다.\n\n그녀가 낯선 섬들을 바라보다 단장 쪽으로 돌아선다. “이번에는 어떤 곳일까요?”",
       "mainStage": 1,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2240,7 +2429,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2248,7 +2437,9 @@
         "commonResult": "라캄이 조타를 맡은 그랑사이퍼가 새로운 하늘로 들어선다. 기공단은 낯선 섬들 사이로 항로를 이어 간다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_02",
@@ -2256,7 +2447,7 @@
       "intro": "부서진 갑판 너머로 루리아의 모습이 사라진다.",
       "story": "공역에 들어선 배를 마물들이 덮친다. 루리아가 동료들을 지키려고 부른 바하무트까지 통제를 잃자, 기공단은 힘을 합쳐 폭주를 진정시킨다.\n\n그러나 그랑사이퍼는 이미 손상되었다. 흔들리는 갑판에서 루리아가 하늘 아래로 떨어진다.\n\n비가 다급히 그녀의 이름을 부른다. 단장은 난간을 향해 몸을 돌린다.",
       "mainStage": 2,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2264,7 +2455,7 @@
         {
           "label": "단장 · “루리아, 지금 갈게!”",
           "result": "단장은 그녀가 떨어진 쪽으로 뛰어내린다. 비도 뒤따르며 루리아를 놓치지 않으려 한다.",
-          "card": "zegagrande_main_02_1",
+          "card": "gbf_rackam_balance",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2276,7 +2467,7 @@
         {
           "label": "단장 · 비에게 루리아의 위치를 살펴 달라고 한다.",
           "result": "비가 아래를 확인하며 날아간다. 단장도 곧바로 몸을 던져 루리아를 따라간다.",
-          "card": "zegagrande_main_02_2",
+          "card": "zegagrande_main_02_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2288,7 +2479,7 @@
         {
           "label": "단장 · 망설이지 않고 난간을 넘는다.",
           "result": "비가 단장 뒤를 따른다. 멀어지는 배보다 아래에 있는 루리아를 먼저 찾아야 한다.",
-          "card": "zegagrande_main_02_3",
+          "card": "zegagrande_main_08_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2298,7 +2489,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Head_Official_zegagrande_Icon.tga",
@@ -2306,7 +2497,9 @@
         "enabled": true,
         "commonResult": "숲에서 다시 만난 단장과 루리아, 비는 다른 동료들과 합류한다. 배는 하늘에 남았지만 손상이 커 바로 항해할 수 없다. 일행은 수리를 위해 가까운 마을 폴카로 향한다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_03",
@@ -2314,7 +2507,7 @@
       "intro": "템피얼의 구조 소식을 들은 롤란이 일행을 바라본다.",
       "story": "폴카의 해결사 롤란은 낯선 공역에 내려온 기공단에게 마을 사정을 알려 준다. 배를 수리하며 숨을 돌리던 중, 이웃 마을 템피얼이 폭풍과 마물 때문에 위험하다는 소식이 온다.\n\n롤란은 그곳에 아직 주민들이 남아 있다고 설명한다. 기공단도 이 마을에서 도움을 받은 참이다. 단장은 수리 중인 배와 걱정하는 주민들을 번갈아 본다.",
       "mainStage": 3,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2322,7 +2515,7 @@
         {
           "label": "단장 · “배를 기다리는 동안 우리가 도울 수 있겠어.”",
           "result": "롤란은 함께해 준다면 큰 힘이 되겠다며 템피얼로 가는 길을 설명한다.",
-          "card": "zegagrande_main_03_1",
+          "card": "gbf_rolan_guide",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2356,7 +2549,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_ZGE_folca.tga",
@@ -2364,7 +2557,9 @@
         "enabled": true,
         "commonResult": "기공단은 롤란과 함께 템피얼로 향한다. 폭풍 속 마을에 도착한 일행은 갇힌 주민들을 찾아 나선다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_04",
@@ -2372,7 +2567,7 @@
       "intro": "고블린을 물리쳤는데도 바람은 멎지 않는다.",
       "story": "템피얼의 고블린들은 폭풍을 틈타 주민들을 붙잡았다. 기공단은 포로들을 풀어 주고 우두머리도 쓰러뜨린다.\n\n하지만 마을을 흔드는 바람은 여전하다. 구출한 사람들을 안전한 곳으로 옮기던 루리아가 거센 바람 너머를 살핀다.\n\n눈앞의 마물과는 다른 힘을 느낀 듯하다. 롤란도 이것으로 구조가 끝난 것은 아니라고 말한다.",
       "mainStage": 4,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2414,7 +2609,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2422,7 +2617,9 @@
         "commonResult": "폭풍의 근원은 성정수 퓨리칸이었다. 기공단은 구출한 주민들을 뒤로하고, 폭주한 성정수를 진정시키러 향한다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_05",
@@ -2430,7 +2627,7 @@
       "intro": "낯선 지도자와 검사가 루리아를 요구한다.",
       "story": "퓨리칸의 폭주를 진정시킨 기공단 앞에 아비아의 지도자 릴리스와 검사 이드가 나타난다. 그들이 원하는 것은 성정수의 힘을 다룰 수 있는 루리아다.\n\n루리아가 동료들 가까이 물러선다. 이드의 검이 길을 가로막고, 단장은 루리아와 적 사이에 선다.",
       "mainStage": 5,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2438,7 +2635,7 @@
         {
           "label": "단장 · “루리아는 우리와 함께 간다.”",
           "result": "동료들도 단장 곁으로 모인다. 이드가 밀고 들어오자 일행은 루리아를 지키며 맞선다.",
-          "card": "zegagrande_main_05_1",
+          "card": "zegagrande_main_04_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2450,7 +2647,7 @@
         {
           "label": "단장 · “루리아, 우리 뒤에 있어.”",
           "result": "카타리나가 루리아를 감싼다. 단장과 동료들은 다가오는 검을 받아낸다.",
-          "card": "zegagrande_main_05_2",
+          "card": "zegagrande_main_04_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2462,7 +2659,7 @@
         {
           "label": "단장 · 검을 들어 이드의 앞을 막는다.",
           "result": "이드의 강한 일격이 방어를 밀어낸다. 기공단은 서로를 엄호하며 버티려 한다.",
-          "card": "zegagrande_main_05_3",
+          "card": "zegagrande_main_04_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2472,7 +2669,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2480,7 +2677,9 @@
         "commonResult": "기공단은 이드의 힘을 막아 내지 못하고 루리아를 빼앗긴다. 상처 입은 일행은 폴카로 돌아와 전열을 추스른다. 배를 고치는 일은 이제 붙잡힌 동료를 추적하기 위한 준비가 된다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_06",
@@ -2488,7 +2687,7 @@
       "intro": "적 함대가 그랑사이퍼의 항로를 막는다.",
       "story": "롤란은 루리아를 찾는 기공단과 동행한다. 수리를 마친 그랑사이퍼가 출항하지만, 아비아의 함대가 앞을 가로막는다.\n\n다음 목적지는 설산의 수도원이다. 롤란의 지인 히스토리아에게서 단서를 구하려면 이 항로부터 통과해야 한다.\n\n라캄이 조타를 붙잡고 동료들에게 대비하라고 외친다.",
       "mainStage": 6,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2530,7 +2729,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2538,7 +2737,9 @@
         "commonResult": "기공단은 공중전을 버티고 막힌 항로를 뚫는다. 롤란의 안내를 따라 설산에 도착한 일행은 수도원 쪽으로 나아간다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_GBF_rackam_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rackam_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_07",
@@ -2546,7 +2747,7 @@
       "intro": "눈앞의 루리아에게 동료들의 말이 닿지 않는다.",
       "story": "설산에서 루리아를 찾았지만 그녀는 스스로 행동하지 못한다. 릴리스가 채운 구속구가 의지를 억누르고 있다.\n\n이드와 성정수 마나가름이 일행의 앞을 막는다. 기공단은 루리아의 이름을 부르며 다가가려 한다.\n\n단장은 구속구를 확인한 뒤, 동료들과 함께 적의 공격을 막아 낸다.",
       "mainStage": 7,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2588,7 +2789,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2596,7 +2797,9 @@
         "commonResult": "전투 뒤에도 루리아는 구속에서 풀려나지 못한다. 성정수를 흡수한 그녀가 적들과 함께 떠나자, 일행은 승리만으로 구할 수 없음을 깨닫는다. 롤란의 제안대로 구속 해제 정보를 찾아 수도 시드홀름으로 향한다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_08",
@@ -2604,7 +2807,7 @@
       "intro": "자스바가 사막 유적의 장치를 설명한다.",
       "story": "시드홀름의 정보통 자스바에게서 루리아의 구속구를 풀 단서를 얻는다. 고대 장치를 찾아야 하며, 그것은 사막의 유적에 있다.\n\n설산에서는 동료를 눈앞에 두고도 데려오지 못했다. 루리아의 뜻을 되찾을 수단이 필요하다.\n\n단장은 유적으로 향하기 전에 자스바가 알려 준 내용을 동료들과 확인한다.",
       "mainStage": 8,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2612,7 +2815,7 @@
         {
           "label": "단장 · “이번에는 풀어 줄 방법부터 챙기자.”",
           "result": "카타리나는 루리아가 제 뜻으로 돌아올 수 있어야 한다며 동의한다.",
-          "card": "zegagrande_main_08_1",
+          "card": "zegagrande_main_08_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2624,7 +2827,7 @@
         {
           "label": "단장 · “장치가 있는 곳까지 안내를 부탁해.”",
           "result": "자스바에게 받은 단서를 다시 확인한다. 일행은 유적에서 찾아야 할 것을 정리한다.",
-          "card": "zegagrande_main_08_2",
+          "card": "zegagrande_main_08_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2636,7 +2839,7 @@
         {
           "label": "단장 · “루리아에게 돌아갈 때 빈손일 수는 없어.”",
           "result": "비가 꼭 장치를 찾자며 힘을 보탠다. 기공단은 사막으로 출발할 준비를 한다.",
-          "card": "zegagrande_main_08_3",
+          "card": "zegagrande_main_08_3_growth_9",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2646,14 +2849,16 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
         "enabled": true,
         "commonResult": "일행은 사막 유적을 탐색해 필요한 장치를 확보한다. 구속구를 해제할 수단을 얻은 기공단은 루리아를 따라 화산 지역으로 향한다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_09",
@@ -2661,7 +2866,7 @@
       "intro": "루리아를 구하려는 이드와 잠시 목적이 겹친다.",
       "story": "화산의 성정수 볼칸 볼라가 기공단과 이드를 함께 위협한다. 루리아도 그 힘에 붙잡혀 있다.\n\n그녀를 빼앗아 갔던 적이지만, 지금 이드 역시 루리아를 구하려 한다. 단장은 사막에서 가져온 장치를 확인한다.\n\n먼저 성정수의 위협을 넘어야 루리아에게 닿을 수 있다.",
       "mainStage": 9,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2703,7 +2908,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2726,7 +2931,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_10",
@@ -2734,7 +2941,7 @@
       "intro": "롤란이 오래 숨긴 자신의 출신을 이야기하려 한다.",
       "story": "루리아를 다시 쫓기 전에 롤란이 일행을 부른다. 릴리스가 성정수와 루리아의 힘에 집착하는 이유를 설명해야 할 때다.\n\n폴카에서 길을 안내하던 그는 이번 일에 대해 아는 것이 있었다. 단장은 롤란이 말을 잇기를 기다린다.",
       "mainStage": 10,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2742,7 +2949,7 @@
         {
           "label": "단장 · “무엇을 알고 있는지 들려줘.”",
           "result": "롤란은 자신과 릴리스가 이 하늘에 남은 별의 민족이라고 밝힌다. 동료들은 그의 설명에 귀를 기울인다.",
-          "card": "zegagrande_main_10_1",
+          "card": "zegagrande_main_06_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2754,7 +2961,7 @@
         {
           "label": "단장 · “릴리스는 루리아를 어디로 데려가려는 거야?”",
           "result": "롤란은 단순히 누군가를 데려가려는 계획이 아니라고 말한다. 자신과 릴리스의 출신부터 설명한다.",
-          "card": "zegagrande_main_10_2",
+          "card": "zegagrande_main_06_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2766,7 +2973,7 @@
         {
           "label": "단장 · “우리와 함께 온 이유도 그 일과 관련 있어?”",
           "result": "롤란은 그렇다고 답한다. 그는 같은 별의 민족인 릴리스와 자신이 다른 길을 택했다고 말한다.",
-          "card": "zegagrande_main_10_3",
+          "card": "zegagrande_main_06_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2776,7 +2983,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2799,7 +3006,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_11",
@@ -2807,7 +3016,7 @@
       "intro": "공격받는 시드홀름에서 루리아에게 닿을 길을 찾는다.",
       "story": "시드홀름은 아비아의 공격에 휩싸여 있다. 이드와 성정수 앙그라마이뉴가 기공단 앞을 막는다.\n\n돌아온 일행은 무너지는 도시에서 루리아를 되찾아야 한다. 롤란이 동료들과 함께 적의 움직임을 살핀다.\n\n단장은 루리아가 있는 쪽으로 나아가기 위해 자세를 잡는다.",
       "mainStage": 11,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2849,7 +3058,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2872,7 +3081,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_12",
@@ -2880,7 +3091,7 @@
       "intro": "이드가 릴리스의 명령을 거부하고 손을 내민다.",
       "story": "바요이의 탑으로 향하는 기공단 앞에서 이드는 더는 릴리스가 요구하는 희생을 따르지 않겠다는 뜻을 밝힌다. 루리아를 빼앗아 갔던 검사지만, 화산에서는 함께 그녀를 구했다.\n\n지금 롤란을 구하고 의식을 막으려는 목표가 같다. 단장은 이드의 협력에 답해야 한다.",
       "mainStage": 12,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2922,7 +3133,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2945,7 +3156,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_13",
@@ -2953,7 +3166,7 @@
       "intro": "차원의 틈에서 롤란이 돌아갈 길을 열려 한다.",
       "story": "기공단과 롤란의 도움으로 베르사에서 분리된 이드가 통제를 되찾는다. 일행은 베르사를 차원의 틈으로 밀어내지만 단장과 이드도 함께 갇힌다.\n\n롤란이 두 사람을 돌려보내려 한다. 아직 자신까지 함께 나갈 수 있다는 약속은 하지 않는다.\n\n단장은 그를 바라보며 손을 뻗는다.",
       "mainStage": 13,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2995,7 +3208,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -3003,7 +3216,9 @@
         "commonResult": "루리아와 일행은 단장과 이드를 맞는다. 그러나 롤란의 자리는 비어 있다. 기공단은 그를 죽었다고 단정하지 않고 돌아오게 할 방법을 찾는다. 그가 끝내지 못한 의뢰와 남긴 흔적부터 살피기로 한다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "zegagrande_main_14",
@@ -3011,7 +3226,7 @@
       "intro": "롤란의 일지 끝에서 돌아갈 문을 열 준비를 한다.",
       "story": "기공단은 롤란이 남긴 의뢰를 대신 해결하며 일지와 흔적을 모은다. 그를 구출할 단서를 찾기까지 다시 수고와 시간이 필요했다.\n\n마침내 이드에게 남은 베르사의 힘과 루리아의 힘으로 차원의 틈을 다시 열 준비가 된다. 지난번에는 롤란의 도움으로 두 사람만 돌아왔다.\n\n단장은 이번에 함께 데려올 사람을 떠올린다.",
       "mainStage": 14,
-      "actionCost": 1,
+      "actionCost": 8,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3031,7 +3246,7 @@
         {
           "label": "단장 · “길을 열어 줘. 안에서는 우리가 힘을 보탤게.”",
           "result": "두 사람의 힘이 돌아갈 길을 만든다. 단장과 동료들이 그 안으로 나아간다.",
-          "card": "zegagrande_main_ending_memorial",
+          "card": "zegagrande_main_ending_memorial_growth_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3043,7 +3258,7 @@
         {
           "label": "단장 · “롤란에게 아직 답하지 못한 인사가 있어.”",
           "result": "비도 그를 꼭 데려오자고 말한다. 기공단은 다시 열린 틈으로 들어간다.",
-          "card": "zegagrande_main_ending_memorial",
+          "card": "zegagrande_main_ending_memorial_growth_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3053,7 +3268,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "리링크의 루리아 구출과 롤란 귀환을 소재로 한 기억의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -3080,7 +3295,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
+      "growthRole": "main_final",
+      "rewardPreview": "완결 · C 스킬 대미지 +100%"
     },
     {
       "key": "zegagrande_epilogue_memory",
@@ -3088,55 +3305,58 @@
       "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
       "story": "롤란을 구해 돌아온 뒤, 기공단은 다음 항해를 준비한다. 이드가 공역의 사람들을 돕는 길과 기공단의 항로가 늘 같을 필요는 없다.\n\n그랑사이퍼를 타고 지나온 일을 돌아보면, 목적지에 닿는 것만큼 동료가 돌아올 길을 남기는 일이 중요했다.",
       "epilogue": true,
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "“배를 움직이는 사람의 수고도 기억하고 싶어.”",
-          "result": "라캄의 조타가 있어 기공단은 넓은 공역을 건너 함께 움직일 수 있었다. 싸움의 한가운데만 바라보면 놓치기 쉬운 항해의 몫이 떠오른다.",
-          "card": "gbf_rackam",
+          "label": "기본 구매 · C 스킬 대미지 +6%",
+          "result": "라캄의 조타가 있어 기공단은 넓은 공역을 건너 함께 움직일 수 있었다. 싸움의 한가운데만 바라보면 놓치기 쉬운 항해의 몫이 떠오른다.\n350골드를 지불하고 C 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "gbf_rackam_balance",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "“지켜야 할 사람과 다시 함께 갈 수 있게 되었네.”",
-          "result": "루리아를 지키려던 카타리나의 마음은 구출이 끝났다고 사라지지 않는다. 다시 이어갈 평범한 항해에도 그 곁을 지키는 관계가 함께한다.",
-          "card": "gbf_katalina",
+          "label": "기본 구매 · 보스 피해 +6%",
+          "result": "루리아를 지키려던 카타리나의 마음은 구출이 끝났다고 사라지지 않는다. 다시 이어갈 평범한 항해에도 그 곁을 지키는 관계가 함께한다.\n350골드를 지불하고 보스 피해 +6% 효과를 얻었다.",
+          "card": "zegagrande_main_05_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "“경험이 많아도 동료의 귀환을 당연하게 여기지는 않겠지.”",
-          "result": "오이겐 같은 노련한 동료와 함께한 여정을 돌아본다. 수많은 싸움을 안다는 것이 다음 귀환을 보장하지는 않기에, 이번에 함께 돌아온 사람들의 존재가 더 소중하다.",
-          "card": "gbf_eugen",
+          "label": "집중 구매 · C 스킬 대미지 +12%",
+          "result": "오이겐 같은 노련한 동료와 함께한 여정을 돌아본다. 수많은 싸움을 안다는 것이 다음 귀환을 보장하지는 않기에, 이번에 함께 돌아온 사람들의 존재가 더 소중하다.\n875골드를 지불하고 C 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "gbf_eugen_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "growthRole": "shop",
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
     }
   ],
   "reviewRecords": [
     "7713e676-2076-467c-a24d-f49b7ed65203",
     "d1b5a194-5ac3-4e14-a1ad-b50c2957e44d"
-  ]
+  ],
+  "balanceVersion": 1
 }

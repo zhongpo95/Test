@@ -88,6 +88,7 @@ library ExpeditionEffects requires DataExpedition, DataPrototype, DataUnit, Atta
         local boolean directional = (head and HeadTrue(AngleWBW(source, target), GetUnitFacing(target))) or (back and BackTrue(AngleWBW(source, target), GetUnitFacing(target)))
         if ExpPrototypeActive and ExpMember[pid] then
             set value = ProtoStat(pid, PROTO_STAT_MOVING) * RMinBJ(1.0, RMaxBJ(0.0, (GetUnitMoveSpeed(source) / 400.0 - 1.0) / 0.40))
+            set value = value + ProtoStat(pid, PROTO_STAT_MOVE_SCALE) * RMinBJ(40.0, RMaxBJ(0.0, Stat_MoveSpeed[pid] + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] + ProtoStat(pid, PROTO_STAT_MOVE)))
             if directional then
                 set value = value + ProtoStat(pid, PROTO_STAT_DIRECTION)
             elseif not head and not back then

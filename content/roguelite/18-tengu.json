@@ -6,8 +6,8 @@
     "intro": "평범한 등굣길에 공간진 경보가 울린다. 이츠카 시도는 정령을 쓰러뜨리는 대신 대화할 방법을 찾으며, 함께 돌아갈 일상을 조금씩 넓혀 간다.",
     "effects": [
       {
-        "stat": "crit_chance",
-        "value": 2
+        "stat": "s_skill_damage",
+        "value": 3
       }
     ],
     "entryCard": "dal_shido",
@@ -15,15 +15,14 @@
       "title": "다시 함께 돌아갈 하루",
       "length": 12,
       "focus": [
-        "crit_chance",
-        "swift",
-        "healthy_damage"
+        "s_skill_damage"
       ],
       "source": "TV 애니메이션 1기 1~12화. 첫 공간진부터 코토리와의 데이트 및 오리가미의 습격까지. 2기 이후의 정령과 진상은 포함하지 않는다.",
       "adaptation": "공식 애니메이션의 사건 순서 안에서 방문자가 덧붙이는 반응과 기억을 창작했다. 세 행동은 같은 다음 장으로 이어지며 원작 결말을 바꾸지 않는다."
     },
     "icon": "war3mapImported\\UI_Card_XP_tengu_head_Icon.tga",
-    "entryIcon": "war3mapImported\\UI_Event_XP_tengu_head.tga"
+    "entryIcon": "war3mapImported\\UI_Event_XP_tengu_head.tga",
+    "completionText": "S 스킬 대미지 +90%"
   },
   "sources": [
     "https://date-a-live-anime.com/1st-2nd/story/season1_01.html",
@@ -45,16 +44,12 @@
       "key": "dal_shido",
       "name": "이츠카 시도",
       "effectName": "먼저 듣는 대답",
-      "keyword": "공격 · 재생",
+      "keyword": "스킬가속 +2.5",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "skill_haste",
+          "value": 2.5
         }
       ],
       "evolution": {
@@ -63,22 +58,19 @@
         "effects": []
       },
       "canonFact": "대화와 준비를 공격·회복으로 각색한다. 원작의 봉인 능력을 실제 기능으로 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "entry"
     },
     {
       "key": "dal_tohka",
       "name": "야토가미 토카",
       "effectName": "망설임을 넘는 일격",
-      "keyword": "공격 · 차지",
+      "keyword": "S 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "charge_damage",
-          "value": 4
+          "stat": "s_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -87,22 +79,19 @@
         "effects": []
       },
       "canonFact": "차지 태그 공격을 쓰는 캐릭터용 조건부 카드이며 모든 공격에 적용된다고 쓰지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "dal_origami",
       "name": "토비이치 오리가미",
       "effectName": "목표를 놓치지 않는 시선",
-      "keyword": "보스 · 관통",
+      "keyword": "S 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 2
+          "stat": "s_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -111,22 +100,19 @@
         "effects": []
       },
       "canonFact": "정밀한 공격이라는 창작 능력치 배분.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "dal_kotori",
       "name": "이츠카 코토리",
       "effectName": "마지막까지 이어지는 지시",
-      "keyword": "대미지 · 피해 감소",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "damage_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "s_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -135,22 +121,19 @@
         "effects": []
       },
       "canonFact": "공격과 생존을 함께 주는 지휘 보상. 자해 비용 없음.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "dal_yoshino",
       "name": "요시노",
       "effectName": "차분히 고른 말",
-      "keyword": "내 체력 65% 이상 피해 · 재생",
+      "keyword": "S 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 4
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "s_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -159,22 +142,19 @@
         "effects": []
       },
       "canonFact": "빙결·소환·무적 기능을 새로 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "dal_kurumi",
       "name": "토키사키 쿠루미",
       "effectName": "놓치지 않는 순간",
-      "keyword": "치명 · 흡수",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "leech",
-          "value": 1.5
+          "stat": "s_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -183,22 +163,19 @@
         "effects": []
       },
       "canonFact": "시각적 소재를 치명·흡수로 각색한다. 시간 정지와 수명 지불은 구현하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "dal_tohka_walk",
       "name": "야토가미 토카",
       "effectName": "낯선 길의 즐거움",
-      "keyword": "낯선 길의 즐거움",
+      "keyword": "스킬가속 +5",
       "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 2
-        },
-        {
-          "stat": "moving_damage",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 5
         }
       ],
       "evolution": {
@@ -207,22 +184,19 @@
         "effects": []
       },
       "canonFact": "일상에서 얻은 기억을 능력치로 각색한 창작 카드다. 인물의 원작 능력을 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "dal_yoshino_reply",
       "name": "요시노",
       "effectName": "작은 대답을 기다리는 동안",
-      "keyword": "작은 대답을 기다리는 동안",
+      "keyword": "스킬가속 +5",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 5
         }
       ],
       "evolution": {
@@ -231,22 +205,19 @@
         "effects": []
       },
       "canonFact": "일상에서 얻은 기억을 능력치로 각색한 창작 카드다. 인물의 원작 능력을 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "dal_kotori_schedule",
       "name": "이츠카 코토리",
       "effectName": "약속을 남겨 두는 일정",
-      "keyword": "약속을 남겨 두는 일정",
+      "keyword": "S 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "action_capacity",
-          "value": 1
-        },
-        {
-          "stat": "attack_percent",
-          "value": 1
+          "stat": "s_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -255,22 +226,19 @@
         "effects": []
       },
       "canonFact": "일상에서 얻은 기억을 능력치로 각색한 창작 카드다. 인물의 원작 능력을 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "tengu_main_01_1",
       "name": "이츠카 시도",
       "effectName": "빈손으로 건네는 첫말",
-      "keyword": "빈손으로 건네는 첫말",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "damage_percent",
-          "value": 3
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "s_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -279,21 +247,18 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 빈손으로 건네는 첫말라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_01_2",
       "name": "야토가미 토카",
       "effectName": "칼날 너머의 표정",
-      "keyword": "칼날 너머의 표정",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -303,22 +268,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 칼날 너머의 표정라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_01_3",
       "name": "토비이치 오리가미",
       "effectName": "접근하기 전의 판단",
-      "keyword": "접근하기 전의 판단",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -327,22 +289,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 접근하기 전의 판단라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_02_1",
       "name": "이츠카 시도",
       "effectName": "말 뒤에 남기는 여유",
-      "keyword": "말 뒤에 남기는 여유",
+      "keyword": "스킬가속 +5",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
+          "stat": "skill_haste",
           "value": 5
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
         }
       ],
       "evolution": {
@@ -351,22 +310,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 말 뒤에 남기는 여유라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "tengu_main_02_2",
       "name": "이츠카 코토리",
       "effectName": "흩어진 지시의 중심",
-      "keyword": "흩어진 지시의 중심",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -375,69 +331,18 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 흩어진 지시의 중심라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_02_3",
       "name": "이츠카 시도",
       "effectName": "대본에 없는 대답",
-      "keyword": "대본에 없는 대답",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "공식 메인 사건에 대한 방문자의 대본에 없는 대답라는 반응을 능력치로 각색한다.",
-      "uncertain": []
-    },
-    {
-      "key": "tengu_main_03_1",
-      "name": "야토가미 토카",
-      "effectName": "같은 것을 바라보는 걸음",
-      "keyword": "같은 것을 바라보는 걸음",
-      "grade": 1,
-      "effects": [
-        {
-          "stat": "move_speed",
-          "value": 2
-        },
-        {
-          "stat": "moving_damage",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "공식 메인 사건에 대한 방문자의 같은 것을 바라보는 걸음라는 반응을 능력치로 각색한다.",
-      "uncertain": []
-    },
-    {
-      "key": "tengu_main_03_2",
-      "name": "이츠카 시도",
-      "effectName": "질문으로 넓어지는 거리",
-      "keyword": "질문으로 넓어지는 거리",
-      "grade": 1,
-      "effects": [
-        {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -446,23 +351,62 @@
         "goal": 0,
         "effects": []
       },
-      "canonFact": "공식 메인 사건에 대한 방문자의 질문으로 넓어지는 거리라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "canonFact": "공식 메인 사건에 대한 방문자의 대본에 없는 대답라는 반응을 능력치로 각색한다.",
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
-      "key": "tengu_main_03_3",
-      "name": "토비이치 오리가미",
-      "effectName": "즐거운 날의 경계",
-      "keyword": "즐거운 날의 경계",
+      "key": "tengu_main_03_1",
+      "name": "야토가미 토카",
+      "effectName": "같은 것을 바라보는 걸음",
+      "keyword": "S 스킬 대미지 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "s_skill_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 같은 것을 바라보는 걸음라는 반응을 능력치로 각색한다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "tengu_main_03_2",
+      "name": "이츠카 시도",
+      "effectName": "질문으로 넓어지는 거리",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
           "value": 4
-        },
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 질문으로 넓어지는 거리라는 반응을 능력치로 각색한다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "tengu_main_03_3",
+      "name": "토비이치 오리가미",
+      "effectName": "즐거운 날의 경계",
+      "keyword": "S 스킬 대미지 +6%",
+      "grade": 1,
+      "effects": [
         {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "s_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -471,22 +415,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 즐거운 날의 경계라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "tengu_main_04_1",
       "name": "요시노",
       "effectName": "대답을 지키는 침묵",
-      "keyword": "대답을 지키는 침묵",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 5
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "s_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -495,22 +436,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 대답을 지키는 침묵라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_04_2",
       "name": "이츠카 시도",
       "effectName": "작은 시선을 읽는 순간",
-      "keyword": "작은 시선을 읽는 순간",
+      "keyword": "S 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "crit_damage",
-          "value": 4
+          "stat": "s_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -519,21 +457,18 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 작은 시선을 읽는 순간라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "tengu_main_04_3",
       "name": "이츠카 코토리",
       "effectName": "소란을 걷어 낸 길",
-      "keyword": "소란을 걷어 낸 길",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -543,21 +478,18 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 소란을 걷어 낸 길라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_05_1",
       "name": "이츠카 시도",
       "effectName": "곁에 남는 약속",
-      "keyword": "곁에 남는 약속",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "max_health_percent",
+          "stat": "s_skill_damage",
           "value": 6
         }
       ],
@@ -567,22 +499,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 곁에 남는 약속라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_05_2",
       "name": "토비이치 오리가미",
       "effectName": "잃어버린 흔적의 연결",
-      "keyword": "잃어버린 흔적의 연결",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "penetration",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -591,22 +520,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 잃어버린 흔적의 연결라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_05_3",
       "name": "요시노",
       "effectName": "인형에 담긴 마음",
-      "keyword": "인형에 담긴 마음",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "nondirectional_damage",
-          "value": 7
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -615,21 +541,18 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 인형에 담긴 마음라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_06_1",
       "name": "야토가미 토카",
       "effectName": "휴일을 잇는 발걸음",
-      "keyword": "휴일을 잇는 발걸음",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 3
-        },
-        {
-          "stat": "moving_damage",
+          "stat": "s_skill_damage",
           "value": 6
         }
       ],
@@ -639,21 +562,18 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 휴일을 잇는 발걸음라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_06_2",
       "name": "이츠카 코토리",
       "effectName": "빈칸 없는 연락",
-      "keyword": "빈칸 없는 연락",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 135
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -663,22 +583,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 빈칸 없는 연락라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_06_3",
       "name": "요시노",
       "effectName": "쉬어 갈 수 있는 자리",
-      "keyword": "쉬어 갈 수 있는 자리",
-      "grade": 2,
+      "keyword": "S 스킬 대미지 +15%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 7
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "stat": "s_skill_damage",
+          "value": 15
         }
       ],
       "evolution": {
@@ -687,45 +604,18 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 쉬어 갈 수 있는 자리라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "tengu_main_07_1",
       "name": "토키사키 쿠루미",
       "effectName": "미소 뒤의 한순간",
-      "keyword": "미소 뒤의 한순간",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "leech",
-          "value": 2
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "공식 메인 사건에 대한 방문자의 미소 뒤의 한순간라는 반응을 능력치로 각색한다.",
-      "uncertain": []
-    },
-    {
-      "key": "tengu_main_07_2",
-      "name": "이츠카 시도",
-      "effectName": "호칭에 담긴 질문",
-      "keyword": "호칭에 담긴 질문",
-      "grade": 2,
-      "effects": [
-        {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "crit_damage",
+          "stat": "s_skill_damage",
           "value": 6
         }
       ],
@@ -734,22 +624,40 @@
         "goal": 0,
         "effects": []
       },
+      "canonFact": "공식 메인 사건에 대한 방문자의 미소 뒤의 한순간라는 반응을 능력치로 각색한다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "tengu_main_07_2",
+      "name": "이츠카 시도",
+      "effectName": "호칭에 담긴 질문",
+      "keyword": "공격력 +4%",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
       "canonFact": "공식 메인 사건에 대한 방문자의 호칭에 담긴 질문라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_07_3",
       "name": "이츠카 코토리",
       "effectName": "혼자 맡지 않는 판단",
-      "keyword": "혼자 맡지 않는 판단",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -759,22 +667,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 혼자 맡지 않는 판단라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_08_1",
       "name": "야토가미 토카",
       "effectName": "한순간에 싣는 진심",
-      "keyword": "한순간에 싣는 진심",
+      "keyword": "S 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "charge_damage",
-          "value": 7
+          "stat": "s_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -783,22 +688,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 한순간에 싣는 진심라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "tengu_main_08_2",
       "name": "토비이치 오리가미",
       "effectName": "흐리지 않는 약속",
-      "keyword": "흐리지 않는 약속",
-      "grade": 2,
+      "keyword": "S 스킬 대미지 +15%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "penetration",
-          "value": 3
+          "stat": "s_skill_damage",
+          "value": 15
         }
       ],
       "evolution": {
@@ -807,22 +709,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 흐리지 않는 약속라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "tengu_main_08_3",
       "name": "토키사키 쿠루미",
       "effectName": "대답 사이의 틈",
-      "keyword": "대답 사이의 틈",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
+          "stat": "skill_haste",
           "value": 3
-        },
-        {
-          "stat": "crit_damage",
-          "value": 6
         }
       ],
       "evolution": {
@@ -831,22 +730,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 대답 사이의 틈라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_09_1",
       "name": "야토가미 토카",
       "effectName": "다시 일어설 수 있는 말",
-      "keyword": "다시 일어설 수 있는 말",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "attack_percent",
+          "stat": "s_skill_damage",
           "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
         }
       ],
       "evolution": {
@@ -855,22 +751,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 다시 일어설 수 있는 말라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_09_2",
       "name": "이츠카 시도",
       "effectName": "흔들림을 지나가는 호흡",
-      "keyword": "흔들림을 지나가는 호흡",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 9
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.4
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -879,22 +772,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 흔들림을 지나가는 호흡라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_09_3",
       "name": "토비이치 오리가미",
       "effectName": "희망을 지키는 경계",
-      "keyword": "희망을 지키는 경계",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "penetration",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -903,22 +793,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 희망을 지키는 경계라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_10_1",
       "name": "이츠카 코토리",
       "effectName": "불꽃 너머의 이름",
-      "keyword": "불꽃 너머의 이름",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "attack_percent",
+          "stat": "s_skill_damage",
           "value": 6
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 4
         }
       ],
       "evolution": {
@@ -927,22 +814,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 불꽃 너머의 이름라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_10_2",
       "name": "이츠카 시도",
       "effectName": "남은 시간을 잇는 준비",
-      "keyword": "남은 시간을 잇는 준비",
+      "keyword": "S 스킬 대미지 +3%",
       "grade": 3,
       "effects": [
         {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "damage_percent",
-          "value": 5
+          "stat": "s_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -951,22 +835,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 남은 시간을 잇는 준비라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "tengu_main_10_3",
       "name": "토비이치 오리가미",
       "effectName": "빈칸을 남기는 용기",
-      "keyword": "빈칸을 남기는 용기",
+      "keyword": "S 스킬 대미지 +3%",
       "grade": 3,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 4
-        },
-        {
-          "stat": "crit_damage",
-          "value": 8
+          "stat": "s_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -975,22 +856,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 빈칸을 남기는 용기라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "tengu_main_11_1",
       "name": "이츠카 시도",
       "effectName": "가까운 사이의 질문",
-      "keyword": "가까운 사이의 질문",
+      "keyword": "S 스킬 대미지 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 9
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.4
+          "stat": "s_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -999,22 +877,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 가까운 사이의 질문라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_11_2",
       "name": "이츠카 코토리",
       "effectName": "둘만의 대답을 위한 준비",
-      "keyword": "둘만의 대답을 위한 준비",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
-          "stat": "swift",
-          "value": 180
-        },
-        {
-          "stat": "damage_percent",
-          "value": 5
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -1023,22 +898,19 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 둘만의 대답을 위한 준비라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_11_3",
       "name": "이츠카 시도",
       "effectName": "서두름 속의 약속",
-      "keyword": "서두름 속의 약속",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 8
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1047,15 +919,25 @@
         "effects": []
       },
       "canonFact": "공식 메인 사건에 대한 방문자의 서두름 속의 약속라는 반응을 능력치로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "tengu_main_ending_memorial",
       "name": "텐구시의 기억",
       "effectName": "다시 함께 돌아갈 하루",
-      "keyword": "다시 함께 돌아갈 하루",
+      "keyword": "S 스킬 대미지 +90% · 공격력 +8%",
       "grade": 4,
-      "effects": [],
+      "effects": [
+        {
+          "stat": "s_skill_damage",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 8
+        }
+      ],
       "evolution": {
         "kind": 0,
         "goal": 0,
@@ -1063,7 +945,102 @@
       },
       "canonFact": "코토리를 구하려는 시도의 만남은 일상으로 돌아갈 길을 남긴다. 이 기록은 1기에서 함께 지키려 한 하루를 기억한다. 쿠루미와 남매의 과거에 관한 모든 의문이 풀렸다는 뜻은 아니다.",
       "uncertain": [],
-      "endingCard": true
+      "endingCard": true,
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "tengu_main_ending_memorial_growth_1",
+      "name": "텐구시의 기억",
+      "effectName": "다시 함께 돌아갈 하루",
+      "keyword": "S 스킬 대미지 +90% · 치명타 피해 +16%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "s_skill_damage",
+          "value": 90
+        },
+        {
+          "stat": "crit_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "코토리를 구하려는 시도의 만남은 일상으로 돌아갈 길을 남긴다. 이 기록은 1기에서 함께 지키려 한 하루를 기억한다. 쿠루미와 남매의 과거에 관한 모든 의문이 풀렸다는 뜻은 아니다.",
+      "uncertain": [],
+      "endingCard": true,
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "tengu_main_ending_memorial_growth_2",
+      "name": "텐구시의 기억",
+      "effectName": "다시 함께 돌아갈 하루",
+      "keyword": "S 스킬 대미지 +90% · 스킬가속 +8",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "s_skill_damage",
+          "value": 90
+        },
+        {
+          "stat": "skill_haste",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "코토리를 구하려는 시도의 만남은 일상으로 돌아갈 길을 남긴다. 이 기록은 1기에서 함께 지키려 한 하루를 기억한다. 쿠루미와 남매의 과거에 관한 모든 의문이 풀렸다는 뜻은 아니다.",
+      "uncertain": [],
+      "endingCard": true,
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "dal_kotori_growth_8",
+      "name": "이츠카 코토리",
+      "effectName": "마지막까지 이어지는 지시",
+      "keyword": "스킬가속 +5",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공격과 생존을 함께 주는 지휘 보상. 자해 비용 없음.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "dal_kotori_schedule_growth_9",
+      "name": "이츠카 코토리",
+      "effectName": "약속을 남겨 두는 일정",
+      "keyword": "S 스킬 대미지 +15%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "s_skill_damage",
+          "value": 15
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "일상에서 얻은 기억을 능력치로 각색한 창작 카드다. 인물의 원작 능력을 직접 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "chain_final"
     }
   ],
   "events": [
@@ -1072,14 +1049,14 @@
       "title": "경보 속에서 마주친 소녀",
       "intro": "텅 빈 거리 한가운데, 검을 든 소녀가 서 있다.",
       "story": "공간진 경보로 사람들은 대피했지만 시도는 거리에서 정령과 마주친다. 소녀는 자신을 향한 낯선 시선을 경계한다. 다가갈지 물러설지보다, 먼저 어떤 뜻을 전할지가 중요해 보인다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 1,
       "choices": [
         {
           "label": "싸우러 온 것이 아니라고 말한다",
           "result": "시도는 빈손을 보여 주며 말을 건넨다. 소녀의 경계가 곧 사라지지는 않아도 대화를 시작할 틈이 생긴다.",
           "card": "tengu_main_01_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1091,7 +1068,7 @@
           "label": "검보다 소녀의 표정을 살핀다",
           "result": "적의를 단정하기 전에 두려움을 읽는다. 낯선 상대를 살핀 기억이 다음 판단을 또렷하게 한다.",
           "card": "tengu_main_01_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1103,7 +1080,7 @@
           "label": "위험한 거리와 피할 방향을 확인한다",
           "result": "무작정 다가서지 않고 주변을 살핀다. 대화를 이어 가려면 먼저 그 자리에 버틸 여유가 필요하다.",
           "card": "tengu_main_01_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1117,21 +1094,25 @@
         "commonResult": "시도는 정령을 만난 일을 계기로, 그녀들을 구하려는 라타토스크의 지원을 받게 된다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_scene_first_spirit.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_scene_first_spirit.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_02",
       "title": "작전명은 대화 연습",
       "intro": "코토리가 통신 너머에서 첫 연습을 지시한다.",
       "story": "라타토스크가 내놓은 방법은 정령과 만나 마음을 여는 것이다. 코토리는 시도에게 사람을 대하는 연습부터 시킨다. 정답처럼 들리는 조언이 쏟아지지만, 상대의 반응을 읽는 일은 결국 시도의 몫이다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 2,
       "choices": [
         {
           "label": "준비한 문장보다 상대의 반응을 듣는다",
           "result": "말을 마친 뒤 바로 다음 말을 덧붙이지 않는다. 짧은 침묵 덕분에 상대가 대답할 자리가 남는다.",
-          "card": "tengu_main_02_1",
-          "card2": "",
+          "card": "tengu_main_01_1",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1143,7 +1124,7 @@
           "label": "작전 지시를 짧게 정리한다",
           "result": "핵심만 남긴 지시가 시도의 머릿속을 가볍게 한다. 무엇을 하려는지 이해하자 걸음도 빨라진다.",
           "card": "tengu_main_02_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1155,7 +1136,7 @@
           "label": "예상 밖의 질문에도 직접 답해 본다",
           "result": "연습 대본 밖의 질문에 자기 말로 답한다. 서툰 표현에도 시도의 의도는 분명히 담긴다.",
           "card": "tengu_main_02_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1184,21 +1165,25 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_03",
       "title": "처음 구경하는 거리",
       "intro": "토카가 시도와 함께 텐구시를 걷는다.",
       "story": "시도와 토카가 라타토스크의 도움을 받아 거리를 둘러본다. 토카에게 이곳은 적과 싸우던 장소만은 아니게 된다. 가게와 행인, 별것 아닌 먹거리 앞에서 둘의 걸음이 자꾸 멈춘다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 3,
       "choices": [
         {
           "label": "토카가 먼저 가리킨 곳으로 향한다",
           "result": "시도는 목적지를 정해 주는 대신 토카의 손끝을 따른다. 처음 보는 것을 함께 찾는 시간이 늘어난다.",
           "card": "tengu_main_03_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1210,7 +1195,7 @@
           "label": "낯선 물건의 쓰임을 하나씩 설명한다",
           "result": "설명을 서두르지 않자 질문이 이어진다. 토카가 알아 가는 거리는 아까보다 조금 넓다.",
           "card": "tengu_main_03_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1221,8 +1206,8 @@
         {
           "label": "들뜬 가운데에도 주변을 살핀다",
           "result": "즐거운 시간이 끊기지 않도록 주위를 확인한다. 가벼운 방심과 편안함은 서로 다르다.",
-          "card": "tengu_main_03_3",
-          "card2": "",
+          "card": "tengu_main_01_3",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1236,21 +1221,25 @@
         "commonResult": "토카와 함께 걷는 경험은 시도에게 정령과 공존할 가능성을 보여 준다. 그녀의 일상은 조금씩 시도의 일상과 이어진다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_scene_first_date.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_scene_first_date.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_04",
       "title": "비를 피하던 작은 목소리",
       "intro": "신사 처마 아래에서 조심스러운 시선이 닿는다.",
       "story": "비 오는 신사에서 시도는 수줍은 소녀 요시노를 만난다. 며칠 뒤 다시 울린 경보 속에서, 그 소녀가 허밋이라 불리는 정령임을 알게 된다. 처음 만났을 때의 두려운 표정이 마음에 남는다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 4,
       "choices": [
         {
           "label": "요시노가 대답할 때까지 기다린다",
           "result": "재촉하지 않자 요시노가 조금씩 말을 잇는다. 기다린 시간도 대화의 일부가 된다.",
           "card": "tengu_main_04_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1261,8 +1250,8 @@
         {
           "label": "눈높이를 맞추고 짧게 인사한다",
           "result": "긴 설명을 줄이고 조용히 인사한다. 요시노가 고개를 드는 순간을 놓치지 않는다.",
-          "card": "tengu_main_04_2",
-          "card2": "",
+          "card": "tengu_main_03_2",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1274,7 +1263,7 @@
           "label": "큰 소리가 나지 않는 길을 찾는다",
           "result": "어수선한 곳을 피해 대화를 이어 갈 자리를 살핀다. 불필요한 소란을 덜어 내자 긴장이 조금 풀린다.",
           "card": "tengu_main_04_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1288,21 +1277,25 @@
         "commonResult": "시도는 요시노도 구할 수 있는 방법을 찾는다. 손에 끼운 인형 요시농이 그녀에게 특별한 존재라는 사실도 눈에 들어온다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_05",
       "title": "사라진 요시농",
       "intro": "요시노의 곁에 있어야 할 인형이 보이지 않는다.",
       "story": "요시노가 아끼는 인형 요시농이 사라진다. 시도는 그녀의 마음을 안정시키기 위해 인형부터 찾으려 한다. 라타토스크가 확인한 행방은 뜻밖에도 오리가미의 집을 가리킨다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 5,
       "choices": [
         {
           "label": "요시노에게 꼭 찾겠다고 약속한다",
           "result": "큰소리로 단언하는 대신 찾을 때까지 함께하겠다고 말한다. 요시노가 붙잡을 수 있는 약속이 남는다.",
           "card": "tengu_main_05_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1314,7 +1307,7 @@
           "label": "인형의 행방을 차근차근 확인한다",
           "result": "마지막으로 본 위치와 이동 경로를 나눈다. 다급함 속에서도 놓친 단서를 다시 찾는다.",
           "card": "tengu_main_05_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1326,7 +1319,7 @@
           "label": "요시노가 불안해하는 이유를 듣는다",
           "result": "물건 하나의 문제가 아님을 받아들인다. 무엇을 되찾아야 하는지 알자 말에도 힘이 생긴다.",
           "card": "tengu_main_05_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1355,21 +1348,25 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_06",
       "title": "쉬는 날을 지키는 작전",
       "intro": "온천을 향한 두 일행의 일정이 겹친다.",
       "story": "토카와 요시노의 바람으로 시도 일행은 온천에 갈 준비를 한다. 한편 AST도 대장 쿠사카베 료코를 위한 위로회를 계획한다. 두 무리의 접촉을 피하려는 라타토스크의 일정표가 복잡해진다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 6,
       "choices": [
         {
           "label": "일행의 동선을 먼저 맞춘다",
           "result": "가고 싶은 곳을 순서대로 정리한다. 모두가 기다려야 하는 시간을 줄이자 들뜬 분위기가 이어진다.",
           "card": "tengu_main_06_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1381,7 +1378,7 @@
           "label": "코토리에게 겹치는 시간을 알린다",
           "result": "눈에 띄는 충돌부터 짚어 보낸다. 작은 확인이 쌓여 작전의 빈틈을 줄인다.",
           "card": "tengu_main_06_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1392,8 +1389,8 @@
         {
           "label": "낯선 장소에 긴장한 요시노를 챙긴다",
           "result": "일정을 따라오라고 재촉하지 않는다. 요시노가 스스로 움직일 여유를 남겨 둔다.",
-          "card": "tengu_main_06_3",
-          "card2": "",
+          "card": "tengu_main_05_3",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1407,21 +1404,25 @@
         "commonResult": "정령과 AST가 얽히며 쉬는 날도 소란스러워진다. 그 가운데 평범한 휴일을 함께 보내려는 마음은 선명하게 남는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_head.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_head.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_07",
       "title": "두 명의 방문자",
       "intro": "전학생의 소개와 뜻밖의 호칭이 겹쳐 들린다.",
       "story": "전학생 토키사키 쿠루미는 자신이 정령이라고 시도에게 밝힌다. 비슷한 시기에 AST에 온 타카미야 마나는 시도를 오빠라고 부른다. 갑자기 늘어난 질문 앞에서 시도와 코토리는 상황을 정리하려 한다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 7,
       "choices": [
         {
           "label": "쿠루미의 말을 끝까지 듣는다",
           "result": "놀라움을 숨기려 서두르지 않고 소개를 듣는다. 친근한 말투만으로 상대를 판단하지 않기로 한다.",
           "card": "tengu_main_07_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1433,7 +1434,7 @@
           "label": "마나가 아는 일을 차례로 묻는다",
           "result": "하나를 듣기 전에 다음 추측을 덧붙이지 않는다. 확인한 사실과 아직 모르는 일을 나누어 둔다.",
           "card": "tengu_main_07_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1445,7 +1446,7 @@
           "label": "코토리와 정보를 맞춰 본다",
           "result": "두 사람이 서로 놓친 말을 정리한다. 당장 답할 수 없는 질문도 공유하자 다음 행동이 보인다.",
           "card": "tengu_main_07_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1459,21 +1460,25 @@
         "commonResult": "시도의 주변에는 정령뿐 아니라 자신의 과거에 관한 의문도 늘어난다. 새로 다가온 두 사람을 같은 방식으로 이해할 수는 없다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kurumi.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kurumi.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_08",
       "title": "겹쳐 버린 약속",
       "intro": "토카와 오리가미, 쿠루미와의 일정이 충돌한다.",
       "story": "이번 만남은 세 사람과의 약속이 겹친 상황에서 시작된다. 라타토스크의 지원에도 시도는 한곳에 오래 머물기 어렵다. 잘 넘기는 말보다 누가 무엇을 기다리고 있는지 놓치지 않는 일이 급하다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 8,
       "choices": [
         {
           "label": "토카와 함께하는 순간에 집중한다",
           "result": "다음 장소만 생각하던 시도가 잠시 걸음을 늦춘다. 짧은 시간이라도 함께 본 풍경이 남는다.",
-          "card": "tengu_main_08_1",
-          "card2": "",
+          "card": "tengu_main_06_1",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1484,8 +1489,8 @@
         {
           "label": "오리가미에게 필요한 말을 분명히 한다",
           "result": "둘러 말하다 흐려진 의도를 바로잡는다. 표현을 정리하자 상대의 반응도 읽을 수 있다.",
-          "card": "tengu_main_08_2",
-          "card2": "",
+          "card": "tengu_main_05_2",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1497,7 +1502,7 @@
           "label": "쿠루미의 반응을 주의 깊게 살핀다",
           "result": "웃는 표정만 따라 안심하지 않는다. 말이 끊기는 순간과 이어지는 질문을 기억해 둔다.",
           "card": "tengu_main_08_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1526,21 +1531,25 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_09",
       "title": "멈춰 선 시도의 대답",
       "intro": "참혹한 장면을 본 뒤, 시도는 말을 잃는다.",
       "story": "마나가 쿠루미를 공격하는 모습을 본 시도는 깊은 충격을 받는다. 구하려던 마음과 눈앞의 현실이 맞부딪친다. 기력을 잃은 시도의 앞에 토카가 나타나, 그가 지금까지 해 온 일을 돌아보게 한다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 9,
       "choices": [
         {
           "label": "토카가 건네는 말을 받아들인다",
           "result": "실패한 순간만 세지 않고 이미 이어진 만남을 떠올린다. 시도는 고개를 들어 토카를 바라본다.",
           "card": "tengu_main_09_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1552,7 +1561,7 @@
           "label": "당장 답하지 못한다는 사실을 인정한다",
           "result": "모든 일을 이해한 척하지 않는다. 흔들린 채로도 다음 선택을 준비할 수 있음을 기억한다.",
           "card": "tengu_main_09_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1564,7 +1573,7 @@
           "label": "놓치고 있던 위험을 되짚는다",
           "result": "구하려는 뜻과 위험을 아는 일은 함께 필요하다. 눈을 돌리지 않고 다음 만남을 생각한다.",
           "card": "tengu_main_09_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1578,21 +1587,25 @@
         "commonResult": "토카와의 대화는 시도가 완전히 멈춰 서지 않도록 돕는다. 아직 풀리지 않은 쿠루미의 위협 앞에서 이야기는 계속된다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_10",
       "title": "불꽃 속에 선 코토리",
       "intro": "시도의 앞을 막아선 이는 익숙한 동생이다.",
       "story": "쿠루미에게 몰린 시도를 구하기 위해 코토리가 나타난다. 평소의 모습과 다른 힘을 드러낸 그녀 앞에서 이츠카 남매의 과거가 문제로 떠오른다. 가까운 사람을 잘 안다고 생각했던 믿음도 다시 살펴야 한다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 10,
       "choices": [
         {
           "label": "달라진 모습 속에서도 코토리를 부른다",
           "result": "정체를 따져 묻기 전에 이름을 부른다. 시도에게 먼저 보이는 것은 자신을 구하러 온 동생이다.",
           "card": "tengu_main_10_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1603,8 +1616,8 @@
         {
           "label": "코토리가 버틸 수 있는 시간을 살핀다",
           "result": "힘을 보여 준 사실만으로 안심하지 않는다. 다음 행동을 서둘러 준비해야 함을 기억한다.",
-          "card": "tengu_main_10_2",
-          "card2": "",
+          "card": "tengu_main_09_2",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1615,8 +1628,8 @@
         {
           "label": "서로 모르는 기억을 구분한다",
           "result": "기억이 비어 있는 자리를 추측으로 채우지 않는다. 드러난 사실부터 받아들인다.",
-          "card": "tengu_main_10_3",
-          "card2": "",
+          "card": "tengu_main_09_3",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1645,21 +1658,25 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_11",
       "title": "동생과 마주하는 시간",
       "intro": "코토리를 구할 데이트를 준비한다.",
       "story": "코토리가 자신을 유지할 수 있는 시간이 줄어든다. 시도는 함께 자라 온 동생을 새롭게 마주하며 데이트를 준비한다. 익숙한 사이라고 해서 마음을 묻는 일을 생략할 수는 없다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "mainStage": 11,
       "choices": [
         {
           "label": "코토리가 바라는 것을 직접 묻는다",
           "result": "잘 안다는 생각을 잠시 내려놓는다. 동생의 대답을 기다리는 동안 이번 만남의 의미가 달라진다.",
           "card": "tengu_main_11_1",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1671,7 +1688,7 @@
           "label": "두 사람이 편히 말할 순서를 준비한다",
           "result": "복잡한 지시보다 대화할 자리를 남긴다. 서로를 바라볼 시간이 조금 더 생긴다.",
           "card": "tengu_main_11_2",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1683,7 +1700,7 @@
           "label": "급한 마음 속에서도 약속을 지킨다",
           "result": "시간에 쫓겨 중요한 말을 생략하지 않는다. 함께 돌아가겠다는 뜻을 행동에 싣는다.",
           "card": "tengu_main_11_3",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1697,21 +1714,25 @@
         "commonResult": "시도와 코토리는 풀장에서 만남을 이어 간다. 그러나 두 사람을 둘러싼 문제는 조용히 기다려 주지 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "growthRole": "main",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "tengu_main_12",
       "title": "놓을 수 없는 일상",
       "intro": "오리가미의 습격이 평온한 시간을 깨뜨린다.",
       "story": "코토리와 시도의 풀장 데이트에 오리가미가 나타난다. 복수심과 지키려는 마음이 정면으로 부딪친다. 시도에게는 누군가를 적이라고 밀어내는 것만으로 지킬 수 없는 하루가 있다.",
-      "actionCost": 1,
+      "actionCost": 8,
       "mainStage": 12,
       "choices": [
         {
           "label": "코토리와 돌아가겠다는 뜻을 전한다",
           "result": "눈앞의 힘보다 함께 보낸 시간을 붙잡는다. 시도는 동생을 구하려던 목적을 놓지 않는다.",
           "card": "tengu_main_ending_memorial",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1722,8 +1743,8 @@
         {
           "label": "오리가미의 분노도 외면하지 않는다",
           "result": "분노가 있다는 사실을 인정하되 지금의 파괴를 정답으로 받아들이지는 않는다.",
-          "card": "tengu_main_ending_memorial",
-          "card2": "",
+          "card": "tengu_main_ending_memorial_growth_1",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1734,8 +1755,8 @@
         {
           "label": "함께 보낼 다음 하루를 떠올린다",
           "result": "오늘의 충돌 너머에도 지켜야 할 만남이 있음을 마음에 남긴다.",
-          "card": "tengu_main_ending_memorial",
-          "card2": "",
+          "card": "tengu_main_ending_memorial_growth_2",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -1761,99 +1782,111 @@
         ]
       },
       "icon": "war3mapImported\\UI_Event_XP_tengu_head.tga",
-      "canonBoundary": "애니메이션 1기의 일상 복귀를 다룬다. 쿠루미와 남매의 과거에 관한 모든 의문이 해결되었다고 단정하지 않는다."
+      "canonBoundary": "애니메이션 1기의 일상 복귀를 다룬다. 쿠루미와 남매의 과거에 관한 모든 의문이 해결되었다고 단정하지 않는다.",
+      "growthRole": "main_final",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "완결 · S 스킬 대미지 +90%"
     },
     {
       "key": "dal_side_bakery",
       "title": "먼저 가리킨 진열대",
       "intro": "빵집 앞에서 토카의 걸음이 멈춘다.",
       "story": "돌아가던 길, 토카가 진열대 앞에서 눈을 떼지 못한다. 시도는 무엇이 마음에 드는지 묻고, 요시노는 조금 떨어져 둘의 대화를 듣는다. 짧은 우회도 함께 다녀온 기억이 된다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "choices": [
         {
-          "label": "토카가 고른 빵 이야기를 듣는다",
-          "result": "맛을 설명하려는 토카의 말이 길어진다. 시도는 서두르지 않고 끝까지 듣는다.",
-          "card": "dal_tohka",
-          "card2": "",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "맛을 설명하려는 토카의 말이 길어진다. 시도는 서두르지 않고 끝까지 듣는다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_03_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "돌아갈 길의 새 가게를 살핀다",
-          "result": "일행이 걸어갈 길에서 작은 즐거움을 하나 더 발견한다.",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "일행이 걸어갈 길에서 작은 즐거움을 하나 더 발견한다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
           "card": "dal_tohka_walk",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "요시노에게도 좋아하는 것을 묻는다",
-          "result": "다른 사람의 대답 뒤에 묻혀 있던 요시노의 작은 말이 들린다.",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "다른 사람의 대답 뒤에 묻혀 있던 요시노의 작은 말이 들린다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
           "card": "dal_yoshino",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_umbrella",
       "title": "우산 끝에서 떨어지는 빗방울",
       "intro": "비가 그칠 때까지 잠시 처마 아래에 선다.",
       "story": "갑자기 내린 비에 일행이 발을 멈춘다. 요시노가 우산 끝의 물방울을 바라보고, 시도는 다음 약속 시간을 확인한다. 잠깐 기다리는 동안에도 서로 맞출 수 있는 것이 있다.",
-      "actionCost": 0,
+      "actionCost": 1,
       "choices": [
         {
-          "label": "비가 약해질 때까지 이야기를 듣는다",
-          "result": "요시노가 입을 열 때까지 조용히 기다린다. 짧은 대화가 머무는 시간을 채운다.",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "요시노가 입을 열 때까지 조용히 기다린다. 짧은 대화가 머무는 시간을 채운다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 350,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "서두르지 않아도 되는 길을 찾자 모두의 걸음에 여유가 생긴다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "tengu_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 400,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "놓친 말을 짐작하지 않고 다시 묻는다. 대화가 끊어진 자리에서 자연스럽게 이어진다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
           "card": "dal_yoshino",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 0,
-          "density": 0,
-          "potions": 0,
-          "chance": 100
-        },
-        {
-          "label": "다음 장소까지의 길을 정리한다",
-          "result": "서두르지 않아도 되는 길을 찾자 모두의 걸음에 여유가 생긴다.",
-          "card": "dal_shido",
-          "card2": "",
-          "gold": 0,
-          "cost": 0,
-          "level": 0,
-          "density": 0,
-          "potions": 0,
-          "chance": 100
-        },
-        {
-          "label": "요시노가 말하려던 끝을 되묻는다",
-          "result": "놓친 말을 짐작하지 않고 다시 묻는다. 대화가 끊어진 자리에서 자연스럽게 이어진다.",
-          "card": "dal_yoshino_reply",
-          "card2": "",
-          "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_classroom",
@@ -1863,43 +1896,47 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "오늘 필요한 설명부터 골라 준다",
-          "result": "토카는 당장 해야 할 일을 이해하고 안내문을 접는다.",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "토카는 당장 해야 할 일을 이해하고 안내문을 접는다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
           "card": "dal_kotori",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "낯선 표현을 하나씩 풀어 준다",
-          "result": "모르는 말을 다시 물어도 괜찮다는 분위기가 생긴다.",
-          "card": "dal_shido",
-          "card2": "",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "모르는 말을 다시 물어도 괜찮다는 분위기가 생긴다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "tengu_main_02_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "학교 안에서 직접 길을 돌아본다",
-          "result": "글로 보던 장소가 실제 풍경과 이어지자 토카의 걸음이 가벼워진다.",
-          "card": "dal_tohka_walk",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "글로 보던 장소가 실제 풍경과 이어지자 토카의 걸음이 가벼워진다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "dal_tohka",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_radio",
@@ -1909,43 +1946,47 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "지금 가장 급한 것부터 묻는다",
-          "result": "말을 줄이자 답해야 할 문제가 선명해진다.",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "말을 줄이자 답해야 할 문제가 선명해진다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
           "card": "dal_kotori",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "상대에게 직접 확인할 일을 남긴다",
-          "result": "통신으로 짐작할 부분과 직접 들어야 할 부분을 구분한다.",
-          "card": "dal_shido",
-          "card2": "",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "통신으로 짐작할 부분과 직접 들어야 할 부분을 구분한다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "tengu_main_02_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "실행 전에 위험한 빈틈을 찾는다",
-          "result": "예상 밖의 상황에서도 돌아갈 순서를 확인한다.",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "예상 밖의 상황에서도 돌아갈 순서를 확인한다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
           "card": "dal_origami",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_bench",
@@ -1955,43 +1996,47 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "요시노의 속도에 맞춰 대화한다",
-          "result": "대답을 기다리는 침묵이 더는 어색하지 않다.",
-          "card": "dal_yoshino_reply",
-          "card2": "",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "대답을 기다리는 침묵이 더는 어색하지 않다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_04_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "토카에게 가장 기억나는 것을 묻는다",
-          "result": "여러 이야기 중에서도 유난히 밝아지는 순간을 찾는다.",
-          "card": "dal_tohka",
-          "card2": "",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "여러 이야기 중에서도 유난히 밝아지는 순간을 찾는다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "dal_tohka_walk",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "돌아갈 때 필요한 것을 챙긴다",
-          "result": "쉬고 난 뒤 헤매지 않도록 작은 준비를 마친다.",
-          "card": "dal_shido",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "쉬고 난 뒤 헤매지 않도록 작은 준비를 마친다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "tengu_main_04_2",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_target",
@@ -2001,43 +2046,47 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "오리가미가 짚은 흐름을 따라 본다",
-          "result": "같은 거리에서 미처 보지 못한 움직임을 찾는다.",
-          "card": "dal_origami",
-          "card2": "",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "같은 거리에서 미처 보지 못한 움직임을 찾는다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_03_3",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "토카와 눈에 띈 풍경을 비교한다",
-          "result": "긴장 속에 가려진 일상의 모습을 다시 본다.",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "긴장 속에 가려진 일상의 모습을 다시 본다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
           "card": "dal_tohka_walk",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "코토리에게 필요한 정보만 전한다",
-          "result": "본 것을 전부 늘어놓기보다 판단에 필요한 순서로 정리한다.",
-          "card": "dal_kotori",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "본 것을 전부 늘어놓기보다 판단에 필요한 순서로 정리한다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "dal_kotori_schedule",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_origami.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_origami.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_cat",
@@ -2047,43 +2096,47 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "쿠루미가 움직이는 순간을 살핀다",
-          "result": "쉽게 다가가지 않는 모습에서 또 다른 표정을 기억한다.",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "쉽게 다가가지 않는 모습에서 또 다른 표정을 기억한다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
           "card": "dal_kurumi",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "고양이가 편히 머물 거리를 남긴다",
-          "result": "상대가 편한 거리를 남겨 주던 요시노와의 만남을 떠올린다. 쿠루미도 고양이가 먼저 다가올 때까지 기다린다.",
-          "card": "dal_yoshino",
-          "card2": "",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "상대가 편한 거리를 남겨 주던 요시노와의 만남을 떠올린다. 쿠루미도 고양이가 먼저 다가올 때까지 기다린다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "dal_yoshino_reply",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "길을 막지 않도록 옆으로 비킨다",
-          "result": "토카와 돌아다닐 때처럼 먼저 지나갈 자리를 살핀다. 옆으로 비키자 고양이도 놀라지 않고 길을 건넌다.",
-          "card": "dal_tohka_walk",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "토카와 돌아다닐 때처럼 먼저 지나갈 자리를 살핀다. 옆으로 비키자 고양이도 놀라지 않고 길을 건넌다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "dal_tohka",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kurumi.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kurumi.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_promise",
@@ -2093,43 +2146,47 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "시간 옆에 상대의 바람도 적는다",
-          "result": "왜 그 약속을 잡았는지 함께 남기자 준비할 일이 보인다.",
-          "card": "dal_shido",
-          "card2": "",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "왜 그 약속을 잡았는지 함께 남기자 준비할 일이 보인다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_01_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "서로 겹치는 순서를 정리한다",
-          "result": "같은 시각에 두 곳으로 가려던 계획을 미리 발견한다.",
-          "card": "dal_kotori",
-          "card2": "",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "같은 시각에 두 곳으로 가려던 계획을 미리 발견한다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "dal_kotori_growth_8",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "막히기 쉬운 이동 구간을 살핀다",
-          "result": "서두르지 않고도 약속에 닿을 경로를 찾는다.",
-          "card": "dal_tohka_walk",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "서두르지 않고도 약속에 닿을 경로를 찾는다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "dal_tohka",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_shido.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_shido.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_echo",
@@ -2137,46 +2194,49 @@
       "intro": "지난번 말을 기억한 요시노가 먼저 고개를 든다.",
       "story": "요시노와 대화했던 기억이 있어 오늘은 첫 인사가 조금 덜 어렵다. 그녀는 전에 끝내지 못한 이야기를 조심스럽게 잇는다. 듣는 쪽의 자세도 어제와 같을 필요는 없다.",
       "actionCost": 1,
-      "requiredCard": "dal_yoshino",
+      "requiredCard": null,
       "choices": [
         {
-          "label": "이야기의 끝까지 자리를 지킨다",
-          "result": "요시노가 말을 마친 뒤에야 다음 질문을 꺼낸다.",
-          "card": "dal_yoshino",
-          "card2": "",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "요시노가 말을 마친 뒤에야 다음 질문을 꺼낸다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_04_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "기억하고 있던 부분을 짧게 말한다",
-          "result": "지난 대화가 사라지지 않았다는 것을 전한다.",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "지난 대화가 사라지지 않았다는 것을 전한다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
           "card": "dal_yoshino_reply",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "시도에게도 어떤 점을 배웠는지 묻는다",
-          "result": "듣는 사람에게 남은 변화까지 함께 돌아본다.",
-          "card": "dal_shido",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "듣는 사람에게 남은 변화까지 함께 돌아본다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "tengu_main_04_2",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_precision",
@@ -2184,59 +2244,62 @@
       "intro": "오리가미의 관찰을 배운 뒤 거리를 다시 본다.",
       "story": "지난번 오리가미가 짚었던 동선을 기억하며 같은 거리에 선다. 그때와 달라진 점도 있고, 처음부터 잘못 짐작한 점도 있다. 경계를 유지하면서 익숙해지는 방법을 생각한다.",
       "actionCost": 1,
-      "requiredCard": "dal_origami",
+      "requiredCard": null,
       "choices": [
         {
-          "label": "예전 판단을 지금 풍경과 대조한다",
-          "result": "처음 세운 결론에 매이지 않고 바뀐 움직임을 확인한다.",
-          "card": "dal_origami",
-          "card2": "",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "처음 세운 결론에 매이지 않고 바뀐 움직임을 확인한다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_03_3",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "주변 사람에게 평범한 용무를 묻는다",
-          "result": "추측하던 소란에 단순한 이유가 있었음을 알게 된다.",
-          "card": "dal_shido",
-          "card2": "",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "추측하던 소란에 단순한 이유가 있었음을 알게 된다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "tengu_main_02_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "긴장한 걸음을 일행에게 맞춘다",
-          "result": "주변을 살피면서도 동행의 속도를 놓치지 않는다.",
-          "card": "dal_tohka_walk",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "주변을 살피면서도 동행의 속도를 놓치지 않는다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "dal_tohka",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_origami.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_origami.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_side_schedule",
       "title": "빈칸이 필요한 일정표",
       "intro": "코토리가 빼곡한 일정에 펜을 멈춘다.",
       "story": "다음 만남 사이의 시간이 모두 채워져 있다. 코토리는 더 빠르게 움직이는 것만으로 해결되지 않는다고 말한다. 시도는 바쁜 일정을 다시 펴고 무엇부터 바꿀지 고른다.",
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "준비가 끝난 약속부터 표시한다",
           "result": "확인이 끝난 항목을 분리하자 남은 준비가 또렷해진다.",
           "card": "dal_kotori",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -2248,7 +2311,7 @@
           "label": "서두르지 않아도 될 길을 찾는다",
           "result": "토카와 걸었던 길을 일정표에 덧그려 겹치는 이동을 줄인다. 코토리는 비워 둔 칸을 보며 그 시간에는 상대의 말을 더 들을 수 있겠다고 한다.",
           "card": "dal_tohka_walk",
-          "card2": "",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -2259,8 +2322,8 @@
         {
           "label": "상대에게 시간을 다시 확인한다",
           "result": "혼자 계산하던 일정이 실제 약속과 맞아떨어진다.",
-          "card": "dal_shido",
-          "card2": "",
+          "card": "tengu_main_01_1",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -2269,23 +2332,31 @@
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "growthRole": "chain",
+      "chainStage": 1,
+      "chainLength": 2,
+      "chainRoot": "dal_side_schedule",
+      "previousChoice": 0,
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "연계 총 행동력 10\n완결 · S 스킬 대미지 +15%"
     },
     {
       "key": "dal_side_schedule_follow",
       "title": "다음 약속을 남길 자리",
       "intro": "정리한 일정에 새로운 여유가 생겼다.",
       "story": "준비가 끝난 약속을 표시한 뒤, 코토리는 일정표를 다시 살핀다. 한 번 더 사람을 만날 여유를 만들지, 이미 잡은 만남에 집중할지 정할 수 있다.",
-      "actionCost": 1,
+      "actionCost": 6,
       "previous": "dal_side_schedule",
       "previousChoice": 1,
-      "requiredCard": "dal_kotori",
+      "requiredCard": null,
       "choices": [
         {
           "label": "남겨 둔 시간을 다음 만남에 쓴다",
           "result": "추가 약속을 받아들일 자리를 마련한다. 이후를 준비하는 경험이 남는다.",
-          "card": "dal_kotori_schedule",
-          "card2": "",
+          "card": "dal_kotori_schedule_growth_9",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -2296,8 +2367,8 @@
         {
           "label": "이미 잡은 만남의 목표를 또렷하게 한다",
           "result": "횟수를 늘리는 대신 이번에 전할 뜻을 분명히 한다.",
-          "card": "dal_origami",
-          "card2": "",
+          "card": "tengu_main_08_2",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -2308,8 +2379,8 @@
         {
           "label": "상대의 대답을 충분히 기다리기로 한다",
           "result": "빈 시간을 급히 채우지 않고 대화가 깊어질 여유로 쓴다.",
-          "card": "dal_yoshino_reply",
-          "card2": "",
+          "card": "tengu_main_06_3",
+          "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
@@ -2318,7 +2389,13 @@
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "dal_side_schedule",
+      "failure": null,
+      "rewardPreview": "연계 총 행동력 10\n완결 · S 스킬 대미지 +15%"
     },
     {
       "key": "dal_epilogue_return",
@@ -2329,43 +2406,47 @@
       "epilogue": true,
       "choices": [
         {
-          "label": "익숙한 길의 새로운 점을 찾는다",
-          "result": "변하지 않은 곳에서도 함께 보는 눈은 조금 달라졌다.",
-          "card": "dal_tohka_walk",
-          "card2": "",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "변하지 않은 곳에서도 함께 보는 눈은 조금 달라졌다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "tengu_main_03_1",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "다음에 나눌 이야기를 묻는다",
-          "result": "요시노가 짧은 대답을 천천히 고른다.",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "요시노가 짧은 대답을 천천히 고른다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
           "card": "dal_yoshino_reply",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "함께 돌아갈 약속을 확인한다",
-          "result": "시도는 오늘의 끝에도 서로를 기다리자고 말한다.",
-          "card": "dal_shido",
-          "card2": "",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "시도는 오늘의 끝에도 서로를 기다리자고 말한다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "tengu_main_04_2",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_shido.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_shido.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     },
     {
       "key": "dal_epilogue_table",
@@ -2376,43 +2457,47 @@
       "epilogue": true,
       "choices": [
         {
-          "label": "모두가 앉을 순서를 챙긴다",
-          "result": "정리된 자리에서 대화가 자연스럽게 시작된다.",
+          "label": "기본 구매 · S 스킬 대미지 +6%",
+          "result": "정리된 자리에서 대화가 자연스럽게 시작된다.\n350골드를 지불하고 S 스킬 대미지 +6% 효과를 얻었다.",
           "card": "dal_kotori",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "오늘 가장 즐거웠던 일을 듣는다",
-          "result": "토카의 짧지 않은 설명이 식탁의 분위기를 밝힌다.",
-          "card": "dal_tohka",
-          "card2": "",
+          "label": "기본 구매 · 스킬가속 +5",
+          "result": "토카의 짧지 않은 설명이 식탁의 분위기를 밝힌다.\n400골드를 지불하고 스킬가속 +5 효과를 얻었다.",
+          "card": "dal_tohka_walk",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 400,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "조용한 사람의 말도 기다린다",
-          "result": "먼저 말하지 않던 목소리까지 저녁의 이야기에 담긴다.",
+          "label": "집중 구매 · S 스킬 대미지 +12%",
+          "result": "먼저 말하지 않던 목소리까지 저녁의 이야기에 담긴다.\n875골드를 지불하고 S 스킬 대미지 +12% 효과를 얻었다.",
           "card": "dal_yoshino",
-          "card2": "",
+          "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga"
+      "icon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+      "growthRole": "shop",
+      "failure": null,
+      "requiredCard": null,
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
     }
   ],
   "reviewRecords": [
@@ -2429,5 +2514,6 @@
       "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
       "scope": "첫 검토 후 바꾼 5작품 14개 사건"
     }
-  ]
+  ],
+  "balanceVersion": 1
 }
