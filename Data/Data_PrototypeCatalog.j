@@ -45650,7 +45650,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
     endfunction
 
     function ProtoLoadWorld19 takes nothing returns nothing
-        set ProtoHeadCompletionText[19] = ""
+        set ProtoHeadCompletionText[19] = "스킬가속 +100"
         set ProtoHeadKey[19] = "frieren"
         set ProtoHeadName[19] = "북쪽으로 가는 길"
         set ProtoHeadIntro[19] = "힘멜과의 작별 뒤, |cFF006B8F프리렌|r은 페른과 |cFF006B8F슈타르크|r를 만나 사람을 알아가는 여행을 한다. 지나온 기억과 마법도시의 시험을 따라 다음 만남을 향해 걷는다."
@@ -46861,7 +46861,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventChainStage[665] = 0
         set ProtoEventChainLength[665] = 0
         set ProtoEventChainFinal[665] = 0
-        set ProtoEventRewardPreview[665] = "완결 · "
+        set ProtoEventRewardPreview[665] = "완결 · 스킬가속 +100"
         set ProtoEventAPCost[665] = 8
         set ProtoEventMainStage[665] = 12
         set ProtoEventEpilogue[665] = 0
