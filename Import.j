@@ -2,6 +2,7 @@
 //! import "D:\Work\GitHub\Test\Data\Data_ItemGen.j"
 //! import "D:\Work\GitHub\Test\Library\ArcanaSaveData.j"
 // === Expedition ===
+//! import "D:\Work\GitHub\Test\System\CardModelPack.j"
 //! import "D:\Work\GitHub\Test\Data\Data_PrototypeStats.j"
 //! import "D:\Work\GitHub\Test\Data\Data_PrototypeCatalog.j"
 //! import "D:\Work\GitHub\Test\Data\Data_PrototypeCardImages.j"

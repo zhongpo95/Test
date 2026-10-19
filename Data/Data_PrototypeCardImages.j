@@ -1,5 +1,5 @@
 // 검토한 캐릭터 그림을 보관함과 카드 보상의 얼굴 아이콘·큰 그림에 연결한다.
-library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
+library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog, ArcanaCardModelPack
     globals
         string array ProtoCharacterIconPath
         string array ProtoCharacterArtPath

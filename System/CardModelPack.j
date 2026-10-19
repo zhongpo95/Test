@@ -1,0 +1,13 @@
+// 맵 초기화 때 이미지와 로더를 통합한 Arcana_A.asi를 연결하고 로컬 결과를 기록한다.
+//! import "JAPIMisc.j"
+
+library ArcanaCardModelPack initializer Init requires JAPIMisc, JNCommon
+    private function Init takes nothing returns nothing
+        static if not REFORGED_MODE then
+            local string result = EXExecuteScript("(function() if type(package) ~= 'table' or type(package.loadlib) ~= 'function' then return 'UNSUPPORTED' end local ok, loaded = pcall(package.loadlib, 'Arcana_A.asi', '*'); if ok and loaded then return 'OK' end return 'FAILED' end)()")
+            // 설치 여부는 클라이언트마다 다르므로 동기화된 게임 상태에 사용하지 않는다.
+            call JNWriteLog("[ArcanaCardModelPack] " + result)
+            set result = null
+        endif
+    endfunction
+endlibrary
