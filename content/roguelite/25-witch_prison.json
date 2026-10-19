@@ -6,8 +6,8 @@
     "intro": "에마가 눈을 뜬 곳은 열세 소녀를 가둔 감옥 저택이다. 마법과 증언을 가르는 재판, 달라진 시간 속의 만남을 지나 철문 밖의 내일을 찾는다.",
     "effects": [
       {
-        "stat": "penetration",
-        "value": 2
+        "stat": "damage_percent",
+        "value": 1.5
       }
     ],
     "entryCard": "wt_ema",
@@ -15,15 +15,14 @@
       "title": "철문 너머의 내일",
       "length": 16,
       "focus": [
-        "crit_chance",
-        "penetration",
-        "charge_damage"
+        "damage_percent"
       ],
       "source": "2025년 PC 본편의 에마 편, 히로 편과 최종 재판",
       "adaptation": "세 차례의 시간 진행을 구분하며 각 사건의 범인·희생자와 진엔딩을 유지한다. 선택은 수사 관점과 응답을 바꾸며 살인·처형이나 자해를 선택 보상으로 삼지 않는다."
     },
     "icon": "war3mapImported\\UI_Card_XP_witch_prison_head_Icon.tga",
-    "entryIcon": "war3mapImported\\UI_Event_XP_witch_prison_head.tga"
+    "entryIcon": "war3mapImported\\UI_Event_XP_witch_prison_head.tga",
+    "completionText": "대미지 +40%"
   },
   "sources": [
     "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
@@ -50,16 +49,12 @@
       "key": "wt_ema",
       "name": "사쿠라바 에마",
       "effectName": "다시 건네는 말",
-      "keyword": "공격력 · 내 체력 65% 이상 피해",
+      "keyword": "치명타 확률 +1.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 3
+          "stat": "crit_chance",
+          "value": 1.5
         }
       ],
       "evolution": {
@@ -68,22 +63,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "entry"
     },
     {
       "key": "wt_hiro",
       "name": "니카이도 히로",
       "effectName": "잘못을 놓치지 않는 눈",
-      "keyword": "치명 확률 · 관통",
+      "keyword": "치명타 확률 +3%",
       "grade": 1,
       "effects": [
         {
           "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "penetration",
-          "value": 2
+          "value": 3
         }
       ],
       "evolution": {
@@ -92,22 +84,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_anan",
       "name": "나츠메 앙앙",
       "effectName": "글자를 고르는 시간",
-      "keyword": "차지 공격 · 차지 속도",
+      "keyword": "대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 5
-        },
-        {
-          "stat": "charge_speed",
-          "value": 2
+          "stat": "damage_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -116,22 +105,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_noah",
       "name": "조가사키 노아",
       "effectName": "경계 밖으로 흐르는 색",
-      "keyword": "비방향 공격 · 대미지",
+      "keyword": "대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "nondirectional_damage",
-          "value": 5
-        },
-        {
           "stat": "damage_percent",
-          "value": 2
+          "value": 6
         }
       ],
       "evolution": {
@@ -140,22 +126,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_hanna",
       "name": "토노 한나",
       "effectName": "발끝 아래의 간격",
-      "keyword": "이동속도 비례 피해 · 이동 속도",
+      "keyword": "대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "moving_damage",
-          "value": 4
-        },
-        {
-          "stat": "move_speed",
-          "value": 2
+          "stat": "damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -164,21 +147,18 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_sherry",
       "name": "타치바나 셰리",
       "effectName": "작은 단서에 실린 힘",
-      "keyword": "공격력 · 최대 체력",
+      "keyword": "대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 4
-        },
-        {
-          "stat": "max_health_percent",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -188,22 +168,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_leia",
       "name": "하스미 레이아",
       "effectName": "시선을 모으는 자리",
-      "keyword": "헤드·백 적중 피해 · 치명 피해",
+      "keyword": "치명타 확률 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "directional_damage",
-          "value": 5
-        },
-        {
-          "stat": "crit_damage",
-          "value": 2
+          "stat": "crit_chance",
+          "value": 3
         }
       ],
       "evolution": {
@@ -212,22 +189,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_miria",
       "name": "사에키 미리아",
       "effectName": "앞에 나서는 용기",
-      "keyword": "보스 피해 · 받는 피해 감소",
+      "keyword": "대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -236,19 +210,16 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_nanoka",
       "name": "쿠로베 나노카",
       "effectName": "말없이 짚어 낸 허점",
-      "keyword": "관통 · 대미지",
+      "keyword": "대미지 +3%",
       "grade": 1,
       "effects": [
-        {
-          "stat": "penetration",
-          "value": 3
-        },
         {
           "stat": "damage_percent",
           "value": 3
@@ -260,22 +231,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_koko",
       "name": "사와타리 코코",
       "effectName": "화면 바깥의 움직임",
-      "keyword": "신속 · 치명 확률",
+      "keyword": "대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "crit_chance",
-          "value": 1
+          "stat": "damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -284,22 +252,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_margo",
       "name": "호쇼 마고",
       "effectName": "호의 뒤의 계산",
-      "keyword": "치명 피해 · 공격력",
+      "keyword": "대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_damage",
-          "value": 4
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "damage_percent",
+          "value": 6
         }
       ],
       "evolution": {
@@ -308,22 +273,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_meruru",
       "name": "히카미 메루루",
       "effectName": "작은 흔들림을 알아채다",
-      "keyword": "내 체력 65% 이상 피해 · 재생",
+      "keyword": "치명타 확률 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 4
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "crit_chance",
+          "value": 3
         }
       ],
       "evolution": {
@@ -332,22 +294,19 @@
         "effects": []
       },
       "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_main_01_a",
       "name": "사쿠라바 에마",
       "effectName": "인사를 포기하지 않는 힘",
-      "keyword": "공격력 · 최대 체력",
+      "keyword": "대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
+          "stat": "damage_percent",
           "value": 3
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
         }
       ],
       "evolution": {
@@ -356,22 +315,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_01_b",
       "name": "니카이도 히로",
       "effectName": "정면으로 보는 부당함",
-      "keyword": "치명 확률 · 관통",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "penetration",
-          "value": 2
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -380,22 +336,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_01_c",
       "name": "사에키 미리아",
       "effectName": "떨리는 손을 내밀다",
-      "keyword": "보스 피해 · 받는 피해 감소",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 5
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -404,19 +357,16 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_02_a",
       "name": "조가사키 노아",
       "effectName": "형태보다 먼저 흐른 색",
-      "keyword": "비방향 공격 · 대미지",
+      "keyword": "대미지 +3%",
       "grade": 1,
       "effects": [
-        {
-          "stat": "nondirectional_damage",
-          "value": 5
-        },
         {
           "stat": "damage_percent",
           "value": 3
@@ -428,22 +378,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_02_b",
       "name": "사와타리 코코",
       "effectName": "프레임 사이의 움직임",
-      "keyword": "신속 · 치명 확률",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "crit_chance",
-          "value": 1
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -452,21 +399,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_02_c",
       "name": "쿠로베 나노카",
       "effectName": "발밑에 남은 불일치",
-      "keyword": "관통 · 공격력",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "penetration",
-          "value": 3
-        },
-        {
-          "stat": "attack_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -476,22 +420,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_03_a",
       "name": "하스미 레이아",
       "effectName": "시선의 사각을 읽다",
-      "keyword": "헤드·백 적중 피해 · 치명 피해",
+      "keyword": "대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "directional_damage",
-          "value": 6
-        },
-        {
-          "stat": "crit_damage",
-          "value": 2
+          "stat": "damage_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -500,22 +441,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_03_b",
       "name": "사쿠라바 에마",
       "effectName": "흔들려도 거두지 않는 질문",
-      "keyword": "치명 확률 · 대미지",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 2
-        },
-        {
-          "stat": "damage_percent",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -524,21 +462,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_03_c",
       "name": "사에키 미리아",
       "effectName": "작은 기억의 무게",
-      "keyword": "보스 피해 · 최대 체력",
+      "keyword": "대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 6
-        },
-        {
-          "stat": "max_health_percent",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -548,21 +483,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_main_04_a",
       "name": "사에키 미리아",
       "effectName": "다른 이를 앞에 두지 않다",
-      "keyword": "보스 피해 · 받는 피해 감소",
+      "keyword": "대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -572,22 +504,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_04_b",
       "name": "나츠메 앙앙",
       "effectName": "닫힌 문 앞의 집중",
-      "keyword": "차지 공격 · 관통",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 7
-        },
-        {
-          "stat": "penetration",
-          "value": 3
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -596,22 +525,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_04_c",
       "name": "사쿠라바 에마",
       "effectName": "뒤섞이지 않는 두 자리",
-      "keyword": "치명 확률 · 대미지",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
+          "stat": "skill_haste",
           "value": 3
-        },
-        {
-          "stat": "damage_percent",
-          "value": 4
         }
       ],
       "evolution": {
@@ -620,21 +546,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_05_a",
       "name": "토노 한나",
       "effectName": "떨어지지 않으려는 균형",
-      "keyword": "이동속도 비례 피해 · 공격력",
+      "keyword": "대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "moving_damage",
-          "value": 7
-        },
-        {
-          "stat": "attack_percent",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -644,22 +567,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_05_b",
       "name": "타치바나 셰리",
       "effectName": "큰 움직임의 작은 자국",
-      "keyword": "공격력 · 관통",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "penetration",
-          "value": 3
+          "value": 4
         }
       ],
       "evolution": {
@@ -668,22 +588,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_05_c",
       "name": "사쿠라바 에마",
       "effectName": "두려움에 묻히지 않는 판단",
-      "keyword": "보스 피해 · 최대 체력",
-      "grade": 2,
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "crit_chance",
+          "value": 3
         }
       ],
       "evolution": {
@@ -692,21 +609,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_main_06_a",
       "name": "사쿠라바 에마",
       "effectName": "불리한 기억도 마주하다",
-      "keyword": "치명 확률 · 관통",
+      "keyword": "대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "penetration",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -716,21 +630,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_06_b",
       "name": "쿠로베 나노카",
       "effectName": "지하로 이어지는 의문",
-      "keyword": "차지 공격 · 대미지",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 7
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -740,21 +651,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_06_c",
       "name": "히카미 메루루",
       "effectName": "안심 뒤에도 남는 점검",
-      "keyword": "내 체력 65% 이상 피해 · 공격력",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 7
-        },
-        {
-          "stat": "attack_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -764,22 +672,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_07_a",
       "name": "쿠로베 나노카",
       "effectName": "침묵 속에서 남긴 지점",
-      "keyword": "관통 · 보스 피해",
+      "keyword": "대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "penetration",
-          "value": 5
-        },
-        {
-          "stat": "boss_damage_percent",
-          "value": 5
+          "stat": "damage_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -788,21 +693,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_07_b",
       "name": "히카미 메루루",
       "effectName": "이름에 가려진 작용",
-      "keyword": "비방향 공격 · 대미지",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "nondirectional_damage",
-          "value": 7
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -812,21 +714,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_07_c",
       "name": "사쿠라바 에마",
       "effectName": "결론을 고칠 용기",
-      "keyword": "치명 확률 · 치명 피해",
-      "grade": 2,
+      "keyword": "대미지 +6%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "crit_damage",
+          "stat": "damage_percent",
           "value": 6
         }
       ],
@@ -836,22 +735,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_main_08_a",
       "name": "니카이도 히로",
       "effectName": "한 번 본 위험의 틈",
-      "keyword": "신속 · 치명 확률",
+      "keyword": "대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 120
-        },
-        {
-          "stat": "crit_chance",
-          "value": 2
+          "stat": "damage_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -860,22 +756,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_08_b",
       "name": "사쿠라바 에마",
       "effectName": "과거만으로 닫지 않는 문",
-      "keyword": "보스 피해 · 공격력",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 8
-        },
-        {
           "stat": "attack_percent",
-          "value": 3
+          "value": 4
         }
       ],
       "evolution": {
@@ -884,21 +777,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_08_c",
       "name": "하스미 레이아",
       "effectName": "바뀐 무대의 중심",
-      "keyword": "헤드·백 적중 피해 · 이동 속도",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "directional_damage",
-          "value": 7
-        },
-        {
-          "stat": "move_speed",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -908,21 +798,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_09_a",
       "name": "니카이도 히로",
       "effectName": "엇갈린 시간을 잇다",
-      "keyword": "치명 확률 · 관통",
-      "grade": 2,
+      "keyword": "대미지 +3%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "penetration",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -932,21 +819,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_main_09_b",
       "name": "호쇼 마고",
       "effectName": "미소 아래의 간격",
-      "keyword": "치명 피해 · 대미지",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "crit_damage",
-          "value": 6
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -956,22 +840,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_09_c",
       "name": "히카미 메루루",
       "effectName": "남은 흔적의 윤곽",
-      "keyword": "내 체력 65% 이상 피해 · 보스 피해",
+      "keyword": "대미지 +1.5%",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 7
-        },
-        {
-          "stat": "boss_damage_percent",
-          "value": 5
+          "stat": "damage_percent",
+          "value": 1.5
         }
       ],
       "evolution": {
@@ -980,21 +861,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "wt_main_10_a",
       "name": "쿠로베 나노카",
       "effectName": "겉모습 너머의 연결",
-      "keyword": "관통 · 공격력",
-      "grade": 2,
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "penetration",
-          "value": 5
-        },
-        {
-          "stat": "attack_percent",
+          "stat": "crit_chance",
           "value": 3
         }
       ],
@@ -1004,21 +882,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_main_10_b",
       "name": "사와타리 코코",
       "effectName": "보이는 계획의 빈칸",
-      "keyword": "신속 · 대미지",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
-          "stat": "swift",
-          "value": 120
-        },
-        {
-          "stat": "damage_percent",
+          "stat": "attack_percent",
           "value": 4
         }
       ],
@@ -1028,21 +903,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_10_c",
       "name": "니카이도 히로",
       "effectName": "마지막 한 칸까지의 추론",
-      "keyword": "차지 공격 · 차지 속도",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 8
-        },
-        {
-          "stat": "charge_speed",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1052,21 +924,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_11_a",
       "name": "조가사키 노아",
       "effectName": "서툰 선에 남은 힘",
-      "keyword": "비방향 공격 · 공격력",
+      "keyword": "대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "nondirectional_damage",
-          "value": 8
-        },
-        {
-          "stat": "attack_percent",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -1076,22 +945,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "wt_main_11_b",
       "name": "나츠메 앙앙",
       "effectName": "꾸밈없는 한 줄의 확신",
-      "keyword": "차지 공격 · 치명 피해",
-      "grade": 2,
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 7
-        },
-        {
-          "stat": "crit_damage",
-          "value": 6
+          "stat": "crit_chance",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1100,115 +966,16 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "wt_main_11_c",
       "name": "니카이도 히로",
       "effectName": "첫인상을 넘는 확인",
-      "keyword": "치명 확률 · 관통",
-      "grade": 2,
+      "keyword": "대미지 +6%",
+      "grade": 1,
       "effects": [
-        {
-          "stat": "crit_chance",
-          "value": 3
-        },
-        {
-          "stat": "penetration",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_12_a",
-      "name": "사쿠라바 에마",
-      "effectName": "끝내 지우지 않는 마음",
-      "keyword": "보스 피해 · 최대 체력",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_12_b",
-      "name": "토노 한나",
-      "effectName": "흔들리는 균형의 한계",
-      "keyword": "이동속도 비례 피해 · 치명 확률",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "moving_damage",
-          "value": 9
-        },
-        {
-          "stat": "crit_chance",
-          "value": 3
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_12_c",
-      "name": "하스미 레이아",
-      "effectName": "장면을 가르는 기준",
-      "keyword": "헤드·백 적중 피해 · 관통",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "directional_damage",
-          "value": 9
-        },
-        {
-          "stat": "penetration",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_13_a",
-      "name": "니카이도 히로",
-      "effectName": "여럿의 답을 잇는 결심",
-      "keyword": "치명 확률 · 대미지",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "crit_chance",
-          "value": 4
-        },
         {
           "stat": "damage_percent",
           "value": 6
@@ -1220,21 +987,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
-      "key": "wt_main_13_b",
-      "name": "사에키 미리아",
-      "effectName": "고립을 끊는 한마디",
-      "keyword": "보스 피해 · 받는 피해 감소",
+      "key": "wt_main_12_a",
+      "name": "사쿠라바 에마",
+      "effectName": "끝내 지우지 않는 마음",
+      "keyword": "대미지 +3%",
       "grade": 3,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
-        {
-          "stat": "damage_reduction",
+          "stat": "damage_percent",
           "value": 3
         }
       ],
@@ -1244,115 +1008,16 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
-      "key": "wt_main_13_c",
-      "name": "사쿠라바 에마",
-      "effectName": "다음 말을 위한 준비",
-      "keyword": "차지 공격 · 차지 속도",
+      "key": "wt_main_12_b",
+      "name": "토노 한나",
+      "effectName": "흔들리는 균형의 한계",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
-        {
-          "stat": "charge_damage",
-          "value": 9
-        },
-        {
-          "stat": "charge_speed",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_14_a",
-      "name": "니카이도 히로",
-      "effectName": "모두를 향해 열린 판단",
-      "keyword": "치명 확률 · 관통",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "crit_chance",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_14_b",
-      "name": "조가사키 노아",
-      "effectName": "다른 색이 만나는 경계",
-      "keyword": "비방향 공격 · 최종 대미지",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "nondirectional_damage",
-          "value": 9
-        },
-        {
-          "stat": "final_damage_percent",
-          "value": 2
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_14_c",
-      "name": "히카미 메루루",
-      "effectName": "목적 뒤에 남은 관계",
-      "keyword": "내 체력 65% 이상 피해 · 재생",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "healthy_damage",
-          "value": 9
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
-    },
-    {
-      "key": "wt_main_15_a",
-      "name": "사쿠라바 에마",
-      "effectName": "지워지지 않은 신뢰",
-      "keyword": "보스 피해 · 공격력",
-      "grade": 3,
-      "effects": [
-        {
-          "stat": "boss_damage_percent",
-          "value": 10
-        },
         {
           "stat": "attack_percent",
           "value": 4
@@ -1364,21 +1029,18 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
-      "key": "wt_main_15_b",
-      "name": "니카이도 히로",
-      "effectName": "닫힌 결론을 여는 질문",
-      "keyword": "관통 · 최종 대미지",
+      "key": "wt_main_12_c",
+      "name": "하스미 레이아",
+      "effectName": "장면을 가르는 기준",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "penetration",
-          "value": 5
-        },
-        {
-          "stat": "final_damage_percent",
+          "stat": "skill_haste",
           "value": 3
         }
       ],
@@ -1388,22 +1050,19 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
-      "key": "wt_main_15_c",
-      "name": "나츠메 앙앙",
-      "effectName": "작은 틈에서 이어지는 말",
-      "keyword": "차지 공격 · 치명 피해",
+      "key": "wt_main_13_a",
+      "name": "니카이도 히로",
+      "effectName": "여럿의 답을 잇는 결심",
+      "keyword": "대미지 +3%",
       "grade": 3,
       "effects": [
         {
-          "stat": "charge_damage",
-          "value": 10
-        },
-        {
-          "stat": "crit_damage",
-          "value": 8
+          "stat": "damage_percent",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1412,15 +1071,193 @@
         "effects": []
       },
       "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "wt_main_13_b",
+      "name": "사에키 미리아",
+      "effectName": "고립을 끊는 한마디",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "wt_main_13_c",
+      "name": "사쿠라바 에마",
+      "effectName": "다음 말을 위한 준비",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "wt_main_14_a",
+      "name": "니카이도 히로",
+      "effectName": "모두를 향해 열린 판단",
+      "keyword": "대미지 +1.5%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 1.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "wt_main_14_b",
+      "name": "조가사키 노아",
+      "effectName": "다른 색이 만나는 경계",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "wt_main_14_c",
+      "name": "히카미 메루루",
+      "effectName": "목적 뒤에 남은 관계",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "wt_main_15_a",
+      "name": "사쿠라바 에마",
+      "effectName": "지워지지 않은 신뢰",
+      "keyword": "대미지 +1.5%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 1.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "wt_main_15_b",
+      "name": "니카이도 히로",
+      "effectName": "닫힌 결론을 여는 질문",
+      "keyword": "공격력 +4%",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "wt_main_15_c",
+      "name": "나츠메 앙앙",
+      "effectName": "작은 틈에서 이어지는 말",
+      "keyword": "스킬가속 +3",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 메인 장면의 관찰·판단을 수치로 옮긴 보상이다. 인물의 마법을 플레이어에게 직접 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "witch_prison_ending_memorial",
       "name": "철문 너머의 내일",
       "effectName": "마녀재판의 끝",
-      "keyword": "완결 기념",
+      "keyword": "대미지 +40% · 공격력 +8%",
       "grade": 4,
-      "effects": [],
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 40
+        },
+        {
+          "stat": "attack_percent",
+          "value": 8
+        }
+      ],
       "evolution": {
         "kind": 0,
         "goal": 0,
@@ -1428,22 +1265,19 @@
       },
       "endingCard": true,
       "canonFact": "PC 본편 진엔딩의 해방과 에마·히로 화해를 기념한다. 일반 인물 카드와 이름을 분리하며 새로운 부활이나 마법을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main_final"
     },
     {
       "key": "wt_hiro_margin",
       "name": "니카이도 히로",
       "effectName": "다음 질문을 위한 여유",
-      "keyword": "행동력 최대치 · 공격력",
+      "keyword": "대미지 +1.5%",
       "grade": 1,
       "effects": [
         {
-          "stat": "action_capacity",
-          "value": 1
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "damage_percent",
+          "value": 1.5
         }
       ],
       "evolution": {
@@ -1452,7 +1286,228 @@
         "effects": []
       },
       "canonFact": "정리해 둔 질문을 바탕으로 여유를 확보하는 창작 보상이다. 한 일반 사건의 한 선택에서만 지급한다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "witch_prison_ending_memorial_growth_1",
+      "name": "철문 너머의 내일",
+      "effectName": "마녀재판의 끝",
+      "keyword": "대미지 +40% · 치명타 피해 +16%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 40
+        },
+        {
+          "stat": "crit_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "PC 본편 진엔딩의 해방과 에마·히로 화해를 기념한다. 일반 인물 카드와 이름을 분리하며 새로운 부활이나 마법을 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "witch_prison_ending_memorial_growth_2",
+      "name": "철문 너머의 내일",
+      "effectName": "마녀재판의 끝",
+      "keyword": "대미지 +40% · 스킬가속 +8",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 40
+        },
+        {
+          "stat": "skill_haste",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "PC 본편 진엔딩의 해방과 에마·히로 화해를 기념한다. 일반 인물 카드와 이름을 분리하며 새로운 부활이나 마법을 지급하지 않는다.",
+      "uncertain": [],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "wt_hanna_growth_3",
+      "name": "토노 한나",
+      "effectName": "발끝 아래의 간격",
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "wt_koko_growth_3",
+      "name": "사와타리 코코",
+      "effectName": "화면 바깥의 움직임",
+      "keyword": "대미지 +3%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "wt_leia_growth_4",
+      "name": "하스미 레이아",
+      "effectName": "시선을 모으는 자리",
+      "keyword": "대미지 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "wt_margo_growth_2",
+      "name": "호쇼 마고",
+      "effectName": "호의 뒤의 계산",
+      "keyword": "대미지 +3%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "wt_anan_growth_4",
+      "name": "나츠메 앙앙",
+      "effectName": "글자를 고르는 시간",
+      "keyword": "대미지 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "chain_final"
+    },
+    {
+      "key": "wt_sherry_growth_2",
+      "name": "타치바나 셰리",
+      "effectName": "작은 단서에 실린 힘",
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "wt_miria_growth_5",
+      "name": "사에키 미리아",
+      "effectName": "앞에 나서는 용기",
+      "keyword": "치명타 확률 +3%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
+    },
+    {
+      "key": "wt_sherry_growth_3",
+      "name": "타치바나 셰리",
+      "effectName": "작은 단서에 실린 힘",
+      "keyword": "대미지 +6%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개의 태도나 공개 마법에서 관찰 주제를 가져왔다. 효과는 해당 마법을 직접 실행하지 않는 전투 수치 각색이다.",
+      "uncertain": [],
+      "rewardRole": "shop"
     }
   ],
   "events": [
@@ -1465,7 +1520,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "혼자가 되지 않도록 곁에 남는다.",
@@ -1504,7 +1559,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/706345 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1512,7 +1567,9 @@
         "commonResult": "히로가 쓰러진 뒤에도 철문은 열리지 않는다. 남은 소녀들은 서로의 이름과 이곳의 규칙부터 알아 가야 한다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_02",
@@ -1523,7 +1580,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "그림이 만들어진 방식을 살핀다.",
@@ -1562,7 +1619,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/706345 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1570,7 +1627,9 @@
         "commonResult": "그림 하나로 누군가를 지목할 수는 없다. 방의 흔적과 사람들의 동선을 함께 가져가 첫 재판에 선다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_03",
@@ -1581,7 +1640,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "눈길이 머문 방향을 짚는다.",
@@ -1610,7 +1669,7 @@
         {
           "label": "증언의 세부를 다시 맞춘다.",
           "result": "미리아가 기억하는 장면을 다른 흔적과 나란히 놓는다. 한 사람의 인상으로 나머지 이야기를 지우지 않는다.",
-          "card": "wt_main_03_c",
+          "card": "wt_main_01_c",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1620,7 +1679,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/706345 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1628,7 +1687,9 @@
         "commonResult": "노아를 죽인 이는 레이아였다. 남보다 빛나고 싶었던 마음은 죽음을 되돌리지 못한다. 첫 재판이 끝난 자리에 침묵이 남는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_leia.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_leia.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_04",
@@ -1639,7 +1700,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "미리아가 감추려던 대상을 찾는다.",
@@ -1678,7 +1739,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707719 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1686,7 +1747,9 @@
         "commonResult": "앙앙이 노린 사람은 에마였지만 희생된 이는 미리아였다. 실제로 영혼이 바뀐 것은 아니었다. 미리아는 에마를 지키려 그 말을 했고, 앙앙은 이를 믿었다. 지키려던 마음과 범행을 분리하자 사건의 모양이 드러난다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_miria.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_miria.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_05",
@@ -1697,7 +1760,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "한나가 두려워한 변화를 되짚는다.",
@@ -1726,7 +1789,7 @@
         {
           "label": "부탁과 책임을 분리해 말한다.",
           "result": "에마는 슬픔 때문에 질문을 거두지 않는다. 누구도 더는 같은 공포 속에서 혼자 결론내리지 않길 바란다.",
-          "card": "wt_main_05_c",
+          "card": "wt_main_04_c",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1736,7 +1799,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707749 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1763,7 +1826,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_06",
@@ -1774,7 +1839,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "기억나는 행동을 숨기지 않는다.",
@@ -1813,7 +1878,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707753 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1821,7 +1886,9 @@
         "commonResult": "에마에게 내려진 판결 뒤에 또 다른 사실이 나타난다. 처형대에서 나노카의 시신이 발견되며, 끝난 줄 알았던 재판은 새로운 사건으로 이어진다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_07",
@@ -1832,7 +1899,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "끝까지 남긴 단서를 먼저 읽는다.",
@@ -1861,7 +1928,7 @@
         {
           "label": "앞선 판결의 전제를 다시 확인한다.",
           "result": "에마는 이미 정해진 결론도 새 증거 앞에서는 고친다. 억울함을 푸는 일과 다음 위험을 살피는 일을 함께 한다.",
-          "card": "wt_main_07_c",
+          "card": "wt_main_04_c",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1871,7 +1938,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/796569 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1879,7 +1946,9 @@
         "commonResult": "나노카를 죽인 메루루가 사건 뒤의 인물임이 드러난다. 아리사의 죽음에 대한 앞선 결론도 뒤집힌다. 소녀들을 모은 목적은 대마녀를 찾는 일이었다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_08",
@@ -1890,7 +1959,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "기억하는 위험부터 피한다.",
@@ -1929,7 +1998,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707758 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -1956,7 +2025,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_09",
@@ -1967,12 +2038,12 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "통화와 증언의 시간을 맞춘다.",
           "result": "히로는 같은 대화를 가리키는 말들이 실제로도 맞물리는지 확인한다. 앞뒤를 잇자 빠진 시간이 드러난다.",
-          "card": "wt_main_09_a",
+          "card": "wt_main_08_a",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1996,7 +2067,7 @@
         {
           "label": "메루루가 남긴 흔적을 정리한다.",
           "result": "목소리와 현장에 남은 물건을 따로 적는다. 죽은 사람의 말을 편한 방향으로 채워 넣지 않는다.",
-          "card": "wt_main_09_c",
+          "card": "wt_main_06_c",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2006,7 +2077,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707758 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -2014,7 +2085,9 @@
         "commonResult": "메루루를 죽인 마고의 범행이 밝혀진다. 누군가에게 매달렸던 마음은 상대를 해친 책임을 지우지 못한다. 히로는 말과 행동을 함께 보려 한다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_margo.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_margo.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_10",
@@ -2025,12 +2098,12 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "나노카가 지키려던 관계를 묻는다.",
           "result": "나노카에게 간수가 단순한 적이 아니었음을 받아들인다. 그 사실을 범행에 대한 면죄부로 바꾸지는 않는다.",
-          "card": "wt_main_10_a",
+          "card": "wt_main_07_a",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2064,7 +2137,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707764 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -2072,7 +2145,9 @@
         "commonResult": "코코를 죽인 이는 나노카였다. 간수는 나노카의 언니가 변한 존재였다. 가족을 잃을 두려움도 다른 사람을 해친 사실을 없애지는 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_11",
@@ -2083,7 +2158,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "완벽하지 않은 그림을 바라본다.",
@@ -2100,7 +2175,7 @@
         {
           "label": "앙앙이 좋다고 말한 이유를 듣는다.",
           "result": "칭찬의 크기보다 대상에 주목한다. 앙앙이 본 것은 대단한 마법만이 아니었다.",
-          "card": "wt_main_11_b",
+          "card": "wt_main_04_b",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2112,7 +2187,7 @@
         {
           "label": "겉으로 꾸민 장면을 검증한다.",
           "result": "히로는 놀라운 첫인상과 실제 증거를 나눈다. 모두를 속인 모습 뒤에 남은 작은 불일치를 찾는다.",
-          "card": "wt_main_11_c",
+          "card": "wt_main_10_c",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2122,7 +2197,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707774 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -2130,7 +2205,9 @@
         "commonResult": "노아의 범행이 드러난다. 좋아한다는 말을 듣는 일만으로 오래된 상처가 사라지지는 않았다. 남은 이들은 그 말이 거짓이 아니었다는 사실을 놓지 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_12",
@@ -2141,7 +2218,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "에마가 남긴 마음을 헤아린다.",
@@ -2180,7 +2257,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707788 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -2188,7 +2265,9 @@
         "commonResult": "두 사람을 죽인 한나의 범행이 밝혀진다. 셰리는 한나를 홀로 보내지 않겠다는 마음으로 함께 최후를 맞는다. 히로 곁에는 미리아와 아리사만 남고, 미처 나누지 못한 말이 무겁게 남는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_13",
@@ -2199,7 +2278,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "여러 사람이 이어 쓴 내용을 읽는다.",
@@ -2238,7 +2317,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707812 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -2265,7 +2344,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_14",
@@ -2276,12 +2357,12 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "혼자 대신 답하지 않기로 한다.",
           "result": "히로는 각자의 목소리가 있어야 다음으로 갈 수 있음을 안다. 통제하려던 태도에서 함께 확인하는 태도로 옮겨 간다.",
-          "card": "wt_main_14_a",
+          "card": "wt_main_13_a",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2315,7 +2396,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/707812 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -2323,7 +2404,9 @@
         "commonResult": "열세 마녀의 힘이 모이고 대마녀 유키가 나타난다. 이번 재판의 상대는 다른 소녀 한 명이 아니라, 저택과 비극을 만든 오랜 결론이다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_15",
@@ -2334,12 +2417,12 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "유키가 믿었던 사람을 떠올리게 한다.",
           "result": "에마는 관계가 남긴 흔적을 이야기한다. 미움을 부정하라고 몰아붙이기보다 그 밖의 마음도 있었음을 묻는다.",
-          "card": "wt_main_15_a",
+          "card": "wt_main_12_a",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2373,7 +2456,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 사건 순서와 당사자를 보존하고 조사 관점·답변을 새로 쓴 장면이다. 기준 공략 https://game8.jp/manosaba/796583 . 반복·진엔딩의 보조자료 대조 범위는 출처 파일에 기록했다.",
       "uncertain": [],
       "dialogue": {
@@ -2381,7 +2464,9 @@
         "commonResult": "에마와 히로의 말이 유키에게 닿는다. 복수만으로 설명되지 않는 마음이 남아 있었다. 모두는 죽음으로 답을 내리지 않는 길을 함께 바라본다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "wt_main_16",
@@ -2392,7 +2477,7 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 8,
       "choices": [
         {
           "label": "에마와 히로의 다음 말을 기다린다.",
@@ -2409,7 +2494,7 @@
         {
           "label": "함께 견딘 사람들의 이름을 기억한다.",
           "result": "재판의 기록만으로 서로를 기억하지 않기로 한다. 웃음과 망설임도 같은 사람의 일부였다.",
-          "card": "witch_prison_ending_memorial",
+          "card": "witch_prison_ending_memorial_growth_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2421,7 +2506,7 @@
         {
           "label": "열린 문 밖을 바라본다.",
           "result": "모든 상처가 곧바로 사라진 것은 아니다. 그래도 앞으로의 하루를 고를 수 있는 자리가 생겼다.",
-          "card": "witch_prison_ending_memorial",
+          "card": "witch_prison_ending_memorial_growth_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2431,7 +2516,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "최종 재판 후 마녀 인자의 무해화·회수, 유키와 메루루의 퇴장, 에마와 히로의 화해는 2025년 완주 후기와 별도 완주 후기의 공통 내용이다. 누가 어디에서 장기 거주하는지 등 추가 세부는 쓰지 않는다.",
       "uncertain": [],
       "dialogue": {
@@ -2458,7 +2543,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga",
+      "growthRole": "main_final",
+      "rewardPreview": "완결 · 대미지 +40%"
     },
     {
       "key": "wt_side_names",
@@ -2468,49 +2555,51 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 0,
+      "actionCost": 1,
       "choices": [
         {
-          "label": "얼굴 옆에 첫인상을 적는다.",
-          "result": "에마가 먼저 건네던 인사를 기억한다. 번호보다 말을 나눈 사람이 또렷해진다.",
-          "card": "wt_ema",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "에마가 먼저 건네던 인사를 기억한다. 번호보다 말을 나눈 사람이 또렷해진다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_01_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "이름을 정확히 읽고 다시 확인한다.",
-          "result": "히로처럼 애매한 부분을 남기지 않는다. 서두르느라 놓친 글자를 바로잡는다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "히로처럼 애매한 부분을 남기지 않는다. 서두르느라 놓친 글자를 바로잡는다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "wt_hiro",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "말을 나눈 장소까지 함께 기록한다.",
-          "result": "코코의 화면을 되돌려 보듯 장면을 떠올린다. 흩어진 만남이 순서로 이어진다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "코코의 화면을 되돌려 보듯 장면을 떠올린다. 흩어진 만남이 순서로 이어진다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_koko",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_blank",
@@ -2520,49 +2609,51 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 0,
+      "actionCost": 1,
       "choices": [
         {
-          "label": "적을 때까지 조용히 기다린다.",
-          "result": "펜이 다시 움직일 시간을 남긴다. 짧은 문장도 끝까지 읽을 준비를 한다.",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "펜이 다시 움직일 시간을 남긴다. 짧은 문장도 끝까지 읽을 준비를 한다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
           "card": "wt_anan",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "대답하기 쉬운 짧은 질문으로 바꾼다.",
-          "result": "에마처럼 먼저 다가가되 빈칸을 대신 채우지 않는다. 다음 말의 길이를 줄인다.",
-          "card": "wt_ema",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "에마처럼 먼저 다가가되 빈칸을 대신 채우지 않는다. 다음 말의 길이를 줄인다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_main_05_c",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "사람이 덜 모인 자리로 거리를 둔다.",
-          "result": "미리아의 조심스러운 배려를 떠올린다. 답보다 먼저 부담을 덜어 줄 수도 있다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "미리아의 조심스러운 배려를 떠올린다. 답보다 먼저 부담을 덜어 줄 수도 있다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_miria",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_anan.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_anan.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_palette",
@@ -2575,46 +2666,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "색이 맞닿는 경계를 본다.",
-          "result": "번지는 부분과 멈추는 부분을 나누어 본다. 노아의 자유로운 손길에도 차이가 있다.",
-          "card": "wt_noah",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "번지는 부분과 멈추는 부분을 나누어 본다. 노아의 자유로운 손길에도 차이가 있다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_02_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "가장 멀리서 보이는 색을 고른다.",
-          "result": "레이아라면 관객의 자리도 돌아볼 것이다. 가까이서 본 인상과 멀리서 본 인상을 비교한다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "레이아라면 관객의 자리도 돌아볼 것이다. 가까이서 본 인상과 멀리서 본 인상을 비교한다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "wt_leia",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "흐르지 않은 빈자리를 남긴다.",
-          "result": "한나의 발끝처럼 간격에 집중한다. 꽉 채우지 않아야 살아나는 부분이 있다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "한나의 발끝처럼 간격에 집중한다. 꽉 채우지 않아야 살아나는 부분이 있다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_hanna",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_stage",
@@ -2627,46 +2720,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "맨 앞의 눈높이에 맞춰 본다.",
-          "result": "레이아의 시선이 향하는 곳을 따른다. 누구에게 전할 말인지 먼저 정한다.",
-          "card": "wt_leia",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "레이아의 시선이 향하는 곳을 따른다. 누구에게 전할 말인지 먼저 정한다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_03_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "사람이 적은 쪽에도 고개를 돌린다.",
-          "result": "에마가 찾던 작은 대답을 떠올린다. 크게 말하지 않는 이에게도 자리를 준다.",
-          "card": "wt_ema",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "에마가 찾던 작은 대답을 떠올린다. 크게 말하지 않는 이에게도 자리를 준다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_main_05_c",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "중심에서 한 걸음 비켜 본다.",
-          "result": "마고처럼 판 전체를 볼 거리를 잡는다. 눈에 띄는 위치만이 좋은 위치는 아니다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "마고처럼 판 전체를 볼 거리를 잡는다. 눈에 띄는 위치만이 좋은 위치는 아니다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_margo",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_leia.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_leia.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_chair",
@@ -2679,46 +2774,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "먼저 옮길 길부터 비운다.",
-          "result": "셰리의 힘을 떠올리되 주변을 함께 본다. 힘을 쓸 자리를 만들자 동작이 짧아진다.",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "셰리의 힘을 떠올리되 주변을 함께 본다. 힘을 쓸 자리를 만들자 동작이 짧아진다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
           "card": "wt_sherry",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "수평과 흔들림을 확인한다.",
-          "result": "한나가 균형을 잡던 감각을 생각한다. 빠르기보다 기울지 않는 움직임을 고른다.",
-          "card": "wt_hanna",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "한나가 균형을 잡던 감각을 생각한다. 빠르기보다 기울지 않는 움직임을 고른다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_hanna_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "다른 사람이 서 있는 곳을 살핀다.",
-          "result": "미리아가 조심하던 간격을 남긴다. 목적지뿐 아니라 사람의 자리도 기억한다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "미리아가 조심하던 간격을 남긴다. 목적지뿐 아니라 사람의 자리도 기억한다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_miria",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_polite",
@@ -2731,46 +2828,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "틀린 말을 바로 지적하지 않는다.",
-          "result": "미리아의 부드러운 태도를 빌려 끝까지 듣는다. 하고 싶던 말을 먼저 이해한다.",
-          "card": "wt_miria",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "미리아의 부드러운 태도를 빌려 끝까지 듣는다. 하고 싶던 말을 먼저 이해한다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_03_c",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "말보다 자세가 흔들린 순간을 본다.",
-          "result": "한나가 다시 중심을 잡는 때를 기다린다. 작은 균형 변화가 먼저 눈에 들어온다.",
-          "card": "wt_hanna",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "한나가 다시 중심을 잡는 때를 기다린다. 작은 균형 변화가 먼저 눈에 들어온다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_hanna_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "함께 쓸 수 있는 쉬운 말로 답한다.",
-          "result": "에마처럼 대화의 문턱을 낮춘다. 잘 말하는 경쟁 대신 다음 대답을 잇는다.",
-          "card": "wt_ema",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "에마처럼 대화의 문턱을 낮춘다. 잘 말하는 경쟁 대신 다음 대답을 잇는다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
+          "card": "wt_main_07_c",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_map",
@@ -2783,46 +2882,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "문이 열린 방향을 기록한다.",
-          "result": "나노카가 보는 작고 확실한 차이에 주목한다. 막연한 느낌 대신 눈에 보이는 기준을 남긴다.",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "나노카가 보는 작고 확실한 차이에 주목한다. 막연한 느낌 대신 눈에 보이는 기준을 남긴다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
           "card": "wt_nanoka",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "같은 길을 천천히 되짚는다.",
-          "result": "앙앙이 문장을 고르듯 순서를 줄여 본다. 급하게 지나가던 틈이 드러난다.",
-          "card": "wt_anan",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "앙앙이 문장을 고르듯 순서를 줄여 본다. 급하게 지나가던 틈이 드러난다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_main_11_b",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "교차하는 사람들의 속도를 본다.",
-          "result": "코코의 화면처럼 움직임을 나누어 본다. 길이 비는 순간을 알아챈다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "코코의 화면처럼 움직임을 나누어 본다. 길이 비는 순간을 알아챈다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_koko",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_frame",
@@ -2835,46 +2936,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "잘린 경계부터 확인한다.",
-          "result": "코코가 잡은 구도를 살피며 놓친 방향을 생각한다. 보이는 것의 끝을 알아둔다.",
-          "card": "wt_koko",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "코코가 잡은 구도를 살피며 놓친 방향을 생각한다. 보이는 것의 끝을 알아둔다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_koko_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "가려진 자리의 다른 흔적을 찾는다.",
-          "result": "나노카처럼 주변의 변화를 함께 살핀다. 한 장면으로 채울 수 없는 빈칸을 남긴다.",
-          "card": "wt_nanoka",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "나노카처럼 주변의 변화를 함께 살핀다. 한 장면으로 채울 수 없는 빈칸을 남긴다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_main_10_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "화면 안에서 가장 눈에 띈 지점을 본다.",
-          "result": "레이아의 시선처럼 중심이 생기는 곳을 찾는다. 눈길이 끌린 이유부터 따져 본다.",
-          "card": "wt_leia",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "레이아의 시선처럼 중심이 생기는 곳을 찾는다. 눈길이 끌린 이유부터 따져 본다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
+          "card": "wt_leia_growth_4",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_offer",
@@ -2887,46 +2990,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "서로 해야 할 일을 같은 줄에 쓴다.",
-          "result": "마고가 감추기 쉬운 빈틈을 펼쳐 본다. 호의의 크기보다 조건이 선명해진다.",
-          "card": "wt_margo",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "마고가 감추기 쉬운 빈틈을 펼쳐 본다. 호의의 크기보다 조건이 선명해진다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_margo_growth_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "확인되지 않은 약속을 표시한다.",
-          "result": "히로의 기준대로 사실과 기대를 나눈다. 다음에 물을 질문이 짧아진다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "히로의 기준대로 사실과 기대를 나눈다. 다음에 물을 질문이 짧아진다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "wt_hiro",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "거절하기 어려웠던 마음을 돌아본다.",
-          "result": "미리아가 머뭇거리던 순간을 생각한다. 부탁을 듣는 사람의 여유도 조건에 넣는다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "미리아가 머뭇거리던 순간을 생각한다. 부탁을 듣는 사람의 여유도 조건에 넣는다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_miria",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_margo.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_margo.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_whisper",
@@ -2939,46 +3044,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "먼저 무슨 일이 있는지 묻는다.",
-          "result": "에마의 인사를 떠올리며 짧게 말을 건넨다. 짐작으로 답을 정해 놓지는 않는다.",
-          "card": "wt_ema",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "에마의 인사를 떠올리며 짧게 말을 건넨다. 짐작으로 답을 정해 놓지는 않는다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_01_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "표정이 달라진 순간을 되짚는다.",
-          "result": "메루루의 민감한 눈길을 따라 작은 변화를 살핀다. 기다리는 동안에도 놓치지 않을 것이 있다.",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "메루루의 민감한 눈길을 따라 작은 변화를 살핀다. 기다리는 동안에도 놓치지 않을 것이 있다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
           "card": "wt_meruru",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "옆에 앉을 자리만 마련한다.",
-          "result": "미리아의 방식으로 부담을 줄인다. 지금 말하지 않아도 머물 곳은 남겨 둔다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "미리아의 방식으로 부담을 줄인다. 지금 말하지 않아도 머물 곳은 남겨 둔다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_miria",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_compare",
@@ -2991,46 +3098,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "각자가 가리킨 대상을 적는다.",
-          "result": "히로처럼 기준을 분명히 한다. 같은 말 뒤에 숨어 있던 차이를 드러낸다.",
-          "card": "wt_hiro",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "히로처럼 기준을 분명히 한다. 같은 말 뒤에 숨어 있던 차이를 드러낸다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_09_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "상대의 뜻을 자기 말로 되묻는다.",
-          "result": "에마처럼 대답할 틈을 남긴다. 잘못 알아들은 채로 앞서 가지 않는다.",
-          "card": "wt_ema",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "에마처럼 대답할 틈을 남긴다. 잘못 알아들은 채로 앞서 가지 않는다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_main_05_c",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "그 말이 나온 상황을 함께 놓는다.",
-          "result": "마고의 계산을 살피듯 배경을 비교한다. 문장 하나만 떼면 사라지는 뜻이 있다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "마고의 계산을 살피듯 배경을 비교한다. 문장 하나만 떼면 사라지는 뜻이 있다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_margo",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_order",
@@ -3040,12 +3149,12 @@
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
-      "actionCost": 1,
+      "actionCost": 4,
       "choices": [
         {
           "label": "말한 사람별로 묶는다.",
           "result": "미리아가 조심스럽게 꺼낸 말도 빠뜨리지 않는다. 한 사람의 이야기부터 끝까지 듣는다.",
-          "card": "wt_miria",
+          "card": "wt_main_03_c",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3069,7 +3178,7 @@
         {
           "label": "같은 장소에 관한 말끼리 묶는다.",
           "result": "코코가 비추던 공간을 기준으로 모은다. 멀리 떨어진 문장들이 한 장면을 만든다.",
-          "card": "wt_koko",
+          "card": "wt_koko_growth_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3079,10 +3188,15 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_head.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_head.tga",
+      "growthRole": "chain",
+      "chainStage": 1,
+      "chainLength": 2,
+      "chainRoot": "wt_side_order",
+      "rewardPreview": "연계 총 행동력 10\n완결 · 대미지 +6%"
     },
     {
       "key": "wt_side_noah_detail",
@@ -3091,50 +3205,52 @@
       "story": "한 선을 끝내기 전에 옆의 여백을 살피던 손길이 떠오른다. 이미 익숙해졌다고 여긴 그림에도 더 볼 자리가 남아 있었다.",
       "previous": null,
       "previousChoice": 0,
-      "requiredCard": "wt_noah",
+      "requiredCard": null,
       "actionCost": 1,
       "choices": [
         {
-          "label": "여백이 넓어진 곳을 찾는다.",
-          "result": "노아의 색이 멈춘 지점까지 본다. 그리지 않은 부분도 그림의 방향을 만든다.",
-          "card": "wt_noah",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "노아의 색이 멈춘 지점까지 본다. 그리지 않은 부분도 그림의 방향을 만든다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_02_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "보는 거리를 달리한다.",
-          "result": "한나가 간격을 조절하듯 한 걸음 물러난다. 가까이서 보이지 않던 균형이 나타난다.",
-          "card": "wt_hanna",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "한나가 간격을 조절하듯 한 걸음 물러난다. 가까이서 보이지 않던 균형이 나타난다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_hanna_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "눈길이 가장 먼저 닿은 선을 좇는다.",
-          "result": "레이아의 무대처럼 중심을 찾는다. 무엇이 시선을 붙잡았는지 분명해진다.",
-          "card": "wt_leia",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "레이아의 무대처럼 중심을 찾는다. 무엇이 시선을 붙잡았는지 분명해진다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
+          "card": "wt_leia_growth_4",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_koko_detail",
@@ -3143,50 +3259,52 @@
       "story": "빠르게 넘겼던 부분에서 익숙한 움직임이 눈에 걸린다. 처음 보았을 때의 확신을 잠시 내려놓고 속도를 늦춘다.",
       "previous": null,
       "previousChoice": 0,
-      "requiredCard": "wt_koko",
+      "requiredCard": null,
       "actionCost": 1,
       "choices": [
         {
-          "label": "움직임이 끊긴 순간을 찾는다.",
-          "result": "코코가 남긴 장면을 세밀하게 나눈다. 빠른 흐름에서도 멈추는 지점이 보인다.",
-          "card": "wt_koko",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "코코가 남긴 장면을 세밀하게 나눈다. 빠른 흐름에서도 멈추는 지점이 보인다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_koko_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "순서가 맞지 않는 두 장면을 비교한다.",
-          "result": "나노카의 질문처럼 차이를 좁힌다. 작은 어긋남 하나가 전체 인상을 바꾼다.",
-          "card": "wt_nanoka",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "나노카의 질문처럼 차이를 좁힌다. 작은 어긋남 하나가 전체 인상을 바꾼다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_main_10_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "누가 무엇을 보았는지 적는다.",
-          "result": "히로의 기준으로 관찰과 추측을 나눈다. 확실한 것부터 다시 말할 수 있게 된다.",
-          "card": "wt_hiro",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "히로의 기준으로 관찰과 추측을 나눈다. 확실한 것부터 다시 말할 수 있게 된다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
+          "card": "wt_main_11_c",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_side_margin",
@@ -3195,13 +3313,13 @@
       "story": "히로에게서 배운 정리 방식을 떠올리며 말을 더 보탤지 생각한다. 빽빽한 기록보다 필요한 질문 하나를 남기는 편이 나을 때도 있다.",
       "previous": "wt_side_order",
       "previousChoice": 2,
-      "requiredCard": "wt_hiro",
-      "actionCost": 1,
+      "requiredCard": null,
+      "actionCost": 6,
       "choices": [
         {
           "label": "겹치는 질문을 줄여 여유를 남긴다.",
           "result": "같은 뜻을 되묻는 줄을 걷어 낸다. 다음 일을 살필 여유가 생긴다.",
-          "card": "wt_hiro_margin",
+          "card": "wt_main_11_c",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3213,7 +3331,7 @@
         {
           "label": "가장 중요한 질문 하나에 집중한다.",
           "result": "앙앙이 문장을 다듬듯 꼭 필요한 말만 남긴다. 길었던 의문이 뚜렷해진다.",
-          "card": "wt_anan",
+          "card": "wt_anan_growth_4",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3235,10 +3353,15 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "wt_side_order",
+      "rewardPreview": "연계 총 행동력 10\n완결 · 대미지 +6%"
     },
     {
       "key": "wt_side_dust",
@@ -3251,46 +3374,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "마지막에 만진 물건부터 거꾸로 짚는다.",
-          "result": "나노카처럼 확인 가능한 지점에서 출발한다. 섞인 기억이 조금씩 나뉜다.",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "나노카처럼 확인 가능한 지점에서 출발한다. 섞인 기억이 조금씩 나뉜다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
           "card": "wt_nanoka",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "물건을 움직이기 전 자리를 떠올린다.",
-          "result": "셰리의 큰 동작을 작게 나누어 본다. 지나온 경로가 보인다.",
-          "card": "wt_sherry",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "셰리의 큰 동작을 작게 나누어 본다. 지나온 경로가 보인다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_sherry_growth_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "색이 다른 부분을 나란히 비교한다.",
-          "result": "노아의 팔레트를 보는 눈으로 차이를 살핀다. 비슷해 보였던 흔적도 같은 것은 아니었다.",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "노아의 팔레트를 보는 눈으로 차이를 살핀다. 비슷해 보였던 흔적도 같은 것은 아니었다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
           "card": "wt_noah",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "공식 인물 성격을 토대로 새로 쓴 회상형 일상 장면이다. 본편에서 해당 대화가 실제로 일어났다고 주장하지 않으며 현재 시간에 사망한 인물이 다시 나타나는 사건도 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_epilogue_words",
@@ -3304,46 +3429,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "먼저 안부를 묻는다.",
-          "result": "에마가 건넸던 첫인사를 기억한다. 대단한 이유 없이도 말을 걸 수 있다.",
-          "card": "wt_ema",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "에마가 건넸던 첫인사를 기억한다. 대단한 이유 없이도 말을 걸 수 있다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_01_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "대답을 서두르지 않는다.",
-          "result": "앙앙의 빈 페이지를 기다리던 시간을 떠올린다. 말이 자랄 여백을 남긴다.",
-          "card": "wt_anan",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "앙앙의 빈 페이지를 기다리던 시간을 떠올린다. 말이 자랄 여백을 남긴다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_main_11_b",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "다음에 할 말을 기억한다.",
-          "result": "히로처럼 놓친 질문을 정리한다. 이제는 틀렸음을 증명할 말만 있는 것이 아니다.",
-          "card": "wt_hiro",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "히로처럼 놓친 질문을 정리한다. 이제는 틀렸음을 증명할 말만 있는 것이 아니다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
+          "card": "wt_main_11_c",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "본편 끝의 화해를 전제로 새로 쓴 여운이다. 귀환 뒤 새 직업·거주지·관계 진전을 확정하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     },
     {
       "key": "wt_epilogue_remember",
@@ -3357,46 +3484,48 @@
       "actionCost": 1,
       "choices": [
         {
-          "label": "서툴렀던 시도까지 기억한다.",
-          "result": "노아의 선을 떠올리며 완성되지 않은 모습도 남긴다. 앞으로 달라질 자리까지 지우지 않는다.",
-          "card": "wt_noah",
+          "label": "기본 구매 · 대미지 +3%",
+          "result": "노아의 선을 떠올리며 완성되지 않은 모습도 남긴다. 앞으로 달라질 자리까지 지우지 않는다.\n350골드를 지불하고 대미지 +3% 효과를 얻었다.",
+          "card": "wt_main_02_a",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "곁을 내주던 순간을 기억한다.",
-          "result": "미리아가 조용히 비켜 준 자리를 떠올린다. 작은 배려는 재판의 기록과 다른 곳에 남는다.",
-          "card": "wt_miria",
+          "label": "기본 구매 · 치명타 확률 +3%",
+          "result": "미리아가 조용히 비켜 준 자리를 떠올린다. 작은 배려는 재판의 기록과 다른 곳에 남는다.\n300골드를 지불하고 치명타 확률 +3% 효과를 얻었다.",
+          "card": "wt_miria_growth_5",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 300,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "힘을 쓰기 전의 망설임을 기억한다.",
-          "result": "셰리가 움직이기 전의 짧은 순간을 되짚는다. 행동의 크기만으로 사람을 기억하지 않는다.",
-          "card": "wt_sherry",
+          "label": "집중 구매 · 대미지 +6%",
+          "result": "셰리가 움직이기 전의 짧은 순간을 되짚는다. 행동의 크기만으로 사람을 기억하지 않는다.\n875골드를 지불하고 대미지 +6% 효과를 얻었다.",
+          "card": "wt_sherry_growth_3",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "기존 인물의 일상 이미지를 돌아보는 창작 후일담이다. 퇴장한 유키·메루루의 재등장이나 새로운 생존 사건은 없다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Event_XP_witch_prison_head.tga"
+      "icon": "war3mapImported\\UI_Event_XP_witch_prison_head.tga",
+      "growthRole": "shop",
+      "rewardPreview": "상품 300~875골드\n대미지 +3%"
     }
   ],
   "reviewRecords": [
@@ -3414,5 +3543,6 @@
       "scope": "3개 사건의 진상 공개·관계·귀환 순서 수정 재검토"
     }
   ],
-  "editorReview": "content/reviews/next-priority-heads-20261010/editor-review.json"
+  "editorReview": "content/reviews/next-priority-heads-20261010/editor-review.json",
+  "balanceVersion": 1
 }

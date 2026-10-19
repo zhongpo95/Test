@@ -9,7 +9,7 @@ const eventThumbnails = JSON.parse(fs.readFileSync(path.join(root,'content/event
 if (Math.abs(eventThumbnails.displayAspect-16/9)>0.000001) throw Error('사건 썸네일은 16:9 표시 규격이어야 합니다.');
 const eventImageTargets = new Map(eventThumbnails.assets.map(asset=>[asset.source,asset.target]));
 if (eventImageTargets.size!==eventThumbnails.assets.length) throw Error('사건 썸네일 원본 경로 중복.');
-const statNames = ['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity','skill_haste','dash_cooldown_reduction','q_skill_damage','w_skill_damage','e_skill_damage','r_skill_damage','a_skill_damage','s_skill_damage','d_skill_damage','f_skill_damage','c_skill_damage'];
+const statNames = ['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity','skill_haste','dash_cooldown_reduction','q_skill_damage','w_skill_damage','e_skill_damage','r_skill_damage','a_skill_damage','s_skill_damage','d_skill_damage','f_skill_damage','c_skill_damage','basic_damage','move_damage_scale','recovery_speed','chosen_skill_damage'];
 const blpTextures = new Set(JSON.parse(fs.readFileSync(path.join(root,'content/blp-textures.json'),'utf8')).textures);
 const blpPath = x => String(x).replace(/[A-Za-z0-9_-]+\.tga/g, name => blpTextures.has(name) ? name.slice(0,-4)+'.blp' : name);
 const q = x => '"' + blpPath(x).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\r?\n/g,'|n') + '"';
@@ -116,8 +116,8 @@ function generate(worlds, options={}) {
     }
     w.head = w.world.key==='common' ? 0 : registry.heads[w.world.key];
   }
-  const strings = ['ProtoCardDescription','ProtoEventCommonResult','ProtoDialogueStory','ProtoDialogueLabel','ProtoDialogueResult','ProtoStoryChangeKey','ProtoStoryChangeName','ProtoStoryChangeDescriptionText','ProtoHeadKey','ProtoHeadName','ProtoHeadIntro','ProtoHeadIcon','ProtoCardKey','ProtoCardName','ProtoCardEffectName','ProtoCardKeyword','ProtoEventKey','ProtoEventName','ProtoEventStory','ProtoEventIntro','ProtoEventIcon','ProtoEventFailure','ProtoBranchLabel','ProtoBranchResult'];
-  const integers = ['ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadEntryEvent','ProtoHeadMainLength','ProtoHeadRequiredMain','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
+  const strings = ['ProtoHeadCompletionText','ProtoEventRewardPreview','ProtoCardDescription','ProtoEventCommonResult','ProtoDialogueStory','ProtoDialogueLabel','ProtoDialogueResult','ProtoStoryChangeKey','ProtoStoryChangeName','ProtoStoryChangeDescriptionText','ProtoHeadKey','ProtoHeadName','ProtoHeadIntro','ProtoHeadIcon','ProtoCardKey','ProtoCardName','ProtoCardEffectName','ProtoCardKeyword','ProtoEventKey','ProtoEventName','ProtoEventStory','ProtoEventIntro','ProtoEventIcon','ProtoEventFailure','ProtoBranchLabel','ProtoBranchResult'];
+  const integers = ['ProtoEventChainRoot','ProtoEventChainStage','ProtoEventChainLength','ProtoEventChainFinal','ProtoCardRetired','ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadEntryEvent','ProtoHeadMainLength','ProtoHeadRequiredMain','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
   lines.push('// 검토된 머리 카드, 캐릭터 카드와 사건 콘텐츠를 로드한다. 생성 도구로 갱신한다.', 'library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototypeStats','    globals',
     '        constant integer PROTO_HEAD_COUNT = '+head,
     '        constant integer PROTO_STORY_CHANGE_COUNT = '+changeCount,
@@ -145,6 +145,7 @@ function generate(worlds, options={}) {
     const marked=(text,field)=>highlight(text,w.world.key,field,highlights);
     lines.push('    function ProtoLoadWorld'+wi+' takes nothing returns nothing');
     if (h) {
+      set('ProtoHeadCompletionText',h,w.world.completionText || '');
       set('ProtoHeadKey',h,w.world.key);set('ProtoHeadName',h,w.world.name); set('ProtoHeadIntro',h,marked(w.world.intro,'intro'));
       set('ProtoHeadIcon',h,w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNManual.blp');
       set('ProtoHeadEntryCard',h,cards.get(w.world.entryCard));set('ProtoHeadMainLength',h,w.world.mainStory?.length || 0);
@@ -163,6 +164,7 @@ function generate(worlds, options={}) {
     }
     for (const c of w.cards) {
       const id=cards.get(c.key);
+      set('ProtoCardRetired',id,c.retiredBalanceReward ? 1 : 0);
       if (c.endingCard) {set('ProtoCardEnding',id,1);set('ProtoCardDescription',id,marked(c.canonFact,'story'));}
       set('ProtoCardKey',id,c.key);set('ProtoCardName',id,c.name);set('ProtoCardEffectName',id,c.effectName);set('ProtoCardKeyword',id,w.world.name+' · '+c.keyword);
       set('ProtoCardHead',id,h);set('ProtoCardGrade',id,c.grade);set('ProtoEvolutionKind',id,c.evolution.kind);
@@ -172,6 +174,7 @@ function generate(worlds, options={}) {
     for (const e of w.events) {
       const id=events.get(e.key);
       set('ProtoEventKey',id,e.key);set('ProtoEventName',id,e.title);set('ProtoEventHead',id,h);set('ProtoEventKind',id,1);set('ProtoEventChoices',id,e.choices.length);
+      set('ProtoEventChainRoot',id,e.chainRoot ? events.get(e.chainRoot) : 0);set('ProtoEventChainStage',id,e.chainStage || 0);set('ProtoEventChainLength',id,e.chainLength || 0);set('ProtoEventChainFinal',id,e.growthRole==='chain_final' ? 1 : 0);set('ProtoEventRewardPreview',id,e.rewardPreview || '');
       set('ProtoEventAPCost',id,e.actionCost ?? 1);set('ProtoEventMainStage',id,e.mainStage || 0);set('ProtoEventEpilogue',id,e.epilogue ? 1 : 0);
       // 분기 최고 카드 등급은 가능한 보상의 기준이며 성공률은 각 분기에 별도 표시한다.
       set('ProtoEventGrade',id,Math.max(1,...e.choices.flatMap(b=>[b.card,b.card2]).filter(Boolean).map(key=>worlds.flatMap(x=>x.cards).find(c=>c.key===key).grade)));

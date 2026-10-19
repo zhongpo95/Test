@@ -72,8 +72,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
 
     function ProtoStartHeadReady takes integer pid returns boolean
         local integer head = ProtoStartHead[pid]
-        // 머리 카드 없이 출발할 때는 도감 로드를 기다리지 않는다.
-        return head == 0 or (head >= 1 and head <= PROTO_HEAD_COUNT and ProtoHeadRequiredMain[head] == 0 and ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, head)])
+        // 최초 출발 머리는 발견 도감과 관계없이 직접 선택한다.
+        return head >= 1 and head <= PROTO_HEAD_COUNT and ProtoHeadRequiredMain[head] == 0
     endfunction
 
     function ProtoCanDepart takes integer pid returns boolean
@@ -117,7 +117,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer selected = 0
         loop
             exitwhen id > PROTO_CARD_LAST
-            if not ExpCardOwned[ExpKey(pid, id)] and (ProtoCardHead[id] == 0 or (ProtoHeadOwned[ExpKey(pid, ProtoCardHead[id])] and (head == 0 or head == ProtoCardHead[id]))) then
+            if ProtoCardRetired[id] == 0 and ProtoCardEnding[id] == 0 and not ExpCardOwned[ExpKey(pid, id)] and (ProtoCardHead[id] == 0 or (ProtoHeadOwned[ExpKey(pid, ProtoCardHead[id])] and (head == 0 or head == ProtoCardHead[id]))) then
                 set weight = 60
                 if ProtoCardGrade[id] == 2 then
                     set weight = 30
@@ -188,7 +188,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer head
         local integer previous
         local integer choice = 1
-        if id <= 0 or id > PROTO_EVENT_COUNT or (ProtoEventMainStage[id] == 0 and ProtoEventEpilogue[id] == 0 and ProtoEventUsed[id]) or ProtoEventKind[id] < 0 or ProtoAP[pid] <= 0 or ProtoAP[pid] < ProtoEventAPCost[id] then
+        if id <= 0 or id > PROTO_EVENT_COUNT or ProtoEventHistory[ProtoStoryKey(pid, id)] != 0 or ProtoEventKind[id] < 0 or ProtoAP[pid] <= 0 or ProtoAP[pid] < ProtoEventAPCost[id] then
+            return false
+        endif
+        if ProtoEventChainRoot[id] > 0 and ProtoChainComplete[ExpKey(pid, ProtoEventChainRoot[id])] then
             return false
         endif
         set head = ProtoEventHead[id]
@@ -205,7 +208,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         if head > 0 and ProtoHeadMainLength[head] > 0 then
             if ProtoMainProgress[ExpKey(pid, head)] >= ProtoHeadMainLength[head] then
-                if ProtoEventEpilogue[id] == 0 then
+                if ProtoEventMainStage[id] > 0 then
                     return false
                 endif
             elseif ProtoEventEpilogue[id] > 0 then
@@ -230,6 +233,26 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set choice = choice + 1
         endloop
         return false
+    endfunction
+
+    // 선택 스킬 보상을 받기 전에 강화 대상을 고른다.
+    function ProtoCanSelectRewardSkill takes integer pid returns boolean
+        local integer choice = 1
+        if ProtoStage[pid] != 2 or ProtoDialogueFollowing(pid) then
+            return false
+        endif
+        loop
+            exitwhen choice > ProtoEventChoices[ProtoSelected[pid]]
+            if LoadReal(ProtoEffectData, ProtoBranchCard[ProtoChoiceKey(ProtoSelected[pid], choice)], PROTO_STAT_CHOSEN_SKILL) > 0.0 then
+                return true
+            endif
+            set choice = choice + 1
+        endloop
+        return false
+    endfunction
+
+    function ProtoCanFinishGrowth takes integer pid returns boolean
+        return ProtoStage[pid] == 0
     endfunction
 
     function ProtoSetPause takes integer pid, boolean paused returns nothing
@@ -298,6 +321,19 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     loop
                         exitwhen j >= mainSlot
                         set roll = roll + OfferWeights[j]
+                        set j = j + 1
+                    endloop
+                endif
+                if slot == 2 or (slot == 1 and mainSlot == 0) then
+                    set j = 1
+                    set selected = 1
+                    loop
+                        exitwhen j > count
+                        if ProtoEventChainStage[OfferEvents[j]] > 1 then
+                            set roll = selected
+                            exitwhen true
+                        endif
+                        set selected = selected + OfferWeights[j]
                         set j = j + 1
                     endloop
                 endif
@@ -489,6 +525,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         else
             call ProtoGrantCard(pid, card)
         endif
+        if LoadReal(ProtoEffectData, card, PROTO_STAT_CHOSEN_SKILL) > 0.0 then
+            set ProtoOutcome[pid] = JNStringReplace(ProtoOutcome[pid], "선택한 스킬", SubString("QWERASDFC", ProtoRewardSkill[pid], ProtoRewardSkill[pid] + 1) + " 스킬")
+        endif
     endfunction
 
     function ProtoRemoveEnemy takes integer key returns nothing
@@ -606,6 +645,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         if success then
             set ProtoEventHistory[ProtoStoryKey(pid, id)] = choice
+            if ProtoEventChainFinal[id] > 0 then
+                set ProtoChainComplete[ExpKey(pid, ProtoEventChainRoot[id])] = true
+            endif
             if ProtoEventMainStage[id] > 0 then
                 set ProtoMainProgress[ExpKey(pid, ProtoEventHead[id])] = ProtoEventMainStage[id]
                 set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n[메인 이야기 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[ProtoEventHead[id]]) + "]"
@@ -808,13 +850,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ExpStep = 4
         set ExpNode = 2
         set ExpRevision = ExpRevision + 1
-        // 시험 보스: 아처부터 (아처를 이기면 아처 쪽이 바로 레밀리아를 연다). 못 열면 예전 세리아 전투
+        // 첫 성장 뒤 아처, 두 번째 성장 뒤 레밀리아. 해당 보스를 못 열면 기존 시험 전투를 사용한다.
         set ExpBossExternal = false
-        if ExpBossArcherReady then
+        if ProtoBossRound == 1 and ExpBossArcherReady then
             set ExpBossExternal = true
             call TriggerExecute(ExpBossStartArcher)
         endif
-        if not ExpBossExternal and ExpBossRemiliaReady then
+        if ProtoBossRound == 2 and ExpBossRemiliaReady then
             set ExpBossExternal = true
             call TriggerExecute(ExpBossStartRemilia)
         endif
@@ -838,7 +880,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             exitwhen pid == 4
             if ExpMember[pid] then
                 call ProtoRefreshStats(pid)
-                set ProtoAP[pid] = ProtoAPMax[pid]
+                set ProtoAPMax[pid] = PROTO_BASE_AP
+                set ProtoAP[pid] = PROTO_BASE_AP
                 call ProtoResetDialogue(pid)
                 set ProtoStage[pid] = 0
                 set ProtoSelected[pid] = 0
@@ -895,6 +938,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         loop
             exitwhen id > PROTO_EVENT_COUNT
             set ProtoEventHistory[ProtoStoryKey(pid, id)] = 0
+            set ProtoChainComplete[ExpKey(pid, id)] = false
             set id = id + 1
         endloop
     endfunction
@@ -973,6 +1017,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ExpEventDeadline[pid] = 0
             set ProtoAP[pid] = PROTO_BASE_AP
             set ProtoAPMax[pid] = PROTO_BASE_AP
+            set ProtoRewardSkill[pid] = 0
             call ProtoResetDialogue(pid)
             set ProtoStage[pid] = 0
             set ProtoSelected[pid] = 0
@@ -1004,8 +1049,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 call MapSet(pid + 1, 1)
                 set MapRectCheck[pid + 1] = false
                 set ReservedRegion[pid + 1] = true
-                if ProtoStartHead[pid] > 0 and ProtoHeadKnown[ExpKey(pid, ProtoStartHead[pid])] then
+                if ProtoStartHeadReady(pid) then
                     call ProtoGrantHead(pid, ProtoStartHead[pid])
+                    call ProtoGrantCard(pid, ProtoHeadEntryCard[ProtoStartHead[pid]])
                 endif
                 call ResetPlayerPotionCharges(pid)
                 call SetItemCharges(PlayerItem1[pid], 2)
@@ -1035,12 +1081,19 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 call ProtoTryStart()
             elseif action >= 2010 and action <= 2010 + PROTO_HEAD_COUNT and not ExpReady[pid] then
                 set id = action - 2010
-                if id == 0 or (ProtoHeadRequiredMain[id] == 0 and ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, id)]) then
+                if id == 0 or (ProtoHeadRequiredMain[id] == 0) then
                     set ProtoStartHead[pid] = id
                 endif
+            elseif action == 2003 and not ExpReady[pid] then
+                set id = ProtoStartHead[pid]
+                loop
+                    set id = ModuloInteger(id, PROTO_HEAD_COUNT) + 1
+                    exitwhen ProtoHeadRequiredMain[id] == 0
+                endloop
+                set ProtoStartHead[pid] = id
             elseif action == 2001 then
                 if not ExpReady[pid] and not ProtoCanDepart(pid) then
-                    call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "공격력 1인 T1 무기는 출발할 수 없습니다. 마을에서 첫 계승을 시도하여 T2 무기를 갖춘 뒤 준비해 주세요.")
+                    call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "출발 머리를 선택하고 T2 무기(공격력 100 이상)를 갖춘 뒤 마을에서 준비해 주세요.")
                     return
                 endif
                 set ExpReady[pid] = not ExpReady[pid]
@@ -1061,9 +1114,6 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 call ProtoOffer(pid)
                 return
             endif
-            if ProtoEventMainStage[id] == 0 and ProtoEventEpilogue[id] == 0 then
-                set ProtoEventUsed[id] = true
-            endif
             call ProtoResetDialogue(pid)
             set ProtoSelected[pid] = id
             set ProtoAP[pid] = ProtoAP[pid] - ProtoEventAPCost[id]
@@ -1074,23 +1124,6 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             if ProtoEventKind[id] == 0 then
                 call ProtoResolve(pid, 1)
             endif
-            // 표시만 된 사건은 재등장 가능하지만 선택된 사건은 파티 전체에서 제외한다.
-            set other = 0
-            loop
-                exitwhen other == 4
-                if ProtoEventMainStage[id] == 0 and ProtoEventEpilogue[id] == 0 and other != pid and ExpMember[other] and ProtoStage[other] == 1 then
-                    set slot = 1
-                    loop
-                        exitwhen slot > ProtoChoices[other]
-                        if ProtoCandidates[ExpKey(other, slot)] == id then
-                            call ProtoOffer(other)
-                            exitwhen true
-                        endif
-                        set slot = slot + 1
-                    endloop
-                endif
-                set other = other + 1
-            endloop
         elseif action == 2300 and ProtoStage[pid] == 1 then
             set price = ProtoRestCost(pid)
             if ProtoAP[pid] < price then
@@ -1099,13 +1132,16 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoAP[pid] = ProtoAP[pid] - price
             set ProtoRerolls[pid] = ProtoRerolls[pid] + 1
             call ProtoOffer(pid)
+        elseif action == 2600 and ProtoCanSelectRewardSkill(pid) then
+            set ProtoRewardSkill[pid] = ModuloInteger(ProtoRewardSkill[pid] + 1, 9)
+            set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
         elseif action >= 2201 and action <= 2204 then
             call ProtoChoose(pid, action - 2200)
         elseif action == 2400 and ProtoStage[pid] == 3 then
             call ProtoContinue(pid)
-        elseif action == 2500 and ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and UnitAlive(MainUnit[pid]) then
+        elseif action == 2500 and ProtoCanFinishGrowth(pid) and UnitAlive(MainUnit[pid]) then
             set ProtoReady[pid] = true
-            set ExpGold[pid] = ExpGold[pid] + ExpSeconds
+            set ProtoAP[pid] = 0
             call ProtoSetPause(pid, true)
         endif
     endfunction
@@ -1125,10 +1161,6 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         // 같은 캐릭터의 뒤늦은 로드 패킷이 이번 원정의 발견 기록을 덮어쓰지 않는다.
         if ProtoCodexSlot[pid] == PlayerSlotNumber[pid] then
             return
-        endif
-        if not ExpMember[pid] and ProtoStartHead[pid] != 0 then
-            set ProtoStartHead[pid] = 0
-            set ExpReady[pid] = false
         endif
         loop
             exitwhen head > PROTO_HEAD_COUNT

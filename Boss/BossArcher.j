@@ -5081,8 +5081,8 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set f.target = null
         set exp = f.exp
         call f.destroy()
-        if exp and win and ExpBossRemiliaReady then
-            // 원정: 아처를 이기면 3초 뒤 레밀리아가 바로 이어서 나온다 (사냥 없음)
+        if exp and win and ExpBossRemiliaReady and ProtoBossRound >= ProtoBossLimit then
+            // 마지막 라운드의 아처 연전만 유지한다. 첫 라운드는 다음 성장으로 복귀한다.
             call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 3.0, "|cFFFF6060붉은 달이 뜬다… 레밀리아 스칼렛이 나타난다|r")
             call TimerStart(ExpChainTimer, 3.0, false, function ExpChainRemilia)
             return

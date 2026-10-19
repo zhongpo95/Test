@@ -22,9 +22,9 @@ library DataExpedition
         constant integer PROTO_CHOICE_SECONDS = 90
         constant integer PROTO_DEFAULT_DENSITY = 8
         constant real PROTO_BASE_HIT_PERCENT = 2.0
-        // 시험 보스: 보스 라운드 한 번에 아처 → 레밀리아가 연달아 나온다 (사냥 없이 바로 이어짐).
+        // 성장 100 → 아처 → 성장 100 → 레밀리아의 두 구간을 진행한다.
         // 보스 스크립트가 붙어 있지 않으면 예전 세리아 전투. 보스 목록 확장 시 런의 사냥 구간 수를 함께 설정한다.
-        integer ProtoBossLimit = 1
+        integer ProtoBossLimit = 2
         integer ProtoBossRound = 1
         trigger ExpPrototypeNextHunt = CreateTrigger()
         // 보스 전용 스크립트(아처·레밀리아)로 치르는 원정 보스전. 보스 쪽이 초기화 때 액션을 붙이고 Ready 를 켠다.
@@ -70,6 +70,7 @@ library DataExpedition
         integer array ProtoLastKill
         integer array ProtoOfferKills
         integer array ProtoDeadline
+        boolean array ProtoChainComplete
         integer array ProtoRerolls
         string array ProtoOutcome
         integer ExpState = EXP_LOBBY

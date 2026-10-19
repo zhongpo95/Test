@@ -129,6 +129,9 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         if skillCode == 'A02L' or skillCode == 'A0SF' then
             set bonus = bonus + Stat_SkillDamage[pid * 9 + 8] + ProtoStat(pid, PROTO_STAT_SKILL_C)
         endif
+        if skillCode == 2 then
+            set bonus = bonus + ProtoStat(pid, PROTO_STAT_BASIC)
+        endif
         return bonus
     endfunction
 

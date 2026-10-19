@@ -43,7 +43,7 @@ library CardRecovery initializer ProtoRecoveryInit requires DataPrototypeStats, 
         if amount <= 0.0 then
             return
         endif
-        set rate = maximum * 0.002
+        set rate = maximum * 0.002 * (1.0 + RMaxBJ(0.0, ProtoStat(pid, PROTO_STAT_RECOVERY_SPEED)) / 100.0)
         set ticks = R2I(amount / rate)
         if I2R(ticks) * rate < amount then
             set ticks = ticks + 1

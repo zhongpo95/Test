@@ -11,10 +11,10 @@ function fresh(localPlayer = 0, prototype = false) {
   let e, count = 0, eventFrame = 0, eventPlayer = 0;
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
   const {env} = environment(prototypeFiles, {
-    F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0,
+    F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0, JN_FRAMEPOINT_CENTER: 4,
     Equip_Damage:[100,100,100,100], Equip_DamageP:[0,0,0,0], Stats_Crit:[5,5,5,5], Hero_CriDeal:[50,50,50,50], Equip_CriDeal:[0,0,0,0], SkillSpeed:()=>0, CooldownRate:()=>1,
     Arcana_CriDeal:[0,0,0,0], Equip_ED:[0,0,0,0], Equip_WDP:[0,0,0,0], Equip_DP:[1,1,1,1], FinalDamageBonus:pid=>env.ProtoStat(pid,env.PROTO_STAT_FINAL),
-    JN_TEXT_JUSTIFY_CENTER: 1, JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0, JN_TEXT_JUSTIFY_RIGHT: 5,
+    JN_TEXT_JUSTIFY_CENTER: 1, JN_TEXT_JUSTIFY_MIDDLE: 2, JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0, JN_TEXT_JUSTIFY_RIGHT: 5,
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,
     DzGetTriggerKeyPlayer: () => e.eventPlayer, JNMemoryGetByte: () => e.chatOpen || 0, JNGetModuleHandle: () => 0,
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
@@ -75,7 +75,7 @@ function fresh(localPlayer = 0, prototype = false) {
     throw Error('No visible button for action '+action);
   };
   const card = (group,i) => e.UIExpeditionChoice_CardButton[e['UIExpeditionChoice_'+group+'Cards'][i]];
-  const start = () => {render();if(prototype && e.ExpUIPanel!==8){click(common(-98));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
+  const start = () => {render();if(prototype){e.ExpUIOpen(8);render();if(!e.ProtoStartHead[0])click(common(2003));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
   const roots = () => Array.from({length:10},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
   render();
   if(prototype){

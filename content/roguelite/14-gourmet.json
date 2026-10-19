@@ -4,12 +4,12 @@
       "key": "pc_kokkoro_entry",
       "name": "콧코로",
       "effectName": "세심한 준비",
-      "keyword": "고정 신속",
+      "keyword": "공격력 +2%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -18,22 +18,19 @@
         "effects": []
       },
       "canonFact": "출발 준비와 생활을 세심하게 돌보는 성격을 맵 전용 행동 준비로 각색.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "entry"
     },
     {
       "key": "pc_pecorine_meal",
       "name": "페코린느",
       "effectName": "배가 든든할 때",
-      "keyword": "최대 체력 · 내 체력 65% 이상 피해",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 4
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -42,22 +39,19 @@
         "effects": []
       },
       "canonFact": "밝은 대식가이자 검사라는 성격을 든든한 준비와 고체력 조건으로 각색.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "pc_pecorine_front",
       "name": "페코린느",
       "effectName": "함께 먹을 몫",
-      "keyword": "공격력 및 피해 감소",
+      "keyword": "D 스킬 대미지 +18.75%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 3
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "d_skill_damage",
+          "value": 18.75
         }
       ],
       "evolution": {
@@ -66,22 +60,19 @@
         "effects": []
       },
       "canonFact": "먹는 즐거움과 동료들과 함께 모험하는 검사의 적극성을 공격과 방어 준비로 각색.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "pc_kokkoro_care",
       "name": "콧코로",
       "effectName": "작은 준비를 놓치지 않기",
-      "keyword": "지속 회복 및 신속",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "regeneration",
-          "value": 0.2
-        },
-        {
-          "stat": "swift",
-          "value": 90
+          "stat": "attack_percent",
+          "value": 4
         }
       ],
       "evolution": {
@@ -90,22 +81,19 @@
         "effects": []
       },
       "canonFact": "식사와 수선 등 세심한 생활 지원을 지속 회복과 고정 신속으로 각색.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "pc_karyl_check",
       "name": "캬루",
       "effectName": "막힌 길을 비우는 마법",
-      "keyword": "비방향 · 관통",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "nondirectional_damage",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -114,22 +102,19 @@
         "effects": []
       },
       "canonFact": "기본 캬루의 공식 조정 공지에 있는 방어력 감소 역할을 개인 방어력 관통으로 각색한다. 비방향·보스 조건과 수치는 맵 전용이며 적 전체 디버프나 원작 마법을 새로 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain"
     },
     {
       "key": "pc_karyl_resolve",
       "name": "캬루",
       "effectName": "불평은 일을 끝낸 뒤에",
-      "keyword": "보스 피해 및 관통",
+      "keyword": "D 스킬 대미지 +18.75%",
       "grade": 1,
       "effects": [
         {
-          "stat": "boss_damage_percent",
-          "value": 4
-        },
-        {
-          "stat": "penetration",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 18.75
         }
       ],
       "evolution": {
@@ -138,22 +123,19 @@
         "effects": []
       },
       "canonFact": "기본 캬루의 방어력 감소 역할을 개인 관통으로 옮기고 사건의 길목 정리를 보스전 준비로 각색한다. 보스 피해 수치는 맵 전용이며 새 공격 기술·적 디버프를 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "chain_final"
     },
     {
       "key": "pc_kokkoro_notes",
       "name": "콧코로",
       "effectName": "빠뜨리지 않은 목록",
-      "keyword": "고정 신속 · 처치 골드",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "kill_gold",
-          "value": 1
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -162,22 +144,19 @@
         "effects": []
       },
       "canonFact": "기록과 출발 준비를 챙기는 길드 활동을 사건 후보와 처치 수급으로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_pecorine_expedition",
       "name": "페코린느",
       "effectName": "든든히 먹고 한 걸음 더",
-      "keyword": "내 체력 65% 이상 피해 · 일반 적",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
+          "stat": "attack_percent",
           "value": 4
-        },
-        {
-          "stat": "normal_damage_percent",
-          "value": 5
         }
       ],
       "evolution": {
@@ -186,22 +165,19 @@
         "effects": []
       },
       "canonFact": "배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_aoi_courage",
       "name": "아오이",
       "effectName": "조심스러운 발걸음",
-      "keyword": "고정 신속 · 내 체력 65% 이상 피해",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "healthy_damage",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -210,27 +186,20 @@
         "effects": []
       },
       "canonFact": "낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_kokkoro_harvest",
       "name": "콧코로",
       "effectName": "차곡차곡 모아 둔 몫",
-      "keyword": "최대 체력 · 처치 골드",
+      "keyword": "D 스킬 대미지 +12%",
       "canonFact": "미식전 쌀농사와 생활 지원을 든든한 준비·자원 정리로 각색. 쌀 인벤토리·영구 성장·즉시 치료는 아니다.",
       "grade": 1,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 4
-        },
-        {
-          "stat": "kill_gold",
-          "value": 1
-        },
-        {
-          "stat": "attack_percent",
-          "value": 2
+          "stat": "d_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -238,19 +207,20 @@
         "goal": 0,
         "effects": []
       },
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_tsumugi_fit",
       "name": "츠무기",
       "effectName": "움직임을 남기는 한 땀",
-      "keyword": "고정 신속",
+      "keyword": "D 스킬 대미지 +6%",
       "canonFact": "공식 의상 가게와 아이돌의 활동을 움직임에 맞는 준비로 각색한다. 실제 옷 장비·새 실 기술·호감 게이지는 생성하지 않는다.",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -258,23 +228,20 @@
         "goal": 0,
         "effects": []
       },
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_kasumi_compare",
       "name": "카스미",
       "effectName": "빠진 시각을 짚다",
-      "keyword": "관통 · 치명타 확률",
+      "keyword": "D 스킬 대미지 +6%",
       "canonFact": "자경단 조사 역할에서 서로 다른 흔적을 대조하는 준비를 개인 관통·정확한 일격으로 각색. 실제 조사 마법·적 방어 디버프·본편 진상을 지급하지 않는다.",
       "grade": 1,
       "effects": [
         {
-          "stat": "penetration",
-          "value": 4
-        },
-        {
-          "stat": "crit_chance",
-          "value": 2
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -282,23 +249,20 @@
         "goal": 0,
         "effects": []
       },
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_monica_order",
       "name": "모니카",
       "effectName": "먼저 맡을 자리",
-      "keyword": "신속 · 피해 감소",
+      "keyword": "D 스킬 대미지 +6%",
       "canonFact": "자칭 군인과 주민 보호 의뢰 소재를 빠른 지시·방어 준비로 각색. 원작 스킬 수치나 동료 버프·부대 NPC 생성은 아니다.",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -306,23 +270,20 @@
         "goal": 0,
         "effects": []
       },
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_nozomi_step",
       "name": "노조미",
       "effectName": "발걸음에 맞춘 박자",
-      "keyword": "고정 신속 · 최대 체력",
+      "keyword": "D 스킬 대미지 +6%",
       "canonFact": "카르미나 가수와 동료를 돕는 역할을 일정한 움직임·든든한 준비로 각색. 실제 공연·노래 스킬·즉시 회복·민심 변화는 없다.",
       "grade": 1,
       "effects": [
         {
-          "stat": "swift",
-          "value": 90
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -330,43 +291,37 @@
         "goal": 0,
         "effects": []
       },
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "pc_after_feast_memory_2",
       "name": "콧코로",
       "effectName": "마지막 그릇까지",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +18.75%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 18.75
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "chain_final"
     },
     {
       "key": "pc_after_portions_memory_2",
       "name": "캬루",
       "effectName": "남겨 둔 한 끼",
-      "keyword": "여행의 기록",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
           "value": 4
         }
       ],
@@ -374,219 +329,189 @@
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "shop"
     },
     {
       "key": "pc_dusty_room_memory_2",
       "name": "캬루",
       "effectName": "남길 자리",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "shop"
     },
     {
       "key": "pc_tea_invitation_memory_2",
       "name": "콧코로",
       "effectName": "전하지 못한 인사",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "retiredBalanceReward": true
     },
     {
       "key": "pc_rainy_harvest_memory_2",
       "name": "캬루",
       "effectName": "젖지 않은 묶음",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "retiredBalanceReward": true
     },
     {
       "key": "pc_wrong_costume_tag_memory_1",
       "name": "츠무기",
       "effectName": "잘못 묶인 이름표",
-      "keyword": "여행의 기록",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "value": 4
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "shop"
     },
     {
       "key": "pc_witness_hours_memory_1",
       "name": "카스미",
       "effectName": "남겨 둔 빈칸",
-      "keyword": "여행의 기록",
+      "keyword": "공격력 +4%",
       "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "damage_reduction",
-          "value": 2
+          "value": 4
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "shop"
     },
     {
       "key": "pc_witness_hours_memory_2",
       "name": "카스미",
       "effectName": "남겨 둔 빈칸",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "shop"
     },
     {
       "key": "pc_monica_market_watch_memory_2",
       "name": "모니카",
       "effectName": "돌아올 길의 준비",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "shop"
     },
     {
       "key": "pc_delivery_divide_memory_2",
       "name": "콧코로",
       "effectName": "목적지별 꾸러미",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "retiredBalanceReward": true
     },
     {
       "key": "pc_rehearsal_wall_memory_2",
       "name": "노조미",
       "effectName": "연습 뒤의 약속",
-      "keyword": "여행의 기록",
+      "keyword": "D 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 2
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
         "kind": 0,
         "goal": 0,
         "effects": []
-      }
+      },
+      "rewardRole": "shop"
     },
     {
       "key": "gourmet_main_01_1",
       "name": "콧코로",
       "effectName": "낯선 길에서 받은 인사 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 8
-        },
-        {
-          "stat": "attack_percent",
+          "stat": "d_skill_damage",
           "value": 3
         }
       ],
@@ -596,22 +521,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_01_2",
       "name": "콧코로",
       "effectName": "낯선 길에서 받은 인사 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -620,22 +542,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_01_3",
       "name": "콧코로",
       "effectName": "낯선 길에서 받은 인사 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 6
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -644,22 +563,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_02_1",
       "name": "페코린느",
       "effectName": "배고픈 사람의 큰 웃음 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +12%",
       "grade": 1,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 8
-        },
-        {
-          "stat": "attack_percent",
-          "value": 3
+          "stat": "d_skill_damage",
+          "value": 12
         }
       ],
       "evolution": {
@@ -668,69 +584,18 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "shop"
     },
     {
       "key": "gourmet_main_02_2",
       "name": "페코린느",
       "effectName": "배고픈 사람의 큰 웃음 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "gourmet_main_02_3",
-      "name": "페코린느",
-      "effectName": "배고픈 사람의 큰 웃음 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
-      "grade": 1,
-      "effects": [
-        {
-          "stat": "healthy_damage",
-          "value": 6
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
-        }
-      ],
-      "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
-      },
-      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
-    },
-    {
-      "key": "gourmet_main_03_1",
-      "name": "캬루",
-      "effectName": "캐르가 머무는 거리 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
-      "grade": 1,
-      "effects": [
-        {
-          "stat": "max_health_percent",
-          "value": 8
-        },
-        {
-          "stat": "attack_percent",
+          "stat": "d_skill_damage",
           "value": 3
         }
       ],
@@ -740,22 +605,61 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
+    },
+    {
+      "key": "gourmet_main_02_3",
+      "name": "페코린느",
+      "effectName": "배고픈 사람의 큰 웃음 · 인연",
+      "keyword": "스킬가속 +3",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "skill_haste",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "rewardRole": "main"
+    },
+    {
+      "key": "gourmet_main_03_1",
+      "name": "캬루",
+      "effectName": "캐르가 머무는 거리 · 결의",
+      "keyword": "D 스킬 대미지 +3%",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "d_skill_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_03_2",
       "name": "캬루",
       "effectName": "캐르가 머무는 거리 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 1,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 5
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.2
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -764,22 +668,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_03_3",
       "name": "캬루",
       "effectName": "캐르가 머무는 거리 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 1,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 6
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 4
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -788,22 +689,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_04_1",
       "name": "콧코로",
       "effectName": "길드 이름에 모인 사람들 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 10
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -812,22 +710,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_04_2",
       "name": "콧코로",
       "effectName": "길드 이름에 모인 사람들 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "value": 4
         }
       ],
       "evolution": {
@@ -836,22 +731,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_04_3",
       "name": "콧코로",
       "effectName": "길드 이름에 모인 사람들 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -860,22 +752,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_05_1",
       "name": "유우키",
       "effectName": "처음 남기는 집의 기억 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 10
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -884,22 +773,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_05_2",
       "name": "유우키",
       "effectName": "처음 남기는 집의 기억 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "value": 4
         }
       ],
       "evolution": {
@@ -908,22 +794,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_05_3",
       "name": "유우키",
       "effectName": "처음 남기는 집의 기억 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -932,22 +815,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_06_1",
       "name": "페코린느",
       "effectName": "다른 길드와 나눈 식사 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 10
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -956,22 +836,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_06_2",
       "name": "페코린느",
       "effectName": "다른 길드와 나눈 식사 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "value": 4
         }
       ],
       "evolution": {
@@ -980,22 +857,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_06_3",
       "name": "페코린느",
       "effectName": "다른 길드와 나눈 식사 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1004,22 +878,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_07_1",
       "name": "캬루",
       "effectName": "캐르가 말하지 못한 일 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 2,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 10
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -1028,22 +899,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_07_2",
       "name": "캬루",
       "effectName": "캐르가 말하지 못한 일 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "공격력 +4%",
       "grade": 2,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "value": 4
         }
       ],
       "evolution": {
@@ -1052,22 +920,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_07_3",
       "name": "캬루",
       "effectName": "캐르가 말하지 못한 일 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1076,22 +941,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_08_1",
       "name": "유우키",
       "effectName": "기억의 빈칸이 부르는 길 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 10
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1100,22 +962,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_08_2",
       "name": "유우키",
       "effectName": "기억의 빈칸이 부르는 길 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1124,22 +983,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_08_3",
       "name": "유우키",
       "effectName": "기억의 빈칸이 부르는 길 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1148,22 +1004,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_09_1",
       "name": "페코린느",
       "effectName": "페코린느가 밝히는 이름 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 10
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1172,22 +1025,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_09_2",
       "name": "페코린느",
       "effectName": "페코린느가 밝히는 이름 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1196,22 +1046,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_09_3",
       "name": "페코린느",
       "effectName": "페코린느가 밝히는 이름 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1220,22 +1067,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_10_1",
       "name": "콧코로",
       "effectName": "무너지는 익숙한 풍경 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 10
-        },
-        {
-          "stat": "attack_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1244,22 +1088,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_10_2",
       "name": "콧코로",
       "effectName": "무너지는 익숙한 풍경 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.3
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1268,22 +1109,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_10_3",
       "name": "콧코로",
       "effectName": "무너지는 익숙한 풍경 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 2,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 8
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 5
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1292,22 +1130,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_11_1",
       "name": "캬루",
       "effectName": "기다리는 사람과 묶인 마음 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 12
-        },
-        {
-          "stat": "attack_percent",
-          "value": 5
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -1316,22 +1151,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_11_2",
       "name": "캬루",
       "effectName": "기다리는 사람과 묶인 마음 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 7
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.4
+          "value": 4
         }
       ],
       "evolution": {
@@ -1340,22 +1172,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_11_3",
       "name": "캬루",
       "effectName": "기다리는 사람과 묶인 마음 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 10
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 6
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1364,22 +1193,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_12_1",
       "name": "유우키",
       "effectName": "네 사람의 뜻이 다시 모이다 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 12
-        },
-        {
-          "stat": "attack_percent",
-          "value": 5
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -1388,22 +1214,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_12_2",
       "name": "유우키",
       "effectName": "네 사람의 뜻이 다시 모이다 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 7
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.4
+          "value": 4
         }
       ],
       "evolution": {
@@ -1412,22 +1235,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_12_3",
       "name": "유우키",
       "effectName": "네 사람의 뜻이 다시 모이다 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 10
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 6
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1436,22 +1256,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_13_1",
       "name": "페코린느",
       "effectName": "카이저 앞에 남긴 약속 · 결의",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +6%",
       "grade": 3,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 12
-        },
-        {
-          "stat": "attack_percent",
-          "value": 5
+          "stat": "d_skill_damage",
+          "value": 6
         }
       ],
       "evolution": {
@@ -1460,22 +1277,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_13_2",
       "name": "페코린느",
       "effectName": "카이저 앞에 남긴 약속 · 물음",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "공격력 +4%",
       "grade": 3,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 7
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.4
+          "value": 4
         }
       ],
       "evolution": {
@@ -1484,22 +1298,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_13_3",
       "name": "페코린느",
       "effectName": "카이저 앞에 남긴 약속 · 인연",
-      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "keyword": "스킬가속 +3",
       "grade": 3,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 10
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 6
+          "stat": "skill_haste",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1508,26 +1319,19 @@
         "effects": []
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
-      "uncertain": []
+      "uncertain": [],
+      "rewardRole": "main"
     },
     {
       "key": "gourmet_main_14_1",
       "name": "캬루",
       "effectName": "함께 견뎌 낸 시간",
-      "keyword": "메인 완결 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 4,
       "effects": [
         {
-          "stat": "max_health_percent",
-          "value": 16
-        },
-        {
-          "stat": "attack_percent",
-          "value": 6
-        },
-        {
-          "stat": "final_damage_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1537,26 +1341,18 @@
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": [],
-      "retiredMainReward": true
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_14_2",
       "name": "캬루",
       "effectName": "평범한 하루를 향한 소망",
-      "keyword": "메인 완결 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 4,
       "effects": [
         {
-          "stat": "attack_percent",
-          "value": 8
-        },
-        {
-          "stat": "regeneration",
-          "value": 0.6
-        },
-        {
-          "stat": "final_damage_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1566,26 +1362,18 @@
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": [],
-      "retiredMainReward": true
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_14_3",
       "name": "캬루",
       "effectName": "다시 마주 앉은 인사",
-      "keyword": "메인 완결 · 다시 함께 앉는 미식전",
+      "keyword": "D 스킬 대미지 +3%",
       "grade": 4,
       "effects": [
         {
-          "stat": "healthy_damage",
-          "value": 12
-        },
-        {
-          "stat": "max_health_percent",
-          "value": 8
-        },
-        {
-          "stat": "final_damage_percent",
-          "value": 4
+          "stat": "d_skill_damage",
+          "value": 3
         }
       ],
       "evolution": {
@@ -1595,15 +1383,24 @@
       },
       "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": [],
-      "retiredMainReward": true
+      "retiredBalanceReward": true
     },
     {
       "key": "gourmet_main_ending_memorial",
       "name": "네 사람이 앉는 식탁",
       "effectName": "메인 엔딩 기념 · 효과 설계 중",
-      "keyword": "처음 나누었던 한 끼에서, 다시 함께 돌아온 오늘까지. 너의 자리를 남겨 두고 기다리는 사람들.",
+      "keyword": "D 스킬 대미지 +120% · 공격력 +8%",
       "grade": 4,
-      "effects": [],
+      "effects": [
+        {
+          "stat": "d_skill_damage",
+          "value": 120
+        },
+        {
+          "stat": "attack_percent",
+          "value": 8
+        }
+      ],
       "evolution": {
         "kind": 0,
         "goal": 0,
@@ -1613,7 +1410,64 @@
       "canonFact": "처음 나누었던 한 끼에서, 다시 함께 돌아온 오늘까지. 너의 자리를 남겨 두고 기다리는 사람들.",
       "uncertain": [
         "효과와 수치는 검수 후 설계한다."
-      ]
+      ],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "gourmet_main_ending_memorial_growth_1",
+      "name": "네 사람이 앉는 식탁",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "D 스킬 대미지 +120% · 치명타 피해 +16%",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "d_skill_damage",
+          "value": 120
+        },
+        {
+          "stat": "crit_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "처음 나누었던 한 끼에서, 다시 함께 돌아온 오늘까지. 너의 자리를 남겨 두고 기다리는 사람들.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ],
+      "rewardRole": "main_final"
+    },
+    {
+      "key": "gourmet_main_ending_memorial_growth_2",
+      "name": "네 사람이 앉는 식탁",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "D 스킬 대미지 +120% · 스킬가속 +8",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "d_skill_damage",
+          "value": 120
+        },
+        {
+          "stat": "skill_haste",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "처음 나누었던 한 끼에서, 다시 함께 돌아온 오늘까지. 너의 자리를 남겨 두고 기다리는 사람들.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ],
+      "rewardRole": "main_final"
     }
   ],
   "events": [
@@ -1644,7 +1498,7 @@
           "card": "pc_kokkoro_care",
           "card2": null,
           "gold": 0,
-          "cost": 260,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1656,7 +1510,7 @@
           "card": "pc_karyl_check",
           "card2": null,
           "gold": 0,
-          "cost": 160,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1666,7 +1520,13 @@
       "failure": null,
       "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+      "actionCost": 4,
+      "growthRole": "chain",
+      "chainStage": 1,
+      "chainLength": 2,
+      "chainRoot": "pc_road_meal",
+      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%"
     },
     {
       "key": "pc_after_feast",
@@ -1683,7 +1543,7 @@
           "card": "pc_pecorine_front",
           "card2": null,
           "gold": 0,
-          "cost": 220,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1695,7 +1555,7 @@
           "card": "pc_karyl_resolve",
           "card2": null,
           "gold": 0,
-          "cost": 180,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1717,7 +1577,13 @@
       "failure": null,
       "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+      "actionCost": 6,
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "pc_road_meal",
+      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%"
     },
     {
       "key": "pc_after_portions",
@@ -1731,7 +1597,7 @@
         {
           "label": "내 몫을 먹고 페코린느와 다음 일의 준비를 한다",
           "result": "내 몫으로 남겨 둔 식사를 먹고 페코린느와 다음 일을 준비했다. 그릇은 비웠지만, 급히 떠나려던 일행에게 건넬 식사는 남지 않았다.",
-          "card": "pc_pecorine_meal",
+          "card": "pc_pecorine_front",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1742,11 +1608,11 @@
         },
         {
           "label": "남겨 둔 식사를 건네고 포장 재료를 다시 마련한다",
-          "result": "남겨 둔 식사를 건네고 포장 재료에 120골드를 썼다. 콧코로와 떠날 일행의 몫을 목록에 나눠 적는 요령을 익혔다. 페코린느는 비어 있는 네 그릇을 보고 다음 끼니를 다시 묻는다.",
-          "card": "pc_kokkoro_notes",
+          "result": "콧코로와 떠날 일행의 몫을 목록에 나눠 적는 요령을 익혔다. 페코린느는 비어 있는 네 그릇을 보고 다음 끼니를 다시 묻는다.",
+          "card": "pc_after_feast_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 120,
+          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1755,7 +1621,7 @@
         {
           "label": "캬루에게 돌아올 사람의 몫을 남겨 두자고 한다",
           "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
-          "card": "pc_after_portions_memory_2",
+          "card": "pc_karyl_resolve",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -1768,7 +1634,13 @@
       "failure": null,
       "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
+      "actionCost": 6,
+      "growthRole": "chain_final",
+      "chainStage": 2,
+      "chainLength": 2,
+      "chainRoot": "pc_road_meal",
+      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%"
     },
     {
       "key": "pc_dusty_room",
@@ -1780,36 +1652,36 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "제본과 정리 비용을 내고 콧코로와 남길 물건을 기록한다",
-          "result": "묶음끈과 기록용 종이를 사서 남길 물건을 적었다. 콧코로가 다음에 가져올 물건도 함께 표시한다. 안쪽 상자는 남았지만, 다시 같은 것을 사 오지는 않도록 목록을 챙겼다.",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "묶음끈과 기록용 종이를 사서 남길 물건을 적었다. 콧코로가 다음에 가져올 물건도 함께 표시한다. 안쪽 상자는 남았지만, 다시 같은 것을 사 오지는 않도록 목록을 챙겼다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
           "card": "pc_kokkoro_notes",
           "card2": null,
           "gold": 0,
-          "cost": 220,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다",
-          "result": "페코린느와 힘을 합쳐 방 안의 숨겨진 물건들을 하나씩 꺼낸다. 함께 고생하며 쌓아온 협동의 기억이 마음속에 남는다.",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "페코린느와 힘을 합쳐 방 안의 숨겨진 물건들을 하나씩 꺼낸다. 함께 고생하며 쌓아온 협동의 기억이 마음속에 남는다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
           "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "캬루에게 정리한 뒤 남길 자리를 묻는다",
-          "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
           "card": "pc_dusty_room_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1819,7 +1691,10 @@
       "failure": null,
       "canonFact": "공식 길드 하우스 청소 활동에서 별도 작은 방 정리 문제를 창작한다. 방·물건·길목 배정과 거래는 맵 전용이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_faded_spice_map",
@@ -1831,46 +1706,49 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "현장 도구를 마련해 페코린느와 남은 표시를 확인한다",
-          "result": "남은 표시를 따라가 채집할 곳을 찾았다. 재료를 의뢰처에 넘겨 값을 받고 페코린느와 든든히 준비하는 요령을 익혔다. 조사하며 맡은 구역은 더 강한 적이 드나드는 곳으로 남는다.",
-          "card": "pc_pecorine_expedition",
-          "card2": null,
-          "gold": 280,
-          "cost": 150,
-          "level": 1,
-          "density": 0,
-          "potions": 0,
-          "chance": 65
-        },
-        {
-          "label": "확인된 길 안내를 사서 캬루와 출발 준비를 점검한다",
-          "result": "안내 자료를 사고 캬루와 서로 맞지 않는 표시를 걸러 냈다. 길을 막는 상대의 빈틈을 짚는 조언을 얻었다. 위험한 원정을 따로 맡지는 않았지만, 앞으로 적을 만나지 않는다는 보장은 없다.",
-          "card": "pc_karyl_check",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "남은 표시를 따라가 채집할 곳을 찾았다. 재료를 의뢰처에 넘겨 값을 받고 페코린느와 든든히 준비하는 요령을 익혔다. 조사하며 맡은 구역은 더 강한 적이 드나드는 곳으로 남는다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "pc_pecorine_meal",
           "card2": null,
           "gold": 0,
-          "cost": 240,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "기록용품을 사서 콧코로와 의뢰 내용을 다시 나눈다",
-          "result": "기록용품 값을 치르고 채집 대상과 맡을 일을 나누어 적었다. 흐린 길을 억지로 확정하지는 않았다. 콧코로의 준비 목록을 챙기고, 지도에 남은 빈칸은 다음 조사자에게 남긴다.",
-          "card": "pc_kokkoro_notes",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "안내 자료를 사고 캬루와 서로 맞지 않는 표시를 걸러 냈다. 길을 막는 상대의 빈틈을 짚는 조언을 얻었다. 위험한 원정을 따로 맡지는 않았지만, 앞으로 적을 만나지 않는다는 보장은 없다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
+          "card": "pc_after_portions_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 180,
+          "cost": 250,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "기록용품 값을 치르고 채집 대상과 맡을 일을 나누어 적었다. 흐린 길을 억지로 확정하지는 않았다. 콧코로의 준비 목록을 챙기고, 지도에 남은 빈칸은 다음 조사자에게 남긴다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "pc_kokkoro_harvest",
+          "card2": null,
+          "gold": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.",
+      "failure": null,
       "canonFact": "공식 향신료 수확 의뢰와 불확실한 조미료 지도 모험에서 별도 평범한 채집 지도를 창작한다. 본편 마을·섀도 실종이나 궁극 조미료를 해결하는 사건은 아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_tea_invitation",
@@ -1882,36 +1760,36 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "연습용 종이를 사고 아오이와 처음 한 문장을 준비한다",
-          "result": "연습용 종이 값을 치르고 첫 인사를 함께 고쳤다. 아오이는 접어 둔 안내장을 펴고 자기 말로 한 문장을 건넨다. 모든 사람이 친해진 것은 아니지만, 다음 발걸음을 준비할 작은 용기를 배웠다.",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "연습용 종이 값을 치르고 첫 인사를 함께 고쳤다. 아오이는 접어 둔 안내장을 펴고 자기 말로 한 문장을 건넨다. 모든 사람이 친해진 것은 아니지만, 다음 발걸음을 준비할 작은 용기를 배웠다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
           "card": "pc_aoi_courage",
           "card2": null,
           "gold": 0,
-          "cost": 160,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "빠진 준비물을 사서 콧코로와 모임 목록을 맞춘다",
-          "result": "준비물 값을 내고 빠진 항목을 목록에 보탰다. 콧코로와 물건을 맡을 사람도 나누어 적는다. 모임 준비는 도왔지만 아오이가 건넬 말은 아오이에게 남겨 둔다.",
-          "card": "pc_kokkoro_notes",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "준비물 값을 내고 빠진 항목을 목록에 보탰다. 콧코로와 물건을 맡을 사람도 나누어 적는다. 모임 준비는 도왔지만 아오이가 건넬 말은 아오이에게 남겨 둔다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
+          "card": "pc_kokkoro_care",
           "card2": null,
           "gold": 0,
-          "cost": 200,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "콧코로에게 아오이의 인사를 기다리자고 말한다",
-          "result": "콧코로는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
-          "card": "pc_tea_invitation_memory_2",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "콧코로는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "pc_kokkoro_harvest",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1921,7 +1799,10 @@
       "failure": null,
       "canonFact": "학교 분위기에 적응하기 어려운 아오이를 유우키·콧코로가 돕는 공식 소재에서 별도 작은 모임 안내장 문제를 창작한다. 초대장과 결과는 맵 전용이다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_104031_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_104031_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_rainy_harvest",
@@ -1933,36 +1814,36 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "도구를 빌려 콧코로와 배수부터 돕는다",
-          "result": "도구 대여비를 내고 콧코로와 물길부터 열었다. 남은 묶음은 페코린느에게 맡기고, 준비물과 거둘 몫을 나누는 요령을 챙긴다.",
-          "card": "pc_kokkoro_harvest",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "도구 대여비를 내고 콧코로와 물길부터 열었다. 남은 묶음은 페코린느에게 맡기고, 준비물과 거둘 몫을 나누는 요령을 챙긴다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "pc_kokkoro_notes",
           "card2": null,
           "gold": 0,
-          "cost": 220,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "페코린느와 넓은 보급길까지 맡아 묶음을 옮긴다",
-          "result": "페코린느와 함께 쏟아지는 빗속에서 묵묵히 보급품을 옮겼다. 두 사람의 협동 덕분에 모든 곡식을 무사히 지켜낼 수 있었다.",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "페코린느와 함께 쏟아지는 빗속에서 묵묵히 보급품을 옮겼다. 두 사람의 협동 덕분에 모든 곡식을 무사히 지켜낼 수 있었다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
           "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "캬루와 젖은 묶음부터 구분해 옮긴다",
-          "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
-          "card": "pc_rainy_harvest_memory_2",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "pc_dusty_room_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -1972,7 +1853,10 @@
       "failure": null,
       "canonFact": "미식전의 쌀농사에서 별도 비오는작업일을창작한다. 비가오려는데논가에묶어둔곡식과막힌배수길이함께남았다. 콧코로는필요한도구를세고페코린느는옮길수있는것부터들자고한다. 한행동으로수확·배수둘다완전히해결하지않고다른일을남긴다. 1 도구비를내고준비·자원정리요령을얻는다.곡물재고·영구골드능력없음.2더많은적이드나들구역을맡고지정페코린느준비.3범위와보급만;모든논을구했다는결말없음.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_wrong_costume_tag",
@@ -1984,24 +1868,24 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "연락용품과 측정 도구를 마련해 츠무기와 의뢰를 맞춘다",
-          "result": "연락용품과 측정 도구 값을 내고 주문한 사람의 조건을 확인했다. 츠무기와 움직일 여유를 남기는 옷의 준비를 배웠다. 맞지 않는 옷을 억지로 수선하지는 않는다.",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "연락용품과 측정 도구 값을 내고 주문한 사람의 조건을 확인했다. 츠무기와 움직일 여유를 남기는 옷의 준비를 배웠다. 맞지 않는 옷을 억지로 수선하지는 않는다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
           "card": "pc_tsumugi_fit",
           "card2": null,
           "gold": 0,
-          "cost": 240,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "츠무기에게 이름표부터 함께 확인하자고 한다",
-          "result": "츠무기는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "츠무기는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
           "card": "pc_wrong_costume_tag_memory_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -2011,7 +1895,10 @@
       "failure": null,
       "canonFact": "츠무기가게로배달된옷의이름표와의뢰서받을사람이서로다르다. 유우키는종이를번갈아보고츠무기는허락없이자르면돌릴수없다며가위를내려놓는다. 옷을수선해버리는것이정답이아니고확인·반송범위를고른다. 1확인할수있는연락·측정준비에서배운요령을카드로.실제옷장비없음.2일당과확인된보급물약.유우키에게호감·모든배송완료를주는결말아님.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105431_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105431_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~350골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_witness_hours",
@@ -2023,36 +1910,36 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "기록 도구를 사서 카스미와 시각부터 대조한다",
-          "result": "기록 도구 값을 내고 시각과 길목을 하나씩 맞춰 보았다. 카스미와 섣불리 결론 내리지 않고 빈틈을 짚는 요령을 배웠다. 보행자의 정체는 아직 알 수 없다.",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "기록 도구 값을 내고 시각과 길목을 하나씩 맞춰 보았다. 카스미와 섣불리 결론 내리지 않고 빈틈을 짚는 요령을 배웠다. 보행자의 정체는 아직 알 수 없다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
           "card": "pc_kasumi_compare",
           "card2": null,
           "gold": 0,
-          "cost": 220,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "카스미에게 확인된 문장부터 나누자고 한다",
-          "result": "카스미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "카스미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
           "card": "pc_witness_hours_memory_1",
           "card2": null,
           "gold": 0,
-          "cost": 100,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "카스미에게 확인된 문장부터 나누자고 한다",
-          "result": "카스미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "카스미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
           "card": "pc_witness_hours_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -2062,7 +1949,10 @@
       "failure": null,
       "canonFact": "카스미가자경단에들어온두주민의평범한길목목격담을나란히놓는다. 한사람은짐수레를다른이는어두운보행자를봤지만진술한시각이다르다. 서로거짓말한다고단정하기전에어느부분을확인할지결정한다.섀도정체·본편괴수섬사건을해결하지않는다. 조사는관통·치명준비로각색하나원작주문없음.2보급포장비100·적수-1·물약2.3판단하지않은빈칸을남긴다.시각표는실제시간소모·NPC판정이아니다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_101431_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_101431_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_monica_market_watch",
@@ -2074,37 +1964,37 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "표시 도구를 사서 모니카와 맡을 순서를 맞춘다",
-          "result": "표시 도구 값을 내고 모니카와 먼저 맡을 자리와 돌아설 순서를 맞췄다. 빠른 지시와 방어 준비를 익혔다. 상인들의 불안이 모두 사라진 것은 아니다.",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "표시 도구 값을 내고 모니카와 먼저 맡을 자리와 돌아설 순서를 맞췄다. 빠른 지시와 방어 준비를 익혔다. 상인들의 불안이 모두 사라진 것은 아니다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
           "card": "pc_monica_order",
           "card2": null,
           "gold": 0,
-          "cost": 240,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "캬루와 더 넓은 길목을 맡아 공격 준비를 챙긴다",
-          "result": "캬루의 불평을 뒤로하고 더 넓은 구역의 방어 태세를 갖췄다. 넓은 시야를 확보하며 상점가 주변의 안전을 꼼꼼히 살폈다.",
-          "card": "pc_karyl_resolve",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "캬루의 불평을 뒤로하고 더 넓은 구역의 방어 태세를 갖췄다. 넓은 시야를 확보하며 상점가 주변의 안전을 꼼꼼히 살폈다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
+          "card": "pc_after_portions_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "모니카에게 돌아올 길부터 확인하자고 한다",
-          "result": "모니카는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "모니카는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
           "card": "pc_monica_market_watch_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 100,
-          "level": -1,
+          "cost": 875,
+          "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
@@ -2113,7 +2003,10 @@
       "failure": null,
       "canonFact": "주민을해치는일이생겨가게들이일찍문을닫으려한다. 모니카는지킬길목을정하자고하고페코린느는상인들이저녁준비를못하는것을걱정한다. 캬루는넓게맡을수록놓칠구석도늘어난다고말한다.공식6화의주민보호동기를참고한새작은시장준비문제이고수수께끼기사를쓰러뜨리지않는다. 1순서준비에서고정신속180과감소2만.2무료이지만적수+2;기사처치·주민완전안전없음.3적강함-1하한1·물약1·비용100.4상인일당이며폐점자체해결아님.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_105331_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105331_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_delivery_divide",
@@ -2125,36 +2018,36 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "포장 비용을 내고 콧코로와 전달할 몫을 나눈다",
-          "result": "포장 비용을 내고 콧코로와 전달할 몫을 나누었다. 몸과 다음 행동을 오래 돌보는 준비를 배웠다. 모든 목적지에 짐을 전했다고 하지는 않는다.",
-          "card": "pc_kokkoro_care",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "포장 비용을 내고 콧코로와 전달할 몫을 나누었다. 몸과 다음 행동을 오래 돌보는 준비를 배웠다. 모든 목적지에 짐을 전했다고 하지는 않는다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "pc_kokkoro_notes",
           "card2": null,
           "gold": 0,
-          "cost": 260,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "페코린느와 큰 짐과 넓은 길목을 함께 맡는다",
-          "result": "페코린느와 호흡을 맞춰 큰 짐들을 효율적으로 수레에 실었다. 두 사람의 협력으로 복잡한 갈림길도 막힘없이 통과했다.",
-          "card": "pc_pecorine_front",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "페코린느와 호흡을 맞춰 큰 짐들을 효율적으로 수레에 실었다. 두 사람의 협력으로 복잡한 갈림길도 막힘없이 통과했다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
+          "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "콧코로에게 목적지부터 함께 확인하자고 한다",
-          "result": "콧코로는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
-          "card": "pc_delivery_divide_memory_2",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "콧코로는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "pc_kokkoro_harvest",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -2164,7 +2057,10 @@
       "failure": null,
       "canonFact": "유우키가전할짐과미식전이들고갈보급의목적지가다르다.같은수레에올렸는데첫갈림길부터어느짐을누가맡을지정해야한다.콧코로는다시포장할몫을표시하고페코린느는큰짐을먼저들자고한다.플레이어의실제NPC동행이나목적지이동없음. 1지속회복·신속준비를유지해다음전투로간다.2동료와몫을나누는공격방어준비,적수+1.3목적지에짐전부배달했다고하지않는다.책임기록·물품인벤토리생성없음.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCRS_yuuki_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCRS_yuuki_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "pc_rehearsal_wall",
@@ -2176,36 +2072,36 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "완충재를 마련하고 노조미와 움직일 자리를 맞춘다",
-          "result": "완충재 값을 내고 노조미와 짐에 걸리지 않을 발걸음을 맞췄다. 몸을 준비하고 일정하게 움직이는 요령을 배웠다. 이 준비만으로 주민들의 모든 불편이 사라지지는 않는다.",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "완충재 값을 내고 노조미와 짐에 걸리지 않을 발걸음을 맞췄다. 몸을 준비하고 일정하게 움직이는 요령을 배웠다. 이 준비만으로 주민들의 모든 불편이 사라지지는 않는다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
           "card": "pc_nozomi_step",
           "card2": null,
           "gold": 0,
-          "cost": 200,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "페코린느에게 바깥까지 짐을 옮겨 주겠다고 한다",
-          "result": "페코린느는 짐을 옮긴 뒤에도 연습할 사람들의 자리를 살핀다. 손에 맡은 일을 끝내면서 다른 사람의 준비를 챙기는 모습을 기억한다.",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "페코린느는 짐을 옮긴 뒤에도 연습할 사람들의 자리를 살핀다. 손에 맡은 일을 끝내면서 다른 사람의 준비를 챙기는 모습을 기억한다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
           "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "노조미에게 연습이 끝난 뒤 부탁을 묻는다",
-          "result": "노조미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "노조미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
           "card": "pc_rehearsal_wall_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -2215,7 +2111,10 @@
       "failure": null,
       "canonFact": "카르미나의연습자리에둔짐이좁은벽쪽을막고,바로너머에서는주민들이쉬려한다.노조미는연습을준비하되모든부탁을한번에들어줄수없다며상황을살핀다. 미식전은벽쪽짐을정리할지바깥길까지맡을지정한다.구성원실력상하·정치갈등·주민마음을수치화하지않는다. 1동작·든든한준비만.새노래스킬·민심·연습시간연장없음.2더많은개인적수.3소음문제를전체해결하지않고제한된실무만한다.",
       "uncertain": [],
-      "icon": "war3mapImported\\UI_Card_PCR_102931_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_102931_Art.tga",
+      "actionCost": 1,
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "gourmet_main_01",
@@ -2223,7 +2122,7 @@
       "intro": "낯선 숲에서 콧코로가 먼저 손을 내민다.",
       "story": "기억을 잃은 소년 유우키가 눈을 뜬다. 자신의 과거는 물론 말과 생활에도 서툴다. 엘프 소녀 콧코로는 신탁을 따라 그를 찾아왔으며 앞으로 곁에서 안내하겠다고 한다.\n\n콧코로가 왕도 랜드솔로 가는 길을 가리킨다. 유우키는 낯선 이름을 되뇌며 그녀를 바라본다.",
       "mainStage": 1,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2231,7 +2130,7 @@
         {
           "label": "유우키 · 내가 어디로 가면 되는지 알려 줘.",
           "result": "콧코로는 자신이 앞장서겠다고 답한다. 유우키가 따라올 수 있도록 걸음을 맞춘다.",
-          "card": "gourmet_main_01_1",
+          "card": "pc_kokkoro_notes",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2243,7 +2142,7 @@
         {
           "label": "유우키 · 네 이름부터 기억할게. 콧코로.",
           "result": "콧코로는 자기 이름을 부르는 소년에게 고개를 끄덕인다. 모르는 것들은 하나씩 알아가면 된다고 말한다.",
-          "card": "gourmet_main_01_2",
+          "card": "pc_kokkoro_care",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2265,7 +2164,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRE_mushrooms.tga",
@@ -2273,7 +2172,9 @@
         "enabled": true,
         "commonResult": "랜드솔에 도착해도 식사와 잠자리를 구할 돈이 필요하다. 둘은 길드 관리협회의 버섯 채집 의뢰를 받는다. 기억을 찾을 방법은 아직 몰라도, 오늘 하루를 지낼 일부터 시작할 수 있다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_02",
@@ -2281,7 +2182,7 @@
       "intro": "다시 만난 페코린느가 잃어버린 검 이야기를 꺼낸다.",
       "story": "버섯을 찾던 유우키와 콧코로는 배고픈 검사 페코린느를 만난다. 힘이 세고 사람을 잘 믿는 그녀는 먹을 것을 이야기할 때 특히 즐거워한다.\n\n얼마 뒤 랜드솔의 대식 대회에서 우승한 페코린느와 다시 마주친다. 반가워하던 그녀는 소중한 검을 잃어버렸다고 털어놓는다. 콧코로가 어디에서 놓쳤는지 물으려 한다.",
       "mainStage": 2,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2289,7 +2190,7 @@
         {
           "label": "콧코로 · 마지막으로 검을 본 곳부터 찾아볼까요?",
           "result": "페코린느는 기억나는 일을 설명한다. 콧코로는 유우키와 함께 그 자취를 따라가 보기로 한다.",
-          "card": "gourmet_main_02_1",
+          "card": "pc_pecorine_meal",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2301,7 +2202,7 @@
         {
           "label": "콧코로 · 소중한 물건이라면 그냥 두고 갈 수 없죠.",
           "result": "페코린느는 도와주겠다는 말에 고맙다고 한다. 혼자 찾던 검의 행방을 셋이 함께 살피기 시작한다.",
-          "card": "gourmet_main_02_2",
+          "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2323,7 +2224,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRE_contest.tga",
@@ -2331,7 +2232,9 @@
         "enabled": true,
         "commonResult": "검을 찾던 일행 앞에 고양이 귀를 가진 수인 마법사 캐르가 나타난다. 검을 훔친 도둑들은 용에게 붙잡혀 있다. 일행은 도둑들과 검이 있는 둥지로 향한다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_03",
@@ -2339,7 +2242,7 @@
       "intro": "용의 둥지에서 돌아온 일행이 음식을 나눈다.",
       "story": "유우키가 틈을 만든 사이 페코린느는 검을 되찾아 용을 쓰러뜨리고 캐르도 구한다. 돌아오는 길, 페코린느가 주먹밥을 내민다.\n\n캐르는 고마운 마음을 쉽게 드러내지 못하고 퉁명스럽게 대꾸한다. 페코린느는 재촉하지 않고 먹을 것을 손에 든 채 기다린다.",
       "mainStage": 3,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2347,7 +2250,7 @@
         {
           "label": "페코린느 · 일단 먹어요. 배고프면 더 힘들잖아요.",
           "result": "캐르는 잠시 망설이다 주먹밥을 받아 든다. 페코린느는 자신도 옆에서 먹기 시작한다.",
-          "card": "gourmet_main_03_1",
+          "card": "pc_karyl_check",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2359,7 +2262,7 @@
         {
           "label": "페코린느 · 아까 다친 곳은 없어요?",
           "result": "캐르는 괜찮다고 답하고 옷을 턴다. 페코린느는 그제야 안심하며 다시 주먹밥을 권한다.",
-          "card": "gourmet_main_03_2",
+          "card": "pc_after_portions_memory_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2381,7 +2284,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRE_restaurant.tga",
@@ -2389,7 +2292,9 @@
         "enabled": true,
         "commonResult": "얼마 뒤 네 사람은 페코린느가 있는 식당에서 다시 만난다. 평소 재료는 그녀가 이미 먹어 치운 뒤라 예상 밖의 특별 메뉴가 나온다. 캐르의 불평까지 더해진 식탁은 조용할 틈이 없다. 서먹함이 모두 풀리지는 않아도 다음에 만날 이유가 생긴다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_04",
@@ -2397,7 +2302,7 @@
       "intro": "페코린느가 다음에도 함께 모험하자고 제안한다.",
       "story": "식탁에서 헤어졌다가 다시 모인 네 사람에게 페코린느가 생각을 꺼낸다. 맛있는 것을 찾아다니고 함께 먹는 길드를 만들자는 것이다. 길드가 되면 의뢰를 받아 함께 모험할 수 있다.\n\n캐르는 그런 이유로 길드를 만들어도 되느냐고 묻는다. 페코린느는 세 사람의 대답을 기다린다.",
       "mainStage": 4,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2439,7 +2344,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2447,7 +2352,9 @@
         "commonResult": "네 사람이 만든 길드는 미식전이라는 이름을 얻는다. 협회는 활동 거점으로 쓸 집을 빌려 준다. 일행은 앞으로 함께 지낼 장소를 보러 간다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_05",
@@ -2455,7 +2362,7 @@
       "intro": "새 길드 하우스의 문을 여니 먼지가 일어난다.",
       "story": "기대하며 찾아온 집은 오랫동안 비어 있었다. 먼지가 쌓이고 물건도 어지럽게 놓여 있어 바로 살 수 없다. 페코린느는 넓은 공간을 둘러보고, 캐르는 청소할 곳이 끝도 없다고 한다.\n\n콧코로가 창문을 열며 어디부터 손볼지 묻는다.",
       "mainStage": 5,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2497,7 +2404,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRE_house.tga",
@@ -2505,7 +2412,9 @@
         "enabled": true,
         "commonResult": "네 사람이 힘을 보탠 끝에 집은 생활할 수 있는 거점이 된다. 하루 숙박비부터 구하던 유우키와 콧코로에게 이제 일을 마치고 돌아올 곳이 생겼다. 다음 의뢰도 이 집에서 함께 준비한다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_06",
@@ -2513,7 +2422,7 @@
       "intro": "향신료를 구하러 온 마을에서 실종 소식을 듣는다.",
       "story": "향신료 원료를 거두러 타르굼 마을에 온 미식전은 다른 길드의 구출 요청을 듣는다. 검은 괴물 쉐도우와 싸우던 엘리자베스 파크의 시오리가 삼켜진 것이다.\n\n시오리의 언니 하츠네는 동생을 두고 돌아갈 수 없다. 미식전은 하츠네와 길드원들로부터 마지막으로 시오리를 본 상황을 듣는다.",
       "mainStage": 6,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2555,7 +2464,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Head_Official_gourmet_Icon.tga",
@@ -2563,7 +2472,9 @@
         "enabled": true,
         "commonResult": "미식전과 다른 길드원들이 함께 쉐도우에 맞서 시오리를 구한다. 하츠네는 돌아온 동생을 맞는다. 식재료 의뢰는 끝내도 사람을 삼키는 괴물의 비밀까지 풀린 것은 아니다. 돌아가는 일행에게 그 위협이 기억으로 남는다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_07",
@@ -2571,7 +2482,7 @@
       "intro": "캐르가 길드 하우스 앞에서 걸음을 늦춘다.",
       "story": "캐르에게는 친구들에게 말하지 못한 임무가 있다. 왕궁의 지배자가 페코린느 일행을 감시하라고 명령한 것이다. 자신을 인정해 준 주인을 따르고 싶은 마음은 크다.\n\n하지만 집 안에서는 함께 음식을 먹고 위험을 넘겼던 친구들의 목소리가 들린다. 캐르는 손을 문 앞으로 가져갔다가 잠시 멈춘다. 안에서 페코린느가 그녀를 부른다.",
       "mainStage": 7,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2613,7 +2524,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2621,7 +2532,9 @@
         "commonResult": "캐르는 감시 임무를 밝히지 못한다. 주인을 따르고 싶은 마음도, 친구들과 계속 지내고 싶은 마음도 남아 있다. 평소처럼 식사를 나누는 동안에도 그 둘은 쉽게 나뉘지 않는다.",
         "nodes": []
       },
-      "icon": "war3mapImported\\UI_Card_PCR_106031_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_106031_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_08",
@@ -2629,7 +2542,7 @@
       "intro": "거대한 그림자가 교역로를 가로막는다.",
       "story": "랜드솔과 농촌을 잇는 길에 마물이 나타나 식재료가 들어오지 못한다. 토벌에 나선 미식전은 거대한 쉐도우X의 공격에 몰린다.\n\n미궁 길드의 리더 라비리스트가 나타나 일행을 돕는다. 유우키와 세계의 비밀을 살피던 그녀는 지금은 공격을 피해야 한다며 자신을 따라오라고 한다.",
       "mainStage": 8,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2637,7 +2550,7 @@
         {
           "label": "미식전 동료 · 모두 같이 빠져나갈 수 있어요?",
           "result": "라비리스트는 일행이 함께 피할 길을 안내한다. 콧코로는 유우키가 떨어지지 않았는지 확인한다.",
-          "card": "gourmet_main_08_1",
+          "card": "gourmet_main_05_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2649,7 +2562,7 @@
         {
           "label": "미식전 동료 · 캐르, 페코린느! 이쪽이에요.",
           "result": "두 사람이 동료들의 위치를 확인하며 이동한다. 라비리스트는 일행이 모이는 동안 대피를 돕는다.",
-          "card": "gourmet_main_08_2",
+          "card": "gourmet_main_05_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2661,7 +2574,7 @@
         {
           "label": "미식전 동료 · 이곳의 사정은 나가서 들을게요.",
           "result": "라비리스트는 일행을 자신이 마련한 곳으로 이끈다. 질문을 남긴 채 우선 눈앞의 공격에서 벗어난다.",
-          "card": "gourmet_main_08_3",
+          "card": "gourmet_main_05_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2671,14 +2584,16 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
         "enabled": true,
         "commonResult": "일행은 라비리스트가 만든 임시 왕궁으로 피한다. 쉐도우X는 밖에 남아 있어 오래 안심할 수 없다. 안을 둘러보던 콧코로는 페코린느와 닮은 얼굴이 그려진 초상화 앞에서 멈춘다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_09",
@@ -2686,7 +2601,7 @@
       "intro": "초상화 앞에서 페코린느가 말할 준비를 한다.",
       "story": "콧코로는 임시 왕궁에서 본 초상화와 페코린느를 번갈아 본다. 늘 밝게 음식을 나누던 친구의 표정이 잠시 달라진다.\n\n페코린느는 자신이 숨겨 온 일이 있다고 말한다. 콧코로는 질문을 서두르지 않고 그녀를 향해 선다.",
       "mainStage": 9,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2694,7 +2609,7 @@
         {
           "label": "콧코로 · 저 그림에 관해 이야기해 주실 수 있나요?",
           "result": "페코린느는 초상화가 자신과 닮기만 한 것이 아니라고 답한다. 오래 말하지 못했던 이름을 꺼내려 한다.",
-          "card": "gourmet_main_09_1",
+          "card": "gourmet_main_06_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2706,7 +2621,7 @@
         {
           "label": "콧코로 · 힘드시면 천천히 말씀해 주세요.",
           "result": "페코린느는 잠시 숨을 고른다. 콧코로가 기다리는 것을 확인한 뒤 자신의 사정을 이야기하기 시작한다.",
-          "card": "gourmet_main_09_2",
+          "card": "gourmet_main_06_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2718,7 +2633,7 @@
         {
           "label": "콧코로 · 친구에게도 숨겨야 할 만큼 힘든 일이었나요?",
           "result": "페코린느는 누구에게 어떻게 말해야 할지 몰랐다고 한다. 콧코로는 그 사정을 끝까지 듣는다.",
-          "card": "gourmet_main_09_3",
+          "card": "gourmet_main_06_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2728,7 +2643,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -2751,7 +2666,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_10",
@@ -2759,7 +2676,7 @@
       "intro": "돌아오지 않은 캐르를 기다리던 집에 부상자들이 찾아온다.",
       "story": "디아볼로스의 미야코와 시노부가 다친 채 길드 하우스로 찾아온다. 같은 길드의 동료들이 납치되었다고 한다. 왕궁에서 시작된 위협이 다른 길드와 도시로 번지고 있다.\n\n페코린느는 친구들을 구하려면 더는 자신의 정체를 감추고 있을 수 없다고 생각한다. 그녀가 집을 나서려 하자 콧코로가 곁으로 온다.",
       "mainStage": 11,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2767,7 +2684,7 @@
         {
           "label": "콧코로 · 함께 가겠습니다. 혼자 말씀하지 않으셔도 돼요.",
           "result": "페코린느는 고개를 끄덕인다. 콧코로가 자신을 믿고 있다는 것을 확인하며 사람들 앞에 설 준비를 한다.",
-          "card": "gourmet_main_10_1",
+          "card": "gourmet_main_04_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2779,7 +2696,7 @@
         {
           "label": "콧코로 · 캐르도 이 도시 어딘가에 있어요.",
           "result": "페코린느는 다른 길드의 친구들과 캐르를 모두 떠올린다. 빼앗긴 왕녀의 자리만 되찾으려는 싸움은 아니다.",
-          "card": "gourmet_main_10_2",
+          "card": "gourmet_main_04_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2791,7 +2708,7 @@
         {
           "label": "콧코로 · 지금까지 지켜 온 이름으로 말씀해 주세요.",
           "result": "페코린느는 유스티아나라는 이름을 꺼낼 결심을 한다. 혼자 감추던 사정을 시민들 앞에서 밝히려 한다.",
-          "card": "gourmet_main_10_3",
+          "card": "gourmet_main_04_3",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -2801,7 +2718,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRO_visitors.tga",
@@ -2809,7 +2726,9 @@
         "enabled": true,
         "commonResult": "페코린느는 시민들 앞에서 자신이 이름과 자리를 빼앗긴 왕녀 유스티아나라고 밝힌다. 카이저에게 맞서 나라와 붙잡힌 친구들을 구하기 위해 왕궁으로 향한다. 네 사람이 함께 살던 집도 지켜야 할 도시 안에 있다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_11",
@@ -2817,7 +2736,7 @@
       "intro": "왕궁 기사단장 쥰이 페코린느에게 무기를 겨눈다.",
       "story": "카이저와 캐르에게 향하던 페코린느 앞을 쥰이 가로막는다. 나라를 지켜야 할 기사단장이 카이저에게 세뇌되어 왕녀를 공격하고 있다.\n\n페코린느는 쥰을 지나야 하지만, 조종당하는 기사를 그대로 적으로 버릴 수도 없다. 쥰이 다시 거리를 좁힌다.",
       "mainStage": 12,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2859,7 +2778,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRO_bondage.tga",
@@ -2882,7 +2801,9 @@
             ]
           }
         ]
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_12",
@@ -2890,7 +2811,7 @@
       "intro": "쓰러진 유우키에게 다시 시작할 가능성이 열린다.",
       "story": "유우키는 콧코로가 받은 열쇠의 지원으로 싸워 붙잡힌 라비리스트와 네네카를 풀어 준다. 그러나 카이저가 쉐도우에 삼켜져 더 거대한 위협이 된다. 캐르는 자신을 도구처럼 대한 주인도 버리지 못한다.\n\n다른 길드와 미식전이 그녀를 돕는 동안 유우키는 두 사람을 구하려다 다쳐 쓰러진다. 그 앞에 실패를 되돌리고 다시 시작할 가능성과, 지금의 동료들이 있는 곳으로 돌아갈 선택이 놓인다.",
       "mainStage": 14,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -2932,7 +2853,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRO_return.tga",
@@ -2955,7 +2876,9 @@
             ]
           }
         ]
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_13",
@@ -2963,7 +2886,7 @@
       "intro": "캐르가 쉐도우에 삼켜진 카이저에게 다가간다.",
       "story": "돌아온 유우키와 동료들이 구출을 이어간다. 캐르는 두려워하기만 했던 주인에게 자신의 마음을 말하려 한다. 미식전에서 보낸 식사와 생활을 떠올리자 그 사람에게도 건네고 싶은 바람이 생긴다.\n\n캐르는 친구들이 열어 준 틈으로 카이저를 향한다.",
       "mainStage": 15,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3005,7 +2928,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_GRO_together.tga",
@@ -3013,7 +2936,9 @@
         "enabled": true,
         "commonResult": "미식전과 조력자들의 힘이 모여 캐르와 카이저를 쉐도우에서 구한다. 카이저는 살아남지만 지배하던 자리를 잃고 붙잡힌다. 캐르가 품은 마음을 증명하기 위해 주인을 죽일 필요는 없었다. 라비리스트도 살아 있고, 네 사람에게는 함께 돌아갈 길이 열린다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_14",
@@ -3021,7 +2946,7 @@
       "intro": "캐르가 음식을 준비한 집에 페코린느가 찾아온다.",
       "story": "위기가 끝나고 페코린느는 왕녀 유스티아나의 이름과 자리를 되찾는다. 그 뒤 그녀가 다시 찾아온 곳은 미식전의 길드 하우스다. 집 안에서는 캐르가 음식을 준비하고 유우키와 콧코로가 기다린다.\n\n페코린느는 왕녀로서의 인사보다 친구들에게 먼저 하고 싶은 말이 있다. 문 앞에서 익숙한 얼굴들을 바라본다.",
       "mainStage": 16,
-      "actionCost": 1,
+      "actionCost": 8,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3041,7 +2966,7 @@
         {
           "label": "페코린느 · 다들 보고 싶었어요.",
           "result": "콧코로는 기다리고 있었다고 답한다. 유우키도 페코린느를 반기고 캐르는 음식이 식기 전에 오라고 한다.",
-          "card": "gourmet_main_ending_memorial",
+          "card": "gourmet_main_ending_memorial_growth_1",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3053,7 +2978,7 @@
         {
           "label": "페코린느 · 오늘은 제가 초대받는 쪽이네요.",
           "result": "캐르는 모처럼 준비했으니 맛있게 먹으라고 한다. 페코린느는 친구가 자신을 기다리며 차린 식탁을 바라본다.",
-          "card": "gourmet_main_ending_memorial",
+          "card": "gourmet_main_ending_memorial_growth_2",
           "card2": null,
           "gold": 0,
           "cost": 0,
@@ -3063,7 +2988,7 @@
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "dialogue": {
@@ -3082,7 +3007,9 @@
           }
         ]
       },
-      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga"
+      "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
+      "growthRole": "main_final",
+      "rewardPreview": "완결 · D 스킬 대미지 +120%"
     },
     {
       "key": "gourmet_epilogue_memory",
@@ -3090,51 +3017,53 @@
       "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
       "story": "네 사람이 다시 마주 앉은 식탁을 떠올린다. 미식전의 여행에는 낯선 음식을 찾던 즐거움과 함께 돌아오지 못할까 두려웠던 순간이 함께 있었다. 그 끝에서 평범한 한 끼를 가능하게 한 것은 무엇이었을까.",
       "epilogue": true,
-      "actionCost": 0,
+      "actionCost": 1,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "label": "“돌아올 자리를 챙겨 준 마음이 있었네.”",
-          "result": "콧코로가 동료들의 식사와 일상을 살피던 모습을 떠올린다. 눈에 띄는 승리만으로는 채울 수 없는 하루를 꾸준히 챙긴 덕분에, 미식전에는 다시 돌아와 앉을 자리가 있었다.",
-          "card": "pc_kokkoro_entry",
+          "label": "기본 구매 · D 스킬 대미지 +6%",
+          "result": "콧코로가 동료들의 식사와 일상을 살피던 모습을 떠올린다. 눈에 띄는 승리만으로는 채울 수 없는 하루를 꾸준히 챙긴 덕분에, 미식전에는 다시 돌아와 앉을 자리가 있었다.\n350골드를 지불하고 D 스킬 대미지 +6% 효과를 얻었다.",
+          "card": "pc_kokkoro_notes",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 350,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "“무엇을 먹었는지만큼 누구와 먹었는지도 남겠지.”",
-          "result": "페코린느의 즐거움은 맛있는 음식 앞에서 더 크게 드러났지만, 함께 웃고 떠드는 사람들도 그 식사의 일부였다. 다시 채워진 네 자리를 생각하면 다음 메뉴를 고르는 말까지 반갑게 들린다.",
-          "card": "pc_pecorine_meal",
+          "label": "기본 구매 · 공격력 +4%",
+          "result": "페코린느의 즐거움은 맛있는 음식 앞에서 더 크게 드러났지만, 함께 웃고 떠드는 사람들도 그 식사의 일부였다. 다시 채워진 네 자리를 생각하면 다음 메뉴를 고르는 말까지 반갑게 들린다.\n250골드를 지불하고 공격력 +4% 효과를 얻었다.",
+          "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 250,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "“지키고 싶었던 건 이런 평범한 내일이었구나.”",
-          "result": "왕녀로서의 페코린느와 미식전의 페코린느를 따로 떼어 생각하지 않는다. 친구들에게 손을 내밀고 함께 돌아갈 미래를 택한 힘은, 누군가를 이기는 순간을 넘어 이어진다.",
-          "card": "pc_pecorine_front",
+          "label": "집중 구매 · D 스킬 대미지 +12%",
+          "result": "왕녀로서의 페코린느와 미식전의 페코린느를 따로 떼어 생각하지 않는다. 친구들에게 손을 내밀고 함께 돌아갈 미래를 택한 힘은, 누군가를 이기는 순간을 넘어 이어진다.\n875골드를 지불하고 D 스킬 대미지 +12% 효과를 얻었다.",
+          "card": "gourmet_main_02_1",
           "card2": null,
           "gold": 0,
-          "cost": 0,
+          "cost": 875,
           "level": 0,
           "density": 0,
           "potions": 0,
           "chance": 100
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "growthRole": "shop",
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
     },
     {
       "key": "gourmet_main_ring_summons",
@@ -3142,7 +3071,7 @@
       "intro": "축제 한가운데에서 캐르의 손에 낀 반지가 빛난다.",
       "story": "미식전은 여러 의뢰를 겪으며 함께 지내고, 랜드솔 축제에서 모처럼 즐거운 하루를 보낸다. 같은 때 라비리스트는 카이저의 지배를 막으려 맞서고 있다.\n\n친구들 곁에 있던 캐르의 반지가 갑자기 빛난다. 주인에게 받은 선물이다. 캐르가 손을 살피는 사이 몸이 그 자리에서 끌려나가려 한다.",
       "mainStage": 10,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3184,7 +3113,7 @@
           "result": "손으로 누르는 것만으로 소환을 멈출 수 없다. 캐르는 친구들 곁에서 떨어져 카이저가 있는 곳에 나타난다."
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Head_Official_gourmet_Icon.tga",
@@ -3207,7 +3136,9 @@
             ]
           }
         ]
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     },
     {
       "key": "gourmet_main_choose_present",
@@ -3215,7 +3146,7 @@
       "intro": "아메스가 콧코로에게 열쇠를 내민다.",
       "story": "왕궁에서 페코린느와 캐르가 위기에 놓인 동안 콧코로는 아메스의 부탁을 듣는다. 유우키의 꿈속에서 그를 도와온 존재인 아메스는 열쇠를 내밀며 유우키를 지켜 달라고 한다.\n\n동료들에게 힘을 보태는 유우키에게도 누군가의 도움이 필요하다. 콧코로가 내밀어진 열쇠를 바라본다.",
       "mainStage": 13,
-      "actionCost": 1,
+      "actionCost": 4,
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
@@ -3257,7 +3188,7 @@
           "result": "아메스는 콧코로가 전장으로 향할 준비를 하도록 열쇠를 건넨다. 콧코로는 유우키와 다시 함께 나설 뜻을 정한다."
         }
       ],
-      "failure": "",
+      "failure": null,
       "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
       "uncertain": [],
       "icon": "war3mapImported\\UI_Head_Official_gourmet_Icon.tga",
@@ -3265,7 +3196,9 @@
         "enabled": true,
         "commonResult": "콧코로는 열쇠와 부탁을 받아 유우키를 돕는다. 두 사람은 페코린느가 카이저와 맞서는 전장에 합류한다. 떨어져 있던 미식전의 동료들이 다시 서로에게 힘을 보탤 수 있게 된다.",
         "nodes": []
-      }
+      },
+      "growthRole": "main",
+      "rewardPreview": "진행 보상 · 선택한 효과 획득"
     }
   ],
   "world": {
@@ -3275,8 +3208,8 @@
     "intro": "기억이 흐릿한 유우키와 그를 안내하는 콧코로가 여행을 시작한다. 페코린느, 캬루와 함께 식탁을 채우던 일상에 각자가 숨겨 온 사정이 드러난다.",
     "effects": [
       {
-        "stat": "max_health_percent",
-        "value": 2
+        "stat": "d_skill_damage",
+        "value": 3
       }
     ],
     "entryCard": "pc_kokkoro_entry",
@@ -3285,14 +3218,13 @@
       "title": "다시 함께 앉는 미식전",
       "length": 16,
       "focus": [
-        "max_health_percent",
-        "regeneration",
-        "attack_percent"
+        "d_skill_damage"
       ],
       "source": "애니메이션 미식전 결성과 시즌 2의 재회",
       "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
     },
-    "entryIcon": "war3mapImported\\UI_Head_Official_gourmet_Icon.tga"
+    "entryIcon": "war3mapImported\\UI_Head_Official_gourmet_Icon.tga",
+    "completionText": "D 스킬 대미지 +120%"
   },
   "sources": [
     "https://anime.priconne-redive.jp/archive/1st/story/id_02.html",
@@ -3319,5 +3251,6 @@
     "192d1c2e-5fde-4b09-8332-e38713e16876",
     "bd3a266f-2b17-4f52-98a7-2b5e41225a66",
     "96283abf-acaa-40ec-a436-0393c0e039d4"
-  ]
+  ],
+  "balanceVersion": 1
 }

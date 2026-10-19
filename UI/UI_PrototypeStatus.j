@@ -46,9 +46,9 @@ library UIPrototypeStatus initializer Init requires UIExpeditionCommon, StatsSet
         loop
             exitwhen column > 2
             set value = ""
-            set i = 1 + (column - 1) * 18
+            set i = 1 + (column - 1) * 20
             loop
-                exitwhen i > IMinBJ(column * 18, PROTO_STAT_LAST)
+                exitwhen i > IMinBJ(column * 20, PROTO_STAT_LAST)
                 if ProtoStat(pid, i) != 0.0 then
                     if value != "" then
                         set value = value + "|n"

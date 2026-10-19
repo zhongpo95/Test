@@ -1,7 +1,7 @@
 // 사건·카드 초안의 참조, 단위, 무효 선택과 후속 연결을 실행 데이터 반영 전에 검사한다.
 'use strict';
 const fs = require('node:fs');
-const stats = new Set(['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity','skill_haste','dash_cooldown_reduction','q_skill_damage','w_skill_damage','e_skill_damage','r_skill_damage','a_skill_damage','s_skill_damage','d_skill_damage','f_skill_damage','c_skill_damage']);
+const stats = new Set(['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity','skill_haste','dash_cooldown_reduction','q_skill_damage','w_skill_damage','e_skill_damage','r_skill_damage','a_skill_damage','s_skill_damage','d_skill_damage','f_skill_damage','c_skill_damage','basic_damage','move_damage_scale','recovery_speed','chosen_skill_damage']);
 // 같은 수치 예산에서 치명 확률 1%p와 치명 피해 2%p를 대응시킨다.
 const critDamagePerChance = 2;
 const mainCritChance = [0,3,4,5,6];
@@ -9,6 +9,7 @@ const mainCritChance = [0,3,4,5,6];
 function inspect(input) {
   const data = input.parsed || input;
   const errors = [], warnings = [];
+  const balanced=data.balanceVersion===1;
   const fail = (key, reason) => errors.push({key, reason});
   if (!Array.isArray(data.cards) || !Array.isArray(data.events)) return {errors:[{key:'root',reason:'cards와 events 배열이 필요함'}],warnings};
   const cards = new Map(), events = new Map();
@@ -65,10 +66,10 @@ function inspect(input) {
   effects('world',data.world?.effects || [data.world?.bonus]);
   for (const [key, card] of cards) {
     if (!card.name || !card.effectName || !card.keyword || !Number.isInteger(card.grade) || card.grade<1 || card.grade>4 || card.choices) fail(key,'카드 필수 필드 누락 또는 사건 객체가 cards에 들어감');
-    const critChanceLimit = (mainCards.has(key) || card.retiredMainReward===true) ? mainCritChance[card.grade] : 2;
+    const critChanceLimit = balanced ? 60 : (mainCards.has(key) || card.retiredMainReward===true) ? mainCritChance[card.grade] : 2;
     effects(key,card.effects,critChanceLimit);
     if (!card.effects?.length && card.endingCard!==true) fail(key,'빈 효과는 엔딩 기념 카드만 허용함');
-    if (card.endingCard && (card.effects.length || card.evolution?.kind!==0 || card.retiredMainReward)) fail(key,'엔딩 카드는 전투 효과 없는 기념 카드여야 함');
+    if (!balanced && card.endingCard && (card.effects.length || card.evolution?.kind!==0 || card.retiredMainReward)) fail(key,'엔딩 카드는 전투 효과 없는 기념 카드여야 함');
     if (card.retiredMainReward && !/_main_\d+_[123]$/.test(key)) fail(key,'기존 메인 보상 외 지급중단 불가');
     if (!card.evolution || ![0,1,2,3].includes(card.evolution.kind)) {fail(key,'각성 kind는 없음·처치·실제피해·연속무피격 중 하나여야 함');continue;}
     effects(key,card.evolution.effects);
@@ -87,12 +88,12 @@ function inspect(input) {
     if (event.icon !== undefined && (typeof event.icon !== 'string' || !/^war3mapImported\\[A-Za-z0-9_-]+\.(?:tga|blp)$/i.test(event.icon))) fail(key,'사건 아이콘은 war3mapImported 하위 tga 또는 blp 경로여야 함');
     if (!event.title || !event.story || !event.intro || event.effects) fail(key,'사건 필수 필드 누락 또는 카드 객체가 events에 들어감');
     if (event.epilogue!==undefined && typeof event.epilogue!=='boolean') fail(key,'후일담 표시는 참 또는 거짓이어야 함');
-    if (event.actionCost!==undefined && ![0,1].includes(event.actionCost)) fail(key,'사건 행동력 비용은 0 또는 1이어야 함');
+    if (event.actionCost!==undefined && !(balanced?[0,1,3,4,6,7,8]:[0,1]).includes(event.actionCost)) fail(key,'사건 행동력 비용은 0 또는 1이어야 함');
     if (!Array.isArray(event.choices) || event.choices.length<2 || event.choices.length>4) {fail(key,'선택지는 2~4개여야 함');continue;}
     if (event.epilogue && (!data.world?.mainStory || event.mainStage)) fail(key,'후일담에는 지역 메인이 필요하며 메인 단계와 겹칠 수 없음');
     if (event.mainStage) {
       if (!Number.isInteger(event.mainStage) || event.mainStage<1 || event.mainStage>data.world?.mainStory?.length) fail(key,'메인 단계 범위 오류');
-      if (event.previous || event.requiredCard || event.actionCost!==1 || event.choices.length!==3) fail(key,'메인은 개인 단계로 연결하며 AP 1과 세 행동을 사용함');
+      if (event.previous || event.requiredCard || event.actionCost!==(balanced?(event.mainStage===data.world.mainStory.length?8:4):1) || event.choices.length!==3) fail(key,'메인은 개인 단계로 연결하며 AP 1과 세 행동을 사용함');
       const grades=new Set();
       for(const b of event.choices){
         if(!b.card || b.card2 || b.chance!==100 || b.cost || b.gold || b.density || b.level)fail(key,'메인 세 행동은 비용·확률 차이 없이 카드 하나씩 지급함');
@@ -115,7 +116,7 @@ function inspect(input) {
           for (const b of n.choices||[]) if (!b.label || !b.result || Object.keys(b).some(k=>!['label','result'].includes(k))) fail(key,'추가 대화는 문장만 가지며 별도 보상·비용을 갖지 않음');
         }
         const final=event.mainStage===data.world.mainStory.length;
-        if (final && (d.commonResult || d.nodes.at(-1)?.key!=='ending' || new Set(event.choices.map(b=>b.card)).size!==1 || !cards.get(event.choices[0].card)?.endingCard)) fail(key,'마지막 사건은 공통 엔딩 대화와 단일 기념 카드를 사용함');
+        if (final && (d.commonResult || d.nodes.at(-1)?.key!=='ending' || (!balanced && new Set(event.choices.map(b=>b.card)).size!==1) || !cards.get(event.choices[0].card)?.endingCard)) fail(key,'마지막 사건은 공통 엔딩 대화와 단일 기념 카드를 사용함');
         if (!final && !d.commonResult) fail(key,'일반 메인 사건은 공통 결과가 필요함');
       }
     }
@@ -151,7 +152,7 @@ function inspect(input) {
       path.add(parent);parent=events.get(parent).previous;
     }
   }
-  for (const key of cards.keys()) if (!seen.has(key) && data.world?.entryCard!==key && !cards.get(key).retiredMainReward) fail(key,'지급 사건이나 입장 카드 참조가 없음');
+  for (const key of cards.keys()) if (!seen.has(key) && data.world?.entryCard!==key && !cards.get(key).retiredMainReward && !(balanced && cards.get(key).retiredBalanceReward)) fail(key,'지급 사건이나 입장 카드 참조가 없음');
   return {cards:cards.size,events:events.size,errors,warnings};
 }
 if (require.main===module) {
