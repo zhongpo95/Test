@@ -617,16 +617,15 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         local integer count
         local integer slot
         local string itemData
-        local string key = "영웅" + I2S(PlayerSlotNumber[pid]) + ".시험원정.보관재료"
         // 기존 인벤토리도 소유 클라이언트에서만 변경된다. 이 분기는 원정 상태를 바꾸지 않는다.
         if GetLocalPlayer() == Player(pid) and PLAYER_DATA_SERVER_READY[pid] then
-            set count = S2I(StashLoad(PLAYER_DATA[pid], key, "0"))
+            set count = ArcanaSaveHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_X_STORE)
             loop
                 exitwhen count <= 0
                 set slot = 50
                 loop
                     exitwhen slot == 100
-                    set itemData = StashLoad(PLAYER_DATA[pid], "영웅" + I2S(PlayerSlotNumber[pid]) + ".아이템" + I2S(slot), "0")
+                    set itemData = ArcanaSaveInv(pid, PlayerSlotNumber[pid], slot, "0")
                     exitwhen itemData == null or itemData == "" or itemData == "0"
                     exitwhen GetItemIDs(itemData) == 0 or GetItemIDs(itemData) == 27
                     set slot = slot + 1
@@ -635,28 +634,33 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 call additem(Player(pid), "ID27;")
                 set count = count - 1
             endloop
-            call StashSave(PLAYER_DATA[pid], key, I2S(count))
+            call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_X_STORE, count)
         endif
     endfunction
 
     private function ConfirmVictory takes integer pid, boolean clear returns nothing
-        local string key = "영웅" + I2S(PlayerSlotNumber[pid]) + ".시험원정."
+        local integer h = PlayerSlotNumber[pid]
         set ExpConfirmedBattles[pid] = ExpConfirmedBattles[pid] + 1
         if PLAYER_DATA_SERVER_READY[pid] then
             if GetLocalPlayer() == Player(pid) then
-                call StashSave(PLAYER_DATA[pid], key + "보관재료", I2S(S2I(StashLoad(PLAYER_DATA[pid], key + "보관재료", "0")) + 1))
-                call StashSave(PLAYER_DATA[pid], key + "전투승리", I2S(S2I(StashLoad(PLAYER_DATA[pid], key + "전투승리", "0")) + 1))
+                call ArcanaSaveSetHeroInt(pid, h, ARCANA_HF_X_STORE, ArcanaSaveHeroInt(pid, h, ARCANA_HF_X_STORE) + 1)
+                call ArcanaSaveSetHeroInt(pid, h, ARCANA_HF_X_WIN, ArcanaSaveHeroInt(pid, h, ARCANA_HF_X_WIN) + 1)
                 if clear then
-                    call StashSave(PLAYER_DATA[pid], key + "완주", I2S(S2I(StashLoad(PLAYER_DATA[pid], key + "완주", "0")) + 1))
+                    call ArcanaSaveSetHeroInt(pid, h, ARCANA_HF_X_DONE, ArcanaSaveHeroInt(pid, h, ARCANA_HF_X_DONE) + 1)
                 endif
             endif
             call ClaimMaterials(pid)
-            call RequestPlayerSave(pid)
+            // Arcana 판: 원정 종료(Finish) 때 한 번 저장한다
         endif
     endfunction
 
     private function Finish takes boolean clear returns nothing
         local integer pid = 0
+        static if ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 원정 종료(ExpMember 를 지우기 전). 남은 참가자만 보낸다
+            set ArcanaRecArgFlag = clear
+            call TriggerEvaluate(ArcanaRecTrigRunEnd)
+        endif
         call ExpCombatStop()
         if ExpPrototypeActive then
             call TriggerExecute(ExpPrototypeCleanup)
@@ -673,6 +677,9 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 endif
                 call ReleaseEvent(pid)
                 call ReleaseReward(pid)
+                // 원정 종료 저장(승리·실패 모두). 남은 참가자만, READY 검사는 RequestPlayerSave 안에서 한다
+                call ArcanaSaveTrace("[ARC-SAVE] request why=expedition-end pid=" + I2S(pid))
+                call RequestPlayerSave(pid)
                 set ExpMember[pid] = false
                 call PlayerStatsSet(pid)
                 call ItemUIStatsSet(pid)
@@ -1055,7 +1062,7 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 call TryStart()
             elseif action == 2 then
                 call ClaimMaterials(pid)
-                call RequestPlayerSave(pid)
+                // Arcana 판: 보관 재료 받기는 다음 저장(원정 종료·-save)에 들어간다
             endif
         elseif not ExpMember[pid] then
             return

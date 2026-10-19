@@ -19,47 +19,16 @@ library DataItem
             set t = null
         endmethod
         private static method Action takes nothing returns nothing
-        call SaveInteger(ItemData, StringHash("ITEMID"), 1, 'I007')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 2, 'I006')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 3, 'I00R')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 4, 'I00X')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 5, 'I013')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 6, 'I019')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 7, 'I01F')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 8, 'I01L')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 9, 'I01R')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 10, 'I001')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 11, 'I00E')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 12, 'I00D')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 13, 'I00K')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 14, 'I00G')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 15, 'I00C')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 16, 'I00A')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 17, 'I00I')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 18, 'I00J')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 19, 'I009')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 20, 'I025')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 21, 'I026')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 22, 'I027')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 23, 'I01Y')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 24, 'I00L')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 25, 'I028')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 26, 'I01Z')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 27, 'I01S')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 28, 'I029')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 29, 'I020')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 30, 'I01T')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 31, 'I021')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 32, 'I01U')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 33, 'I022')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 34, 'I01V')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 35, 'I023')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 36, 'I01W')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 37, 'I024')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 38, 'I01X')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 39, 'I000')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 40, 'I008')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 41, 'I003')
+        local integer i
+        // 세이브 v2 P1: 번호 -> rawcode 는 생성 표(content/items.json -> Data_ItemGen.j)
+        set i = 1
+        loop
+            exitwhen i > ARCANA_ITEM_ID_MAX
+            if ARCANA_ITEM_RAW[i] != 0 then
+                call SaveInteger(ItemData, StringHash("ITEMID"), i, ARCANA_ITEM_RAW[i])
+            endif
+            set i = i + 1
+        endloop
 
 
         //아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드, 7보석
@@ -69,21 +38,20 @@ library DataItem
         //기타 0아이템아이디, 1중첩수
         
 //무기 공격력
-        set ItemStats[1][1] = "1"
+        // 세이브 v2 P1: 무기 공격력 표는 생성 표(단계 1~8)
+        set i = 1
+        loop
+            exitwhen i > 8
+            set ItemStats[1][i] = ARCANA_WEAPON_ATK[i]
+            set i = i + 1
+        endloop
         //강화 및 계승 3퍼, T2 +0 기준 누적 계산 후 반올림
-        set ItemStats[1][2] = "100;103;106;109;113;116;119;123;127;130;134"
         //증3퍼
-        set ItemStats[1][3] = "138;143;147;151;156;160;165;170;175;181;186"
         //증3퍼
-        set ItemStats[1][4] = "192;197;203;209;216;222;229;236;243;250;258"
         //증3퍼
-        set ItemStats[1][5] = "265;273;281;290;299;307;317;326;336;346;356"
         //증3퍼
-        set ItemStats[1][6] = "367;378;390;401;413;426;438;452;465;479;493"
         //증3퍼
-        set ItemStats[1][7] = "508;523;539;555;572;589;607;625;644;663;683"
         //증3퍼
-        set ItemStats[1][8] = "703;725;746;769;792;816;840;865;891;918;945"
         
         //미구현
         //증3퍼
@@ -364,14 +332,13 @@ library DataItem
         set EnchantMaterial2[8][9] = 0
         set EnchantMaterial2[8][10] = 0
         
-        set EnchantMax[1] = 0
-        set EnchantMax[2] = 10
-        set EnchantMax[3] = 10
-        set EnchantMax[4] = 10
-        set EnchantMax[5] = 10
-        set EnchantMax[6] = 10
-        set EnchantMax[7] = 10
-        set EnchantMax[8] = 10
+        // 세이브 v2 P1: 강화 한도는 생성 표
+        set i = 1
+        loop
+            exitwhen i > 8
+            set EnchantMax[i] = ARCANA_ENCHANT_MAX[i]
+            set i = i + 1
+        endloop
         
         //품질
         set ItemWeaponQuality[0] = 10.00

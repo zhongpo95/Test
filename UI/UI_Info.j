@@ -423,7 +423,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     loop        
                         exitwhen i == 50
                         //비어있는 공간이 있음
-                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == 0 then
+                        if GetItemIDs(ArcanaSaveInv(pid, S2I(sn), i, "0")) == 0 then
                             set j = i
                             set i = 49
                         endif

@@ -1,4 +1,4 @@
-library UIQuest initializer init requires Stash, FrameCount
+library UIQuest initializer init requires FrameCount
 
     globals
         integer QuestMain
@@ -45,15 +45,17 @@ library UIQuest initializer init requires Stash, FrameCount
             call DzFrameShow(Quest[1], true)
             call DzFrameShow(Quest[2], true)
             set Quest_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")
+            call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST, 0)
         endif
     endfunction
 
     function TodaySet takes integer pid returns nothing
+        // Arcana 판(09 2.4): JN 연결 대신 이 게임의 로드 성공 여부(PLAYER_DATA_SERVER_READY)를 본다. 지금은 호출되지 않는 함수다.
+        // 어댑터 함수 대신 전역을 읽어 requires 를 늘리지 않는다(라이브러리 초기화 순서 보존, DESIGN_FEEDBACK_09 K2).
         local integer q
         if GetLocalPlayer() == Player(pid) then
-            if JNUse( ) then
-                set q = S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0"))
+            if PLAYER_DATA_SERVER_READY[pid] then
+                set q = ArcanaSaveHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST)
                 if q >= 7 then
                     set QuestNumber = 0
                 elseif q >= 5 then
@@ -102,9 +104,9 @@ library UIQuest initializer init requires Stash, FrameCount
     function TodayQuestPlus takes integer pid returns nothing
         local integer q
         if GetLocalPlayer() == Player(pid) then
-            set q = S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")) + 1
+            set q = ArcanaSaveHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST) + 1
             call BJDebugMsg(I2S(q))
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", I2S(q))
+            call ArcanaSaveSetHeroInt(pid, PlayerSlotNumber[pid], ARCANA_HF_TQUEST, q)
 
             if q >= 7 then
                 if q == 7 then

@@ -31,6 +31,24 @@ library DataExpedition
         // 시작 실패(빈 전장 없음 등)면 보스 쪽이 ExpBossExternal 을 false 로 되돌려 예전 전투로 넘어간다.
         // 끝나면 보스 쪽이 ExpWon·ExpProgress 를 정하고 ExpBattleFinished 를 실행한다
         trigger ExpBossStartArcher = CreateTrigger()
+        // 단계 7 웹 기록 훅(09 7절 K2). 기록 라이브러리를 requires 하지 않고 이 인자 전역을 채운 뒤 TriggerEvaluate 한다(09 9절 K12).
+        // 트리거는 저장·기록 상수가 모두 참일 때 ArcanaRecord 초기화가 만든다. 그 밖의 판에서는 훅 줄 자체가 static if 로 빠진다.
+        integer ArcanaRecArgPid = 0
+        integer ArcanaRecArgId = 0
+        integer ArcanaRecArgChoice = 0
+        boolean ArcanaRecArgFlag = false
+        string ArcanaRecArgText = ""
+        integer ArcanaRecArgN = 0
+        unit array ArcanaRecArgUnit
+        boolean array ArcanaRecAuto
+        trigger ArcanaRecTrigRunBegin = null
+        trigger ArcanaRecTrigOffer = null
+        trigger ArcanaRecTrigPick = null
+        trigger ArcanaRecTrigBranch = null
+        trigger ArcanaRecTrigCard = null
+        trigger ArcanaRecTrigRunEnd = null
+        trigger ArcanaRecTrigBossBegin = null
+        trigger ArcanaRecTrigBossEnd = null
         trigger ExpBossStartRemilia = CreateTrigger()
         boolean ExpBossArcherReady = false
         boolean ExpBossRemiliaReady = false

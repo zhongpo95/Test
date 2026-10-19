@@ -1,3 +1,6 @@
+// 세이브 v2(10 4.1·A6): 저장 데이터 계층(해시테이블)은 맨 앞에 둔다(모든 라이브러리가 requires 없이 부른다).
+//! import "D:\Work\GitHub\Test\Data\Data_ItemGen.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaSaveData.j"
 // === Expedition ===
 //! import "D:\Work\GitHub\Test\Data\Data_PrototypeStats.j"
 //! import "D:\Work\GitHub\Test\Data\Data_PrototypeCatalog.j"
@@ -200,7 +203,12 @@
 //! import "D:\Work\GitHub\Test\System\Filter.j"
 
 // === Library: external API ===
-// duplicate direct import removed: JNStashNet.j is imported by the map script
+// Arcana 자체 저장 서버(DLL). 저장 데이터 계층은 맨 위 ArcanaSaveData.j(세이브 v2).
+//! import "D:\Work\GitHub\Test\Library\ArcanaSaveConfig.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaSaveNet3Natives.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaStashNet.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaSaveLogin.j"
+//! import "D:\Work\GitHub\Test\Library\ArcanaRecord.j"
 
 // === Root: ESC ===
 //! import "D:\Work\GitHub\Test\ESC.j"

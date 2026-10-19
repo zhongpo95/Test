@@ -86,18 +86,14 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     private function ProtoRememberHead takes integer pid, integer head returns nothing
         if not ProtoHeadKnown[ExpKey(pid, head)] then
             set ProtoHeadKnown[ExpKey(pid, head)] = true
-            if GetLocalPlayer() == Player(pid) then
-                call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "머리도감." + ProtoHeadKey[head], "1")
-            endif
-            call RequestPlayerSave(pid)
+            // 세이브 v2(10 4.5): 동기 경로이므로 모든 클라이언트에서 같이 쓴다(사본이 갈라지지 않는다). 도감은 원정 종료 저장에 함께 들어간다
+            call ArcanaSaveCodexAdd(pid, ARCANA_CODEX_HEAD, head)
         endif
     endfunction
 
     private function ProtoRememberCard takes integer pid, integer card returns nothing
-        if GetLocalPlayer() == Player(pid) then
-            call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드도감." + ProtoCardKey[card], "1")
-        endif
-        call RequestPlayerSave(pid)
+        // 세이브 v2(10 4.5): 동기 경로, 모든 클라이언트에서 쓴다
+        call ArcanaSaveCodexAdd(pid, ARCANA_CODEX_CARD, card)
     endfunction
 
     function ProtoGrantHead takes integer pid, integer head returns nothing
@@ -147,6 +143,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ExpGold[pid] = ExpGold[pid] + 100
             set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n획득 가능한 카드가 없어 골드 +100."
             return
+        endif
+        static if ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 카드 획득 수
+            set ArcanaRecArgPid = pid
+            set ArcanaRecArgText = ProtoCardKey[card]
+            call TriggerEvaluate(ArcanaRecTrigCard)
         endif
         if not ExpCardOwned[key] then
             // 정확히 선택한 보상 ID는 후속 사건 조건과 도감에 별도로 남긴다.
@@ -375,6 +377,23 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoSelected[pid] = 0
         set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
         call ProtoSetPause(pid, true)
+        static if ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 제시한 사건 ID 목록
+            set ArcanaRecArgText = ""
+            set slot = 1
+            loop
+                exitwhen slot > ProtoChoices[pid] or slot > 4
+                if ProtoCandidates[ExpKey(pid, slot)] > 0 then
+                    if ArcanaRecArgText != "" then
+                        set ArcanaRecArgText = ArcanaRecArgText + ","
+                    endif
+                    set ArcanaRecArgText = ArcanaRecArgText + I2S(ProtoCandidates[ExpKey(pid, slot)])
+                endif
+                set slot = slot + 1
+            endloop
+            set ArcanaRecArgPid = pid
+            call TriggerEvaluate(ArcanaRecTrigOffer)
+        endif
     endfunction
 
     function ProtoEventCardPreview takes integer pid, integer card returns string
@@ -715,6 +734,27 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ProtoStage[pid] != 2 or not ProtoDialogueChoiceAllowed(pid, choice) then
             return
         endif
+        static if ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4, 8.4): 선택지 단계. 제시 = 허용 선택지 1~4(고른 것은 항상 포함), 시간 초과 자동 선택은 auto
+            if DialogueNode[pid] == 0 then
+                set ArcanaRecArgText = ""
+                set key = 1
+                loop
+                    exitwhen key > ProtoEventChoices[id] or key > 4
+                    if key == choice or ProtoBranchAllowed(pid, key) then
+                        if ArcanaRecArgText != "" then
+                            set ArcanaRecArgText = ArcanaRecArgText + ","
+                        endif
+                        set ArcanaRecArgText = ArcanaRecArgText + I2S(key)
+                    endif
+                    set key = key + 1
+                endloop
+                set ArcanaRecArgPid = pid
+                set ArcanaRecArgId = id
+                set ArcanaRecArgChoice = choice
+                call TriggerEvaluate(ArcanaRecTrigBranch)
+            endif
+        endif
         if ProtoEventDialogueEnabled[id] == 0 then
             call ProtoResolve(pid, choice)
             return
@@ -762,6 +802,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer choice = 1
         local integer selected = 0
         local integer key
+        static if ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 이어지는 ProtoChoose 는 시간 초과 자동 선택
+            set ArcanaRecAuto[pid] = true
+        endif
         if DialogueNode[pid] > 0 then
             call ProtoChoose(pid, 1)
             return
@@ -1070,6 +1114,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             set pid = pid + 1
         endloop
+        static if ARCANA_RECORDS_ENABLED then
+            // 단계 7 기록(09 3.4): 런 시작
+            call TriggerEvaluate(ArcanaRecTrigRunBegin)
+        endif
         call TriggerExecute(ExpRefresh)
     endfunction
 
@@ -1118,6 +1166,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             call ProtoResetDialogue(pid)
             set ProtoSelected[pid] = id
+            static if ARCANA_RECORDS_ENABLED then
+                // 단계 7 기록(09 3.4): 사건 선택
+                set ArcanaRecArgPid = pid
+                set ArcanaRecArgId = id
+                call TriggerEvaluate(ArcanaRecTrigPick)
+            endif
             set ProtoAP[pid] = ProtoAP[pid] - ProtoEventAPCost[id]
             set ProtoStage[pid] = 2
             set ProtoDeadline[pid] = PROTO_CHOICE_SECONDS
@@ -1340,10 +1394,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     call ProtoStatAddCard(pid, id, true)
                     set changed = true
                     call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoDisplayCardName(pid, id) + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCharacterEffectsText(pid, id))
-                    if GetLocalPlayer() == Player(pid) then
-                        call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드각성도감." + ProtoCardKey[id], "1")
-                    endif
-                    call RequestPlayerSave(pid)
+                    // 세이브 v2(10 4.5): 동기 경로, 모든 클라이언트에서 쓴다
+                    call ArcanaSaveCodexAdd(pid, ARCANA_CODEX_AWAKE, id)
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 else
                     set previous = id
@@ -1432,7 +1484,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         set ExpPrototypeEnabled = true
-        call DzTriggerRegisterSyncData(t, "ProtoCodex", false)
+        call DzTriggerRegisterSyncData(t, "PCdx", false)
         call TriggerAddAction(t, function ProtoCodexSync)
         call TriggerAddAction(ExpPrototypeRequest, function ProtoDispatch)
         call TriggerAddAction(ExpPrototypeCleanup, function ProtoCleanup)

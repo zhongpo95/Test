@@ -1,5 +1,5 @@
 // 카드부여 화면과 재료 확인 및 부여 진행을 관리합니다.
-library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, FrameCount
+library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, FrameCount, ArcanaSaveConfig, ArcanaStashNet
     globals
         integer F_StoneBackDrop                 //인포 배경
         integer array F_StoneBackDrop2          //인포 배경
@@ -55,7 +55,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         endif
         loop
             exitwhen i >= limit
-            set value = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
+            set value = ArcanaSaveInv(pid, S2I(sn), i, "0")
             if material then
                 if not IsEmptyItem(value) then
                     if GetItemIDs(value) == 39 and GetItemCharge(value) > 0 then
@@ -78,7 +78,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         if not PLAYER_DATA_SERVER_READY[pid] then
             return false
         endif
-        return JNObjectCharacterServerConnectCheck()
+        // Arcana 판에는 JN 캐릭터 연결이 없으므로 어댑터 준비 상태(로드 성공)를 본다(06 12.2).
+        return ArcanaStashNetIsReady(pid)
     endfunction
 
     private function StoneStageText takes integer count, integer threshold, string value, string color returns string
@@ -102,7 +103,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set slot = 50
         loop
             exitwhen slot >= 100
-            set value = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(PlayerSlotNumber[pid])+".아이템"+I2S(slot), "0")
+            set value = ArcanaSaveInv(pid, PlayerSlotNumber[pid], slot, "0")
             // 빈 슬롯은 JN 정규식 기반 아이템 파서에 넘기지 않습니다.
             if not IsEmptyItem(value) then
                 if GetItemIDs(value) == 39 then
@@ -244,13 +245,13 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                 return false
             endif
             set cardSlot = StoneSlot(pid, true)
-            set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), "0")
+            set items = ArcanaSaveInv(pid, S2I(sn), cardSlot, "0")
             set charge = GetItemCharge(items)
             if charge <= 1 then
                 call DzFrameSetTexture(F_ItemButtonsBackDrop[cardSlot], "UI_Inventory.blp", 0)
-                call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot))
+                call ArcanaSaveSetInv(pid, S2I(sn), cardSlot, null)
             else
-                call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), SetItemCharge(items, charge-1))
+                call ArcanaSaveSetInv(pid, S2I(sn), cardSlot, SetItemCharge(items, charge-1))
             endif
         endif
         set StoneActive[pid] = true
@@ -510,6 +511,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         local integer C
         local string items
         local string sn = I2S(PlayerSlotNumber[pid])
+        // 재료 사용 저장(강화·승급·카드 부여). 재료 소비는 아래 소유자 로컬에서, 저장은 장착 동기화 뒤 또는 대기 시간 뒤에 한다
+        call ArcanaSaveAfterMaterialUse(GetPlayerId(p))
         
         if p == GetLocalPlayer() then
             set StonePending[pid] = false
