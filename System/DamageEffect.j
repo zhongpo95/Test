@@ -4,8 +4,12 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         constant real BackBounsDamage = 1.20
         // 다음 HeroDeal 호출들의 무력화 추가량 (지크프리트 W 강화 등). 호출한 쪽에서 바로 0으로 되돌린다.
         real HeroDealBonusSD = 0.0
+        // 카운터 인정 각도: 모든 보스 공통. 공격자가 보스 정면 ±이 각도 안에 있어야 카운터가 된다(90 = 정면 절반, 헤드 판정과 같음)
+        constant real COUNTER_ARC_ALL = 90.0
         // 지금 넣는 피해가 저스트 공격(지크프리트 C 저스트)인지. 호출한 쪽에서 바로 false 로 되돌린다
         boolean HeroDealJust = false
+        // 방어력 감소(DeBuffMArm, 지크프리트 R) 비율
+        constant real ARMOR_SHRED = 0.12
 
         private unit array TestUnit
         // 정면 방패 꽃잎: 스킬 한 번 = 꽃잎 한 장. 같은 플레이어의 같은 스킬 코드가 이어서 막히는 동안(간격 GUARD_SAME 초 이내)은 한 번만 센다.
@@ -68,7 +72,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         return RAbsBJ(d) <= 90.0
     endfunction
 
-    // 공격자가 대상 정면 ±arc 안에 있는지 (보스별 카운터 각도)
+    // 공격자가 대상 정면 ±arc 안에 있는지 (카운터 각도)
     private function CounterFront takes unit source, unit target, real arc returns boolean
         local real d = ModuloReal(AngleWBW(source, target) - GetUnitFacing(target) - 180.0 + 540.0, 360.0) - 180.0
         return RAbsBJ(d) <= arc
@@ -240,7 +244,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
 
         //방깍
         if DeBuffMArm.Exists( target ) then
-            set ArmVelue = UnitArm[UnitIndex] * 0.88
+            set ArmVelue = UnitArm[UnitIndex] * ( 1.0 - ARMOR_SHRED )
         endif
         //관통
         if ExpMember[pid] then
@@ -437,7 +441,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         //카운터 체크
         if counter == true then
             if GetUnitAbilityLevel(target, 'A00V') == 1 then
-                if (UnitCounterArc[UnitIndex] <= 0 and HeadTrue(AngleWBW(source,target), GetUnitFacing(target))) or (UnitCounterArc[UnitIndex] > 0 and CounterFront(source, target, UnitCounterArc[UnitIndex])) then
+                if CounterFront(source, target, COUNTER_ARC_ALL) then
                     set LastCounterSource = source
                     set LastCounterSkill = SkillCode
                     call UnitRemoveAbility(target,'A00V')
@@ -475,7 +479,8 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set dmg = dmg * RMaxBJ(0.0, 1.0 + UnitTakenBonus[UnitIndex])
         endif
 
-        //미터기
+        //미터기 (마을 허수아비는 첫 타에 측정 시작)
+        call OverlaySandbagHit(pid, target)
         loop
             exitwhen i > 3
             if pid == OverlayPlayerID[i] then

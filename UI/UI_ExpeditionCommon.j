@@ -104,7 +104,16 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     endfunction
 
     function ExpUIOpen takes integer panel returns nothing
-        if not F_UpgradeOnOff[GetPlayerId(GetLocalPlayer())] then
+        local integer pid = GetPlayerId(GetLocalPlayer())
+        local integer activity
+        if not F_UpgradeOnOff[pid] then
+            // 선택지 진행 중 I·Tab·M 창을 닫으면 접힌 상태로 두지 않고 진행 중인 선택지로 되돌린다.
+            if panel == 0 and (ExpUIPanel == EXP_UI_STATS or ExpUIPanel == EXP_UI_MAP or ExpUIPanel == EXP_UI_CARDS) then
+                set activity = ExpUIActivity(pid)
+                if activity == EXP_UI_CHOICE or activity == EXP_UI_EVENT or activity == EXP_UI_SHOP or activity == 9 then
+                    set panel = activity
+                endif
+            endif
             if panel == 0 and ExpUIPanel != 0 then
                 set FoldedPanel = ExpUIPanel
             elseif panel != 0 then

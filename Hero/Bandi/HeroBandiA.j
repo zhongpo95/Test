@@ -9,6 +9,12 @@ scope HeroBandiA
         
         private constant real scale = 700
         private constant real distance = 500
+        //돌진 중 이 반경 안에 적이 닿으면 멈추고 바로 마지막 타격 / 탐색 반경
+        private constant real TouchD = 200
+        private constant real TouchScale = 500
+        private boolean Touched = false
+        //X(대시)로 캔슬하면 false. 이동·타격을 멈춘다
+        boolean array IsCastingBandiA
     endglobals
 
     
@@ -26,19 +32,39 @@ scope HeroBandiA
         endif
     endfunction
 
+    //돌진 중 TouchD 안, 앞쪽(splashD 와 같은 각도)에 적이 있는지만 본다. 뒤쪽 적에는 멈추지 않는다
+    private function splashTouch takes nothing returns nothing
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,TouchD) and AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  90 ) then
+            set Touched = true
+        endif
+    endfunction
+
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
         local integer i
         
         set fx.i = fx.i + 1
+        if IsCastingBandiA[fx.pid] == false then
+            call fx.stop()
+            call t.destroy()
+            return
+        endif
+
+        //적이 닿으면 남은 돌진을 버리고 그 자리에서 타격
+        set Touched = false
+        if fx.i < 20/fx.speed then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), TouchScale, function splashTouch )
+        endif
     
-        if fx.i >= 20/fx.speed then
+        if fx.i >= 20/fx.speed or Touched then
+            set Touched = false
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
                 call UnitEffectTime2('e03G',GetWidgetX(fx.caster)+PolarX(50,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(50,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
                 //call BanBisul2Plus( fx.pid,4)
             endif
+            set IsCastingBandiA[fx.pid] = false
             call fx.stop()
             call t.destroy()
         else
@@ -54,7 +80,7 @@ private function Main takes nothing returns nothing
     local real r
     local effect e
 
-    if GetSpellAbilityId() == 'A06C' then
+    if GetSpellAbilityId() == 'A06C' and not BandiCastBlocked(GetTriggerUnit(), 'A06C') then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
@@ -63,6 +89,7 @@ private function Main takes nothing returns nothing
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
+        set IsCastingBandiA[fx.pid] = true
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.index = IndexUnit(MainUnit[fx.pid])
         set fx.i = 0
@@ -94,6 +121,7 @@ private function Main takes nothing returns nothing
         call AnimationStart3(fx.caster, 0, fx.speed)
         set t.data = fx
         call t.start( 0.02, false, function EffectFunction )
+        call BandiStopOrder(fx.caster, "ancestralspirittarget", Time3/fx.speed)
         call CooldownFIX(fx.caster, 'A06C', HeroSkillCD4[15])
     endif
 endfunction
@@ -119,6 +147,7 @@ private function ASyncData takes nothing returns nothing
             set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
+            call BandiRequest(pid, 'A06C')
             call IssuePointOrder( MainUnit[pid], "ancestralspirittarget", x, y )
         endif
     endif

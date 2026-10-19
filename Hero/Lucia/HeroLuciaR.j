@@ -122,7 +122,7 @@ private function Main takes nothing returns nothing
         call SetCameraEyePositionForPlayer(Player(pid),GetWidgetX(fx.caster)+PolarX( 250, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY( 250, GetUnitFacing(fx.caster)),500)
         call SetCameraTargetPositionForPlayer(Player(pid),GetWidgetX(fx.caster),GetWidgetY(fx.caster),0)
         call AdjustCameraSettingsForPlayer(Player(pid),0)
-        call SetCameraField( CAMERA_FIELD_TARGET_DISTANCE, 1000, 1.3 )
+        call SetCameraFieldForPlayer(Player(pid), CAMERA_FIELD_TARGET_DISTANCE, 1000, 1.3)
 
         //애니
         call AnimationStart3(fx.caster, 17, 1.0)

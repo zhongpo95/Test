@@ -5,12 +5,23 @@ globals
     private real array StageRate
     private constant real JustRate = 1.5
     // 5단 전 저스트 총 계수
-    private constant real AllJustRate = 0.90
-    // 전방 판정
-    private constant real Front = 110
-    private constant real Range = 230
-    private constant real Scale = 600
+    private constant real AllJustRate = 1.26
+    // 전방 판정. HitScale로 판정 중심 거리와 반경을 함께 늘린다(1.0 = 예전 110/230).
+    private constant real HitScale = 1.25
+    private constant real Front = 110 * HitScale
+    private constant real Range = 230 * HitScale
+    private constant real Scale = 600 * HitScale
+    // 단마다 앞으로 내딛는 거리. 단 시작부터 첫 타격 직전까지 나눠 미끄러진다.
+    private constant real StepDist = 160
+    private constant real StepTick = 0.02
+    // 앞 칸에 적이 이 거리(적 충돌 크기 포함) 안에 있으면 더 내딛지 않는다(보스를 뚫지 않게).
+    private constant real StepGap = 60
     private real CurRate = 0
+    private boolean StepBlocked = false
+    private player StepOwner = null
+    private real StepX = 0
+    private real StepY = 0
+    private group StepG = CreateGroup()
 endglobals
 
 private struct HitFx
@@ -184,6 +195,87 @@ function HitFxFire takes nothing returns nothing
     call t.destroy()
 endfunction
 
+// 단 시작 전진: 회피·Q·다른 기술로 콤보가 바뀌면(SiegSerial) 바로 멈춘다.
+private struct CStep
+    unit caster
+    integer pid
+    integer serial
+    real ang
+    real dist
+    integer left
+
+    method destroy takes nothing returns nothing
+        set caster = null
+        call deallocate()
+    endmethod
+endstruct
+
+// 피해 판정(splash)이 아니라 그냥 찾기만 한다. 적·살아 있음·중립 아님은 splash.ENEMY와 같은 기준
+private function CStepCheck takes nothing returns boolean
+    local unit e = GetFilterUnit()
+    if GetOwningPlayer(e) != Player(PLAYER_NEUTRAL_PASSIVE) and IsUnitEnemy(e, StepOwner) and not IsUnitType(e, UNIT_TYPE_DEAD) and not IsUnitType(e, UNIT_TYPE_SUMMONED) and IsUnitInRangeXY(e, StepX, StepY, StepGap) then
+        set StepBlocked = true
+    endif
+    set e = null
+    return false
+endfunction
+
+private function CStepFire takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local CStep s = t.data
+    local unit u = s.caster
+    local real nx
+    local real ny
+    if s.left > 0 and s.serial == SiegSerial[s.pid] and SiegCanAct(u) then
+        set nx = GetWidgetX(u) + PolarX(s.dist, s.ang)
+        set ny = GetWidgetY(u) + PolarY(s.dist, s.ang)
+        set StepBlocked = false
+        set StepOwner = GetOwningPlayer(u)
+        set StepX = nx
+        set StepY = ny
+        call GroupEnumUnitsInRange(StepG, nx, ny, StepGap + 300, Filter(function CStepCheck))
+        if StepBlocked then
+            set s.left = 0
+        else
+            // 지형·아이템·사냥터 경계는 SafePos가 막는다.
+            call SetUnitSafePolarUTA(u, s.dist, s.ang)
+            set s.left = s.left - 1
+        endif
+    else
+        set s.left = 0
+    endif
+    set u = null
+    if s.left > 0 then
+        call t.start(StepTick, false, function CStepFire)
+    else
+        call s.destroy()
+        set t.data = 0
+        call t.destroy()
+    endif
+endfunction
+
+private function CStepStart takes unit u, integer pid, real dur returns nothing
+    local CStep s
+    local tick t
+    local integer n = R2I(dur / StepTick)
+    if StepDist <= 0 then
+        return
+    endif
+    if n < 1 then
+        set n = 1
+    endif
+    set s = CStep.create()
+    set s.caster = u
+    set s.pid = pid
+    set s.serial = SiegSerial[pid]
+    set s.ang = GetUnitFacing(u)
+    set s.dist = StepDist / n
+    set s.left = n
+    set t = tick.create(0)
+    set t.data = s
+    call t.start(StepTick, false, function CStepFire)
+endfunction
+
 function SiegStartStage takes integer pid, integer stage, boolean just returns nothing
     local unit u = MainUnit[pid]
     local boolean prevJust = SiegStageJust[pid]
@@ -194,6 +286,9 @@ function SiegStartStage takes integer pid, integer stage, boolean just returns n
     local real total
     local HitFx fx
     local tick t
+
+    // 미터기: 기본 공격 한 타 = 사용 1회
+    call Overlay2Count(pid, 2)
 
     if stage == 1 then
         set prevJust = false
@@ -222,6 +317,19 @@ function SiegStartStage takes integer pid, integer stage, boolean just returns n
     set SiegSerial[pid] = SiegSerial[pid] + 1
     set SiegStage[pid] = stage
     set SiegStageJust[pid] = just
+    // 아덴 단계 표시 기록: 마름모 k = k단에서 다음 단으로 넘어간 입력의 판정(금색 저스트, 흰색 일반).
+    // 지금 치고 있는 단은 흰색. 1단에서 새로 시작하면 앞 기록을 지운다.
+    if stage == 1 then
+        set SiegPip[pid * 6 + 2] = 0
+        set SiegPip[pid * 6 + 3] = 0
+        set SiegPip[pid * 6 + 4] = 0
+        set SiegPip[pid * 6 + 5] = 0
+    elseif just then
+        set SiegPip[pid * 6 + stage - 1] = 2
+    else
+        set SiegPip[pid * 6 + stage - 1] = 1
+    endif
+    set SiegPip[pid * 6 + stage] = 1
     set SiegStageAnim[pid] = anim
     set SiegQueued[pid] = false
     set SiegQueuedJust[pid] = false
@@ -267,6 +375,8 @@ function SiegStartStage takes integer pid, integer stage, boolean just returns n
         call SiegLock(u, SiegWinEnd[pid] - now)
     endif
     call SiegAnimJust(u, anim, speed, just)
+    // 첫 타격 직전까지 바라보는 방향으로 전진(여러 번 베는 단·5단 전 저스트도 첫 타격까지만)
+    call CStepStart(u, pid, SiegHitTime[anim * 6] / speed - StepTick)
     if anim == 119 then
         // 올려베기(1.217초~)와 공중 내려찍기(1.90초~): 칼을 따라가는 전용 궤적. 영웅이 뜬 높이에서 시작해 함께 내려온다.
         call SiegTrailLater(u, SIEG_FX_C5RISE, 1.217 / speed, speed)
@@ -379,11 +489,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t = CreateTrigger()
-        set StageRate[1] = 0.20
-        set StageRate[2] = 0.20
-        set StageRate[3] = 0.24
-        set StageRate[4] = 0.24
-        set StageRate[5] = 0.40
+        set StageRate[1] = 0.28
+        set StageRate[2] = 0.28
+        set StageRate[3] = 0.34
+        set StageRate[4] = 0.34
+        set StageRate[5] = 0.56
         call DzTriggerRegisterSyncData(t, ("SiegC"), (false))
         call TriggerAddAction(t, function CSyncData)
         set t = CreateTrigger()

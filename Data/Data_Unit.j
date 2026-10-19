@@ -155,8 +155,6 @@ globals
     //뽑은 검의 효과를 받는 보스인지 / 검을 든 플레이어가 그 보스를 때렸는지 (보스가 매 틱 확인 후 지움)
     boolean array UnitPullTarget
     boolean array HeroPullHit
-    //카운터 판정 정면 각도(±도). 0 이면 기본 ±45 (HeadTrue)
-    real array UnitCounterArc
     //아쳐 보스 유닛 rawcode (확정 필요: 오브젝트 에디터에서 만든 유닛 ID로 바꾼다)
     constant integer ARCHER_UNIT_ID = 'h0AR'
     //레밀리아 보스 유닛 rawcode (맵 war3map.w3u 에 hpea 기반으로 추가, 모델 war3mapImported\Hero-Model_Remilia.mdx)
@@ -472,7 +470,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr0[4] = "키를 누르고 차지한 뒤 놓으면 전방을 벱니다."
     set HeroSkillCD0[4] = 10.00
     set HeroSkillVCount0[4] = 1
-    set HeroSkillVelue0[4] = (12) / 10.0
+    set HeroSkillVelue0[4] = (8.76) / 10.0
     set HeroSkill0Text1[4] = "차지 단계에 따라 피해가 달라지며 최대 차지 후에는 자동으로 공격합니다."
     set HeroSkill0Text2[4] = "차지 중 동작 속도에 27%가 추가됩니다."
     set HeroSkill0Text3[4] = ""
@@ -481,7 +479,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr1[4] = "전방의 적을 두 번 벱니다."
     set HeroSkillCD1[4] = 7.00
     set HeroSkillVCount1[4] = 1
-    set HeroSkillVelue1[4] = (2.35) / 10.0
+    set HeroSkillVelue1[4] = (1.72) / 10.0
     set HeroSkill1Text1[4] = "사용 시 50% 확률로 기본 재사용 시간이 2초가 됩니다."
     set HeroSkill1Text2[4] = ""
     set HeroSkill1Text3[4] = ""
@@ -490,7 +488,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr2[4] = "전방으로 짧게 돌진하며 경로와 도착 지점 전방의 적을 벱니다. 같은 적은 한 번만 피해를 받습니다."
     set HeroSkillCD2[4] = 16.00
     set HeroSkillVCount2[4] = 1
-    set HeroSkillVelue2[4] = (5.13) / 10.0
+    set HeroSkillVelue2[4] = (3.74) / 10.0
     set HeroSkill2Text1[4] = ""
     set HeroSkill2Text2[4] = ""
     set HeroSkill2Text3[4] = ""
@@ -499,7 +497,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr3[4] = "키를 누르고 차지한 뒤 놓으면 전방으로 돌진해 경로와 도착 지점 전방의 적을 공격합니다. 같은 적은 한 번만 피해를 받습니다."
     set HeroSkillCD3[4] = 30.00
     set HeroSkillVCount3[4] = 1
-    set HeroSkillVelue3[4] = (12.93) / 10.0
+    set HeroSkillVelue3[4] = (9.44) / 10.0
     set HeroSkill3Text1[4] = "차지는 4단계이며 최대 차지 후에는 자동으로 공격합니다."
     set HeroSkill3Text2[4] = ""
     set HeroSkill3Text3[4] = ""
@@ -517,7 +515,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr5[4] = "전방의 적을 빠르게 벱니다."
     set HeroSkillCD5[4] = 10.00
     set HeroSkillVCount5[4] = 1
-    set HeroSkillVelue5[4] = 1.00
+    set HeroSkillVelue5[4] = 0.73
     set HeroSkill5Text1[4] = ""
     set HeroSkill5Text2[4] = ""
     set HeroSkill5Text3[4] = ""
@@ -526,7 +524,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr6[4] = "주변 적에게 범위 피해를 입히고 자신에게 보호막을 부여합니다."
     set HeroSkillCD6[4] = 24.00
     set HeroSkillVCount6[4] = 1
-    set HeroSkillVelue6[4] = 1.50
+    set HeroSkillVelue6[4] = 1.10
     set HeroSkill6Text1[4] = "주변에 적이 있으면 장비 기본 공격력의 35%를 10초간 추가 공격력으로 얻습니다."
     set HeroSkill6Text2[4] = "자신의 최대 생명력의 30% 보호막이 4초간 유지됩니다."
     set HeroSkill6Text3[4] = ""
@@ -535,8 +533,8 @@ private function init takes nothing returns nothing
     set HeroSkillStr7[4] = "키를 누르고 차지한 뒤 놓으면 전방을 연속으로 벱니다."
     set HeroSkillCD7[4] = 30.00
     set HeroSkillVCount7[4] = 2
-    set HeroSkillVelue7[4] = (1.00) / 10.0
-    set HeroSkillVelue27[4] = (9.43) / 10.0
+    set HeroSkillVelue7[4] = (0.73) / 10.0
+    set HeroSkillVelue27[4] = (6.88) / 10.0
     set HeroSkill7Text1[4] = "1단계는 6타, 2단계는 10타입니다."
     set HeroSkill7Text2[4] = "최대 차지는 일반 9타와 강화된 마지막 1타입니다."
     set HeroSkill7Text3[4] = ""
@@ -634,7 +632,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr0[14] = "전방으로 돌진해 적을 공격합니다."
     set HeroSkillCD0[14] = 18.00
     set HeroSkillVCount0[14] = 1
-    set HeroSkillVelue0[14] = (1.00) / 10.0
+    set HeroSkillVelue0[14] = 0.414
     set HeroSkill0Text1[14] = "모든 나비를 사용하며 나비 하나당 기본 타격을 한 번 추가합니다."
     set HeroSkill0Text2[14] = "카운터 성공 시 나비 6개를 얻고 이 스킬의 재사용 시간을 초기화합니다."
     set HeroSkill0Text3[14] = "나비는 50% 확률로 소모되지 않습니다."
@@ -652,8 +650,8 @@ private function init takes nothing returns nothing
     set HeroSkillStr2[14] = "겐지 자세에서 전방을 차지해 벱니다. 차지할수록 베기 범위와 피해가 증가합니다."
     set HeroSkillCD2[14] = 5.00
     set HeroSkillVCount2[14] = 2
-    set HeroSkillVelue2[14] = (1.30) / 10.0
-    set HeroSkillVelue22[14] = (0.7) / 10.0
+    set HeroSkillVelue2[14] = 0.50
+    set HeroSkillVelue22[14] = 0.259
     set HeroSkill2Text1[14] = "2단계 이상은 납도 공격이 3회 추가됩니다. 최대 차지 납도 적중 시 나비를 얻습니다."
     set HeroSkill2Text2[14] = "겐지 기본 공격은 E 차지 속도를 최대 3중첩까지 높입니다. Q/S/D/F 사용 시 E 재사용 시간이 초기화됩니다."
     set HeroSkill2Text3[14] = "카구라 자세의 연계 공격은 범위가 증가하며 최대 범위로 공격하면 자세 전환 연계가 가능합니다."
@@ -662,8 +660,8 @@ private function init takes nothing returns nothing
     set HeroSkillStr3[14] = "카구라 자세의 다음 기본 공격을 강화합니다."
     set HeroSkillCD3[14] = 8.00
     set HeroSkillVCount3[14] = 2
-    set HeroSkillVelue3[14] = (1.00) / 10.0
-    set HeroSkillVelue23[14] = (1.00) / 10.0
+    set HeroSkillVelue3[14] = 0.092
+    set HeroSkillVelue23[14] = 0.092
     set HeroSkill3Text1[14] = "강화 연타 적중 시 나비를 얻고 자세 전환 연계가 가능합니다."
     set HeroSkill3Text2[14] = "겐지 전환 연계 후에는 R을 다시 사용하지 않아도 강화 기본 공격이 가능합니다."
     set HeroSkill3Text3[14] = ""
@@ -681,7 +679,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr5[14] = "뒤로 물러나며 충격파를 내보냅니다."
     set HeroSkillCD5[14] = 26.00
     set HeroSkillVCount5[14] = 1
-    set HeroSkillVelue5[14] = (1.00) / 10.0
+    set HeroSkillVelue5[14] = 0.299
     set HeroSkill5Text1[14] = "나비를 사용하면 충격파가 세 갈래로 나가고 각 충격파에 나비 수만큼 타격이 추가됩니다."
     set HeroSkill5Text2[14] = "나비는 50% 확률로 소모되지 않습니다. 시전 중 피해 및 제어 효과를 막습니다."
     set HeroSkill5Text3[14] = ""
@@ -690,7 +688,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr6[14] = "전방을 네 차례 연속으로 벤 뒤 마무리 공격을 합니다."
     set HeroSkillCD6[14] = 42.00
     set HeroSkillVCount6[14] = 1
-    set HeroSkillVelue6[14] = (1.00) / 10.0
+    set HeroSkillVelue6[14] = 0.604
     set HeroSkill6Text1[14] = "각 연속 베기는 3타이며 마지막 공격에는 사용한 나비 수만큼 타격이 추가됩니다."
     set HeroSkill6Text2[14] = "나비는 50% 확률로 소모되지 않습니다. 시전 중 제어 효과를 막습니다."
     set HeroSkill6Text3[14] = ""
@@ -699,7 +697,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr7[14] = "전방을 차지해 벤 뒤 3회 납도 공격을 합니다."
     set HeroSkillCD7[14] = 72.00
     set HeroSkillVCount7[14] = 1
-    set HeroSkillVelue7[14] = (1.00) / 10.0
+    set HeroSkillVelue7[14] = 1.40
     set HeroSkill7Text1[14] = "각 납도 공격에는 사용한 나비 수만큼 타격이 추가됩니다. 나비 하나당 차지 동작 속도가 50%씩 추가됩니다."
     set HeroSkill7Text2[14] = "나비는 50% 확률로 소모되지 않습니다. 나비 6개를 사용하면 납도 동작 중 피해와 제어 효과를 막습니다."
     set HeroSkill7Text3[14] = ""
@@ -732,7 +730,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr0[15] = "전방으로 짧게 돌진해 적을 공격합니다."
     set HeroSkillCD0[15] = 6.00
     set HeroSkillVCount0[15] = 1
-    set HeroSkillVelue0[15] = (1.00) / 10.0
+    set HeroSkillVelue0[15] = 0.36
     set HeroSkill0Text1[15] = "적중한 적마다 비술을 1 얻습니다."
     set HeroSkill0Text2[15] = ""
     set HeroSkill0Text3[15] = ""
@@ -741,7 +739,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr1[15] = "전방으로 돌진하며 경로의 다섯 지점을 공격합니다."
     set HeroSkillCD1[15] = 8.00
     set HeroSkillVCount1[15] = 1
-    set HeroSkillVelue1[15] = (0.66) / 10.0
+    set HeroSkillVelue1[15] = 0.24
     set HeroSkill1Text1[15] = "각 적중마다 비술을 1 얻습니다. 적의 위치에 따라 적중 횟수가 달라집니다."
     set HeroSkill1Text2[15] = ""
     set HeroSkill1Text3[15] = ""
@@ -750,16 +748,16 @@ private function init takes nothing returns nothing
     set HeroSkillStr2[15] = "비술을 소모하고 키를 놓거나 약 2초가 지나면 범위 공격 후 완전연소 상태로 전환합니다."
     set HeroSkillCD2[15] = 10.00
     set HeroSkillVCount2[15] = 1
-    set HeroSkillVelue2[15] = (5.0) / 10.0
+    set HeroSkillVelue2[15] = 3.00
     set HeroSkill2Text1[15] = "완전연소 해제 기능의 재사용 시간은 5초입니다."
     set HeroSkill2Text2[15] = ""
     set HeroSkill2Text3[15] = ""
 
-    set HeroSkillTpye3[15] = "헤드어택, 카운터"
+    set HeroSkillTpye3[15] = "카운터"
     set HeroSkillStr3[15] = "전방의 적을 총 6회 공격합니다."
     set HeroSkillCD3[15] = 2.75
     set HeroSkillVCount3[15] = 2
-    set HeroSkillVelue3[15] = 0.184
+    set HeroSkillVelue3[15] = 0.1375
     set HeroSkillVelue23[15] = (1.00) / 10.0
     set HeroSkill3Text1[15] = "마지막 동작에서 2회 타격합니다."
     set HeroSkill3Text2[15] = ""
@@ -769,7 +767,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr4[15] = "지정 방향으로 돌진해 전방의 적을 공격합니다."
     set HeroSkillCD4[15] = 8.00
     set HeroSkillVCount4[15] = 1
-    set HeroSkillVelue4[15] = (0.35) / 10.0
+    set HeroSkillVelue4[15] = 0.40
     set HeroSkill4Text1[15] = ""
     set HeroSkill4Text2[15] = ""
     set HeroSkill4Text3[15] = ""
@@ -778,26 +776,26 @@ private function init takes nothing returns nothing
     set HeroSkillStr5[15] = "전방에 두 번 범위 피해를 입힙니다."
     set HeroSkillCD5[15] = 10.00
     set HeroSkillVCount5[15] = 1
-    set HeroSkillVelue5[15] = 0.184
+    set HeroSkillVelue5[15] = 0.60
     set HeroSkill5Text1[15] = ""
     set HeroSkill5Text2[15] = ""
     set HeroSkill5Text3[15] = ""
 
     set HeroSkillTpye6[15] = "일반"
-    set HeroSkillStr6[15] = "돌진 경로의 적을 공격하고 도착 지점에 추가 피해를 입힙니다."
-    set HeroSkillCD6[15] = 10.00
+    set HeroSkillStr6[15] = "뒤쪽 하늘로 도약한 뒤 지정 범위를 내려찍어 2회 피해를 입힙니다."
+    set HeroSkillCD6[15] = 5.00
     set HeroSkillVCount6[15] = 1
-    set HeroSkillVelue6[15] = (1.00) / 10.0
+    set HeroSkillVelue6[15] = 0.275
     set HeroSkill6Text1[15] = "완전연소 상태에서는 완전연소 자원을 1 얻습니다."
     set HeroSkill6Text2[15] = ""
     set HeroSkill6Text3[15] = ""
 
     set HeroSkillTpye7[15] = "일반"
-    set HeroSkillStr7[15] = "돌진과 연속 공격 연출을 실행한 뒤 물러납니다."
-    set HeroSkillCD7[15] = 10.00
+    set HeroSkillStr7[15] = "지정 지점으로 돌진해 그 자리를 5회 연속 타격하고, 마지막에 넓은 범위를 2회 공격한 뒤 물러납니다."
+    set HeroSkillCD7[15] = 5.00
     set HeroSkillVCount7[15] = 1
     set HeroSkillVelue7[15] = (1.00) / 10.0
-    set HeroSkill7Text1[15] = "현재 시전 경로에는 직접 피해 판정이 없습니다."
+    set HeroSkill7Text1[15] = ""
     set HeroSkill7Text2[15] = ""
     set HeroSkill7Text3[15] = ""
 
@@ -836,7 +834,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr0[17] = "전방의 적을 두 번 공격합니다. 첫 번째 타격은 카운터 판정을 가집니다."
     set HeroSkillCD0[17] = 1.50
     set HeroSkillVCount0[17] = 1
-    set HeroSkillVelue0[17] = (1.00) / 10.0
+    set HeroSkillVelue0[17] = 0.0495
     set HeroSkill0Text1[17] = "사용 시 자원 40을 얻고 차지 진행도를 8 올립니다. 차지 진행도는 최대 25입니다."
     set HeroSkill0Text2[17] = ""
     set HeroSkill0Text3[17] = ""
@@ -845,7 +843,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr1[17] = "전방으로 여섯 차례 참격을 내보냅니다."
     set HeroSkillCD1[17] = 1.50
     set HeroSkillVCount1[17] = 1
-    set HeroSkillVelue1[17] = (1.00) / 10.0
+    set HeroSkillVelue1[17] = 0.011
     set HeroSkill1Text1[17] = "사용과 각 참격 생성 시 자원을 20씩 얻습니다."
     set HeroSkill1Text2[17] = "참격이 지나가는 동안 범위 안의 적을 반복 타격합니다."
     set HeroSkill1Text3[17] = ""
@@ -854,8 +852,8 @@ private function init takes nothing returns nothing
     set HeroSkillStr2[17] = "키를 누르면 차지 진행도가 올라갑니다. 최대 차지 전에 놓으면 자세에 따라 돌진 공격을 합니다."
     set HeroSkillCD2[17] = 5.00
     set HeroSkillVCount2[17] = 2
-    set HeroSkillVelue2[17] = (1.00) / 10.0
-    set HeroSkillVelue22[17] = (1.00) / 10.0
+    set HeroSkillVelue2[17] = 0.125
+    set HeroSkillVelue22[17] = 0.22
     set HeroSkill2Text1[17] = "최대 차지 시 돌진 후 잔상 베기로 주변 적에게 두 번째 계수의 피해를 주고 차지 진행도를 초기화합니다."
     set HeroSkill2Text2[17] = "최대 차지를 하면 R과 D를 사용할 수 있습니다."
     set HeroSkill2Text3[17] = ""
@@ -864,7 +862,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr3[17] = "자세를 전환하며 주변 적을 베고 차지 진행도를 초기화합니다."
     set HeroSkillCD3[17] = 3.00
     set HeroSkillVCount3[17] = 1
-    set HeroSkillVelue3[17] = (1.00) / 10.0
+    set HeroSkillVelue3[17] = 0.33
     set HeroSkill3Text1[17] = "전환 순간 주변 적에게 한 번 피해를 줍니다."
     set HeroSkill3Text2[17] = ""
     set HeroSkill3Text3[17] = ""
@@ -873,7 +871,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr4[17] = "전방으로 돌진한 뒤 적을 공격합니다."
     set HeroSkillCD4[17] = 8.00
     set HeroSkillVCount4[17] = 1
-    set HeroSkillVelue4[17] = (5.13) / 10.0
+    set HeroSkillVelue4[17] = 0.528
     set HeroSkill4Text1[17] = "사용 시 차지 진행도를 8 올립니다. 차지 진행도는 최대 25입니다."
     set HeroSkill4Text2[17] = ""
     set HeroSkill4Text3[17] = ""
@@ -882,7 +880,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr5[17] = "전방으로 돌진하며 세 번 공격합니다."
     set HeroSkillCD5[17] = 5.00
     set HeroSkillVCount5[17] = 1
-    set HeroSkillVelue5[17] = (1.00) / 10.0
+    set HeroSkillVelue5[17] = 0.147
     set HeroSkill5Text1[17] = "사용 시 차지 진행도를 8 올립니다. 차지 진행도는 최대 25입니다."
     set HeroSkill5Text2[17] = ""
     set HeroSkill5Text3[17] = ""
@@ -891,7 +889,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr6[17] = "전방으로 뛰어올라 내려찍은 뒤 폭발을 일으킵니다."
     set HeroSkillCD6[17] = 4.00
     set HeroSkillVCount6[17] = 1
-    set HeroSkillVelue6[17] = (1.00) / 10.0
+    set HeroSkillVelue6[17] = 0.374
     set HeroSkill6Text1[17] = "착지와 폭발 때 각각 주변 적에게 피해를 줍니다."
     set HeroSkill6Text2[17] = ""
     set HeroSkill6Text3[17] = ""
@@ -900,8 +898,8 @@ private function init takes nothing returns nothing
     set HeroSkillStr7[17] = "자세를 전환하고 차지 진행도를 초기화한 뒤 연속 공격을 합니다."
     set HeroSkillCD7[17] = 5.00
     set HeroSkillVCount7[17] = 2
-    set HeroSkillVelue7[17] = (0.50) / 10.0
-    set HeroSkillVelue27[17] = (5.00) / 10.0
+    set HeroSkillVelue7[17] = 0.055
+    set HeroSkillVelue27[17] = 0.825
     set HeroSkill7Text1[17] = "연속 공격 동안 주변 적을 반복 타격하고, 마지막 일격은 두 번째 계수의 피해를 줍니다."
     set HeroSkill7Text2[17] = ""
     set HeroSkill7Text3[17] = ""
@@ -993,21 +991,21 @@ private function init takes nothing returns nothing
     set HeroSkillID10[26] = 'A0SZ'
 
     set HeroSkillTpye0[26] = "일반, 카운터"
-    set HeroSkillStr0[26] = "전방으로 돌진하며 연속으로 벱니다. 시전 중 경직과 넉백을 받지 않습니다."
+    set HeroSkillStr0[26] = "지정한 지점까지 돌진하며 연속으로 벱니다. 시전 중 경직과 넉백을 받지 않습니다."
     set HeroSkillCD0[26] = 7.00
     set HeroSkillVCount0[26] = 1
-    set HeroSkillVelue0[26] = 0.13
+    set HeroSkillVelue0[26] = 0.182
     set HeroSkill0Text1[26] = "C의 저스트 판정 중에 쓰면 저스트 캔슬이 되어 피해가 30% 증가하고 용기를 1 얻습니다."
     set HeroSkill0Text2[26] = "저스트 캔슬 후 바로 C를 누르면 콤보가 다음 단 저스트로 이어집니다."
-    set HeroSkill0Text3[26] = ""
+    set HeroSkill0Text3[26] = "판정 범위가 넓어 조금 떨어진 곳에서도 카운터를 노릴 수 있습니다."
 
-    set HeroSkillTpye1[26] = "일반"
+    set HeroSkillTpye1[26] = "일반, 카운터"
     set HeroSkillStr1[26] = "전방으로 나아가는 검기를 날려 경로의 적을 한 번씩 벱니다."
     set HeroSkillCD1[26] = 10.00
     set HeroSkillVCount1[26] = 1
-    set HeroSkillVelue1[26] = 0.60
+    set HeroSkillVelue1[26] = 0.84
     set HeroSkill1Text1[26] = "용기가 3 이상이면 3을 소모해 피해가 20% 증가하고 무력화 피해가 3배가 됩니다."
-    set HeroSkill1Text2[26] = ""
+    set HeroSkill1Text2[26] = "용기 해방(Z) 중에는 용기를 소모하지 않고 강화됩니다."
     set HeroSkill1Text3[26] = ""
 
     set HeroSkillTpye2[26] = "버프, 키다운"
@@ -1024,8 +1022,8 @@ private function init takes nothing returns nothing
     set HeroSkillStr3[26] = "전방에 충격파를 일으키고 적의 방어력을 낮춥니다."
     set HeroSkillCD3[26] = 14.00
     set HeroSkillVCount3[26] = 1
-    set HeroSkillVelue3[26] = 0.90
-    set HeroSkill3Text1[26] = "적중한 적은 10초간 방어력 감소 상태가 됩니다."
+    set HeroSkillVelue3[26] = 1.26
+    set HeroSkill3Text1[26] = "적중한 적은 10초간 방어력이 12% 감소합니다."
     set HeroSkill3Text2[26] = ""
     set HeroSkill3Text3[26] = ""
 
@@ -1035,7 +1033,7 @@ private function init takes nothing returns nothing
     set HeroSkillVCount4[26] = 1
     set HeroSkillVelue4[26] = 0.30
     set HeroSkill4Text1[26] = "장비 기본 공격력의 30%를 추가 공격력으로 얻고 받는 피해가 20% 감소합니다."
-    set HeroSkill4Text2[26] = "지속 중 저스트 판정 창이 0.1초 늘어납니다."
+    set HeroSkill4Text2[26] = "지속 중 저스트 판정 창이 0.05초 늘어납니다."
     set HeroSkill4Text3[26] = ""
 
     set HeroSkillTpye5[26] = "버프"
@@ -1060,7 +1058,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr7[26] = "C 5단을 모두 저스트로 치면, 마지막 내려찍기가 땅에 닿는 순간에만 쓸 수 있는 마무리 일격입니다."
     set HeroSkillCD7[26] = 0.00
     set HeroSkillVCount7[26] = 1
-    set HeroSkillVelue7[26] = 2.40
+    set HeroSkillVelue7[26] = 3.36
     set HeroSkill7Text1[26] = "입력 창은 타이밍 게이지에 표시됩니다. 창을 놓치면 발동하지 않습니다."
     set HeroSkill7Text2[26] = ""
     set HeroSkill7Text3[26] = ""

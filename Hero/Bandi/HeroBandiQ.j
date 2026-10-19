@@ -9,6 +9,8 @@ scope HeroBandiQ
         
         private constant real scale = 500
         private constant real distance = 400
+        //X(대시)로 캔슬하면 false. 이동·타격을 멈춘다
+        boolean array IsCastingBandiQ
     endglobals
 
     private function splashD takes nothing returns nothing
@@ -17,7 +19,7 @@ scope HeroBandiQ
         local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue0[15]*Velue,false,false,true,false)
+            call HeroDeal('A06H',splash.source,GetEnumUnit(),HeroSkillVelue0[15]*Velue,false,false,true,false)
             call BanBisulPlus(pid,1)
             //call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endif
@@ -29,12 +31,18 @@ scope HeroBandiQ
         local integer i
         
         set fx.i = fx.i + 1
+        if IsCastingBandiQ[fx.pid] == false then
+            call fx.stop()
+            call t.destroy()
+            return
+        endif
     
         if fx.i >= 20/fx.speed then
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
                 call UnitEffectTime2('e03D',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
             endif
+            set IsCastingBandiQ[fx.pid] = false
             call fx.stop()
             call t.destroy()
         else
@@ -51,7 +59,7 @@ private function Main takes nothing returns nothing
     local real r
     local effect e
          
-    if GetSpellAbilityId() == 'A06H' then
+    if GetSpellAbilityId() == 'A06H' and not BandiCastBlocked(GetTriggerUnit(), 'A06H') then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
@@ -60,6 +68,7 @@ private function Main takes nothing returns nothing
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+        set IsCastingBandiQ[fx.pid] = true
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.index = IndexUnit(MainUnit[fx.pid])
         set fx.i = 0
@@ -93,6 +102,7 @@ private function Main takes nothing returns nothing
         call AnimationStart3(fx.caster, 2, fx.speed)
         set t.data = fx
         call t.start( 0.02, false, function EffectFunction )
+        call BandiStopOrder(fx.caster, "acidbomb", Time3/fx.speed)
         call CooldownFIX(fx.caster, 'A06H', HeroSkillCD0[15])
     endif
 endfunction
@@ -118,6 +128,7 @@ private function QSyncData takes nothing returns nothing
             set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
+            call BandiRequest(pid, 'A06H')
             call IssuePointOrder( MainUnit[pid], "acidbomb", x, y )
         endif
     endif

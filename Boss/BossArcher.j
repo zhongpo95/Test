@@ -199,8 +199,6 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         private constant real REST_BIG = 2.5
         // 검제 연속 공격의 단계 사이 쉬는 시간
         private constant real COMBO_GAP = 1.5
-        // 카운터 판정 정면 각도 (돌진형 카운터 스킬이 빗나가지 않게 기본 ±45 보다 넓힌다)
-        private constant real COUNTER_ARC = 60
         // 원정 프로토타입 시험 보스 체력 (1명당, 예전 세리아와 같음)
         private constant real EXP_TEST_BOSS_HP = 12000
         private timer ExpChainTimer = CreateTimer()
@@ -4981,7 +4979,6 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         set f.state = ARCHER_ENDED
         call SetProtect(f, false, false)
         // 유닛 번호는 재사용되므로 보스별 판정 설정을 되돌린다
-        set UnitCounterArc[idx] = 0
         set UnitPullTarget[idx] = false
         set UnitFrontGuard[idx] = false
         // 결과 처리(성공·실패 화면, 귀환 예약)를 정리보다 먼저 한다. 참가자 목록(f.mem)으로 처리해 파티 그룹이 비어 있어도 빠지지 않게
@@ -5293,7 +5290,6 @@ library BossArcher requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataM
         call PauseUnit(f.boss, true)
         call BossMoveTo(f, f.arenaCX(), f.arenaCY())
         call Face(f, 270)
-        set UnitCounterArc[idx] = COUNTER_ARC
         // 뽑은 검 공격을 받는 보스
         set UnitPullTarget[idx] = true
 

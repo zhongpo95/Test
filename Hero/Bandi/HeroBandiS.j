@@ -106,7 +106,7 @@ scope HeroBandiS
         local tick t
         local FxEffect fx
 
-        if GetSpellAbilityId() == 'A06J' then
+        if GetSpellAbilityId() == 'A06J' and not BandiCastBlocked(GetTriggerUnit(), 'A06J') then
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
@@ -127,7 +127,8 @@ scope HeroBandiS
 
             set t.data = fx
             call t.start( Time2 / fx.speed, false, function EffectFunction )
-            call CooldownFIX(fx.caster,'A06J',HeroSkillCD5[4])
+            call BandiStopOrder(fx.caster, "animatedead", Time / fx.speed)
+            call CooldownFIX(fx.caster,'A06J',HeroSkillCD5[15])
         endif
     endfunction
 
@@ -154,6 +155,7 @@ scope HeroBandiS
                 set angle = AngleWBP(MainUnit[pid],x,y)
                 call SetUnitFacing(MainUnit[pid],angle)
                 call EXSetUnitFacing(MainUnit[pid],angle)
+                call BandiRequest(pid, 'A06J')
                 call IssuePointOrder( MainUnit[pid], "animatedead", x, y )
             endif
         endif

@@ -17,7 +17,7 @@ private function splashD takes nothing returns nothing
     local integer random
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue2[15]*Velue,false,false,false,false)
+        call HeroDeal('A06F',splash.source,GetEnumUnit(),HeroSkillVelue2[15]*Velue,false,false,false,false)
     endif
 endfunction
 

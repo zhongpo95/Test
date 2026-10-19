@@ -211,7 +211,7 @@ private function Main takes nothing returns nothing
         call SetCameraEyePositionForPlayer(Player(pid),GetWidgetX(fx.caster)+PolarX( 250, GetUnitFacing(fx.caster)-90),GetWidgetY(fx.caster)+PolarY( 250, GetUnitFacing(fx.caster)-90),500)
         call SetCameraTargetPositionForPlayer(Player(pid),GetWidgetX(fx.caster),GetWidgetY(fx.caster),0)
         call AdjustCameraSettingsForPlayer(Player(pid),2.4)
-        call SetCameraField( CAMERA_FIELD_TARGET_DISTANCE, 1000, 1.3 )
+        call SetCameraFieldForPlayer(Player(pid), CAMERA_FIELD_TARGET_DISTANCE, 1000, 1.3)
 
         //특수효과
         call UnitEffectTime2('e052',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2.4,0,fx.pid)

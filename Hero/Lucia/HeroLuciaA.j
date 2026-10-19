@@ -153,7 +153,7 @@ private function Main takes nothing returns nothing
         set t.data = fx
         call t.start( Time2 + 0.03125, false, function EffectFunction )
 
-        call CooldownFIX(fx.caster, 'A07E', HeroSkillCD0[14])
+        call CooldownFIX(fx.caster, 'A07E', HeroSkillCD4[17])
     endif
 endfunction
 

@@ -12,8 +12,11 @@ scope HeroBandiF
         private constant real scale2 = 600
         private constant real distance = 325
         private constant real distance2 = 450
-        private constant real MoveD = 600
+        //지정 최대 사거리 (지정 지점까지 돌진해 그 자리를 연속 타격)
+        private constant real MoveD = 700
         private constant real MoveD2 = 300
+        //시전부터 끝(이동 불가 해제)까지 걸리는 시간. 이 순간 남은 F 명령을 정지시켜 자동 재시전을 막는다
+        private constant real TotalTime = 3.82
         //범위체크
         private group CheckG
         //더미 유닛
@@ -27,7 +30,7 @@ scope HeroBandiF
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[15],true,false,false,false)
+            call HeroDeal('A06G',splash.source,GetEnumUnit(),HeroSkillVelue7[15],false,false,false,false)
             call UnitEffectTimeEX2('e046',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
             set random = GetRandomInt(0,2)
@@ -40,6 +43,18 @@ scope HeroBandiF
             endif
             //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
 
+        endif
+    endfunction
+
+    //마지막 일격: 넓은 범위 2회
+    private function splashD2 takes nothing returns nothing
+        local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
+            call HeroDeal('A06G',splash.source,GetEnumUnit(),HeroSkillVelue7[15],false,false,false,false)
+            call HeroDeal('A06G',splash.source,GetEnumUnit(),HeroSkillVelue7[15],false,false,false,false)
+            call UnitEffectTimeEX2('e046',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
+            call Sound3D(GetEnumUnit(),'A05N')
         endif
     endfunction
 
@@ -97,7 +112,8 @@ scope HeroBandiF
                 call DelayAlpha(fx.caster, 0.5 / fx.speed)
                 call t.start( 0.05 / fx.speed, false, function EffectFunction )
             elseif fx.i <= 13 and fx.i >= 4 then
-                call SetUnitSafePolarUTA(fx.caster, MoveD / R2I(10/fx.speed), GetUnitFacing(fx.caster) )
+                //지정 지점 방향으로 10번에 나눠 돌진 (fx.r = 지정 지점까지 거리, 최대 MoveD)
+                call SetUnitSafePolarUTA(fx.caster, fx.r / 10.0, fx.r2 )
                 call t.start( 0.05 / fx.speed, false, function EffectFunction )
             elseif fx.i == 14 then
                 set fx.TargetX = GetUnitX(fx.caster)
@@ -131,8 +147,11 @@ scope HeroBandiF
                 elseif i == 8 then
                     call UnitEffectTime2('e04K',fx.TargetX+PolarX( r2, r ),fx.TargetY+PolarY( r2, r ),GetRandomReal(0,360),1.5,0,fx.pid)
                 endif
-                call SetUnitX(fx.caster,fx.TargetX+PolarX( r2, r ))
-                call SetUnitY(fx.caster,fx.TargetY+PolarY( r2, r ))
+                call SetUnitSafeXY(fx.caster,fx.TargetX+PolarX( r2, r ),fx.TargetY+PolarY( r2, r ))
+                //연속 타격: 지정 지점 중심으로 4틱마다 1회 (총 5회)
+                if ModuloInteger(fx.i - 14, 4) == 0 then
+                    call splash.range( splash.ENEMY, fx.caster, fx.TargetX, fx.TargetY, scale, function splashD )
+                endif
                 if fx.i == 24 then
                     call UnitEffectTimeEX2('e048',fx.TargetX,fx.TargetY,GetRandomReal(0,360),2.0,fx.pid)
                     call UnitEffectTimeEX2('e047',fx.TargetX,fx.TargetY,GetRandomReal(0,360),2.0,fx.pid)
@@ -144,8 +163,8 @@ scope HeroBandiF
                 elseif fx.j == 0 then
                     call Sound3D(fx.caster,'A079')
                 endif
-                call SetUnitX(fx.caster,fx.TargetX)
-                call SetUnitY(fx.caster,fx.TargetY)
+                call SetUnitSafeXY(fx.caster,fx.TargetX,fx.TargetY)
+                call splash.range( splash.ENEMY, fx.caster, fx.TargetX, fx.TargetY, scale2, function splashD2 )
                 call UnitEffectTimeEX2('e04O',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster)-45,1.5,fx.pid)
                 call UnitEffectTimeEX2('e04Q',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2.0,fx.pid)
                 call UnitEffectTimeEX2('e04R',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2.0,fx.pid)
@@ -156,7 +175,7 @@ scope HeroBandiF
                 call DelayRemoveAlpha(fx.caster, 0.4 / fx.speed)
                 call t.start( 0.04 / fx.speed, false, function EffectFunction )
             elseif fx.i <= 42 and fx.i >= 36 then
-                call SetUnitSafePolarUTA(fx.caster, MoveD2 / R2I(7/fx.speed), GetUnitFacing(fx.caster) )
+                call SetUnitSafePolarUTA(fx.caster, MoveD2 / 7.0, GetUnitFacing(fx.caster) )
                 call t.start( 0.04 / fx.speed, false, function EffectFunction )
             elseif fx.i == 43 then
                 call t.start( 0.24 / fx.speed, false, function EffectFunction )
@@ -218,7 +237,7 @@ scope HeroBandiF
         local tick t2
         local SkillFx fx2
 
-        if GetSpellAbilityId() == 'A06G' then
+        if GetSpellAbilityId() == 'A06G' and not BandiCastBlocked(GetTriggerUnit(), 'A06G') then
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
@@ -228,6 +247,12 @@ scope HeroBandiF
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set IsCastingBandiF[fx.pid] = true
             set fx.i = 0
+            //지정 지점: 방향과 거리(최대 MoveD)
+            set fx.r2 = AngleWBP(fx.caster, GetSpellTargetX(), GetSpellTargetY())
+            set fx.r = DistanceWBP(fx.caster, GetSpellTargetX(), GetSpellTargetY())
+            if fx.r > MoveD then
+                set fx.r = MoveD
+            endif
 
             //call BanBisul2Use(pid)
             call Overlay2Count(fx.pid,'A06G')
@@ -298,7 +323,8 @@ scope HeroBandiF
                 set t.data = fx
                 call t.start( 1.0 / fx.speed, false, function EffectFunction )
             endif
-            call CooldownFIX(fx.caster,'A06G',5)
+            call BandiStopOrder(fx.caster, "attributemodskill", TotalTime / fx.speed)
+            call CooldownFIX(fx.caster,'A06G',HeroSkillCD7[15])
         endif
     endfunction
 
@@ -313,7 +339,7 @@ scope HeroBandiF
         local real y
         local real angle
 
-        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
+        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID7[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
                 set x=S2R(data)
                 set valueLen=StringLength(R2S(x))
@@ -324,6 +350,7 @@ scope HeroBandiF
                 set angle = AngleWBP(MainUnit[pid],x,y)
                 call SetUnitFacing(MainUnit[pid],angle)
                 call EXSetUnitFacing(MainUnit[pid],angle)
+                call BandiRequest(pid, 'A06G')
                 call IssuePointOrder( MainUnit[pid], "attributemodskill", x, y )
             endif
         endif

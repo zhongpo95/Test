@@ -1,7 +1,7 @@
 // 지크프리트 R: 페어드렝겐 (충격파 + 방어력 감소)
 scope HeroSiegR
 globals
-    private constant real Rate = 0.90
+    private constant real Rate = 1.26
     private constant real Range = 450
     private constant real Scale = 900
     private constant real HitTime = 0.72
@@ -20,11 +20,26 @@ private struct FxEffect
     endmethod
 endstruct
 
+// 맞은 적 머리 위에 방어력 감소 표시를 잠깐 띄운다
+private function ShredText takes unit u returns nothing
+    local texttag ttag = CreateTextTag()
+    call SetTextTagText(ttag, "방어력 감소", 0.022)
+    call SetTextTagPos(ttag, GetWidgetX(u), GetWidgetY(u), 160)
+    call SetTextTagColor(ttag, 255, 138, 90, 229)
+    call SetTextTagVelocityBJ(ttag, 40.00, 90.00)
+    call SetTextTagFadepoint(ttag, 0.8)
+    call SetTextTagLifespan(ttag, 1.2)
+    call SetTextTagPermanent(ttag, false)
+    call SetTextTagVisibility(ttag, true)
+    set ttag = null
+endfunction
+
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     if IsUnitInRangeXY(GetEnumUnit(), splash.x, splash.y, Range) then
         call SiegDeal('A0SR', splash.source, GetEnumUnit(), Rate, false)
         call DeBuffMArm.Apply(GetEnumUnit(), DebuffTime, 0)
+        call ShredText(GetEnumUnit())
         call SiegFxHit(GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), pid)
     endif
 endfunction
@@ -61,6 +76,7 @@ private function Main takes nothing returns nothing
         set fx = FxEffect.create()
         set fx.caster = u
         set fx.pid = GetPlayerId(GetOwningPlayer(u))
+        call Overlay2Count(fx.pid,'A0SR')
         set fx.speed = SiegSpeed(fx.pid)
         call SiegFace(u, GetSpellTargetX(), GetSpellTargetY())
         call SiegResetCombo(fx.pid)

@@ -393,9 +393,15 @@ endfunction
             //캐스팅중일시 캔슬
             //반디(차지중엔 캔슬불가)
             if DataUnitIndex(MainUnit[pid]) == 15 then
-                if IsCastingBandiS[pid] == true then
+                //캔슬 가능: Q W A S R (D F Z E 는 캔슬 불가)
+                if IsCastingBandiQ[pid] or IsCastingBandiW[pid] or IsCastingBandiA[pid] or IsCastingBandiS[pid] or IsCastingBandiR[pid] then
+                    set IsCastingBandiQ[pid] = false
+                    set IsCastingBandiW[pid] = false
+                    set IsCastingBandiA[pid] = false
                     set IsCastingBandiS[pid] = false
+                    set IsCastingBandiR[pid] = false
                     call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                    call BandiDashCancel(pid)
                 endif
             endif
 

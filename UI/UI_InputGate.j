@@ -1,4 +1,5 @@
-// 모든 참가자의 영웅 선택 이후 같은 순서로 게임 UI 입력을 연결한다.
+// 참가자 중 누군가 영웅을 고르면 같은 순서로 게임 UI 입력을 연결한다.
+// 각 키 처리 함수가 누른 사람의 PickCheck를 따로 확인하므로, 다른 사람이 아직 안 골라도 고른 사람은 바로 쓸 수 있다.
 library UIInputGate initializer Init requires Native, DzAPIHardware
     globals
         private trigger array Bindings
@@ -15,22 +16,17 @@ library UIInputGate initializer Init requires Native, DzAPIHardware
 
     private function Tick takes nothing returns nothing
         local integer pid = 0
-        local boolean playing = false
         if not Ready then
             loop
                 exitwhen pid == 4
-                if GetPlayerSlotState(Player(pid)) == PLAYER_SLOT_STATE_PLAYING and GetPlayerController(Player(pid)) == MAP_CONTROL_USER then
-                    set playing = true
-                    if not PickCheck[pid] then
-                        return
-                    endif
+                if PickCheck[pid] and GetPlayerSlotState(Player(pid)) == PLAYER_SLOT_STATE_PLAYING and GetPlayerController(Player(pid)) == MAP_CONTROL_USER then
+                    set Ready = true
                 endif
                 set pid = pid + 1
             endloop
-            if not playing then
+            if not Ready then
                 return
             endif
-            set Ready = true
         endif
         // TriggerEvaluate와 ByCode 등록도 로컬 분기 없이 모든 클라이언트에서 실행한다.
         loop

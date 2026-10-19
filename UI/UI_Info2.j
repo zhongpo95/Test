@@ -57,9 +57,9 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         local string str = ""
         
         call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "신속" )
-        set str = "|cFFA5FA7D ◎ |r" + "이동속도와 공격속도가 " + "|cFFA5FA7D" + R2S(  SwiftnessSpeed(pid)  ) + "%|r 증가했습니다.|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "스킬 재사용 시간이 " + "|cFFA5FA7D" + R2S(  CooldownReduction(pid)  ) + "%|r 감소합니다."
+        call DzFrameSetText(UI_Tip_Text[1], "신속 (임시)" )
+        set str = "|cFFA5FA7D ◎ |r" + "공격속도 " + "|cFFA5FA7D+" + R2SW(  SwiftnessAttackSpeed(Equip_Swiftness[pid])  ,1,1) + "%|r, 이동속도 " + "|cFFA5FA7D+" + R2SW(  SwiftnessMoveSpeed(Equip_Swiftness[pid])  ,1,1) + "%|r|n"
+        set str = str + "|cFFA5FA7D ◎ |r" + "쿨타임 가속 " + "|cFFA5FA7D+" + I2S(R2I(  SwiftnessCooldownHaste(Equip_Swiftness[pid])  )) + "|r으로 환산됩니다."
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -126,8 +126,8 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         local string str = ""
         
         call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "쿨타임 감소" )
-        set str = "|cFFA5FA7D ◎ |r" + "신속 쿨감 " + "|cFFA5FA7D" + R2S(  CooldownReduction(pid)  ) + "%|r"
+        call DzFrameSetText(UI_Tip_Text[1], "쿨타임 가속" )
+        set str = "|cFFA5FA7D ◎ |r" + "쿨타임 가속 " + "|cFFA5FA7D" + I2S(R2I(  CooldownHaste(pid)  )) + "|r (재사용 " + "|cFFA5FA7D" + R2SW(  CooldownReduction(pid)  ,1,1) + "%|r 감소)"
         set str = str + "|n|cFFA5FA7D ◎ |r" + "보석 쿨감 " + "|cFFA5FA7D" + R2S(  GemCooldownReduction(pid)  ) + "%|r"
         set str = str + "|n|cFFA5FA7D ◎ |r" + "쿨타임 감소율 " + "|cFFA5FA7D" + R2SW(  (1.0 - CooldownRate(pid)) * 100.0  ,1,2) + "%|r"
         call DzFrameSetText(UI_Tip_Text[2], str )
@@ -520,7 +520,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         set F_ItemStatsText2[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText2[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.155)
-        call DzFrameSetText(F_ItemStatsText2[3], "|cFFFFE400신속")
+        call DzFrameSetText(F_ItemStatsText2[3], "|cFFFFE400신속(임시)")
         
         set F_ItemStatsText2[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText2[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.155)
@@ -584,7 +584,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         set F_ItemStatsText2[10]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText2[10], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.250, 0.095)
-        call DzFrameSetText(F_ItemStatsText2[10], "|cFFFFE400쿨타임 감소")
+        call DzFrameSetText(F_ItemStatsText2[10], "|cFFFFE400쿨타임 가속")
         
         set F_ItemStatsText2[10]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText2[10], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.325, 0.095)
@@ -717,7 +717,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         if GetPlayerId(GetOwningPlayer(u)) < 4 then
             // 조회 콜백은 공유 전투 능력치를 변경하지 않는다.
             set r = Stats_Crit[pid]
-            set speed = R2I(  (Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] )
+            set speed = R2I(  Stat_MoveSpeed[pid] + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] )
             if speed > 140 then
                 set speed = 140
             endif
@@ -747,7 +747,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
             //공퍼
                 call DzFrameSetText(F_ItemStatsText2[9], I2S(R2I(  Equip_DamageP[pid] )) + "%" ) 
                 //쿨감
-                call DzFrameSetText(F_ItemStatsText2[10], R2SW(  (1.0 - CooldownRate(pid)) * 100.0  ,1,2) + "%" )
+                call DzFrameSetText(F_ItemStatsText2[10], I2S(R2I( CooldownHaste(pid) )) )
                 //방관
                 call DzFrameSetText(F_ItemStatsText2[11], I2S(R2I(  Equip_Penetration[pid] )) + "%" ) 
                 //대미지증가

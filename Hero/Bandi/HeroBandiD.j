@@ -1,214 +1,177 @@
 scope HeroBandiD
     globals
         private constant real SD = 0.00
-        //쉐클시간
-        private constant real Time = 1.8
-        private constant real MoveD = 750
-
-        private constant real TICK = 20
-
-        private constant real scale = 150
-        private constant real distance = 300
-        private constant real scale2 = 300
-        private constant real distance2 = 400
-        //범위체크
-        private group CheckG
-        //더미 유닛
-        private unit CheckU
-        private integer Nabi
+        //쉐클(행동 불가) 시간: 도약 + 체공 + 내려찍기 + 착지 후딜
+        private constant real Time = 0.95
+        //2번 애니메이션(라이더킥)은 시작 0.439초 뒤에 발차기가 나온다. 도약(0.30)+체공(0.12)이 끝나 내려찍기를 시작하는 시점과 맞춘다
+        //지정 최대 사거리
+        private constant real MaxRange = 700
+        //뒤로 도약하는 거리와 최고 높이
+        private constant real BackD = 250
+        private constant real JumpH = 420
+        //구간 길이(틱 0.02초 기준): 도약 15틱(0.30초), 체공 6틱(0.12초), 내려찍기 9틱(0.18초)
+        private constant integer TickUp = 15
+        private constant integer TickHang = 6
+        private constant integer TickDown = 9
+        //내려찍기 범위
+        private constant real scale = 450
+        private constant real distance = 350
     endglobals
 
-    private function splashD2 takes nothing returns nothing
-        local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local real velue = 1.0
-        local integer random
-
-        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
-            call UnitEffectTimeEX2('e03Y',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-                /*
-                set random = GetRandomInt(0,2)
-                if random == 0 then
-                    call Sound3D(GetEnumUnit(),'A03X')
-                    elseif random == 1 then
-                    call Sound3D(GetEnumUnit(),'A03Y')
-                elseif random == 2 then
-                    call Sound3D(GetEnumUnit(),'A05N')
-                endif
-                */
-        endif
-    endfunction
-
+    //착지 피해: 대상마다 2회 (예전 돌진 경로 1회 + 착지 1회와 같은 횟수)
     private function splashD takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local real velue = 1.0
-        local integer random
 
-        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-            if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
-                call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
-                call UnitEffectTimeEX2('e03Y',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-                /*
-                set random = GetRandomInt(0,2)
-                if random == 0 then
-                    call Sound3D(GetEnumUnit(),'A03X')
-                    elseif random == 1 then
-                    call Sound3D(GetEnumUnit(),'A03Y')
-                elseif random == 2 then
-                    call Sound3D(GetEnumUnit(),'A05N')
-                endif
-                */
-                call GroupAddUnit(CheckG,GetEnumUnit())
-            endif
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+            call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue6[15],false,false,false,false)
+            call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue6[15],false,false,false,false)
+            call UnitEffectTimeEX2('e03Y',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endif
     endfunction
 
-    private function EffectFunction3 takes nothing returns nothing
-        local tick t = tick.getExpired()
-        local SkillFx fx = t.data
-
-        set fx.i = fx.i + 1
-        if fx.i == 1 then
-            if fx.j == 0 then
-                call Sound3D(fx.caster,'A060')
-            else
-                call Sound3D(fx.caster,'A061')
-            endif
-            set fx.ul = party.create()
-            //call SetUnitGravity(fx.caster,2.3)
-            call UnitEffectTime2('e03W',GetWidgetX(fx.caster)+PolarX(0,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(0,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
-            call UnitEffectTime2('e04G',GetWidgetX(fx.caster)+PolarX(50,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(50,GetUnitFacing(fx.caster)),fx.r2-180,2.0,0,fx.pid)
-        endif
-
-        if fx.i == R2I(18/fx.speed) then
-        endif
-
-
-        if fx.i >= R2I(18/fx.speed) then
-            //call SetUnitGravity(fx.caster,0.6)
-            call UnitEffectTime2('e03Z',GetWidgetX(fx.caster)+PolarX(0,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(0,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
-            call UnitEffectTime2('e04F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2.0,0,fx.pid)
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
-            call fx.ul.destroy()
-            call fx.stop()
-            call t.destroy()
-        else
-            set CheckG = fx.ul.super
-            set CheckU = fx.caster
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-            set CheckU = null
-            set CheckG = null
-            call SetUnitSafePolarUTA(fx.caster,fx.r/R2I(18/fx.speed), fx.r2 )
-            call t.start( 0.02, false, function EffectFunction3 )
-        endif
+    private function SetHeight takes unit u, real h returns nothing
+        call UnitAddAbility(u,'Arav')
+        call UnitRemoveAbility(u,'Arav')
+        call SetUnitFlyHeight(u, h, 0.00)
     endfunction
 
-    private function EffectFunctionZ takes nothing returns nothing
-        local tick t = tick.getExpired()
-        local SkillFx fx = t.data
-        local real r
-
-        call UnitAddAbility(fx.caster,'Arav')
-        call UnitRemoveAbility(fx.caster,'Arav')
-
-        set fx.r = fx.r + 0.04
-
-        if fx.r <= 0.586 then
-            set r = RMaxBJ(( 50.00 - ( fx.r - 0.586 ) * 50.00 ), 5.00)
-        else
-            set r = GetUnitFlyHeight(fx.caster) / 4
-        endif
-
-        if GetUnitFlyHeight(fx.caster) >= 0 and fx.r <= 0.946 then
-            if fx.r <= 0.586 then
-                call SetUnitFlyHeight(fx.caster, GetUnitFlyHeight(fx.caster) + r, r / 0.04)
-            else
-                call SetUnitFlyHeight(fx.caster, GetUnitFlyHeight(fx.caster) - r, r / 0.04)
-            endif
-        else
-            call SetUnitFlyHeight(fx.caster, 0, 0.00)
-            call fx.stop()
-            call t.destroy()
-        endif
-    endfunction
-
-
+    //fx.i: 틱 카운트, fx.r2: 시전 방향(대상 쪽), fx.TargetX/Y: 내려찍을 지점, fx.TargetX2/Y2: 체공 시작 지점
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
-        local tick t2
-        local SkillFx fx2
+        local real p
+        local real x
+        local real y
 
-        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-            set fx2 = SkillFx.create()
-            set t2 = tick.create(fx2)
-            set fx2.pid = fx.pid
-            set fx2.caster = fx.caster
-            set fx2.speed = fx.speed
-            set fx2.r = 0
-
-            //call SetUnitZVeloP( fx.caster, 20)
-            call Sound3D(fx.caster,'A05X')
-            call UnitEffectTime2('e03X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
-            call UnitEffectTime2('e03X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
-            call UnitEffectTime2('e04E',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
-
-            call t.start( 0.586 / fx.speed , false, function EffectFunction3 )
-            call t2.start( 0.04 / fx.speed , true, function EffectFunctionZ )
-        else
+        if fx.caster == null or IsUnitDeadVJ(fx.caster) then
+            if fx.caster != null then
+                call SetHeight(fx.caster, 0)
+            endif
+            if fx.e != null then
+                call DestroyEffect(fx.e)
+                set fx.e = null
+            endif
             call fx.stop()
             call t.destroy()
+            return
+        endif
+
+        set fx.i = fx.i + 1
+
+        if fx.i <= TickUp then
+            //1) 대상 반대쪽(뒤쪽 하늘)으로 도약. 얼굴은 대상 쪽을 유지한다
+            set p = I2R(fx.i) / I2R(TickUp)
+            call SetUnitSafePolarUTA(fx.caster, BackD / I2R(TickUp), fx.r2 + 180)
+            call SetHeight(fx.caster, JumpH * Sin(p * bj_PI / 2))
+            call SetUnitFacing(fx.caster, fx.r2)
+            call EXSetUnitFacing(fx.caster, fx.r2)
+            if fx.i == TickUp then
+                set fx.TargetX2 = GetUnitX(fx.caster)
+                set fx.TargetY2 = GetUnitY(fx.caster)
+            endif
+            call t.start( 0.02 / fx.speed, false, function EffectFunction )
+        elseif fx.i <= TickUp + TickHang then
+            //2) 최고점에서 잠깐 멈춘 뒤 내려찍기 준비
+            if fx.i == TickUp + 1 then
+                if fx.j == 0 then
+                    call Sound3D(fx.caster,'A060')
+                else
+                    call Sound3D(fx.caster,'A061')
+                endif
+            endif
+            call t.start( 0.02 / fx.speed, false, function EffectFunction )
+        elseif fx.i <= TickUp + TickHang + TickDown then
+            //3) 지정 지점으로 내려찍기
+            if fx.i == TickUp + TickHang + 1 then
+                //발차기 순간: 예전 D가 최고점에서 발차기할 때 쓰던 공중 폭발 이펙트 (같은 위치·방향) + 몸에 붙는 잔상. 바닥 이펙트는 쓰지 않는다
+                call Sound3D(fx.caster,'A05X')
+                call UnitEffectTime2('e03W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.r2,1.5,0,fx.pid)
+                call UnitEffectTime2('e04G',GetWidgetX(fx.caster)+PolarX(50,fx.r2),GetWidgetY(fx.caster)+PolarY(50,fx.r2),fx.r2-180,2.0,0,fx.pid)
+                if fx.pid != GetPlayerId(GetLocalPlayer()) then
+                    set fx.e = AddSpecialEffectTarget(".mdl", fx.caster,"chest")
+                else
+                    set fx.e = AddSpecialEffectTarget("tx-LiuYing17.mdl",fx.caster,"chest")
+                endif
+            endif
+            set p = I2R(fx.i - TickUp - TickHang) / I2R(TickDown)
+            set x = fx.TargetX2 + (fx.TargetX - fx.TargetX2) * p
+            set y = fx.TargetY2 + (fx.TargetY - fx.TargetY2) * p
+            call SetUnitSafeXY(fx.caster, x, y)
+            call SetHeight(fx.caster, JumpH * (1.0 - p * p))
+            if fx.i == TickUp + TickHang + TickDown then
+                //착지: 실제로 도착한 위치를 중심으로 판정 (벽에 막히면 막힌 자리에서 터진다)
+                call SetHeight(fx.caster, 0)
+                if fx.e != null then
+                    call DestroyEffect(fx.e)
+                    set fx.e = null
+                endif
+                set x = GetUnitX(fx.caster)
+                set y = GetUnitY(fx.caster)
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
+                //착지: 예전 D의 도착 이펙트
+                call UnitEffectTime2('e03Z',x,y,fx.r2,1.5,0,fx.pid)
+                call UnitEffectTime2('e04F',x,y,fx.r2,2.0,0,fx.pid)
+                call splash.range( splash.ENEMY, fx.caster, x, y, scale, function splashD )
+                call fx.stop()
+                call t.destroy()
+            else
+                call t.start( 0.02 / fx.speed, false, function EffectFunction )
+            endif
         endif
     endfunction
 
     private function Main takes nothing returns nothing
-        local real speed
         local tick t
         local SkillFx fx
-        local real r
-        local integer i
-        local effect e
+        local real d
 
-        if GetSpellAbilityId() == 'A06E' then
-            call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
-            call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+        if GetSpellAbilityId() == 'A06E' and not BandiCastBlocked(GetTriggerUnit(), 'A06E') then
             set t = tick.create(0)
             set fx = SkillFx.create()
             set fx.caster = GetTriggerUnit()
-            set fx.TargetX = GetSpellTargetX()
-            set fx.TargetY = GetSpellTargetY()
             set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
             set fx.i = 0
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
-            set fx.r = MoveD
             set fx.j = GetRandomInt(0,1)
+            set fx.e = null
+            set fx.r2 = AngleWBP(fx.caster, GetSpellTargetX(), GetSpellTargetY())
+            //지정 지점. 최대 사거리를 넘으면 그 방향 최대 사거리 지점
+            set d = DistanceWBP(fx.caster, GetSpellTargetX(), GetSpellTargetY())
+            if d > MaxRange then
+                set d = MaxRange
+            endif
+            set fx.TargetX = GetUnitX(fx.caster) + PolarX(d, fx.r2)
+            set fx.TargetY = GetUnitY(fx.caster) + PolarY(d, fx.r2)
+
+            call SetUnitFacing(fx.caster, fx.r2)
+            call EXSetUnitFacing(fx.caster, fx.r2)
 
             call Overlay2Count(fx.pid,'A06E')
 
-            //유닛애니메이션속도
-            call DummyMagicleash(fx.caster, Time /fx.speed)
+            call DummyMagicleash(fx.caster, Time / fx.speed)
             call AnimationStart3(fx.caster, 2, fx.speed)
 
             call Sound3D(fx.caster,'A05W')
-
-            set fx.r2 = AngleWBP(fx.caster,fx.TargetX,fx.TargetY)
-
             if fx.j == 0 then
                 call Sound3D(fx.caster,'A05Y')
             else
                 call Sound3D(fx.caster,'A05Z')
             endif
-
-            set t.data = fx
+            //도약 순간: 발밑 바닥이 터진다 (예전 D가 뛰어오를 때 쓰던 바닥 폭발)
+            call UnitEffectTime2('e03X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
+            call UnitEffectTime2('e03X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
+            call UnitEffectTime2('e04E',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
 
             call BanBisul2Plus( fx.pid,1)
 
-            call BuffNoNB.Apply( fx.caster, Time, 0 )
-            call BuffNoST.Apply( fx.caster, Time, 0 )
-            call t.start( 0.439 / fx.speed, false, function EffectFunction )
+            call BuffNoNB.Apply( fx.caster, Time / fx.speed, 0 )
+            call BuffNoST.Apply( fx.caster, Time / fx.speed, 0 )
 
-            //call CooldownFIX(fx.caster,'A06E',HeroSkillCD5[14])
-            call CooldownFIX(fx.caster,'A06E',5.0)
+            set t.data = fx
+            call t.start( 0.02 / fx.speed, false, function EffectFunction )
+
+            call BandiStopOrder(fx.caster, "antimagicshell", Time / fx.speed)
+            call CooldownFIX(fx.caster,'A06E',HeroSkillCD6[15])
         endif
     endfunction
 
@@ -233,6 +196,7 @@ scope HeroBandiD
                 set angle = AngleWBP(MainUnit[pid],x,y)
                 call SetUnitFacing(MainUnit[pid],angle)
                 call EXSetUnitFacing(MainUnit[pid],angle)
+                call BandiRequest(pid, 'A06E')
                 call IssuePointOrder( MainUnit[pid], "antimagicshell", x, y )
             endif
         endif

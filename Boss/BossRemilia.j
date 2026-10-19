@@ -172,7 +172,6 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         private constant real REST_BIG_MIN = 2.5
         private constant real REST_BIG_MAX = 3.0
         private constant real IDLE_TURN = 360
-        private constant real COUNTER_ARC = 60
         // 원정 프로토타입 시험 보스 체력 (1명당, 예전 세리아와 같음)
         private constant real EXP_TEST_BOSS_HP = 12000
 
@@ -288,6 +287,9 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         private constant real NIGHT_SHOW = 1.5
         private constant real NIGHT_CYCLE = 3.2
         private constant integer NIGHT_NEED = 3
+        // 돌진 사이 자리 옮기기: 대상에서 이 거리만큼 떨어진 곳으로 박쥐처럼 옮겨, 직전 돌진과 90도 이상 다른 방향에서 들어온다
+        private constant real NIGHT_REPOS_DIST = 650
+        private constant real NIGHT_REPOS_MINDIFF = 90
         private constant real NIGHT_FINAL_R = 800
         private constant real NIGHT_FINAL_TELL = 2.0
         private constant real NIGHT_FINAL_DMG = 0.70
@@ -555,6 +557,8 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         integer array memHits[6]
         // 퀸 오브 미드나잇(어둠): 돌진 번호, 성공 수, 이번 돌진 시작 시각
         integer nDash = 0
+        // 직전 돌진 방향 (-1 = 아직 없음). 다음 돌진은 이것과 90도 이상 다른 방향에서 들어온다
+        real nPrevAng = -1
         integer nGood = 0
         real nAt = 0
         // 불야성 레드: 마지막 빛줄 중 칸이 없어 미뤄 둔 수 (음수)
@@ -1756,7 +1760,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set k = k + 1
         endloop
         // 불야성 레드 중에는 띠를 옮기지 않는다 (마지막 빛줄이 다른 자리·폭으로 바뀌지 않게)
-        if f.now >= f.sbMoveAt and f.pat == PAT_FUYAJOU then
+        if f.now >= f.sbMoveAt and (f.pat == PAT_FUYAJOU or f.pat == PAT_NIGHT) then
             set f.sbMoveAt = f.now + SB_MOVE_EVERY
         endif
         if f.now >= f.sbMoveAt then
@@ -3287,7 +3291,6 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
                     set UnitCasting[idx] = false
                     set UnitArm[idx] = 0
                     set UnitSD[idx] = 0
-                    set UnitCounterArc[idx] = 0
                     set UnitTakenBonus[idx] = 0
                     set f.stakeHP[i] = 1000000
                     // 발밑 붉은 원: 때릴 곳 표시
@@ -3615,6 +3618,43 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call UnitRemoveAbility(f.boss, 'A00V')
     endfunction
 
+    // 나이트메어 돌진 사이 자리 옮기기: 대상 둘레에서, 그 자리에서 대상으로 향하는 방향이 직전 돌진 방향과
+    // NIGHT_REPOS_MINDIFF 도 이상 다르고 전장 안에 들어가는 곳을 고른다 (여러 번 뽑아 가장 많이 다른 곳). 박쥐처럼 사라졌다 나타남
+    private function NightReposition takes RemiliaFight f returns nothing
+        local real tx = GetUnitX(f.target)
+        local real ty = GetUnitY(f.target)
+        local real a
+        local real x
+        local real y
+        local real diff
+        local real bestX = GetUnitX(f.boss)
+        local real bestY = GetUnitY(f.boss)
+        local real bestDiff = -1
+        local integer k = 0
+        loop
+            exitwhen k >= 12
+            // 들어오는 방향 a: 직전 방향에서 90~270도 돌린 쪽
+            set a = f.nPrevAng + GetRandomReal(NIGHT_REPOS_MINDIFF, 360 - NIGHT_REPOS_MINDIFF)
+            set x = ClampX(f, tx - PolarX(NIGHT_REPOS_DIST, a))
+            set y = ClampY(f, ty - PolarY(NIGHT_REPOS_DIST, a))
+            if DistancePBP(x, y, tx, ty) >= 350 then
+                set diff = AngDiff(AnglePBP(x, y, tx, ty), f.nPrevAng)
+                if diff > bestDiff then
+                    set bestDiff = diff
+                    set bestX = x
+                    set bestY = y
+                endif
+                if diff >= NIGHT_REPOS_MINDIFF then
+                    set k = 12
+                endif
+            endif
+            set k = k + 1
+        endloop
+        call FxAt(FX_BATS_HIT, GetUnitX(f.boss), GetUnitY(f.boss), 1.2, 0)
+        call BossMoveTo(f, bestX, bestY)
+        call FxAt(FX_BATS_HIT, bestX, bestY, 1.2, 0)
+    endfunction
+
     // 나이트메어 중 카운터 성공: 카운터를 친 영웅의 그 스킬 쿨타임을 초기화하고 머리 위에 글자를 띄운다.
     // 피해 처리(HeroDeal)가 넘긴 스킬 코드가 영웅의 실제 능력이면 그것, 아니면 그 영웅이 마지막으로 시전한 스킬
     private function NightCooldownReset takes RemiliaFight f returns nothing
@@ -3674,13 +3714,26 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             call VoiceSlot(f, VO_QUEEN, true)
             call PlayerFilter(f, 2)
             call NightShow(f, false)
+            // 이 패턴 동안 햇빛은 모두 끈다 (끝나면 틱의 SunRefill 이 안개에 맞춰 다시 켠다)
+            set t = 0
+            loop
+                exitwhen t >= SB_MAX
+                call StripFade(f, R2I(t))
+                set t = t + 1
+            endloop
+            set f.nPrevAng = -1
             set f.nDash = 0
             set f.nGood = 0
             set f.nAt = f.now + 1.5
             set f.step = 1
         elseif f.step == 1 and f.now >= f.nAt then
-            // 돌진 하나 시작: 대상을 정하고 눈이 번쩍, 붉은 선 예고
+            // 돌진 하나 시작: 대상을 정하고, 직전 돌진과 90도 이상 다른 방향에서 들어오도록 자리를 옮긴 뒤 눈이 번쩍, 붉은 선 예고
             set f.target = PickTarget(f)
+            if MemAlive(f.target) and f.nPrevAng >= 0 then
+                call NightReposition(f)
+                set bx = GetUnitX(f.boss)
+                set by = GetUnitY(f.boss)
+            endif
             if MemAlive(f.target) then
                 set f.ang = AngleWBW(f.boss, f.target)
             endif
@@ -3698,6 +3751,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             set f.eyeFx = AddSpecialEffectTarget(FX_EYES, f.boss, "head")
             call AnimThen(f, AN_WINDUP, 1.0, AN_WINDUP_HOLD)
             call TeleLine(f, bx, by, f.ang, f.dashLen + 100, CRADLE_W, NIGHT_TELL)
+            set f.nPrevAng = f.ang
             set f.nAt = f.now
             set f.step = 2
         elseif f.step == 2 then
@@ -4844,7 +4898,6 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         set UnitHPFloorOn[idx] = false
         set UnitDamageLock[idx] = false
         set UnitTakenBonus[idx] = 0
-        set UnitCounterArc[idx] = 0
         if win then
             set UnitHP[idx] = 0
             call SetUnitTimeScale(f.boss, 1.0)
@@ -5030,7 +5083,7 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
             endif
             // 0.5초마다: 햇빛 줄 수를 안개에 맞추고 게이지 갱신 (불야성 레드는 빛을 스스로 정한다)
             if ModuloInteger(R2I(f.now / TICK + 0.5), 25) == 0 then
-                if f.pat != PAT_FUYAJOU then
+                if f.pat != PAT_FUYAJOU and f.pat != PAT_NIGHT then
                     call SunRefill(f)
                 endif
                 call FogUiUpdate(f)
@@ -5083,7 +5136,6 @@ library BossRemilia requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,Data
         call BossMoveTo(f, f.arenaCX(), f.arenaCY())
         set f.face = 0
         call Face(f, 270)
-        set UnitCounterArc[idx] = COUNTER_ARC
         set n = CountUnitsInGroup(f.ul.super)
         if n < 1 then
             set n = 1

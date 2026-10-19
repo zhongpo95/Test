@@ -118,6 +118,7 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = ((100+SkillSpeed(pid))/100)
+        call Overlay2Count(pid,'A019')
         set IsCastingChenE[pid] = true
 
         call Sound3D(fx.caster,'A01P')

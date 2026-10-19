@@ -62,6 +62,8 @@ private function EffectFunction takes nothing returns nothing
     endif
     if fx.serial == SiegSerial[pid] and SiegCanAct(u) then
         set SiegZOn[pid] = true
+        set SiegZStart[pid] = SiegNow()
+        set SiegZEnd[pid] = SiegZStart[pid] + Duration
         set SiegStack[pid] = SIEG_MAX_STACK
         set ZSerial[pid] = ZSerial[pid] + 1
         // 지속 중에는 Z 버튼을 쿨다운으로 막아 둔다.

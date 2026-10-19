@@ -374,7 +374,7 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
 
-        call Overlay2Count(fx.pid,'A07B')
+        call Overlay2Count(fx.pid,'A07A')
         //set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
 
         if LuciaForm[fx.pid] == 0 then

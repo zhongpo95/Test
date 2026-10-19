@@ -47,16 +47,15 @@ library AttackAngle
        return n
    endfunction
 
-    function BackTrue takes real A,real A2 returns boolean
-        return AngleTrue(A,A2,45)
-    endfunction
-    
+    // 정면·후면을 180도씩 나눈다. A = 공격자→대상 각도, A2 = 대상이 보는 방향.
+    // 헤드 = 대상 정면 ±90도(경계 90도 포함), 백 = 나머지 후면 절반. 옆 구간은 없고 둘이 겹치지 않는다.
     function HeadTrue takes real A,real A2 returns boolean
-        local real r = A2+180
-        if r > 360 then
-            set r = r - 360
-        endif
-        return AngleTrue(A,r,45)
+        local real d = ModuloReal(A - A2 - 180.0 + 540.0, 360.0) - 180.0
+        return RAbsBJ(d) <= 90.0
+    endfunction
+
+    function BackTrue takes real A,real A2 returns boolean
+        return not HeadTrue(A, A2)
     endfunction
     
     function HeadTag takes unit u returns nothing
