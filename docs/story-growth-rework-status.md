@@ -106,6 +106,6 @@
 - check-story-growth-rework.cjs 통과. 실제 JASS 함수를 모의 네이티브로 실행하여 메인 84회 완주, 연계 55경로, 1187개 상품 선택지의 가격, 전체 연계 단계 95개의 비용, 선택 스킬 9키, 이동속도 0/20/40/60 경계, 흡혈 회복량 보존과 가속을 검사했다.
 - check-growth-rest.cjs 및 check-growth-stats.cjs 통과. 휴식 상한·잔액·플레이어 분리와 스킬가속·대시 계산을 검사했다.
 - JassHelper/PJass 스크립트 컴파일 통과. 기존 PJass 설정의 24 errors ignored가 포함되므로 경고 없는 검사로 간주하지 않는다. 최종 보고서는 C:\Users\ctqho\AppData\Local\Temp\arcana-growth-pr217-final-20261019\report.json이다. 스크립트 SHA256은 218fe7b9c42da0d616e1a16b4e0e92ac67700b9145b8beac1a262961ea6df726이다.
-- 기존 전체 check-expedition-ui.cjs는 현재 지도 API와 맞지 않는 UIMap_Toggle 호출로 중단한다. 테스트 헬퍼의 프레임 상수와 출발 선택 부분은 새 검사에 맞췄지만 전체 UI 회귀 통과로 보고하지 않는다.
+- check-expedition-ui.cjs 19개 시나리오 통과. 삭제된 M키 지도 함수와 숨겨진 내비게이션 클릭을 공개 창 API로 대체하고, 폐지된 마을 목표 안내는 숨김을 검증한다. 신규 원정의 출발 머리·입문 카드·행동력 100·선택 스킬 버튼 동기화도 모의 검증했다. 실제 M키 조작이나 시각 검증을 의미하지 않는다.
 - 실제 Warcraft 실행, 보스 전환, 화면 잘림/버튼 배치, 모든 영웅 스킬 키 매핑, 멀티플레이 동기화는 미검증이다. 모의 실행 결과는 런타임 증거가 아니다.
-- 맵·ASI 생성, 사용자 설치 파일 교체, PR 병합은 하지 않았다.
+- 별도 테스트 맵 제작은 docs/pr217-test-map.md를 참조한다. 원본 맵·ASI 설치 파일 교체와 PR 병합은 하지 않았다.
