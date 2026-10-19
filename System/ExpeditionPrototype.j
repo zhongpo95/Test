@@ -660,7 +660,6 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoStage[pid] = 0
         set ProtoLastEvent[pid] = HuntSeconds[pid]
         set ProtoOfferKills[pid] = ProtoKills[pid]
-        set ProtoRerolls[pid] = 0
         set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
         call ProtoSetPause(pid, false)
     endfunction
@@ -1093,11 +1092,11 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set other = other + 1
             endloop
         elseif action == 2300 and ProtoStage[pid] == 1 then
-            set price = 500 + ProtoRerolls[pid] * 100
-            if ExpGold[pid] < price then
+            set price = ProtoRestCost(pid)
+            if ProtoAP[pid] < price then
                 return
             endif
-            set ExpGold[pid] = ExpGold[pid] - price
+            set ProtoAP[pid] = ProtoAP[pid] - price
             set ProtoRerolls[pid] = ProtoRerolls[pid] + 1
             call ProtoOffer(pid)
         elseif action >= 2201 and action <= 2204 then
@@ -1363,7 +1362,6 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                             if second then
                                 set HuntSeconds[pid] = HuntSeconds[pid] + 1
                                 if ProtoAP[pid] > 0 and ProtoKills[pid] - ProtoOfferKills[pid] >= 12 then
-                                    set ProtoRerolls[pid] = 0
                                     call ProtoOffer(pid)
                                 endif
                             endif

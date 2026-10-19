@@ -16,8 +16,8 @@ library DataExpedition
         // 개인 사냥 프로토타입의 동기화 상태. 도감만 원정 간 유지한다.
         boolean ExpPrototypeActive = false
         boolean ExpPrototypeEnabled = false
-        constant integer PROTO_BASE_AP = 20
-        constant integer PROTO_BASE_HEAD_CAPACITY = 2
+        constant integer PROTO_BASE_AP = 100
+        constant integer PROTO_BASE_HEAD_CAPACITY = 1
         constant integer PROTO_HUNT_SECONDS = 1200
         constant integer PROTO_CHOICE_SECONDS = 90
         constant integer PROTO_DEFAULT_DENSITY = 8
@@ -142,6 +142,11 @@ library DataExpedition
 
     function ExpKey takes integer pid, integer id returns integer
         return pid * EXP_PLAYER_KEY_STRIDE + id
+    endfunction
+
+    // 같은 성장 구간에서는 사건을 마쳐도 휴식 횟수를 유지한다.
+    function ProtoRestCost takes integer pid returns integer
+        return IMinBJ(3, ProtoRerolls[pid] + 1)
     endfunction
 
     function ProtoHeadCapacity takes integer pid returns integer

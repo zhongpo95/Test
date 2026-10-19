@@ -465,7 +465,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endloop
             call DzSyncData("ProtoCodex", packet)
         endif
-        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n이번 원정 머리 2장부터 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
+        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 100|n이번 원정 머리 1장부터 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n휴식 행동력 1 → 2 → 3 · 이후 3 유지"
         call ExpUIText(LobbyInfo, value)
         set value = "출발 장비|n|n출발 머리 · "
         if ProtoStartHead[pid] > 0 then
@@ -619,12 +619,12 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endif
         endif
         call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1)
-        call ExpUISetButton(RerollButton, "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", ExpGold[pid] >= 500 + ProtoRerolls[pid] * 100)
+        call ExpUISetButton(RerollButton, "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), ProtoAP[pid] >= ProtoRestCost(pid))
         call DzFrameSetAlpha(ExpUIButtons[RerollButton], 255)
-        if ExpGold[pid] >= 500 + ProtoRerolls[pid] * 100 then
-            call PaperText(ExpUIButtonLabels[RerollButton], "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", PAPER_GOLD)
+        if ProtoAP[pid] >= ProtoRestCost(pid) then
+            call PaperText(ExpUIButtonLabels[RerollButton], "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), PAPER_GOLD)
         else
-            call PaperText(ExpUIButtonLabels[RerollButton], "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", PAPER_META)
+            call PaperText(ExpUIButtonLabels[RerollButton], "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), PAPER_META)
         endif
         call DzFrameShow(ExpUIButtons[ResumeButton], ProtoStage[pid] == 3)
         if ProtoDialoguePending(pid) then
