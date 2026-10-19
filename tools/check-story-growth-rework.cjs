@@ -10,6 +10,10 @@ function choose(id,branch){e.ProtoStage[0]=1;e.ProtoCandidates[e.ExpKey(0,1)]=id
 let mains=0,links=0,shops=0;
 for(const w of worlds){
  if(!w.world.mainStory)continue;const head=e.ProtoHeadKey.indexOf(w.world.key);
+ const final=w.events.find(x=>x.growthRole==='main_final'),ending=final.choices.map(b=>w.cards.find(c=>c.key===b.card));
+ const shared=ending[0].effects.filter(x=>ending.every(c=>c.effects.some(y=>y.stat===x.stat&&y.value===x.value)));
+ const completion=require('./story-growth-policy.cjs').text(shared);assert(completion,w.world.key+' 완결 안내 누락');
+ assert.equal(w.world.completionText,completion);assert.equal(e.ProtoHeadCompletionText[head],completion);assert.equal(final.rewardPreview,'완결 · '+completion);
  for(let branch=1;branch<=3;branch++){
   reset(head);const ordered=w.events.filter(x=>x.mainStage).sort((a,b)=>a.mainStage-b.mainStage);let finalBefore=0;
   const kind=stats.indexOf(specs[w.world.key][0])+1;
