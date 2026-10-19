@@ -1,8 +1,8 @@
-// 지크프리트 W: 넬라나브 (전진하는 검기)
-// 용기 3을 소모하면 무력화 피해가 강화된다.
+// 지크프리트 W: 넬라나브 (전진하는 검기, 카운터)
+// 용기 3을 소모하면 무력화 피해가 강화된다. 경로에서 처음 맞는 보스의 카운터 판정을 받는다(Q와 같은 HeroDeal 카운터).
 scope HeroSiegW
 globals
-    private constant real Rate = 0.60
+    private constant real Rate = 0.84
     private constant real StackBonus = 1.20
     private constant integer StackCost = 3
     private constant real Travel = 900
@@ -44,7 +44,7 @@ private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     if IsUnitInRangeXY(GetEnumUnit(), splash.x, splash.y, Range) and not IsUnitInGroup(GetEnumUnit(), CheckG) then
         call GroupAddUnit(CheckG, GetEnumUnit())
-        call SiegDeal('A0SW', splash.source, GetEnumUnit(), CurRate, false)
+        call SiegDeal('A0SW', splash.source, GetEnumUnit(), CurRate, true)
         call SiegFxHit(GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), pid)
     endif
 endfunction
@@ -109,6 +109,7 @@ private function Main takes nothing returns nothing
         set fx = FxEffect.create()
         set fx.caster = u
         set fx.pid = GetPlayerId(GetOwningPlayer(u))
+        call Overlay2Count(fx.pid,'A0SW')
         set fx.speed = SiegSpeed(fx.pid)
         set fx.step = 0
         set fx.empowered = SiegStack[fx.pid] >= StackCost

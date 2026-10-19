@@ -3,9 +3,9 @@
 // 원작 #121(낙하 반복 구간)은 그대로 재생하면 바닥 밑으로 빠지므로 #120 -> #122로 잇는다.
 scope HeroSiegF
 globals
-    private constant real Rate1 = 0.40
-    private constant real Rate2 = 0.40
-    private constant real Rate3 = 2.00
+    private constant real Rate1 = 0.56
+    private constant real Rate2 = 0.56
+    private constant real Rate3 = 2.80
     private constant real Range = 350
     private constant real Scale = 700
     private real CurRate = 0

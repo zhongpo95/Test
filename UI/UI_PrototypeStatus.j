@@ -46,9 +46,9 @@ library UIPrototypeStatus initializer Init requires UIExpeditionCommon, StatsSet
         loop
             exitwhen column > 2
             set value = ""
-            set i = 1 + (column - 1) * 13
+            set i = 1 + (column - 1) * 18
             loop
-                exitwhen i > IMinBJ(column * 13, PROTO_STAT_LAST)
+                exitwhen i > IMinBJ(column * 18, PROTO_STAT_LAST)
                 if ProtoStat(pid, i) != 0.0 then
                     if value != "" then
                         set value = value + "|n"
@@ -116,7 +116,7 @@ library UIPrototypeStatus initializer Init requires UIExpeditionCommon, StatsSet
         set f = StatusLabel(StatsPanel, 0.016, 0.121, 0.125, 0.020, 0.010, "|cffd7bd8c치명타 피해|r")
         set ActualValues[4] = StatusLabel(StatsPanel, 0.143, 0.121, 0.047, 0.020, 0.0105, "")
         call JNFrameSetTextAlignment(ActualValues[4], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_RIGHT)
-        set f = StatusLabel(StatsPanel, 0.016, 0.141, 0.125, 0.020, 0.010, "|cffd7bd8c행동 속도|r")
+        set f = StatusLabel(StatsPanel, 0.016, 0.141, 0.125, 0.020, 0.010, "|cffd7bd8c공격 속도|r")
         set ActualValues[5] = StatusLabel(StatsPanel, 0.143, 0.141, 0.047, 0.020, 0.0105, "")
         call JNFrameSetTextAlignment(ActualValues[5], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_RIGHT)
         set f = StatusLabel(StatsPanel, 0.016, 0.161, 0.125, 0.020, 0.010, "|cffd7bd8c재사용 감소|r")

@@ -21,6 +21,8 @@ globals
     private unit array StackDummy
     private unit array SDummy
     private boolean StackChecker
+    //시전 번호: 새 E가 시작되면 이전 E의 남은 타이머는 상태를 건드리지 않음
+    private integer array Gen
 endglobals
 
 private struct FxEffect
@@ -33,6 +35,7 @@ private struct FxEffect
     real r
     real Aspeed
     real A2speed
+    integer gen
 
 
 
@@ -48,6 +51,7 @@ private struct FxEffect
         set r = 0
         set Aspeed = 0
         set A2speed = 0
+        set gen = 0
 
         call deallocate()
     endmethod
@@ -66,6 +70,25 @@ private function AngleCheck takes real A,real A2,real R returns boolean
         set n = false
     endif
     return n
+endfunction
+
+//차지/베기 도중 끊겼을 때 남은 표시와 구속을 정리
+private function CleanupCast takes integer pid, unit caster returns nothing
+    if StackDummy[pid] != null then
+        call KillUnit(StackDummy[pid])
+        call ShowUnit(StackDummy[pid], false)
+        set StackDummy[pid] = null
+    endif
+    if SDummy[pid] != null then
+        call UnitApplyTimedLife( SDummy[pid], 'BHwe', 0.1 )
+        set SDummy[pid] = null
+    endif
+    if caster != null then
+        call UnitRemoveAbility( caster, 'B000' )
+    endif
+    call CastingBarShow(Player(pid),false)
+    set NarStack[pid] = 0
+    set Stack[pid] = 0
 endfunction
 
 private function splashD1 takes nothing returns nothing
@@ -161,7 +184,7 @@ private function splashD5 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue22[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -181,7 +204,7 @@ private function splashD6 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue22[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -201,7 +224,7 @@ private function splashD7 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue22[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -242,6 +265,13 @@ endfunction
 private function EffectFunction4 takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
+
+    //이미 다음 E가 시작됨: 새 시전 상태를 지우지 않고 종료
+    if fx.gen != Gen[fx.pid] then
+        call fx.destroy()
+        call t.destroy()
+        return
+    endif
 
     set fx.i = fx.i + 1
 
@@ -300,8 +330,7 @@ private function EffectFunction4 takes nothing returns nothing
             call t.start( 0.2, false, function EffectFunction4 )
         endif
     else
-        set NarStack[fx.pid] = 0
-        set Stack[fx.pid] = 0
+        call CleanupCast(fx.pid, fx.caster)
         call fx.destroy()
         call t.destroy()
     endif
@@ -311,6 +340,11 @@ private function EffectFunction3 takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
 
+    if fx.gen != Gen[fx.pid] then
+        call fx.destroy()
+        call t.destroy()
+        return
+    endif
 
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,16, fx.A2speed)
@@ -318,8 +352,7 @@ private function EffectFunction3 takes nothing returns nothing
         set fx.j = 0
         call t.start( Time2 / fx.A2speed, false, function EffectFunction4 )
     else
-        set NarStack[fx.pid] = 0
-        set Stack[fx.pid] = 0
+        call CleanupCast(fx.pid, fx.caster)
         call fx.destroy()
         call t.destroy()
     endif
@@ -332,6 +365,12 @@ private function EffectFunction2 takes nothing returns nothing
     local string data
     local integer random
     local integer i
+
+    if fx.gen != Gen[fx.pid] then
+        call fx.destroy()
+        call t.destroy()
+        return
+    endif
 
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,15, fx.A2speed)
@@ -365,6 +404,10 @@ private function EffectFunction2 takes nothing returns nothing
         //set Stack[fx.pid] = 0
         //call fx.destroy()
         //call t.destroy()
+    else
+        call CleanupCast(fx.pid, fx.caster)
+        call fx.destroy()
+        call t.destroy()
     endif
 endfunction
 
@@ -374,6 +417,12 @@ private function EffectFunction takes nothing returns nothing
     local string data
     local effect e
     local integer i
+
+    if fx.gen != Gen[fx.pid] then
+        call fx.destroy()
+        call t.destroy()
+        return
+    endif
 
     set fx.i = fx.i + 1
     set Size[fx.pid] = fx.i
@@ -448,11 +497,18 @@ private function EffectFunction takes nothing returns nothing
                     call t.destroy()
                 endif
             endif
+        elseif Stack[fx.pid] >= 11 and Stack[fx.pid] <= 14 then
+            //키를 떼서 베기로 넘어감: 베기 쪽 타이머가 이어서 처리
+            call fx.destroy()
+            call t.destroy()
         else
+            call CleanupCast(fx.pid, fx.caster)
             call fx.destroy()
             call t.destroy()
         endif
     else
+        //죽음/스턴/에어본으로 차지가 끊김
+        call CleanupCast(fx.pid, fx.caster)
         call fx.destroy()
         call t.destroy()
     endif
@@ -587,6 +643,8 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
         set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
+        set Gen[fx.pid] = Gen[fx.pid] + 1
+        set fx.gen = Gen[fx.pid]
 
         call Overlay2Count(fx.pid,'A02K')
 
@@ -625,6 +683,9 @@ private function Main takes nothing returns nothing
             call DzFrameSetText(CastingTextFrame,"명경지수")
             call DzFrameSetValue(CastingBar,0)
             call CastingBarShow(Player(fx.pid),true)
+        endif
+        if SDummy[fx.pid] != null then
+            call UnitApplyTimedLife( SDummy[fx.pid], 'BHwe', 0.1 )
         endif
         set SDummy[fx.pid] =  DummyMagicleash2( fx.caster )
         call t.start( (EffectTime / fx.Aspeed ) / 25, false, function EffectFunction )
@@ -683,6 +744,7 @@ private function ESyncData2 takes nothing returns nothing
         set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set fx.gen = Gen[pid]
         set t.data = fx
         set Stack[fx.pid] = 11
         call t.start( 0.02, false, function EffectFunction2 )
@@ -696,6 +758,7 @@ private function ESyncData2 takes nothing returns nothing
         set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set fx.gen = Gen[pid]
         set t.data = fx
         set Stack[fx.pid] = 12
         call t.start( 0.02, false, function EffectFunction2 )
@@ -709,6 +772,7 @@ private function ESyncData2 takes nothing returns nothing
         set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set fx.gen = Gen[pid]
         set t.data = fx
         set Stack[fx.pid] = 13
         call t.start( 0.02, false, function EffectFunction2 )
@@ -722,6 +786,7 @@ private function ESyncData2 takes nothing returns nothing
         set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set fx.gen = Gen[pid]
         set t.data = fx
         set Stack[fx.pid] = 14
         call t.start( 0.02, false, function EffectFunction2 )

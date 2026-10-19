@@ -84,6 +84,7 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = SkillSpeed(fx.pid)
         set IsCastingChenS[fx.pid] = true
+        call Overlay2Count(fx.pid,'A018')
 
         call Sound3D(fx.caster,'A01K')
         call CooldownFIX(fx.caster,'A018',HeroSkillCD5[4])

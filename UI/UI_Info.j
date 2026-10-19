@@ -57,9 +57,9 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         local string str = ""
         
         call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "신속" )
-        set str = "|cFFA5FA7D ◎ |r" + "이동속도와 공격속도가 " + "|cFFA5FA7D" + R2S(  SwiftnessSpeed(pid)  ) + "%|r 증가했습니다.|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "스킬 재사용 시간이 " + "|cFFA5FA7D" + R2S(  CooldownReduction(pid)  ) + "%|r 감소합니다."
+        call DzFrameSetText(UI_Tip_Text[1], "신속 (임시)" )
+        set str = "|cFFA5FA7D ◎ |r" + "공격속도 " + "|cFFA5FA7D+" + R2SW(  SwiftnessAttackSpeed(Equip_Swiftness[pid])  ,1,1) + "%|r, 이동속도 " + "|cFFA5FA7D+" + R2SW(  SwiftnessMoveSpeed(Equip_Swiftness[pid])  ,1,1) + "%|r|n"
+        set str = str + "|cFFA5FA7D ◎ |r" + "쿨타임 가속 " + "|cFFA5FA7D+" + I2S(R2I(  SwiftnessCooldownHaste(Equip_Swiftness[pid])  )) + "|r으로 환산됩니다."
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -126,8 +126,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         local string str = ""
         
         call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "쿨타임 감소" )
-        set str = "|cFFA5FA7D ◎ |r" + "신속 쿨감 " + "|cFFA5FA7D" + R2S(  CooldownReduction(pid)  ) + "%|r"
+        call DzFrameSetText(UI_Tip_Text[1], "쿨타임 가속" )
+        set str = "|cFFA5FA7D ◎ |r" + "쿨타임 가속 " + "|cFFA5FA7D" + I2S(R2I(  CooldownHaste(pid)  )) + "|r (재사용 " + "|cFFA5FA7D" + R2SW(  CooldownReduction(pid)  ,1,1) + "%|r 감소)"
         set str = str + "|n|cFFA5FA7D ◎ |r" + "보석 쿨감 " + "|cFFA5FA7D" + R2S(  GemCooldownReduction(pid)  ) + "%|r"
         set str = str + "|n|cFFA5FA7D ◎ |r" + "쿨타임 감소율 " + "|cFFA5FA7D" + R2SW(  (1.0 - CooldownRate(pid)) * 100.0  ,1,2) + "%|r"
         call DzFrameSetText(UI_Tip_Text[2], str )
@@ -598,7 +598,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         set F_ItemStatsText[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.155)
-        call DzFrameSetText(F_ItemStatsText[3], "|cFFFFE400신속")
+        call DzFrameSetText(F_ItemStatsText[3], "|cFFFFE400신속(임시)")
         
         set F_ItemStatsText[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.155)
@@ -662,7 +662,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         set F_ItemStatsText[10]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[10], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.250, 0.095)
-        call DzFrameSetText(F_ItemStatsText[10], "|cFFFFE400쿨타임 감소")
+        call DzFrameSetText(F_ItemStatsText[10], "|cFFFFE400쿨타임 가속")
         
         set F_ItemStatsText[10]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[10], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.325, 0.095)

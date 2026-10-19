@@ -71,6 +71,7 @@ endglobals
             set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
             set speed = ((100+SkillSpeed(pid))/100)
             set IsCastingChenC[pid] = true
+            call Overlay2Count(pid, 2)
             
             call CooldownFIX(fx.caster,'A06D', CoolTime)
     

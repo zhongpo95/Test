@@ -40,8 +40,8 @@ scope HeroBandiR
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
 
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],true,false,true,false)
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],true,false,true,false)
+            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],false,false,true,false)
+            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],false,false,true,false)
             call UnitEffectTimeEX2('e04I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             call UnitEffectTimeEX2('e04I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())+90,1.2,pid)
 
@@ -64,7 +64,7 @@ scope HeroBandiR
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],true,false,true,false)
+            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],false,false,true,false)
             call UnitEffectTimeEX2('e046',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
             set random = GetRandomInt(0,2)
@@ -159,6 +159,7 @@ scope HeroBandiR
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale2, function splashD2 )
                     call BuffNoNB.Stop( fx.caster )
                     call BuffNoST.Stop( fx.caster )
+                    set IsCastingBandiR[fx.pid] = false
                     call fx.stop()
                     call t.destroy()
                 endif
@@ -174,7 +175,7 @@ scope HeroBandiR
         local tick t
         local FxEffect fx
 
-        if GetSpellAbilityId() == 'A06I' then
+        if GetSpellAbilityId() == 'A06I' and not BandiCastBlocked(GetTriggerUnit(), 'A06I') then
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
@@ -203,6 +204,7 @@ scope HeroBandiR
 
                 set t.data = fx
                 call t.start( Time2 / fx.speed, false, function EffectFunction )
+                call BandiStopOrder(fx.caster, "ancestralspirit", Time / fx.speed)
                 call CooldownFIX(fx.caster,'A06I', HeroSkillCD3[15])
             else
                 set fx.speed = ((100+SkillSpeed2(fx.pid,60))/100)
@@ -219,6 +221,7 @@ scope HeroBandiR
 
                 set t.data = fx
                 call t.start( Time2 / fx.speed, false, function EffectFunction )
+                call BandiStopOrder(fx.caster, "ancestralspirit", Time / fx.speed)
                 call CooldownFIX(fx.caster,'A06I', HeroSkillCD3[15])
             endif
         endif
@@ -245,6 +248,7 @@ scope HeroBandiR
                 set angle = AngleWBP(MainUnit[pid],x,y)
                 call SetUnitFacing(MainUnit[pid],angle)
                 call EXSetUnitFacing(MainUnit[pid],angle)
+                call BandiRequest(pid, 'A06I')
                 call IssuePointOrder( MainUnit[pid], "ancestralspirit", x, y )
             endif
         endif

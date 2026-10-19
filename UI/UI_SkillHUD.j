@@ -79,6 +79,14 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         return 0
     endfunction
 
+    // 반디 E는 형태에 따라 A06F(반디) <-> A06Q(샘, 변신 해제)로 능력이 바뀐다. 지금 가진 쪽을 칸에 띄운다.
+    private function UnitSlotAbilityId takes unit u, integer index, integer slot returns integer
+        if index == 15 and slot == 2 and GetUnitAbilityLevel(u, 'A06Q') > 0 then
+            return 'A06Q'
+        endif
+        return AbilityId(index, slot)
+    endfunction
+
     private function IsDashAbilityReady takes unit u, integer abilId returns boolean
         local ability ab
         local boolean ready
@@ -141,6 +149,43 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         return true
     endfunction
 
+    // 반디 스킬도 오브젝트 요구 조건(더미 유닛)으로 열리고 닫힌다 (맵 오브젝트 데이터 기준).
+    // 반디 형태 e03A: Q W E(A06F, 비술 e033도 필요) / 샘 형태 e03B: A S D E(A06Q) / 완전연소 e03C: R F / Z: e034
+    private function BandiReqAlive takes unit r, integer typeId returns boolean
+        return r != null and GetUnitTypeId(r) == typeId and not IsUnitType(r, UNIT_TYPE_DEAD)
+    endfunction
+
+    private function BandiSlotReady takes integer pid, integer slot, integer abilId returns boolean
+        local boolean bandi = BandiReqAlive(BandiForm[pid], 'e03A')
+        local boolean sam = BandiReqAlive(BandiForm[pid], 'e03B')
+        local boolean burn = BandiReqAlive(BandiForm[pid], 'e03C')
+        if slot == 0 or slot == 1 then
+            return bandi
+        elseif slot == 2 then
+            if abilId == 'A06Q' then
+                return sam
+            endif
+            return bandi and BandiReqAlive(BanBisulU[pid], 'e033')
+        elseif slot == 3 or slot == 7 then
+            return burn
+        elseif slot >= 4 and slot <= 6 then
+            return sam
+        elseif slot == 8 then
+            return BandiReqAlive(BanBisul2U[pid], 'e034')
+        endif
+        return true
+    endfunction
+
+    // 지크프리트 Z는 용기 10스택(발동 중이 아닐 때), F는 콤보 마지막 단의 피니시 창이 열렸을 때만 나간다 (HeroSiegCore 키 입력과 같은 조건)
+    private function SiegSlotReady takes integer pid, integer slot returns boolean
+        if slot == 8 then
+            return not SiegZOn[pid] and SiegStack[pid] >= SIEG_MAX_STACK
+        elseif slot == 7 then
+            return SiegFOpen[pid] and not SiegFLock[pid]
+        endif
+        return true
+    endfunction
+
     private function IsAbilityAvailable takes unit u, integer pid, integer index, integer slot, integer abilId returns boolean
         if slot == 9 then
             return IsDashAbilityReady(u, DashAbilityId(u))
@@ -153,6 +198,12 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         endif
         if index == 17 then
             return GetUnitAbilityLevel(u, abilId) > 0 and LuciaSlotReady(pid, slot)
+        endif
+        if index == 15 then
+            return GetUnitAbilityLevel(u, abilId) > 0 and BandiSlotReady(pid, slot, abilId)
+        endif
+        if index == 26 then
+            return GetUnitAbilityLevel(u, abilId) > 0 and SiegSlotReady(pid, slot)
         endif
         return GetUnitAbilityLevel(u, abilId) > 0
     endfunction
@@ -272,7 +323,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
     private function ShowTip takes unit u, integer slot returns nothing
         local integer pid = GetPlayerId(GetLocalPlayer())
         local integer index = DataUnitIndex(u)
-        local integer abilId = AbilityId(index, slot)
+        local integer abilId = UnitSlotAbilityId(u, index, slot)
         local integer level = GetUnitAbilityLevel(u, abilId)
         local string desc
         if level < 1 then
@@ -390,7 +441,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         set index = DataUnitIndex(u)
         loop
             exitwhen slot >= SKILL_HUD_COUNT
-            set abilId = AbilityId(index, slot)
+            set abilId = UnitSlotAbilityId(u, index, slot)
             set stateAbilId = abilId
             if slot == 9 then
                 set stateAbilId = DashAbilityId(u)
@@ -488,7 +539,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
             set u = null
             return
         endif
-        set abilId = AbilityId(DataUnitIndex(u), slot)
+        set abilId = UnitSlotAbilityId(u, DataUnitIndex(u), slot)
         if slot == 9 then
             set abilId = DashAbilityId(u)
         endif
@@ -518,7 +569,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
             return
         endif
         if DzGetTriggerKeyPlayer() == GetLocalPlayer() and DzIsKeyDown(JN_OSKEY_ALT) and SkillHUDHover >= 0 and SkillHUDHover < SKILL_HUD_COUNT then
-            call DzSyncData("SkillHUDPing", I2S(SkillHUDHover))
+            call DzSyncData("HPing", I2S(SkillHUDHover))
         endif
     endfunction
 
@@ -664,7 +715,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         call DzLoadToc("UnifiedUI.toc")
         call TriggerRegisterTimerEventSingle(t, 0.00)
         call TriggerAddAction(t, function Create)
-        call DzTriggerRegisterSyncData(syncTrigger, "SkillHUDPing", false)
+        call DzTriggerRegisterSyncData(syncTrigger, "HPing", false)
         call TriggerAddAction(syncTrigger, function SyncPing)
         set t = null
         set syncTrigger = null

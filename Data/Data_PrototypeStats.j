@@ -26,7 +26,21 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         constant integer PROTO_STAT_CHARGE_DAMAGE = 23
         constant integer PROTO_STAT_HEALTHY = 24
         constant integer PROTO_STAT_CAPACITY = 25
-        constant integer PROTO_STAT_LAST = 25
+        constant integer PROTO_STAT_COOLDOWN = 26
+        constant integer PROTO_STAT_DASH_COOLDOWN = 27
+        // 스킬 키별 대미지 증가. PROTO_STAT_SKILL_Q + 키 번호(0 Q ~ 8 C)
+        constant integer PROTO_STAT_SKILL_Q = 28
+        constant integer PROTO_STAT_SKILL_W = 29
+        constant integer PROTO_STAT_SKILL_E = 30
+        constant integer PROTO_STAT_SKILL_R = 31
+        constant integer PROTO_STAT_SKILL_A = 32
+        constant integer PROTO_STAT_SKILL_S = 33
+        constant integer PROTO_STAT_SKILL_D = 34
+        constant integer PROTO_STAT_SKILL_F = 35
+        constant integer PROTO_STAT_SKILL_C = 36
+        constant integer PROTO_STAT_LAST = 36
+        // 플레이어·캐릭터별 스탯 칸 간격이자 진화 효과 저장 위치. 종류가 이 값보다 작아야 한다
+        constant integer PROTO_STAT_STRIDE = 64
         integer array ProtoCardStacks
         integer array ProtoCardRevision
         hashtable ProtoEffectData = InitHashtable()
@@ -39,12 +53,12 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         if not ExpPrototypeActive or not ExpMember[pid] then
             return 0.0
         endif
-        return ProtoStatValues[pid * 32 + kind]
+        return ProtoStatValues[pid * PROTO_STAT_STRIDE + kind]
     endfunction
 
     function ProtoSetEffect takes integer card, integer kind, real value, boolean evolved returns nothing
         if evolved then
-            call SaveReal(ProtoEffectData, card, kind + 32, value)
+            call SaveReal(ProtoEffectData, card, kind + PROTO_STAT_STRIDE, value)
         else
             call SaveReal(ProtoEffectData, card, kind, value)
         endif
@@ -56,7 +70,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         if value < 0.0 then
             set sign = ""
         endif
-        if kind == PROTO_STAT_SWIFT then
+        if kind == PROTO_STAT_SWIFT or kind == PROTO_STAT_COOLDOWN then
             set unitText = ""
         elseif kind == PROTO_STAT_GOLD then
             set unitText = "골드"
@@ -78,7 +92,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
             exitwhen kind > PROTO_STAT_LAST
             set value = LoadReal(ProtoEffectData, card, kind)
             if evolved then
-                set value = value + LoadReal(ProtoEffectData, card, kind + 32)
+                set value = value + LoadReal(ProtoEffectData, card, kind + PROTO_STAT_STRIDE)
             endif
             if value != 0.0 then
                 if result != "" then
@@ -117,7 +131,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         local integer kind = 1
         loop
             exitwhen kind > PROTO_STAT_LAST
-            set ProtoStatValues[pid * 32 + kind] = 0.0
+            set ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] = 0.0
             set kind = kind + 1
         endloop
     endfunction
@@ -126,7 +140,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         local integer kind = 1
         loop
             exitwhen kind > PROTO_STAT_LAST
-            set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + LoadReal(ProtoHeadEffectData, head, kind)
+            set ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] = ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] + LoadReal(ProtoHeadEffectData, head, kind)
             set kind = kind + 1
         endloop
     endfunction
@@ -134,9 +148,9 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
     function ProtoStatRefreshDerived takes integer pid returns nothing
         local integer previousMax = IMaxBJ(PROTO_BASE_AP, ProtoAPMax[pid])
         local integer nextMax
-        set ProtoGoldBonus[pid] = R2I(ProtoStatValues[pid * 32 + PROTO_STAT_GOLD])
-        set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(3, 3 + R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CHOICES])))
-        set nextMax = PROTO_BASE_AP + IMaxBJ(0, R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CAPACITY]))
+        set ProtoGoldBonus[pid] = R2I(ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_GOLD])
+        set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(3, 3 + R2I(ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_CHOICES])))
+        set nextMax = PROTO_BASE_AP + IMaxBJ(0, R2I(ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_CAPACITY]))
         // 화면과 유닛 능력치 갱신으로 행동력을 다시 충전하지 않는다.
         if ExpPrototypeActive and ExpMember[pid] then
             set ProtoAP[pid] = IMinBJ(nextMax, IMaxBJ(0, ProtoAP[pid] + IMaxBJ(0, nextMax - previousMax)))
@@ -152,8 +166,8 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         set ProtoStatNames[PROTO_STAT_NORMAL] = "일반 몬스터에게 가하는 피해"
         set ProtoStatNames[PROTO_STAT_CRIT] = "치명타 확률"
         set ProtoStatNames[PROTO_STAT_CRIT_DAMAGE] = "치명타 피해 보너스"
-        set ProtoStatNames[PROTO_STAT_SWIFT] = "고정 신속"
-        set ProtoStatNames[PROTO_STAT_ACTION] = "행동 속도"
+        set ProtoStatNames[PROTO_STAT_SWIFT] = "고정 신속(임시)"
+        set ProtoStatNames[PROTO_STAT_ACTION] = "공격 속도"
         set ProtoStatNames[PROTO_STAT_MOVE] = "이동 속도"
         set ProtoStatNames[PROTO_STAT_CHARGE_SPEED] = "차지 속도"
         set ProtoStatNames[PROTO_STAT_PENETRATION] = "방어력 관통"
@@ -170,5 +184,16 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         set ProtoStatNames[PROTO_STAT_CHARGE_DAMAGE] = "차지 공격 대미지 증가"
         set ProtoStatNames[PROTO_STAT_HEALTHY] = "체력 65% 이상에서 대미지 증가"
         set ProtoStatNames[PROTO_STAT_CAPACITY] = "행동력 최대치"
+        set ProtoStatNames[PROTO_STAT_COOLDOWN] = "쿨타임 가속"
+        set ProtoStatNames[PROTO_STAT_DASH_COOLDOWN] = "대시 재사용 감소"
+        set ProtoStatNames[PROTO_STAT_SKILL_Q] = "Q 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_W] = "W 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_E] = "E 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_R] = "R 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_A] = "A 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_S] = "S 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_D] = "D 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_F] = "F 스킬 대미지 증가"
+        set ProtoStatNames[PROTO_STAT_SKILL_C] = "C 스킬 대미지 증가"
     endfunction
 endlibrary

@@ -11,6 +11,15 @@ library UISkill initializer init requires MemUI, FrameCount
         // ADEN_DY는 2026-10-14 사용자가 스샷으로 지정한 자리에 맞춘 값
         private constant real ADEN_DX = 0.079
         private constant real ADEN_DY = 0.0368
+        //반디 완전연소(Z) 남은 시간: 아덴 원 바로 아래 금색 가는 선 + 오른쪽 초 숫자
+        //선은 BanAdens[1] 아래 가운데 기준 왼쪽 끝을 고정하고 폭만 BANZ_LINE_W -> 0 으로 줄인다
+        integer BanZLine
+        integer BanZText
+        constant real BANZ_LINE_W = 0.046      //선 최대 폭(아덴 원 0.06보다 조금 좁게)
+        constant real BANZ_LINE_H = 0.0018     //선 두께
+        private constant real BANZ_LINE_GAP = 0.003   //원 아래 끝과 선 사이
+        private constant real BANZ_TEXT_GAP = 0.004   //선 오른쪽 끝(최대 폭 기준)과 숫자 사이
+        private constant real BANZ_TEXT_SIZE = 0.0095
     endglobals
     
     private function Action takes nothing returns nothing
@@ -34,6 +43,21 @@ library UISkill initializer init requires MemUI, FrameCount
         set BanAdens[2] = DzCreateFrameByTagName("SPRITE", "", BanAdens[1], "", 0)
         call DzFrameSetPoint(BanAdens[2], JN_FRAMEPOINT_BOTTOMLEFT, BanAdens[1] , JN_FRAMEPOINT_CENTER, 0, 0)
         call DzFrameShow(BanAdens[2], false)
+
+        //완전연소 남은 시간 선·숫자 (HeroBandiZ.j BandiZDraw 가 로컬에서만 그린다)
+        set BanZLine = DzCreateFrameByTagName("BACKDROP", "", heroStatusUI, "", 0)
+        call DzFrameSetTexture(BanZLine, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(BanZLine, DzGetColor(255, 255, 200, 80))
+        call DzFrameSetPoint(BanZLine, JN_FRAMEPOINT_TOPLEFT, BanAdens[1], JN_FRAMEPOINT_BOTTOM, -BANZ_LINE_W*0.5, -BANZ_LINE_GAP)
+        call DzFrameSetSize(BanZLine, BANZ_LINE_W, BANZ_LINE_H)
+        call DzFrameShow(BanZLine, false)
+        set BanZText = DzCreateFrameByTagName("TEXT", "", heroStatusUI, "", 0)
+        call DzFrameSetEnable(BanZText, false)
+        call DzFrameSetPoint(BanZText, JN_FRAMEPOINT_LEFT, BanAdens[1], JN_FRAMEPOINT_BOTTOM, BANZ_LINE_W*0.5 + BANZ_TEXT_GAP, -BANZ_LINE_GAP - BANZ_LINE_H*0.5)
+        call DzFrameSetFont(BanZText, "Fonts\\DFHeiMd.ttf", BANZ_TEXT_SIZE, 0)
+        call DzFrameSetTextColor(BanZText, JNConvertColor(255, 255, 200, 80))
+        call DzFrameSetText(BanZText, "")
+        call DzFrameShow(BanZText, false)
 
         //비술 점등프레임
         set BanAdens2[0]=DzCreateFrameByTagName("SPRITE", "", heroStatusUI, "", 0)

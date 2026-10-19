@@ -1,5 +1,5 @@
 // 개인 사냥, 행동력 사건, 카드 각성과 준비 완료 후 보스 합류를 진행한다.
-library ExpeditionPrototype initializer Init requires Expedition, DataPrototype, DataMap, StatsSet, PlayerSave, CardRecovery
+library ExpeditionPrototype initializer Init requires Expedition, DataPrototype, DataMap, StatsSet, PlayerSave, CardRecovery, SafePos
     globals
         private timer HuntClock = CreateTimer()
         private real HuntFraction = 0.0
@@ -21,6 +21,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         private integer array DialogueNode
         private integer array DialogueNext
         private boolean array DialogueSettling
+        // 사냥터 이동 경계를 이 파일이 걸어 둔 플레이어
+        private boolean array HuntBounded
     endglobals
 
     private function ProtoResetDialogue takes integer pid returns nothing
@@ -1217,9 +1219,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             return
         endif
         set DeathSeconds[pid] = 0.0
+        // 돌진·순간이동은 SafePos에서 이 경계에 막힌다. 중앙 복귀는 그래도 밖에 나간 경우의 마지막 수단.
         if not RectContainsUnit(bounds, MainUnit[pid]) then
             call SetUnitPosition(MainUnit[pid], GetRectCenterX(bounds), GetRectCenterY(bounds))
         endif
+        call MoveBoundSetRect(pid, MainUnit[pid], bounds)
+        set HuntBounded[pid] = true
         loop
             exitwhen slot > 10
             set key = pid * 16 + slot
@@ -1326,6 +1331,15 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer slot
         local boolean second = false
         local boolean allReady = true
+        loop
+            exitwhen pid == 4
+            if HuntBounded[pid] and (not ExpPrototypeActive or ExpState != EXP_HUNT or not ExpMember[pid]) then
+                call MoveBoundClear(pid)
+                set HuntBounded[pid] = false
+            endif
+            set pid = pid + 1
+        endloop
+        set pid = 0
         if not ExpPrototypeActive then
             return
         endif

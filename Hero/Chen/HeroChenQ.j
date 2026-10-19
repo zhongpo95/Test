@@ -289,6 +289,7 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
         set fx.speed = ((100+SkillSpeed2(fx.pid, 27.0))/100)
+        call Overlay2Count(fx.pid,'A01A')
         call CooldownFIX(fx.caster,'A01A',HeroSkillCD0[4])
 
         set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]

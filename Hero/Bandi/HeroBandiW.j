@@ -9,6 +9,8 @@ globals
     
     private constant real scale = 500
     private constant real distance = 150
+    //X(대시)로 캔슬하면 false. 이동·타격을 멈춘다
+    boolean array IsCastingBandiW
 endglobals
 
 //call BanBisulPlus(GetPlayerId(GetOwningPlayer(GetTriggerUnit())),1)
@@ -19,7 +21,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue1[15]*Velue,false,false,false,false)
+        call HeroDeal('A06L',splash.source,GetEnumUnit(),HeroSkillVelue1[15]*Velue,false,false,false,false)
         call BanBisulPlus(pid,1)
     endif
 endfunction
@@ -31,6 +33,11 @@ private function EffectFunction takes nothing returns nothing
     local integer i
     local real r = GetUnitFacing(fx.caster)
     set fx.i = fx.i + 1
+    if IsCastingBandiW[fx.pid] == false then
+        call fx.stop()
+        call t.destroy()
+        return
+    endif
 
     if fx.i >= 10/fx.speed then
         if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
@@ -46,6 +53,7 @@ private function EffectFunction takes nothing returns nothing
             call splash.range( splash.ENEMY, fx.caster, fx.TargetX2 + PolarX( (fx.r+25)/5 * 5 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 5, r), scale, function splashD )
         endif
         call Sound3D(fx.caster,'A03W')
+        set IsCastingBandiW[fx.pid] = false
         call fx.stop()
         call t.destroy()
     else
@@ -61,7 +69,7 @@ private function Main takes nothing returns nothing
     local real r
     local effect e
     
-    if GetSpellAbilityId() == 'A06L' then
+    if GetSpellAbilityId() == 'A06L' and not BandiCastBlocked(GetTriggerUnit(), 'A06L') then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
@@ -72,6 +80,7 @@ private function Main takes nothing returns nothing
         set fx.TargetX2 = GetUnitX(fx.caster)
         set fx.TargetY2 = GetUnitY(fx.caster)
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+        set IsCastingBandiW[fx.pid] = true
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.index = IndexUnit(MainUnit[fx.pid])
         set fx.i = 0
@@ -102,6 +111,7 @@ private function Main takes nothing returns nothing
         set t.data = fx
         call t.start( 0.02, false, function EffectFunction )
 
+        call BandiStopOrder(fx.caster, "acolyteharvest", Time3/fx.speed)
         call CooldownFIX(fx.caster, 'A06L', HeroSkillCD1[15])
     endif
 endfunction
@@ -127,6 +137,7 @@ private function WSyncData takes nothing returns nothing
             set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
+            call BandiRequest(pid, 'A06L')
             call IssuePointOrder( MainUnit[pid], "acolyteharvest", x, y )
         endif
     endif

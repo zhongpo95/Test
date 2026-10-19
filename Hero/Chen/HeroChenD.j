@@ -80,6 +80,7 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = SkillSpeed(fx.pid)
         set IsCastingChenD[fx.pid] = true
+        call Overlay2Count(fx.pid,'A01D')
 
         call Sound3D(fx.caster,'A01L')
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))

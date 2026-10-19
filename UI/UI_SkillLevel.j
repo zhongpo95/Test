@@ -191,7 +191,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             elseif types == 1 then
                 return SkillFrameDamageLine("피해량", damage * value1) + "|n" + SkillFrameDamageLine("용기 3 소모 시 피해량", damage * value1 * 1.20)
             elseif types == 2 then
-                return SkillFrameDamageLine("일반 반격", damage * value1) + "|n" + SkillFrameDamageLine("저스트 패리 반격", damage * value2)
+                return "|cFFB9E2FA받는 피해|r -" + I2S(R2I(value1 * 100)) + "%"
             elseif types == 3 then
                 return SkillFrameDamageLine("피해량", damage * value1)
             elseif types == 4 then
@@ -232,9 +232,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
 
         if types == 10 then
             if index == 26 then
-                set desc = SkillFrameBaseDescription("일반", 0.0, "키를 연타해 5단 콤보로 벱니다. 타격 직후 노란 구간에서 누르면 저스트 어택이 됩니다.")
+                set desc = SkillFrameBaseDescription("일반", 0.0, "키를 연타해 5단 콤보로 벱니다. 단마다 앞으로 크게 내디디며 벱니다. 타격 직후 노란 구간(0.2초)에서 누르면 저스트 어택이 됩니다.")
                 if detail then
-                    set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("1단 피해량", AttackPower(pid) * 0.20) + "|n" + SkillFrameDamageLine("5단 피해량", AttackPower(pid) * 0.40) + "|n|cFFB9E2FA저스트는 피해 1.5배, 용기 +1. 놓치면 용기가 절반이 됩니다. 2~5단을 모두 저스트로 치면 5단 전 저스트가 나가고 F 파이널 피니시를 쓸 수 있습니다.|r")
+                    set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("1단 피해량", AttackPower(pid) * 0.28) + "|n" + SkillFrameDamageLine("5단 피해량", AttackPower(pid) * 0.56) + "|n|cFFB9E2FA저스트는 피해 1.5배, 용기 +1. 놓치면 용기가 절반이 됩니다. 2~5단을 모두 저스트로 치면 5단 전 저스트가 나가고 F 파이널 피니시를 쓸 수 있습니다. X 회피로 콤보를 끊어도 회피가 끝나고 0.3초 안에 누르면 다음 단부터 이어집니다.|r")
                 endif
                 return desc
             endif
@@ -294,6 +294,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
             set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
             set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA" +  "이동중 CC면역 상태가 됩니다.|n최대 3회까지 충전됩니다." + "|r"
+            if index == 26 then
+                set desc = desc + "|n  |cFFB9E2FA지크프리트는 F 파이널 피니시를 제외한 모든 동작을 끊고 회피합니다.|r"
+            endif
         else
             set desc = SkillFrameSubDescription(pid, index, types, true)
         endif
@@ -671,6 +674,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
             set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
             set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA" +  "이동중 CC면역 상태가 됩니다.|n최대 3회까지 충전됩니다." + "|r"
+            if index == 26 then
+                set desc = desc + "|n  |cFFB9E2FA지크프리트는 F 파이널 피니시를 제외한 모든 동작을 끊고 회피합니다.|r"
+            endif
         else
             set desc = SkillFrameSubDescription(pid, index, types, true)
         endif

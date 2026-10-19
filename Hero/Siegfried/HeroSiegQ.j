@@ -3,12 +3,14 @@
 // 원작 #137(중간 낙하 구간)은 바닥으로 빠지므로 #136 -> #138로 잇는다.
 scope HeroSiegQ
 globals
-    private constant real Rate = 0.13
+    private constant real Rate = 0.182
     private constant real JustBonus = 1.30
     private constant integer JumpSteps = 20
     private constant integer SlashStep = 14
-    private constant real Dash = 420
-    private constant real Range = 230
+    // 돌진 거리 = 시전 지점까지의 거리. 예전 고정 거리 420이 최대(더 먼 곳을 찍으면 420에서 멈춘다)
+    private constant real MaxDash = 420
+    // 판정 반경. 카운터를 넉넉하게 잡도록 예전 230의 1.5배
+    private constant real Range = 345
     private constant real Scale = 600
     private constant real Total = 1.40
     private real CurRate = 0
@@ -23,6 +25,7 @@ private struct FxEffect
     integer resume
     boolean just
     real speed
+    real dist
     unit dummy
 
     method destroy takes nothing returns nothing
@@ -65,7 +68,7 @@ private function EffectFunction takes nothing returns nothing
 
     set fx.step = fx.step + 1
     if fx.step <= JumpSteps then
-        call SetUnitSafePolarUTA(u, Dash / JumpSteps, f)
+        call SetUnitSafePolarUTA(u, fx.dist / JumpSteps, f)
         if fx.dummy != null then
             call SetUnitX(fx.dummy, GetWidgetX(u))
             call SetUnitY(fx.dummy, GetWidgetY(u))
@@ -149,13 +152,20 @@ private function Main takes nothing returns nothing
     local integer pid
     local FxEffect fx
     local tick t
+    local real dx
+    local real dy
 
     if GetSpellAbilityId() == 'A0SQ' then
         set u = GetTriggerUnit()
         set pid = GetPlayerId(GetOwningPlayer(u))
+        call Overlay2Count(pid,'A0SQ')
         call SiegFace(u, GetSpellTargetX(), GetSpellTargetY())
         set fx = FxEffect.create()
         set fx.caster = u
+        // 시전 지점까지 돌진한다(지형·경계는 SafePos가 막는다)
+        set dx = GetSpellTargetX() - GetWidgetX(u)
+        set dy = GetSpellTargetY() - GetWidgetY(u)
+        set fx.dist = RMinBJ(SquareRoot(dx * dx + dy * dy), MaxDash)
         set fx.pid = pid
         set fx.just = SiegQJust[pid]
         set fx.stage = SiegStage[pid]

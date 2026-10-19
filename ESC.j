@@ -7,6 +7,8 @@ scope ESC initializer init
         integer BBBF
         private integer si2 = 0
         string s = "1"
+        //ESC 시험 사운드를 낼 유닛. ESC를 누른 플레이어의 영웅으로 정한다
+        private unit SoundUnit = null
     endglobals
 
     private function ESCAction2 takes nothing returns nothing
@@ -106,7 +108,7 @@ scope ESC initializer init
         //call DzFrameSetText(F_EnchantUpText, s )
         //call VJDebugMsg(s) 
         //레이지소리
-        call Sound3D(MainUnit[0],'A02B')
+        call Sound3D(SoundUnit,'A02B')
     endfunction
 
     private function ESCAction123123 takes nothing returns nothing
@@ -156,9 +158,9 @@ scope ESC initializer init
         
         if BBB+29 == 31 then
             //call Sound3D(MainUnit[0],'A066')
-            call Sound3D(MainUnit[0],'A067')
+            call Sound3D(MainUnit[GetPlayerId(GetTriggerPlayer())],'A067')
         elseif BBB+29 == 85 then
-            call Sound3D(MainUnit[0],'A068')
+            call Sound3D(MainUnit[GetPlayerId(GetTriggerPlayer())],'A068')
         endif
 
 
@@ -406,7 +408,8 @@ scope ESC initializer init
 
             //개인사운드로
             //첸
-            call Sound3D(MainUnit[0],'A02A')
+            set SoundUnit = MainUnit[GetPlayerId(GetTriggerPlayer())]
+            call Sound3D(SoundUnit,'A02A')
             //모미지
             //call Sound3D(MainUnit[0],'A022')
             //미카

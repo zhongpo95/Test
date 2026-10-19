@@ -7,29 +7,48 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
 
     function SkillSpeed takes integer pid returns real
         if ExpPrototypeActive and ExpMember[pid] then
-            return RMinBJ(40.0, RMaxBJ(-80.0, Equip_Swiftness[pid] / 45.0 + Hero_BuffAttackSpeed[pid] + ProtoStat(pid, PROTO_STAT_ACTION)))
+            return RMinBJ(40.0, RMaxBJ(-80.0, Stat_AttackSpeed[pid] + Hero_BuffAttackSpeed[pid] + ProtoStat(pid, PROTO_STAT_ACTION)))
         endif
-        if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
+        if Stat_AttackSpeed[pid] + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00
         endif
-        return (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid]
+        return Stat_AttackSpeed[pid] + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid]
     endfunction
     
     function SkillSpeed2 takes integer pid, real PlusSpeed returns real
         if ExpPrototypeActive and ExpMember[pid] then
             return SkillSpeed(pid) + PlusSpeed
         endif
-        if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid] >= 40 then
+        if Stat_AttackSpeed[pid] + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00 + PlusSpeed
         endif
-        return (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + PlusSpeed + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid]
+        return Stat_AttackSpeed[pid] + Hero_BuffAttackSpeed[pid] + PlusSpeed + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid]
+    endfunction
+
+    // 신속은 임시 스탯이다. 카드 옵션을 새 스탯으로 바꾸기 전까지 공격속도·이동속도·쿨타임 가속으로 환산한다.
+    // 환산 비율은 분리 전과 같다: 공격속도·이동속도 신속 45당 1%, 재사용 감소 신속 46당 1%(최대 75%).
+    function SwiftnessAttackSpeed takes real swift returns real
+        return swift / 45.00
+    endfunction
+
+    function SwiftnessMoveSpeed takes real swift returns real
+        return swift / 45.00
+    endfunction
+
+    function SwiftnessCooldownHaste takes real swift returns real
+        local real reduction = RMinBJ(75.00, RMaxBJ(0.00, swift / 46.00))
+        return 100.00 * reduction / (100.00 - reduction)
     endfunction
 
     function SwiftnessSpeed takes integer pid returns real
-        if (Equip_Swiftness[pid]/45) >= 40 then
-            return 40.00
-        endif
-        return (Equip_Swiftness[pid]/45)
+        return RMinBJ(40.00, SwiftnessAttackSpeed(Equip_Swiftness[pid]))
+    endfunction
+
+    // 신속 환산분과 다른 출처를 더해 세 스탯을 다시 계산한다. PlayerStatsSet 끝에서 부른다.
+    function SpeedStatsSet takes integer pid returns nothing
+        set Stat_AttackSpeed[pid] = SwiftnessAttackSpeed(Equip_Swiftness[pid])
+        set Stat_MoveSpeed[pid] = SwiftnessMoveSpeed(Equip_Swiftness[pid])
+        set Stat_CooldownHaste[pid] = SwiftnessCooldownHaste(Equip_Swiftness[pid])
     endfunction
 
     //전투력
@@ -177,7 +196,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         if ExpPrototypeActive and ExpMember[pid] then
             set Stats_Crit[pid] = RMinBJ(100.0, RMaxBJ(0.0, Hero_CriRate[pid] + ProtoStat(pid, PROTO_STAT_CRIT)))
         endif
-        set speed = R2I(  (Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] + ProtoStat(pid, PROTO_STAT_MOVE) )
+        set speed = R2I(  Stat_MoveSpeed[pid] + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] + ProtoStat(pid, PROTO_STAT_MOVE) )
         if speed > 140 then
             set speed = 140
         endif
@@ -192,7 +211,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             //call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
             //치명
             call DzFrameSetText(F_ItemStatsText[2], I2S(R2I( Equip_Crit[pid] )) )
-            //신속
+            //신속(임시)
             call DzFrameSetText(F_ItemStatsText[3], I2S(R2I( Equip_Swiftness[pid] )) )
             //추가피해
             call DzFrameSetText(F_ItemStatsText[4], I2S(R2I( Equip_WDP[pid] + Arcana_DP[pid] + Equip_ED[pid] )) + "%" )
@@ -204,8 +223,8 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             call DzFrameSetText(F_ItemStatsText[7], I2S(speed) + "%" )
             //공퍼
             call DzFrameSetText(F_ItemStatsText[9], I2S(R2I(  Equip_DamageP[pid] )) + "%" ) 
-            //쿨감
-            call DzFrameSetText(F_ItemStatsText[10], R2SW(  (1.0 - CooldownRate(pid)) * 100.0  ,1,2) + "%" )
+            //쿨타임 가속
+            call DzFrameSetText(F_ItemStatsText[10], I2S(R2I( CooldownHaste(pid) )) )
             //방관
             call DzFrameSetText(F_ItemStatsText[11], I2S(R2I(Equip_Penetration[pid] * 100.0 + ProtoStat(pid, PROTO_STAT_PENETRATION))) + "%" )
             //대미지증가
@@ -469,6 +488,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         if TestSwiftnessOn[pid] then
             set Equip_Swiftness[pid] = TestSwiftness[pid]
         endif
+        call SpeedStatsSet(pid)
 
         //보석 피해증가
         set GemDamageRate = GemDamageRate * (1.0 + Equip_GemDamage[pid] / 100.0)

@@ -680,6 +680,7 @@ private function Main takes nothing returns nothing
 
         //call CooldownFIX(fx.caster,'A07C',HeroSkillCD3[4])
         call CooldownFIX(fx.caster,'A07C', 5)
+        call Overlay2Count(fx.pid,'A07C')
     endif
 endfunction
 

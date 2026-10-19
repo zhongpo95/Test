@@ -5,7 +5,7 @@ globals
     constant integer SIEG_INDEX = 26
     constant integer SIEG_MAX_STACK = 10
     // 저스트 판정 창(초, 1배속 기준)
-    constant real SIEG_JUST_WINDOW = 0.15
+    constant real SIEG_JUST_WINDOW = 0.20
     // 파이널 피니시 입력 창(초)
     constant real SIEG_F_WINDOW = 0.35
     // 판정 창이 끝난 뒤 콤보가 끊기기까지의 여유
@@ -42,6 +42,11 @@ globals
     real array SiegFEnd
 
     boolean array SiegZOn
+    // 용기 해방 시작·끝 시각(아덴의 남은 시간 선)
+    real array SiegZStart
+    real array SiegZEnd
+    // 아덴 C 단계 표시: SiegPip[pid * 6 + 단] = 0 안 침, 1 일반, 2 저스트 (SiegStartStage에서 기록)
+    integer array SiegPip
     real array SiegWinBonus
     real array SiegDmgBonus
     boolean array SiegBusy
@@ -88,7 +93,6 @@ globals
     integer array SiegHitMain
 
     integer SiegGaugeWin = 0
-    integer SiegStackText = 0
 endglobals
 
 function SiegNow takes nothing returns real
@@ -1306,6 +1310,157 @@ private function GaugeSetMode takes integer mode returns nothing
     call DzFrameSetTexture(GaugeTick2, tex, 0)
 endfunction
 
+// ---------------------------------------------------------------------------
+// 아덴(시안 A): 체력바와 스킬창 사이 아덴 자리(UI_Skill.j 0.4+ADEN_DX, 0.08+ADEN_DY)에
+//  - 윗줄 마름모 5개 = C 단계 (회색 안 침, 흰색 일반, 금색 저스트, 보라 = 5단 전 저스트·F 입력 창에서 깜빡임)
+//  - 아랫줄 10칸 = 용기 (빨강, 용기 해방 중에는 금색 + 남은 시간 선) + 숫자
+// 로컬 표시만 한다. 읽는 값은 모두 동기화된 상태다.
+globals
+    private constant real ADEN_X = 0.479
+    private constant real ADEN_Y = 0.1168
+    private constant real DIA_S = 0.012
+    private constant real DIA_GAP = 0.017
+    private constant real CELL_W = 0.0085
+    private constant real CELL_H = 0.0055
+    private constant real CELL_GAP = 0.0100
+    private integer array AdenDia
+    private integer array AdenDiaTex
+    private integer array AdenCell
+    private integer array AdenCellTex
+    private integer AdenLine = 0
+    private integer AdenNum = 0
+    private boolean AdenShown = false
+endglobals
+
+private function AdenShow takes boolean on returns nothing
+    local integer i = 0
+    if on == AdenShown then
+        return
+    endif
+    set AdenShown = on
+    loop
+        exitwhen i >= 10
+        if i < 5 then
+            call DzFrameShow(AdenDia[i], on)
+        endif
+        call DzFrameShow(AdenCell[i], on)
+        set i = i + 1
+    endloop
+    call DzFrameShow(AdenNum, on)
+    if not on then
+        call DzFrameShow(AdenLine, false)
+    endif
+endfunction
+
+private function AdenCreate takes nothing returns nothing
+    local integer i = 0
+    local real x
+    loop
+        exitwhen i >= 5
+        set x = ADEN_X + (i - 2) * DIA_GAP
+        set AdenDia[i] = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
+        call DzFrameSetAbsolutePoint(AdenDia[i], JN_FRAMEPOINT_CENTER, x, ADEN_Y + 0.0075)
+        call DzFrameSetSize(AdenDia[i], DIA_S, DIA_S)
+        call DzFrameSetTexture(AdenDia[i], "war3mapImported\\SiegAden_Dia0.blp", 0)
+        set AdenDiaTex[i] = 0
+        call DzFrameShow(AdenDia[i], false)
+        set i = i + 1
+    endloop
+    set i = 0
+    loop
+        exitwhen i >= 10
+        set x = ADEN_X - 5 * CELL_GAP + i * CELL_GAP
+        set AdenCell[i] = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
+        call DzFrameSetAbsolutePoint(AdenCell[i], JN_FRAMEPOINT_BOTTOMLEFT, x, ADEN_Y - 0.0090)
+        call DzFrameSetSize(AdenCell[i], CELL_W, CELL_H)
+        call DzFrameSetTexture(AdenCell[i], "war3mapImported\\SiegAden_Cell0.blp", 0)
+        set AdenCellTex[i] = 0
+        call DzFrameShow(AdenCell[i], false)
+        set i = i + 1
+    endloop
+    set AdenLine = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
+    call DzFrameSetTexture(AdenLine, "war3mapImported\\SiegAden_Cell2.blp", 0)
+    call DzFrameShow(AdenLine, false)
+    set AdenNum = DzCreateFrameByTagName("TEXT", "", GetGameplayUI(), "", FrameCount())
+    call DzFrameSetAbsolutePoint(AdenNum, JN_FRAMEPOINT_LEFT, ADEN_X + 5 * CELL_GAP + 0.0015, ADEN_Y - 0.0062)
+    call DzFrameSetFont(AdenNum, "Fonts\\DFHeiMd.ttf", 0.010, 0)
+    call DzFrameSetText(AdenNum, "")
+    call DzFrameShow(AdenNum, false)
+endfunction
+
+private function AdenUpdate takes integer pid, real now returns nothing
+    local integer n = 0
+    local integer k = 1
+    local integer st
+    local integer alpha
+    local integer stack = SiegStack[pid]
+    local boolean z = SiegZOn[pid]
+    local real frac
+    local real x0 = ADEN_X - 5 * CELL_GAP
+
+    if AdenDia[0] == 0 then
+        return
+    endif
+    call AdenShow(true)
+    // 보이는 단 수: 콤보가 살아 있으면 지금 단까지, 회피 뒤 이어 갈 수 있는 동안은 끊기 전 단까지
+    if SiegStage[pid] > 0 and now <= SiegComboEnd[pid] then
+        set n = SiegStage[pid]
+    elseif SiegDodgeStage[pid] > 0 and now <= SiegDodgeUntil[pid] then
+        set n = SiegDodgeStage[pid]
+    endif
+    loop
+        exitwhen k > 5
+        set st = 0
+        set alpha = 255
+        if k <= n then
+            set st = SiegPip[pid * 6 + k]
+        endif
+        if k == 5 and SiegStage[pid] == 5 and SiegStageAnim[pid] == 119 and now <= SiegFEnd[pid] + 0.10 then
+            set st = 3
+            if now >= SiegFHit[pid] and now <= SiegFEnd[pid] and not SiegFLock[pid] and ModuloReal(now, 0.24) < 0.12 then
+                set alpha = 110
+            endif
+        endif
+        if st != AdenDiaTex[k - 1] then
+            set AdenDiaTex[k - 1] = st
+            call DzFrameSetTexture(AdenDia[k - 1], "war3mapImported\\SiegAden_Dia" + I2S(st) + ".blp", 0)
+        endif
+        call DzFrameSetAlpha(AdenDia[k - 1], alpha)
+        set k = k + 1
+    endloop
+    set k = 0
+    loop
+        exitwhen k >= 10
+        set st = 0
+        if k < stack then
+            set st = 1
+            if z then
+                set st = 2
+            endif
+        endif
+        if st != AdenCellTex[k] then
+            set AdenCellTex[k] = st
+            call DzFrameSetTexture(AdenCell[k], "war3mapImported\\SiegAden_Cell" + I2S(st) + ".blp", 0)
+        endif
+        set k = k + 1
+    endloop
+    if z then
+        call DzFrameSetText(AdenNum, "|cffffdc78" + I2S(stack) + "|r")
+    else
+        call DzFrameSetText(AdenNum, I2S(stack))
+    endif
+    if z and SiegZEnd[pid] > now and SiegZEnd[pid] > SiegZStart[pid] then
+        set frac = (SiegZEnd[pid] - now) / (SiegZEnd[pid] - SiegZStart[pid])
+        call DzFrameShow(AdenLine, false)
+        call DzFrameClearAllPoints(AdenLine)
+        call DzFrameSetAbsolutePoint(AdenLine, JN_FRAMEPOINT_TOPLEFT, x0, ADEN_Y - 0.0105)
+        call DzFrameSetAbsolutePoint(AdenLine, JN_FRAMEPOINT_BOTTOMRIGHT, x0 + RMaxBJ(0.001, 10 * CELL_GAP * frac), ADEN_Y - 0.0118)
+        call DzFrameShow(AdenLine, true)
+    else
+        call DzFrameShow(AdenLine, false)
+    endif
+endfunction
+
 private function GaugeUpdate takes nothing returns nothing
     local integer pid = GetPlayerId(GetLocalPlayer())
     local real now = SiegNow()
@@ -1321,12 +1476,11 @@ private function GaugeUpdate takes nothing returns nothing
     endif
     if not SiegIsHero(MainUnit[pid]) then
         call GaugeHide()
-        call DzFrameShow(SiegStackText, false)
+        call AdenShow(false)
         return
     endif
 
-    call DzFrameShow(SiegStackText, true)
-    call DzFrameSetText(SiegStackText, "용기 " + I2S(SiegStack[pid]) + " / " + I2S(SIEG_MAX_STACK))
+    call AdenUpdate(pid, now)
 
     if SiegStage[pid] == 5 and SiegStageAnim[pid] == 119 and now <= SiegFEnd[pid] + 0.10 then
         // 5단 전 저스트가 시작되면 F 사용 가능 구간. 창 밖에서 누르면 실패로 잠긴다.
@@ -1390,11 +1544,7 @@ private function GaugeCreate takes nothing returns nothing
     call DzFrameSetText(GaugeLabel, "")
     call DzFrameShow(GaugeLabel, false)
 
-    set SiegStackText = DzCreateFrameByTagName("TEXT", "", GetGameplayUI(), "", FrameCount())
-    call DzFrameSetAbsolutePoint(SiegStackText, JN_FRAMEPOINT_LEFT, .483, .1750)
-    call DzFrameSetFont(SiegStackText, "Fonts\\DFHeiMd.ttf", 0.009, 0)
-    call DzFrameSetText(SiegStackText, "")
-    call DzFrameShow(SiegStackText, false)
+    call AdenCreate()
     call TimerStart(CreateTimer(), 0.02, true, function GaugeUpdate)
 endfunction
 

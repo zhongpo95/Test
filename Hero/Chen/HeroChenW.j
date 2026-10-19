@@ -80,6 +80,7 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set speed = SkillSpeed(pid)
+        call Overlay2Count(pid,'A017')
         set IsCastingChenW[pid] = true
 
         call Sound3D(fx.caster,'A01J')

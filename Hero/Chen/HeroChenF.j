@@ -307,6 +307,7 @@ private function Main takes nothing returns nothing
         set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
 
         call CooldownFIX(fx.caster,'A01B',HeroSkillCD7[4])
+        call Overlay2Count(fx.pid,'A01B')
         call AnimationStart3(fx.caster,15, fx.speed)
 
         set t.data = fx

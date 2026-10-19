@@ -4,8 +4,12 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         constant real BackBounsDamage = 1.20
         // 다음 HeroDeal 호출들의 무력화 추가량 (지크프리트 W 강화 등). 호출한 쪽에서 바로 0으로 되돌린다.
         real HeroDealBonusSD = 0.0
+        // 카운터 인정 각도: 모든 보스 공통. 공격자가 보스 정면 ±이 각도 안에 있어야 카운터가 된다(90 = 정면 절반, 헤드 판정과 같음)
+        constant real COUNTER_ARC_ALL = 90.0
         // 지금 넣는 피해가 저스트 공격(지크프리트 C 저스트)인지. 호출한 쪽에서 바로 false 로 되돌린다
         boolean HeroDealJust = false
+        // 방어력 감소(DeBuffMArm, 지크프리트 R) 비율
+        constant real ARMOR_SHRED = 0.12
 
         private unit array TestUnit
         // 정면 방패 꽃잎: 스킬 한 번 = 꽃잎 한 장. 같은 플레이어의 같은 스킬 코드가 이어서 막히는 동안(간격 GUARD_SAME 초 이내)은 한 번만 센다.
@@ -68,7 +72,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         return RAbsBJ(d) <= 90.0
     endfunction
 
-    // 공격자가 대상 정면 ±arc 안에 있는지 (보스별 카운터 각도)
+    // 공격자가 대상 정면 ±arc 안에 있는지 (카운터 각도)
     private function CounterFront takes unit source, unit target, real arc returns boolean
         local real d = ModuloReal(AngleWBW(source, target) - GetUnitFacing(target) - 180.0 + 540.0, 360.0) - 180.0
         return RAbsBJ(d) <= arc
@@ -129,6 +133,51 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
 
     endfunction
     
+    // 스킬 코드로 누른 키를 찾는다. 0 Q,1 W,2 E,3 R,4 A,5 S,6 D,7 F,8 C. 코드 2는 C(평타)다. 모르면 -1
+    function HeroSkillKey takes integer pid, integer skillCode returns integer
+        local integer hero = DataUnitIndex(MainUnit[pid])
+        if skillCode == 2 then
+            return 8
+        elseif skillCode < 1000 then
+            return -1
+        elseif skillCode == HeroSkillID0[hero] then
+            return 0
+        elseif skillCode == HeroSkillID1[hero] then
+            return 1
+        elseif skillCode == HeroSkillID2[hero] then
+            return 2
+        elseif skillCode == HeroSkillID3[hero] then
+            return 3
+        elseif skillCode == HeroSkillID4[hero] then
+            return 4
+        elseif skillCode == HeroSkillID5[hero] then
+            return 5
+        elseif skillCode == HeroSkillID6[hero] then
+            return 6
+        elseif skillCode == HeroSkillID7[hero] then
+            return 7
+        endif
+        return -1
+    endfunction
+
+    // 그 스킬 키의 대미지 증가(%)
+    function SkillKeyDamageBonus takes integer pid, integer skillCode returns real
+        local integer key
+        local real bonus = 0.0
+        if pid < 0 or pid > 3 then
+            return 0.0
+        endif
+        set key = HeroSkillKey(pid, skillCode)
+        if key >= 0 then
+            set bonus = Stat_SkillDamage[pid * 9 + key] + ProtoStat(pid, PROTO_STAT_SKILL_Q + key)
+        endif
+        // C로 작동하는 스킬(나르메아 R, 지크프리트 F)은 자기 키 강화에 C 강화를 더한다
+        if skillCode == 'A02L' or skillCode == 'A0SF' then
+            set bonus = bonus + Stat_SkillDamage[pid * 9 + 8] + ProtoStat(pid, PROTO_STAT_SKILL_C)
+        endif
+        return bonus
+    endfunction
+
     //때린유닛,맞은유닛,계수,헤드판정,백판정,카운터,차지
     function HeroDeal takes integer SkillCode, unit source, unit target, real rate, boolean head, boolean back, boolean counter, boolean charge returns boolean
         local integer pid = GetPlayerId(GetOwningPlayer(source))
@@ -192,7 +241,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
 
         //방깍
         if DeBuffMArm.Exists( target ) then
-            set ArmVelue = UnitArm[UnitIndex] * 0.88
+            set ArmVelue = UnitArm[UnitIndex] * ( 1.0 - ARMOR_SHRED )
         endif
         //관통
         if ExpMember[pid] then
@@ -389,7 +438,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         //카운터 체크
         if counter == true then
             if GetUnitAbilityLevel(target, 'A00V') == 1 then
-                if (UnitCounterArc[UnitIndex] <= 0 and HeadTrue(AngleWBW(source,target), GetUnitFacing(target))) or (UnitCounterArc[UnitIndex] > 0 and CounterFront(source, target, UnitCounterArc[UnitIndex])) then
+                if CounterFront(source, target, COUNTER_ARC_ALL) then
                     set LastCounterSource = source
                     set LastCounterSkill = SkillCode
                     call UnitRemoveAbility(target,'A00V')
@@ -420,13 +469,15 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set WDP = WDP + (ExpCardDamage(pid, source, target) + ExpArcanaDamage(pid, source, target, head, back, charge)) / 100.0
             set ArcanaRate = 1.0
         endif
+        set DMGRate = DMGRate * RMaxBJ(0.0, 1.0 + SkillKeyDamageBonus(pid, SkillCode) / 100.0)
         set dmg = ad * rate * DMGRate * DP * WDP * LastDamage * ArcanaRate
         // 보스 기믹이 정한 받는 피해 가감 (레밀리아 붉은 안개 등)
         if UnitTakenBonus[UnitIndex] != 0 then
             set dmg = dmg * RMaxBJ(0.0, 1.0 + UnitTakenBonus[UnitIndex])
         endif
 
-        //미터기
+        //미터기 (마을 허수아비는 첫 타에 측정 시작)
+        call OverlaySandbagHit(pid, target)
         loop
             exitwhen i > 3
             if pid == OverlayPlayerID[i] then

@@ -1,5 +1,5 @@
 // 통합 시험 원정의 일반 적 두 무리와 대표 보스 전투를 진행한다.
-library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffect2, UIHP, UIBossHP
+library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffect2, UIHP, UIBossHP, SafePos
     globals
         private timer CombatTimer = CreateTimer()
         private unit array Enemies
@@ -83,6 +83,14 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         if ArenaBounds != null then
             call RemoveRect(ArenaBounds)
             set ArenaBounds = null
+            set index = 0
+            loop
+                exitwhen index == 4
+                if MoveBoundUnit[index] == MainUnit[index] then
+                    call MoveBoundClear(index)
+                endif
+                set index = index + 1
+            endloop
         endif
         loop
             exitwhen i > 16
@@ -484,6 +492,8 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
                     if not RectContainsUnit(ArenaBounds, MainUnit[i]) then
                         call SetUnitPosition(MainUnit[i], RMaxBJ(CenterX - 1240, RMinBJ(CenterX + 1240, GetUnitX(MainUnit[i]))), RMaxBJ(CenterY - 1240, RMinBJ(CenterY + 1240, GetUnitY(MainUnit[i]))))
                     endif
+                    // 돌진·순간이동이 전투 구역 경계에서 멈추도록(SafePos)
+                    call MoveBoundSetRect(i, MainUnit[i], ArenaBounds)
                     if ProtectUntil[i] > 0 and CombatTime >= ProtectUntil[i] then
                         call SetUnitInvulnerable(MainUnit[i], false)
                         set ProtectUntil[i] = 0

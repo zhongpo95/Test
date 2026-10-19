@@ -41,6 +41,15 @@ library Native initializer init requires DataPrototypeStats
         //보석 쿨감, 보석 댐증
         real array Equip_GemCooldown
         real array Equip_GemDamage
+
+        // 신속을 나눈 독립 스탯. 공격속도·이동속도는 %, 쿨타임 가속은 가속 수치(100이면 재사용 시간 절반)
+        real array Stat_AttackSpeed
+        real array Stat_MoveSpeed
+        real array Stat_CooldownHaste
+        // 대시 충전 시간 감소(%). 쿨타임 가속과 따로 대시에만 적용한다
+        real array Stat_DashCooldown
+        // 스킬 키별 대미지 증가(%). 칸은 pid * 9 + 키 (0 Q,1 W,2 E,3 R,4 A,5 S,6 D,7 F,8 C)
+        real array Stat_SkillDamage
         
         //각인 각인방어등급, 각인추뎀, 각인공속, 치확, 치피, 체력, 이속, 공속
         //real array Arcana_Defense
@@ -126,6 +135,10 @@ private function init takes nothing returns nothing
         set Equip_CardDamage1[pid] = 0
         set Equip_CardDamage2[pid] = 0
         set Equip_GemCooldown[pid] = 0
+        set Stat_AttackSpeed[pid] = 0
+        set Stat_MoveSpeed[pid] = 0
+        set Stat_CooldownHaste[pid] = 0
+        set Stat_DashCooldown[pid] = 0
         set Equip_GemDamage[pid] = 0
 
         //set Arcana_Defense[pid] = 0
