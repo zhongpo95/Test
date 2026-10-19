@@ -105,16 +105,16 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
         loop
             exitwhen kind > PROTO_STAT_LAST
             if evolved then
-                set value = LoadReal(ProtoEffectData, card, kind + 32) * ProtoRewardCopies[ExpKey(pid, card)]
+                set value = LoadReal(ProtoEffectData, card, kind + PROTO_STAT_STRIDE) * ProtoRewardCopies[ExpKey(pid, card)]
             else
                 set value = LoadReal(ProtoEffectData, card, kind)
                 if ProtoEvolved[ExpKey(pid, card)] then
-                    set value = value + LoadReal(ProtoEffectData, card, kind + 32)
+                    set value = value + LoadReal(ProtoEffectData, card, kind + PROTO_STAT_STRIDE)
                 endif
             endif
             if value != 0.0 then
-                set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + value
-                call SaveReal(ProtoCharacterEffects, pid, character * 32 + kind, LoadReal(ProtoCharacterEffects, pid, character * 32 + kind) + value)
+                set ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] = ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] + value
+                call SaveReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind, LoadReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind) + value)
             endif
             set kind = kind + 1
         endloop
@@ -181,8 +181,8 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
             exitwhen kind > PROTO_STAT_LAST
             set value = LoadReal(ProtoStoryChangeEffects, rule, kind)
             if value != 0.0 then
-                set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + value
-                call SaveReal(ProtoCharacterEffects, pid, character * 32 + kind, LoadReal(ProtoCharacterEffects, pid, character * 32 + kind) + value)
+                set ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] = ProtoStatValues[pid * PROTO_STAT_STRIDE + kind] + value
+                call SaveReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind, LoadReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind) + value)
             endif
             set kind = kind + 1
         endloop
@@ -241,7 +241,7 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
         local string result = ""
         loop
             exitwhen kind > PROTO_STAT_LAST
-            set value = LoadReal(ProtoCharacterEffects, pid, character * 32 + kind)
+            set value = LoadReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind)
             if value != 0.0 then
                 if result != "" then
                     set result = result + "|n"
@@ -259,7 +259,7 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
         local integer count = 0
         loop
             exitwhen kind > PROTO_STAT_LAST
-            if LoadReal(ProtoCharacterEffects, pid, character * 32 + kind) != 0.0 then
+            if LoadReal(ProtoCharacterEffects, pid, character * PROTO_STAT_STRIDE + kind) != 0.0 then
                 set count = count + 1
             endif
             set kind = kind + 1

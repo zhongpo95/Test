@@ -1,9 +1,29 @@
 library Cooldown requires TriggerSleepActionByTimer
-    function CooldownReduction takes integer pid returns real
-        if Equip_Swiftness[pid] / 46.00 > 75.00 then
-            return 75.00
+    // 쿨타임 가속. 원정 카드 가속은 카드 획득 즉시 반영되도록 매번 더한다. 300(재사용 75% 감소)에서 멈춘다.
+    function CooldownHaste takes integer pid returns real
+        local real haste = Stat_CooldownHaste[pid]
+        if ExpPrototypeActive and ExpMember[pid] then
+            set haste = haste + ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_COOLDOWN]
         endif
-        return Equip_Swiftness[pid] / 46.00
+        return RMinBJ(300.00, RMaxBJ(0.00, haste))
+    endfunction
+
+    // 쿨타임 가속이 줄여 주는 재사용 시간 비율(%)
+    function CooldownReduction takes integer pid returns real
+        return 100.00 - 10000.00 / (100.00 + CooldownHaste(pid))
+    endfunction
+
+    // 대시 충전 시간 감소(%). 원정 카드 수치는 카드 획득 즉시 반영되도록 매번 더한다. 50%에서 멈춘다.
+    function DashCooldownReduction takes integer pid returns real
+        local real reduction = Stat_DashCooldown[pid]
+        if ExpPrototypeActive and ExpMember[pid] then
+            set reduction = reduction + ProtoStatValues[pid * PROTO_STAT_STRIDE + PROTO_STAT_DASH_COOLDOWN]
+        endif
+        return RMinBJ(50.00, RMaxBJ(0.00, reduction))
+    endfunction
+
+    function DashCoolTime takes unit caster, real baseTime returns real
+        return baseTime * (100.00 - DashCooldownReduction(GetPlayerId(GetOwningPlayer(caster)))) / 100.00
     endfunction
 
     function GemCooldownReduction takes integer pid returns real

@@ -36,7 +36,7 @@ private function OnDashTimerExpired takes nothing returns nothing
         call EXSetAbilityState(ab,1,r)
         set ab = null
         set r = 0
-        call expiredTick.start(CoolTime,false,function OnDashTimerExpired)
+        call expiredTick.start(DashCoolTime(expired.caster, CoolTime),false,function OnDashTimerExpired)
     elseif expired.i == 2 then
         set ab = EXGetUnitAbility(expired.caster,'A004')
         set r = EXGetAbilityState(ab,1)
@@ -46,7 +46,7 @@ private function OnDashTimerExpired takes nothing returns nothing
         call EXSetAbilityState(ab,1,r)
         set ab = null
         set r = 0
-        call expiredTick.start(CoolTime,false,function OnDashTimerExpired)
+        call expiredTick.start(DashCoolTime(expired.caster, CoolTime),false,function OnDashTimerExpired)
     elseif expired.i == 3 then
         call UnitRemoveAbility(expired.caster,'A005')
         call UnitAddAbility(expired.caster,'A006')
@@ -156,7 +156,7 @@ private function F_A006 takes nothing returns nothing
         set t2.data = fx2
         set UT[i] = t2
         call t.start(0.02,false,function OnDashCoolExpired)
-        call t2.start(CoolTime,false,function OnDashTimerExpired)
+        call t2.start(DashCoolTime(caster, CoolTime),false,function OnDashTimerExpired)
         //call DummyMagicleash(fx.caster,Time)
         call PauseUnitEx(caster,true)
         call BuffNoNB.Apply( caster, Time, 0 )

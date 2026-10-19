@@ -24,7 +24,7 @@
 
 ## 사용자 확인 대기
 
-1. `D:\Work\GitHub\Test`의 미커밋 스탯·전투 변경 중 필요한 부분을 이번 브랜치에 포함할지, 커밋된 main만 기준으로 할지.
+1. 로컬 스탯·전투 변경 중 필요한 부분을 보존해 전용 브랜치에 반영하도록 사용자 승인됨. 아래 범위로 통합했다.
 2. 두 번째 성장 행동력 100 재설정 시 잔여 이월 없이 휴식 비용을 1로 초기화할지, 휴식 누적을 유지할지.
 
 필요한 로컬 변경을 포함하더라도 다른 영웅·보스·저장 실험 등의 수정 전체를 무단 복사하지 않는다. 원본 작업 폴더는 수정하지 않는다.
@@ -35,4 +35,18 @@
 - `node tools/check-growth-rest.cjs` 통과. 실제 JASS 함수의 모의 실행이며 Warcraft 실행 검증이 아니다.
 - 기존 `node tools/check-expedition-ui.cjs`는 `UIMap_Toggle is not a function`으로 중단.
 - 기존 UI 테스트의 `fresh(0,true)` 실행도 `JN_FRAMEPOINT_CENTER is not defined`로 중단. 전체 UI 회귀 통과로 간주하지 않음.
-- 컴파일, 실제 게임, 화면, 멀티플레이 검증은 미수행. 맵·ASI 생성 및 설치 없음.
+- JassHelper 및 PJass 컴파일 통과. 맵 생성 없이 스크립트만 검증했다. PJass 출력에는 기존 설정의 `24 errors ignored`도 포함되어 있어 경고 없는 검사로 표현하지 않는다.
+- 실제 게임, 화면, 멀티플레이 검증은 미수행. 맵·ASI 생성 및 설치 없음.
+
+## 로컬 스탯 통합 결과
+
+- 전체 통합 파일. Data/Data_PrototypeGrowth.j, Data/Native.j, System/Cooldown.j, System/StatsSetting.j, UI/UI_PrototypeStatus.j.
+- Data/Data_PrototypeStats.j는 신규 36종과 저장 간격 64를 통합하고, 이번 브랜치의 행동력 고정 규칙을 유지했다. 표시 이름은 스킬가속으로 맞췄다.
+- System/DamageEffect.j는 HeroSkillKey, SkillKeyDamageBonus와 피해 배율 연결만 반영했다. 카운터 각도·방어 감소·허수아비 수정은 제외했다.
+- Hero/SkillDash.j는 대시 충전 타이머 세 곳만 반영했다. 반디 취소 동작 변경은 제외했다.
+- 다른 영웅 계수, 보스, 저장, 전투 경계 관련 로컬 변경은 이번 통합에 포함하지 않았다. 원본 로컬 저장소에는 쓰지 않았다.
+- 생성기와 원고 검증기에 스탯 번호 26~36을 연결했다. 키 순서는 skill_haste, dash_cooldown_reduction, q_skill_damage, w_skill_damage, e_skill_damage, r_skill_damage, a_skill_damage, s_skill_damage, d_skill_damage, f_skill_damage, c_skill_damage다.
+- 기존 28작품·1653카드·892사건은 원고와 생성 JASS 일치 검사 통과. 아직 신규 보상을 배정한 것은 아니다.
+- tools/check-growth-stats.cjs 통과. 스탯 저장 분리, 스킬가속100→재사용시간50%, 가속상한300, 대시감소상한50%, 키별 효과, 원정 밖 차단을 모의 검증했다. 실제 모든 영웅 스킬의 키 매핑은 추가 검증이 필요하다.
+- 신규 11종을 임시 메모리 원고에 각각 넣어 JASS 번호 26~36으로 생성되는지 확인했다.
+- 컴파일 보고서. C:\Users\ctqho\AppData\Local\Temp\arcana-growth-stats-compile-20261019\report.json. 생성 스크립트 SHA256은 2ae00814bf14fe8dc074eb1400421befbdf9395cd49e38918e7527f20bc85f8e다.

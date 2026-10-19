@@ -87,6 +87,51 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         set ttag = null
     endfunction
 
+    // 스킬 코드로 누른 키를 찾는다. 0 Q,1 W,2 E,3 R,4 A,5 S,6 D,7 F,8 C. 코드 2는 C(평타)다. 모르면 -1
+    function HeroSkillKey takes integer pid, integer skillCode returns integer
+        local integer hero = DataUnitIndex(MainUnit[pid])
+        if skillCode == 2 then
+            return 8
+        elseif skillCode < 1000 then
+            return -1
+        elseif skillCode == HeroSkillID0[hero] then
+            return 0
+        elseif skillCode == HeroSkillID1[hero] then
+            return 1
+        elseif skillCode == HeroSkillID2[hero] then
+            return 2
+        elseif skillCode == HeroSkillID3[hero] then
+            return 3
+        elseif skillCode == HeroSkillID4[hero] then
+            return 4
+        elseif skillCode == HeroSkillID5[hero] then
+            return 5
+        elseif skillCode == HeroSkillID6[hero] then
+            return 6
+        elseif skillCode == HeroSkillID7[hero] then
+            return 7
+        endif
+        return -1
+    endfunction
+
+    // 그 스킬 키의 대미지 증가(%)
+    function SkillKeyDamageBonus takes integer pid, integer skillCode returns real
+        local integer key
+        local real bonus = 0.0
+        if pid < 0 or pid > 3 then
+            return 0.0
+        endif
+        set key = HeroSkillKey(pid, skillCode)
+        if key >= 0 then
+            set bonus = Stat_SkillDamage[pid * 9 + key] + ProtoStat(pid, PROTO_STAT_SKILL_Q + key)
+        endif
+        // C로 작동하는 스킬(나르메아 R, 지크프리트 F)은 자기 키 강화에 C 강화를 더한다
+        if skillCode == 'A02L' or skillCode == 'A0SF' then
+            set bonus = bonus + Stat_SkillDamage[pid * 9 + 8] + ProtoStat(pid, PROTO_STAT_SKILL_C)
+        endif
+        return bonus
+    endfunction
+
     //때린유닛,맞은유닛
     function TestDeal takes unit target returns nothing
         local tick t = tick.create(0)
@@ -420,6 +465,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set WDP = WDP + (ExpCardDamage(pid, source, target) + ExpArcanaDamage(pid, source, target, head, back, charge)) / 100.0
             set ArcanaRate = 1.0
         endif
+        set DMGRate = DMGRate * RMaxBJ(0.0, 1.0 + SkillKeyDamageBonus(pid, SkillCode) / 100.0)
         set dmg = ad * rate * DMGRate * DP * WDP * LastDamage * ArcanaRate
         // 보스 기믹이 정한 받는 피해 가감 (레밀리아 붉은 안개 등)
         if UnitTakenBonus[UnitIndex] != 0 then

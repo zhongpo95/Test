@@ -1,7 +1,7 @@
 // 사건·카드 초안의 참조, 단위, 무효 선택과 후속 연결을 실행 데이터 반영 전에 검사한다.
 'use strict';
 const fs = require('node:fs');
-const stats = new Set(['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity']);
+const stats = new Set(['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity','skill_haste','dash_cooldown_reduction','q_skill_damage','w_skill_damage','e_skill_damage','r_skill_damage','a_skill_damage','s_skill_damage','d_skill_damage','f_skill_damage','c_skill_damage']);
 // 같은 수치 예산에서 치명 확률 1%p와 치명 피해 2%p를 대응시킨다.
 const critDamagePerChance = 2;
 const mainCritChance = [0,3,4,5,6];
