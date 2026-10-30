@@ -1,0 +1,9 @@
+{
+  "template": "D:\\Work\\JN\\logs\\inputwar3map.j",
+  "template_sha256": "ed15376a9edb9c06e3b4020183e0449fe10bf703af6352245c40fb27a1272806",
+  "compiler_exit": 0,
+  "map_created": false,
+  "pjass_exit": 0,
+  "script_sha256": "b276aa6bedec2ab2ac7239222421a879c3cafe86ae4720fa5b5fd88f5aa2b77e",
+  "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   166548 lines: war3map.j\r\nParse successful:   178457 lines: <total>\r\n24 errors ignored\r\n"
+}

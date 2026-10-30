@@ -87,6 +87,7 @@ function inspect(input) {
   for (const [key,event] of events) {
     if (event.icon !== undefined && (typeof event.icon !== 'string' || !/^war3mapImported\\[A-Za-z0-9_-]+\.(?:tga|blp)$/i.test(event.icon))) fail(key,'사건 아이콘은 war3mapImported 하위 tga 또는 blp 경로여야 함');
     if (!event.title || !event.story || !event.intro || event.effects) fail(key,'사건 필수 필드 누락 또는 카드 객체가 events에 들어감');
+    if (event.choicePath !== undefined && (typeof event.choicePath !== 'boolean' || (event.choicePath && (event.mainStage || !event.previous || event.previousChoice < 1)))) fail(key,'선택 개방 서브는 성공한 이전 선택에 연결해야 함');
     if (event.epilogue!==undefined && typeof event.epilogue!=='boolean') fail(key,'후일담 표시는 참 또는 거짓이어야 함');
     if (event.actionCost!==undefined && !(balanced?[0,1,3,4,6,7,8]:[0,1]).includes(event.actionCost)) fail(key,'사건 행동력 비용은 0 또는 1이어야 함');
     if (!Array.isArray(event.choices) || event.choices.length<2 || event.choices.length>4) {fail(key,'선택지는 2~4개여야 함');continue;}

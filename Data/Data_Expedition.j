@@ -68,6 +68,12 @@ library DataExpedition
         boolean array ProtoHeadKnown
         integer array ProtoCodexSlot
         integer array ProtoStage
+        // 서브 기회는 이번 원정의 선택 이력과 별도로 유지한다. 0 잠김, 1 개방, 2 포기, 3 선택.
+        integer array ProtoSideState
+        integer array ProtoOfferCount
+        integer array ProtoHeadPage
+        integer array ProtoHeadPages
+        boolean array ProtoHeadBrowse
         integer array ProtoCandidates
         integer array ProtoSelected
         boolean array ProtoEventUsed

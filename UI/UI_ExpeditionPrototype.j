@@ -76,6 +76,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer array BranchStrip
         private integer HoverBranch = 0
         private integer RewardSkillButton
+        private integer HeadModeButton
         private integer RerollButton
         private integer ResumeButton
         private integer HuntHUD
@@ -129,7 +130,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             return
         endif
         loop
-            exitwhen i > ProtoChoices[pid] or i > 4
+            exitwhen i > ProtoOfferCount[pid] or i > 4
             if DzGetTriggerUIEventFrame() == ExpUIButtons[CandidateButtons[i]] then
                 set HoverCandidate = i
                 set HoverCandidateEvent = ProtoCandidates[ExpKey(pid, i)]
@@ -332,7 +333,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if HoverCandidate <= 0 then
             return
         endif
-        if ExpUIPanel != 9 or ProtoStage[pid] != 1 or F_UpgradeOnOff[pid] or not ExpPrototypeActive or not ExpMember[pid] or HoverCandidate > ProtoChoices[pid] or HoverCandidateOffer != ExpOfferVersion[pid] or HoverCandidateRun != ExpRun or HoverCandidateEvent != ProtoCandidates[ExpKey(pid, HoverCandidate)] then
+        if ExpUIPanel != 9 or ProtoStage[pid] != 1 or F_UpgradeOnOff[pid] or not ExpPrototypeActive or not ExpMember[pid] or HoverCandidate > ProtoOfferCount[pid] or HoverCandidateOffer != ExpOfferVersion[pid] or HoverCandidateRun != ExpRun or HoverCandidateEvent != ProtoCandidates[ExpKey(pid, HoverCandidate)] then
             call ClearCandidateHover()
             return
         endif
@@ -346,7 +347,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             return
         endif
         // 선택 중인 후보를 덮지 않고 옆에 띄워 마우스 진입/이탈이 반복되지 않게 한다.
-        set x = (0.8 - (0.174 * ProtoChoices[pid] + 0.012 * (ProtoChoices[pid] - 1))) * 0.5 + (HoverCandidate - 1) * 0.186
+        set x = (0.8 - (0.174 * ProtoOfferCount[pid] + 0.012 * (ProtoOfferCount[pid] - 1))) * 0.5 + (HoverCandidate - 1) * 0.186
         if x + 0.182 + 0.266 <= 0.788 then
             set x = x + 0.182
         else
@@ -369,7 +370,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         local boolean opening = ProtoEventKind[id] == 0
         local boolean eligible = ProtoEventEligible(pid, id)
         // 후보 수가 바뀌어도 표지와 글자 크기는 유지하고 전체 행만 가운데 정렬한다.
-        local real x = (0.8 - (0.174 * ProtoChoices[pid] + 0.012 * (ProtoChoices[pid] - 1))) * 0.5 + (i - 1) * 0.186
+        local real x = (0.8 - (0.174 * ProtoOfferCount[pid] + 0.012 * (ProtoOfferCount[pid] - 1))) * 0.5 + (i - 1) * 0.186
         local string tag = "공통 사건"
         local string action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 사건 만나기"
         local real introHeight = 0.128
@@ -523,6 +524,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             if ProtoHeadCount[pid] >= ProtoHeadCapacity(pid) then
                 set value = value + "|n메인 이야기 완주 시 이번 원정의 머리 한도 +1."
             endif
+            set value = value + "|n다른 사건을 선택하면 열린 서브는 포기합니다. 목록 조회는 행동력을 쓰지 않습니다."
             call PaperText(EventStory, value, PAPER_META)
         elseif ProtoStage[pid] == 2 then
             call PaperText(EventTitle, "개인 사건 · 행동 선택", PAPER_TITLE)
@@ -538,7 +540,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                 call PaperText(EventStory, "반응을 읽고 다음 장면으로 이어가세요. 보상은 대화를 모두 마친 뒤 한 번 받습니다.", PAPER_META)
             elseif ProtoStage[pid] == 3 and ProtoEventMainStage[id] > 0 and ProtoEventMainStage[id] == ProtoHeadMainLength[ProtoEventHead[id]] and ProtoMainProgress[ExpKey(pid, ProtoEventHead[id])] == ProtoEventMainStage[id] then
                 call PaperText(EventTitle, "이야기 완결 · " + ProtoHeadName[ProtoEventHead[id]], PAPER_TITLE)
-                call PaperText(EventStory, "여정의 마지막 기억을 카드에 남겼습니다. 이 지역의 이야기는 매듭짓고, 후일담을 만날 수 있습니다.", PAPER_META)
+                call PaperText(EventStory, "여정의 마지막 기억을 카드에 남겼습니다. 이 지역의 이야기는 매듭짓고, 다음 머리를 선택할 수 있습니다.", PAPER_META)
             else
                 call PaperText(EventTitle, "개인 사건 · 사건 결과", PAPER_TITLE)
                 call PaperText(EventStory, "이번 선택의 결과를 확인하세요. 확인을 누르면 내 사냥터로 돌아갑니다.", PAPER_META)
@@ -582,8 +584,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         loop
             exitwhen i > 4
             set id = ProtoCandidates[ExpKey(pid, i)]
-            call DzFrameShow(ExpUIButtons[CandidateButtons[i]], ProtoStage[pid] == 1 and i <= ProtoChoices[pid] and id > 0)
-            if ProtoStage[pid] == 1 and i <= ProtoChoices[pid] and id > 0 then
+            call DzFrameShow(ExpUIButtons[CandidateButtons[i]], ProtoStage[pid] == 1 and i <= ProtoOfferCount[pid] and id > 0)
+            if ProtoStage[pid] == 1 and i <= ProtoOfferCount[pid] and id > 0 then
                 call RenderCover(pid, i, id)
             endif
             set i = i + 1
@@ -626,13 +628,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endif
         call DzFrameShow(ExpUIButtons[RewardSkillButton], ProtoCanSelectRewardSkill(pid))
         call ExpUISetButton(RewardSkillButton, "강화할 스킬 · " + SubString("QWERASDFC", ProtoRewardSkill[pid], ProtoRewardSkill[pid] + 1) + " · 변경", true)
-        call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1)
-        call ExpUISetButton(RerollButton, "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), ProtoAP[pid] >= ProtoRestCost(pid))
-        call DzFrameSetAlpha(ExpUIButtons[RerollButton], 255)
-        if ProtoAP[pid] >= ProtoRestCost(pid) then
-            call PaperText(ExpUIButtonLabels[RerollButton], "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), PAPER_GOLD)
+        call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1 and ProtoHeadBrowse[pid])
+        call ExpUISetButton(RerollButton, "다음 작품 · " + I2S(ProtoHeadPage[pid] + 1) + "/" + I2S(ProtoHeadPages[pid]), ProtoHeadPages[pid] > 1)
+        call DzFrameShow(ExpUIButtons[HeadModeButton], ProtoStage[pid] == 1 and ProtoCanChooseHead(pid))
+        if ProtoHeadBrowse[pid] then
+            call ExpUISetButton(HeadModeButton, "열린 사건 보기", true)
         else
-            call PaperText(ExpUIButtonLabels[RerollButton], "휴식 · 행동력 " + I2S(ProtoRestCost(pid)), PAPER_META)
+            call ExpUISetButton(HeadModeButton, "다음 머리 선택", true)
         endif
         call DzFrameShow(ExpUIButtons[ResumeButton], ProtoStage[pid] == 3)
         if ProtoDialoguePending(pid) then
@@ -968,8 +970,10 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set i = i + 1
         endloop
         set RewardSkillButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "강화할 스킬 · Q", 2600)
-        set RerollButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "사건 리롤", 2300)
+        set RerollButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "다음 작품", 2701)
         set ResumeButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "확인 · 사냥 재개", 2400)
+        set HeadModeButton = ExpUIButton(EventRoot, 0.030, 0.552, 0.230, 0.030, "다음 머리 선택", 2700)
+        call ExpUIThemeButton(HeadModeButton, 2)
         call ExpUIThemeButton(RerollButton, 2)
         call ExpUIThemeButton(ResumeButton, 2)
         // 장식 BACKDROP과 입력을 받지 않는 TEXT만 사용하며 후보 클릭 콜백은 그대로 둔다.
