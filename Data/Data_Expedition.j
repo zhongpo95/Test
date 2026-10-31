@@ -18,7 +18,7 @@ library DataExpedition
         boolean ExpPrototypeEnabled = false
         constant integer PROTO_BASE_AP = 100
         // 페나코니 시범 테스트의 출발 머리 고정. 0이면 기존 자유 선택으로 복귀한다.
-        constant integer PROTO_TEST_START_HEAD = 10
+        constant integer PROTO_TEST_START_HEAD = 0
         constant integer PROTO_BASE_HEAD_CAPACITY = 1
         constant integer PROTO_HUNT_SECONDS = 1200
         constant integer PROTO_CHOICE_SECONDS = 90
