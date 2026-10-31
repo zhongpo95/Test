@@ -4,6 +4,6 @@
   "compiler_exit": 0,
   "map_created": false,
   "pjass_exit": 0,
-  "script_sha256": "5623f5d14bcb056dffcb9cc18051b1a3d0df0e0754f94439d993bc782680680d",
+  "script_sha256": "ed57d1d3e0fcc92154e8ffb5d1395cc78e6272a02a29a82bbde36887d026ca88",
   "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   170407 lines: war3map.j\r\nParse successful:   182316 lines: <total>\r\n24 errors ignored\r\n"
 }
