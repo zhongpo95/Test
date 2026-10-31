@@ -22,7 +22,7 @@
       "adaptation": "공식 인물·에피소드 흐름에 기반한 창작 선택 대화. 1기 여행 구간의 끝이며 원작 전체 완결을 의미하지 않는다."
     },
     "entryIcon": "war3mapImported\\UI_Event_XP_frieren_head.tga",
-    "completionText": ""
+    "completionText": "스킬가속 +100"
   },
   "sources": [
     "https://frieren-anime.jp/story/1st/",
@@ -1899,7 +1899,7 @@
       },
       "icon": "war3mapImported\\UI_Event_XP_frieren_scene_northward.tga",
       "growthRole": "main_final",
-      "rewardPreview": "완결 · "
+      "rewardPreview": "완결 · 스킬가속 +100"
     },
     {
       "key": "fr_morning",

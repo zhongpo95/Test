@@ -86,6 +86,13 @@ function fresh(localPlayer = 0, prototype = false) {
 }
 module.exports={fresh};
 if(require.main===module){
+check('출발 머리 28종의 완결 안내가 실제 로비 프레임에 표시됨',()=>{
+  const t=fresh(0,true),e=t.e;e.ExpUIOpen(8);t.render();
+  for(let head=1;head<=e.PROTO_HEAD_COUNT;head++){
+    e.ProtoStartHead[0]=head;t.render();const reward=e.ProtoHeadCompletionText[head];assert(reward,'완결 안내 누락 '+head);
+    assert([...t.frames.values()].some(f=>t.visible(f.id)&&f.text?.includes('완결 · '+reward)),'로비 안내 누락 '+head);
+  }
+});
 check('개편 원정의 출발 머리·행동력 100·선택 스킬 버튼과 동기화',()=>{
   const t=fresh(0,true),e=t.e;t.start();
   assert.equal(e.ProtoAP[0],100);assert.equal(e.ProtoHeadCount[0],1);
