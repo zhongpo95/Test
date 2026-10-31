@@ -1953,7 +1953,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_statue",
@@ -2007,7 +2008,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_himmel.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_routine",
@@ -2015,8 +2017,8 @@
       "intro": "페른이 연습의 차이를 찾지 못해 잠시 멈춘다.",
       "story": "같은 거리, 같은 표적, 같은 자세가 이어진다. 페른은 더 어려운 주문을 배워야 할 때가 아닌지 묻는다. 프리렌은 오늘의 차이는 표적보다 쏘기 직전의 호흡에 있을지도 모른다고 한다.",
       "actionCost": 1,
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "fr_main_02",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -2061,7 +2063,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "choicePath": true
     },
     {
       "key": "fr_fear",
@@ -2115,7 +2118,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_stark.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_wrong_book",
@@ -2169,7 +2173,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_rain",
@@ -2223,7 +2228,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_kanne.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_meal",
@@ -2277,7 +2283,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_denken.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_imitation",
@@ -2331,7 +2338,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_old_question",
@@ -2385,7 +2393,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_himmel.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_discipline",
@@ -2439,7 +2448,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_serie.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_stitch",
@@ -2493,7 +2503,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_quiet_watch",
@@ -2547,7 +2558,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_eisen.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_unfamiliar_name",
@@ -2601,7 +2613,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_frieren.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_letter",
@@ -2655,7 +2668,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_frieren_sein.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_epilogue_road",
@@ -2710,7 +2724,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_frieren_fern.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     },
     {
       "key": "fr_epilogue_again",
@@ -2765,7 +2780,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_frieren_head.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~1000골드\n스킬가속 +5"
+      "rewardPreview": "상품 350~1000골드\n스킬가속 +5",
+      "headChoice": true
     }
   ],
   "storyChanges": [],

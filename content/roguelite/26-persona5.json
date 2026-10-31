@@ -2468,7 +2468,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_notebook",
@@ -2521,7 +2522,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_leblanc",
@@ -2574,7 +2576,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_yusuke_line",
@@ -2627,7 +2630,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_makoto_route",
@@ -2680,7 +2684,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_futaba_display",
@@ -2733,7 +2738,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_haru_gloves",
@@ -2786,7 +2792,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_debate",
@@ -2839,7 +2846,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_sae_notes",
@@ -2892,7 +2900,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_ryuji_pace",
@@ -2945,7 +2954,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_ann_message",
@@ -2998,7 +3008,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_return_seat",
@@ -3051,7 +3062,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_morgana_follow",
@@ -3104,7 +3116,8 @@
       "icon": "war3mapImported\\UI_Event_XP_persona5_morgana.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_futaba_follow",
@@ -3157,7 +3170,8 @@
       "icon": "war3mapImported\\UI_Event_XP_persona5_futaba.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_haru_follow",
@@ -3210,7 +3224,8 @@
       "icon": "war3mapImported\\UI_Event_XP_persona5_haru.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_side_team_signal",
@@ -3263,7 +3278,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "p5_epilogue_counter",
@@ -3315,7 +3331,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "p5_epilogue_road",
@@ -3367,7 +3384,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~875골드\n보스 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n보스 피해 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

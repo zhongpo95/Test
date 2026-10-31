@@ -1,9 +1,9 @@
 {
-  "template": "D:\\Work\\JN\\logs\\inputwar3map.j",
-  "template_sha256": "ed15376a9edb9c06e3b4020183e0449fe10bf703af6352245c40fb27a1272806",
+  "template": "C:\\Users\\ctqho\\AppData\\Local\\Temp\\arcana-choice-all-worlds-20261031-v1\\input.j",
+  "template_sha256": "c35dedcb567ee1171da2e65d5740648ccf5fbc117c4cd1fe1f8940893e6d2e36",
   "compiler_exit": 0,
   "map_created": false,
   "pjass_exit": 0,
-  "script_sha256": "578ce6329ae9dfcba4a6410d56dec9c3927ff48afb00167893c4e9bb2be8a323",
-  "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   166564 lines: war3map.j\r\nParse successful:   178473 lines: <total>\r\n24 errors ignored\r\n"
+  "script_sha256": "a112e4a9ee5a68554734a9d4293e39069386850f83e3e0195dfbefbecde0256b",
+  "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   170407 lines: war3map.j\r\nParse successful:   182316 lines: <total>\r\n24 errors ignored\r\n"
 }

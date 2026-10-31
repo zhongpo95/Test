@@ -35,6 +35,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         string array ProtoEventFailure
         string array ProtoBranchLabel
         string array ProtoBranchResult
+        integer array ProtoEventHeadChoice
         integer array ProtoBranchOpenFirst
         integer array ProtoEventOpenNext
         integer array ProtoEventChoicePath
@@ -902,6 +903,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1668] = 0.00
         call ProtoSetEffect(1668, 30, 120.00, false)
         call ProtoSetEffect(1668, 26, 8.00, false)
+        set ProtoEventHeadChoice[53] = 1
         set ProtoEventKey[53] = "school_circle"
         set ProtoEventName[53] = "학교에 남은 마법진"
         set ProtoEventHead[53] = 1
@@ -924,6 +926,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[53] = 0
         set ProtoEventRequiredCard[53] = 0
         set ProtoEventFailure[53] = ""
+        set ProtoBranchOpenFirst[212] = 54
+        set ProtoEventOpenNext[54] = 0
+        set ProtoBranchOpens[212] = "후속 사건 개방 · 서로 다른 마력의 흔적|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[212] = "|cFF006B8F린|r과 술식의 연결을 끊는다"
         set ProtoBranchResult[212] = "학교 안쪽에 남은 술식의 연결을 |cFF006B8F린|r과 끊었다. 사람을 붙잡아 둘 이유가 사라졌지만, 남은 흔적은 아직 복도 저편으로 이어져 있었다."
         set ProtoBranchCard[212] = 16
@@ -954,6 +959,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[214] = 0
         set ProtoBranchPotions[214] = 0
         set ProtoBranchChance[214] = 100
+        set ProtoEventChoicePath[54] = 1
         set ProtoEventKey[54] = "school_circle_trace"
         set ProtoEventName[54] = "서로 다른 마력의 흔적"
         set ProtoEventHead[54] = 1
@@ -1006,6 +1012,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[218] = 0
         set ProtoBranchPotions[218] = 0
         set ProtoBranchChance[218] = 100
+        set ProtoEventHeadChoice[55] = 1
         set ProtoEventKey[55] = "saber_practice"
         set ProtoEventName[55] = "같은 검, 다른 빈틈"
         set ProtoEventHead[55] = 1
@@ -1058,6 +1065,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[222] = 0
         set ProtoBranchPotions[222] = 0
         set ProtoBranchChance[222] = 100
+        set ProtoEventHeadChoice[56] = 1
         set ProtoEventKey[56] = "temple_gate"
         set ProtoEventName[56] = "산문을 지키는 검술가"
         set ProtoEventHead[56] = 1
@@ -1110,6 +1118,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[226] = 0
         set ProtoBranchPotions[226] = 0
         set ProtoBranchChance[226] = 100
+        set ProtoEventHeadChoice[57] = 1
         set ProtoEventKey[57] = "fy_club_inventory"
         set ProtoEventName[57] = "명단에 없는 상자"
         set ProtoEventHead[57] = 1
@@ -1162,6 +1171,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[230] = 0
         set ProtoBranchPotions[230] = 0
         set ProtoBranchChance[230] = 100
+        set ProtoEventHeadChoice[58] = 1
         set ProtoEventKey[58] = "fy_regular_contact"
         set ProtoEventName[58] = "비어 있는 연락 기록"
         set ProtoEventHead[58] = 1
@@ -1214,6 +1224,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[234] = 0
         set ProtoBranchPotions[234] = 0
         set ProtoBranchChance[234] = 100
+        set ProtoEventHeadChoice[59] = 1
         set ProtoEventKey[59] = "fy_shinji_offer"
         set ProtoEventName[59] = "누구의 협력인지"
         set ProtoEventHead[59] = 1
@@ -1266,6 +1277,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[238] = 0
         set ProtoBranchPotions[238] = 0
         set ProtoBranchChance[238] = 100
+        set ProtoEventHeadChoice[60] = 1
         set ProtoEventKey[60] = "fy_pause_outside"
         set ProtoEventName[60] = "검 없이 둘러볼 자리"
         set ProtoEventHead[60] = 1
@@ -1318,6 +1330,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[242] = 0
         set ProtoBranchPotions[242] = 0
         set ProtoBranchChance[242] = 100
+        set ProtoEventHeadChoice[61] = 1
         set ProtoEventKey[61] = "fy_teacher_statement"
         set ProtoEventName[61] = "목격담의 빈칸"
         set ProtoEventHead[61] = 1
@@ -1370,6 +1383,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[246] = 0
         set ProtoBranchPotions[246] = 0
         set ProtoBranchChance[246] = 100
+        set ProtoEventHeadChoice[62] = 1
         set ProtoEventKey[62] = "fy_two_ideals"
         set ProtoEventName[62] = "같은 싸움을 보는 다른 눈"
         set ProtoEventHead[62] = 1
@@ -1422,6 +1436,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[250] = 0
         set ProtoBranchPotions[250] = 0
         set ProtoBranchChance[250] = 100
+        set ProtoEventHeadChoice[63] = 1
         set ProtoEventKey[63] = "fy_lancer_crossing"
         set ProtoEventName[63] = "창이 가리키지 않은 쪽"
         set ProtoEventHead[63] = 1
@@ -1474,6 +1489,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[254] = 0
         set ProtoBranchPotions[254] = 0
         set ProtoBranchChance[254] = 100
+        set ProtoEventHeadChoice[64] = 1
         set ProtoEventKey[64] = "fy_one_more_blanket"
         set ProtoEventName[64] = "접어 둔 이불 하나"
         set ProtoEventHead[64] = 1
@@ -1526,6 +1542,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[258] = 0
         set ProtoBranchPotions[258] = 0
         set ProtoBranchChance[258] = 100
+        set ProtoEventChoicePath[65] = 1
         set ProtoEventKey[65] = "fy_arrow_on_floor"
         set ProtoEventName[65] = "표적보다 가까운 화살"
         set ProtoEventHead[65] = 1
@@ -1544,10 +1561,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[65] = "다음 화살을 받기 전에 무엇을 물을까?"
         set ProtoEventIcon[65] = "war3mapImported\\UI_EventThumb_Card_FSN_ch14_Art.blp"
         set ProtoEventImageAspect[65] = 1.777778
-        set ProtoEventRequired[65] = 0
-        set ProtoEventRequiredChoice[65] = 0
+        set ProtoEventRequired[65] = 70
+        set ProtoEventRequiredChoice[65] = 1
         set ProtoEventRequiredCard[65] = 0
         set ProtoEventFailure[65] = ""
+        set ProtoBranchOpenFirst[260] = 68
+        set ProtoEventOpenNext[68] = 0
+        set ProtoBranchOpens[260] = "후속 사건 개방 · 아직 당기지 않은 줄|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[260] = "후지무라 타이가와 함께 다음 길을 준비한다"
         set ProtoBranchResult[260] = "타이가는 네 표적을 가리키다가 다시 화살을 받을 손을 본다."
         set ProtoBranchCard[260] = 21
@@ -1578,6 +1598,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[262] = 0
         set ProtoBranchPotions[262] = 0
         set ProtoBranchChance[262] = 100
+        set ProtoEventHeadChoice[66] = 1
         set ProtoEventKey[66] = "fy_shelter_question"
         set ProtoEventName[66] = "보호한다는 말의 범위"
         set ProtoEventHead[66] = 1
@@ -1630,6 +1651,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[266] = 0
         set ProtoBranchPotions[266] = 0
         set ProtoBranchChance[266] = 100
+        set ProtoEventHeadChoice[67] = 1
         set ProtoEventKey[67] = "fy_after_one_block"
         set ProtoEventName[67] = "한 번 막은 뒤의 발자리"
         set ProtoEventHead[67] = 1
@@ -1682,6 +1704,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[270] = 0
         set ProtoBranchPotions[270] = 0
         set ProtoBranchChance[270] = 100
+        set ProtoEventChoicePath[68] = 1
         set ProtoEventKey[68] = "fy_next_arrow_wait"
         set ProtoEventName[68] = "아직 당기지 않은 줄"
         set ProtoEventHead[68] = 1
@@ -1821,6 +1844,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[4] = "|cFF006B8F세이버|r는 소환자의 혼란을 확인하고 전쟁의 규칙부터 알아야 한다고 한다."
         set ProtoDialogueLabel[5] = "우선 살아남은 뒤에 이야기하자."
         set ProtoDialogueResult[5] = "|cFF006B8F세이버|r는 |cFF006B8F시로|r 앞에서 공격을 막는다. 소년은 설명을 듣기 위해서라도 지금 살아남아야 한다."
+        set ProtoBranchOpenFirst[280] = 65
+        set ProtoEventOpenNext[65] = 0
+        set ProtoBranchOpens[280] = "후속 사건 개방 · 표적보다 가까운 화살|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[280] = "소환자라는 건 무슨 뜻이야?"
         set ProtoBranchResult[280] = "|cFF006B8F세이버|r는 자신을 부른 마술사가 계약자가 된다고 설명한다. |cFF006B8F시로|r는 자신이 그런 마술을 했는지조차 확신하지 못한다."
         set ProtoBranchCard[280] = 23
@@ -2652,6 +2678,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[338] = 0
         set ProtoBranchPotions[338] = 0
         set ProtoBranchChance[338] = 100
+        set ProtoEventHeadChoice[85] = 1
         set ProtoEventKey[85] = "fuyuki_epilogue_memory"
         set ProtoEventName[85] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[85] = 1
@@ -3454,6 +3481,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1671] = 0.00
         call ProtoSetEffect(1671, 31, 90.00, false)
         call ProtoSetEffect(1671, 26, 8.00, false)
+        set ProtoEventChoicePath[86] = 1
         set ProtoEventKey[86] = "axel_request"
         set ProtoEventName[86] = "게시판의 밀린 의뢰"
         set ProtoEventHead[86] = 2
@@ -3472,10 +3500,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[86] = "길드 의뢰 두 개가 겹쳤다. 어느 쪽을 맡을까?"
         set ProtoEventIcon[86] = "war3mapImported\\UI_EventThumb_Card_KSB_luna_Art.blp"
         set ProtoEventImageAspect[86] = 1.777778
-        set ProtoEventRequired[86] = 0
-        set ProtoEventRequiredChoice[86] = 0
+        set ProtoEventRequired[86] = 102
+        set ProtoEventRequiredChoice[86] = 1
         set ProtoEventRequiredCard[86] = 0
         set ProtoEventFailure[86] = ""
+        set ProtoBranchOpenFirst[344] = 87
+        set ProtoEventOpenNext[87] = 0
+        set ProtoBranchOpens[344] = "후속 사건 개방 · 사라진 의뢰 보수|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[344] = "|cFF006B8F카즈마|r에게 의뢰의 보수를 먼저 물어본다"
         set ProtoBranchResult[344] = "|cFF006B8F카즈마|r는 의뢰서의 작은 글씨를 짚으며 위험보다 보수부터 확인한다. 투덜거리면서도 동료들의 몫을 계산하는 그의 판단을 |cFF80560C기억|r한다."
         set ProtoBranchCard[344] = 85
@@ -3506,6 +3537,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[346] = 0
         set ProtoBranchPotions[346] = 0
         set ProtoBranchChance[346] = 100
+        set ProtoEventChoicePath[87] = 1
         set ProtoEventKey[87] = "axel_stolen_notice"
         set ProtoEventName[87] = "사라진 의뢰 보수"
         set ProtoEventHead[87] = 2
@@ -3568,6 +3600,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[351] = 0
         set ProtoBranchPotions[351] = 0
         set ProtoBranchChance[351] = 100
+        set ProtoEventHeadChoice[88] = 1
         set ProtoEventKey[88] = "axel_blast_site"
         set ProtoEventName[88] = "폭렬 마법의 연습 장소"
         set ProtoEventHead[88] = 2
@@ -3620,6 +3653,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[354] = 0
         set ProtoBranchPotions[354] = 0
         set ProtoBranchChance[354] = 100
+        set ProtoEventHeadChoice[89] = 1
         set ProtoEventKey[89] = "axel_shop_ledger"
         set ProtoEventName[89] = "팔릴 때마다 적자인 가게"
         set ProtoEventHead[89] = 2
@@ -3672,6 +3706,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[358] = 0
         set ProtoBranchPotions[358] = 0
         set ProtoBranchChance[358] = 100
+        set ProtoEventHeadChoice[90] = 1
         set ProtoEventKey[90] = "axel_priest_supply"
         set ProtoEventName[90] = "모험 직전의 잔돈"
         set ProtoEventHead[90] = 2
@@ -3724,6 +3759,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[362] = 0
         set ProtoBranchPotions[362] = 0
         set ProtoBranchChance[362] = 100
+        set ProtoEventHeadChoice[91] = 1
         set ProtoEventKey[91] = "axel_crowded_road"
         set ProtoEventName[91] = "단단한 갑옷을 향한 돌진"
         set ProtoEventHead[91] = 2
@@ -3776,6 +3812,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[366] = 0
         set ProtoBranchPotions[366] = 0
         set ProtoBranchChance[366] = 100
+        set ProtoEventHeadChoice[92] = 1
         set ProtoEventKey[92] = "axel_party_water"
         set ProtoEventName[92] = "박수 뒤에 남은 물자리"
         set ProtoEventHead[92] = 2
@@ -3828,6 +3865,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[370] = 0
         set ProtoBranchPotions[370] = 0
         set ProtoBranchChance[370] = 100
+        set ProtoEventHeadChoice[93] = 1
         set ProtoEventKey[93] = "axel_small_figure"
         set ProtoEventName[93] = "갑옷보다 작은 진열품"
         set ProtoEventHead[93] = 2
@@ -3880,6 +3918,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[374] = 0
         set ProtoBranchPotions[374] = 0
         set ProtoBranchChance[374] = 100
+        set ProtoEventHeadChoice[94] = 1
         set ProtoEventKey[94] = "axel_rival_target"
         set ProtoEventName[94] = "표적 하나에 다른 연습"
         set ProtoEventHead[94] = 2
@@ -3932,6 +3971,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[378] = 0
         set ProtoBranchPotions[378] = 0
         set ProtoBranchChance[378] = 100
+        set ProtoEventHeadChoice[95] = 1
         set ProtoEventKey[95] = "axel_sword_introduction"
         set ProtoEventName[95] = "검의 이름보다 먼저 할 말"
         set ProtoEventHead[95] = 2
@@ -3984,6 +4024,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[382] = 0
         set ProtoBranchPotions[382] = 0
         set ProtoBranchChance[382] = 100
+        set ProtoEventHeadChoice[96] = 1
         set ProtoEventKey[96] = "axel_newcomer_questions"
         set ProtoEventName[96] = "처음 온 사람의 두 번째 질문"
         set ProtoEventHead[96] = 2
@@ -4036,6 +4077,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[386] = 0
         set ProtoBranchPotions[386] = 0
         set ProtoBranchChance[386] = 100
+        set ProtoEventHeadChoice[97] = 1
         set ProtoEventKey[97] = "axel_cage_from_shore"
         set ProtoEventName[97] = "버린 것이 아니라 줄을 잡은 것"
         set ProtoEventHead[97] = 2
@@ -4058,6 +4100,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[97] = 0
         set ProtoEventRequiredCard[97] = 0
         set ProtoEventFailure[97] = ""
+        set ProtoBranchOpenFirst[388] = 101
+        set ProtoEventOpenNext[101] = 0
+        set ProtoBranchOpens[388] = "후속 사건 개방 · 끌어올린 뒤에도 잡힌 줄|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[388] = "|cFF006B8F아쿠아|r와 함께 다음 길을 준비한다"
         set ProtoBranchResult[388] = "끝까지 버틴 |cFF80560C기억|r으로 최대 체력이 늘고 받는 피해가 줄었다. |cFF006B8F아쿠아|r는 물 밖으로 나왔지만 손을 뗄 자리부터 찾으라고 외친다."
         set ProtoBranchCard[388] = 89
@@ -4088,6 +4133,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[390] = 0
         set ProtoBranchPotions[390] = 0
         set ProtoBranchChance[390] = 100
+        set ProtoEventHeadChoice[98] = 1
         set ProtoEventKey[98] = "axel_snow_footprints"
         set ProtoEventName[98] = "작은 발자국이 멀어질 때"
         set ProtoEventHead[98] = 2
@@ -4140,6 +4186,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[394] = 0
         set ProtoBranchPotions[394] = 0
         set ProtoBranchChance[394] = 100
+        set ProtoEventHeadChoice[99] = 1
         set ProtoEventKey[99] = "axel_question_cut_short"
         set ProtoEventName[99] = "질문이 끝나기 전에"
         set ProtoEventHead[99] = 2
@@ -4192,6 +4239,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[398] = 0
         set ProtoBranchPotions[398] = 0
         set ProtoBranchChance[398] = 100
+        set ProtoEventHeadChoice[100] = 1
         set ProtoEventKey[100] = "axel_house_threshold"
         set ProtoEventName[100] = "의뢰를 받은 문은 어디지?"
         set ProtoEventHead[100] = 2
@@ -4244,6 +4292,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[402] = 0
         set ProtoBranchPotions[402] = 0
         set ProtoBranchChance[402] = 100
+        set ProtoEventChoicePath[101] = 1
         set ProtoEventKey[101] = "axel_rope_after_return"
         set ProtoEventName[101] = "끌어올린 뒤에도 잡힌 줄"
         set ProtoEventHead[101] = 2
@@ -4321,6 +4370,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[102] = 1
         set ProtoEventCommonResult[102] = "|cFF006B8F카즈마|r는 모험가로, |cFF006B8F아쿠아|r는 치유와 정화에 능한 아크프리스트로 등록한다. 육체노동도 하며 의뢰를 받지만 몬스터를 상대할 전력이 부족하다. 둘은 살아남고 의뢰를 완수하기 위해 동료를 모집한다."
         set ProtoEventDialogueFirst[102] = 0
+        set ProtoBranchOpenFirst[408] = 86
+        set ProtoEventOpenNext[86] = 0
+        set ProtoBranchOpens[408] = "후속 사건 개방 · 게시판의 밀린 의뢰|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[408] = "우선 일자리부터 찾아보자."
         set ProtoBranchResult[408] = "|cFF006B8F카즈마|r는 무작정 마왕을 찾아갈 형편이 아니라고 동의한다. 할 수 있는 일을 찾아 생활비부터 벌기로 한다."
         set ProtoBranchCard[408] = 89
@@ -4984,6 +5036,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[454] = 0
         set ProtoBranchPotions[454] = 0
         set ProtoBranchChance[454] = 100
+        set ProtoEventHeadChoice[114] = 1
         set ProtoEventKey[114] = "axel_epilogue_memory"
         set ProtoEventName[114] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[114] = 2
@@ -5870,6 +5923,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1674] = 0.00
         call ProtoSetEffect(1674, 28, 100.00, false)
         call ProtoSetEffect(1674, 26, 8.00, false)
+        set ProtoEventHeadChoice[115] = 1
         set ProtoEventKey[115] = "abydos_sand_supply"
         set ProtoEventName[115] = "모래에 묻힌 보급로"
         set ProtoEventHead[115] = 3
@@ -5922,6 +5976,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[462] = 0
         set ProtoBranchPotions[462] = 0
         set ProtoBranchChance[462] = 100
+        set ProtoEventChoicePath[116] = 1
         set ProtoEventKey[116] = "abydos_ramen_shift"
         set ProtoEventName[116] = "세리카의 교대 시간"
         set ProtoEventHead[116] = 3
@@ -5940,10 +5995,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[116] = "라멘 가게 아르바이트와 학교 일이 겹친 |cFF006B8F세리카|r."
         set ProtoEventIcon[116] = "war3mapImported\\UI_EventThumb_Card_BAM1_13008_Art.blp"
         set ProtoEventImageAspect[116] = 1.777778
-        set ProtoEventRequired[116] = 0
-        set ProtoEventRequiredChoice[116] = 0
+        set ProtoEventRequired[116] = 135
+        set ProtoEventRequiredChoice[116] = 1
         set ProtoEventRequiredCard[116] = 0
         set ProtoEventFailure[116] = ""
+        set ProtoBranchOpenFirst[464] = 118
+        set ProtoEventOpenNext[118] = 0
+        set ProtoBranchOpens[464] = "후속 사건 개방 · 남아 있는 라멘 가게의 간판|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[464] = "|cFF006B8F세리카|r를 도와 배달 업무를 분담하며 정보를 얻는다"
         set ProtoBranchResult[464] = "|cFF006B8F세리카|r와 함께 분주하게 움직이며 가게의 숨은 운영 방식을 배웁니다. 그녀가 강조하던 단골들의 특징이 |cFF80560C기억|r 속에 새겨집니다."
         set ProtoBranchCard[464] = 149
@@ -5974,6 +6032,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[466] = 0
         set ProtoBranchPotions[466] = 0
         set ProtoBranchChance[466] = 100
+        set ProtoEventHeadChoice[117] = 1
         set ProtoEventKey[117] = "abydos_blackmarket_map"
         set ProtoEventName[117] = "블랙마켓의 잘못된 지도"
         set ProtoEventHead[117] = 3
@@ -6026,6 +6085,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[470] = 0
         set ProtoBranchPotions[470] = 0
         set ProtoBranchChance[470] = 100
+        set ProtoEventChoicePath[118] = 1
         set ProtoEventKey[118] = "abydos_ramen_repair"
         set ProtoEventName[118] = "남아 있는 라멘 가게의 간판"
         set ProtoEventHead[118] = 3
@@ -6078,6 +6138,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[474] = 0
         set ProtoBranchPotions[474] = 0
         set ProtoBranchChance[474] = 100
+        set ProtoEventHeadChoice[119] = 1
         set ProtoEventKey[119] = "abydos_desert_watch"
         set ProtoEventName[119] = "카이저 소유의 사막"
         set ProtoEventHead[119] = 3
@@ -6100,6 +6161,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[119] = 0
         set ProtoEventRequiredCard[119] = 0
         set ProtoEventFailure[119] = ""
+        set ProtoBranchOpenFirst[476] = 120
+        set ProtoEventOpenNext[120] = 0
+        set ProtoBranchOpens[476] = "후속 사건 개방 · 호시노의 빈 자리|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[476] = "|cFF006B8F호시노|r와 엄호할 위치를 고른다"
         set ProtoBranchResult[476] = "|cFF006B8F호시노|r의 방어 지침을 듣고 엄호 장비를 준비했다. 장비 비용을 내고 동료가 돌아올 위치를 지키는 경험을 얻었다."
         set ProtoBranchCard[476] = 151
@@ -6130,6 +6194,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[478] = 0
         set ProtoBranchPotions[478] = 0
         set ProtoBranchChance[478] = 100
+        set ProtoEventChoicePath[120] = 1
         set ProtoEventKey[120] = "abydos_missing_senior"
         set ProtoEventName[120] = "호시노의 빈 자리"
         set ProtoEventHead[120] = 3
@@ -6182,6 +6247,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[482] = 0
         set ProtoBranchPotions[482] = 0
         set ProtoBranchChance[482] = 100
+        set ProtoEventHeadChoice[121] = 1
         set ProtoEventKey[121] = "abydos_pace"
         set ProtoEventName[121] = "한 바퀴가 같은 한 바퀴일까"
         set ProtoEventHead[121] = 3
@@ -6234,6 +6300,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[486] = 0
         set ProtoBranchPotions[486] = 0
         set ProtoBranchChance[486] = 100
+        set ProtoEventHeadChoice[122] = 1
         set ProtoEventKey[122] = "abydos_sleepchair"
         set ProtoEventName[122] = "잠든 자리와 비워 둘 앞자리"
         set ProtoEventHead[122] = 3
@@ -6286,6 +6353,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[490] = 0
         set ProtoBranchPotions[490] = 0
         set ProtoBranchChance[490] = 100
+        set ProtoEventHeadChoice[123] = 1
         set ProtoEventKey[123] = "abydos_snack_share"
         set ProtoEventName[123] = "남는 간식이 아니라 남길 간식"
         set ProtoEventHead[123] = 3
@@ -6338,6 +6406,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[494] = 0
         set ProtoBranchPotions[494] = 0
         set ProtoBranchChance[494] = 100
+        set ProtoEventHeadChoice[124] = 1
         set ProtoEventKey[124] = "abydos_antique_note"
         set ProtoEventName[124] = "낡은 물건의 지워진 항목"
         set ProtoEventHead[124] = 3
@@ -6390,6 +6459,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[498] = 0
         set ProtoBranchPotions[498] = 0
         set ProtoBranchChance[498] = 100
+        set ProtoEventHeadChoice[125] = 1
         set ProtoEventKey[125] = "abydos_aquarium_step"
         set ProtoEventName[125] = "안내판 앞의 다음 발걸음"
         set ProtoEventHead[125] = 3
@@ -6442,6 +6512,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[502] = 0
         set ProtoBranchPotions[502] = 0
         set ProtoBranchChance[502] = 100
+        set ProtoEventHeadChoice[126] = 1
         set ProtoEventKey[126] = "abydos_peroro_line"
         set ProtoEventName[126] = "페로로 앞에서 듣는 부탁"
         set ProtoEventHead[126] = 3
@@ -6494,6 +6565,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[506] = 0
         set ProtoBranchPotions[506] = 0
         set ProtoBranchChance[506] = 100
+        set ProtoEventHeadChoice[127] = 1
         set ProtoEventKey[127] = "ab68_big_bill"
         set ProtoEventName[127] = "악당답게 계산할게"
         set ProtoEventHead[127] = 3
@@ -6516,6 +6588,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[127] = 0
         set ProtoEventRequiredCard[127] = 0
         set ProtoEventFailure[127] = ""
+        set ProtoBranchOpenFirst[508] = 131
+        set ProtoEventOpenNext[131] = 0
+        set ProtoBranchOpens[508] = "후속 사건 개방 · 사장님 다음에는|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[508] = "리쿠하치마 아루와 함께 다음 길을 준비한다"
         set ProtoBranchResult[508] = "아루는 계산서가 닫힌 뒤에야 원래 그렇게 하려 했다며 |cFF80560C목소리|r를 다시 높인다."
         set ProtoBranchCard[508] = 161
@@ -6546,6 +6621,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[510] = 0
         set ProtoBranchPotions[510] = 0
         set ProtoBranchChance[510] = 100
+        set ProtoEventHeadChoice[128] = 1
         set ProtoEventKey[128] = "ab68_disc_before_words"
         set ProtoEventName[128] = "아직 주문하지 않았는데"
         set ProtoEventHead[128] = 3
@@ -6578,6 +6654,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[512] = 0
         set ProtoBranchPotions[512] = 0
         set ProtoBranchChance[512] = 100
+        set ProtoBranchOpenFirst[513] = 132
+        set ProtoEventOpenNext[132] = 0
+        set ProtoBranchOpens[513] = "후속 사건 개방 · 사과가 끝난 뒤의 한마디|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[513] = "내 사냥의 강함 단계를1올리고 카요코와 한 곡의 박자를 끝까지 듣는다"
         set ProtoBranchResult[513] = "카요코와 한 곡이 끝날 때까지 말을 끊지 않고 박자를 들었다. 「아직 끝나지 않은 곡」의 |cFF80560C기억|r 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계가1올랐다. 곡이 끝나도 카요코는 주문할 말이 남았다며 주인이 다시 사과하기 전에 진열을 가리킨다."
         set ProtoBranchCard[513] = 172
@@ -6598,6 +6677,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[514] = 0
         set ProtoBranchPotions[514] = 0
         set ProtoBranchChance[514] = 100
+        set ProtoEventHeadChoice[129] = 1
         set ProtoEventKey[129] = "ab68_weed_hand"
         set ProtoEventName[129] = "잡초라는 말 다음"
         set ProtoEventHead[129] = 3
@@ -6650,6 +6730,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[518] = 0
         set ProtoBranchPotions[518] = 0
         set ProtoBranchChance[518] = 100
+        set ProtoEventHeadChoice[130] = 1
         set ProtoEventKey[130] = "ab68_two_envelopes"
         set ProtoEventName[130] = "웃는 쪽은 두 봉투"
         set ProtoEventHead[130] = 3
@@ -6702,6 +6783,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[522] = 0
         set ProtoBranchPotions[522] = 0
         set ProtoBranchChance[522] = 100
+        set ProtoEventChoicePath[131] = 1
         set ProtoEventKey[131] = "ab68_name_after_bill"
         set ProtoEventName[131] = "사장님 다음에는"
         set ProtoEventHead[131] = 3
@@ -6754,6 +6836,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[526] = 0
         set ProtoBranchPotions[526] = 0
         set ProtoBranchChance[526] = 100
+        set ProtoEventChoicePath[132] = 1
         set ProtoEventKey[132] = "ab68_reply_after_disc"
         set ProtoEventName[132] = "사과가 끝난 뒤의 한마디"
         set ProtoEventHead[132] = 3
@@ -6941,6 +7024,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[135] = 1
         set ProtoEventCommonResult[135] = "|cFF006B8F선생|r과 학생들은 적을 추적해 |cFF006B8F세리카|r를 구한다. 끝까지 찾아온 이들의 행동을 본 세리카도 조금씩 마음을 연다. 혼자 더 열심히 일하는 것만으로는 습격을 막을 수 없다. 다섯 학생은 빚과 공격을 함께 해결할 방법을 의논하러 모인다."
         set ProtoEventDialogueFirst[135] = 0
+        set ProtoBranchOpenFirst[540] = 116
+        set ProtoEventOpenNext[116] = 0
+        set ProtoBranchOpens[540] = "후속 사건 개방 · 세리카의 교대 시간|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[540] = "|cFF006B8F세리카|r가 있는 곳부터 확인하자."
         set ProtoBranchResult[540] = "|cFF006B8F시로코|r는 적의 움직임을 놓치지 않으려 한다. 선생의 지휘에 맞춰 |cFF006B8F세리카|r에게 접근할 준비를 한다."
         set ProtoBranchCard[540] = 149
@@ -7595,6 +7681,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[586] = 0
         set ProtoBranchPotions[586] = 0
         set ProtoBranchChance[586] = 100
+        set ProtoEventHeadChoice[147] = 1
         set ProtoEventKey[147] = "abydos_epilogue_memory"
         set ProtoEventName[147] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[147] = 3
@@ -8518,6 +8605,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1678] = 0.00
         call ProtoSetEffect(1678, 29, 120.00, false)
         call ProtoSetEffect(1678, 26, 8.00, false)
+        set ProtoEventHeadChoice[148] = 1
         set ProtoEventKey[148] = "academy_bad_signal"
         set ProtoEventName[148] = "끊어진 구조 신호"
         set ProtoEventHead[148] = 4
@@ -8540,6 +8628,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[148] = 0
         set ProtoEventRequiredCard[148] = 0
         set ProtoEventFailure[148] = ""
+        set ProtoBranchOpenFirst[592] = 149
+        set ProtoEventOpenNext[149] = 0
+        set ProtoBranchOpens[592] = "후속 사건 개방 · 신호가 가리킨 장소|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[592] = "수리 자재를 사고 우이하루의 백업을 돕는다"
         set ProtoBranchResult[592] = "자재를 사서 끊어진 통신선을 이었다. 우이하루가 나눠 준 |cFF80560C기록|r으로 당신도 다음 행동을 준비할 여유를 얻었다."
         set ProtoBranchCard[592] = 224
@@ -8550,6 +8641,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[592] = 0
         set ProtoBranchPotions[592] = 0
         set ProtoBranchChance[592] = 100
+        set ProtoBranchOpenFirst[593] = 153
+        set ProtoEventOpenNext[153] = 0
+        set ProtoBranchOpens[593] = "후속 사건 개방 · 복구된 두 번째 통로|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[593] = "쿠로코와 위험한 현장으로 간다"
         set ProtoBranchResult[593] = "쿠로코와 현장에 들어가 끊긴 신호의 위치를 찾았다. 빠르게 도착하는 데서 그치지 않고 물러날 공간까지 짚었지만, 안쪽에는 더 강한 상대가 기다리고 있었다."
         set ProtoBranchCard[593] = 221
@@ -8570,6 +8664,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[594] = 0
         set ProtoBranchPotions[594] = 0
         set ProtoBranchChance[594] = 100
+        set ProtoEventChoicePath[149] = 1
         set ProtoEventKey[149] = "academy_signal_answer"
         set ProtoEventName[149] = "신호가 가리킨 장소"
         set ProtoEventHead[149] = 4
@@ -8622,6 +8717,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[598] = 0
         set ProtoBranchPotions[598] = 0
         set ProtoBranchChance[598] = 100
+        set ProtoEventHeadChoice[150] = 1
         set ProtoEventKey[150] = "academy_urban_rumor"
         set ProtoEventName[150] = "소문이 앞선 조사"
         set ProtoEventHead[150] = 4
@@ -8674,6 +8770,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[602] = 0
         set ProtoBranchPotions[602] = 0
         set ProtoBranchChance[602] = 100
+        set ProtoEventHeadChoice[151] = 1
         set ProtoEventKey[151] = "academy_coin_test"
         set ProtoEventName[151] = "표적 뒤의 빈 공간"
         set ProtoEventHead[151] = 4
@@ -8726,6 +8823,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[606] = 0
         set ProtoBranchPotions[606] = 0
         set ProtoBranchChance[606] = 100
+        set ProtoEventHeadChoice[152] = 1
         set ProtoEventKey[152] = "academy_no_ability"
         set ProtoEventName[152] = "능력 없이 남은 사람"
         set ProtoEventHead[152] = 4
@@ -8778,6 +8876,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[610] = 0
         set ProtoBranchPotions[610] = 0
         set ProtoBranchChance[610] = 100
+        set ProtoEventChoicePath[153] = 1
         set ProtoEventKey[153] = "academy_second_route"
         set ProtoEventName[153] = "복구된 두 번째 통로"
         set ProtoEventHead[153] = 4
@@ -8830,6 +8929,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[614] = 0
         set ProtoBranchPotions[614] = 0
         set ProtoBranchChance[614] = 100
+        set ProtoEventHeadChoice[154] = 1
         set ProtoEventKey[154] = "academy_display_window"
         set ProtoEventName[154] = "진열창 앞에서 멈춘 발걸음"
         set ProtoEventHead[154] = 4
@@ -8882,6 +8982,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[618] = 0
         set ProtoBranchPotions[618] = 0
         set ProtoBranchChance[618] = 100
+        set ProtoEventHeadChoice[155] = 1
         set ProtoEventKey[155] = "academy_sweet_orders"
         set ProtoEventName[155] = "단것 옆에 남은 주문 한 줄"
         set ProtoEventHead[155] = 4
@@ -8934,6 +9035,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[622] = 0
         set ProtoBranchPotions[622] = 0
         set ProtoBranchChance[622] = 100
+        set ProtoEventHeadChoice[156] = 1
         set ProtoEventKey[156] = "academy_pair_step"
         set ProtoEventName[156] = "둘이 묶기 전에 맞출 보폭"
         set ProtoEventHead[156] = 4
@@ -8986,6 +9088,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[626] = 0
         set ProtoBranchPotions[626] = 0
         set ProtoBranchChance[626] = 100
+        set ProtoEventHeadChoice[157] = 1
         set ProtoEventKey[157] = "academy_pool_bundle"
         set ProtoEventName[157] = "풀 가장자리에 모인 준비물"
         set ProtoEventHead[157] = 4
@@ -9038,6 +9141,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[630] = 0
         set ProtoBranchPotions[630] = 0
         set ProtoBranchChance[630] = 100
+        set ProtoEventHeadChoice[158] = 1
         set ProtoEventKey[158] = "academy_guts_corner"
         set ProtoEventName[158] = "큰 소리보다 먼저 옮길 짐"
         set ProtoEventHead[158] = 4
@@ -9090,6 +9194,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[634] = 0
         set ProtoBranchPotions[634] = 0
         set ProtoBranchChance[634] = 100
+        set ProtoEventHeadChoice[159] = 1
         set ProtoEventKey[159] = "academy_parade_markers"
         set ProtoEventName[159] = "밤 퍼레이드 전에 남은 표식"
         set ProtoEventHead[159] = 4
@@ -9142,6 +9247,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[638] = 0
         set ProtoBranchPotions[638] = 0
         set ProtoBranchChance[638] = 100
+        set ProtoEventChoicePath[160] = 1
         set ProtoEventKey[160] = "academy_vending_left_coin"
         set ProtoEventName[160] = "한 번 더 넣기 전에"
         set ProtoEventHead[160] = 4
@@ -9160,10 +9266,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[160] = "남은 동전도 같은 자판기에 넣어야 할까?"
         set ProtoEventIcon[160] = "war3mapImported\\UI_EventThumb_Card_RGT_37_Art.blp"
         set ProtoEventImageAspect[160] = 1.777778
-        set ProtoEventRequired[160] = 0
-        set ProtoEventRequiredChoice[160] = 0
+        set ProtoEventRequired[160] = 181
+        set ProtoEventRequiredChoice[160] = 2
         set ProtoEventRequiredCard[160] = 0
         set ProtoEventFailure[160] = ""
+        set ProtoBranchOpenFirst[640] = 165
+        set ProtoEventOpenNext[165] = 0
+        set ProtoBranchOpens[640] = "후속 사건 개방 · 아직 뜯지 않은 한 잔|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[640] = "카미조 |cFF006B8F토우마|r와 함께 다음 길을 준비한다"
         set ProtoBranchResult[640] = "삼킨 동전 뒤에도 준비를 찾는 |cFF80560C기억|r으로 처치 골드가 늘고 받는 피해가 줄었다. |cFF006B8F토우마|r는 네 음료와 자기 손의 한 닢을 번갈아 본다."
         set ProtoBranchCard[640] = 270
@@ -9194,6 +9303,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[642] = 0
         set ProtoBranchPotions[642] = 0
         set ProtoBranchChance[642] = 100
+        set ProtoEventHeadChoice[161] = 1
         set ProtoEventKey[161] = "academy_tea_after_call"
         set ProtoEventName[161] = "한 입 남기고 울린 호출"
         set ProtoEventHead[161] = 4
@@ -9246,6 +9356,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[646] = 0
         set ProtoBranchPotions[646] = 0
         set ProtoBranchChance[646] = 100
+        set ProtoEventHeadChoice[162] = 1
         set ProtoEventKey[162] = "academy_unanswered_promise"
         set ProtoEventName[162] = "출발보다 먼저 할 대답"
         set ProtoEventHead[162] = 4
@@ -9298,6 +9409,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[650] = 0
         set ProtoBranchPotions[650] = 0
         set ProtoBranchChance[650] = 100
+        set ProtoEventHeadChoice[163] = 1
         set ProtoEventKey[163] = "academy_arcade_empty_seat"
         set ProtoEventName[163] = "말을 걸었는데 비어 있는 자리"
         set ProtoEventHead[163] = 4
@@ -9350,6 +9462,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[654] = 0
         set ProtoBranchPotions[654] = 0
         set ProtoBranchChance[654] = 100
+        set ProtoEventHeadChoice[164] = 1
         set ProtoEventKey[164] = "academy_festival_before_stage"
         set ProtoEventName[164] = "안내하다가 멈춘 말끝"
         set ProtoEventHead[164] = 4
@@ -9402,6 +9515,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[658] = 0
         set ProtoBranchPotions[658] = 0
         set ProtoBranchChance[658] = 100
+        set ProtoEventChoicePath[165] = 1
         set ProtoEventKey[165] = "academy_drink_after_vending"
         set ProtoEventName[165] = "아직 뜯지 않은 한 잔"
         set ProtoEventHead[165] = 4
@@ -9454,6 +9568,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[662] = 0
         set ProtoBranchPotions[662] = 0
         set ProtoBranchChance[662] = 100
+        set ProtoEventHeadChoice[166] = 1
         set ProtoEventKey[166] = "academy_next_shift"
         set ProtoEventName[166] = "확인한 뒤에도 남은 몫"
         set ProtoEventHead[166] = 4
@@ -9506,6 +9621,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[666] = 0
         set ProtoBranchPotions[666] = 0
         set ProtoBranchChance[666] = 100
+        set ProtoEventHeadChoice[167] = 1
         set ProtoEventKey[167] = "academy_unsealed_list"
         set ProtoEventName[167] = "접지 않은 항목의 답"
         set ProtoEventHead[167] = 4
@@ -10329,6 +10445,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[724] = 0
         set ProtoBranchPotions[724] = 0
         set ProtoBranchChance[724] = 100
+        set ProtoBranchOpenFirst[725] = 160
+        set ProtoEventOpenNext[160] = 0
+        set ProtoBranchOpens[725] = "후속 사건 개방 · 한 번 더 넣기 전에|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[725] = "|cFF006B8F토우마|r가 만난 소녀 이야기도 들어 봐."
         set ProtoBranchResult[725] = "|cFF006B8F토우마|r는 함께 고양이를 돌보며 만난 소녀가 있었다고 말한다. 연구 자료에만 적힌 존재가 아니라 세상과 만난 사람이었다."
         set ProtoBranchCard[725] = 289
@@ -10409,6 +10528,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[730] = 0
         set ProtoBranchPotions[730] = 0
         set ProtoBranchChance[730] = 100
+        set ProtoEventHeadChoice[183] = 1
         set ProtoEventKey[183] = "academy_epilogue_memory"
         set ProtoEventName[183] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[183] = 4
@@ -11193,6 +11313,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1680] = 0.00
         call ProtoSetEffect(1680, 22, 50.00, false)
         call ProtoSetEffect(1680, 26, 8.00, false)
+        set ProtoEventChoicePath[184] = 1
         set ProtoEventKey[184] = "madoka_parking_seed"
         set ProtoEventName[184] = "자전거 보관소의 검은 씨앗"
         set ProtoEventHead[184] = 5
@@ -11211,10 +11332,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[184] = "도움을 기다리는 자전거 보관소에서 맡을 일을 정한다."
         set ProtoEventIcon[184] = "war3mapImported\\UI_EventThumb_Card_MEU10_madoka_Art.blp"
         set ProtoEventImageAspect[184] = 1.777778
-        set ProtoEventRequired[184] = 0
-        set ProtoEventRequiredChoice[184] = 0
+        set ProtoEventRequired[184] = 198
+        set ProtoEventRequiredChoice[184] = 1
         set ProtoEventRequiredCard[184] = 0
         set ProtoEventFailure[184] = ""
+        set ProtoBranchOpenFirst[736] = 185
+        set ProtoEventOpenNext[185] = 0
+        set ProtoBranchOpens[736] = "후속 사건 개방 · 돌아온 안내자|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[736] = "차단 자재를 마련하고 |cFF006B8F마미|r의 안내를 받는다"
         set ProtoBranchResult[736] = "차단 자재를 마련하고 |cFF006B8F마미|r의 안내를 받았다. 마미가 네가 맡은 경계부터 확인하는 동안 |cFF006B8F사야카|r는 아직 부화하지 않은 씨앗에서 눈을 떼지 않는다."
         set ProtoBranchCard[736] = 300
@@ -11235,6 +11359,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[737] = 0
         set ProtoBranchPotions[737] = 0
         set ProtoBranchChance[737] = 100
+        set ProtoBranchOpenFirst[738] = 189
+        set ProtoEventOpenNext[189] = 0
+        set ProtoBranchOpens[738] = "후속 사건 개방 · 쌓인 준비의 빈틈|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[738] = "|cFF006B8F호무라|r에게 자리를 넘기고 우회로를 확인한다"
         set ProtoBranchResult[738] = "|cFF006B8F호무라|r에게 자리를 넘기고 우회로를 확인했다. 호무라는 우회할 길만 짚고 씨앗 안쪽을 확인했다고 적지는 말라고 한다."
         set ProtoBranchCard[738] = 296
@@ -11245,6 +11372,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[738] = 0
         set ProtoBranchPotions[738] = 0
         set ProtoBranchChance[738] = 100
+        set ProtoEventChoicePath[185] = 1
         set ProtoEventKey[185] = "madoka_mentor_return"
         set ProtoEventName[185] = "돌아온 안내자"
         set ProtoEventHead[185] = 5
@@ -11297,6 +11425,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[742] = 0
         set ProtoBranchPotions[742] = 0
         set ProtoBranchChance[742] = 100
+        set ProtoEventHeadChoice[186] = 1
         set ProtoEventKey[186] = "madoka_familiar_trace"
         set ProtoEventName[186] = "놓친 사역마의 흔적"
         set ProtoEventHead[186] = 5
@@ -11349,6 +11478,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[746] = 0
         set ProtoBranchPotions[746] = 0
         set ProtoBranchChance[746] = 100
+        set ProtoEventHeadChoice[187] = 1
         set ProtoEventKey[187] = "madoka_church_food"
         set ProtoEventName[187] = "버려진 교회에서"
         set ProtoEventHead[187] = 5
@@ -11401,6 +11531,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[750] = 0
         set ProtoBranchPotions[750] = 0
         set ProtoBranchChance[750] = 100
+        set ProtoEventHeadChoice[188] = 1
         set ProtoEventKey[188] = "madoka_one_wish"
         set ProtoEventName[188] = "한 가지 소원"
         set ProtoEventHead[188] = 5
@@ -11453,6 +11584,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[754] = 0
         set ProtoBranchPotions[754] = 0
         set ProtoBranchChance[754] = 100
+        set ProtoEventChoicePath[189] = 1
         set ProtoEventKey[189] = "madoka_warning"
         set ProtoEventName[189] = "쌓인 준비의 빈틈"
         set ProtoEventHead[189] = 5
@@ -11505,6 +11637,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[758] = 0
         set ProtoBranchPotions[758] = 0
         set ProtoBranchChance[758] = 100
+        set ProtoEventHeadChoice[190] = 1
         set ProtoEventKey[190] = "madoka_visit_music"
         set ProtoEventName[190] = "문병 가방에 남은 제목"
         set ProtoEventHead[190] = 5
@@ -11557,6 +11690,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[762] = 0
         set ProtoBranchPotions[762] = 0
         set ProtoBranchChance[762] = 100
+        set ProtoEventHeadChoice[191] = 1
         set ProtoEventKey[191] = "madoka_home_morning"
         set ProtoEventName[191] = "아침에 서로 찾는 가방"
         set ProtoEventHead[191] = 5
@@ -11609,6 +11743,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[766] = 0
         set ProtoBranchPotions[766] = 0
         set ProtoBranchChance[766] = 100
+        set ProtoEventHeadChoice[192] = 1
         set ProtoEventKey[192] = "madoka_afterclass_appts"
         set ProtoEventName[192] = "방과 후에 겹친 약속"
         set ProtoEventHead[192] = 5
@@ -11661,6 +11796,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[770] = 0
         set ProtoBranchPotions[770] = 0
         set ProtoBranchChance[770] = 100
+        set ProtoEventHeadChoice[193] = 1
         set ProtoEventKey[193] = "madoka_transfer_practice"
         set ProtoEventName[193] = "전학생이 먼저 끝낸 준비"
         set ProtoEventHead[193] = 5
@@ -11713,6 +11849,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[774] = 0
         set ProtoBranchPotions[774] = 0
         set ProtoBranchChance[774] = 100
+        set ProtoEventHeadChoice[194] = 1
         set ProtoEventKey[194] = "madoka_room_visit"
         set ProtoEventName[194] = "방문 전에 접지 않은 지도"
         set ProtoEventHead[194] = 5
@@ -11765,6 +11902,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[778] = 0
         set ProtoBranchPotions[778] = 0
         set ProtoBranchChance[778] = 100
+        set ProtoEventHeadChoice[195] = 1
         set ProtoEventKey[195] = "madoka_boundary_entrance"
         set ProtoEventName[195] = "건너기 전에 달라진 입구"
         set ProtoEventHead[195] = 5
@@ -11817,6 +11955,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[782] = 0
         set ProtoBranchPotions[782] = 0
         set ProtoBranchChance[782] = 100
+        set ProtoEventHeadChoice[196] = 1
         set ProtoEventKey[196] = "madoka_folded_edge"
         set ProtoEventName[196] = "한 걸음 뒤에서 들을 말"
         set ProtoEventHead[196] = 5
@@ -11949,6 +12088,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[198] = 1
         set ProtoEventCommonResult[198] = "두 소녀는 |cFF006B8F마미|r를 따라 마녀의 흔적을 찾으며 사람을 구하는 일을 본다. 소원을 얻은 뒤에는 이런 싸움을 계속해야 한다. |cFF006B8F사야카|r에게는 타인을 위해 빈 소원을 스스로 돌아보라는 말도 남는다. 이후 병원에서 마녀가 자라나는 징후를 발견하자, 마미와 |cFF006B8F마도카|r는 그것을 막으러 들어간다."
         set ProtoEventDialogueFirst[198] = 0
+        set ProtoBranchOpenFirst[792] = 184
+        set ProtoEventOpenNext[184] = 0
+        set ProtoBranchOpens[792] = "후속 사건 개방 · 자전거 보관소의 검은 씨앗|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[792] = "카나메 |cFF006B8F마도카|r · “먼저 선배가 하는 일을 보고 싶어요.”"
         set ProtoBranchResult[792] = "마미는 당장 소원을 정할 필요가 없다고 답한다. |cFF006B8F마도카|r와 |cFF006B8F사야카|r는 그녀의 설명을 들으며 함께 움직일 준비를 한다."
         set ProtoBranchCard[792] = 316
@@ -12690,6 +12832,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[842] = 0
         set ProtoBranchPotions[842] = 0
         set ProtoBranchChance[842] = 100
+        set ProtoEventHeadChoice[211] = 1
         set ProtoEventKey[211] = "mitakihara_epilogue_memory"
         set ProtoEventName[211] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[211] = 5
@@ -13556,6 +13699,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1684] = 0.00
         call ProtoSetEffect(1684, 9, 30.00, false)
         call ProtoSetEffect(1684, 15, 4.00, false)
+        set ProtoEventHeadChoice[212] = 1
         set ProtoEventKey[212] = "sao_smith_metal"
         set ProtoEventName[212] = "부러진 시험검"
         set ProtoEventHead[212] = 6
@@ -13578,6 +13722,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[212] = 0
         set ProtoEventRequiredCard[212] = 0
         set ProtoEventFailure[212] = ""
+        set ProtoBranchOpenFirst[848] = 213
+        set ProtoEventOpenNext[213] = 0
+        set ProtoBranchOpens[848] = "후속 사건 개방 · 공방으로 돌아온 재료|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[848] = "리즈벳와 함께 다음 길을 준비한다"
         set ProtoBranchResult[848] = "리즈벳은 부러진 검보다 새 재료를 둘 공간을 먼저 가리켰다."
         set ProtoBranchCard[848] = 360
@@ -13608,6 +13755,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[850] = 0
         set ProtoBranchPotions[850] = 0
         set ProtoBranchChance[850] = 100
+        set ProtoEventChoicePath[213] = 1
         set ProtoEventKey[213] = "sao_smith_return"
         set ProtoEventName[213] = "공방으로 돌아온 재료"
         set ProtoEventHead[213] = 6
@@ -13660,6 +13808,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[854] = 0
         set ProtoBranchPotions[854] = 0
         set ProtoBranchChance[854] = 100
+        set ProtoEventHeadChoice[214] = 1
         set ProtoEventKey[214] = "sao_companion_herb"
         set ProtoEventName[214] = "작은 동료를 되찾으러"
         set ProtoEventHead[214] = 6
@@ -13712,6 +13861,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[858] = 0
         set ProtoBranchPotions[858] = 0
         set ProtoBranchChance[858] = 100
+        set ProtoEventHeadChoice[215] = 1
         set ProtoEventKey[215] = "sao_rabbit_table"
         set ProtoEventName[215] = "요리할 수 없는 희귀 고기"
         set ProtoEventHead[215] = 6
@@ -13764,6 +13914,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[862] = 0
         set ProtoBranchPotions[862] = 0
         set ProtoBranchChance[862] = 100
+        set ProtoEventHeadChoice[216] = 1
         set ProtoEventKey[216] = "sao_boss_warning"
         set ProtoEventName[216] = "되돌아온 정찰대"
         set ProtoEventHead[216] = 6
@@ -13816,6 +13967,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[866] = 0
         set ProtoBranchPotions[866] = 0
         set ProtoBranchChance[866] = 100
+        set ProtoEventHeadChoice[217] = 1
         set ProtoEventKey[217] = "sao_safezone_clue"
         set ProtoEventName[217] = "안전 구역의 모순"
         set ProtoEventHead[217] = 6
@@ -13868,6 +14020,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[870] = 0
         set ProtoBranchPotions[870] = 0
         set ProtoBranchChance[870] = 100
+        set ProtoEventHeadChoice[218] = 1
         set ProtoEventKey[218] = "sao_counter_labels"
         set ProtoEventName[218] = "에길의 값표 두 장"
         set ProtoEventHead[218] = 6
@@ -13920,6 +14073,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[874] = 0
         set ProtoBranchPotions[874] = 0
         set ProtoBranchChance[874] = 100
+        set ProtoEventHeadChoice[219] = 1
         set ProtoEventKey[219] = "sao_guild_roll"
         set ProtoEventName[219] = "풍림화산의 빈 뒷자리"
         set ProtoEventHead[219] = 6
@@ -13972,6 +14126,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[878] = 0
         set ProtoBranchPotions[878] = 0
         set ProtoBranchChance[878] = 100
+        set ProtoEventHeadChoice[220] = 1
         set ProtoEventKey[220] = "sao_middle_lantern"
         set ProtoEventName[220] = "중층에서 꺼내 놓은 등불"
         set ProtoEventHead[220] = 6
@@ -14024,6 +14179,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[882] = 0
         set ProtoBranchPotions[882] = 0
         set ProtoBranchChance[882] = 100
+        set ProtoEventHeadChoice[221] = 1
         set ProtoEventKey[221] = "sao_lakeside_wait"
         set ProtoEventName[221] = "호숫가에서 기다릴 사람"
         set ProtoEventHead[221] = 6
@@ -14076,6 +14232,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[886] = 0
         set ProtoBranchPotions[886] = 0
         set ProtoBranchChance[886] = 100
+        set ProtoEventHeadChoice[222] = 1
         set ProtoEventKey[222] = "sao_deputy_directions"
         set ProtoEventName[222] = "부단장이 남긴 두 갈래 지시"
         set ProtoEventHead[222] = 6
@@ -14128,6 +14285,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[890] = 0
         set ProtoBranchPotions[890] = 0
         set ProtoBranchChance[890] = 100
+        set ProtoEventChoicePath[223] = 1
         set ProtoEventKey[223] = "sao_argo_fork"
         set ProtoEventName[223] = "강한 상대보다 돌아갈 길"
         set ProtoEventHead[223] = 6
@@ -14146,10 +14304,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[223] = "돌아올 길을 사서 들을까, 자기 간격부터 익힐까?"
         set ProtoEventIcon[223] = "war3mapImported\\UI_EventThumb_Card_SAOFD_argo_Art.blp"
         set ProtoEventImageAspect[223] = 1.777778
-        set ProtoEventRequired[223] = 0
-        set ProtoEventRequiredChoice[223] = 0
+        set ProtoEventRequired[223] = 231
+        set ProtoEventRequiredChoice[223] = 1
         set ProtoEventRequiredCard[223] = 0
         set ProtoEventFailure[223] = ""
+        set ProtoBranchOpenFirst[892] = 227
+        set ProtoEventOpenNext[227] = 0
+        set ProtoBranchOpens[892] = "후속 사건 개방 · 돌아갈 길 다음에 묻는 것|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[892] = "아르고와 함께 다음 길을 준비한다"
         set ProtoBranchResult[892] = "아르고는 돌아올 갈림길만 짚고 상대의 위험은 다른 질문으로 남겨 두었다."
         set ProtoBranchCard[892] = 370
@@ -14180,6 +14341,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[894] = 0
         set ProtoBranchPotions[894] = 0
         set ProtoBranchChance[894] = 100
+        set ProtoEventHeadChoice[224] = 1
         set ProtoEventKey[224] = "sao_argo_same_answer"
         set ProtoEventName[224] = "옆 사람도 들은 답"
         set ProtoEventHead[224] = 6
@@ -14232,6 +14394,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[898] = 0
         set ProtoBranchPotions[898] = 0
         set ProtoBranchChance[898] = 100
+        set ProtoEventHeadChoice[225] = 1
         set ProtoEventKey[225] = "sao_girl_unanswered"
         set ProtoEventName[225] = "이름 다음의 질문"
         set ProtoEventHead[225] = 6
@@ -14284,6 +14447,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[902] = 0
         set ProtoBranchPotions[902] = 0
         set ProtoBranchChance[902] = 100
+        set ProtoEventHeadChoice[226] = 1
         set ProtoEventKey[226] = "sao_first_party_step"
         set ProtoEventName[226] = "둘이서도 혼자 걷는 사람"
         set ProtoEventHead[226] = 6
@@ -14336,6 +14500,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[906] = 0
         set ProtoBranchPotions[906] = 0
         set ProtoBranchChance[906] = 100
+        set ProtoEventChoicePath[227] = 1
         set ProtoEventKey[227] = "sao_argo_second_question"
         set ProtoEventName[227] = "돌아갈 길 다음에 묻는 것"
         set ProtoEventHead[227] = 6
@@ -14388,6 +14553,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[910] = 0
         set ProtoBranchPotions[910] = 0
         set ProtoBranchChance[910] = 100
+        set ProtoEventHeadChoice[228] = 1
         set ProtoEventKey[228] = "sao_tied_fishing_line"
         set ProtoEventName[228] = "두 번째 매듭을 묶기 전에"
         set ProtoEventHead[228] = 6
@@ -14440,6 +14606,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[914] = 0
         set ProtoBranchPotions[914] = 0
         set ProtoBranchChance[914] = 100
+        set ProtoEventHeadChoice[229] = 1
         set ProtoEventKey[229] = "sao_verified_price"
         set ProtoEventName[229] = "같은 값표로 묶지 않을 것"
         set ProtoEventHead[229] = 6
@@ -14579,6 +14746,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[100] = "사람들의 시선이 |cFF006B8F키리토|r에게 집중된다. 그는 자신의 지식을 과장해 다른 시험 참가자들에게 향한 적의를 끌어온다."
         set ProtoDialogueLabel[101] = "자신에게 책임을 돌리는 말을 하고 앞에 선다."
         set ProtoDialogueResult[101] = "공략대원들은 |cFF006B8F키리토|r를 둘러싸고 비난한다. 그는 해명으로 다른 사람까지 끌어들이지 않고 그 시선을 받는다."
+        set ProtoBranchOpenFirst[924] = 223
+        set ProtoEventOpenNext[223] = 0
+        set ProtoBranchOpens[924] = "후속 사건 개방 · 강한 상대보다 돌아갈 길|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[924] = "|cFF006B8F키리토|r · “내 공격 뒤에 이어 줘.”"
         set ProtoBranchResult[924] = "|cFF006B8F아스나|r는 알겠다고 답하며 |cFF80560C검|r을 잡는다. 두 사람은 서로의 공격이 끝나는 순간을 살핀다."
         set ProtoBranchCard[924] = 363
@@ -15306,6 +15476,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[974] = 0
         set ProtoBranchPotions[974] = 0
         set ProtoBranchChance[974] = 100
+        set ProtoEventHeadChoice[244] = 1
         set ProtoEventKey[244] = "aincrad_epilogue_memory"
         set ProtoEventName[244] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[244] = 6
@@ -16189,6 +16360,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[1694] = 0
         set ProtoEvolutionGoal[1694] = 0.00
         call ProtoSetEffect(1694, 36, 12.00, false)
+        set ProtoEventChoicePath[245] = 1
         set ProtoEventKey[245] = "gbf_airship_crate"
         set ProtoEventName[245] = "묶이지 않은 화물"
         set ProtoEventHead[245] = 7
@@ -16207,10 +16379,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[245] = "화물이 미끄러져 다음 비행 준비가 늦어진다."
         set ProtoEventIcon[245] = "war3mapImported\\UI_EventThumb_Head_Official_zegagrande_Icon.blp"
         set ProtoEventImageAspect[245] = 1.777778
-        set ProtoEventRequired[245] = 0
-        set ProtoEventRequiredChoice[245] = 0
+        set ProtoEventRequired[245] = 258
+        set ProtoEventRequiredChoice[245] = 2
         set ProtoEventRequiredCard[245] = 0
         set ProtoEventFailure[245] = ""
+        set ProtoBranchOpenFirst[980] = 246
+        set ProtoEventOpenNext[246] = 0
+        set ProtoBranchOpens[980] = "후속 사건 개방 · 확보한 갑판의 자리|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[980] = "보수 자재를 사고 카타리나와 화물을 고정한다"
         set ProtoBranchResult[980] = "보수 자재를 사고 카타리나와 화물을 고정했다. 카타리나는 묶인 상자와 |cFF006B8F루리아|r 쪽의 비워 둔 통로를 따로 확인했다."
         set ProtoBranchCard[980] = 426
@@ -16241,6 +16416,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[982] = 0
         set ProtoBranchPotions[982] = 0
         set ProtoBranchChance[982] = 100
+        set ProtoEventChoicePath[246] = 1
         set ProtoEventKey[246] = "gbf_deck_position"
         set ProtoEventName[246] = "확보한 갑판의 자리"
         set ProtoEventHead[246] = 7
@@ -16293,6 +16469,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[986] = 0
         set ProtoBranchPotions[986] = 0
         set ProtoBranchChance[986] = 100
+        set ProtoEventHeadChoice[247] = 1
         set ProtoEventKey[247] = "gbf_broken_focus"
         set ProtoEventName[247] = "흐트러진 집중"
         set ProtoEventHead[247] = 7
@@ -16345,6 +16522,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[990] = 0
         set ProtoBranchPotions[990] = 0
         set ProtoBranchChance[990] = 100
+        set ProtoEventHeadChoice[248] = 1
         set ProtoEventKey[248] = "gbf_sealed_report"
         set ProtoEventName[248] = "봉인 무기의 조사 기록"
         set ProtoEventHead[248] = 7
@@ -16367,6 +16545,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[248] = 0
         set ProtoEventRequiredCard[248] = 0
         set ProtoEventFailure[248] = ""
+        set ProtoBranchOpenFirst[992] = 250
+        set ProtoEventOpenNext[250] = 0
+        set ProtoBranchOpens[992] = "후속 사건 개방 · 돌아올 자리의 신호|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[992] = "제타와 위험 구역의 |cFF80560C기록|r을 확인한다"
         set ProtoBranchResult[992] = "제타와 위험 구역의 |cFF80560C기록|r을 확인했다. 제타는 확인할 항목만 표시하고 알베스의 창을 네 짐 목록에 넣지 않았다."
         set ProtoBranchCard[992] = 431
@@ -16397,6 +16578,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[994] = 0
         set ProtoBranchPotions[994] = 0
         set ProtoBranchChance[994] = 100
+        set ProtoEventHeadChoice[249] = 1
         set ProtoEventKey[249] = "gbf_alchemy_sample"
         set ProtoEventName[249] = "연금 조정의 견본"
         set ProtoEventHead[249] = 7
@@ -16449,6 +16631,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[998] = 0
         set ProtoBranchPotions[998] = 0
         set ProtoBranchChance[998] = 100
+        set ProtoEventChoicePath[250] = 1
         set ProtoEventKey[250] = "gbf_return_signal"
         set ProtoEventName[250] = "돌아올 자리의 신호"
         set ProtoEventHead[250] = 7
@@ -16501,6 +16684,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1002] = 0
         set ProtoBranchPotions[1002] = 0
         set ProtoBranchChance[1002] = 100
+        set ProtoEventHeadChoice[251] = 1
         set ProtoEventKey[251] = "gbf_rosetta_dates"
         set ProtoEventName[251] = "같은 길에 다른 날짜"
         set ProtoEventHead[251] = 7
@@ -16553,6 +16737,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1006] = 0
         set ProtoBranchPotions[1006] = 0
         set ProtoBranchChance[1006] = 100
+        set ProtoEventHeadChoice[252] = 1
         set ProtoEventKey[252] = "gbf_rolan_two_questions"
         set ProtoEventName[252] = "가려던 곳과 물어본 곳"
         set ProtoEventHead[252] = 7
@@ -16605,6 +16790,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1010] = 0
         set ProtoBranchPotions[1010] = 0
         set ProtoBranchChance[1010] = 100
+        set ProtoEventHeadChoice[253] = 1
         set ProtoEventKey[253] = "gbf_lancelot_shift"
         set ProtoEventName[253] = "교대할 사람이 없는 자리"
         set ProtoEventHead[253] = 7
@@ -16657,6 +16843,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1014] = 0
         set ProtoBranchPotions[1014] = 0
         set ProtoBranchChance[1014] = 100
+        set ProtoEventHeadChoice[254] = 1
         set ProtoEventKey[254] = "gbf_percival_load"
         set ProtoEventName[254] = "가벼운 짐의 무거운 몫"
         set ProtoEventHead[254] = 7
@@ -16709,6 +16896,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1018] = 0
         set ProtoBranchPotions[1018] = 0
         set ProtoBranchChance[1018] = 100
+        set ProtoEventHeadChoice[255] = 1
         set ProtoEventKey[255] = "gbf_yodarha_foot"
         set ProtoEventName[255] = "낚싯대보다 먼저 피한 발"
         set ProtoEventHead[255] = 7
@@ -16761,6 +16949,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1022] = 0
         set ProtoBranchPotions[1022] = 0
         set ProtoBranchChance[1022] = 100
+        set ProtoEventHeadChoice[256] = 1
         set ProtoEventKey[256] = "gbf_io_audience"
         set ProtoEventName[256] = "다른 쪽을 보고 있던 관객"
         set ProtoEventHead[256] = 7
@@ -16813,6 +17002,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1026] = 0
         set ProtoBranchPotions[1026] = 0
         set ProtoBranchChance[1026] = 100
+        set ProtoEventHeadChoice[257] = 1
         set ProtoEventKey[257] = "gbf_rolan_next_request"
         set ProtoEventName[257] = "먼저 물었던 목적의 다음 줄"
         set ProtoEventHead[257] = 7
@@ -16900,6 +17090,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1032] = 0
         set ProtoBranchPotions[1032] = 0
         set ProtoBranchChance[1032] = 100
+        set ProtoBranchOpenFirst[1033] = 245
+        set ProtoEventOpenNext[245] = 0
+        set ProtoBranchOpens[1033] = "후속 사건 개방 · 묶이지 않은 화물|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[1033] = "단장 · “카타리나가 걱정하지 않게 너무 앞서가진 말자.”"
         set ProtoBranchResult[1033] = "|cFF006B8F루리아|r가 호위 기사 카타리나 쪽을 돌아본다. 새 풍경에 들떴어도 동료들과 함께 움직이겠다고 답한다."
         set ProtoBranchCard[1033] = 449
@@ -17672,6 +17865,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1086] = 0
         set ProtoBranchPotions[1086] = 0
         set ProtoBranchChance[1086] = 100
+        set ProtoEventHeadChoice[272] = 1
         set ProtoEventKey[272] = "zegagrande_epilogue_memory"
         set ProtoEventName[272] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[272] = 7
@@ -17929,6 +18123,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[1702] = 0
         set ProtoEvolutionGoal[1702] = 0.00
         call ProtoSetEffect(1702, 1, 6.00, false)
+        set ProtoEventHeadChoice[273] = 1
         set ProtoEventKey[273] = "common_five_coin"
         set ProtoEventName[273] = "벽에 적힌 전화번호"
         set ProtoEventHead[273] = 0
@@ -17951,6 +18146,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[273] = 0
         set ProtoEventRequiredCard[273] = 0
         set ProtoEventFailure[273] = ""
+        set ProtoBranchOpenFirst[1092] = 275
+        set ProtoEventOpenNext[275] = 0
+        set ProtoBranchOpens[1092] = "후속 사건 개방 · 연락이 닿지 않는 의뢰인|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1092] = "야토와 함께 다음 길을 준비한다"
         set ProtoBranchResult[1092] = "야토에게 작은 의뢰를 맡기고 함께 길목을 살폈다. 그가 대단한 보상보다 |cFF80560C약속|r한 일을 끝내는 모습을 보며 첫 경험을 얻었다."
         set ProtoBranchCard[1092] = 490
@@ -17981,6 +18179,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1094] = 0
         set ProtoBranchPotions[1094] = 0
         set ProtoBranchChance[1094] = 100
+        set ProtoEventHeadChoice[274] = 1
         set ProtoEventKey[274] = "common_shrine_work"
         set ProtoEventName[274] = "시험철의 신사 심부름"
         set ProtoEventHead[274] = 0
@@ -18033,6 +18232,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1098] = 0
         set ProtoBranchPotions[1098] = 0
         set ProtoBranchChance[1098] = 100
+        set ProtoEventChoicePath[275] = 1
         set ProtoEventKey[275] = "common_lost_address"
         set ProtoEventName[275] = "연락이 닿지 않는 의뢰인"
         set ProtoEventHead[275] = 0
@@ -18085,6 +18285,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1102] = 0
         set ProtoBranchPotions[1102] = 0
         set ProtoBranchChance[1102] = 100
+        set ProtoEventHeadChoice[276] = 1
         set ProtoEventKey[276] = "common_fur_scale"
         set ProtoEventName[276] = "저울 앞의 모피"
         set ProtoEventHead[276] = 0
@@ -18127,6 +18328,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1105] = 0
         set ProtoBranchPotions[1105] = 0
         set ProtoBranchChance[1105] = 100
+        set ProtoBranchOpenFirst[1106] = 277
+        set ProtoEventOpenNext[277] = 278
+        set ProtoEventOpenNext[278] = 0
+        set ProtoBranchOpens[1106] = "후속 사건 개방 · 다른 구매자의 장부|n다음 사건 선택에서 진행 가능 · 행동력 6|n후속 사건 개방 · 수익 뒤의 영수증|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1106] = "호로의 지적대로 재협상을 시도한다"
         set ProtoBranchResult[1106] = "호로가 짚은 저울의 차이를 근거로 조건을 다시 제시했다. 상대가 거래를 받아들여 말 뒤에 숨은 의도를 읽는 경험을 얻었다."
         set ProtoBranchCard[1106] = 493
@@ -18147,6 +18352,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1107] = 0
         set ProtoBranchPotions[1107] = 0
         set ProtoBranchChance[1107] = 100
+        set ProtoEventChoicePath[277] = 1
         set ProtoEventKey[277] = "common_other_buyer"
         set ProtoEventName[277] = "다른 구매자의 장부"
         set ProtoEventHead[277] = 0
@@ -18199,6 +18405,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1110] = 0
         set ProtoBranchPotions[1110] = 0
         set ProtoBranchChance[1110] = 100
+        set ProtoEventChoicePath[278] = 1
         set ProtoEventKey[278] = "common_good_receipt"
         set ProtoEventName[278] = "수익 뒤의 영수증"
         set ProtoEventHead[278] = 0
@@ -18251,6 +18458,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1114] = 0
         set ProtoBranchPotions[1114] = 0
         set ProtoBranchChance[1114] = 100
+        set ProtoEventHeadChoice[279] = 1
         set ProtoEventKey[279] = "common_rain_cargo"
         set ProtoEventName[279] = "비 맞은 화물 덮개"
         set ProtoEventHead[279] = 0
@@ -18303,6 +18511,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1118] = 0
         set ProtoBranchPotions[1118] = 0
         set ProtoBranchChance[1118] = 100
+        set ProtoEventHeadChoice[280] = 1
         set ProtoEventKey[280] = "common_northern_route"
         set ProtoEventName[280] = "북쪽으로 가는 마차"
         set ProtoEventHead[280] = 0
@@ -18355,6 +18564,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1122] = 0
         set ProtoBranchPotions[1122] = 0
         set ProtoBranchChance[1122] = 100
+        set ProtoEventHeadChoice[281] = 1
         set ProtoEventKey[281] = "common_torn_poster"
         set ProtoEventName[281] = "얼굴이 지워진 수배서"
         set ProtoEventHead[281] = 0
@@ -18377,6 +18587,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[281] = 0
         set ProtoEventRequiredCard[281] = 0
         set ProtoEventFailure[281] = ""
+        set ProtoBranchOpenFirst[1124] = 282
+        set ProtoEventOpenNext[282] = 0
+        set ProtoBranchOpens[1124] = "후속 사건 개방 · 갈림길 앞에서 내린 검|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1124] = "라그나와 막힌 길의 앞쪽을 맡는다"
         set ProtoBranchResult[1124] = "라그나가 짐이 지나갈 틈을 먼저 열었다. |cFF80560C검|r이 닿은 뒤에도 움직임을 끊지 않는 모습을 따라 보지만, 길 끝에 남은 큰 흔적까지 맡아야 한다."
         set ProtoBranchCard[1124] = 496
@@ -18407,6 +18620,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1126] = 0
         set ProtoBranchPotions[1126] = 0
         set ProtoBranchChance[1126] = 100
+        set ProtoEventChoicePath[282] = 1
         set ProtoEventKey[282] = "common_lowered_blade"
         set ProtoEventName[282] = "갈림길 앞에서 내린 검"
         set ProtoEventHead[282] = 0
@@ -18449,6 +18663,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1129] = 0
         set ProtoBranchPotions[1129] = 0
         set ProtoBranchChance[1129] = 100
+        set ProtoEventHeadChoice[283] = 1
         set ProtoEventKey[283] = "common_nazrin_signal"
         set ProtoEventName[283] = "진흙 아래의 반응"
         set ProtoEventHead[283] = 0
@@ -18491,6 +18706,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1133] = 0
         set ProtoBranchPotions[1133] = 0
         set ProtoBranchChance[1133] = 100
+        set ProtoBranchOpenFirst[1134] = 284
+        set ProtoEventOpenNext[284] = 285
+        set ProtoEventOpenNext[285] = 0
+        set ProtoBranchOpens[1134] = "후속 사건 개방 · 상자를 연 뒤의 흔적|n다음 사건 선택에서 진행 가능 · 행동력 6|n후속 사건 개방 · 고철 옆에 남은 표시|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1134] = "작업비를 내고 강한 적이 남은 깊은 자리를 판다"
         set ProtoBranchResult[1134] = "고철 옆에서 의뢰 쪽지의 표식이 붙은 상자를 찾아 상인에게 넘겼다. |cFF80560C약속|r한 보수와 탐색 경험을 얻었지만 깊은 구역에 남은 강한 적까지 사라지지는 않았다."
         set ProtoBranchCard[1134] = 498
@@ -18511,6 +18730,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1135] = 0
         set ProtoBranchPotions[1135] = 0
         set ProtoBranchChance[1135] = 100
+        set ProtoEventChoicePath[284] = 1
         set ProtoEventKey[284] = "common_nazrin_found"
         set ProtoEventName[284] = "상자를 연 뒤의 흔적"
         set ProtoEventHead[284] = 0
@@ -18563,6 +18783,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1138] = 0
         set ProtoBranchPotions[1138] = 0
         set ProtoBranchChance[1138] = 100
+        set ProtoEventChoicePath[285] = 1
         set ProtoEventKey[285] = "common_nazrin_false"
         set ProtoEventName[285] = "고철 옆에 남은 표시"
         set ProtoEventHead[285] = 0
@@ -19477,6 +19698,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[1712] = 0
         set ProtoEvolutionGoal[1712] = 0.00
         call ProtoSetEffect(1712, 35, 6.00, false)
+        set ProtoEventChoicePath[286] = 1
         set ProtoEventKey[286] = "ft_request_board"
         set ProtoEventName[286] = "무너진 게시판 아래"
         set ProtoEventHead[286] = 8
@@ -19491,14 +19713,17 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[286] = 0
         set ProtoEventEpilogue[286] = 0
         set ProtoEventGrade[286] = 1
-        set ProtoEventStory[286] = "길드를 다시 정리하던 중 의뢰서와 수송 짐이 뒤섞여 있다. |cFF006B8F나츠|r는 짐을 치울 테니 밖의 위험을 맡아 달라고 하고 |cFF006B8F루시|r는 주소부터 대조하자고 한다.|n|n샤를은 해피가 옮길 짐의 무게와 지나갈 곳을 먼저 살핀다. 같은 마당에서 운반 길·의뢰서·수송 동선 중 무엇부터 맡을까?"
+        set ProtoEventStory[286] = "길드를 다시 정리하던 중 의뢰서와 수송 짐이 뒤섞여 있다. |cFF006B8F나츠|r는 짐을 치울 테니 밖의 위험을 맡아 달라고 하고 |cFF006B8F루시|r는 주소부터 대조하자고 한다.|n|n해피는 옮길 짐의 무게와 지나갈 곳을 먼저 살핀다. 같은 마당에서 운반 길·의뢰서·수송 동선 중 무엇부터 맡을까?"
         set ProtoEventIntro[286] = "길드 마당에 흩어진 물건들 사이로 엉킨 의뢰서들이 널브러져 있다."
         set ProtoEventIcon[286] = "war3mapImported\\UI_EventThumb_Head_Official_magnolia_Icon.blp"
         set ProtoEventImageAspect[286] = 1.777778
-        set ProtoEventRequired[286] = 0
-        set ProtoEventRequiredChoice[286] = 0
+        set ProtoEventRequired[286] = 316
+        set ProtoEventRequiredChoice[286] = 2
         set ProtoEventRequiredCard[286] = 0
         set ProtoEventFailure[286] = ""
+        set ProtoBranchOpenFirst[1144] = 287
+        set ProtoEventOpenNext[287] = 0
+        set ProtoBranchOpens[1144] = "후속 사건 개방 · 짐을 기다리는 사람들|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1144] = "|cFF006B8F나츠|r와 짐을 옮길 길을 연다"
         set ProtoBranchResult[1144] = "|cFF006B8F나츠|r와 짐을 옮길 길을 열었다. 나츠는 목재를 들기 전에 |cFF006B8F루시|r의 의뢰서를 다른 쪽으로 밀었고 아직 맡지 않은 수송 짐은 샤를 곁에 남겼다."
         set ProtoBranchCard[1144] = 503
@@ -19509,6 +19734,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1144] = 0
         set ProtoBranchPotions[1144] = 0
         set ProtoBranchChance[1144] = 100
+        set ProtoBranchOpenFirst[1145] = 288
+        set ProtoEventOpenNext[288] = 0
+        set ProtoBranchOpens[1145] = "후속 사건 개방 · 주소가 다른 두 장의 의뢰서|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1145] = "|cFF006B8F루시|r와 의뢰서 주소를 대조한다"
         set ProtoBranchResult[1145] = "|cFF006B8F루시|r와 의뢰서 주소를 대조했다. 루시는 새 종이와 원래 의뢰서를 겹쳐 보고 같은 짐이라도 받는 사람이 다른 줄을 먼저 표시했다."
         set ProtoBranchCard[1145] = 504
@@ -19519,6 +19747,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1145] = 0
         set ProtoBranchPotions[1145] = 0
         set ProtoBranchChance[1145] = 100
+        set ProtoBranchOpenFirst[1146] = 289
+        set ProtoEventOpenNext[289] = 0
+        set ProtoBranchOpens[1146] = "후속 사건 개방 · 생선보다 먼저 챙길 짐|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1146] = "샤를에게 수송 경로의 위험 요소를 묻는다"
         set ProtoBranchResult[1146] = "샤를이 수송 경로의 험난한 지형과 장애물을 꼼꼼하게 분석해 줍니다. 덕분에 길드원들은 예상치 못한 함정을 피해 안전하게 이동할 수 있다."
         set ProtoBranchCard[1146] = 509
@@ -19529,6 +19760,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1146] = 0
         set ProtoBranchPotions[1146] = 0
         set ProtoBranchChance[1146] = 100
+        set ProtoEventChoicePath[287] = 1
         set ProtoEventKey[287] = "ft_timber"
         set ProtoEventName[287] = "짐을 기다리는 사람들"
         set ProtoEventHead[287] = 8
@@ -19581,6 +19813,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1150] = 0
         set ProtoBranchPotions[1150] = 0
         set ProtoBranchChance[1150] = 100
+        set ProtoEventChoicePath[288] = 1
         set ProtoEventKey[288] = "ft_receipt"
         set ProtoEventName[288] = "주소가 다른 두 장의 의뢰서"
         set ProtoEventHead[288] = 8
@@ -19633,6 +19866,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1154] = 0
         set ProtoBranchPotions[1154] = 0
         set ProtoBranchChance[1154] = 100
+        set ProtoEventChoicePath[289] = 1
         set ProtoEventKey[289] = "ft_fish"
         set ProtoEventName[289] = "생선보다 먼저 챙길 짐"
         set ProtoEventHead[289] = 8
@@ -19685,6 +19919,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1158] = 0
         set ProtoBranchPotions[1158] = 0
         set ProtoBranchChance[1158] = 100
+        set ProtoEventHeadChoice[290] = 1
         set ProtoEventKey[290] = "ft_new_board"
         set ProtoEventName[290] = "기록을 익힌 손이 다시 찾은 게시판"
         set ProtoEventHead[290] = 8
@@ -19737,6 +19972,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1162] = 0
         set ProtoBranchPotions[1162] = 0
         set ProtoBranchChance[1162] = 100
+        set ProtoEventHeadChoice[291] = 1
         set ProtoEventKey[291] = "ft_armory"
         set ProtoEventName[291] = "짐칸에 들어가지 않는 갑옷"
         set ProtoEventHead[291] = 8
@@ -19789,6 +20025,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1166] = 0
         set ProtoBranchPotions[1166] = 0
         set ProtoBranchChance[1166] = 100
+        set ProtoEventHeadChoice[292] = 1
         set ProtoEventKey[292] = "ft_river"
         set ProtoEventName[292] = "불어난 물과 젖은 의뢰서"
         set ProtoEventHead[292] = 8
@@ -19811,6 +20048,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[292] = 0
         set ProtoEventRequiredCard[292] = 0
         set ProtoEventFailure[292] = ""
+        set ProtoBranchOpenFirst[1168] = 293
+        set ProtoEventOpenNext[293] = 0
+        set ProtoBranchOpens[1168] = "후속 사건 개방 · 번진 글씨를 읽는 방법|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1168] = "|cFF006B8F그레이|r, 구조물을 세워 물길을 가로질러 빠르게 전진하자"
         set ProtoBranchResult[1168] = "|cFF006B8F그레이|r가 얼음 구조물을 세워 물살을 견디며 빠르게 길을 개척한다. 거친 물길을 통과하며 이동 경로상의 장애물을 효과적으로 제거했다."
         set ProtoBranchCard[1168] = 517
@@ -19841,6 +20081,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1170] = 0
         set ProtoBranchPotions[1170] = 0
         set ProtoBranchChance[1170] = 100
+        set ProtoEventChoicePath[293] = 1
         set ProtoEventKey[293] = "ft_wet_receipt"
         set ProtoEventName[293] = "번진 글씨를 읽는 방법"
         set ProtoEventHead[293] = 8
@@ -19893,6 +20134,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1174] = 0
         set ProtoBranchPotions[1174] = 0
         set ProtoBranchChance[1174] = 100
+        set ProtoEventHeadChoice[294] = 1
         set ProtoEventKey[294] = "ft_controlled_flame"
         set ProtoEventName[294] = "잘못 태우면 안 되는 것"
         set ProtoEventHead[294] = 8
@@ -19945,6 +20187,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1178] = 0
         set ProtoBranchPotions[1178] = 0
         set ProtoBranchChance[1178] = 100
+        set ProtoEventHeadChoice[295] = 1
         set ProtoEventKey[295] = "ft_iron_lunch"
         set ProtoEventName[295] = "아직 쓰는 철과 먹을 철"
         set ProtoEventHead[295] = 8
@@ -19997,6 +20240,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1182] = 0
         set ProtoBranchPotions[1182] = 0
         set ProtoBranchChance[1182] = 100
+        set ProtoEventHeadChoice[296] = 1
         set ProtoEventKey[296] = "ft_two_umbrellas"
         set ProtoEventName[296] = "한 사람에게 모인 두 우산"
         set ProtoEventHead[296] = 8
@@ -20049,6 +20293,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1186] = 0
         set ProtoBranchPotions[1186] = 0
         set ProtoBranchChance[1186] = 100
+        set ProtoEventHeadChoice[297] = 1
         set ProtoEventKey[297] = "ft_magazine_queue"
         set ProtoEventName[297] = "의뢰보다 먼저 내민 잡지"
         set ProtoEventHead[297] = 8
@@ -20101,6 +20346,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1190] = 0
         set ProtoBranchPotions[1190] = 0
         set ProtoBranchChance[1190] = 100
+        set ProtoEventHeadChoice[298] = 1
         set ProtoEventKey[298] = "ft_laxus_short_reply"
         set ProtoEventName[298] = "돌아오라는 말이 빠진 답"
         set ProtoEventHead[298] = 8
@@ -20153,6 +20399,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1194] = 0
         set ProtoBranchPotions[1194] = 0
         set ProtoBranchChance[1194] = 100
+        set ProtoEventHeadChoice[299] = 1
         set ProtoEventKey[299] = "ft_gildarts_wall"
         set ProtoEventName[299] = "문이 있던 쪽의 부서진 벽"
         set ProtoEventHead[299] = 8
@@ -20205,6 +20452,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1198] = 0
         set ProtoBranchPotions[1198] = 0
         set ProtoBranchChance[1198] = 100
+        set ProtoEventHeadChoice[300] = 1
         set ProtoEventKey[300] = "ft_lucy_unfinished"
         set ProtoEventName[300] = "결말에 도착하지 못한 독자"
         set ProtoEventHead[300] = 8
@@ -20257,6 +20505,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1202] = 0
         set ProtoBranchPotions[1202] = 0
         set ProtoBranchChance[1202] = 100
+        set ProtoEventHeadChoice[301] = 1
         set ProtoEventKey[301] = "ft_mirajane_next_note"
         set ProtoEventName[301] = "먼저 목적을 묻던 손님의 다음 방문"
         set ProtoEventHead[301] = 8
@@ -21151,6 +21400,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1264] = 0
         set ProtoBranchPotions[1264] = 0
         set ProtoBranchChance[1264] = 100
+        set ProtoBranchOpenFirst[1265] = 286
+        set ProtoEventOpenNext[286] = 0
+        set ProtoBranchOpens[1265] = "후속 사건 개방 · 무너진 게시판 아래|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[1265] = "|cFF006B8F루시|r 하트필리아 · “무슨 의뢰길래 벌써 그렇게 들떠 있어?”"
         set ProtoBranchResult[1265] = "|cFF006B8F나츠|r가 다음 일을 설명하려 한다. |cFF006B8F루시|r는 두 사람의 익숙한 소란 속으로 들어간다."
         set ProtoBranchCard[1265] = 1710
@@ -21171,6 +21423,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1266] = 0
         set ProtoBranchPotions[1266] = 0
         set ProtoBranchChance[1266] = 100
+        set ProtoEventHeadChoice[317] = 1
         set ProtoEventKey[317] = "magnolia_epilogue_memory"
         set ProtoEventName[317] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[317] = 8
@@ -22175,6 +22428,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[1726] = 0
         set ProtoEvolutionGoal[1726] = 0.00
         call ProtoSetEffect(1726, 12, 2.00, false)
+        set ProtoEventChoicePath[318] = 1
         set ProtoEventKey[318] = "bl_shop_boxes"
         set ProtoEventName[318] = "수취인이 없는 짐"
         set ProtoEventHead[318] = 9
@@ -22193,10 +22447,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[318] = "|cFF006B8F우라하라|r 상점 앞에 네 갈래 길로 보낼 짐이 쌓여 있다."
         set ProtoEventIcon[318] = "war3mapImported\\UI_EventThumb_Head_Official_karakura_Icon.blp"
         set ProtoEventImageAspect[318] = 1.777778
-        set ProtoEventRequired[318] = 0
-        set ProtoEventRequiredChoice[318] = 0
+        set ProtoEventRequired[318] = 339
+        set ProtoEventRequiredChoice[318] = 1
         set ProtoEventRequiredCard[318] = 0
         set ProtoEventFailure[318] = ""
+        set ProtoBranchOpenFirst[1272] = 319
+        set ProtoEventOpenNext[319] = 0
+        set ProtoBranchOpens[1272] = "후속 사건 개방 · 지붕 끝의 발자국|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1272] = "|cFF006B8F이치고|r와 앞길을 열고 짐을 옮긴다"
         set ProtoBranchResult[1272] = "|cFF006B8F이치고|r와 앞길을 열고 짐을 옮겼다. 이치고는 옮길 짐을 들기 전에 가려진 수취인 쪽지를 다른 상자와 나눴고 콘은 아직 짐 사이에 남았다."
         set ProtoBranchCard[1272] = 571
@@ -22207,6 +22464,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1272] = 0
         set ProtoBranchPotions[1272] = 0
         set ProtoBranchChance[1272] = 100
+        set ProtoBranchOpenFirst[1273] = 320
+        set ProtoEventOpenNext[320] = 0
+        set ProtoBranchOpens[1273] = "후속 사건 개방 · 다시 읽을 수 있는 주소|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1273] = "우류와 젖은 배송 쪽지를 복구한다"
         set ProtoBranchResult[1273] = "우류와 젖은 배송 쪽지를 복구했다. 우류는 젖은 쪽지의 읽히는 선만 남겼고 모르는 주소를 |cFF006B8F이치고|r가 짐작한 이름으로 채우지 않았다."
         set ProtoBranchCard[1273] = 572
@@ -22217,6 +22477,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1273] = 0
         set ProtoBranchPotions[1273] = 0
         set ProtoBranchChance[1273] = 100
+        set ProtoBranchOpenFirst[1274] = 321
+        set ProtoEventOpenNext[321] = 0
+        set ProtoBranchOpens[1274] = "후속 사건 개방 · 사람이 지나간 뒤의 골목|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1274] = "오리히메에게 운반대 수리를 부탁한다"
         set ProtoBranchResult[1274] = "오리히메가 정성스럽게 운반대를 고치며 배송 경로를 확보한다. 그녀의 세심한 손길 덕분에 잊혔던 과거의 조각이 떠오른다."
         set ProtoBranchCard[1274] = 573
@@ -22227,6 +22490,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1274] = 0
         set ProtoBranchPotions[1274] = 0
         set ProtoBranchChance[1274] = 100
+        set ProtoEventChoicePath[319] = 1
         set ProtoEventKey[319] = "bl_rooftop_marks"
         set ProtoEventName[319] = "지붕 끝의 발자국"
         set ProtoEventHead[319] = 9
@@ -22279,6 +22543,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1278] = 0
         set ProtoBranchPotions[1278] = 0
         set ProtoBranchChance[1278] = 100
+        set ProtoEventChoicePath[320] = 1
         set ProtoEventKey[320] = "bl_return_receipt"
         set ProtoEventName[320] = "다시 읽을 수 있는 주소"
         set ProtoEventHead[320] = 9
@@ -22331,6 +22596,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1282] = 0
         set ProtoBranchPotions[1282] = 0
         set ProtoBranchChance[1282] = 100
+        set ProtoEventChoicePath[321] = 1
         set ProtoEventKey[321] = "bl_closed_lane"
         set ProtoEventName[321] = "사람이 지나간 뒤의 골목"
         set ProtoEventHead[321] = 9
@@ -22383,6 +22649,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1286] = 0
         set ProtoBranchPotions[1286] = 0
         set ProtoBranchChance[1286] = 100
+        set ProtoEventHeadChoice[322] = 1
         set ProtoEventKey[322] = "bl_light_parcel"
         set ProtoEventName[322] = "짐에서 빠져나온 인형"
         set ProtoEventHead[322] = 9
@@ -22435,6 +22702,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1290] = 0
         set ProtoBranchPotions[1290] = 0
         set ProtoBranchChance[1290] = 100
+        set ProtoEventHeadChoice[323] = 1
         set ProtoEventKey[323] = "bl_stray_alarm"
         set ProtoEventName[323] = "한곳에서 울리지 않는 경보"
         set ProtoEventHead[323] = 9
@@ -22457,6 +22725,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[323] = 0
         set ProtoEventRequiredCard[323] = 0
         set ProtoEventFailure[323] = ""
+        set ProtoBranchOpenFirst[1292] = 324
+        set ProtoEventOpenNext[324] = 0
+        set ProtoBranchOpens[1292] = "후속 사건 개방 · 표식 없는 귀환길|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1292] = "|cFF006B8F요루이치|r의 신호를 따라 좁은 길을 탐색한다"
         set ProtoBranchResult[1292] = "|cFF006B8F요루이치|r가 신속하게 이동하며 남긴 흔적을 따라가며 지형을 파악한다. 좁은 골목 사이의 숨겨진 통로에 대한 |cFF80560C기억|r이 떠오른다."
         set ProtoBranchCard[1292] = 610
@@ -22487,6 +22758,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1294] = 0
         set ProtoBranchPotions[1294] = 0
         set ProtoBranchChance[1294] = 100
+        set ProtoEventChoicePath[324] = 1
         set ProtoEventKey[324] = "bl_unmarked_corner"
         set ProtoEventName[324] = "표식 없는 귀환길"
         set ProtoEventHead[324] = 9
@@ -22539,6 +22811,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1298] = 0
         set ProtoBranchPotions[1298] = 0
         set ProtoBranchChance[1298] = 100
+        set ProtoEventHeadChoice[325] = 1
         set ProtoEventKey[325] = "bl_joint_training"
         set ProtoEventName[325] = "검을 내리기 전의 한 박자"
         set ProtoEventHead[325] = 9
@@ -22591,6 +22864,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1302] = 0
         set ProtoBranchPotions[1302] = 0
         set ProtoBranchChance[1302] = 100
+        set ProtoEventHeadChoice[326] = 1
         set ProtoEventKey[326] = "bl_ripped_sleeve"
         set ProtoEventName[326] = "바늘 끝에서 멈춘 말"
         set ProtoEventHead[326] = 9
@@ -22643,6 +22917,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1306] = 0
         set ProtoBranchPotions[1306] = 0
         set ProtoBranchChance[1306] = 100
+        set ProtoEventHeadChoice[327] = 1
         set ProtoEventKey[327] = "bl_chad_toy"
         set ProtoEventName[327] = "큰 손에 든 작은 인형"
         set ProtoEventHead[327] = 9
@@ -22695,6 +22970,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1310] = 0
         set ProtoBranchPotions[1310] = 0
         set ProtoBranchChance[1310] = 100
+        set ProtoEventHeadChoice[328] = 1
         set ProtoEventKey[328] = "bl_yuzu_supplies"
         set ProtoEventName[328] = "비워 둘 수 없는 한 칸"
         set ProtoEventHead[328] = 9
@@ -22747,6 +23023,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1314] = 0
         set ProtoBranchPotions[1314] = 0
         set ProtoBranchChance[1314] = 100
+        set ProtoEventHeadChoice[329] = 1
         set ProtoEventKey[329] = "bl_don_audience"
         set ProtoEventName[329] = "박수 뒤에 가려진 길"
         set ProtoEventHead[329] = 9
@@ -22799,6 +23076,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1318] = 0
         set ProtoBranchPotions[1318] = 0
         set ProtoBranchChance[1318] = 100
+        set ProtoEventHeadChoice[330] = 1
         set ProtoEventKey[330] = "bl_uncertain_kit"
         set ProtoEventName[330] = "끝까지 채워졌을까"
         set ProtoEventHead[330] = 9
@@ -22851,6 +23129,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1322] = 0
         set ProtoBranchPotions[1322] = 0
         set ProtoBranchChance[1322] = 100
+        set ProtoEventHeadChoice[331] = 1
         set ProtoEventKey[331] = "bl_tatsuki_space"
         set ProtoEventName[331] = "발 하나를 놓을 자리"
         set ProtoEventHead[331] = 9
@@ -22903,6 +23182,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1326] = 0
         set ProtoBranchPotions[1326] = 0
         set ProtoBranchChance[1326] = 100
+        set ProtoEventHeadChoice[332] = 1
         set ProtoEventKey[332] = "bl_empty_bench"
         set ProtoEventName[332] = "비어 보이는 벤치"
         set ProtoEventHead[332] = 9
@@ -22955,6 +23235,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1330] = 0
         set ProtoBranchPotions[1330] = 0
         set ProtoBranchChance[1330] = 100
+        set ProtoEventHeadChoice[333] = 1
         set ProtoEventKey[333] = "bl_welcome_at_door"
         set ProtoEventName[333] = "친구가 왔다는 한마디"
         set ProtoEventHead[333] = 9
@@ -23007,6 +23288,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1334] = 0
         set ProtoBranchPotions[1334] = 0
         set ProtoBranchChance[1334] = 100
+        set ProtoEventHeadChoice[334] = 1
         set ProtoEventKey[334] = "bl_small_shop_clerk"
         set ProtoEventName[334] = "작은 점원에게 맡긴 큰 짐"
         set ProtoEventHead[334] = 9
@@ -23059,6 +23341,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1338] = 0
         set ProtoBranchPotions[1338] = 0
         set ProtoBranchChance[1338] = 100
+        set ProtoEventHeadChoice[335] = 1
         set ProtoEventKey[335] = "bl_unasked_invitation"
         set ProtoEventName[335] = "초대받았다는 사람"
         set ProtoEventHead[335] = 9
@@ -23111,6 +23394,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1342] = 0
         set ProtoBranchPotions[1342] = 0
         set ProtoBranchChance[1342] = 100
+        set ProtoEventHeadChoice[336] = 1
         set ProtoEventKey[336] = "bl_urahara_return_list"
         set ProtoEventName[336] = "한 번 읽은 목록의 다음 빈칸"
         set ProtoEventHead[336] = 9
@@ -23312,6 +23596,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[339] = 1
         set ProtoEventCommonResult[339] = "거대한 호로 메노스까지 나타나자 |cFF006B8F이치고|r와 우류도 경쟁을 멈추고 함께 맞선다. 이치고가 메노스를 밀어내고 우류가 폭주하는 힘을 제어하는 데 힘을 보태면서 |cFF80560C마을|r은 위기를 넘긴다. 그러나 이 소동으로 사신 세계 소울 소사이어티에 |cFF006B8F루키아|r의 위치가 드러난다."
         set ProtoEventDialogueFirst[339] = 0
+        set ProtoBranchOpenFirst[1356] = 318
+        set ProtoEventOpenNext[318] = 0
+        set ProtoBranchOpens[1356] = "후속 사건 개방 · 수취인이 없는 짐|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[1356] = "|cFF006B8F이치고|r · 우류, 지금은 힘을 합치자."
         set ProtoBranchResult[1356] = "우류는 승부를 따질 때가 아니라는 말에 입을 다문 뒤 주변의 호로를 살핀다."
         set ProtoBranchCard[1356] = 573
@@ -24127,6 +24414,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1410] = 0
         set ProtoBranchPotions[1410] = 0
         set ProtoBranchChance[1410] = 100
+        set ProtoEventHeadChoice[353] = 1
         set ProtoEventKey[353] = "karakura_epilogue_memory"
         set ProtoEventName[353] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[353] = 9
@@ -25125,6 +25413,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1732] = 0.00
         call ProtoSetEffect(1732, 6, 50.00, false)
         call ProtoSetEffect(1732, 26, 8.00, false)
+        set ProtoEventHeadChoice[355] = 1
         set ProtoEventKey[355] = "hsr_dreamy_slots"
         set ProtoEventName[355] = "좋은꿈 슬롯머신 앞에서"
         set ProtoEventHead[355] = 10
@@ -25147,6 +25436,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[355] = 0
         set ProtoEventRequiredCard[355] = 0
         set ProtoEventFailure[355] = ""
+        set ProtoBranchOpenFirst[1420] = 356
+        set ProtoEventOpenNext[356] = 357
+        set ProtoEventOpenNext[357] = 0
+        set ProtoBranchOpens[1420] = "후속 사건 개방 · 멈춘 회전판 너머|n다음 사건 선택에서 진행 가능 · 행동력 6|n후속 사건 개방 · 맞지 않은 그림의 기억|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1420] = "코인을 바꾸고 |cFF006B8F어벤츄린|r과 한 번만 돌린다"
         set ProtoBranchResult[1420] = "코인을 바꾸고 |cFF006B8F어벤츄린|r과 한 번만 돌렸다. 그림이 같은 줄에서 멈추자 어벤츄린은 이번 몫과 다음 판의 돈을 나눠 보라고 했다. 너는 한 번만 돌리겠다는 말을 지키고 기다리는 손님에게 자리를 넘겼다."
         set ProtoBranchCard[1420] = 645
@@ -25167,6 +25460,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1421] = 0
         set ProtoBranchPotions[1421] = 0
         set ProtoBranchChance[1421] = 100
+        set ProtoBranchOpenFirst[1422] = 358
+        set ProtoEventOpenNext[358] = 0
+        set ProtoBranchOpens[1422] = "후속 사건 개방 · 코인 자루가 떠난 자리|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1422] = "|cFF006B8F미샤|r의 손짓을 따라 코인의 표식을 확인한다"
         set ProtoBranchResult[1422] = "|cFF006B8F미샤|r는 코인마다 새겨진 표식을 가리키며 돌아갈 길을 설명한다. 요란한 당첨 광고보다 작은 안내를 먼저 읽는 그의 시선을 |cFF80560C기억|r한다."
         set ProtoBranchCard[1422] = 652
@@ -25177,6 +25473,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1422] = 0
         set ProtoBranchPotions[1422] = 0
         set ProtoBranchChance[1422] = 100
+        set ProtoEventChoicePath[356] = 1
         set ProtoEventKey[356] = "hsr_after_win"
         set ProtoEventName[356] = "멈춘 회전판 너머"
         set ProtoEventHead[356] = 10
@@ -25229,6 +25526,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1426] = 0
         set ProtoBranchPotions[1426] = 0
         set ProtoBranchChance[1426] = 100
+        set ProtoEventChoicePath[357] = 1
         set ProtoEventKey[357] = "hsr_after_loss"
         set ProtoEventName[357] = "맞지 않은 그림의 기억"
         set ProtoEventHead[357] = 10
@@ -25281,6 +25579,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1430] = 0
         set ProtoBranchPotions[1430] = 0
         set ProtoBranchChance[1430] = 100
+        set ProtoEventChoicePath[358] = 1
         set ProtoEventKey[358] = "hsr_sorted_tokens"
         set ProtoEventName[358] = "코인 자루가 떠난 자리"
         set ProtoEventHead[358] = 10
@@ -25333,6 +25632,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1434] = 0
         set ProtoBranchPotions[1434] = 0
         set ProtoBranchChance[1434] = 100
+        set ProtoEventHeadChoice[359] = 1
         set ProtoEventKey[359] = "hsr_soulglad"
         set ProtoEventName[359] = "광고 아래의 솔글래드"
         set ProtoEventHead[359] = 10
@@ -25494,6 +25794,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1446] = 0
         set ProtoBranchPotions[1446] = 0
         set ProtoBranchChance[1446] = 100
+        set ProtoEventHeadChoice[362] = 1
         set ProtoEventKey[362] = "hsr_walking_sign"
         set ProtoEventName[362] = "계속 움직이는 목적지"
         set ProtoEventHead[362] = 10
@@ -25546,6 +25847,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1450] = 0
         set ProtoBranchPotions[1450] = 0
         set ProtoBranchChance[1450] = 100
+        set ProtoEventHeadChoice[363] = 1
         set ProtoEventKey[363] = "hsr_scattered_banknotes"
         set ProtoEventName[363] = "끝나지 않는 지폐"
         set ProtoEventHead[363] = 10
@@ -25598,6 +25900,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1454] = 0
         set ProtoBranchPotions[1454] = 0
         set ProtoBranchChance[1454] = 100
+        set ProtoEventHeadChoice[364] = 1
         set ProtoEventKey[364] = "hsr_floating_treat"
         set ProtoEventName[364] = "손이 닿기 전에 뜨는 간식"
         set ProtoEventHead[364] = 10
@@ -25650,6 +25953,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1458] = 0
         set ProtoBranchPotions[1458] = 0
         set ProtoBranchChance[1458] = 100
+        set ProtoEventHeadChoice[365] = 1
         set ProtoEventKey[365] = "hsr_dream_eye_gap"
         set ProtoEventName[365] = "연결된 그림과 끊어진 길"
         set ProtoEventHead[365] = 10
@@ -25702,6 +26006,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1462] = 0
         set ProtoBranchPotions[1462] = 0
         set ProtoBranchChance[1462] = 100
+        set ProtoEventHeadChoice[366] = 1
         set ProtoEventKey[366] = "hsr_scene_after_applause"
         set ProtoEventName[366] = "박수가 끝났는데 남은 역"
         set ProtoEventHead[366] = 10
@@ -25754,6 +26059,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1466] = 0
         set ProtoBranchPotions[1466] = 0
         set ProtoBranchChance[1466] = 100
+        set ProtoEventHeadChoice[367] = 1
         set ProtoEventKey[367] = "hsr_monster_last_order"
         set ProtoEventName[367] = "잔보다 늦게 온 주문"
         set ProtoEventHead[367] = 10
@@ -25806,6 +26112,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1470] = 0
         set ProtoBranchPotions[1470] = 0
         set ProtoBranchChance[1470] = 100
+        set ProtoEventHeadChoice[368] = 1
         set ProtoEventKey[368] = "hsr_jade_unwritten_price"
         set ProtoEventName[368] = "가격표 밖의 조건"
         set ProtoEventHead[368] = 10
@@ -25858,6 +26165,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1474] = 0
         set ProtoBranchPotions[1474] = 0
         set ProtoBranchChance[1474] = 100
+        set ProtoEventHeadChoice[369] = 1
         set ProtoEventKey[369] = "hsr_name_over_song"
         set ProtoEventName[369] = "이름이 노래를 덮을 때"
         set ProtoEventHead[369] = 10
@@ -25910,6 +26218,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1478] = 0
         set ProtoBranchPotions[1478] = 0
         set ProtoBranchChance[1478] = 100
+        set ProtoEventHeadChoice[370] = 1
         set ProtoEventKey[370] = "hsr_introduction_left"
         set ProtoEventName[370] = "소개만 남은 무대"
         set ProtoEventHead[370] = 10
@@ -25932,6 +26241,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[370] = 0
         set ProtoEventRequiredCard[370] = 0
         set ProtoEventFailure[370] = ""
+        set ProtoBranchOpenFirst[1480] = 373
+        set ProtoEventOpenNext[373] = 0
+        set ProtoBranchOpens[1480] = "후속 사건 개방 · 이름이 올라간 뒤|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1480] = "|cFF006B8F로빈|r와 함께 다음 길을 준비한다"
         set ProtoBranchResult[1480] = "참가자는 광고 문구보다 자기 이름을 먼저 말했다. |cFF006B8F로빈|r은 이름이 놓인 줄을 들었지만 그 시도가 오디션 우승이라는 뜻은 아니다."
         set ProtoBranchCard[1480] = 657
@@ -25962,6 +26274,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1482] = 0
         set ProtoBranchPotions[1482] = 0
         set ProtoBranchChance[1482] = 100
+        set ProtoEventHeadChoice[371] = 1
         set ProtoEventKey[371] = "hsr_cowboy_in_frame"
         set ProtoEventName[371] = "카우보이를 담는 배경"
         set ProtoEventHead[371] = 10
@@ -25984,6 +26297,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[371] = 0
         set ProtoEventRequiredCard[371] = 0
         set ProtoEventFailure[371] = ""
+        set ProtoBranchOpenFirst[1484] = 374
+        set ProtoEventOpenNext[374] = 0
+        set ProtoBranchOpens[1484] = "후속 사건 개방 · 사진 아래에 빠진 말|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1484] = "부트힐와 함께 다음 길을 준비한다"
         set ProtoBranchResult[1484] = "부트힐은 바꾼 배경보다 그 이유가 사진 아래에 남을지 먼저 물었다. 관광객이 어떤 설명을 붙일지는 아직 보지 못했다."
         set ProtoBranchCard[1484] = 659
@@ -26014,6 +26330,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1486] = 0
         set ProtoBranchPotions[1486] = 0
         set ProtoBranchChance[1486] = 100
+        set ProtoEventHeadChoice[372] = 1
         set ProtoEventKey[372] = "hsr_view_without_armor"
         set ProtoEventName[372] = "갑옷을 기다리지 않는 길"
         set ProtoEventHead[372] = 10
@@ -26066,6 +26383,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1490] = 0
         set ProtoBranchPotions[1490] = 0
         set ProtoBranchChance[1490] = 100
+        set ProtoEventChoicePath[373] = 1
         set ProtoEventKey[373] = "hsr_name_after_poster"
         set ProtoEventName[373] = "이름이 올라간 뒤"
         set ProtoEventHead[373] = 10
@@ -26118,6 +26436,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1494] = 0
         set ProtoBranchPotions[1494] = 0
         set ProtoBranchChance[1494] = 100
+        set ProtoEventChoicePath[374] = 1
         set ProtoEventKey[374] = "hsr_photo_missing_caption"
         set ProtoEventName[374] = "사진 아래에 빠진 말"
         set ProtoEventHead[374] = 10
@@ -26170,6 +26489,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1498] = 0
         set ProtoBranchPotions[1498] = 0
         set ProtoBranchChance[1498] = 100
+        set ProtoEventHeadChoice[375] = 1
         set ProtoEventKey[375] = "hsr_misha_second_page"
         set ProtoEventName[375] = "귀환 표시 다음의 여백"
         set ProtoEventHead[375] = 10
@@ -26222,6 +26542,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1502] = 0
         set ProtoBranchPotions[1502] = 0
         set ProtoBranchChance[1502] = 100
+        set ProtoEventHeadChoice[376] = 1
         set ProtoEventKey[376] = "hsr_robin_next_row"
         set ProtoEventName[376] = "노래를 기다렸던 다른 자리"
         set ProtoEventHead[376] = 10
@@ -27107,6 +27428,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1566] = 0
         set ProtoBranchPotions[1566] = 0
         set ProtoBranchChance[1566] = 100
+        set ProtoEventHeadChoice[392] = 1
         set ProtoEventKey[392] = "hsr_epilogue_postcard"
         set ProtoEventName[392] = "떠난 뒤에 남기는 엽서"
         set ProtoEventHead[392] = 10
@@ -27159,6 +27481,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1570] = 0
         set ProtoBranchPotions[1570] = 0
         set ProtoBranchChance[1570] = 100
+        set ProtoEventHeadChoice[393] = 1
         set ProtoEventKey[393] = "hsr_epilogue_voice"
         set ProtoEventName[393] = "다음 만남을 기다리는 인사"
         set ProtoEventHead[393] = 10
@@ -28159,6 +28482,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1741] = 0.00
         call ProtoSetEffect(1741, 1, 60.00, false)
         call ProtoSetEffect(1741, 26, 8.00, false)
+        set ProtoEventChoicePath[394] = 1
         set ProtoEventKey[394] = "fma_workshop"
         set ProtoEventName[394] = "떠나려는 손, 붙잡는 손"
         set ProtoEventHead[394] = 11
@@ -28177,10 +28501,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[394] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[394] = "war3mapImported\\UI_EventThumb_Card_FMO3_winry_Art.blp"
         set ProtoEventImageAspect[394] = 1.777778
-        set ProtoEventRequired[394] = 0
-        set ProtoEventRequiredChoice[394] = 0
+        set ProtoEventRequired[394] = 413
+        set ProtoEventRequiredChoice[394] = 1
         set ProtoEventRequiredCard[394] = 0
         set ProtoEventFailure[394] = ""
+        set ProtoBranchOpenFirst[1576] = 395
+        set ProtoEventOpenNext[395] = 0
+        set ProtoBranchOpens[1576] = "후속 사건 개방 · 빈칸이 남은 정비 기록|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1576] = "정밀 공구를 빌려 |cFF006B8F윈리|r의 점검을 돕는다"
         set ProtoBranchResult[1576] = "정밀 공구를 빌려 |cFF006B8F윈리|r의 점검을 도왔다. 윈리는 힘을 더 주려는 |cFF006B8F에드|r의 손을 잡고 손목에서 나는 소리부터 다시 들었다. 작은 어긋남의 위치가 기록지에 남았다."
         set ProtoBranchCard[1576] = 720
@@ -28191,6 +28518,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1576] = 0
         set ProtoBranchPotions[1576] = 0
         set ProtoBranchChance[1576] = 100
+        set ProtoBranchOpenFirst[1577] = 396
+        set ProtoEventOpenNext[396] = 0
+        set ProtoBranchOpens[1577] = "후속 사건 개방 · 버틴 자리와 밀린 자리|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1577] = "|cFF006B8F에드|r워드와 더 강한 적이 있는 구역을 시험한다"
         set ProtoBranchResult[1577] = "|cFF006B8F에드|r워드와 더 강한 적이 있는 구역을 시험했다. 에드는 단단한 곳을 밀어붙이기 전에 구조를 보라고 했다. |cFF006B8F윈리|r는 다음 점검에서 새로 난 소리도 숨기지 말라며 기록을 넘겼다."
         set ProtoBranchCard[1577] = 718
@@ -28211,6 +28541,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1578] = 0
         set ProtoBranchPotions[1578] = 0
         set ProtoBranchChance[1578] = 100
+        set ProtoEventChoicePath[395] = 1
         set ProtoEventKey[395] = "fma_measurement_notes"
         set ProtoEventName[395] = "빈칸이 남은 정비 기록"
         set ProtoEventHead[395] = 11
@@ -28263,6 +28594,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1582] = 0
         set ProtoBranchPotions[1582] = 0
         set ProtoBranchChance[1582] = 100
+        set ProtoEventChoicePath[396] = 1
         set ProtoEventKey[396] = "fma_trial_footprints"
         set ProtoEventName[396] = "버틴 자리와 밀린 자리"
         set ProtoEventHead[396] = 11
@@ -28315,6 +28647,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1586] = 0
         set ProtoBranchPotions[1586] = 0
         set ProtoBranchChance[1586] = 100
+        set ProtoEventHeadChoice[397] = 1
         set ProtoEventKey[397] = "fma_library"
         set ProtoEventName[397] = "사라진 페이지의 무게"
         set ProtoEventHead[397] = 11
@@ -28367,6 +28700,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1590] = 0
         set ProtoBranchPotions[1590] = 0
         set ProtoBranchChance[1590] = 100
+        set ProtoEventHeadChoice[398] = 1
         set ProtoEventKey[398] = "fma_training"
         set ProtoEventName[398] = "손을 모으기 전에"
         set ProtoEventHead[398] = 11
@@ -28389,6 +28723,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[398] = 0
         set ProtoEventRequiredCard[398] = 0
         set ProtoEventFailure[398] = ""
+        set ProtoBranchOpenFirst[1592] = 399
+        set ProtoEventOpenNext[399] = 0
+        set ProtoBranchOpens[1592] = "후속 사건 개방 · 쓰러뜨린 뒤에 남은 것|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1592] = "큰 적이 있는 구역에서 자세를 지키며 수련한다"
         set ProtoBranchResult[1592] = "큰 적이 있는 구역에서 자세를 지키며 수련했다. 이즈미는 급하게 내딛던 네 발을 멈춰 세웠다. 눈앞의 상대만 보던 너에게 뒤쪽의 열매와 |cFF80560C발자국|r이 왜 함께 남았는지 물었다."
         set ProtoBranchCard[1592] = 723
@@ -28399,6 +28736,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1592] = 0
         set ProtoBranchPotions[1592] = 0
         set ProtoBranchChance[1592] = 100
+        set ProtoBranchOpenFirst[1593] = 400
+        set ProtoEventOpenNext[400] = 0
+        set ProtoBranchOpens[1593] = "후속 사건 개방 · 발을 디딜 한 뼘|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1593] = "암스트롱과 여러 방향에서 오는 흐름을 견뎌낸다"
         set ProtoBranchResult[1593] = "암스트롱은 여러 방향에서 압박이 들어올 때의 방어 자세를 거듭 강조한다. 너는 힘을 모으는 동시에 주변의 시선을 분산시키는 움직임을 몸으로 익힌다."
         set ProtoBranchCard[1593] = 739
@@ -28419,6 +28759,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1594] = 0
         set ProtoBranchPotions[1594] = 0
         set ProtoBranchChance[1594] = 100
+        set ProtoEventChoicePath[399] = 1
         set ProtoEventKey[399] = "fma_after_large"
         set ProtoEventName[399] = "쓰러뜨린 뒤에 남은 것"
         set ProtoEventHead[399] = 11
@@ -28471,6 +28812,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1598] = 0
         set ProtoBranchPotions[1598] = 0
         set ProtoBranchChance[1598] = 100
+        set ProtoEventChoicePath[400] = 1
         set ProtoEventKey[400] = "fma_after_crowd"
         set ProtoEventName[400] = "발을 디딜 한 뼘"
         set ProtoEventHead[400] = 11
@@ -28523,6 +28865,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1602] = 0
         set ProtoBranchPotions[1602] = 0
         set ProtoBranchChance[1602] = 100
+        set ProtoEventHeadChoice[401] = 1
         set ProtoEventKey[401] = "fma_hayate_commands"
         set ProtoEventName[401] = "부를 때까지 기다려"
         set ProtoEventHead[401] = 11
@@ -28575,6 +28918,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1606] = 0
         set ProtoBranchPotions[1606] = 0
         set ProtoBranchChance[1606] = 100
+        set ProtoEventHeadChoice[402] = 1
         set ProtoEventKey[402] = "fma_family_photo"
         set ProtoEventName[402] = "사진 아래 놓인 보고서"
         set ProtoEventHead[402] = 11
@@ -28627,6 +28971,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1610] = 0
         set ProtoBranchPotions[1610] = 0
         set ProtoBranchChance[1610] = 100
+        set ProtoEventHeadChoice[403] = 1
         set ProtoEventKey[403] = "fma_home_spares"
         set ProtoEventName[403] = "떠날 몫과 남겨 둘 몫"
         set ProtoEventHead[403] = 11
@@ -28679,6 +29024,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1614] = 0
         set ProtoBranchPotions[1614] = 0
         set ProtoBranchChance[1614] = 100
+        set ProtoEventHeadChoice[404] = 1
         set ProtoEventKey[404] = "fma_butcher_counter"
         set ProtoEventName[404] = "큰 손이 멈추는 무게"
         set ProtoEventHead[404] = 11
@@ -28731,6 +29077,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1618] = 0
         set ProtoBranchPotions[1618] = 0
         set ProtoBranchChance[1618] = 100
+        set ProtoEventHeadChoice[405] = 1
         set ProtoEventKey[405] = "fma_ling_lunch"
         set ProtoEventName[405] = "빈 접시와 남은 계산"
         set ProtoEventHead[405] = 11
@@ -28783,6 +29130,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1622] = 0
         set ProtoBranchPotions[1622] = 0
         set ProtoBranchChance[1622] = 100
+        set ProtoEventHeadChoice[406] = 1
         set ProtoEventKey[406] = "fma_flame_supplies"
         set ProtoEventName[406] = "불씨를 내기 전의 목록"
         set ProtoEventHead[406] = 11
@@ -28835,6 +29183,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1626] = 0
         set ProtoBranchPotions[1626] = 0
         set ProtoBranchChance[1626] = 100
+        set ProtoEventHeadChoice[407] = 1
         set ProtoEventKey[407] = "fma_pie_delivery"
         set ProtoEventName[407] = "파이 상자에 남은 이름"
         set ProtoEventHead[407] = 11
@@ -28887,6 +29236,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1630] = 0
         set ProtoBranchPotions[1630] = 0
         set ProtoBranchChance[1630] = 100
+        set ProtoEventHeadChoice[408] = 1
         set ProtoEventKey[408] = "fma_sheska_next_blank"
         set ProtoEventName[408] = "한 권 뒤에 남겨 둔 빈칸"
         set ProtoEventHead[408] = 11
@@ -28939,6 +29289,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1634] = 0
         set ProtoBranchPotions[1634] = 0
         set ProtoBranchChance[1634] = 100
+        set ProtoEventHeadChoice[409] = 1
         set ProtoEventKey[409] = "fma_pinako_return_list"
         set ProtoEventName[409] = "돌아온 가방에 다른 치수"
         set ProtoEventHead[409] = 11
@@ -29195,6 +29546,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[413] = 1
         set ProtoEventCommonResult[413] = "지금 당장 내용을 읽을 수는 없으므로 먼저 몸을 고쳐야 한다. 고향에서 |cFF006B8F윈리|r와 할머니 피나코가 |cFF006B8F에드|r의 기계 팔을 수리하고, 에드도 |cFF006B8F알|r의 갑옷을 고친다. 다시 움직일 수 있게 된 형제에게는 다음 목적지가 생겼다. 마르코의 연구를 읽으러 센트럴로 돌아간다."
         set ProtoEventDialogueFirst[413] = 0
+        set ProtoBranchOpenFirst[1652] = 394
+        set ProtoEventOpenNext[394] = 0
+        set ProtoBranchOpens[1652] = "후속 사건 개방 · 떠나려는 손, 붙잡는 손|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[1652] = "|cFF006B8F에드|r · 어디에 있는지 알려 주세요."
         set ProtoBranchResult[1652] = "마르코는 센트럴 도서관에 남긴 자료를 찾으라며 단서를 전한다."
         set ProtoBranchCard[1652] = 750
@@ -30065,6 +30419,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1710] = 0
         set ProtoBranchPotions[1710] = 0
         set ProtoBranchChance[1710] = 100
+        set ProtoEventHeadChoice[428] = 1
         set ProtoEventKey[428] = "amestris_epilogue_memory"
         set ProtoEventName[428] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[428] = 11
@@ -31133,6 +31488,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         call ProtoSetEffect(1746, 11, 40.00, false)
         call ProtoSetEffect(1746, 23, 50.00, false)
         call ProtoSetEffect(1746, 26, 8.00, false)
+        set ProtoEventHeadChoice[433] = 1
         set ProtoEventKey[433] = "kny_night_path"
         set ProtoEventName[433] = "울음 사이로 섞인 발소리"
         set ProtoEventHead[433] = 12
@@ -31155,6 +31511,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[433] = 0
         set ProtoEventRequiredCard[433] = 0
         set ProtoEventFailure[433] = ""
+        set ProtoBranchOpenFirst[1732] = 434
+        set ProtoEventOpenNext[434] = 435
+        set ProtoEventOpenNext[435] = 0
+        set ProtoBranchOpens[1732] = "후속 사건 개방 · 찾은 흔적의 건너편|n다음 사건 선택에서 진행 가능 · 행동력 6|n후속 사건 개방 · 잘못 짚은 소리의 값|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1732] = "등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다"
         set ProtoBranchResult[1732] = "보급꾼이 돌아갈 길을 묻자 젠이츠는 들어온 소리와 나갈 발소리를 다시 나누어 듣는다."
         set ProtoBranchCard[1732] = 798
@@ -31185,6 +31545,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1734] = 0
         set ProtoBranchPotions[1734] = 0
         set ProtoBranchChance[1734] = 100
+        set ProtoEventChoicePath[434] = 1
         set ProtoEventKey[434] = "kny_night_found"
         set ProtoEventName[434] = "찾은 흔적의 건너편"
         set ProtoEventHead[434] = 12
@@ -31237,6 +31598,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1738] = 0
         set ProtoBranchPotions[1738] = 0
         set ProtoBranchChance[1738] = 100
+        set ProtoEventChoicePath[435] = 1
         set ProtoEventKey[435] = "kny_night_wrong"
         set ProtoEventName[435] = "잘못 짚은 소리의 값"
         set ProtoEventHead[435] = 12
@@ -31289,6 +31651,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1742] = 0
         set ProtoBranchPotions[1742] = 0
         set ProtoBranchChance[1742] = 100
+        set ProtoEventHeadChoice[436] = 1
         set ProtoEventKey[436] = "kny_unread_bottles"
         set ProtoEventName[436] = "지워진 병의 이름"
         set ProtoEventHead[436] = 12
@@ -31341,6 +31704,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1746] = 0
         set ProtoBranchPotions[1746] = 0
         set ProtoBranchChance[1746] = 100
+        set ProtoEventHeadChoice[437] = 1
         set ProtoEventKey[437] = "kny_white_linen"
         set ProtoEventName[437] = "마르지 않은 흰 천"
         set ProtoEventHead[437] = 12
@@ -31393,6 +31757,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1750] = 0
         set ProtoBranchPotions[1750] = 0
         set ProtoBranchChance[1750] = 100
+        set ProtoEventHeadChoice[438] = 1
         set ProtoEventKey[438] = "kny_crow_dispatch"
         set ProtoEventName[438] = "까마귀가 두 번 읽은 문장"
         set ProtoEventHead[438] = 12
@@ -31445,6 +31810,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1754] = 0
         set ProtoBranchPotions[1754] = 0
         set ProtoBranchChance[1754] = 100
+        set ProtoEventHeadChoice[439] = 1
         set ProtoEventKey[439] = "kny_midday_noise"
         set ProtoEventName[439] = "너무 많은 소리가 나는 낮"
         set ProtoEventHead[439] = 12
@@ -31497,6 +31863,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1758] = 0
         set ProtoBranchPotions[1758] = 0
         set ProtoBranchChance[1758] = 100
+        set ProtoEventHeadChoice[440] = 1
         set ProtoEventKey[440] = "kny_mixed_traces"
         set ProtoEventName[440] = "같은 자리에 남은 다른 냄새"
         set ProtoEventHead[440] = 12
@@ -31549,6 +31916,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1762] = 0
         set ProtoBranchPotions[1762] = 0
         set ProtoBranchChance[1762] = 100
+        set ProtoEventHeadChoice[441] = 1
         set ProtoEventKey[441] = "kny_before_departure"
         set ProtoEventName[441] = "문턱에 남겨 둔 당부"
         set ProtoEventHead[441] = 12
@@ -31601,6 +31969,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1766] = 0
         set ProtoBranchPotions[1766] = 0
         set ProtoBranchChance[1766] = 100
+        set ProtoEventHeadChoice[442] = 1
         set ProtoEventKey[442] = "kny_senior_challenge"
         set ProtoEventName[442] = "선배라면 더 강한가"
         set ProtoEventHead[442] = 12
@@ -31653,6 +32022,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1770] = 0
         set ProtoBranchPotions[1770] = 0
         set ProtoBranchChance[1770] = 100
+        set ProtoEventHeadChoice[443] = 1
         set ProtoEventKey[443] = "kny_return_to_training"
         set ProtoEventName[443] = "문 안에 먼저 들어갈 사람"
         set ProtoEventHead[443] = 12
@@ -31705,6 +32075,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1774] = 0
         set ProtoBranchPotions[1774] = 0
         set ProtoBranchChance[1774] = 100
+        set ProtoEventHeadChoice[444] = 1
         set ProtoEventKey[444] = "kny_frightened_visitor"
         set ProtoEventName[444] = "물러선 발과 움직이지 않은 손"
         set ProtoEventHead[444] = 12
@@ -31757,6 +32128,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1778] = 0
         set ProtoBranchPotions[1778] = 0
         set ProtoBranchChance[1778] = 100
+        set ProtoEventChoicePath[445] = 1
         set ProtoEventKey[445] = "kny_first_gourd"
         set ProtoEventName[445] = "큰 표주박을 고른 손"
         set ProtoEventHead[445] = 12
@@ -31775,10 +32147,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[445] = "큰 도구를 골랐지만 설명은 아직 못 들었다."
         set ProtoEventIcon[445] = "war3mapImported\\UI_EventThumb_Card_KNYS_aoi_Art.blp"
         set ProtoEventImageAspect[445] = 1.777778
-        set ProtoEventRequired[445] = 0
-        set ProtoEventRequiredChoice[445] = 0
+        set ProtoEventRequired[445] = 453
+        set ProtoEventRequiredChoice[445] = 2
         set ProtoEventRequiredCard[445] = 0
         set ProtoEventFailure[445] = ""
+        set ProtoBranchOpenFirst[1780] = 449
+        set ProtoEventOpenNext[449] = 0
+        set ProtoBranchOpens[1780] = "후속 사건 개방 · 터진 소리 다음에는|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1780] = "카마도 |cFF006B8F탄지로|r와 함께 다음 길을 준비한다"
         set ProtoBranchResult[1780] = "네가 터진 소리를 자랑하려 하자 아오이는 다음에는 설명부터 끝까지 들으라고 한다."
         set ProtoBranchCard[1780] = 795
@@ -31809,6 +32184,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1782] = 0
         set ProtoBranchPotions[1782] = 0
         set ProtoBranchChance[1782] = 100
+        set ProtoEventHeadChoice[446] = 1
         set ProtoEventKey[446] = "kny_morning_greeting"
         set ProtoEventName[446] = "아직 끝나지 않은 인사"
         set ProtoEventHead[446] = 12
@@ -31861,6 +32237,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1786] = 0
         set ProtoBranchPotions[1786] = 0
         set ProtoBranchChance[1786] = 100
+        set ProtoEventHeadChoice[447] = 1
         set ProtoEventKey[447] = "kny_hand_return"
         set ProtoEventName[447] = "거두지 못한 마지막 손"
         set ProtoEventHead[447] = 12
@@ -31913,6 +32290,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1790] = 0
         set ProtoBranchPotions[1790] = 0
         set ProtoBranchChance[1790] = 100
+        set ProtoEventHeadChoice[448] = 1
         set ProtoEventKey[448] = "kny_partition_role"
         set ProtoEventName[448] = "가림막 뒤의 네 차례"
         set ProtoEventHead[448] = 12
@@ -31965,6 +32343,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1794] = 0
         set ProtoBranchPotions[1794] = 0
         set ProtoBranchChance[1794] = 100
+        set ProtoEventChoicePath[449] = 1
         set ProtoEventKey[449] = "kny_after_first_gourd"
         set ProtoEventName[449] = "터진 소리 다음에는"
         set ProtoEventHead[449] = 12
@@ -32224,6 +32603,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1812] = 0
         set ProtoBranchPotions[1812] = 0
         set ProtoBranchChance[1812] = 100
+        set ProtoBranchOpenFirst[1813] = 445
+        set ProtoEventOpenNext[445] = 0
+        set ProtoBranchOpens[1813] = "후속 사건 개방 · 큰 표주박을 고른 손|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[1813] = "|cFF006B8F탄지로|r · 어디서부터 연습하면 좋을까?"
         set ProtoBranchResult[1813] = "키요는 오래 유지하는 연습부터 차근차근 해 보자고 한다."
         set ProtoBranchCard[1813] = 825
@@ -32848,6 +33230,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1854] = 0
         set ProtoBranchPotions[1854] = 0
         set ProtoBranchChance[1854] = 100
+        set ProtoEventHeadChoice[464] = 1
         set ProtoEventKey[464] = "butterfly_epilogue_memory"
         set ProtoEventName[464] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[464] = 12
@@ -33669,6 +34052,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[1748] = 0.00
         call ProtoSetEffect(1748, 34, 120.00, false)
         call ProtoSetEffect(1748, 26, 8.00, false)
+        set ProtoEventChoicePath[465] = 1
         set ProtoEventKey[465] = "pc_road_meal"
         set ProtoEventName[465] = "냄비를 올리기 전에"
         set ProtoEventHead[465] = 13
@@ -33687,10 +34071,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[465] = "더 모아 함께 먹을지, 다음 끼니를 준비할지, 식사 자리를 줄일지 정한다."
         set ProtoEventIcon[465] = "war3mapImported\\UI_EventThumb_Card_PCR_105831_Art.blp"
         set ProtoEventImageAspect[465] = 1.777778
-        set ProtoEventRequired[465] = 0
-        set ProtoEventRequiredChoice[465] = 0
+        set ProtoEventRequired[465] = 480
+        set ProtoEventRequiredChoice[465] = 2
         set ProtoEventRequiredCard[465] = 0
         set ProtoEventFailure[465] = ""
+        set ProtoBranchOpenFirst[1860] = 466
+        set ProtoEventOpenNext[466] = 0
+        set ProtoBranchOpens[1860] = "후속 사건 개방 · 빈 그릇과 늘어난 몫|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1860] = "|cFF006B8F페코린느|r와 넓은 구역의 재료를 모아 넉넉히 차린다"
         set ProtoBranchResult[1860] = "|cFF006B8F페코린느|r가 정성껏 준비한 음식을 나누며 |cFF865500미식전|r의 유대감을 확인한다. 따뜻한 온기 속에서 길드원들의 신뢰가 깊어진 기억을 얻는다."
         set ProtoBranchCard[1860] = 858
@@ -33701,6 +34088,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1860] = 0
         set ProtoBranchPotions[1860] = 0
         set ProtoBranchChance[1860] = 100
+        set ProtoBranchOpenFirst[1861] = 467
+        set ProtoEventOpenNext[467] = 0
+        set ProtoBranchOpens[1861] = "후속 사건 개방 · 남겨 둔 한 끼|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1861] = "밀봉된 재료를 구해 |cFF006B8F콧코로|r와 끼니를 나누어 준비한다"
         set ProtoBranchResult[1861] = "장보기 비용을 내고 밀봉 재료를 더 샀다. |cFF006B8F콧코로|r와 오늘 먹을 몫과 다음 끼니를 나누어 담으며, 출발 전에 작은 준비를 빠뜨리지 않는 법을 익힌다."
         set ProtoBranchCard[1861] = 860
@@ -33721,6 +34111,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1862] = 0
         set ProtoBranchPotions[1862] = 0
         set ProtoBranchChance[1862] = 100
+        set ProtoEventChoicePath[466] = 1
         set ProtoEventKey[466] = "pc_after_feast"
         set ProtoEventName[466] = "빈 그릇과 늘어난 몫"
         set ProtoEventHead[466] = 13
@@ -33773,6 +34164,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1866] = 0
         set ProtoBranchPotions[1866] = 0
         set ProtoBranchChance[1866] = 100
+        set ProtoEventChoicePath[467] = 1
         set ProtoEventKey[467] = "pc_after_portions"
         set ProtoEventName[467] = "남겨 둔 한 끼"
         set ProtoEventHead[467] = 13
@@ -33825,6 +34217,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1870] = 0
         set ProtoBranchPotions[1870] = 0
         set ProtoBranchChance[1870] = 100
+        set ProtoEventHeadChoice[468] = 1
         set ProtoEventKey[468] = "pc_dusty_room"
         set ProtoEventName[468] = "먼지 뒤에 남은 방"
         set ProtoEventHead[468] = 13
@@ -33877,6 +34270,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1874] = 0
         set ProtoBranchPotions[1874] = 0
         set ProtoBranchChance[1874] = 100
+        set ProtoEventHeadChoice[469] = 1
         set ProtoEventKey[469] = "pc_faded_spice_map"
         set ProtoEventName[469] = "색이 번진 향신료 지도"
         set ProtoEventHead[469] = 13
@@ -33929,6 +34323,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1878] = 0
         set ProtoBranchPotions[1878] = 0
         set ProtoBranchChance[1878] = 100
+        set ProtoEventHeadChoice[470] = 1
         set ProtoEventKey[470] = "pc_tea_invitation"
         set ProtoEventName[470] = "접힌 채 남은 초대장"
         set ProtoEventHead[470] = 13
@@ -33981,6 +34376,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1882] = 0
         set ProtoBranchPotions[1882] = 0
         set ProtoBranchChance[1882] = 100
+        set ProtoEventHeadChoice[471] = 1
         set ProtoEventKey[471] = "pc_rainy_harvest"
         set ProtoEventName[471] = "빗물보다 먼저 거둘 것"
         set ProtoEventHead[471] = 13
@@ -34033,6 +34429,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1886] = 0
         set ProtoBranchPotions[1886] = 0
         set ProtoBranchChance[1886] = 100
+        set ProtoEventHeadChoice[472] = 1
         set ProtoEventKey[472] = "pc_wrong_costume_tag"
         set ProtoEventName[472] = "옷에 묶인 다른 이름"
         set ProtoEventHead[472] = 13
@@ -34075,6 +34472,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1889] = 0
         set ProtoBranchPotions[1889] = 0
         set ProtoBranchChance[1889] = 100
+        set ProtoEventHeadChoice[473] = 1
         set ProtoEventKey[473] = "pc_witness_hours"
         set ProtoEventName[473] = "같은 길의 다른 시각"
         set ProtoEventHead[473] = 13
@@ -34127,6 +34525,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1894] = 0
         set ProtoBranchPotions[1894] = 0
         set ProtoBranchChance[1894] = 100
+        set ProtoEventHeadChoice[474] = 1
         set ProtoEventKey[474] = "pc_monica_market_watch"
         set ProtoEventName[474] = "닫힌 가게 앞의 지시"
         set ProtoEventHead[474] = 13
@@ -34179,6 +34578,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1898] = 0
         set ProtoBranchPotions[1898] = 0
         set ProtoBranchChance[1898] = 100
+        set ProtoEventHeadChoice[475] = 1
         set ProtoEventKey[475] = "pc_delivery_divide"
         set ProtoEventName[475] = "갈라지는 배달길"
         set ProtoEventHead[475] = 13
@@ -34231,6 +34631,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1902] = 0
         set ProtoBranchPotions[1902] = 0
         set ProtoBranchChance[1902] = 100
+        set ProtoEventHeadChoice[476] = 1
         set ProtoEventKey[476] = "pc_rehearsal_wall"
         set ProtoEventName[476] = "벽 너머까지 들린 연습"
         set ProtoEventHead[476] = 13
@@ -34483,6 +34884,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1920] = 0
         set ProtoBranchPotions[1920] = 0
         set ProtoBranchChance[1920] = 100
+        set ProtoBranchOpenFirst[1921] = 465
+        set ProtoEventOpenNext[465] = 0
+        set ProtoBranchOpens[1921] = "후속 사건 개방 · 냄비를 올리기 전에|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[1921] = "길드에 함께하는 동료 · 의뢰는 같이 하고, 밥도 같이 먹는 거죠?"
         set ProtoBranchResult[1921] = "|cFF006B8F페코린느|r는 물론이라고 답한다. 즐거운 식사뿐 아니라 그전에 해야 할 일도 나누기로 한다."
         set ProtoBranchCard[1921] = 892
@@ -35079,6 +35483,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1962] = 0
         set ProtoBranchPotions[1962] = 0
         set ProtoBranchChance[1962] = 100
+        set ProtoEventHeadChoice[491] = 1
         set ProtoEventKey[491] = "gourmet_epilogue_memory"
         set ProtoEventName[491] = "여정 뒤에 다시 펼친 기억"
         set ProtoEventHead[491] = 13
@@ -36042,6 +36447,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1992] = 0
         set ProtoBranchPotions[1992] = 0
         set ProtoBranchChance[1992] = 100
+        set ProtoBranchOpenFirst[1993] = 526
+        set ProtoEventOpenNext[526] = 0
+        set ProtoBranchOpens[1993] = "후속 사건 개방 · 먼 길을 위한 준비|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[1993] = "|cFF006B8F트리비|r에게 다음 길의 표식을 묻는다"
         set ProtoBranchResult[1993] = "처음 걷는 길에서 혼자 아는 척하지 않고 안내를 받아들인다."
         set ProtoBranchCard[1993] = 950
@@ -36927,6 +37335,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2054] = 0
         set ProtoBranchPotions[2054] = 0
         set ProtoBranchChance[2054] = 100
+        set ProtoEventHeadChoice[514] = 1
         set ProtoEventKey[514] = "amph_wayfinding"
         set ProtoEventName[514] = "갈림길에서 건넨 안내"
         set ProtoEventHead[514] = 14
@@ -36979,6 +37388,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2058] = 0
         set ProtoBranchPotions[2058] = 0
         set ProtoBranchChance[2058] = 100
+        set ProtoEventHeadChoice[515] = 1
         set ProtoEventKey[515] = "amph_pause"
         set ProtoEventName[515] = "행렬 곁의 짧은 쉼"
         set ProtoEventHead[515] = 14
@@ -37031,6 +37441,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2062] = 0
         set ProtoBranchPotions[2062] = 0
         set ProtoBranchChance[2062] = 100
+        set ProtoEventHeadChoice[516] = 1
         set ProtoEventKey[516] = "amph_thread"
         set ProtoEventName[516] = "금실을 고르는 손"
         set ProtoEventHead[516] = 14
@@ -37083,6 +37494,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2066] = 0
         set ProtoBranchPotions[2066] = 0
         set ProtoBranchChance[2066] = 100
+        set ProtoEventHeadChoice[517] = 1
         set ProtoEventKey[517] = "amph_question"
         set ProtoEventName[517] = "답하지 않은 문장"
         set ProtoEventHead[517] = 14
@@ -37135,6 +37547,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2070] = 0
         set ProtoBranchPotions[2070] = 0
         set ProtoBranchChance[2070] = 100
+        set ProtoEventHeadChoice[518] = 1
         set ProtoEventKey[518] = "amph_stance"
         set ProtoEventName[518] = "힘을 쓰지 않을 순간"
         set ProtoEventHead[518] = 14
@@ -37187,6 +37600,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2074] = 0
         set ProtoBranchPotions[2074] = 0
         set ProtoBranchChance[2074] = 100
+        set ProtoEventHeadChoice[519] = 1
         set ProtoEventKey[519] = "amph_quiet_distance"
         set ProtoEventName[519] = "침묵이 편해지는 거리"
         set ProtoEventHead[519] = 14
@@ -37239,6 +37653,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2078] = 0
         set ProtoBranchPotions[2078] = 0
         set ProtoBranchChance[2078] = 100
+        set ProtoEventHeadChoice[520] = 1
         set ProtoEventKey[520] = "amph_hidden_step"
         set ProtoEventName[520] = "사라진 발걸음의 방향"
         set ProtoEventHead[520] = 14
@@ -37291,6 +37706,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2082] = 0
         set ProtoBranchPotions[2082] = 0
         set ProtoBranchChance[2082] = 100
+        set ProtoEventHeadChoice[521] = 1
         set ProtoEventKey[521] = "amph_next_move"
         set ProtoEventName[521] = "다음 수를 위한 자리"
         set ProtoEventHead[521] = 14
@@ -37343,6 +37759,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2086] = 0
         set ProtoBranchPotions[2086] = 0
         set ProtoBranchChance[2086] = 100
+        set ProtoEventHeadChoice[522] = 1
         set ProtoEventKey[522] = "amph_tide_song"
         set ProtoEventName[522] = "파도 뒤에 남은 박자"
         set ProtoEventHead[522] = 14
@@ -37395,6 +37812,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2090] = 0
         set ProtoBranchPotions[2090] = 0
         set ProtoBranchChance[2090] = 100
+        set ProtoEventHeadChoice[523] = 1
         set ProtoEventKey[523] = "amph_small_record"
         set ProtoEventName[523] = "서사시의 여백"
         set ProtoEventHead[523] = 14
@@ -37447,6 +37865,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2094] = 0
         set ProtoBranchPotions[2094] = 0
         set ProtoBranchChance[2094] = 100
+        set ProtoEventHeadChoice[524] = 1
         set ProtoEventKey[524] = "amph_carry"
         set ProtoEventName[524] = "불씨 곁의 동행"
         set ProtoEventHead[524] = 14
@@ -37499,6 +37918,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2098] = 0
         set ProtoBranchPotions[2098] = 0
         set ProtoBranchChance[2098] = 100
+        set ProtoEventHeadChoice[525] = 1
         set ProtoEventKey[525] = "amph_question_follow"
         set ProtoEventName[525] = "한 번 더 묻는 이유"
         set ProtoEventHead[525] = 14
@@ -37551,6 +37971,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2102] = 0
         set ProtoBranchPotions[2102] = 0
         set ProtoBranchChance[2102] = 100
+        set ProtoEventChoicePath[526] = 1
         set ProtoEventKey[526] = "amph_preparation"
         set ProtoEventName[526] = "먼 길을 위한 준비"
         set ProtoEventHead[526] = 14
@@ -37569,10 +37990,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[526] = "동행의 |cFF80560C기억|r을 다음 일정으로 옮긴다."
         set ProtoEventIcon[526] = "war3mapImported\\UI_EventThumb_XP_amphoreus_tribbie.blp"
         set ProtoEventImageAspect[526] = 1.777778
-        set ProtoEventRequired[526] = 0
-        set ProtoEventRequiredChoice[526] = 0
+        set ProtoEventRequired[526] = 498
+        set ProtoEventRequiredChoice[526] = 2
         set ProtoEventRequiredCard[526] = 0
         set ProtoEventFailure[526] = ""
+        set ProtoBranchOpenFirst[2104] = 527
+        set ProtoEventOpenNext[527] = 0
+        set ProtoBranchOpens[2104] = "후속 사건 개방 · 한 사람 더 지날 여유|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[2104] = "갈림길의 표식을 한 장에 모은다"
         set ProtoBranchResult[2104] = "|cFF006B8F트리비|r의 안내를 되짚으며 다음 일정을 검토할 기초를 만든다."
         set ProtoBranchCard[2104] = 958
@@ -37603,6 +38027,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2106] = 0
         set ProtoBranchPotions[2106] = 0
         set ProtoBranchChance[2106] = 100
+        set ProtoEventChoicePath[527] = 1
         set ProtoEventKey[527] = "amph_preparation_follow"
         set ProtoEventName[527] = "한 사람 더 지날 여유"
         set ProtoEventHead[527] = 14
@@ -37655,6 +38080,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2110] = 0
         set ProtoBranchPotions[2110] = 0
         set ProtoBranchChance[2110] = 100
+        set ProtoEventHeadChoice[528] = 1
         set ProtoEventKey[528] = "amph_epilogue_names"
         set ProtoEventName[528] = "다 읽지 못한 이름들"
         set ProtoEventHead[528] = 14
@@ -37707,6 +38133,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2114] = 0
         set ProtoBranchPotions[2114] = 0
         set ProtoBranchChance[2114] = 100
+        set ProtoEventHeadChoice[529] = 1
         set ProtoEventKey[529] = "amph_epilogue_seed"
         set ProtoEventName[529] = "미래에 건네는 이야기"
         set ProtoEventHead[529] = 14
@@ -38625,6 +39052,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[539] = 1
         set ProtoEventCommonResult[539] = "|cFF006B8F죠나단|r은 |cFF006B8F체펠리|r에게 파문을 배우기 시작한다. |cFF006B8F에리나|r와 |cFF006B8F스피드왜건|r도 그가 다시 짊어질 위험을 알게 된다."
         set ProtoEventDialogueFirst[539] = 0
+        set ProtoBranchOpenFirst[2156] = 551
+        set ProtoEventOpenNext[551] = 0
+        set ProtoBranchOpens[2156] = "후속 사건 개방 · 한 번 배운 호흡의 다음|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2156] = "|cFF006B8F체펠리|r에게 호흡의 원리부터 보여 달라고 한다."
         set ProtoBranchResult[2156] = "힘의 크기보다 몸 안에서 이어지는 흐름에 집중한다. |cFF006B8F죠나단|r은 서둘러 흉내 내지 않고 기초부터 익힌다."
         set ProtoBranchCard[2156] = 1016
@@ -39013,6 +39443,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2182] = 0
         set ProtoBranchPotions[2182] = 0
         set ProtoBranchChance[2182] = 100
+        set ProtoEventHeadChoice[546] = 1
         set ProtoEventKey[546] = "phantom_blood_quiet_step"
         set ProtoEventName[546] = "문 앞에서 고른 말"
         set ProtoEventHead[546] = 15
@@ -39065,6 +39496,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2186] = 0
         set ProtoBranchPotions[2186] = 0
         set ProtoBranchChance[2186] = 100
+        set ProtoEventHeadChoice[547] = 1
         set ProtoEventKey[547] = "phantom_blood_breathing_cup"
         set ProtoEventName[547] = "흔들리는 찻잔"
         set ProtoEventHead[547] = 15
@@ -39117,6 +39549,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2190] = 0
         set ProtoBranchPotions[2190] = 0
         set ProtoBranchChance[2190] = 100
+        set ProtoEventHeadChoice[548] = 1
         set ProtoEventKey[548] = "phantom_blood_street_turn"
         set ProtoEventName[548] = "낯익은 골목의 우회로"
         set ProtoEventHead[548] = 15
@@ -39169,6 +39602,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2194] = 0
         set ProtoBranchPotions[2194] = 0
         set ProtoBranchChance[2194] = 100
+        set ProtoEventHeadChoice[549] = 1
         set ProtoEventKey[549] = "phantom_blood_after_rain"
         set ProtoEventName[549] = "비가 갠 뒤의 소매"
         set ProtoEventHead[549] = 15
@@ -39221,6 +39655,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2198] = 0
         set ProtoBranchPotions[2198] = 0
         set ProtoBranchChance[2198] = 100
+        set ProtoEventHeadChoice[550] = 1
         set ProtoEventKey[550] = "phantom_blood_witness"
         set ProtoEventName[550] = "서로 다른 증언"
         set ProtoEventHead[550] = 15
@@ -39273,6 +39708,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2202] = 0
         set ProtoBranchPotions[2202] = 0
         set ProtoBranchChance[2202] = 100
+        set ProtoEventChoicePath[551] = 1
         set ProtoEventKey[551] = "phantom_blood_next_lesson"
         set ProtoEventName[551] = "한 번 배운 호흡의 다음"
         set ProtoEventHead[551] = 15
@@ -39291,8 +39727,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[551] = "|cFF006B8F체펠리|r의 가르침을 다른 자세에서도 이어 본다."
         set ProtoEventIcon[551] = "war3mapImported\\UI_EventThumb_XP_phantom_blood_zeppeli.blp"
         set ProtoEventImageAspect[551] = 1.777778
-        set ProtoEventRequired[551] = 0
-        set ProtoEventRequiredChoice[551] = 0
+        set ProtoEventRequired[551] = 539
+        set ProtoEventRequiredChoice[551] = 1
         set ProtoEventRequiredCard[551] = 0
         set ProtoEventFailure[551] = ""
         set ProtoBranchLabel[2204] = "기본 구매 · 헤드·백 피해 +6%"
@@ -39325,6 +39761,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2206] = 0
         set ProtoBranchPotions[2206] = 0
         set ProtoBranchChance[2206] = 100
+        set ProtoEventHeadChoice[552] = 1
         set ProtoEventKey[552] = "phantom_blood_listening_street"
         set ProtoEventName[552] = "골목에서 얻은 인연"
         set ProtoEventHead[552] = 15
@@ -39377,6 +39814,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2210] = 0
         set ProtoBranchPotions[2210] = 0
         set ProtoBranchChance[2210] = 100
+        set ProtoEventHeadChoice[553] = 1
         set ProtoEventKey[553] = "phantom_blood_sword_weight"
         set ProtoEventName[553] = "맡겨진 물건의 무게"
         set ProtoEventHead[553] = 15
@@ -39429,6 +39867,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2214] = 0
         set ProtoBranchPotions[2214] = 0
         set ProtoBranchChance[2214] = 100
+        set ProtoEventHeadChoice[554] = 1
         set ProtoEventKey[554] = "phantom_blood_unspoken_care"
         set ProtoEventName[554] = "돌봄을 받는 쪽의 대답"
         set ProtoEventHead[554] = 15
@@ -39481,6 +39920,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2218] = 0
         set ProtoBranchPotions[2218] = 0
         set ProtoBranchChance[2218] = 100
+        set ProtoEventHeadChoice[555] = 1
         set ProtoEventKey[555] = "phantom_blood_old_warning"
         set ProtoEventName[555] = "예고를 들은 사람의 선택"
         set ProtoEventHead[555] = 15
@@ -39533,6 +39973,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2222] = 0
         set ProtoBranchPotions[2222] = 0
         set ProtoBranchChance[2222] = 100
+        set ProtoEventHeadChoice[556] = 1
         set ProtoEventKey[556] = "phantom_blood_cold_answer"
         set ProtoEventName[556] = "냉기 앞의 판단"
         set ProtoEventHead[556] = 15
@@ -39585,6 +40026,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2226] = 0
         set ProtoBranchPotions[2226] = 0
         set ProtoBranchChance[2226] = 100
+        set ProtoEventHeadChoice[557] = 1
         set ProtoEventKey[557] = "phantom_blood_roadside_signal"
         set ProtoEventName[557] = "부르기 전에 알아챈 신호"
         set ProtoEventHead[557] = 15
@@ -39637,6 +40079,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2230] = 0
         set ProtoBranchPotions[2230] = 0
         set ProtoBranchChance[2230] = 100
+        set ProtoEventHeadChoice[558] = 1
         set ProtoEventKey[558] = "phantom_blood_epilogue_erina"
         set ProtoEventName[558] = "바다 뒤의 아침"
         set ProtoEventHead[558] = 15
@@ -39689,6 +40132,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2234] = 0
         set ProtoBranchPotions[2234] = 0
         set ProtoBranchChance[2234] = 100
+        set ProtoEventHeadChoice[559] = 1
         set ProtoEventKey[559] = "phantom_blood_epilogue_teaching"
         set ProtoEventName[559] = "스승의 목소리를 기억하는 법"
         set ProtoEventHead[559] = 15
@@ -40432,6 +40876,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[384] = "공중에서 잘 보이던 표지가 낮은 담장 뒤에 가려진다. 일행은 손님이 실제로 볼 위치로 안내를 옮긴다."
         set ProtoDialogueLabel[385] = "갈림길 이름 대신 보이는 지형을 덧붙인다."
         set ProtoDialogueResult[385] = "처음 오는 사람도 알아볼 수 있는 모양을 적는다. 동네 사람만 아는 이름에 기대지 않기로 한다."
+        set ProtoBranchOpenFirst[2264] = 578
+        set ProtoEventOpenNext[578] = 0
+        set ProtoBranchOpens[2264] = "후속 사건 개방 · 접힌 지도에 없는 길|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2264] = "|cFF006B8F훗케이크|r와 안내판이 향하던 방향을 확인한다."
         set ProtoBranchResult[2264] = "바람이 세게 분 흔적과 남은 끈을 비교한다. 서둘러 붙이는 대신 잘못된 길부터 지운다."
         set ProtoBranchCard[2264] = 1049
@@ -40978,6 +41425,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2302] = 0
         set ProtoBranchPotions[2302] = 0
         set ProtoBranchChance[2302] = 100
+        set ProtoEventHeadChoice[576] = 1
         set ProtoEventKey[576] = "madolche_ribbon"
         set ProtoEventName[576] = "잘 묶인 리본의 반대쪽"
         set ProtoEventHead[576] = 16
@@ -41030,6 +41478,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2306] = 0
         set ProtoBranchPotions[2306] = 0
         set ProtoBranchChance[2306] = 100
+        set ProtoEventHeadChoice[577] = 1
         set ProtoEventKey[577] = "madolche_tea_temperature"
         set ProtoEventName[577] = "각자 다른 한 모금"
         set ProtoEventHead[577] = 16
@@ -41082,6 +41531,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2310] = 0
         set ProtoBranchPotions[2310] = 0
         set ProtoBranchChance[2310] = 100
+        set ProtoEventChoicePath[578] = 1
         set ProtoEventKey[578] = "madolche_route_fold"
         set ProtoEventName[578] = "접힌 지도에 없는 길"
         set ProtoEventHead[578] = 16
@@ -41100,8 +41550,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[578] = "지도의 가장자리에도 돌아오는 길이 이어진다."
         set ProtoEventIcon[578] = "war3mapImported\\UI_EventThumb_XP_madolche_hootcake.blp"
         set ProtoEventImageAspect[578] = 1.777778
-        set ProtoEventRequired[578] = 0
-        set ProtoEventRequiredChoice[578] = 0
+        set ProtoEventRequired[578] = 566
+        set ProtoEventRequiredChoice[578] = 1
         set ProtoEventRequiredCard[578] = 0
         set ProtoEventFailure[578] = ""
         set ProtoBranchLabel[2312] = "기본 구매 · 치명타 피해 +8%"
@@ -41134,6 +41584,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2314] = 0
         set ProtoBranchPotions[2314] = 0
         set ProtoBranchChance[2314] = 100
+        set ProtoEventHeadChoice[579] = 1
         set ProtoEventKey[579] = "madolche_seat_number"
         set ProtoEventName[579] = "번호를 세는 법"
         set ProtoEventHead[579] = 16
@@ -41186,6 +41637,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2318] = 0
         set ProtoBranchPotions[2318] = 0
         set ProtoBranchChance[2318] = 100
+        set ProtoEventHeadChoice[580] = 1
         set ProtoEventKey[580] = "madolche_delayed_note"
         set ProtoEventName[580] = "말보다 늦게 도착한 메모"
         set ProtoEventHead[580] = 16
@@ -41238,6 +41690,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2322] = 0
         set ProtoBranchPotions[2322] = 0
         set ProtoBranchChance[2322] = 100
+        set ProtoEventHeadChoice[581] = 1
         set ProtoEventKey[581] = "madolche_open_window"
         set ProtoEventName[581] = "향기를 들일 작은 창"
         set ProtoEventHead[581] = 16
@@ -41290,6 +41743,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2326] = 0
         set ProtoBranchPotions[2326] = 0
         set ProtoBranchChance[2326] = 100
+        set ProtoEventHeadChoice[582] = 1
         set ProtoEventKey[582] = "madolche_search_again"
         set ProtoEventName[582] = "첫 손님 이후의 이름"
         set ProtoEventHead[582] = 16
@@ -41342,6 +41796,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2330] = 0
         set ProtoBranchPotions[2330] = 0
         set ProtoBranchChance[2330] = 100
+        set ProtoEventHeadChoice[583] = 1
         set ProtoEventKey[583] = "madolche_second_delivery"
         set ProtoEventName[583] = "돌려보내지 않는 확인"
         set ProtoEventHead[583] = 16
@@ -41394,6 +41849,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2334] = 0
         set ProtoBranchPotions[2334] = 0
         set ProtoBranchChance[2334] = 100
+        set ProtoEventHeadChoice[584] = 1
         set ProtoEventKey[584] = "madolche_small_welcome"
         set ProtoEventName[584] = "문 앞의 짧은 환영"
         set ProtoEventHead[584] = 16
@@ -41446,6 +41902,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2338] = 0
         set ProtoBranchPotions[2338] = 0
         set ProtoBranchChance[2338] = 100
+        set ProtoEventHeadChoice[585] = 1
         set ProtoEventKey[585] = "madolche_crumb_trail"
         set ProtoEventName[585] = "작은 흔적을 따라"
         set ProtoEventHead[585] = 16
@@ -41498,6 +41955,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2342] = 0
         set ProtoBranchPotions[2342] = 0
         set ProtoBranchChance[2342] = 100
+        set ProtoEventHeadChoice[586] = 1
         set ProtoEventKey[586] = "madolche_extra_plate"
         set ProtoEventName[586] = "남은 접시 한 장"
         set ProtoEventHead[586] = 16
@@ -41550,6 +42008,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2346] = 0
         set ProtoBranchPotions[2346] = 0
         set ProtoBranchChance[2346] = 100
+        set ProtoEventHeadChoice[587] = 1
         set ProtoEventKey[587] = "madolche_quiet_handover"
         set ProtoEventName[587] = "소란 속의 작은 인계"
         set ProtoEventHead[587] = 16
@@ -41602,6 +42061,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2350] = 0
         set ProtoBranchPotions[2350] = 0
         set ProtoBranchChance[2350] = 100
+        set ProtoEventHeadChoice[588] = 1
         set ProtoEventKey[588] = "madolche_epilogue_invitation"
         set ProtoEventName[588] = "접어 둔 초대장의 뒷면"
         set ProtoEventHead[588] = 16
@@ -41654,6 +42114,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2354] = 0
         set ProtoBranchPotions[2354] = 0
         set ProtoBranchChance[2354] = 100
+        set ProtoEventHeadChoice[589] = 1
         set ProtoEventKey[589] = "madolche_epilogue_return"
         set ProtoEventName[589] = "모두 돌아간 뒤의 식탁"
         set ProtoEventHead[589] = 16
@@ -42676,6 +43137,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[408] = "정해 둔 순서보다 먼저 들은 |cFF80560C약속|r을 되새긴다."
         set ProtoDialogueLabel[409] = "자기 말에 빠진 설명을 돌아본다"
         set ProtoDialogueResult[409] = "혼자 알고 있던 사정을 상대도 안다고 넘기지 않는다."
+        set ProtoBranchOpenFirst[2404] = 616
+        set ProtoEventOpenNext[616] = 0
+        set ProtoBranchOpens[2404] = "후속 사건 개방 · 빈칸이 필요한 일정표|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[2404] = "|cFF006B8F토카|r와 함께하는 순간에 집중한다"
         set ProtoBranchResult[2404] = "다음 장소만 생각하던 |cFF006B8F시도|r가 잠시 걸음을 늦춘다. 짧은 시간이라도 함께 본 풍경이 남는다."
         set ProtoBranchCard[2404] = 1101
@@ -42938,6 +43402,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2422] = 0
         set ProtoBranchPotions[2422] = 0
         set ProtoBranchChance[2422] = 100
+        set ProtoEventHeadChoice[606] = 1
         set ProtoEventKey[606] = "dal_side_bakery"
         set ProtoEventName[606] = "먼저 가리킨 진열대"
         set ProtoEventHead[606] = 17
@@ -42990,6 +43455,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2426] = 0
         set ProtoBranchPotions[2426] = 0
         set ProtoBranchChance[2426] = 100
+        set ProtoEventHeadChoice[607] = 1
         set ProtoEventKey[607] = "dal_side_umbrella"
         set ProtoEventName[607] = "우산 끝에서 떨어지는 빗방울"
         set ProtoEventHead[607] = 17
@@ -43042,6 +43508,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2430] = 0
         set ProtoBranchPotions[2430] = 0
         set ProtoBranchChance[2430] = 100
+        set ProtoEventHeadChoice[608] = 1
         set ProtoEventKey[608] = "dal_side_classroom"
         set ProtoEventName[608] = "빈 책상에 놓인 안내문"
         set ProtoEventHead[608] = 17
@@ -43094,6 +43561,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2434] = 0
         set ProtoBranchPotions[2434] = 0
         set ProtoBranchChance[2434] = 100
+        set ProtoEventHeadChoice[609] = 1
         set ProtoEventKey[609] = "dal_side_radio"
         set ProtoEventName[609] = "한꺼번에 들려온 조언"
         set ProtoEventHead[609] = 17
@@ -43146,6 +43614,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2438] = 0
         set ProtoBranchPotions[2438] = 0
         set ProtoBranchChance[2438] = 100
+        set ProtoEventHeadChoice[610] = 1
         set ProtoEventKey[610] = "dal_side_bench"
         set ProtoEventName[610] = "나란히 놓인 두 자리"
         set ProtoEventHead[610] = 17
@@ -43198,6 +43667,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2442] = 0
         set ProtoBranchPotions[2442] = 0
         set ProtoBranchChance[2442] = 100
+        set ProtoEventHeadChoice[611] = 1
         set ProtoEventKey[611] = "dal_side_target"
         set ProtoEventName[611] = "같은 것을 다르게 보는 눈"
         set ProtoEventHead[611] = 17
@@ -43250,6 +43720,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2446] = 0
         set ProtoBranchPotions[2446] = 0
         set ProtoBranchChance[2446] = 100
+        set ProtoEventHeadChoice[612] = 1
         set ProtoEventKey[612] = "dal_side_cat"
         set ProtoEventName[612] = "골목에서 멈춘 미소"
         set ProtoEventHead[612] = 17
@@ -43302,6 +43773,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2450] = 0
         set ProtoBranchPotions[2450] = 0
         set ProtoBranchChance[2450] = 100
+        set ProtoEventHeadChoice[613] = 1
         set ProtoEventKey[613] = "dal_side_promise"
         set ProtoEventName[613] = "약속을 적는 방법"
         set ProtoEventHead[613] = 17
@@ -43354,6 +43826,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2454] = 0
         set ProtoBranchPotions[2454] = 0
         set ProtoBranchChance[2454] = 100
+        set ProtoEventHeadChoice[614] = 1
         set ProtoEventKey[614] = "dal_side_echo"
         set ProtoEventName[614] = "다시 들려준 작은 이야기"
         set ProtoEventHead[614] = 17
@@ -43406,6 +43879,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2458] = 0
         set ProtoBranchPotions[2458] = 0
         set ProtoBranchChance[2458] = 100
+        set ProtoEventHeadChoice[615] = 1
         set ProtoEventKey[615] = "dal_side_precision"
         set ProtoEventName[615] = "경계와 긴장 사이"
         set ProtoEventHead[615] = 17
@@ -43458,6 +43932,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2462] = 0
         set ProtoBranchPotions[2462] = 0
         set ProtoBranchChance[2462] = 100
+        set ProtoEventChoicePath[616] = 1
         set ProtoEventKey[616] = "dal_side_schedule"
         set ProtoEventName[616] = "빈칸이 필요한 일정표"
         set ProtoEventHead[616] = 17
@@ -43476,10 +43951,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[616] = "|cFF006B8F코토리|r가 빼곡한 일정에 펜을 멈춘다."
         set ProtoEventIcon[616] = "war3mapImported\\UI_EventThumb_XP_tengu_kotori.blp"
         set ProtoEventImageAspect[616] = 1.777778
-        set ProtoEventRequired[616] = 0
-        set ProtoEventRequiredChoice[616] = 0
+        set ProtoEventRequired[616] = 601
+        set ProtoEventRequiredChoice[616] = 1
         set ProtoEventRequiredCard[616] = 0
         set ProtoEventFailure[616] = ""
+        set ProtoBranchOpenFirst[2464] = 617
+        set ProtoEventOpenNext[617] = 0
+        set ProtoBranchOpens[2464] = "후속 사건 개방 · 다음 약속을 남길 자리|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[2464] = "준비가 끝난 |cFF80560C약속|r부터 표시한다"
         set ProtoBranchResult[2464] = "확인이 끝난 항목을 분리하자 남은 준비가 또렷해진다."
         set ProtoBranchCard[2464] = 1080
@@ -43510,6 +43988,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2466] = 0
         set ProtoBranchPotions[2466] = 0
         set ProtoBranchChance[2466] = 100
+        set ProtoEventChoicePath[617] = 1
         set ProtoEventKey[617] = "dal_side_schedule_follow"
         set ProtoEventName[617] = "다음 약속을 남길 자리"
         set ProtoEventHead[617] = 17
@@ -43562,6 +44041,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2470] = 0
         set ProtoBranchPotions[2470] = 0
         set ProtoBranchChance[2470] = 100
+        set ProtoEventHeadChoice[618] = 1
         set ProtoEventKey[618] = "dal_epilogue_return"
         set ProtoEventName[618] = "다시 마주한 등굣길"
         set ProtoEventHead[618] = 17
@@ -43614,6 +44094,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2474] = 0
         set ProtoBranchPotions[2474] = 0
         set ProtoBranchChance[2474] = 100
+        set ProtoEventHeadChoice[619] = 1
         set ProtoEventKey[619] = "dal_epilogue_table"
         set ProtoEventName[619] = "남겨 둔 한 자리"
         set ProtoEventHead[619] = 17
@@ -44338,6 +44819,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2501] = 0
         set ProtoBranchPotions[2501] = 0
         set ProtoBranchChance[2501] = 100
+        set ProtoBranchOpenFirst[2502] = 646
+        set ProtoEventOpenNext[646] = 0
+        set ProtoBranchOpens[2502] = "후속 사건 개방 · 다음에 만날 시간을 고른다|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[2502] = "|cFF006B8F마사오미|r와 물러날 길을 맞춘다"
         set ProtoBranchResult[2502] = "상황에 휩쓸려 제각기 움직이지 않도록 서로의 위치를 확인한다."
         set ProtoBranchCard[2502] = 1134
@@ -44931,6 +45415,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2542] = 0
         set ProtoBranchPotions[2542] = 0
         set ProtoBranchChance[2542] = 100
+        set ProtoEventHeadChoice[636] = 1
         set ProtoEventKey[636] = "drrr_side_crossing"
         set ProtoEventName[636] = "사거리에서 고른 길"
         set ProtoEventHead[636] = 18
@@ -44983,6 +45468,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2546] = 0
         set ProtoBranchPotions[2546] = 0
         set ProtoBranchChance[2546] = 100
+        set ProtoEventHeadChoice[637] = 1
         set ProtoEventKey[637] = "drrr_side_message"
         set ProtoEventName[637] = "짧은 답장 한 줄"
         set ProtoEventHead[637] = 18
@@ -45035,6 +45521,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2550] = 0
         set ProtoBranchPotions[2550] = 0
         set ProtoBranchChance[2550] = 100
+        set ProtoEventHeadChoice[638] = 1
         set ProtoEventKey[638] = "drrr_side_shop"
         set ProtoEventName[638] = "서가 사이의 작은 부탁"
         set ProtoEventHead[638] = 18
@@ -45087,6 +45574,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2554] = 0
         set ProtoBranchPotions[2554] = 0
         set ProtoBranchChance[2554] = 100
+        set ProtoEventHeadChoice[639] = 1
         set ProtoEventKey[639] = "drrr_side_quiet"
         set ProtoEventName[639] = "조용한 자리를 남기는 법"
         set ProtoEventHead[639] = 18
@@ -45139,6 +45627,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2558] = 0
         set ProtoBranchPotions[2558] = 0
         set ProtoBranchChance[2558] = 100
+        set ProtoEventHeadChoice[640] = 1
         set ProtoEventKey[640] = "drrr_side_rumor"
         set ProtoEventName[640] = "사람마다 다른 같은 소문"
         set ProtoEventHead[640] = 18
@@ -45191,6 +45680,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2562] = 0
         set ProtoBranchPotions[2562] = 0
         set ProtoBranchChance[2562] = 100
+        set ProtoEventHeadChoice[641] = 1
         set ProtoEventKey[641] = "drrr_side_lunch"
         set ProtoEventName[641] = "점심시간의 빈 의자"
         set ProtoEventHead[641] = 18
@@ -45243,6 +45733,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2566] = 0
         set ProtoBranchPotions[2566] = 0
         set ProtoBranchChance[2566] = 100
+        set ProtoEventHeadChoice[642] = 1
         set ProtoEventKey[642] = "drrr_side_pause"
         set ProtoEventName[642] = "연락을 마친 뒤의 여유"
         set ProtoEventHead[642] = 18
@@ -45295,6 +45786,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2570] = 0
         set ProtoBranchPotions[2570] = 0
         set ProtoBranchChance[2570] = 100
+        set ProtoEventHeadChoice[643] = 1
         set ProtoEventKey[643] = "drrr_side_strength"
         set ProtoEventName[643] = "힘을 쓰기 전에 볼 것"
         set ProtoEventHead[643] = 18
@@ -45347,6 +45839,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2574] = 0
         set ProtoBranchPotions[2574] = 0
         set ProtoBranchChance[2574] = 100
+        set ProtoEventHeadChoice[644] = 1
         set ProtoEventKey[644] = "drrr_side_reply"
         set ProtoEventName[644] = "어제 남긴 글의 답장"
         set ProtoEventHead[644] = 18
@@ -45399,6 +45892,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2578] = 0
         set ProtoBranchPotions[2578] = 0
         set ProtoBranchChance[2578] = 100
+        set ProtoEventHeadChoice[645] = 1
         set ProtoEventKey[645] = "drrr_side_night_route"
         set ProtoEventName[645] = "다시 달리는 밤길"
         set ProtoEventHead[645] = 18
@@ -45451,6 +45945,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2582] = 0
         set ProtoBranchPotions[2582] = 0
         set ProtoBranchChance[2582] = 100
+        set ProtoEventChoicePath[646] = 1
         set ProtoEventKey[646] = "drrr_side_schedule"
         set ProtoEventName[646] = "다음에 만날 시간을 고른다"
         set ProtoEventHead[646] = 18
@@ -45469,10 +45964,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[646] = "|cFF006B8F마사오미|r가 겹치는 |cFF80560C약속|r을 헤아린다."
         set ProtoEventIcon[646] = "war3mapImported\\UI_EventThumb_XP_ikebukuro_masaomi.blp"
         set ProtoEventImageAspect[646] = 1.777778
-        set ProtoEventRequired[646] = 0
-        set ProtoEventRequiredChoice[646] = 0
+        set ProtoEventRequired[646] = 625
+        set ProtoEventRequiredChoice[646] = 3
         set ProtoEventRequiredCard[646] = 0
         set ProtoEventFailure[646] = ""
+        set ProtoBranchOpenFirst[2584] = 647
+        set ProtoEventOpenNext[647] = 0
+        set ProtoBranchOpens[2584] = "후속 사건 개방 · 표시해 둔 시간의 빈칸|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[2584] = "|cFF006B8F마사오미|r와 확정된 약속부터 표시한다"
         set ProtoBranchResult[2584] = "바꿀 수 없는 시간과 다시 물을 시간을 구분한다."
         set ProtoBranchCard[2584] = 1122
@@ -45503,6 +46001,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2586] = 0
         set ProtoBranchPotions[2586] = 0
         set ProtoBranchChance[2586] = 100
+        set ProtoEventChoicePath[647] = 1
         set ProtoEventKey[647] = "drrr_side_schedule_follow"
         set ProtoEventName[647] = "표시해 둔 시간의 빈칸"
         set ProtoEventHead[647] = 18
@@ -45555,6 +46054,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2590] = 0
         set ProtoBranchPotions[2590] = 0
         set ProtoBranchChance[2590] = 100
+        set ProtoEventHeadChoice[648] = 1
         set ProtoEventKey[648] = "drrr_epilogue_message"
         set ProtoEventName[648] = "다른 곳에서 도착한 글"
         set ProtoEventHead[648] = 18
@@ -45607,6 +46107,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2594] = 0
         set ProtoBranchPotions[2594] = 0
         set ProtoBranchChance[2594] = 100
+        set ProtoEventHeadChoice[649] = 1
         set ProtoEventKey[649] = "drrr_epilogue_street"
         set ProtoEventName[649] = "아직 이어지는 도시의 길"
         set ProtoEventHead[649] = 18
@@ -46325,6 +46826,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[440] = "|cFF006B8F페른|r은 거창한 |cFF80560C약속|r보다 지킬 수 있는 일 하나를 적는다."
         set ProtoDialogueLabel[441] = "오늘 잘된 부분도 |cFF80560C기억|r해 두자."
         set ProtoDialogueResult[441] = "실패만 남기지 않으니 반복할 힘도 함께 남는다."
+        set ProtoBranchOpenFirst[2620] = 668
+        set ProtoEventOpenNext[668] = 0
+        set ProtoBranchOpens[2620] = "후속 사건 개방 · 어제와 같은 표적|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2620] = "|cFF006B8F페른|r의 반복 연습에 함께 선다."
         set ProtoBranchResult[2620] = "|cFF006B8F페른|r은 같은 주문도 날마다 다르게 다룰 수 있음을 배운다."
         set ProtoBranchCard[2620] = 1178
@@ -46924,6 +47428,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2662] = 0
         set ProtoBranchPotions[2662] = 0
         set ProtoBranchChance[2662] = 100
+        set ProtoEventHeadChoice[666] = 1
         set ProtoEventKey[666] = "fr_morning"
         set ProtoEventName[666] = "아침 식탁의 빈자리"
         set ProtoEventHead[666] = 19
@@ -46976,6 +47481,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2666] = 0
         set ProtoBranchPotions[2666] = 0
         set ProtoBranchChance[2666] = 100
+        set ProtoEventHeadChoice[667] = 1
         set ProtoEventKey[667] = "fr_statue"
         set ProtoEventName[667] = "동상 아래 남은 이름"
         set ProtoEventHead[667] = 19
@@ -47028,6 +47534,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2670] = 0
         set ProtoBranchPotions[2670] = 0
         set ProtoBranchChance[2670] = 100
+        set ProtoEventChoicePath[668] = 1
         set ProtoEventKey[668] = "fr_routine"
         set ProtoEventName[668] = "어제와 같은 표적"
         set ProtoEventHead[668] = 19
@@ -47046,8 +47553,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[668] = "|cFF006B8F페른|r이 연습의 차이를 찾지 못해 잠시 멈춘다."
         set ProtoEventIcon[668] = "war3mapImported\\UI_EventThumb_XP_frieren_fern.blp"
         set ProtoEventImageAspect[668] = 1.777778
-        set ProtoEventRequired[668] = 0
-        set ProtoEventRequiredChoice[668] = 0
+        set ProtoEventRequired[668] = 655
+        set ProtoEventRequiredChoice[668] = 1
         set ProtoEventRequiredCard[668] = 0
         set ProtoEventFailure[668] = ""
         set ProtoBranchLabel[2672] = "기본 구매 · 스킬가속 +5"
@@ -47080,6 +47587,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2674] = 0
         set ProtoBranchPotions[2674] = 0
         set ProtoBranchChance[2674] = 100
+        set ProtoEventHeadChoice[669] = 1
         set ProtoEventKey[669] = "fr_fear"
         set ProtoEventName[669] = "겁이 난다는 고백"
         set ProtoEventHead[669] = 19
@@ -47132,6 +47640,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2678] = 0
         set ProtoBranchPotions[2678] = 0
         set ProtoBranchChance[2678] = 100
+        set ProtoEventHeadChoice[670] = 1
         set ProtoEventKey[670] = "fr_wrong_book"
         set ProtoEventName[670] = "원하던 마법이 아닌 책"
         set ProtoEventHead[670] = 19
@@ -47184,6 +47693,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2682] = 0
         set ProtoBranchPotions[2682] = 0
         set ProtoBranchChance[2682] = 100
+        set ProtoEventHeadChoice[671] = 1
         set ProtoEventKey[671] = "fr_rain"
         set ProtoEventName[671] = "비가 오기 전에"
         set ProtoEventHead[671] = 19
@@ -47236,6 +47746,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2686] = 0
         set ProtoBranchPotions[2686] = 0
         set ProtoBranchChance[2686] = 100
+        set ProtoEventHeadChoice[672] = 1
         set ProtoEventKey[672] = "fr_meal"
         set ProtoEventName[672] = "덴켄이 더 주문한 이유"
         set ProtoEventHead[672] = 19
@@ -47288,6 +47799,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2690] = 0
         set ProtoBranchPotions[2690] = 0
         set ProtoBranchChance[2690] = 100
+        set ProtoEventHeadChoice[673] = 1
         set ProtoEventKey[673] = "fr_imitation"
         set ProtoEventName[673] = "보여 주기와 따라 하기"
         set ProtoEventHead[673] = 19
@@ -47340,6 +47852,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2694] = 0
         set ProtoBranchPotions[2694] = 0
         set ProtoBranchChance[2694] = 100
+        set ProtoEventHeadChoice[674] = 1
         set ProtoEventKey[674] = "fr_old_question"
         set ProtoEventName[674] = "여전히 답하지 못한 질문"
         set ProtoEventHead[674] = 19
@@ -47392,6 +47905,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2698] = 0
         set ProtoBranchPotions[2698] = 0
         set ProtoBranchChance[2698] = 100
+        set ProtoEventHeadChoice[675] = 1
         set ProtoEventKey[675] = "fr_discipline"
         set ProtoEventName[675] = "강함을 보여 달라는 부탁"
         set ProtoEventHead[675] = 19
@@ -47444,6 +47958,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2702] = 0
         set ProtoBranchPotions[2702] = 0
         set ProtoBranchChance[2702] = 100
+        set ProtoEventHeadChoice[676] = 1
         set ProtoEventKey[676] = "fr_stitch"
         set ProtoEventName[676] = "소매 끝을 고치는 시간"
         set ProtoEventHead[676] = 19
@@ -47496,6 +48011,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2706] = 0
         set ProtoBranchPotions[2706] = 0
         set ProtoBranchChance[2706] = 100
+        set ProtoEventHeadChoice[677] = 1
         set ProtoEventKey[677] = "fr_quiet_watch"
         set ProtoEventName[677] = "말 없는 경계 시간"
         set ProtoEventHead[677] = 19
@@ -47548,6 +48064,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2710] = 0
         set ProtoBranchPotions[2710] = 0
         set ProtoBranchChance[2710] = 100
+        set ProtoEventHeadChoice[678] = 1
         set ProtoEventKey[678] = "fr_unfamiliar_name"
         set ProtoEventName[678] = "지도에 없는 작은 마을"
         set ProtoEventHead[678] = 19
@@ -47600,6 +48117,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2714] = 0
         set ProtoBranchPotions[2714] = 0
         set ProtoBranchChance[2714] = 100
+        set ProtoEventHeadChoice[679] = 1
         set ProtoEventKey[679] = "fr_letter"
         set ProtoEventName[679] = "보내지 못한 안부"
         set ProtoEventHead[679] = 19
@@ -47652,6 +48170,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2718] = 0
         set ProtoBranchPotions[2718] = 0
         set ProtoBranchChance[2718] = 100
+        set ProtoEventHeadChoice[680] = 1
         set ProtoEventKey[680] = "fr_epilogue_road"
         set ProtoEventName[680] = "마법도시를 뒤로하고"
         set ProtoEventHead[680] = 19
@@ -47704,6 +48223,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2722] = 0
         set ProtoBranchPotions[2722] = 0
         set ProtoBranchChance[2722] = 100
+        set ProtoEventHeadChoice[681] = 1
         set ProtoEventKey[681] = "fr_epilogue_again"
         set ProtoEventName[681] = "다시 만날 때의 이야기"
         set ProtoEventHead[681] = 19
@@ -48458,6 +48978,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[687] = 1
         set ProtoEventCommonResult[687] = "냄비 주위에 할 일이 하나씩 생겼다. |cFF006B8F센시|r의 동행은 식탁뿐 아니라 일행의 걸음에도 새로운 순서를 만들었다."
         set ProtoEventDialogueFirst[687] = 0
+        set ProtoBranchOpenFirst[2748] = 708
+        set ProtoEventOpenNext[708] = 0
+        set ProtoBranchOpens[2748] = "후속 사건 개방 · 조리법 옆의 빈칸|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2748] = "|cFF006B8F센시|r 옆에서 도구와 재료를 나눈다."
         set ProtoBranchResult[2748] = "|cFF006B8F센시|r는 서두른 손을 멈추게 하고 순서를 짚었다. 같은 일을 두 번 하지 않자 다음 준비가 빨라졌다."
         set ProtoBranchCard[2748] = 1220
@@ -49174,6 +49697,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2798] = 0
         set ProtoBranchPotions[2798] = 0
         set ProtoBranchChance[2798] = 100
+        set ProtoEventHeadChoice[700] = 1
         set ProtoEventKey[700] = "dm_watch_before_meal"
         set ProtoEventName[700] = "먹기 전의 한 바퀴"
         set ProtoEventHead[700] = 20
@@ -49226,6 +49750,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2802] = 0
         set ProtoBranchPotions[2802] = 0
         set ProtoBranchChance[2802] = 100
+        set ProtoEventHeadChoice[701] = 1
         set ProtoEventKey[701] = "dm_tools_back"
         set ProtoEventName[701] = "칼을 돌려주는 자리"
         set ProtoEventHead[701] = 20
@@ -49278,6 +49803,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2806] = 0
         set ProtoBranchPotions[2806] = 0
         set ProtoBranchChance[2806] = 100
+        set ProtoEventHeadChoice[702] = 1
         set ProtoEventKey[702] = "dm_sound_followup"
         set ProtoEventName[702] = "두 번 들린 같은 소리"
         set ProtoEventHead[702] = 20
@@ -49330,6 +49856,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2810] = 0
         set ProtoBranchPotions[2810] = 0
         set ProtoBranchChance[2810] = 100
+        set ProtoEventHeadChoice[703] = 1
         set ProtoEventKey[703] = "dm_question_followup"
         set ProtoEventName[703] = "고친 질문의 다음 줄"
         set ProtoEventHead[703] = 20
@@ -49382,6 +49909,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2814] = 0
         set ProtoBranchPotions[2814] = 0
         set ProtoBranchChance[2814] = 100
+        set ProtoEventHeadChoice[704] = 1
         set ProtoEventKey[704] = "dm_observation_followup"
         set ProtoEventName[704] = "도감에 없는 반응"
         set ProtoEventHead[704] = 20
@@ -49434,6 +49962,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2818] = 0
         set ProtoBranchPotions[2818] = 0
         set ProtoBranchChance[2818] = 100
+        set ProtoEventHeadChoice[705] = 1
         set ProtoEventKey[705] = "dm_boot_memory"
         set ProtoEventName[705] = "나마리의 장비 점검"
         set ProtoEventHead[705] = 20
@@ -49486,6 +50015,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2822] = 0
         set ProtoBranchPotions[2822] = 0
         set ProtoBranchChance[2822] = 100
+        set ProtoEventHeadChoice[706] = 1
         set ProtoEventKey[706] = "dm_shuro_memory"
         set ProtoEventName[706] = "말보다 늦게 들린 대답"
         set ProtoEventHead[706] = 20
@@ -49538,6 +50068,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2826] = 0
         set ProtoBranchPotions[2826] = 0
         set ProtoBranchChance[2826] = 100
+        set ProtoEventHeadChoice[707] = 1
         set ProtoEventKey[707] = "dm_kabru_departure"
         set ProtoEventName[707] = "다른 파티의 출발선"
         set ProtoEventHead[707] = 20
@@ -49590,6 +50121,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2830] = 0
         set ProtoBranchPotions[2830] = 0
         set ProtoBranchChance[2830] = 100
+        set ProtoEventChoicePath[708] = 1
         set ProtoEventKey[708] = "dm_recipe_margin"
         set ProtoEventName[708] = "조리법 옆의 빈칸"
         set ProtoEventHead[708] = 20
@@ -49608,8 +50140,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[708] = "|cFF006B8F센시|r의 설명에는 손으로 보여 주는 부분이 많다."
         set ProtoEventIcon[708] = "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_senshi.blp"
         set ProtoEventImageAspect[708] = 1.777778
-        set ProtoEventRequired[708] = 0
-        set ProtoEventRequiredChoice[708] = 0
+        set ProtoEventRequired[708] = 687
+        set ProtoEventRequiredChoice[708] = 1
         set ProtoEventRequiredCard[708] = 0
         set ProtoEventFailure[708] = ""
         set ProtoBranchLabel[2832] = "기본 구매 · 공격력 +4%"
@@ -49642,6 +50174,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2834] = 0
         set ProtoBranchPotions[2834] = 0
         set ProtoBranchChance[2834] = 100
+        set ProtoEventHeadChoice[709] = 1
         set ProtoEventKey[709] = "dm_trap_boundary"
         set ProtoEventName[709] = "누가 먼저 손댈까"
         set ProtoEventHead[709] = 20
@@ -49694,6 +50227,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2838] = 0
         set ProtoBranchPotions[2838] = 0
         set ProtoBranchChance[2838] = 100
+        set ProtoEventHeadChoice[710] = 1
         set ProtoEventKey[710] = "dm_falin_memory"
         set ProtoEventName[710] = "어깨 너머의 사람"
         set ProtoEventHead[710] = 20
@@ -49746,6 +50280,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2842] = 0
         set ProtoBranchPotions[2842] = 0
         set ProtoBranchChance[2842] = 100
+        set ProtoEventHeadChoice[711] = 1
         set ProtoEventKey[711] = "dm_taste_words"
         set ProtoEventName[711] = "맛을 설명하는 말"
         set ProtoEventHead[711] = 20
@@ -49798,6 +50333,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2846] = 0
         set ProtoBranchPotions[2846] = 0
         set ProtoBranchChance[2846] = 100
+        set ProtoEventHeadChoice[712] = 1
         set ProtoEventKey[712] = "dm_separate_notes"
         set ProtoEventName[712] = "같은 길의 다른 기록"
         set ProtoEventHead[712] = 20
@@ -49850,6 +50386,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2850] = 0
         set ProtoBranchPotions[2850] = 0
         set ProtoBranchChance[2850] = 100
+        set ProtoEventHeadChoice[713] = 1
         set ProtoEventKey[713] = "dm_before_dragon_memory"
         set ProtoEventName[713] = "한 번 더 묶는 끈"
         set ProtoEventHead[713] = 20
@@ -49902,6 +50439,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2854] = 0
         set ProtoBranchPotions[2854] = 0
         set ProtoBranchChance[2854] = 100
+        set ProtoEventHeadChoice[714] = 1
         set ProtoEventKey[714] = "dm_epilogue_faces"
         set ProtoEventName[714] = "같은 자리에 앉아서"
         set ProtoEventHead[714] = 20
@@ -49954,6 +50492,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2858] = 0
         set ProtoBranchPotions[2858] = 0
         set ProtoBranchChance[2858] = 100
+        set ProtoEventHeadChoice[715] = 1
         set ProtoEventKey[715] = "dm_epilogue_place"
         set ProtoEventName[715] = "비어 있지 않은 자리"
         set ProtoEventHead[715] = 20
@@ -50748,6 +51287,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[721] = 1
         set ProtoEventCommonResult[721] = "말해 달라는 답을 서둘러 내놓지 않은 덕에 길이 이어졌다. 안내자를 거쳐 도착한 시험장에는 이미 수많은 지원자가 모여 있었다."
         set ProtoEventDialogueFirst[721] = 0
+        set ProtoBranchOpenFirst[2884] = 737
+        set ProtoEventOpenNext[737] = 0
+        set ProtoBranchOpens[2884] = "후속 사건 개방 · 굴러가지 않는 바퀴|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[2884] = "질문이 강요하는 두 답을 먼저 의심한다."
         set ProtoBranchResult[2884] = "주어진 말이 전부라고 받아들이지 않았다. 대답하지 않는 태도에도 이유가 있음을 살폈다."
         set ProtoBranchCard[2884] = 1270
@@ -50758,6 +51300,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2884] = 0
         set ProtoBranchPotions[2884] = 0
         set ProtoBranchChance[2884] = 100
+        set ProtoBranchOpenFirst[2885] = 738
+        set ProtoEventOpenNext[738] = 0
+        set ProtoBranchOpens[2885] = "후속 사건 개방 · 먼저 건네온 친절|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2885] = "화를 낸 |cFF006B8F레오리오|r가 어떤 부분을 참지 못했는지 듣는다."
         set ProtoBranchResult[2885] = "부당한 질문에 화를 내는 마음과 지금 할 행동을 나눴다. 따질 이유를 잃지 않으면서 말을 고를 수 있었다."
         set ProtoBranchCard[2885] = 1268
@@ -50768,6 +51313,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2885] = 0
         set ProtoBranchPotions[2885] = 0
         set ProtoBranchChance[2885] = 100
+        set ProtoBranchOpenFirst[2886] = 735
+        set ProtoEventOpenNext[735] = 0
+        set ProtoBranchOpens[2886] = "후속 사건 개방 · 출발선 뒤의 시선|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2886] = "|cFF006B8F곤|r과 함께 실제로 그런 일이 닥쳤을 때를 생각한다."
         set ProtoBranchResult[2886] = "시험의 답만 맞히면 끝나는 문제가 아니었다. 쉽게 말하지 못한 이유가 오히려 오래 남았다."
         set ProtoBranchCard[2886] = 1272
@@ -50803,6 +51351,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[722] = 1
         set ProtoEventCommonResult[722] = "터널을 벗어난 뒤에도 시험은 이어졌다. 안개 낀 습지에서는 시야를 놓치지 않는 일이 중요했고, |cFF006B8F히소카|r의 위협을 넘긴 일행은 다음 시험장으로 향했다."
         set ProtoEventDialogueFirst[722] = 0
+        set ProtoBranchOpenFirst[2888] = 739
+        set ProtoEventOpenNext[739] = 740
+        set ProtoEventOpenNext[740] = 0
+        set ProtoBranchOpens[2888] = "후속 사건 개방 · 말 많은 사람의 발끝|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 눈이 마주치기 전|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2888] = "|cFF006B8F사토츠|r의 걸음이 바뀌는 순간을 살핀다."
         set ProtoBranchResult[2888] = "멀리 있는 끝보다 바로 앞의 보폭을 읽었다. 불필요한 가속을 줄이자 다음 변화에 반응할 여지가 남았다."
         set ProtoBranchCard[2888] = 1273
@@ -50813,6 +51365,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2888] = 0
         set ProtoBranchPotions[2888] = 0
         set ProtoBranchChance[2888] = 100
+        set ProtoBranchOpenFirst[2889] = 734
+        set ProtoEventOpenNext[734] = 0
+        set ProtoBranchOpens[2889] = "후속 사건 개방 · 낚싯줄의 작은 매듭|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2889] = "|cFF006B8F키르아|r와 곤이 나란히 움직이는 간격을 따라 본다."
         set ProtoBranchResult[2889] = "옆사람에게 맞추는 일과 힘을 낭비하는 일은 달랐다. 두 사람 사이의 가벼운 호흡에서 움직일 리듬을 찾았다."
         set ProtoBranchCard[2889] = 1274
@@ -50823,6 +51378,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2889] = 0
         set ProtoBranchPotions[2889] = 0
         set ProtoBranchChance[2889] = 100
+        set ProtoBranchOpenFirst[2890] = 736
+        set ProtoEventOpenNext[736] = 741
+        set ProtoEventOpenNext[741] = 0
+        set ProtoBranchOpens[2890] = "후속 사건 개방 · 쉬는 동안 남겨 둔 질문|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 먼저 나눌 것|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[2890] = "|cFF006B8F레오리오|r가 계속 달리는 이유를 기억한다."
         set ProtoBranchResult[2890] = "남보다 거친 숨이 곧 약한 결심은 아니었다. 남은 길을 가늠하며 자세를 다시 세웠다."
         set ProtoBranchCard[2890] = 1275
@@ -50940,6 +51499,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2897] = 0
         set ProtoBranchPotions[2897] = 0
         set ProtoBranchChance[2897] = 100
+        set ProtoBranchOpenFirst[2898] = 746
+        set ProtoEventOpenNext[746] = 0
+        set ProtoBranchOpens[2898] = "후속 사건 개방 · 잡지 못한 공의 궤적|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2898] = "|cFF006B8F네테로|r가 몸을 돌리지 않고 피하는 때를 관찰한다."
         set ProtoBranchResult[2898] = "큰 동작을 해야만 거리를 지킬 수 있는 것은 아니었다. 작은 움직임이 다음 행동을 준비하고 있었다."
         set ProtoBranchCard[2898] = 1281
@@ -51112,6 +51674,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2909] = 0
         set ProtoBranchPotions[2909] = 0
         set ProtoBranchChance[2909] = 100
+        set ProtoBranchOpenFirst[2910] = 745
+        set ProtoEventOpenNext[745] = 0
+        set ProtoBranchOpens[2910] = "후속 사건 개방 · 표를 던진 뒤에 남는 것|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2910] = "|cFF006B8F레오리오|r와 마지막까지 함께 움직일 준비를 한다."
         set ProtoBranchResult[2910] = "먼저 나갈 사람을 고르는 대신 돌아서 부를 이름을 확인했다. 다툼이 있었어도 여기서 둘을 버릴 이유는 없었다."
         set ProtoBranchCard[2910] = 1290
@@ -51157,6 +51722,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2912] = 0
         set ProtoBranchPotions[2912] = 0
         set ProtoBranchChance[2912] = 100
+        set ProtoBranchOpenFirst[2913] = 747
+        set ProtoEventOpenNext[747] = 0
+        set ProtoBranchOpens[2913] = "후속 사건 개방 · 쥔 표와 놓친 방향|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2913] = "자기 |cFF865500번호표|r를 지키며 접근할 순서를 짠다."
         set ProtoBranchResult[2913] = "원하는 표만 보다 지금 가진 표를 잃을 수 있었다. |cFF006B8F곤|r은 돌아올 방향까지 살피며 움직이기로 했다."
         set ProtoBranchCard[2913] = 1292
@@ -51267,6 +51835,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2920] = 0
         set ProtoBranchPotions[2920] = 0
         set ProtoBranchChance[2920] = 100
+        set ProtoBranchOpenFirst[2921] = 748
+        set ProtoEventOpenNext[748] = 0
+        set ProtoBranchOpens[2921] = "후속 사건 개방 · 들어가기 전에 묻는 말|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2921] = "|cFF006B8F크라피카|r와 알고 있는 사실부터 나눈다."
         set ProtoBranchResult[2921] = "추측을 사실처럼 덧붙일수록 판단이 흐려졌다. 함정과 출구에 대해 확인한 것부터 하나씩 정리했다."
         set ProtoBranchCard[2921] = 1298
@@ -51329,6 +51900,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2924] = 0
         set ProtoBranchPotions[2924] = 0
         set ProtoBranchChance[2924] = 100
+        set ProtoBranchOpenFirst[2925] = 749
+        set ProtoEventOpenNext[749] = 0
+        set ProtoBranchOpens[2925] = "후속 사건 개방 · 대진표 옆의 작은 글씨|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[2925] = "|cFF006B8F한조|r가 실력과 승리 조건을 따로 재는 모습을 본다."
         set ProtoBranchResult[2925] = "강한 공격만으로 원하는 말을 얻을 수는 없었다. 힘으로 풀리지 않는 조건 앞에서 판단을 바꿔야 했다."
         set ProtoBranchCard[2925] = 1301
@@ -51464,6 +52038,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2934] = 0
         set ProtoBranchPotions[2934] = 0
         set ProtoBranchChance[2934] = 100
+        set ProtoEventChoicePath[734] = 1
         set ProtoEventKey[734] = "hx_rod_knot"
         set ProtoEventName[734] = "낚싯줄의 작은 매듭"
         set ProtoEventHead[734] = 21
@@ -51516,6 +52091,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2938] = 0
         set ProtoBranchPotions[2938] = 0
         set ProtoBranchChance[2938] = 100
+        set ProtoEventChoicePath[735] = 1
         set ProtoEventKey[735] = "hx_start_line"
         set ProtoEventName[735] = "출발선 뒤의 시선"
         set ProtoEventHead[735] = 21
@@ -51568,6 +52144,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2942] = 0
         set ProtoBranchPotions[2942] = 0
         set ProtoBranchChance[2942] = 100
+        set ProtoEventChoicePath[736] = 1
         set ProtoEventKey[736] = "hx_small_rest"
         set ProtoEventName[736] = "쉬는 동안 남겨 둔 질문"
         set ProtoEventHead[736] = 21
@@ -51620,6 +52197,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2946] = 0
         set ProtoBranchPotions[2946] = 0
         set ProtoBranchChance[2946] = 100
+        set ProtoEventChoicePath[737] = 1
         set ProtoEventKey[737] = "hx_board_wheels"
         set ProtoEventName[737] = "굴러가지 않는 바퀴"
         set ProtoEventHead[737] = 21
@@ -51642,6 +52220,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[737] = 1
         set ProtoEventRequiredCard[737] = 0
         set ProtoEventFailure[737] = ""
+        set ProtoBranchOpenFirst[2948] = 744
+        set ProtoEventOpenNext[744] = 0
+        set ProtoBranchOpens[2948] = "후속 사건 개방 · 바퀴 소리 대신 남은 신호|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[2948] = "|cFF006B8F키르아|r와 보드를 거두는 손의 움직임을 맞춘다."
         set ProtoBranchResult[2948] = "들고 있던 물건을 치우는 순간에도 다음 발이 이어졌다. 멈춘 뒤 다시 출발하는 시간을 줄였다."
         set ProtoBranchCard[2948] = 1800
@@ -51672,6 +52253,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2950] = 0
         set ProtoBranchPotions[2950] = 0
         set ProtoBranchChance[2950] = 100
+        set ProtoEventChoicePath[738] = 1
         set ProtoEventKey[738] = "hx_cup_offer"
         set ProtoEventName[738] = "먼저 건네온 친절"
         set ProtoEventHead[738] = 21
@@ -51724,6 +52306,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2954] = 0
         set ProtoBranchPotions[2954] = 0
         set ProtoBranchChance[2954] = 100
+        set ProtoEventChoicePath[739] = 1
         set ProtoEventKey[739] = "hx_hanzo_distance"
         set ProtoEventName[739] = "말 많은 사람의 발끝"
         set ProtoEventHead[739] = 21
@@ -51776,6 +52359,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2958] = 0
         set ProtoBranchPotions[2958] = 0
         set ProtoBranchChance[2958] = 100
+        set ProtoEventChoicePath[740] = 1
         set ProtoEventKey[740] = "hx_hisoka_glance"
         set ProtoEventName[740] = "눈이 마주치기 전"
         set ProtoEventHead[740] = 21
@@ -51828,6 +52412,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2962] = 0
         set ProtoBranchPotions[2962] = 0
         set ProtoBranchChance[2962] = 100
+        set ProtoEventChoicePath[741] = 1
         set ProtoEventKey[741] = "hx_supply_sort"
         set ProtoEventName[741] = "먼저 나눌 것"
         set ProtoEventHead[741] = 21
@@ -51850,6 +52435,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[741] = 3
         set ProtoEventRequiredCard[741] = 0
         set ProtoEventFailure[741] = ""
+        set ProtoBranchOpenFirst[2964] = 742
+        set ProtoEventOpenNext[742] = 0
+        set ProtoBranchOpens[2964] = "후속 사건 개방 · 마지막에 찾지 않아도 되는 것|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[2964] = "|cFF006B8F레오리오|r와 자주 쓰는 물건부터 나눈다."
         set ProtoBranchResult[2964] = "필요할 때마다 가방 전체를 뒤지는 일이 줄었다. 출발 직전에 다시 찾을 물건도 따로 남겼다."
         set ProtoBranchCard[2964] = 1271
@@ -51860,6 +52448,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2964] = 0
         set ProtoBranchPotions[2964] = 0
         set ProtoBranchChance[2964] = 100
+        set ProtoBranchOpenFirst[2965] = 743
+        set ProtoEventOpenNext[743] = 0
+        set ProtoBranchOpens[2965] = "후속 사건 개방 · 돌아가지 않아도 되는 길|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[2965] = "|cFF006B8F사토츠|r의 보폭을 떠올리며 이동 순서부터 적는다."
         set ProtoBranchResult[2965] = "자기 속도만 따로 계산하지 않았다. 앞사람을 따라갈 구간과 기다릴 구간을 나눴다."
         set ProtoBranchCard[2965] = 1263
@@ -51880,6 +52471,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2966] = 0
         set ProtoBranchPotions[2966] = 0
         set ProtoBranchChance[2966] = 100
+        set ProtoEventChoicePath[742] = 1
         set ProtoEventKey[742] = "hx_pack_followup"
         set ProtoEventName[742] = "마지막에 찾지 않아도 되는 것"
         set ProtoEventHead[742] = 21
@@ -51932,6 +52524,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2970] = 0
         set ProtoBranchPotions[2970] = 0
         set ProtoBranchChance[2970] = 100
+        set ProtoEventChoicePath[743] = 1
         set ProtoEventKey[743] = "hx_path_followup"
         set ProtoEventName[743] = "돌아가지 않아도 되는 길"
         set ProtoEventHead[743] = 21
@@ -51984,6 +52577,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2974] = 0
         set ProtoBranchPotions[2974] = 0
         set ProtoBranchChance[2974] = 100
+        set ProtoEventChoicePath[744] = 1
         set ProtoEventKey[744] = "hx_signal_followup"
         set ProtoEventName[744] = "바퀴 소리 대신 남은 신호"
         set ProtoEventHead[744] = 21
@@ -52036,6 +52630,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2978] = 0
         set ProtoBranchPotions[2978] = 0
         set ProtoBranchChance[2978] = 100
+        set ProtoEventChoicePath[745] = 1
         set ProtoEventKey[745] = "hx_tower_vote"
         set ProtoEventName[745] = "표를 던진 뒤에 남는 것"
         set ProtoEventHead[745] = 21
@@ -52088,6 +52683,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2982] = 0
         set ProtoBranchPotions[2982] = 0
         set ProtoBranchChance[2982] = 100
+        set ProtoEventChoicePath[746] = 1
         set ProtoEventKey[746] = "hx_netero_recall"
         set ProtoEventName[746] = "잡지 못한 공의 궤적"
         set ProtoEventHead[746] = 21
@@ -52140,6 +52736,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2986] = 0
         set ProtoBranchPotions[2986] = 0
         set ProtoBranchChance[2986] = 100
+        set ProtoEventChoicePath[747] = 1
         set ProtoEventKey[747] = "hx_badge_weight"
         set ProtoEventName[747] = "쥔 표와 놓친 방향"
         set ProtoEventHead[747] = 21
@@ -52192,6 +52789,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2990] = 0
         set ProtoBranchPotions[2990] = 0
         set ProtoBranchChance[2990] = 100
+        set ProtoEventChoicePath[748] = 1
         set ProtoEventKey[748] = "hx_trap_marks"
         set ProtoEventName[748] = "들어가기 전에 묻는 말"
         set ProtoEventHead[748] = 21
@@ -52244,6 +52842,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2994] = 0
         set ProtoBranchPotions[2994] = 0
         set ProtoBranchChance[2994] = 100
+        set ProtoEventChoicePath[749] = 1
         set ProtoEventKey[749] = "hx_rule_margin"
         set ProtoEventName[749] = "대진표 옆의 작은 글씨"
         set ProtoEventHead[749] = 21
@@ -52296,6 +52895,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[2998] = 0
         set ProtoBranchPotions[2998] = 0
         set ProtoBranchChance[2998] = 100
+        set ProtoEventHeadChoice[750] = 1
         set ProtoEventKey[750] = "hx_epilogue_three"
         set ProtoEventName[750] = "셋이 걷는 다음 길"
         set ProtoEventHead[750] = 21
@@ -52348,6 +52948,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3002] = 0
         set ProtoBranchPotions[3002] = 0
         set ProtoBranchChance[3002] = 100
+        set ProtoEventHeadChoice[751] = 1
         set ProtoEventKey[751] = "hx_epilogue_meaning"
         set ProtoEventName[751] = "번호 대신 부를 이름"
         set ProtoEventHead[751] = 21
@@ -53057,6 +53658,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[756] = 1
         set ProtoEventCommonResult[756] = "|cFF006B8F스바루|r는 저택에서 일하며 지내기로 한다. 아직 서툰 손으로 배워야 할 일이 많다."
         set ProtoEventDialogueFirst[756] = 0
+        set ProtoBranchOpenFirst[3024] = 776
+        set ProtoEventOpenNext[776] = 0
+        set ProtoBranchOpens[3024] = "후속 사건 개방 · 오늘 할 일의 빈칸|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[3024] = "앞으로 맡을 일을 묻는다"
         set ProtoBranchResult[3024] = "|cFF006B8F스바루|r는 할 수 있는 일부터 찾는다. 오늘 맡을 작은 역할이 이곳에 머물 첫 이유가 된다."
         set ProtoBranchCard[3024] = 1316
@@ -53835,6 +54439,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3078] = 0
         set ProtoBranchPotions[3078] = 0
         set ProtoBranchChance[3078] = 100
+        set ProtoEventHeadChoice[770] = 1
         set ProtoEventKey[770] = "rz_side_hall"
         set ProtoEventName[770] = "너무 긴 복도의 끝"
         set ProtoEventHead[770] = 22
@@ -53887,6 +54492,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3082] = 0
         set ProtoBranchPotions[3082] = 0
         set ProtoBranchChance[3082] = 100
+        set ProtoEventHeadChoice[771] = 1
         set ProtoEventKey[771] = "rz_side_tray"
         set ProtoEventName[771] = "쟁반 위의 흔들림"
         set ProtoEventHead[771] = 22
@@ -53939,6 +54545,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3086] = 0
         set ProtoBranchPotions[3086] = 0
         set ProtoBranchChance[3086] = 100
+        set ProtoEventHeadChoice[772] = 1
         set ProtoEventKey[772] = "rz_side_letters"
         set ProtoEventName[772] = "읽지 못한 마지막 줄"
         set ProtoEventHead[772] = 22
@@ -53991,6 +54598,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3090] = 0
         set ProtoBranchPotions[3090] = 0
         set ProtoBranchChance[3090] = 100
+        set ProtoEventHeadChoice[773] = 1
         set ProtoEventKey[773] = "rz_side_door"
         set ProtoEventName[773] = "노크 다음의 대답"
         set ProtoEventHead[773] = 22
@@ -54043,6 +54651,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3094] = 0
         set ProtoBranchPotions[3094] = 0
         set ProtoBranchChance[3094] = 100
+        set ProtoEventHeadChoice[774] = 1
         set ProtoEventKey[774] = "rz_side_window"
         set ProtoEventName[774] = "창가의 작은 잠"
         set ProtoEventHead[774] = 22
@@ -54095,6 +54704,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3098] = 0
         set ProtoBranchPotions[3098] = 0
         set ProtoBranchChance[3098] = 100
+        set ProtoEventHeadChoice[775] = 1
         set ProtoEventKey[775] = "rz_side_laundry"
         set ProtoEventName[775] = "바람에 돌아가는 천"
         set ProtoEventHead[775] = 22
@@ -54147,6 +54757,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3102] = 0
         set ProtoBranchPotions[3102] = 0
         set ProtoBranchChance[3102] = 100
+        set ProtoEventChoicePath[776] = 1
         set ProtoEventKey[776] = "rz_side_orders"
         set ProtoEventName[776] = "오늘 할 일의 빈칸"
         set ProtoEventHead[776] = 22
@@ -54165,10 +54776,13 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[776] = "|cFF006B8F스바루|r의 작업표에 같은 일이 두 번 적혔던 날이다."
         set ProtoEventIcon[776] = "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_ram.blp"
         set ProtoEventImageAspect[776] = 1.777778
-        set ProtoEventRequired[776] = 0
-        set ProtoEventRequiredChoice[776] = 0
+        set ProtoEventRequired[776] = 756
+        set ProtoEventRequiredChoice[776] = 1
         set ProtoEventRequiredCard[776] = 0
         set ProtoEventFailure[776] = ""
+        set ProtoBranchOpenFirst[3104] = 784
+        set ProtoEventOpenNext[784] = 0
+        set ProtoBranchOpens[3104] = "후속 사건 개방 · 한 칸 더 남은 하루|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[3104] = "먼저 해야 가능한 일을 구분한다"
         set ProtoBranchResult[3104] = "|cFF006B8F스바루|r는 앞선 일이 끝나야 할 수 있는 작업을 연결한다. 긴 목록에 순서가 생긴다."
         set ProtoBranchCard[3104] = 1316
@@ -54199,6 +54813,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3106] = 0
         set ProtoBranchPotions[3106] = 0
         set ProtoBranchChance[3106] = 100
+        set ProtoEventHeadChoice[777] = 1
         set ProtoEventKey[777] = "rz_side_margin"
         set ProtoEventName[777] = "여백에 적힌 물음"
         set ProtoEventHead[777] = 22
@@ -54251,6 +54866,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3110] = 0
         set ProtoBranchPotions[3110] = 0
         set ProtoBranchChance[3110] = 100
+        set ProtoEventHeadChoice[778] = 1
         set ProtoEventKey[778] = "rz_side_garden"
         set ProtoEventName[778] = "나무 그늘이 옮겨 갈 때"
         set ProtoEventHead[778] = 22
@@ -54303,6 +54919,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3114] = 0
         set ProtoBranchPotions[3114] = 0
         set ProtoBranchChance[3114] = 100
+        set ProtoEventHeadChoice[779] = 1
         set ProtoEventKey[779] = "rz_side_chain"
         set ProtoEventName[779] = "돌아오는 사슬의 자리"
         set ProtoEventHead[779] = 22
@@ -54355,6 +54972,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3118] = 0
         set ProtoBranchPotions[3118] = 0
         set ProtoBranchChance[3118] = 100
+        set ProtoEventHeadChoice[780] = 1
         set ProtoEventKey[780] = "rz_side_map"
         set ProtoEventName[780] = "탁자 위의 짧은 설명"
         set ProtoEventHead[780] = 22
@@ -54407,6 +55025,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3122] = 0
         set ProtoBranchPotions[3122] = 0
         set ProtoBranchChance[3122] = 100
+        set ProtoEventHeadChoice[781] = 1
         set ProtoEventKey[781] = "rz_side_village"
         set ProtoEventName[781] = "아이들이 내준 문제"
         set ProtoEventHead[781] = 22
@@ -54459,6 +55078,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3126] = 0
         set ProtoBranchPotions[3126] = 0
         set ProtoBranchChance[3126] = 100
+        set ProtoEventHeadChoice[782] = 1
         set ProtoEventKey[782] = "rz_side_library_follow"
         set ProtoEventName[782] = "되묻기 위해 남긴 책갈피"
         set ProtoEventHead[782] = 22
@@ -54511,6 +55131,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3130] = 0
         set ProtoBranchPotions[3130] = 0
         set ProtoBranchChance[3130] = 100
+        set ProtoEventHeadChoice[783] = 1
         set ProtoEventKey[783] = "rz_side_chain_follow"
         set ProtoEventName[783] = "한 걸음의 차이"
         set ProtoEventHead[783] = 22
@@ -54563,6 +55184,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3134] = 0
         set ProtoBranchPotions[3134] = 0
         set ProtoBranchChance[3134] = 100
+        set ProtoEventChoicePath[784] = 1
         set ProtoEventKey[784] = "rz_side_schedule_follow"
         set ProtoEventName[784] = "한 칸 더 남은 하루"
         set ProtoEventHead[784] = 22
@@ -54615,6 +55237,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3138] = 0
         set ProtoBranchPotions[3138] = 0
         set ProtoBranchChance[3138] = 100
+        set ProtoEventHeadChoice[785] = 1
         set ProtoEventKey[785] = "rz_side_tablecloth"
         set ProtoEventName[785] = "식탁에 남은 작은 주름"
         set ProtoEventHead[785] = 22
@@ -54667,6 +55290,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3142] = 0
         set ProtoBranchPotions[3142] = 0
         set ProtoBranchChance[3142] = 100
+        set ProtoEventHeadChoice[786] = 1
         set ProtoEventKey[786] = "rz_epilogue_seats"
         set ProtoEventName[786] = "비어 있지 않은 자리"
         set ProtoEventHead[786] = 22
@@ -54719,6 +55343,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3146] = 0
         set ProtoBranchPotions[3146] = 0
         set ProtoBranchChance[3146] = 100
+        set ProtoEventHeadChoice[787] = 1
         set ProtoEventKey[787] = "rz_epilogue_promise"
         set ProtoEventName[787] = "이번에는 기다릴 수 있는 내일"
         set ProtoEventHead[787] = 22
@@ -55440,6 +56065,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[793] = 1
         set ProtoEventCommonResult[793] = "|cFF006B8F제노스|r의 방문은 한 번의 감사 인사로 끝나지 않았다. |cFF006B8F사이타마|r의 평범한 생활 옆에 끈질긴 질문 하나가 자리 잡는다."
         set ProtoEventDialogueFirst[793] = 0
+        set ProtoBranchOpenFirst[3172] = 805
+        set ProtoEventOpenNext[805] = 0
+        set ProtoBranchOpens[3172] = "후속 사건 개방 · 문턱에 놓인 긴 설명|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3172] = "|cFF006B8F제노스|r가 놓친 변화부터 정리한다."
         set ProtoBranchResult[3172] = "처음 세운 판단을 고집하면 달라진 상대를 놓친다. |cFF006B8F제노스|r는 공격을 쏟기 전 다시 확인할 지점을 적었다."
         set ProtoBranchCard[3172] = 1369
@@ -55557,6 +56185,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[508] = "긴 해명 대신 앞으로 어떻게 행동할지를 남겼다."
         set ProtoDialogueLabel[509] = "필요한 오해만 짧게 바로잡는다."
         set ProtoDialogueResult[509] = "말을 늘릴수록 소동도 커질 수 있었다. 꼭 필요한 사실만 골랐다."
+        set ProtoBranchOpenFirst[3180] = 809
+        set ProtoEventOpenNext[809] = 0
+        set ProtoBranchOpens[3180] = "후속 사건 개방 · 발자국보다 빠른 판단|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3180] = "|cFF006B8F소닉|r의 빠른 발이 멈추는 곳을 본다."
         set ProtoBranchResult[3180] = "속도에 시선만 빼앗기지 않고 다음 발을 딛을 자리를 찾았다. 사라졌다 나타나는 듯한 움직임에도 간격이 있었다."
         set ProtoBranchCard[3180] = 1375
@@ -55632,6 +56263,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3185] = 0
         set ProtoBranchPotions[3185] = 0
         set ProtoBranchChance[3185] = 100
+        set ProtoBranchOpenFirst[3186] = 811
+        set ProtoEventOpenNext[811] = 0
+        set ProtoBranchOpens[3186] = "후속 사건 개방 · 대련이 시작되기 전|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3186] = "이어질 대련에서 |cFF006B8F제노스|r의 관찰점을 정한다."
         set ProtoBranchResult[3186] = "승패보다 거리와 자세가 바뀌는 순간을 보려 했다. 한 번의 비교에서 배울 수 있는 것을 좁혔다."
         set ProtoBranchCard[3186] = 1380
@@ -55667,6 +56301,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[797] = 1
         set ProtoEventCommonResult[797] = "활동은 조급하게 이름을 남기는 일과 달랐다. |cFF006B8F소닉|r과의 소동을 지나며 |cFF006B8F사이타마|r는 자신이 해야 할 일을 다시 바라본다."
         set ProtoEventDialogueFirst[797] = 0
+        set ProtoBranchOpenFirst[3188] = 807
+        set ProtoEventOpenNext[807] = 0
+        set ProtoBranchOpens[3188] = "후속 사건 개방 · 빈 활동 보고란|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[3188] = "|cFF006B8F사이타마|r와 당장 살필 거리부터 정한다."
         set ProtoBranchResult[3188] = "모든 골목을 한꺼번에 훑으려던 발걸음을 정리했다. 먼저 확인할 곳을 고르니 움직임이 덜 낭비됐다."
         set ProtoBranchCard[3188] = 1381
@@ -55677,6 +56314,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3188] = 0
         set ProtoBranchPotions[3188] = 0
         set ProtoBranchChance[3188] = 100
+        set ProtoBranchOpenFirst[3189] = 812
+        set ProtoEventOpenNext[812] = 0
+        set ProtoBranchOpens[3189] = "후속 사건 개방 · 소동 뒤에 남은 통로|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3189] = "|cFF006B8F소닉|r의 도발과 주변의 위험을 구분한다."
         set ProtoBranchResult[3189] = "승부를 재촉하는 |cFF80560C목소리|r가 사람들의 동선까지 가릴 수는 없었다. 방향이 바뀌는 순간에 집중했다."
         set ProtoBranchCard[3189] = 1382
@@ -55749,6 +56389,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3193] = 0
         set ProtoBranchPotions[3193] = 0
         set ProtoBranchChance[3193] = 100
+        set ProtoBranchOpenFirst[3194] = 814
+        set ProtoEventOpenNext[814] = 0
+        set ProtoBranchOpens[3194] = "후속 사건 개방 · 파편을 본 뒤의 말|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3194] = "|cFF006B8F사이타마|r가 도약하기 전 중심을 잡는 모습을 본다."
         set ProtoBranchResult[3194] = "목표가 크다고 준비까지 크게 흔들릴 필요는 없었다. 힘을 싣는 시작점을 놓치지 않았다."
         set ProtoBranchCard[3194] = 1386
@@ -55794,6 +56437,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3196] = 0
         set ProtoBranchPotions[3196] = 0
         set ProtoBranchChance[3196] = 100
+        set ProtoBranchOpenFirst[3197] = 810
+        set ProtoEventOpenNext[810] = 0
+        set ProtoBranchOpens[3197] = "후속 사건 개방 · 페달에 앞서 정할 길|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3197] = "|cFF006B8F무면허 라이더|r가 현장으로 가는 길을 따라 본다."
         set ProtoBranchResult[3197] = "빨리 도착하려는 마음을 잃지 않으면서도 길을 놓치지 않았다. 다른 사람의 부름이 들리는 쪽으로 발을 움직였다."
         set ProtoBranchCard[3197] = 1388
@@ -55839,6 +56485,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[800] = 1
         set ProtoEventCommonResult[800] = "마침내 도착한 |cFF006B8F사이타마|r가 |cFF865500심해왕|r을 쓰러뜨린다. 마지막 일격만으로는 그 전에 버틴 사람들의 시간을 다 말할 수 없었다."
         set ProtoEventDialogueFirst[800] = 0
+        set ProtoBranchOpenFirst[3200] = 816
+        set ProtoEventOpenNext[816] = 0
+        set ProtoBranchOpens[3200] = "후속 사건 개방 · 다시 움직일 때의 기록|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3200] = "|cFF006B8F제노스|r가 아이 쪽으로 몸을 돌린 순간을 기억한다."
         set ProtoBranchResult[3200] = "공격할 기회보다 먼저 지켜야 할 방향을 골랐다. 목표를 놓치지 않으면서도 주변을 보는 시선을 남겼다."
         set ProtoBranchCard[3200] = 1378
@@ -55849,6 +56498,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3200] = 0
         set ProtoBranchPotions[3200] = 0
         set ProtoBranchChance[3200] = 100
+        set ProtoBranchOpenFirst[3201] = 815
+        set ProtoEventOpenNext[815] = 0
+        set ProtoBranchOpens[3201] = "후속 사건 개방 · 마지막 일격 전에|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3201] = "|cFF006B8F무면허 라이더|r가 다시 일어서는 모습을 지켜본다."
         set ProtoBranchResult[3201] = "상대보다 강하다는 증명은 할 수 없었다. 그래도 자리를 내주지 않으려는 의지가 손끝에 남았다."
         set ProtoBranchCard[3201] = 1388
@@ -55901,6 +56553,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[516] = "상공만 올려다보다 곁의 위험을 놓치지 않도록 시선을 돌렸다."
         set ProtoDialogueLabel[517] = "다음 포격이 올 방향을 경계한다."
         set ProtoDialogueResult[517] = "첫 공격을 막았던 것처럼 말하지 않았다. 지금 할 수 있는 대응에 집중했다."
+        set ProtoBranchOpenFirst[3204] = 813
+        set ProtoEventOpenNext[813] = 0
+        set ProtoBranchOpens[3204] = "후속 사건 개방 · 문턱을 넘기 전의 자세|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3204] = "|cFF006B8F뱅|r과 흔들린 뒤의 주변을 먼저 살핀다."
         set ProtoBranchResult[3204] = "놀란 마음을 가라앉히고 움직일 수 있는 공간을 확인했다. 눈에 보이는 위협부터 순서를 붙였다."
         set ProtoBranchCard[3204] = 1393
@@ -55956,6 +56611,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[802] = 1
         set ProtoEventCommonResult[802] = "무작정 같은 공격을 되풀이해서는 지상의 적을 쓰러뜨릴 수 없었다. 히어로들은 재생 속에 숨은 약점을 살피고, |cFF006B8F사이타마|r는 함선의 중심으로 나아간다."
         set ProtoEventDialogueFirst[802] = 0
+        set ProtoBranchOpenFirst[3208] = 817
+        set ProtoEventOpenNext[817] = 0
+        set ProtoBranchOpens[3208] = "후속 사건 개방 · 잘린 뒤에 다시 보는 것|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3208] = "|cFF006B8F아토믹 사무라이|r가 자른 뒤의 변화를 본다."
         set ProtoBranchResult[3208] = "칼날이 지나간 순간에만 시선을 두지 않았다. 다시 이어지는 위치를 보며 다음에 겨눌 곳을 좁혔다."
         set ProtoBranchCard[3208] = 1396
@@ -55976,6 +56634,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3209] = 0
         set ProtoBranchPotions[3209] = 0
         set ProtoBranchChance[3209] = 100
+        set ProtoBranchOpenFirst[3210] = 820
+        set ProtoEventOpenNext[820] = 0
+        set ProtoBranchOpens[3210] = "후속 사건 개방 · 한 전투의 다른 기록|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3210] = "함선 안에서 |cFF006B8F사이타마|r가 향하는 곳을 따라 본다."
         set ProtoBranchResult[3210] = "눈앞의 적을 넘는 일과 목적지를 잃지 않는 일을 함께 생각했다. 막힌 통로가 여럿이어도 시선은 안쪽을 향했다."
         set ProtoBranchCard[3210] = 1395
@@ -56011,6 +56672,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[803] = 1
         set ProtoEventCommonResult[803] = "|cFF006B8F보로스|r의 마지막 공격을 |cFF006B8F사이타마|r의 진심 펀치가 꺾는다. 쓰러진 보로스와 기울어지는 함선 뒤로 침공의 결말이 드러난다."
         set ProtoEventDialogueFirst[803] = 0
+        set ProtoBranchOpenFirst[3212] = 819
+        set ProtoEventOpenNext[819] = 0
+        set ProtoBranchOpens[3212] = "후속 사건 개방 · 강한 상대를 찾는다는 것|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3212] = "|cFF006B8F보로스|r가 한 상대에게 집중하는 모습을 본다."
         set ProtoBranchResult[3212] = "끝없이 넓은 곳을 떠돌아도 그가 겨누는 것은 눈앞의 한 명이었다. 힘을 흩어 쓰지 않는 집중만을 |cFF80560C기억|r했다."
         set ProtoBranchCard[3212] = 1399
@@ -56031,6 +56695,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3213] = 0
         set ProtoBranchPotions[3213] = 0
         set ProtoBranchChance[3213] = 100
+        set ProtoBranchOpenFirst[3214] = 818
+        set ProtoEventOpenNext[818] = 0
+        set ProtoBranchOpens[3214] = "후속 사건 개방 · 고개를 든 사람들의 방향|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3214] = "지상에서 |cFF006B8F타츠마키|r가 포격의 방향을 바꾸는 모습을 본다."
         set ProtoBranchResult[3214] = "위협을 하나씩 쫓기보다 전체가 몰리는 방향을 읽었다. 넓은 시야 속에서 공격의 중심을 골랐다."
         set ProtoBranchCard[3214] = 1401
@@ -56101,6 +56768,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3218] = 0
         set ProtoBranchPotions[3218] = 0
         set ProtoBranchChance[3218] = 100
+        set ProtoEventChoicePath[805] = 1
         set ProtoEventKey[805] = "opm_side_threshold"
         set ProtoEventName[805] = "문턱에 놓인 긴 설명"
         set ProtoEventHead[805] = 23
@@ -56153,6 +56821,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3222] = 0
         set ProtoBranchPotions[3222] = 0
         set ProtoBranchChance[3222] = 100
+        set ProtoEventHeadChoice[806] = 1
         set ProtoEventKey[806] = "opm_side_shopping"
         set ProtoEventName[806] = "장바구니를 놓을 자리"
         set ProtoEventHead[806] = 23
@@ -56205,6 +56874,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3226] = 0
         set ProtoBranchPotions[3226] = 0
         set ProtoBranchChance[3226] = 100
+        set ProtoEventChoicePath[807] = 1
         set ProtoEventKey[807] = "opm_side_report"
         set ProtoEventName[807] = "빈 활동 보고란"
         set ProtoEventHead[807] = 23
@@ -56237,6 +56907,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3228] = 0
         set ProtoBranchPotions[3228] = 0
         set ProtoBranchChance[3228] = 100
+        set ProtoBranchOpenFirst[3229] = 808
+        set ProtoEventOpenNext[808] = 0
+        set ProtoBranchOpens[3229] = "후속 사건 개방 · 다음 순찰의 여백|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[3229] = "|cFF006B8F제노스|r와 사실과 추측을 나눈다."
         set ProtoBranchResult[3229] = "확신할 수 없는 부분을 덜어 내니 중요한 관찰이 남았다."
         set ProtoBranchCard[3229] = 1372
@@ -56257,6 +56930,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3230] = 0
         set ProtoBranchPotions[3230] = 0
         set ProtoBranchChance[3230] = 100
+        set ProtoEventChoicePath[808] = 1
         set ProtoEventKey[808] = "opm_side_short_route"
         set ProtoEventName[808] = "다음 순찰의 여백"
         set ProtoEventHead[808] = 23
@@ -56309,6 +56983,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3234] = 0
         set ProtoBranchPotions[3234] = 0
         set ProtoBranchChance[3234] = 100
+        set ProtoEventChoicePath[809] = 1
         set ProtoEventKey[809] = "opm_side_footprint"
         set ProtoEventName[809] = "발자국보다 빠른 판단"
         set ProtoEventHead[809] = 23
@@ -56361,6 +57036,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3238] = 0
         set ProtoBranchPotions[3238] = 0
         set ProtoBranchChance[3238] = 100
+        set ProtoEventChoicePath[810] = 1
         set ProtoEventKey[810] = "opm_side_bicycle"
         set ProtoEventName[810] = "페달에 앞서 정할 길"
         set ProtoEventHead[810] = 23
@@ -56413,6 +57089,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3242] = 0
         set ProtoBranchPotions[3242] = 0
         set ProtoBranchChance[3242] = 100
+        set ProtoEventChoicePath[811] = 1
         set ProtoEventKey[811] = "opm_side_interval"
         set ProtoEventName[811] = "대련이 시작되기 전"
         set ProtoEventHead[811] = 23
@@ -56465,6 +57142,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3246] = 0
         set ProtoBranchPotions[3246] = 0
         set ProtoBranchChance[3246] = 100
+        set ProtoEventChoicePath[812] = 1
         set ProtoEventKey[812] = "opm_side_clearance"
         set ProtoEventName[812] = "소동 뒤에 남은 통로"
         set ProtoEventHead[812] = 23
@@ -56517,6 +57195,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3250] = 0
         set ProtoBranchPotions[3250] = 0
         set ProtoBranchChance[3250] = 100
+        set ProtoEventChoicePath[813] = 1
         set ProtoEventKey[813] = "opm_side_dojo"
         set ProtoEventName[813] = "문턱을 넘기 전의 자세"
         set ProtoEventHead[813] = 23
@@ -56569,6 +57248,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3254] = 0
         set ProtoBranchPotions[3254] = 0
         set ProtoBranchChance[3254] = 100
+        set ProtoEventChoicePath[814] = 1
         set ProtoEventKey[814] = "opm_side_fragments"
         set ProtoEventName[814] = "파편을 본 뒤의 말"
         set ProtoEventHead[814] = 23
@@ -56621,6 +57301,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3258] = 0
         set ProtoBranchPotions[3258] = 0
         set ProtoBranchChance[3258] = 100
+        set ProtoEventChoicePath[815] = 1
         set ProtoEventKey[815] = "opm_side_frontline"
         set ProtoEventName[815] = "마지막 일격 전에"
         set ProtoEventHead[815] = 23
@@ -56673,6 +57354,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3262] = 0
         set ProtoBranchPotions[3262] = 0
         set ProtoBranchChance[3262] = 100
+        set ProtoEventChoicePath[816] = 1
         set ProtoEventKey[816] = "opm_side_repair_notes"
         set ProtoEventName[816] = "다시 움직일 때의 기록"
         set ProtoEventHead[816] = 23
@@ -56725,6 +57407,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3266] = 0
         set ProtoBranchPotions[3266] = 0
         set ProtoBranchChance[3266] = 100
+        set ProtoEventChoicePath[817] = 1
         set ProtoEventKey[817] = "opm_side_cut"
         set ProtoEventName[817] = "잘린 뒤에 다시 보는 것"
         set ProtoEventHead[817] = 23
@@ -56777,6 +57460,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3270] = 0
         set ProtoBranchPotions[3270] = 0
         set ProtoBranchChance[3270] = 100
+        set ProtoEventChoicePath[818] = 1
         set ProtoEventKey[818] = "opm_side_sky"
         set ProtoEventName[818] = "고개를 든 사람들의 방향"
         set ProtoEventHead[818] = 23
@@ -56829,6 +57513,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3274] = 0
         set ProtoBranchPotions[3274] = 0
         set ProtoBranchChance[3274] = 100
+        set ProtoEventChoicePath[819] = 1
         set ProtoEventKey[819] = "opm_side_rival"
         set ProtoEventName[819] = "강한 상대를 찾는다는 것"
         set ProtoEventHead[819] = 23
@@ -56881,6 +57566,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3278] = 0
         set ProtoBranchPotions[3278] = 0
         set ProtoBranchChance[3278] = 100
+        set ProtoEventChoicePath[820] = 1
         set ProtoEventKey[820] = "opm_side_two_reports"
         set ProtoEventName[820] = "한 전투의 다른 기록"
         set ProtoEventHead[820] = 23
@@ -56933,6 +57619,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3282] = 0
         set ProtoBranchPotions[3282] = 0
         set ProtoBranchChance[3282] = 100
+        set ProtoEventHeadChoice[821] = 1
         set ProtoEventKey[821] = "opm_epilogue_home"
         set ProtoEventName[821] = "문을 다시 여는 하루"
         set ProtoEventHead[821] = 23
@@ -56985,6 +57672,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3286] = 0
         set ProtoBranchPotions[3286] = 0
         set ProtoBranchChance[3286] = 100
+        set ProtoEventHeadChoice[822] = 1
         set ProtoEventKey[822] = "opm_epilogue_names"
         set ProtoEventName[822] = "모두가 본 것은 달랐다"
         set ProtoEventHead[822] = 23
@@ -57841,6 +58529,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3309] = 0
         set ProtoBranchPotions[3309] = 0
         set ProtoBranchChance[3309] = 100
+        set ProtoBranchOpenFirst[3310] = 854
+        set ProtoEventOpenNext[854] = 0
+        set ProtoBranchOpens[3310] = "후속 사건 개방 · 증언을 묶는 끈|n다음 사건 선택에서 진행 가능 · 행동력 4"
         set ProtoBranchLabel[3310] = "말을 잃은 사람부터 살핀다."
         set ProtoBranchResult[3310] = "|cFF006B8F미리아|r의 조심스러운 몸짓을 따라 사람 사이의 빈틈을 메운다. 먼저 나서는 데 거창한 말은 필요하지 않다."
         set ProtoBranchCard[3310] = 1417
@@ -58712,6 +59403,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3370] = 0
         set ProtoBranchPotions[3370] = 0
         set ProtoBranchChance[3370] = 100
+        set ProtoEventHeadChoice[843] = 1
         set ProtoEventKey[843] = "wt_side_names"
         set ProtoEventName[843] = "이름을 적는 순서"
         set ProtoEventHead[843] = 24
@@ -58764,6 +59456,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3374] = 0
         set ProtoBranchPotions[3374] = 0
         set ProtoBranchChance[3374] = 100
+        set ProtoEventHeadChoice[844] = 1
         set ProtoEventKey[844] = "wt_side_blank"
         set ProtoEventName[844] = "아직 쓰지 않은 칸"
         set ProtoEventHead[844] = 24
@@ -58816,6 +59509,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3378] = 0
         set ProtoBranchPotions[3378] = 0
         set ProtoBranchChance[3378] = 100
+        set ProtoEventHeadChoice[845] = 1
         set ProtoEventKey[845] = "wt_side_palette"
         set ProtoEventName[845] = "남은 두 가지 색"
         set ProtoEventHead[845] = 24
@@ -58868,6 +59562,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3382] = 0
         set ProtoBranchPotions[3382] = 0
         set ProtoBranchChance[3382] = 100
+        set ProtoEventHeadChoice[846] = 1
         set ProtoEventKey[846] = "wt_side_stage"
         set ProtoEventName[846] = "누가 보는 무대인가"
         set ProtoEventHead[846] = 24
@@ -58920,6 +59615,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3386] = 0
         set ProtoBranchPotions[3386] = 0
         set ProtoBranchChance[3386] = 100
+        set ProtoEventHeadChoice[847] = 1
         set ProtoEventKey[847] = "wt_side_chair"
         set ProtoEventName[847] = "옮기기 전의 의자"
         set ProtoEventHead[847] = 24
@@ -58972,6 +59668,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3390] = 0
         set ProtoBranchPotions[3390] = 0
         set ProtoBranchChance[3390] = 100
+        set ProtoEventHeadChoice[848] = 1
         set ProtoEventKey[848] = "wt_side_polite"
         set ProtoEventName[848] = "우아한 말과 작은 망설임"
         set ProtoEventHead[848] = 24
@@ -59024,6 +59721,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3394] = 0
         set ProtoBranchPotions[3394] = 0
         set ProtoBranchChance[3394] = 100
+        set ProtoEventHeadChoice[849] = 1
         set ProtoEventKey[849] = "wt_side_map"
         set ProtoEventName[849] = "복도의 모서리"
         set ProtoEventHead[849] = 24
@@ -59076,6 +59774,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3398] = 0
         set ProtoBranchPotions[3398] = 0
         set ProtoBranchChance[3398] = 100
+        set ProtoEventHeadChoice[850] = 1
         set ProtoEventKey[850] = "wt_side_frame"
         set ProtoEventName[850] = "화면에 들어오는 것"
         set ProtoEventHead[850] = 24
@@ -59128,6 +59827,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3402] = 0
         set ProtoBranchPotions[3402] = 0
         set ProtoBranchChance[3402] = 100
+        set ProtoEventHeadChoice[851] = 1
         set ProtoEventKey[851] = "wt_side_offer"
         set ProtoEventName[851] = "상냥한 제안의 조건"
         set ProtoEventHead[851] = 24
@@ -59180,6 +59880,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3406] = 0
         set ProtoBranchPotions[3406] = 0
         set ProtoBranchChance[3406] = 100
+        set ProtoEventHeadChoice[852] = 1
         set ProtoEventKey[852] = "wt_side_whisper"
         set ProtoEventName[852] = "작은 목소리를 듣는 거리"
         set ProtoEventHead[852] = 24
@@ -59232,6 +59933,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3410] = 0
         set ProtoBranchPotions[3410] = 0
         set ProtoBranchChance[3410] = 100
+        set ProtoEventHeadChoice[853] = 1
         set ProtoEventKey[853] = "wt_side_compare"
         set ProtoEventName[853] = "닮은 말의 다른 뜻"
         set ProtoEventHead[853] = 24
@@ -59284,6 +59986,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3414] = 0
         set ProtoBranchPotions[3414] = 0
         set ProtoBranchChance[3414] = 100
+        set ProtoEventChoicePath[854] = 1
         set ProtoEventKey[854] = "wt_side_order"
         set ProtoEventName[854] = "증언을 묶는 끈"
         set ProtoEventHead[854] = 24
@@ -59302,8 +60005,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIntro[854] = "짧게 적어 둔 말들이 뒤섞여 있다."
         set ProtoEventIcon[854] = "war3mapImported\\UI_EventThumb_XP_witch_prison_head.blp"
         set ProtoEventImageAspect[854] = 1.777778
-        set ProtoEventRequired[854] = 0
-        set ProtoEventRequiredChoice[854] = 0
+        set ProtoEventRequired[854] = 827
+        set ProtoEventRequiredChoice[854] = 3
         set ProtoEventRequiredCard[854] = 0
         set ProtoEventFailure[854] = ""
         set ProtoBranchLabel[3416] = "말한 사람별로 묶는다."
@@ -59316,6 +60019,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3416] = 0
         set ProtoBranchPotions[3416] = 0
         set ProtoBranchChance[3416] = 100
+        set ProtoBranchOpenFirst[3417] = 857
+        set ProtoEventOpenNext[857] = 0
+        set ProtoBranchOpens[3417] = "후속 사건 개방 · 다음 질문을 위한 여유|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[3417] = "먼저 일어난 순서로 다시 놓는다."
         set ProtoBranchResult[3417] = "|cFF006B8F히로|r처럼 시간의 앞뒤를 확인한다. 빈 시간은 빈 시간대로 남겨 둔다."
         set ProtoBranchCard[3417] = 1404
@@ -59336,6 +60042,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3418] = 0
         set ProtoBranchPotions[3418] = 0
         set ProtoBranchChance[3418] = 100
+        set ProtoEventHeadChoice[855] = 1
         set ProtoEventKey[855] = "wt_side_noah_detail"
         set ProtoEventName[855] = "선을 보던 자리"
         set ProtoEventHead[855] = 24
@@ -59388,6 +60095,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3422] = 0
         set ProtoBranchPotions[3422] = 0
         set ProtoBranchChance[3422] = 100
+        set ProtoEventHeadChoice[856] = 1
         set ProtoEventKey[856] = "wt_side_koko_detail"
         set ProtoEventName[856] = "한 번 더 돌려 보는 장면"
         set ProtoEventHead[856] = 24
@@ -59440,6 +60148,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3426] = 0
         set ProtoBranchPotions[3426] = 0
         set ProtoBranchChance[3426] = 100
+        set ProtoEventChoicePath[857] = 1
         set ProtoEventKey[857] = "wt_side_margin"
         set ProtoEventName[857] = "다음 질문을 위한 여유"
         set ProtoEventHead[857] = 24
@@ -59492,6 +60201,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3430] = 0
         set ProtoBranchPotions[3430] = 0
         set ProtoBranchChance[3430] = 100
+        set ProtoEventHeadChoice[858] = 1
         set ProtoEventKey[858] = "wt_side_dust"
         set ProtoEventName[858] = "손끝에 묻은 작은 흔적"
         set ProtoEventHead[858] = 24
@@ -59544,6 +60254,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3434] = 0
         set ProtoBranchPotions[3434] = 0
         set ProtoBranchChance[3434] = 100
+        set ProtoEventHeadChoice[859] = 1
         set ProtoEventKey[859] = "wt_epilogue_words"
         set ProtoEventName[859] = "다음 인사"
         set ProtoEventHead[859] = 24
@@ -59596,6 +60307,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3438] = 0
         set ProtoBranchPotions[3438] = 0
         set ProtoBranchChance[3438] = 100
+        set ProtoEventHeadChoice[860] = 1
         set ProtoEventKey[860] = "wt_epilogue_remember"
         set ProtoEventName[860] = "판결 밖에 남은 얼굴"
         set ProtoEventHead[860] = 24
@@ -60412,6 +61124,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3460] = 0
         set ProtoBranchPotions[3460] = 0
         set ProtoBranchChance[3460] = 100
+        set ProtoBranchOpenFirst[3461] = 883
+        set ProtoEventOpenNext[883] = 0
+        set ProtoBranchOpens[3461] = "후속 사건 개방 · 씻어 둔 찻잔|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3461] = "|cFF006B8F류지|r에게 움직일 틈을 만든다"
         set ProtoBranchResult[3461] = "혼자 빠져나갈 길보다 함께 통과할 틈을 살핀다. 서로의 짧은 신호가 공포를 밀어낸다."
         set ProtoBranchCard[3461] = 1474
@@ -60422,6 +61137,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3461] = 0
         set ProtoBranchPotions[3461] = 0
         set ProtoBranchChance[3461] = 100
+        set ProtoBranchOpenFirst[3462] = 881
+        set ProtoEventOpenNext[881] = 893
+        set ProtoEventOpenNext[893] = 0
+        set ProtoBranchOpens[3462] = "후속 사건 개방 · 문 앞에서 나눈 신호|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 출구 표식의 뒷면|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3462] = "작은 안내자의 말을 듣는다"
         set ProtoBranchResult[3462] = "처음 보는 모습을 판단할 여유는 없다. 출구를 안다는 |cFF80560C목소리|r에서 필요한 정보를 가려 듣는다."
         set ProtoBranchCard[3462] = 1475
@@ -60457,6 +61176,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[866] = 1
         set ProtoEventCommonResult[866] = "안은 힘에 눈뜨고 동료들과 카모시다의 왜곡에 맞선다. 예고와 잠입 끝에 보물을 빼앗자 그는 현실에서 잘못을 고백한다."
         set ProtoEventDialogueFirst[866] = 0
+        set ProtoBranchOpenFirst[3464] = 882
+        set ProtoEventOpenNext[882] = 0
+        set ProtoBranchOpens[3464] = "후속 사건 개방 · 말을 덜어 낸 수첩|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3464] = "안이 자기 말로 답하도록 기다린다"
         set ProtoBranchResult[3464] = "누군가 대신 정한 마음이 아니다. 안이 내리는 결정을 듣고 그 곁에 선다."
         set ProtoBranchCard[3464] = 1476
@@ -60467,6 +61189,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3464] = 0
         set ProtoBranchPotions[3464] = 0
         set ProtoBranchChance[3464] = 100
+        set ProtoBranchOpenFirst[3465] = 891
+        set ProtoEventOpenNext[891] = 0
+        set ProtoBranchOpens[3465] = "후속 사건 개방 · 바로 답하지 않아도 되는 말|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3465] = "예고 뒤의 빈틈을 놓치지 않는다"
         set ProtoBranchResult[3465] = "상대의 주의가 모이는 지점을 확인한다. 감정에 휩쓸리기보다 |cFF80560C약속|r한 순서대로 움직인다."
         set ProtoBranchCard[3465] = 1477
@@ -60519,6 +61244,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[540] = "서두르지 않는 침묵이 남는다."
         set ProtoDialogueLabel[541] = "지금 보이는 것을 함께 말한다"
         set ProtoDialogueResult[541] = "새로운 시선으로 그림을 다시 바라본다."
+        set ProtoBranchOpenFirst[3468] = 884
+        set ProtoEventOpenNext[884] = 0
+        set ProtoBranchOpens[3468] = "후속 사건 개방 · 한 선을 바라보는 시간|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3468] = "그림에 남은 작은 차이를 본다"
         set ProtoBranchResult[3468] = "|cFF80560C이름표|r보다 붓이 남긴 흔적을 살핀다. 작품의 주인을 되찾는 일이 |cFF006B8F유스케|r에게 새 출발이 된다."
         set ProtoBranchCard[3468] = 1479
@@ -60574,6 +61302,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[868] = 1
         set ProtoEventCommonResult[868] = "|cFF006B8F마코토|r는 요한나에 눈뜨고 괴도단과 카네시로를 저지한다. 협박의 고리를 끊고 함께 작전을 짜는 동료가 된다."
         set ProtoEventDialogueFirst[868] = 0
+        set ProtoBranchOpenFirst[3472] = 885
+        set ProtoEventOpenNext[885] = 0
+        set ProtoBranchOpens[3472] = "후속 사건 개방 · 지도 위의 좁은 길|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3472] = "|cFF006B8F마코토|r의 판단에 움직임을 맞춘다"
         set ProtoBranchResult[3472] = "앞으로 나서는 결심을 혼자 감당하게 두지 않는다. 동료의 결단에 맞춰 빈곳을 채운다."
         set ProtoBranchCard[3472] = 1482
@@ -60594,6 +61325,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3473] = 0
         set ProtoBranchPotions[3473] = 0
         set ProtoBranchChance[3473] = 100
+        set ProtoBranchOpenFirst[3474] = 890
+        set ProtoEventOpenNext[890] = 0
+        set ProtoBranchOpens[3474] = "후속 사건 개방 · 출발보다 돌아오는 속도|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3474] = "위축된 사람에게 퇴로를 내준다"
         set ProtoBranchResult[3474] = "상대를 향한 기세를 뒤에 있는 사람의 안전으로 돌린다. 함께 버틸 자리가 생긴다."
         set ProtoBranchCard[3474] = 1478
@@ -60629,6 +61363,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[869] = 1
         set ProtoEventCommonResult[869] = "|cFF006B8F후타바|r는 뒤틀린 죄책감에 맞서 자신의 힘을 깨운다. 일행을 도와 |cFF865500팰리스|r를 빠져나온 뒤 메제드 문제 해결에 힘을 보태고 동료가 된다."
         set ProtoEventDialogueFirst[869] = 0
+        set ProtoBranchOpenFirst[3476] = 886
+        set ProtoEventOpenNext[886] = 894
+        set ProtoEventOpenNext[894] = 0
+        set ProtoBranchOpens[3476] = "후속 사건 개방 · 정보가 너무 많은 화면|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 빽빽한 계획의 한 칸|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3476] = "|cFF80560C기억|r 속 주장과 증거를 나눈다"
         set ProtoBranchResult[3476] = "반복해서 들은 말이 전부 진실인 것은 아니다. |cFF006B8F후타바|r가 스스로 확인하는 순간을 기다린다."
         set ProtoBranchCard[3476] = 1485
@@ -60694,6 +61432,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3480] = 0
         set ProtoBranchPotions[3480] = 0
         set ProtoBranchChance[3480] = 100
+        set ProtoBranchOpenFirst[3481] = 887
+        set ProtoEventOpenNext[887] = 895
+        set ProtoEventOpenNext[895] = 0
+        set ProtoBranchOpens[3481] = "후속 사건 개방 · 손에 맞게 고친 매듭|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 고른 길을 다시 묻다|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3481] = "하루가 고른 길을 묻는다"
         set ProtoBranchResult[3481] = "아버지의 계획과 다른 |cFF80560C목소리|r에 귀를 기울인다. 스스로 고른 대답을 동료들이 함께 지킨다."
         set ProtoBranchCard[3481] = 1489
@@ -60739,6 +61481,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[871] = 1
         set ProtoEventCommonResult[871] = "오쿠무라의 죽음으로 여론이 악화된다. 괴도단은 자신들의 개심과 다른 사건이 벌어졌음을 짚으며 배후를 찾는다."
         set ProtoEventDialogueFirst[871] = 0
+        set ProtoBranchOpenFirst[3484] = 892
+        set ProtoEventOpenNext[892] = 0
+        set ProtoBranchOpens[3484] = "후속 사건 개방 · 남겨 둔 의자|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3484] = "하루가 말을 고를 때까지 기다린다"
         set ProtoBranchResult[3484] = "답을 구할 사람처럼 바라보지 않는다. 소식을 감당할 동료의 곁에 조용히 남는다."
         set ProtoBranchCard[3484] = 1491
@@ -60794,6 +61539,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[872] = 1
         set ProtoEventCommonResult[872] = "일행은 카지노에서 |cFF006B8F사에|r의 왜곡에 맞선다. |cFF006B8F조커|r는 동료들을 보내고 추격을 받아 현실의 취조실로 끌려간다."
         set ProtoEventDialogueFirst[872] = 0
+        set ProtoBranchOpenFirst[3488] = 888
+        set ProtoEventOpenNext[888] = 0
+        set ProtoBranchOpens[3488] = "후속 사건 개방 · 질문이 끝난 다음|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3488] = "상대가 내세운 조건을 되묻는다"
         set ProtoBranchResult[3488] = "공정하다는 말만 믿지 않고 그 조건이 누구에게 유리한지 따진다. |cFF80560C약속|r의 허점이 보인다."
         set ProtoBranchCard[3488] = 1494
@@ -60866,6 +61614,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3492] = 0
         set ProtoBranchPotions[3492] = 0
         set ProtoBranchChance[3492] = 100
+        set ProtoBranchOpenFirst[3493] = 889
+        set ProtoEventOpenNext[889] = 0
+        set ProtoBranchOpens[3493] = "후속 사건 개방 · 기록의 빈 줄|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3493] = "확인할 단서를 |cFF006B8F사에|r에게 맡긴다"
         set ProtoBranchResult[3493] = "모든 말을 한 번에 믿으라고 요구하지 않는다. 직접 확인할 수 있는 단서를 건넨다."
         set ProtoBranchCard[3493] = 1498
@@ -60876,6 +61627,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3493] = 0
         set ProtoBranchPotions[3493] = 0
         set ProtoBranchChance[3493] = 100
+        set ProtoBranchOpenFirst[3494] = 896
+        set ProtoEventOpenNext[896] = 0
+        set ProtoBranchOpens[3494] = "후속 사건 개방 · 신호 하나에 담긴 믿음|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3494] = "|cFF80560C약속|r한 전달 순서를 떠올린다"
         set ProtoBranchResult[3494] = "흐려진 |cFF80560C기억|r 속에서 필요한 순서를 붙든다. 치밀하게 이어 둔 준비가 작은 행동을 받친다."
         set ProtoBranchCard[3494] = 1499
@@ -61283,6 +62037,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3522] = 0
         set ProtoBranchPotions[3522] = 0
         set ProtoBranchChance[3522] = 100
+        set ProtoEventChoicePath[881] = 1
         set ProtoEventKey[881] = "p5_side_safe_exit"
         set ProtoEventName[881] = "문 앞에서 나눈 신호"
         set ProtoEventHead[881] = 25
@@ -61335,6 +62090,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3526] = 0
         set ProtoBranchPotions[3526] = 0
         set ProtoBranchChance[3526] = 100
+        set ProtoEventChoicePath[882] = 1
         set ProtoEventKey[882] = "p5_side_notebook"
         set ProtoEventName[882] = "말을 덜어 낸 수첩"
         set ProtoEventHead[882] = 25
@@ -61387,6 +62143,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3530] = 0
         set ProtoBranchPotions[3530] = 0
         set ProtoBranchChance[3530] = 100
+        set ProtoEventChoicePath[883] = 1
         set ProtoEventKey[883] = "p5_side_leblanc"
         set ProtoEventName[883] = "씻어 둔 찻잔"
         set ProtoEventHead[883] = 25
@@ -61439,6 +62196,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3534] = 0
         set ProtoBranchPotions[3534] = 0
         set ProtoBranchChance[3534] = 100
+        set ProtoEventChoicePath[884] = 1
         set ProtoEventKey[884] = "p5_side_yusuke_line"
         set ProtoEventName[884] = "한 선을 바라보는 시간"
         set ProtoEventHead[884] = 25
@@ -61491,6 +62249,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3538] = 0
         set ProtoBranchPotions[3538] = 0
         set ProtoBranchChance[3538] = 100
+        set ProtoEventChoicePath[885] = 1
         set ProtoEventKey[885] = "p5_side_makoto_route"
         set ProtoEventName[885] = "지도 위의 좁은 길"
         set ProtoEventHead[885] = 25
@@ -61543,6 +62302,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3542] = 0
         set ProtoBranchPotions[3542] = 0
         set ProtoBranchChance[3542] = 100
+        set ProtoEventChoicePath[886] = 1
         set ProtoEventKey[886] = "p5_side_futaba_display"
         set ProtoEventName[886] = "정보가 너무 많은 화면"
         set ProtoEventHead[886] = 25
@@ -61595,6 +62355,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3546] = 0
         set ProtoBranchPotions[3546] = 0
         set ProtoBranchChance[3546] = 100
+        set ProtoEventChoicePath[887] = 1
         set ProtoEventKey[887] = "p5_side_haru_gloves"
         set ProtoEventName[887] = "손에 맞게 고친 매듭"
         set ProtoEventHead[887] = 25
@@ -61647,6 +62408,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3550] = 0
         set ProtoBranchPotions[3550] = 0
         set ProtoBranchChance[3550] = 100
+        set ProtoEventChoicePath[888] = 1
         set ProtoEventKey[888] = "p5_side_debate"
         set ProtoEventName[888] = "질문이 끝난 다음"
         set ProtoEventHead[888] = 25
@@ -61699,6 +62461,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3554] = 0
         set ProtoBranchPotions[3554] = 0
         set ProtoBranchChance[3554] = 100
+        set ProtoEventChoicePath[889] = 1
         set ProtoEventKey[889] = "p5_side_sae_notes"
         set ProtoEventName[889] = "기록의 빈 줄"
         set ProtoEventHead[889] = 25
@@ -61751,6 +62514,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3558] = 0
         set ProtoBranchPotions[3558] = 0
         set ProtoBranchChance[3558] = 100
+        set ProtoEventChoicePath[890] = 1
         set ProtoEventKey[890] = "p5_side_ryuji_pace"
         set ProtoEventName[890] = "출발보다 돌아오는 속도"
         set ProtoEventHead[890] = 25
@@ -61803,6 +62567,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3562] = 0
         set ProtoBranchPotions[3562] = 0
         set ProtoBranchChance[3562] = 100
+        set ProtoEventChoicePath[891] = 1
         set ProtoEventKey[891] = "p5_side_ann_message"
         set ProtoEventName[891] = "바로 답하지 않아도 되는 말"
         set ProtoEventHead[891] = 25
@@ -61855,6 +62620,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3566] = 0
         set ProtoBranchPotions[3566] = 0
         set ProtoBranchChance[3566] = 100
+        set ProtoEventChoicePath[892] = 1
         set ProtoEventKey[892] = "p5_side_return_seat"
         set ProtoEventName[892] = "남겨 둔 의자"
         set ProtoEventHead[892] = 25
@@ -61907,6 +62673,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3570] = 0
         set ProtoBranchPotions[3570] = 0
         set ProtoBranchChance[3570] = 100
+        set ProtoEventChoicePath[893] = 1
         set ProtoEventKey[893] = "p5_side_morgana_follow"
         set ProtoEventName[893] = "출구 표식의 뒷면"
         set ProtoEventHead[893] = 25
@@ -61959,6 +62726,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3574] = 0
         set ProtoBranchPotions[3574] = 0
         set ProtoBranchChance[3574] = 100
+        set ProtoEventChoicePath[894] = 1
         set ProtoEventKey[894] = "p5_side_futaba_follow"
         set ProtoEventName[894] = "빽빽한 계획의 한 칸"
         set ProtoEventHead[894] = 25
@@ -62011,6 +62779,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3578] = 0
         set ProtoBranchPotions[3578] = 0
         set ProtoBranchChance[3578] = 100
+        set ProtoEventChoicePath[895] = 1
         set ProtoEventKey[895] = "p5_side_haru_follow"
         set ProtoEventName[895] = "고른 길을 다시 묻다"
         set ProtoEventHead[895] = 25
@@ -62063,6 +62832,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3582] = 0
         set ProtoBranchPotions[3582] = 0
         set ProtoBranchChance[3582] = 100
+        set ProtoEventChoicePath[896] = 1
         set ProtoEventKey[896] = "p5_side_team_signal"
         set ProtoEventName[896] = "신호 하나에 담긴 믿음"
         set ProtoEventHead[896] = 25
@@ -62115,6 +62885,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3586] = 0
         set ProtoBranchPotions[3586] = 0
         set ProtoBranchChance[3586] = 100
+        set ProtoEventHeadChoice[897] = 1
         set ProtoEventKey[897] = "p5_epilogue_counter"
         set ProtoEventName[897] = "카운터에 남긴 인사"
         set ProtoEventHead[897] = 25
@@ -62167,6 +62938,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3590] = 0
         set ProtoBranchPotions[3590] = 0
         set ProtoBranchChance[3590] = 100
+        set ProtoEventHeadChoice[898] = 1
         set ProtoEventKey[898] = "p5_epilogue_road"
         set ProtoEventName[898] = "창밖으로 이어진 말"
         set ProtoEventHead[898] = 25
@@ -62933,6 +63705,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[903] = 1
         set ProtoEventCommonResult[903] = "상담실에서 나눈 질문과 |cFF006B8F요시자와|r와의 만남이 |cFF80560C기억|r에 남는다. 다음 기억은 낯선 건물에서 같은 인연을 다시 만났던 때로 이어진다."
         set ProtoEventDialogueFirst[903] = 0
+        set ProtoBranchOpenFirst[3612] = 918
+        set ProtoEventOpenNext[918] = 0
+        set ProtoBranchOpens[3612] = "후속 사건 개방 · 상담실의 짧은 침묵|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3612] = "답을 정하지 않고 먼저 듣는다"
         set ProtoBranchResult[3612] = "|cFF006B8F마루키|r가 기다려 주던 침묵을 떠올린다. 말이 이어질 자리를 남기는 법을 배운다."
         set ProtoBranchCard[3612] = 1531
@@ -62943,6 +63718,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3612] = 0
         set ProtoBranchPotions[3612] = 0
         set ProtoBranchChance[3612] = 100
+        set ProtoBranchOpenFirst[3613] = 917
+        set ProtoEventOpenNext[917] = 0
+        set ProtoBranchOpens[3613] = "후속 사건 개방 · 시작하기 전의 호흡|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3613] = "다음 시도에 필요한 것을 묻는다"
         set ProtoBranchResult[3613] = "|cFF006B8F요시자와|r의 노력에서 결과만 보지 않는다. 한 동작을 다시 시작할 이유를 함께 찾는다."
         set ProtoBranchCard[3613] = 1532
@@ -62998,6 +63776,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3616] = 0
         set ProtoBranchPotions[3616] = 0
         set ProtoBranchChance[3616] = 100
+        set ProtoBranchOpenFirst[3617] = 919
+        set ProtoEventOpenNext[919] = 0
+        set ProtoBranchOpens[3617] = "후속 사건 개방 · 가을 복도의 모서리|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3617] = "돌아갈 통로부터 확인한다"
         set ProtoBranchResult[3617] = "정체를 모르는 장소에서 욕심을 부리지 않는다. 돌아온 뒤 다시 살필 수 있도록 길을 잡는다."
         set ProtoBranchCard[3617] = 1535
@@ -63098,6 +63879,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[906] = 1
         set ProtoEventCommonResult[906] = "세 사람 앞에 이 공간의 주인 |cFF006B8F마루키|r가 나타난다. |cFF006B8F조커|r는 자신이 알던 상담사가 변화의 중심에 있음을 마주한다."
         set ProtoEventDialogueFirst[906] = 0
+        set ProtoBranchOpenFirst[3624] = 920
+        set ProtoEventOpenNext[920] = 0
+        set ProtoBranchOpens[3624] = "후속 사건 개방 · 셋이 남긴 다른 의문|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3624] = "보았던 건물과 달라진 점을 찾는다"
         set ProtoBranchResult[3624] = "익숙한 곳이라는 생각을 버린다. 늘어난 기척이 무엇을 뜻하는지 살핀다."
         set ProtoBranchCard[3624] = 1540
@@ -63215,6 +63999,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[908] = 1
         set ProtoEventCommonResult[908] = "|cFF006B8F조커|r가 건넨 질문은 동료들에게 원래 겪었던 시간과 스스로 고른 길을 떠올리게 한다. 답을 고를 날이 다가온다."
         set ProtoEventDialogueFirst[908] = 0
+        set ProtoBranchOpenFirst[3632] = 921
+        set ProtoEventOpenNext[921] = 0
+        set ProtoBranchOpens[3632] = "후속 사건 개방 · 행복하다는 말 다음|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3632] = "함께 밖으로 나섰던 용기를 떠올리게 한다"
         set ProtoBranchResult[3632] = "누군가 대신 만든 평온과 자신의 한 걸음을 나누어 생각할 실마리를 남긴다."
         set ProtoBranchCard[3632] = 1546
@@ -63270,6 +64057,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[909] = 1
         set ProtoEventCommonResult[909] = "원래의 시간을 되찾은 괴도단이 도착해 |cFF006B8F조커|r와 |cFF006B8F아케치|r를 돕고 |cFF006B8F스미레|r를 구한다. |cFF006B8F마루키|r는 최종 답의 기한을 남긴다. 일행은 다시 함께 설 준비를 시작한다."
         set ProtoEventDialogueFirst[909] = 0
+        set ProtoBranchOpenFirst[3636] = 922
+        set ProtoEventOpenNext[922] = 0
+        set ProtoBranchOpens[3636] = "후속 사건 개방 · 돌아온 발소리|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3636] = "|cFF006B8F스미레|r가 더 몰리지 않게 틈을 만든다"
         set ProtoBranchResult[3636] = "당장 이겨야 할 적 하나로만 보지 않는다. 힘에 삼켜지지 않도록 멈출 방법을 찾는다."
         set ProtoBranchCard[3636] = 1540
@@ -63332,6 +64122,11 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[560] = "비교보다 자신의 다음 걸음을 찾는다."
         set ProtoDialogueLabel[561] = "배웠던 것을 버리지 않는다"
         set ProtoDialogueResult[561] = "언니에게 배운 시간도 자신의 일부로 받아들인다."
+        set ProtoBranchOpenFirst[3640] = 923
+        set ProtoEventOpenNext[923] = 928
+        set ProtoEventOpenNext[928] = 929
+        set ProtoEventOpenNext[929] = 0
+        set ProtoBranchOpens[3640] = "후속 사건 개방 · 새 동료에게 맞춘 신호|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 닮지 않아도 이어지는 것|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 멈추어도 사라지지 않는 동작|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3640] = "내가 서 있는 자리를 인정한다"
         set ProtoBranchResult[3640] = "비교에서 달아나는 대신 자신이 해낼 다음 동작을 본다. 이름과 의지가 같은 방향을 향한다."
         set ProtoBranchCard[3640] = 1552
@@ -63342,6 +64137,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3640] = 0
         set ProtoBranchPotions[3640] = 0
         set ProtoBranchChance[3640] = 100
+        set ProtoBranchOpenFirst[3641] = 924
+        set ProtoEventOpenNext[924] = 930
+        set ProtoEventOpenNext[930] = 0
+        set ProtoBranchOpens[3641] = "후속 사건 개방 · 같은 창밖을 다르게 보다|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 다음 신호의 여백|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3641] = "새 동료가 움직일 길을 안내한다"
         set ProtoBranchResult[3641] = "서투름을 탓하기보다 함께 맞출 신호를 알려 준다. 돌아온 길잡이가 다시 앞을 본다."
         set ProtoBranchCard[3641] = 1553
@@ -63387,6 +64186,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[911] = 1
         set ProtoEventCommonResult[911] = "일행은 |cFF865500메멘토스|r 쪽의 걸림돌을 해결하고 팰리스의 남은 길을 열어 간다. |cFF006B8F마루키|r가 고른 답을 따라가는 통로에서도 자신들의 판단을 놓지 않는다."
         set ProtoEventDialogueFirst[911] = 0
+        set ProtoBranchOpenFirst[3644] = 927
+        set ProtoEventOpenNext[927] = 0
+        set ProtoBranchOpens[3644] = "후속 사건 개방 · 서로 맞춘 다음 걸음|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3644] = "공간 사이의 연결을 추적한다"
         set ProtoBranchResult[3644] = "따로 보이던 정보가 한 흐름으로 이어진다. 막힌 이유를 정확히 짚는다."
         set ProtoBranchCard[3644] = 1555
@@ -63397,6 +64199,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3644] = 0
         set ProtoBranchPotions[3644] = 0
         set ProtoBranchChance[3644] = 100
+        set ProtoBranchOpenFirst[3645] = 925
+        set ProtoEventOpenNext[925] = 0
+        set ProtoBranchOpens[3645] = "후속 사건 개방 · 답 옆에 적은 이유|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3645] = "질문이 강요하는 전제를 본다"
         set ProtoBranchResult[3645] = "고르라는 답만 훑지 않는다. 선택지를 만든 기준까지 함께 따져 본다."
         set ProtoBranchCard[3645] = 1556
@@ -63442,6 +64247,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[912] = 1
         set ProtoEventCommonResult[912] = "연구와 상실의 |cFF80560C기억|r을 지나 일행은 보물에 닿을 길을 확보한다. 도움을 바랐던 시작과 강요가 된 결과를 함께 기억한 채 마지막 대답을 준비한다."
         set ProtoEventDialogueFirst[912] = 0
+        set ProtoBranchOpenFirst[3648] = 926
+        set ProtoEventOpenNext[926] = 0
+        set ProtoBranchOpens[3648] = "후속 사건 개방 · 기록실에 남은 온기|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3648] = "처음 구하고 싶었던 마음을 이해한다"
         set ProtoBranchResult[3648] = "고통을 덜고 싶었던 이유 자체를 조롱하지 않는다. 그 마음이 어디에서 다른 길로 갔는지 살핀다."
         set ProtoBranchCard[3648] = 1558
@@ -63504,6 +64312,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueResult[564] = "듣기 괴로운 말이라고 없던 것으로 만들지 않는다."
         set ProtoDialogueLabel[565] = "내가 고를 몫을 분명히 한다"
         set ProtoDialogueResult[565] = "상대의 뜻을 존중하면서 자신의 판단도 숨기지 않는다."
+        set ProtoBranchOpenFirst[3652] = 931
+        set ProtoEventOpenNext[931] = 0
+        set ProtoBranchOpens[3652] = "후속 사건 개방 · 누구를 위한 결정인가|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3652] = "|cFF006B8F아케치|r가 고른 뜻을 존중한다"
         set ProtoBranchResult[3652] = "그를 위해서라는 말로 그의 결정을 지우지 않는다. 함께 서는 이유를 분명히 한다."
         set ProtoBranchCard[3652] = 1561
@@ -63514,6 +64325,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3652] = 0
         set ProtoBranchPotions[3652] = 0
         set ProtoBranchChance[3652] = 100
+        set ProtoBranchOpenFirst[3653] = 932
+        set ProtoEventOpenNext[932] = 0
+        set ProtoBranchOpens[3653] = "후속 사건 개방 · 신호가 오기 전의 준비|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3653] = "두려움까지 안고 답한다"
         set ProtoBranchResult[3653] = "잃고 싶지 않은 마음을 숨기지 않는다. 그래도 선택을 넘기지 않겠다고 말한다."
         set ProtoBranchCard[3653] = 1562
@@ -63704,6 +64518,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3666] = 0
         set ProtoBranchPotions[3666] = 0
         set ProtoBranchChance[3666] = 100
+        set ProtoEventChoicePath[917] = 1
         set ProtoEventKey[917] = "p5r_side_practice"
         set ProtoEventName[917] = "시작하기 전의 호흡"
         set ProtoEventHead[917] = 26
@@ -63756,6 +64571,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3670] = 0
         set ProtoBranchPotions[3670] = 0
         set ProtoBranchChance[3670] = 100
+        set ProtoEventChoicePath[918] = 1
         set ProtoEventKey[918] = "p5r_side_counsel"
         set ProtoEventName[918] = "상담실의 짧은 침묵"
         set ProtoEventHead[918] = 26
@@ -63808,6 +64624,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3674] = 0
         set ProtoBranchPotions[3674] = 0
         set ProtoBranchChance[3674] = 100
+        set ProtoEventChoicePath[919] = 1
         set ProtoEventKey[919] = "p5r_side_autumn_exit"
         set ProtoEventName[919] = "가을 복도의 모서리"
         set ProtoEventHead[919] = 26
@@ -63860,6 +64677,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3678] = 0
         set ProtoBranchPotions[3678] = 0
         set ProtoBranchChance[3678] = 100
+        set ProtoEventChoicePath[920] = 1
         set ProtoEventKey[920] = "p5r_side_trio_notes"
         set ProtoEventName[920] = "셋이 남긴 다른 의문"
         set ProtoEventHead[920] = 26
@@ -63912,6 +64730,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3682] = 0
         set ProtoBranchPotions[3682] = 0
         set ProtoBranchChance[3682] = 100
+        set ProtoEventChoicePath[921] = 1
         set ProtoEventKey[921] = "p5r_side_family"
         set ProtoEventName[921] = "행복하다는 말 다음"
         set ProtoEventHead[921] = 26
@@ -63964,6 +64783,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3686] = 0
         set ProtoBranchPotions[3686] = 0
         set ProtoBranchChance[3686] = 100
+        set ProtoEventChoicePath[922] = 1
         set ProtoEventKey[922] = "p5r_side_old_steps"
         set ProtoEventName[922] = "돌아온 발소리"
         set ProtoEventHead[922] = 26
@@ -64016,6 +64836,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3690] = 0
         set ProtoBranchPotions[3690] = 0
         set ProtoBranchChance[3690] = 100
+        set ProtoEventChoicePath[923] = 1
         set ProtoEventKey[923] = "p5r_side_new_signal"
         set ProtoEventName[923] = "새 동료에게 맞춘 신호"
         set ProtoEventHead[923] = 26
@@ -64068,6 +64889,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3694] = 0
         set ProtoBranchPotions[3694] = 0
         set ProtoBranchChance[3694] = 100
+        set ProtoEventChoicePath[924] = 1
         set ProtoEventKey[924] = "p5r_side_window"
         set ProtoEventName[924] = "같은 창밖을 다르게 보다"
         set ProtoEventHead[924] = 26
@@ -64120,6 +64942,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3698] = 0
         set ProtoBranchPotions[3698] = 0
         set ProtoBranchChance[3698] = 100
+        set ProtoEventChoicePath[925] = 1
         set ProtoEventKey[925] = "p5r_side_answers"
         set ProtoEventName[925] = "답 옆에 적은 이유"
         set ProtoEventHead[925] = 26
@@ -64172,6 +64995,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3702] = 0
         set ProtoBranchPotions[3702] = 0
         set ProtoBranchChance[3702] = 100
+        set ProtoEventChoicePath[926] = 1
         set ProtoEventKey[926] = "p5r_side_records"
         set ProtoEventName[926] = "기록실에 남은 온기"
         set ProtoEventHead[926] = 26
@@ -64224,6 +65048,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3706] = 0
         set ProtoBranchPotions[3706] = 0
         set ProtoBranchChance[3706] = 100
+        set ProtoEventChoicePath[927] = 1
         set ProtoEventKey[927] = "p5r_side_pace"
         set ProtoEventName[927] = "서로 맞춘 다음 걸음"
         set ProtoEventHead[927] = 26
@@ -64276,6 +65101,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3710] = 0
         set ProtoBranchPotions[3710] = 0
         set ProtoBranchChance[3710] = 100
+        set ProtoEventChoicePath[928] = 1
         set ProtoEventKey[928] = "p5r_side_not_equal"
         set ProtoEventName[928] = "닮지 않아도 이어지는 것"
         set ProtoEventHead[928] = 26
@@ -64328,6 +65154,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3714] = 0
         set ProtoBranchPotions[3714] = 0
         set ProtoBranchChance[3714] = 100
+        set ProtoEventChoicePath[929] = 1
         set ProtoEventKey[929] = "p5r_side_yoshizawa_follow"
         set ProtoEventName[929] = "멈추어도 사라지지 않는 동작"
         set ProtoEventHead[929] = 26
@@ -64380,6 +65207,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3718] = 0
         set ProtoBranchPotions[3718] = 0
         set ProtoBranchChance[3718] = 100
+        set ProtoEventChoicePath[930] = 1
         set ProtoEventKey[930] = "p5r_side_futaba_follow"
         set ProtoEventName[930] = "다음 신호의 여백"
         set ProtoEventHead[930] = 26
@@ -64432,6 +65260,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3722] = 0
         set ProtoBranchPotions[3722] = 0
         set ProtoBranchChance[3722] = 100
+        set ProtoEventChoicePath[931] = 1
         set ProtoEventKey[931] = "p5r_side_akechi_follow"
         set ProtoEventName[931] = "누구를 위한 결정인가"
         set ProtoEventHead[931] = 26
@@ -64484,6 +65313,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3726] = 0
         set ProtoBranchPotions[3726] = 0
         set ProtoBranchChance[3726] = 100
+        set ProtoEventChoicePath[932] = 1
         set ProtoEventKey[932] = "p5r_side_before_signal"
         set ProtoEventName[932] = "신호가 오기 전의 준비"
         set ProtoEventHead[932] = 26
@@ -64536,6 +65366,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3730] = 0
         set ProtoBranchPotions[3730] = 0
         set ProtoBranchChance[3730] = 100
+        set ProtoEventHeadChoice[933] = 1
         set ProtoEventKey[933] = "p5r_epilogue_paths"
         set ProtoEventName[933] = "함께 세운 다른 계획"
         set ProtoEventHead[933] = 26
@@ -64588,6 +65419,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3734] = 0
         set ProtoBranchPotions[3734] = 0
         set ProtoBranchChance[3734] = 100
+        set ProtoEventHeadChoice[934] = 1
         set ProtoEventKey[934] = "p5r_epilogue_station"
         set ProtoEventName[934] = "짧게 남은 역의 인사"
         set ProtoEventHead[934] = 26
@@ -65359,6 +66191,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[940] = 1
         set ProtoEventCommonResult[940] = "|cFF006B8F레티|r를 지나쳐도 봄의 행방은 알 수 없다. |cFF006B8F레이무|r의 길은 눈 덮인 산 너머로 이어진다."
         set ProtoEventDialogueFirst[940] = 0
+        set ProtoBranchOpenFirst[3760] = 954
+        set ProtoEventOpenNext[954] = 0
+        set ProtoBranchOpens[3760] = "후속 사건 개방 · 추위와 범인은 다르다|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3760] = "찬 기운이 짙은 정면을 빠르게 뚫는다."
         set ProtoBranchResult[3760] = "눈앞의 상대에게 공격을 모았다. 넓게 퍼지는 추위 전체를 상대하려 들지 않았다."
         set ProtoBranchCard[3760] = 1587
@@ -65414,6 +66249,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[941] = 1
         set ProtoEventCommonResult[941] = "|cFF006B8F첸|r을 물리친 |cFF006B8F레이무|r가 마요이가를 지난다. 이곳의 낯선 길만으로 긴 겨울을 설명할 수는 없다."
         set ProtoEventDialogueFirst[941] = 0
+        set ProtoBranchOpenFirst[3764] = 955
+        set ProtoEventOpenNext[955] = 956
+        set ProtoEventOpenNext[956] = 0
+        set ProtoBranchOpens[3764] = "후속 사건 개방 · 두 번 꺾이는 발자국|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 갈림길을 모두 세지 않아도|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3764] = "|cFF006B8F첸|r이 다시 들어올 모퉁이를 선점한다."
         set ProtoBranchResult[3764] = "지금 보이는 등보다 다음에 나타날 자리를 보았다. 돌아오는 움직임이 한눈에 들어왔다."
         set ProtoBranchCard[3764] = 1590
@@ -65474,6 +66313,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueNext[143] = 0
         set ProtoDialogueLabel[572] = "꽃잎의 방향을 따라간다."
         set ProtoDialogueResult[572] = "눈앞의 흔적을 놓치지 않고 구름 쪽으로 향한다."
+        set ProtoBranchOpenFirst[3768] = 957
+        set ProtoEventOpenNext[957] = 958
+        set ProtoEventOpenNext[958] = 0
+        set ProtoBranchOpens[3768] = "후속 사건 개방 · 인형보다 먼저 흔들린 것|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 책장을 넘기듯 나누는 순서|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3768] = "여러 인형이 움직이기 시작하는 지점을 본다."
         set ProtoBranchResult[3768] = "눈앞의 수에 눌리지 않고 함께 변하는 순간을 골랐다. 공격할 범위가 정리되었다."
         set ProtoBranchCard[3768] = 1593
@@ -65529,6 +66372,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[943] = 1
         set ProtoEventCommonResult[943] = "릴리를 지나자 구름 위에 흩날리는 꽃잎이 더 선명하다. 봄이 사라진 것이 아니라 한쪽에 모여 있다."
         set ProtoEventDialogueFirst[943] = 0
+        set ProtoBranchOpenFirst[3772] = 959
+        set ProtoEventOpenNext[959] = 0
+        set ProtoBranchOpens[3772] = "후속 사건 개방 · 말 없이 지나간 봄|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3772] = "꽃잎이 이어지는 쪽으로 진로를 잡는다."
         set ProtoBranchResult[3772] = "흩어진 기척을 하나의 방향으로 묶었다. 넓은 하늘에서도 나아갈 길을 놓치지 않았다."
         set ProtoBranchCard[3772] = 1596
@@ -65584,6 +66430,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[944] = 1
         set ProtoEventCommonResult[944] = "초대받지 않은 손님 앞에서 세 자매가 연주를 준비한다. |cFF006B8F레이무|r는 꽃놀이의 목적지로 가려면 이들을 넘어야 한다."
         set ProtoEventDialogueFirst[944] = 0
+        set ProtoBranchOpenFirst[3776] = 960
+        set ProtoEventOpenNext[960] = 0
+        set ProtoBranchOpens[3776] = "후속 사건 개방 · 혼자 시작한 현의 소리|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3776] = "|cFF006B8F루나사|r가 차분하게 이끄는 박자를 듣는다."
         set ProtoBranchResult[3776] = "조용한 태도 속에서도 흐름은 흔들리지 않는다. 한 번에 싣는 힘을 가늠했다."
         set ProtoBranchCard[3776] = 1599
@@ -65644,6 +66493,11 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueNext[144] = 0
         set ProtoDialogueLabel[576] = "처음 목적을 다시 붙잡는다."
         set ProtoDialogueResult[576] = "아래 세상의 겨울을 끝낼 곳으로 발길을 옮긴다."
+        set ProtoBranchOpenFirst[3780] = 961
+        set ProtoEventOpenNext[961] = 962
+        set ProtoEventOpenNext[962] = 963
+        set ProtoEventOpenNext[963] = 0
+        set ProtoBranchOpens[3780] = "후속 사건 개방 · 앞으로 뻗은 소리|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 끝나지 않은 한 박자|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 세 사람을 한 소리로 듣지 않기|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3780] = "|cFF006B8F루나사|r의 긴 선을 끊을 지점을 찾는다."
         set ProtoBranchResult[3780] = "끝까지 따라가기보다 힘이 이어지는 중간을 짚었다. 무게가 실리는 한순간을 잡았다."
         set ProtoBranchCard[3780] = 1599
@@ -65699,6 +66553,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[946] = 1
         set ProtoEventCommonResult[946] = "|cFF006B8F요우무|r가 물러난 자리를 지나 |cFF006B8F레이무|r는 계속 오른다. 빼앗긴 봄과 위쪽의 |cFF80560C꽃|r이 이제 한 사건으로 이어진다."
         set ProtoEventDialogueFirst[946] = 0
+        set ProtoBranchOpenFirst[3784] = 964
+        set ProtoEventOpenNext[964] = 0
+        set ProtoBranchOpens[3784] = "후속 사건 개방 · 넓은 계단의 좁은 틈|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3784] = "|cFF006B8F요우무|r의 검이 닿는 선부터 가늠한다."
         set ProtoBranchResult[3784] = "몸 가까이 보이는 칼만이 전부가 아니었다. 긴 궤적을 읽고 들어갈 곳을 정했다."
         set ProtoBranchCard[3784] = 1605
@@ -65754,6 +66611,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[947] = 1
         set ProtoEventCommonResult[947] = "|cFF006B8F요우무|r를 물리친 |cFF006B8F레이무|r는 저택의 주인을 찾아간다. 정원에 가득한 벚꽃과 달리 아직 피지 못한 나무가 있다."
         set ProtoEventDialogueFirst[947] = 0
+        set ProtoBranchOpenFirst[3788] = 965
+        set ProtoEventOpenNext[965] = 0
+        set ProtoBranchOpens[3788] = "후속 사건 개방 · 잘린 가지의 방향|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3788] = "긴 칼의 궤적 밖에서 반격한다."
         set ProtoBranchResult[3788] = "큰 동작이 지나간 자리를 공격의 시작점으로 삼았다. 정면에서 무게를 겨루지 않았다."
         set ProtoBranchCard[3788] = 1608
@@ -65814,6 +66674,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueNext[145] = 0
         set ProtoDialogueLabel[580] = "봄을 돌려달라고 요구한다."
         set ProtoDialogueResult[580] = "정원의 주인 앞에서 처음의 목적을 분명히 한다."
+        set ProtoBranchOpenFirst[3792] = 966
+        set ProtoEventOpenNext[966] = 0
+        set ProtoBranchOpens[3792] = "후속 사건 개방 · 열지 않는 이유|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3792] = "이름 모를 누군가보다 지금의 이변을 짚는다."
         set ProtoBranchResult[3792] = "알 수 없는 |cFF80560C약속|r에 끌려가지 않았다. 눈앞에서 끝내야 할 일의 중심을 잡았다."
         set ProtoBranchCard[3792] = 1611
@@ -65869,6 +66732,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[949] = 1
         set ProtoEventCommonResult[949] = "|cFF006B8F유유코|r의 공세를 넘었지만 아직 모든 움직임이 잦아들지는 않았다. |cFF006B8F레이무|r는 손을 내리기 전에 정원 전체를 다시 본다."
         set ProtoEventDialogueFirst[949] = 0
+        set ProtoBranchOpenFirst[3796] = 967
+        set ProtoEventOpenNext[967] = 0
+        set ProtoBranchOpens[3796] = "후속 사건 개방 · 꽃보다 오래 남는 시선|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3796] = "|cFF006B8F유유코|r에게 공격을 모으며 작은 틈을 통과한다."
         set ProtoBranchResult[3796] = "하늘 전체와 힘을 겨루지 않았다. 마지막까지 같은 목표를 놓치지 않았다."
         set ProtoBranchCard[3796] = 1611
@@ -66014,6 +66880,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3806] = 0
         set ProtoBranchPotions[3806] = 0
         set ProtoBranchChance[3806] = 100
+        set ProtoEventHeadChoice[952] = 1
         set ProtoEventKey[952] = "pcb_side_petals"
         set ProtoEventName[952] = "눈 위의 작은 색"
         set ProtoEventHead[952] = 27
@@ -66066,6 +66933,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3810] = 0
         set ProtoBranchPotions[3810] = 0
         set ProtoBranchChance[3810] = 100
+        set ProtoEventHeadChoice[953] = 1
         set ProtoEventKey[953] = "pcb_side_route"
         set ProtoEventName[953] = "출발 전에 접어 둔 길"
         set ProtoEventHead[953] = 27
@@ -66118,6 +66986,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3814] = 0
         set ProtoBranchPotions[3814] = 0
         set ProtoBranchChance[3814] = 100
+        set ProtoEventChoicePath[954] = 1
         set ProtoEventKey[954] = "pcb_side_snowline"
         set ProtoEventName[954] = "추위와 범인은 다르다"
         set ProtoEventHead[954] = 27
@@ -66170,6 +67039,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3818] = 0
         set ProtoBranchPotions[3818] = 0
         set ProtoBranchChance[3818] = 100
+        set ProtoEventChoicePath[955] = 1
         set ProtoEventKey[955] = "pcb_side_turn"
         set ProtoEventName[955] = "두 번 꺾이는 발자국"
         set ProtoEventHead[955] = 27
@@ -66222,6 +67092,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3822] = 0
         set ProtoBranchPotions[3822] = 0
         set ProtoBranchChance[3822] = 100
+        set ProtoEventChoicePath[956] = 1
         set ProtoEventKey[956] = "pcb_side_crossing"
         set ProtoEventName[956] = "갈림길을 모두 세지 않아도"
         set ProtoEventHead[956] = 27
@@ -66274,6 +67145,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3826] = 0
         set ProtoBranchPotions[3826] = 0
         set ProtoBranchChance[3826] = 100
+        set ProtoEventChoicePath[957] = 1
         set ProtoEventKey[957] = "pcb_side_strings"
         set ProtoEventName[957] = "인형보다 먼저 흔들린 것"
         set ProtoEventHead[957] = 27
@@ -66326,6 +67198,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3830] = 0
         set ProtoBranchPotions[3830] = 0
         set ProtoBranchChance[3830] = 100
+        set ProtoEventChoicePath[958] = 1
         set ProtoEventKey[958] = "pcb_side_bookedge"
         set ProtoEventName[958] = "책장을 넘기듯 나누는 순서"
         set ProtoEventHead[958] = 27
@@ -66378,6 +67251,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3834] = 0
         set ProtoBranchPotions[3834] = 0
         set ProtoBranchChance[3834] = 100
+        set ProtoEventChoicePath[959] = 1
         set ProtoEventKey[959] = "pcb_side_cloud"
         set ProtoEventName[959] = "말 없이 지나간 봄"
         set ProtoEventHead[959] = 27
@@ -66430,6 +67304,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3838] = 0
         set ProtoBranchPotions[3838] = 0
         set ProtoBranchChance[3838] = 100
+        set ProtoEventChoicePath[960] = 1
         set ProtoEventKey[960] = "pcb_side_firstnote"
         set ProtoEventName[960] = "혼자 시작한 현의 소리"
         set ProtoEventHead[960] = 27
@@ -66482,6 +67357,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3842] = 0
         set ProtoBranchPotions[3842] = 0
         set ProtoBranchChance[3842] = 100
+        set ProtoEventChoicePath[961] = 1
         set ProtoEventKey[961] = "pcb_side_brass"
         set ProtoEventName[961] = "앞으로 뻗은 소리"
         set ProtoEventHead[961] = 27
@@ -66534,6 +67410,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3846] = 0
         set ProtoBranchPotions[3846] = 0
         set ProtoBranchChance[3846] = 100
+        set ProtoEventChoicePath[962] = 1
         set ProtoEventKey[962] = "pcb_side_rest"
         set ProtoEventName[962] = "끝나지 않은 한 박자"
         set ProtoEventHead[962] = 27
@@ -66586,6 +67463,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3850] = 0
         set ProtoBranchPotions[3850] = 0
         set ProtoBranchChance[3850] = 100
+        set ProtoEventChoicePath[963] = 1
         set ProtoEventKey[963] = "pcb_side_ensemble"
         set ProtoEventName[963] = "세 사람을 한 소리로 듣지 않기"
         set ProtoEventHead[963] = 27
@@ -66638,6 +67516,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3854] = 0
         set ProtoBranchPotions[3854] = 0
         set ProtoBranchChance[3854] = 100
+        set ProtoEventChoicePath[964] = 1
         set ProtoEventKey[964] = "pcb_side_stairs"
         set ProtoEventName[964] = "넓은 계단의 좁은 틈"
         set ProtoEventHead[964] = 27
@@ -66690,6 +67569,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3858] = 0
         set ProtoBranchPotions[3858] = 0
         set ProtoBranchChance[3858] = 100
+        set ProtoEventChoicePath[965] = 1
         set ProtoEventKey[965] = "pcb_side_garden"
         set ProtoEventName[965] = "잘린 가지의 방향"
         set ProtoEventHead[965] = 27
@@ -66742,6 +67622,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3862] = 0
         set ProtoBranchPotions[3862] = 0
         set ProtoBranchChance[3862] = 100
+        set ProtoEventChoicePath[966] = 1
         set ProtoEventKey[966] = "pcb_side_unopened"
         set ProtoEventName[966] = "열지 않는 이유"
         set ProtoEventHead[966] = 27
@@ -66794,6 +67675,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3866] = 0
         set ProtoBranchPotions[3866] = 0
         set ProtoBranchChance[3866] = 100
+        set ProtoEventChoicePath[967] = 1
         set ProtoEventKey[967] = "pcb_side_lastlight"
         set ProtoEventName[967] = "꽃보다 오래 남는 시선"
         set ProtoEventHead[967] = 27
@@ -66846,6 +67728,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3870] = 0
         set ProtoBranchPotions[3870] = 0
         set ProtoBranchChance[3870] = 100
+        set ProtoEventHeadChoice[968] = 1
         set ProtoEventKey[968] = "pcb_epilogue_broom"
         set ProtoEventName[968] = "벚꽃 아래의 빗자루"
         set ProtoEventHead[968] = 27
@@ -66898,6 +67781,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3874] = 0
         set ProtoBranchPotions[3874] = 0
         set ProtoBranchChance[3874] = 100
+        set ProtoEventHeadChoice[969] = 1
         set ProtoEventKey[969] = "pcb_epilogue_tea"
         set ProtoEventName[969] = "한 잔이 식기 전까지"
         set ProtoEventHead[969] = 27
@@ -67609,6 +68493,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[975] = 1
         set ProtoEventCommonResult[975] = "|cFF006B8F루미아|r를 지나쳐도 |cFF865500붉은 안개|r는 남아 있다. |cFF006B8F레이무|r가 호수 쪽으로 향한다."
         set ProtoEventDialogueFirst[975] = 0
+        set ProtoBranchOpenFirst[3900] = 989
+        set ProtoEventOpenNext[989] = 990
+        set ProtoEventOpenNext[990] = 0
+        set ProtoBranchOpens[3900] = "후속 사건 개방 · 가까운 어둠과 먼 안개|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 놀라 주지 않는 손님|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3900] = "가장 어두운 쪽의 기척을 정면으로 겨눈다."
         set ProtoBranchResult[3900] = "주변의 흐릿함에 흔들리지 않고 한 목표에 힘을 모았다."
         set ProtoBranchCard[3900] = 1632
@@ -67664,6 +68552,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[976] = 1
         set ProtoEventCommonResult[976] = "|cFF006B8F치르노|r의 방해를 넘은 |cFF006B8F레이무|r는 호수 너머 붉은 기척을 향한다. 길은 저택의 바깥으로 이어진다."
         set ProtoEventDialogueFirst[976] = 0
+        set ProtoBranchOpenFirst[3904] = 991
+        set ProtoEventOpenNext[991] = 992
+        set ProtoEventOpenNext[992] = 0
+        set ProtoBranchOpens[3904] = "후속 사건 개방 · 호수는 원래 이렇게 넓었나|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 먼저 놀라 달라는 얼굴|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3904] = "얼음이 모이는 지점에 공격을 모은다."
         set ProtoBranchResult[3904] = "흩어진 빛을 하나씩 쫓지 않았다. 힘이 모이는 순간을 겨눴다."
         set ProtoBranchCard[3904] = 1635
@@ -67724,6 +68616,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueNext[147] = 0
         set ProtoDialogueLabel[588] = "저택의 입구를 향한다."
         set ProtoDialogueResult[588] = "안개를 끝내려던 목적을 잊지 않고 앞으로 간다."
+        set ProtoBranchOpenFirst[3908] = 993
+        set ProtoEventOpenNext[993] = 0
+        set ProtoBranchOpens[3908] = "후속 사건 개방 · 도망가는 길도 길이다|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3908] = "물러서는 방향을 놓치지 않는다."
         set ProtoBranchResult[3908] = "상대가 떠난 자리에 멈추지 않고 다음 접점을 찾았다."
         set ProtoBranchCard[3908] = 1629
@@ -67779,6 +68674,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[978] = 1
         set ProtoEventCommonResult[978] = "|cFF006B8F메이링|r이 물러난 뒤 |cFF006B8F레이무|r는 저택 안으로 들어간다. |cFF865500붉은 안개|r에 대한 답은 아직 더 안쪽에 있다."
         set ProtoEventDialogueFirst[978] = 0
+        set ProtoBranchOpenFirst[3912] = 994
+        set ProtoEventOpenNext[994] = 0
+        set ProtoBranchOpens[3912] = "후속 사건 개방 · 문턱에 남는 발|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3912] = "힘이 실리는 정면을 비껴 공격한다."
         set ProtoBranchResult[3912] = "지키는 상대의 중심과 직접 부딪히지 않고 옆에서 길을 열었다."
         set ProtoBranchCard[3912] = 1641
@@ -67834,6 +68732,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[979] = 1
         set ProtoEventCommonResult[979] = "말로 길을 얻기는 어렵다. |cFF006B8F파츄리|r가 준비하는 마법 앞에서 |cFF006B8F레이무|r도 공격을 정돈한다."
         set ProtoEventDialogueFirst[979] = 0
+        set ProtoBranchOpenFirst[3916] = 995
+        set ProtoEventOpenNext[995] = 0
+        set ProtoBranchOpens[3916] = "후속 사건 개방 · 창문을 찾던 시선|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3916] = "겹쳐 놓인 마법의 층을 구분한다."
         set ProtoBranchResult[3916] = "한꺼번에 복잡해 보이던 흐름을 순서대로 나눴다."
         set ProtoBranchCard[3916] = 1644
@@ -67894,6 +68795,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueNext[148] = 0
         set ProtoDialogueLabel[592] = "더 안쪽의 기척을 찾는다."
         set ProtoDialogueResult[592] = "|cFF80560C책|r이 가득한 방을 뒤로하고 저택 안으로 향한다."
+        set ProtoBranchOpenFirst[3920] = 996
+        set ProtoEventOpenNext[996] = 997
+        set ProtoEventOpenNext[997] = 0
+        set ProtoBranchOpens[3920] = "후속 사건 개방 · 소란을 줄이는 방법|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 같은 방법이 통하지 않을 때|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3920] = "바뀌는 순간에 빈곳을 찌른다."
         set ProtoBranchResult[3920] = "한 공격이 끝났다는 기쁨보다 다음 공격까지의 짧은 틈을 보았다."
         set ProtoBranchCard[3920] = 1644
@@ -67949,6 +68854,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[981] = 1
         set ProtoEventCommonResult[981] = "첫 방해를 넘자 |cFF006B8F사쿠야|r가 다시 앞을 지킨다. 이 메이드가 주인을 만나게 해 줄 생각이 없다는 것은 분명하다."
         set ProtoEventDialogueFirst[981] = 0
+        set ProtoBranchOpenFirst[3924] = 998
+        set ProtoEventOpenNext[998] = 0
+        set ProtoBranchOpens[3924] = "후속 사건 개방 · 끝나지 않는 청소|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3924] = "칼날이 향하는 곳을 먼저 본다."
         set ProtoBranchResult[3924] = "손만 바라보지 않고 그 뒤에 생길 위험을 읽었다."
         set ProtoBranchCard[3924] = 1650
@@ -68004,6 +68912,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[982] = 1
         set ProtoEventCommonResult[982] = "|cFF006B8F사쿠야|r를 물리친 |cFF006B8F레이무|r가 계속 나아간다. 저택의 가장 깊은 곳에 안개의 주인이 기다린다."
         set ProtoEventDialogueFirst[982] = 0
+        set ProtoBranchOpenFirst[3928] = 999
+        set ProtoEventOpenNext[999] = 1000
+        set ProtoEventOpenNext[1000] = 0
+        set ProtoBranchOpens[3928] = "후속 사건 개방 · 칼이 아닌 빈자리|n다음 사건 선택에서 진행 가능 · 행동력 1|n후속 사건 개방 · 정돈 뒤에 남은 한 차례|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3928] = "달라진 배치를 빠르게 다시 읽는다."
         set ProtoBranchResult[3928] = "조금 전의 안전한 자리를 고집하지 않았다. 시선과 발이 함께 바뀌었다."
         set ProtoBranchCard[3928] = 1653
@@ -68064,6 +68976,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoDialogueNext[149] = 0
         set ProtoDialogueLabel[596] = "안개의 주인을 찾아 나선다."
         set ProtoDialogueResult[596] = "길었던 밤을 끝내기 위해 마지막으로 앞으로 나아간다."
+        set ProtoBranchOpenFirst[3932] = 1001
+        set ProtoEventOpenNext[1001] = 0
+        set ProtoBranchOpens[3932] = "후속 사건 개방 · 끝났다고 생각한 문|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3932] = "다시 만난 상대에게 머뭇거리지 않는다."
         set ProtoBranchResult[3932] = "예상 밖의 재등장 때문에 첫 동작을 놓치지 않았다."
         set ProtoBranchCard[3932] = 1653
@@ -68119,6 +69034,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventDialogueEnabled[984] = 1
         set ProtoEventCommonResult[984] = "|cFF006B8F레밀리아|r와 |cFF006B8F레이무|r의 기세가 맞선다. 긴 밤을 끝내기 위한 마지막 승부가 시작된다."
         set ProtoEventDialogueFirst[984] = 0
+        set ProtoBranchOpenFirst[3936] = 1002
+        set ProtoEventOpenNext[1002] = 0
+        set ProtoBranchOpens[3936] = "후속 사건 개방 · 자기 밤과 남의 여름|n다음 사건 선택에서 진행 가능 · 행동력 1"
         set ProtoBranchLabel[3936] = "저택 밖에 가려진 햇빛을 떠올린다."
         set ProtoBranchResult[3936] = "상대의 기세보다 해결할 일을 앞에 놓았다. 공격의 목표가 흔들리지 않는다."
         set ProtoBranchCard[3936] = 1659
@@ -68264,6 +69182,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3946] = 0
         set ProtoBranchPotions[3946] = 0
         set ProtoBranchChance[3946] = 100
+        set ProtoEventHeadChoice[987] = 1
         set ProtoEventKey[987] = "eosd_side_direction"
         set ProtoEventName[987] = "신사 뒤에서 정하는 방향"
         set ProtoEventHead[987] = 28
@@ -68316,6 +69235,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3950] = 0
         set ProtoBranchPotions[3950] = 0
         set ProtoBranchChance[3950] = 100
+        set ProtoEventHeadChoice[988] = 1
         set ProtoEventKey[988] = "eosd_side_cleared"
         set ProtoEventName[988] = "부적을 고르는 잠깐"
         set ProtoEventHead[988] = 28
@@ -68368,6 +69288,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3954] = 0
         set ProtoBranchPotions[3954] = 0
         set ProtoBranchChance[3954] = 100
+        set ProtoEventChoicePath[989] = 1
         set ProtoEventKey[989] = "eosd_side_shadow"
         set ProtoEventName[989] = "가까운 어둠과 먼 안개"
         set ProtoEventHead[989] = 28
@@ -68420,6 +69341,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3958] = 0
         set ProtoBranchPotions[3958] = 0
         set ProtoBranchChance[3958] = 100
+        set ProtoEventChoicePath[990] = 1
         set ProtoEventKey[990] = "eosd_side_nighttalk"
         set ProtoEventName[990] = "놀라 주지 않는 손님"
         set ProtoEventHead[990] = 28
@@ -68472,6 +69394,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3962] = 0
         set ProtoBranchPotions[3962] = 0
         set ProtoBranchChance[3962] = 100
+        set ProtoEventChoicePath[991] = 1
         set ProtoEventKey[991] = "eosd_side_lakeedge"
         set ProtoEventName[991] = "호수는 원래 이렇게 넓었나"
         set ProtoEventHead[991] = 28
@@ -68524,6 +69447,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3966] = 0
         set ProtoBranchPotions[3966] = 0
         set ProtoBranchChance[3966] = 100
+        set ProtoEventChoicePath[992] = 1
         set ProtoEventKey[992] = "eosd_side_icepride"
         set ProtoEventName[992] = "먼저 놀라 달라는 얼굴"
         set ProtoEventHead[992] = 28
@@ -68576,6 +69500,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3970] = 0
         set ProtoBranchPotions[3970] = 0
         set ProtoBranchChance[3970] = 100
+        set ProtoEventChoicePath[993] = 1
         set ProtoEventKey[993] = "eosd_side_gatepath"
         set ProtoEventName[993] = "도망가는 길도 길이다"
         set ProtoEventHead[993] = 28
@@ -68628,6 +69553,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3974] = 0
         set ProtoBranchPotions[3974] = 0
         set ProtoBranchChance[3974] = 100
+        set ProtoEventChoicePath[994] = 1
         set ProtoEventKey[994] = "eosd_side_gatecenter"
         set ProtoEventName[994] = "문턱에 남는 발"
         set ProtoEventHead[994] = 28
@@ -68680,6 +69606,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3978] = 0
         set ProtoBranchPotions[3978] = 0
         set ProtoBranchChance[3978] = 100
+        set ProtoEventChoicePath[995] = 1
         set ProtoEventKey[995] = "eosd_side_window"
         set ProtoEventName[995] = "창문을 찾던 시선"
         set ProtoEventHead[995] = 28
@@ -68732,6 +69659,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3982] = 0
         set ProtoBranchPotions[3982] = 0
         set ProtoBranchChance[3982] = 100
+        set ProtoEventChoicePath[996] = 1
         set ProtoEventKey[996] = "eosd_side_quietstudy"
         set ProtoEventName[996] = "소란을 줄이는 방법"
         set ProtoEventHead[996] = 28
@@ -68784,6 +69712,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3986] = 0
         set ProtoBranchPotions[3986] = 0
         set ProtoBranchChance[3986] = 100
+        set ProtoEventChoicePath[997] = 1
         set ProtoEventKey[997] = "eosd_side_index"
         set ProtoEventName[997] = "같은 방법이 통하지 않을 때"
         set ProtoEventHead[997] = 28
@@ -68836,6 +69765,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3990] = 0
         set ProtoBranchPotions[3990] = 0
         set ProtoBranchChance[3990] = 100
+        set ProtoEventChoicePath[998] = 1
         set ProtoEventKey[998] = "eosd_side_cleaning"
         set ProtoEventName[998] = "끝나지 않는 청소"
         set ProtoEventHead[998] = 28
@@ -68888,6 +69818,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3994] = 0
         set ProtoBranchPotions[3994] = 0
         set ProtoBranchChance[3994] = 100
+        set ProtoEventChoicePath[999] = 1
         set ProtoEventKey[999] = "eosd_side_knife"
         set ProtoEventName[999] = "칼이 아닌 빈자리"
         set ProtoEventHead[999] = 28
@@ -68940,6 +69871,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[3998] = 0
         set ProtoBranchPotions[3998] = 0
         set ProtoBranchChance[3998] = 100
+        set ProtoEventChoicePath[1000] = 1
         set ProtoEventKey[1000] = "eosd_side_schedule"
         set ProtoEventName[1000] = "정돈 뒤에 남은 한 차례"
         set ProtoEventHead[1000] = 28
@@ -68992,6 +69924,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[4002] = 0
         set ProtoBranchPotions[4002] = 0
         set ProtoBranchChance[4002] = 100
+        set ProtoEventChoicePath[1001] = 1
         set ProtoEventKey[1001] = "eosd_side_threshold"
         set ProtoEventName[1001] = "끝났다고 생각한 문"
         set ProtoEventHead[1001] = 28
@@ -69044,6 +69977,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[4006] = 0
         set ProtoBranchPotions[4006] = 0
         set ProtoBranchChance[4006] = 100
+        set ProtoEventChoicePath[1002] = 1
         set ProtoEventKey[1002] = "eosd_side_sunshade"
         set ProtoEventName[1002] = "자기 밤과 남의 여름"
         set ProtoEventHead[1002] = 28
@@ -69096,6 +70030,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[4010] = 0
         set ProtoBranchPotions[4010] = 0
         set ProtoBranchChance[4010] = 100
+        set ProtoEventHeadChoice[1003] = 1
         set ProtoEventKey[1003] = "eosd_epilogue_parasol"
         set ProtoEventName[1003] = "양산 하나의 그늘"
         set ProtoEventHead[1003] = 28
@@ -69148,6 +70083,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[4014] = 0
         set ProtoBranchPotions[4014] = 0
         set ProtoBranchChance[4014] = 100
+        set ProtoEventHeadChoice[1004] = 1
         set ProtoEventKey[1004] = "eosd_epilogue_summer"
         set ProtoEventName[1004] = "매미 소리가 돌아온 오후"
         set ProtoEventHead[1004] = 28

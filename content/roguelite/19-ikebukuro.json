@@ -1913,7 +1913,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_message",
@@ -1963,7 +1964,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_shop",
@@ -2013,7 +2015,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_quiet",
@@ -2063,7 +2066,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_rumor",
@@ -2113,7 +2117,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_lunch",
@@ -2163,7 +2168,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_pause",
@@ -2213,7 +2219,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_strength",
@@ -2263,7 +2270,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_reply",
@@ -2313,7 +2321,8 @@
       "icon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_night_route",
@@ -2363,7 +2372,8 @@
       "icon": "war3mapImported\\UI_Event_XP_ikebukuro_celty.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_side_schedule",
@@ -2414,10 +2424,12 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "drrr_side_schedule",
-      "previousChoice": 0,
+      "previousChoice": 3,
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "연계 총 행동력 10\n완결 · 이동 속도 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 이동 속도 +6%",
+      "previous": "ikebukuro_main_02",
+      "choicePath": true
     },
     {
       "key": "drrr_side_schedule_follow",
@@ -2472,7 +2484,8 @@
       "chainLength": 2,
       "chainRoot": "drrr_side_schedule",
       "failure": null,
-      "rewardPreview": "연계 총 행동력 10\n완결 · 이동 속도 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 이동 속도 +6%",
+      "choicePath": true
     },
     {
       "key": "drrr_epilogue_message",
@@ -2523,7 +2536,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     },
     {
       "key": "drrr_epilogue_street",
@@ -2574,7 +2588,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 300~750골드\n이동 속도 +3%"
+      "rewardPreview": "상품 300~750골드\n이동 속도 +3%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

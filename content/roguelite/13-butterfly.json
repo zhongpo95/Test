@@ -1604,7 +1604,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "kny_night_path",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%",
+      "headChoice": true
     },
     {
       "key": "kny_night_found",
@@ -1661,7 +1662,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "kny_night_path",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%",
+      "choicePath": true
     },
     {
       "key": "kny_night_wrong",
@@ -1718,7 +1720,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "kny_night_path",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +7.5% · 차지 공격 대미지 +7.5%",
+      "choicePath": true
     },
     {
       "key": "kny_unread_bottles",
@@ -1772,7 +1775,8 @@
       "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_white_linen",
@@ -1826,7 +1830,8 @@
       "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_crow_dispatch",
@@ -1880,7 +1885,8 @@
       "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_midday_noise",
@@ -1934,7 +1940,8 @@
       "icon": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_mixed_traces",
@@ -1988,7 +1995,8 @@
       "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_before_departure",
@@ -2042,7 +2050,8 @@
       "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_senior_challenge",
@@ -2096,7 +2105,8 @@
       "icon": "war3mapImported\\UI_Card_KNYG_murata_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_return_to_training",
@@ -2150,7 +2160,8 @@
       "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_frightened_visitor",
@@ -2204,15 +2215,16 @@
       "icon": "war3mapImported\\UI_Card_KMO1_nezuko_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_first_gourd",
       "title": "큰 표주박을 고른 손",
       "story": "표주박을 보고 네가 먼저 큰 것을 집자 아오이가 아직 설명을 끝내지 않았다고 손을 멈춘다. 탄지로가 자기 도구에 숨을 잇는 동안 너는 크기가 곧 실력이라는 말을 삼킨다.\n\n아오이는 네가 불어 볼 도구를 내려놓고 설명부터 들을 것인지 묻는다.",
       "intro": "큰 도구를 골랐지만 설명은 아직 못 들었다.",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "butterfly_main_04",
+      "previousChoice": 2,
       "requiredCard": null,
       "choices": [
         {
@@ -2261,7 +2273,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "kny_first_gourd",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +5.63% · 차지 공격 대미지 +7.5% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +5.63% · 차지 공격 대미지 +7.5% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "kny_morning_greeting",
@@ -2315,7 +2328,8 @@
       "actionCost": 1,
       "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_hand_return",
@@ -2369,7 +2383,8 @@
       "icon": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_partition_role",
@@ -2423,7 +2438,8 @@
       "icon": "war3mapImported\\UI_Card_KMO2_inosuke_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     },
     {
       "key": "kny_after_first_gourd",
@@ -2480,7 +2496,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "kny_first_gourd",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +5.63% · 차지 공격 대미지 +7.5% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 차지 속도 +5.63% · 차지 공격 대미지 +7.5% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "butterfly_main_01",
@@ -3505,7 +3522,8 @@
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
       "uncertain": [],
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n차지 속도 +5%"
+      "rewardPreview": "상품 300~750골드\n차지 속도 +5%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

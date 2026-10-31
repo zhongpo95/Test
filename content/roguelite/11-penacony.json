@@ -1834,7 +1834,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "hsr_dreamy_slots",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%",
+      "headChoice": true
     },
     {
       "key": "hsr_after_win",
@@ -1891,7 +1892,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hsr_dreamy_slots",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%",
+      "choicePath": true
     },
     {
       "key": "hsr_after_loss",
@@ -1948,7 +1950,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hsr_dreamy_slots",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%",
+      "choicePath": true
     },
     {
       "key": "hsr_sorted_tokens",
@@ -2005,7 +2008,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hsr_dreamy_slots",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%",
+      "choicePath": true
     },
     {
       "key": "hsr_soulglad",
@@ -2059,7 +2063,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1301_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_masked_stage",
@@ -2229,7 +2234,8 @@
       "icon": "war3mapImported\\UI_Card_Misha.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_scattered_banknotes",
@@ -2283,7 +2289,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1304_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_floating_treat",
@@ -2337,7 +2344,8 @@
       "actionCost": 1,
       "icon": "war3mapImported\\UI_Card_Misha.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_dream_eye_gap",
@@ -2391,7 +2399,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1308_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_scene_after_applause",
@@ -2445,7 +2454,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1306_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_monster_last_order",
@@ -2499,7 +2509,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1301_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_jade_unwritten_price",
@@ -2553,7 +2564,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1314_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_name_over_song",
@@ -2607,7 +2619,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1309_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_introduction_left",
@@ -2664,7 +2677,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "hsr_introduction_left",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +5.63% · 스킬가속 +3"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +5.63% · 스킬가속 +3",
+      "headChoice": true
     },
     {
       "key": "hsr_cowboy_in_frame",
@@ -2721,7 +2735,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "hsr_cowboy_in_frame",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%",
+      "headChoice": true
     },
     {
       "key": "hsr_view_without_armor",
@@ -2775,7 +2790,8 @@
       "icon": "war3mapImported\\UI_Card_HSR_1310_Icon.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_name_after_poster",
@@ -2832,7 +2848,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hsr_introduction_left",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +5.63% · 스킬가속 +3"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +5.63% · 스킬가속 +3",
+      "choicePath": true
     },
     {
       "key": "hsr_photo_missing_caption",
@@ -2889,7 +2906,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hsr_cowboy_in_frame",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 치명타 확률 +7.5%",
+      "choicePath": true
     },
     {
       "key": "hsr_misha_second_page",
@@ -2943,7 +2961,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Card_Misha.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_robin_next_row",
@@ -2997,7 +3016,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Card_HSR_1309_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_main_01",
@@ -3960,7 +3980,8 @@
       "canonFact": "완결 후의 창작 후일담. 원작 후속 개척 임무를 대신하지 않음.",
       "uncertain": false,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     },
     {
       "key": "hsr_epilogue_voice",
@@ -4014,7 +4035,8 @@
       "canonFact": "완결 후의 창작 후일담. 원작 후속 개척 임무를 대신하지 않음.",
       "uncertain": false,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%"
+      "rewardPreview": "상품 300~750골드\n치명타 확률 +3%",
+      "headChoice": true
     }
   ],
   "storyChanges": [

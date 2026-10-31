@@ -2162,7 +2162,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_chilchuck.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_tools_back",
@@ -2216,7 +2217,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_senshi.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_sound_followup",
@@ -2270,7 +2272,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_chilchuck.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_question_followup",
@@ -2324,7 +2327,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_marcille.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_observation_followup",
@@ -2378,7 +2382,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_laios.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_boot_memory",
@@ -2432,7 +2437,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_namari.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_shuro_memory",
@@ -2486,7 +2492,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_shuro.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_kabru_departure",
@@ -2540,7 +2547,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_kabru.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_recipe_margin",
@@ -2548,8 +2556,8 @@
       "intro": "센시의 설명에는 손으로 보여 주는 부분이 많다.",
       "story": "센시가 설명을 마쳤는데 마르실의 메모에는 아직 빈칸이 남았다. 손의 힘이나 멈추는 순간은 이름만으로 적기 어렵다. 라이오스는 모양을 그려 넣자며 고개를 가까이 댄다.",
       "actionCost": 1,
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "dm_main_02",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -2594,7 +2602,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_senshi.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "choicePath": true
     },
     {
       "key": "dm_trap_boundary",
@@ -2648,7 +2657,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_chilchuck.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_falin_memory",
@@ -2702,7 +2712,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_falin.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_taste_words",
@@ -2756,7 +2767,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_marcille.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_separate_notes",
@@ -2810,7 +2822,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_laios.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_before_dragon_memory",
@@ -2864,7 +2877,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_laios.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_epilogue_faces",
@@ -2919,7 +2933,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_falin.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "dm_epilogue_place",
@@ -2974,7 +2989,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_dungeon_meshi_senshi.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

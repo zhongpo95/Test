@@ -1926,7 +1926,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_breathing_cup",
@@ -1980,7 +1981,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_street_turn",
@@ -2034,7 +2036,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_after_rain",
@@ -2088,7 +2091,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_witness",
@@ -2142,7 +2146,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_next_lesson",
@@ -2150,8 +2155,8 @@
       "intro": "체펠리의 가르침을 다른 자세에서도 이어 본다.",
       "story": "체펠리에게 배운 기억을 다시 꺼낸다. 제자리에서는 되던 호흡이 움직이면 끊긴다.\n\n더 세게 밀어붙이기 전에 어디서 흐름을 잃었는지 찾을 때다. 이 반복은 새 기술을 받는 일이 아니라 배운 것을 자기 것으로 만드는 과정이다.",
       "actionCost": 1,
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "phantom_blood_main_06",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -2196,7 +2201,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "phantom_blood_listening_street",
@@ -2250,7 +2256,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_sword_weight",
@@ -2304,7 +2311,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_unspoken_care",
@@ -2358,7 +2366,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_old_warning",
@@ -2412,7 +2421,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_tonpetty.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_cold_answer",
@@ -2466,7 +2476,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_roadside_signal",
@@ -2520,7 +2531,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_speedwagon.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_epilogue_erina",
@@ -2575,7 +2587,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_jonathan.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "phantom_blood_epilogue_teaching",
@@ -2630,7 +2643,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%"
+      "rewardPreview": "상품 300~875골드\n헤드·백 피해 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

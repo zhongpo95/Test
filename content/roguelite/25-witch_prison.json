@@ -2599,7 +2599,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_blank",
@@ -2653,7 +2654,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_anan.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_palette",
@@ -2707,7 +2709,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_stage",
@@ -2761,7 +2764,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_leia.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_chair",
@@ -2815,7 +2819,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_polite",
@@ -2869,7 +2874,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_map",
@@ -2923,7 +2929,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_frame",
@@ -2977,7 +2984,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_offer",
@@ -3031,7 +3039,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_margo.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_whisper",
@@ -3085,7 +3094,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_compare",
@@ -3139,15 +3149,16 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_order",
       "title": "증언을 묶는 끈",
       "intro": "짧게 적어 둔 말들이 뒤섞여 있다.",
       "story": "저택에서 나눴던 대화를 정리한다. 기억하기 쉬운 사람부터 적으면 먼저 일어난 일이 뒤로 밀리기도 한다.",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "wt_main_01",
+      "previousChoice": 3,
       "requiredCard": null,
       "actionCost": 4,
       "choices": [
@@ -3196,7 +3207,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "wt_side_order",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 대미지 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "wt_side_noah_detail",
@@ -3250,7 +3262,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_koko_detail",
@@ -3304,7 +3317,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_side_margin",
@@ -3361,7 +3375,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "wt_side_order",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 대미지 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "wt_side_dust",
@@ -3415,7 +3430,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_epilogue_words",
@@ -3470,7 +3486,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "wt_epilogue_remember",
@@ -3525,7 +3542,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_witch_prison_head.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\n대미지 +3%"
+      "rewardPreview": "상품 300~875골드\n대미지 +3%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

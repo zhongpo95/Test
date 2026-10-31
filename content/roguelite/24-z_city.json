@@ -2042,7 +2042,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_shopping",
@@ -2096,7 +2097,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "headChoice": true
     },
     {
       "key": "opm_side_report",
@@ -2153,7 +2155,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "opm_side_report",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 일반 몬스터 피해 +15%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 일반 몬스터 피해 +15%",
+      "choicePath": true
     },
     {
       "key": "opm_side_short_route",
@@ -2210,7 +2213,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "opm_side_report",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 일반 몬스터 피해 +15%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 일반 몬스터 피해 +15%",
+      "choicePath": true
     },
     {
       "key": "opm_side_footprint",
@@ -2264,7 +2268,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_sonic.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_bicycle",
@@ -2318,7 +2323,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_mumen.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_interval",
@@ -2372,7 +2378,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_clearance",
@@ -2426,7 +2433,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_sonic.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_dojo",
@@ -2480,7 +2488,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_bang.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_fragments",
@@ -2534,7 +2543,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_frontline",
@@ -2588,7 +2598,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_mumen.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_repair_notes",
@@ -2642,7 +2653,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_genos.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_cut",
@@ -2696,7 +2708,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_metalbat.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_sky",
@@ -2750,7 +2763,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_tatsumaki.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_rival",
@@ -2804,7 +2818,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_boros.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_side_two_reports",
@@ -2858,7 +2873,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "choicePath": true
     },
     {
       "key": "opm_epilogue_home",
@@ -2913,7 +2929,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_saitama.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "headChoice": true
     },
     {
       "key": "opm_epilogue_names",
@@ -2968,7 +2985,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_z_city_tatsumaki.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%"
+      "rewardPreview": "상품 250~625골드\n일반 몬스터 피해 +10%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

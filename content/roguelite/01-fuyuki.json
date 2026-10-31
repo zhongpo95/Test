@@ -1688,7 +1688,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "school_circle",
-      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +18.75%",
+      "headChoice": true
     },
     {
       "key": "school_circle_trace",
@@ -1744,7 +1745,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "school_circle",
-      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "saber_practice",
@@ -1797,7 +1799,8 @@
       "canonFact": "#08 세이버와 시로의 아침 수련, #04 사쿠라의 에미야 저택 방문을 토대로 한 창작.",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "temple_gate",
@@ -1850,7 +1853,8 @@
       "canonFact": "#07 류도사에서 어새신의 검술에 막히는 세이버에 근거한다. 은신·암살자 이미지를 사용하지 않는다.",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_club_inventory",
@@ -1904,7 +1908,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_regular_contact",
@@ -1958,7 +1963,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_shinji_offer",
@@ -2011,7 +2017,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_pause_outside",
@@ -2065,7 +2072,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_teacher_statement",
@@ -2118,7 +2126,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_two_ideals",
@@ -2172,7 +2181,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_lancer_crossing",
@@ -2226,7 +2236,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_one_more_blanket",
@@ -2280,7 +2291,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_arrow_on_floor",
@@ -2288,8 +2300,8 @@
       "title": "표적보다 가까운 화살",
       "story": "네가 놓은 화살이 표적에 닿기 전에 바닥에 내려앉자 타이가는 다음 화살보다 네 손부터 보라고 한다. 시로가 화살을 가져오지만 너는 이미 다시 쏠 자세를 잡고 있다.\n\n타이가는 가져온 화살을 아직 받지도 않았는데 무엇부터 서두르는지 묻는다.",
       "intro": "다음 화살을 받기 전에 무엇을 물을까?",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "fuyuki_main_02",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -2337,7 +2349,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "fy_arrow_on_floor",
-      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +14.06% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +14.06% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "fy_shelter_question",
@@ -2391,7 +2404,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_after_one_block",
@@ -2445,7 +2459,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "fy_next_arrow_wait",
@@ -2502,7 +2517,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "fy_arrow_on_floor",
-      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +14.06% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · E 스킬 대미지 +14.06% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "fuyuki_main_01",
@@ -3598,7 +3614,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_FUO_memory.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nE 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "storyChanges": [

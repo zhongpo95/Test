@@ -1508,8 +1508,8 @@
           "chance": 100
         }
       ],
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "mitakihara_main_02",
+      "previousChoice": 1,
       "requiredCard": null,
       "failure": null,
       "canonFact": "원 TV3화 공식 줄거리의 병원 자전거 보관소·그리프 시드·사야카 경계·마도카의 도움 요청에서 별도 사전 준비를 각색한다. 플레이어 개입과 호무라 연락은 창작이며 본편 마녀전 결말이나 마미 운명을 바꾸지 않는다.",
@@ -1519,7 +1519,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "madoka_parking_seed",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 선택한 스킬 대미지 +11.25% · 스킬가속 +3.75"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 선택한 스킬 대미지 +11.25% · 스킬가속 +3.75",
+      "choicePath": true
     },
     {
       "key": "madoka_mentor_return",
@@ -1576,7 +1577,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "madoka_parking_seed",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 선택한 스킬 대미지 +11.25% · 스킬가속 +3.75"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 선택한 스킬 대미지 +11.25% · 스킬가속 +3.75",
+      "choicePath": true
     },
     {
       "key": "madoka_familiar_trace",
@@ -1630,7 +1632,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_church_food",
@@ -1684,7 +1687,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_one_wish",
@@ -1738,7 +1742,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_warning",
@@ -1795,7 +1800,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "madoka_parking_seed",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 선택한 스킬 대미지 +11.25% · 스킬가속 +3.75"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 선택한 스킬 대미지 +11.25% · 스킬가속 +3.75",
+      "choicePath": true
     },
     {
       "key": "madoka_visit_music",
@@ -1849,7 +1855,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_home_morning",
@@ -1903,7 +1910,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_afterclass_appts",
@@ -1957,7 +1965,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_transfer_practice",
@@ -2011,7 +2020,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_room_visit",
@@ -2065,7 +2075,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_boundary_entrance",
@@ -2119,7 +2130,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "madoka_folded_edge",
@@ -2173,7 +2185,8 @@
         }
       ],
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "mitakihara_main_01",
@@ -3177,7 +3190,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_MTO_meeting.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\n선택한 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "storyChanges": [
