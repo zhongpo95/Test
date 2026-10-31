@@ -72,8 +72,15 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         return required == 0 or ProtoHeadCompleted[ExpKey(pid, required)]
     endfunction
 
+    function ProtoStartingHead takes integer pid returns integer
+        if PROTO_TEST_START_HEAD > 0 then
+            return PROTO_TEST_START_HEAD
+        endif
+        return ProtoStartHead[pid]
+    endfunction
+
     function ProtoStartHeadReady takes integer pid returns boolean
-        local integer head = ProtoStartHead[pid]
+        local integer head = ProtoStartingHead(pid)
         // 최초 출발 머리는 발견 도감과 관계없이 직접 선택한다.
         return head >= 1 and head <= PROTO_HEAD_COUNT and ProtoHeadRequiredMain[head] == 0
     endfunction
@@ -1140,8 +1147,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set MapRectCheck[pid + 1] = false
                 set ReservedRegion[pid + 1] = true
                 if ProtoStartHeadReady(pid) then
-                    call ProtoGrantHead(pid, ProtoStartHead[pid])
-                    call ProtoGrantCard(pid, ProtoHeadEntryCard[ProtoStartHead[pid]])
+                    call ProtoGrantHead(pid, ProtoStartingHead(pid))
+                    call ProtoGrantCard(pid, ProtoHeadEntryCard[ProtoStartingHead(pid)])
                 endif
                 call ResetPlayerPotionCharges(pid)
                 call SetItemCharges(PlayerItem1[pid], 2)
@@ -1171,14 +1178,17 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer price
         local integer other
         if ExpState == EXP_LOBBY or ExpState == EXP_RESULT then
+            if PROTO_TEST_START_HEAD > 0 then
+                set ProtoStartHead[pid] = PROTO_TEST_START_HEAD
+            endif
             if action == 2002 then
                 call ProtoTryStart()
-            elseif action >= 2010 and action <= 2010 + PROTO_HEAD_COUNT and not ExpReady[pid] then
+            elseif action >= 2010 and action <= 2010 + PROTO_HEAD_COUNT and not ExpReady[pid] and PROTO_TEST_START_HEAD == 0 then
                 set id = action - 2010
                 if id == 0 or (ProtoHeadRequiredMain[id] == 0) then
                     set ProtoStartHead[pid] = id
                 endif
-            elseif action == 2003 and not ExpReady[pid] then
+            elseif action == 2003 and not ExpReady[pid] and PROTO_TEST_START_HEAD == 0 then
                 set id = ProtoStartHead[pid]
                 loop
                     set id = ModuloInteger(id, PROTO_HEAD_COUNT) + 1

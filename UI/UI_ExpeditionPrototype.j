@@ -474,8 +474,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 100|n이번 원정 머리 1장부터 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n휴식 행동력 1 → 2 → 3 · 이후 3 유지"
         call ExpUIText(LobbyInfo, value)
         set value = "출발 장비|n|n출발 머리 · "
-        if ProtoStartHead[pid] > 0 then
-            set value = value + ProtoHeadName[ProtoStartHead[pid]] + "|n완결 · " + ProtoHeadCompletionText[ProtoStartHead[pid]]
+        if ProtoStartingHead(pid) > 0 then
+            set value = value + ProtoHeadName[ProtoStartingHead(pid)] + "|n완결 · " + ProtoHeadCompletionText[ProtoStartingHead(pid)]
         else
             set value = value + "없음"
         endif
@@ -484,7 +484,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set value = value + "T2 무기 · 공격력 100 · 마을에서 출발 가능|n"
         endif
         call ExpUIText(LobbyLoadout, value)
-        call ExpUISetButton(LobbyHead, "출발 머리 변경 · " + ProtoHeadName[ProtoStartHead[pid]], not ExpReady[pid])
+        if PROTO_TEST_START_HEAD > 0 then
+            call ExpUISetButton(LobbyHead, "테스트 출발 머리 · " + ProtoHeadName[ProtoStartingHead(pid)] + " (고정)", false)
+        else
+            call ExpUISetButton(LobbyHead, "출발 머리 변경 · " + ProtoHeadName[ProtoStartingHead(pid)], not ExpReady[pid])
+        endif
         set value = "파티 준비 상태|n"
         set i = 0
         loop

@@ -4,6 +4,15 @@ const assert=require('node:assert/strict');
 const {fresh}=require('./check-expedition-ui.cjs');
 const t=fresh(0,true),e=t.e;t.start();
 const head=e.ProtoHeadKey.indexOf('penacony');
+assert.equal(e.PROTO_TEST_START_HEAD,head);
+assert.equal(e.ProtoStartingHead(0),head);
+assert(e.ProtoHeadOwned[e.ExpKey(0,head)]);
+e.ProtoOffer(0);assert.equal(e.ProtoEventKey[e.ProtoCandidates[e.ExpKey(0,1)]],'hsr_main_01');
+const lobby=fresh(0,true);assert.equal(lobby.e.ProtoStartingHead(0),head);
+lobby.e.ProtoAction(0,2011);assert.equal(lobby.e.ProtoStartHead[0],head);
+lobby.e.ProtoAction(0,2003);assert.equal(lobby.e.ProtoStartHead[0],head);
+assert([...lobby.frames.values()].some(f=>f.text?.includes('페나코니 (고정)')));
+
 const id=k=>e.ProtoEventKey.indexOf(k), main=id('hsr_main_04'), side=id('hsr_masked_stage'), child=id('hsr_remembered_exit'), next=id('hsr_main_05');
 const state=(event,p=0)=>e.ProtoSideState[e.ProtoStoryKey(p,event)];
 function reset(){e.ResetPid=0;e.ProtoResetRunCards();e.ProtoStatReset(0);e.ProtoHeadCount[0]=0;e.ProtoAP[0]=100;e.ExpGold[0]=10000;e.ProtoReady[0]=false;e.ProtoStage[0]=0;e.ExpState=e.EXP_HUNT;e.ProtoGrantHead(0,head);e.ProtoMainProgress[e.ExpKey(0,head)]=3;}
