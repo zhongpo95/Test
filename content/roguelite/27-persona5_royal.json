@@ -2267,7 +2267,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_counsel",
@@ -2320,7 +2321,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_autumn_exit",
@@ -2373,7 +2375,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_trio_notes",
@@ -2426,7 +2429,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_family",
@@ -2479,7 +2483,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_old_steps",
@@ -2532,7 +2537,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_new_signal",
@@ -2585,7 +2591,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_window",
@@ -2638,7 +2645,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_answers",
@@ -2691,7 +2699,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_records",
@@ -2744,7 +2753,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_pace",
@@ -2797,7 +2807,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_not_equal",
@@ -2850,7 +2861,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_yoshizawa_follow",
@@ -2903,7 +2915,8 @@
       "icon": "war3mapImported\\UI_Event_XP_persona5_royal_yoshizawa.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_futaba_follow",
@@ -2956,7 +2969,8 @@
       "icon": "war3mapImported\\UI_Event_XP_persona5_royal_futaba.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_akechi_follow",
@@ -3009,7 +3023,8 @@
       "icon": "war3mapImported\\UI_Event_XP_persona5_royal_akechi.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_side_before_signal",
@@ -3062,7 +3077,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "choicePath": true
     },
     {
       "key": "p5r_epilogue_paths",
@@ -3114,7 +3130,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "headChoice": true
     },
     {
       "key": "p5r_epilogue_station",
@@ -3166,7 +3183,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\n대미지 +3%"
+      "rewardPreview": "상품 350~875골드\n대미지 +3%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

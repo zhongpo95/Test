@@ -71,6 +71,9 @@ library DataExpedition
         integer array ProtoCodexSlot
         integer array ProtoStage
         // 서브 기회는 이번 원정의 선택 이력과 별도로 유지한다. 0 잠김, 1 개방, 2 포기, 3 선택.
+        // 머리 선택 화면에서 시작한 짧은 이야기는 종료까지 새 머리 선택을 막는다.
+        integer array ProtoActiveSideStory
+        integer array ProtoOpenSideCount
         integer array ProtoSideState
         integer array ProtoOfferCount
         integer array ProtoHeadPage

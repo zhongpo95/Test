@@ -54,7 +54,8 @@ for(const w of worlds){
   const path=[last];while(path[0].key!==last.chainRoot)path.unshift(w.events.find(x=>x.key===path[0].previous));
   reset(Math.max(1,e.ProtoHeadKey.indexOf(w.world.key)));
   const root=path[0];if(root.previous)e.ProtoEventHistory[e.ProtoStoryKey(0,e.ProtoEventKey.indexOf(root.previous))]=root.previousChoice;
-  e.ProtoOpenSidePaths(0,e.ProtoEventKey.indexOf(root.previous),root.previousChoice);
+  if(root.previous)e.ProtoOpenSidePaths(0,e.ProtoEventKey.indexOf(root.previous),root.previousChoice);
+  else {const h=e.ProtoHeadKey.indexOf(w.world.key);e.ProtoCompletedHeadCount[0]=1;if(h>0)e.ProtoMainProgress[e.ExpKey(0,h)]=w.world.mainStory.length;}
   if(root.epilogue)e.ProtoMainProgress[e.ExpKey(0,e.ProtoHeadKey.indexOf(w.world.key))]=w.world.mainStory.length;
   for(let i=0;i<path.length;i++)choose(e.ProtoEventKey.indexOf(path[i].key),i+1<path.length?path[i+1].previousChoice:1);
   assert.equal(e.ProtoAP[0],100-path.reduce((n,x)=>n+x.actionCost,0));

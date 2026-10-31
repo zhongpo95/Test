@@ -1888,7 +1888,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_tea_temperature",
@@ -1942,7 +1943,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_anjelly.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_route_fold",
@@ -1950,8 +1952,8 @@
       "intro": "지도의 가장자리에도 돌아오는 길이 이어진다.",
       "story": "메신젤라또가 지도 밖으로 표시된 길을 보고 멈춘다. 훗케이크는 위에서 보면 길이 이어진다고 하지만 처음 오는 손님은 지도가 틀렸다고 생각할 것이다. 끝나는 곳처럼 보이는 경계를 어떻게 설명할지 고른다.",
       "actionCost": 1,
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "madolche_main_03",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -1996,7 +1998,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "choicePath": true
     },
     {
       "key": "madolche_seat_number",
@@ -2050,7 +2053,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_delayed_note",
@@ -2104,7 +2108,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_open_window",
@@ -2158,7 +2163,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_search_again",
@@ -2212,7 +2218,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_second_delivery",
@@ -2266,7 +2273,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_messengelato.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_small_welcome",
@@ -2320,7 +2328,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_puddingcess.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_crumb_trail",
@@ -2374,7 +2383,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_hootcake.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_extra_plate",
@@ -2428,7 +2438,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_quiet_handover",
@@ -2482,7 +2493,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_madolche_anjelly.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_epilogue_invitation",
@@ -2537,7 +2549,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_madolche_magileine.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     },
     {
       "key": "madolche_epilogue_return",
@@ -2592,7 +2605,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_madolche_tiaramisu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%"
+      "rewardPreview": "상품 300~750골드\n치명타 피해 +8%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

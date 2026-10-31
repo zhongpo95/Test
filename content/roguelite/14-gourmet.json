@@ -1476,8 +1476,8 @@
       "title": "냄비를 올리기 전에",
       "story": "의뢰를 마친 미식전이 길가에 냄비를 내려놓는다. 페코린느는 식재료 바구니를 들여다보며 자기 몫을 몇 번이고 다시 세고, 콧코로는 다음 끼니에 쓸 재료를 따로 묶는다.\n\n캬루는 잘린 재료 냄새를 따라 다가오는 적을 가리키며, 먹기 전에 자리부터 정하자고 투덜거린다.",
       "intro": "더 모아 함께 먹을지, 다음 끼니를 준비할지, 식사 자리를 줄일지 정한다.",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "gourmet_main_04",
+      "previousChoice": 2,
       "requiredCard": null,
       "choices": [
         {
@@ -1526,7 +1526,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "pc_road_meal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "pc_after_feast",
@@ -1583,7 +1584,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "pc_road_meal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "pc_after_portions",
@@ -1640,7 +1642,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "pc_road_meal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · D 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "pc_dusty_room",
@@ -1694,7 +1697,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_faded_spice_map",
@@ -1748,7 +1752,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_105831_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_tea_invitation",
@@ -1802,7 +1807,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_104031_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_rainy_harvest",
@@ -1856,7 +1862,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_105931_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_wrong_costume_tag",
@@ -1898,7 +1905,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_105431_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~350골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~350골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_witness_hours",
@@ -1952,7 +1960,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_101431_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_monica_market_watch",
@@ -2006,7 +2015,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_105331_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_delivery_divide",
@@ -2060,7 +2070,8 @@
       "icon": "war3mapImported\\UI_Card_PCRS_yuuki_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "pc_rehearsal_wall",
@@ -2114,7 +2125,8 @@
       "icon": "war3mapImported\\UI_Card_PCR_102931_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gourmet_main_01",
@@ -3063,7 +3075,8 @@
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
       "uncertain": [],
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nD 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gourmet_main_ring_summons",

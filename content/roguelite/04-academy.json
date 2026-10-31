@@ -1814,7 +1814,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "academy_bad_signal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +18.75%",
+      "headChoice": true
     },
     {
       "key": "academy_signal_answer",
@@ -1871,7 +1872,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "academy_bad_signal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "academy_urban_rumor",
@@ -1925,7 +1927,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_coin_test",
@@ -1979,7 +1982,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_no_ability",
@@ -2033,7 +2037,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_second_route",
@@ -2090,7 +2095,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "academy_bad_signal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "academy_display_window",
@@ -2144,7 +2150,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_sweet_orders",
@@ -2198,7 +2205,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_pair_step",
@@ -2252,7 +2260,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_pool_bundle",
@@ -2306,7 +2315,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_guts_corner",
@@ -2360,7 +2370,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_parade_markers",
@@ -2414,7 +2425,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_vending_left_coin",
@@ -2422,8 +2434,8 @@
       "title": "한 번 더 넣기 전에",
       "story": "토우마가 동전을 삼킨 자판기를 보며 남은 한 닢을 꺼내자 미코토는 익숙한 방법이 있다며 발을 보낸다. 네 손에도 아직 마시지 못한 음료값이 남아 있고 토우마는 네 동전까지 같은 곳에 넣을 필요는 없다고 말한다.\n\n다른 가게는 아직 열려 있지만 자판기 앞의 두 사람은 그쪽을 보고 있지 않다.",
       "intro": "남은 동전도 같은 자판기에 넣어야 할까?",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "academy_main_14",
+      "previousChoice": 2,
       "requiredCard": null,
       "choices": [
         {
@@ -2471,7 +2483,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "academy_vending_left_coin",
-      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +14.06% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +14.06% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "academy_tea_after_call",
@@ -2525,7 +2538,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_unanswered_promise",
@@ -2579,7 +2593,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_arcade_empty_seat",
@@ -2633,7 +2648,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_festival_before_stage",
@@ -2687,7 +2703,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_drink_after_vending",
@@ -2744,7 +2761,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "academy_vending_left_coin",
-      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +14.06% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · W 스킬 대미지 +14.06% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "academy_next_shift",
@@ -2797,7 +2815,8 @@
       ],
       "canonFact": "우이하루의 정보 지원과 쿠로코의 풍기위원 역할을 이용한 맵 전용 방문이다. 남긴 확인 순서 카드를 보유한 여행자가 다음 몫을 정하는 선택이며 원작 갈등 해결·NPC 동행·새 장비 지급·시간 정지 능력은 없다.",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_unsealed_list",
@@ -2850,7 +2869,8 @@
       ],
       "canonFact": "우이하루의 기록 지원과 주변 인물의 생활 속 부탁을 이용한 맵 전용 방문이다. 남긴 항목 카드가 있어 처음부터 확인하지 않아도 된다는 각색을 AP0으로 표현했다. 무료는 방문 행동력뿐이며 골드 비용과 개인 사냥 변화는 적용한다.",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "academy_main_01",
@@ -3861,7 +3881,8 @@
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
       "uncertain": [],
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nW 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

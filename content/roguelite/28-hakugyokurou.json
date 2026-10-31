@@ -2123,7 +2123,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "pcb_side_route",
@@ -2177,7 +2178,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "pcb_side_snowline",
@@ -2231,7 +2233,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_letty.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_turn",
@@ -2285,7 +2288,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_chen.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_crossing",
@@ -2339,7 +2343,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_chen.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_strings",
@@ -2393,7 +2398,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_alice.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_bookedge",
@@ -2447,7 +2453,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_alice.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_cloud",
@@ -2501,7 +2508,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_lily.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_firstnote",
@@ -2555,7 +2563,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_lunasa.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_brass",
@@ -2609,7 +2618,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_merlin.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_rest",
@@ -2663,7 +2673,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_lyrica.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_ensemble",
@@ -2717,7 +2728,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_lyrica.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_stairs",
@@ -2771,7 +2783,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_youmu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_garden",
@@ -2825,7 +2838,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_youmu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_unopened",
@@ -2879,7 +2893,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_yuyuko.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_side_lastlight",
@@ -2933,7 +2948,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "choicePath": true
     },
     {
       "key": "pcb_epilogue_broom",
@@ -2988,7 +3004,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "headChoice": true
     },
     {
       "key": "pcb_epilogue_tea",
@@ -3043,7 +3060,8 @@
       "epilogue": true,
       "icon": "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%"
+      "rewardPreview": "상품 350~875골드\n비방향 피해 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

@@ -504,7 +504,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "common_five_coin",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%",
+      "headChoice": true
     },
     {
       "key": "common_shrine_work",
@@ -558,7 +559,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "common_lost_address",
@@ -615,7 +617,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "common_five_coin",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%",
+      "choicePath": true
     },
     {
       "key": "common_fur_scale",
@@ -684,7 +687,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "common_fur_scale",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +7.5%",
+      "headChoice": true
     },
     {
       "key": "common_other_buyer",
@@ -741,7 +745,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "common_fur_scale",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +7.5%",
+      "choicePath": true
     },
     {
       "key": "common_good_receipt",
@@ -798,7 +803,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "common_fur_scale",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +7.5%",
+      "choicePath": true
     },
     {
       "key": "common_rain_cargo",
@@ -852,7 +858,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "common_northern_route",
@@ -906,7 +913,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "common_torn_poster",
@@ -963,7 +971,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "common_torn_poster",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +4.5% · 스킬가속 +3"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +4.5% · 스킬가속 +3",
+      "headChoice": true
     },
     {
       "key": "common_lowered_blade",
@@ -1008,7 +1017,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "common_torn_poster",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +4.5% · 스킬가속 +3"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +4.5% · 스킬가속 +3",
+      "choicePath": true
     },
     {
       "key": "common_nazrin_signal",
@@ -1077,7 +1087,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "common_nazrin_signal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%",
+      "headChoice": true
     },
     {
       "key": "common_nazrin_found",
@@ -1134,7 +1145,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "common_nazrin_signal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%",
+      "choicePath": true
     },
     {
       "key": "common_nazrin_false",
@@ -1191,7 +1203,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "common_nazrin_signal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6%",
+      "choicePath": true
     }
   ],
   "balanceVersion": 1

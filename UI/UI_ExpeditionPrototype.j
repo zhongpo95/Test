@@ -406,6 +406,17 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call SetDetailLines(13 + i, CandidateEntry[i], entryReward, PAPER_GAIN, 0.150, 0.030, 0.011)
         elseif ProtoEventMainStage[id] > 0 then
             set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
+        elseif ProtoEventHeadChoice[id] > 0 or ProtoActiveSideStory[pid] > 0 then
+            if ProtoEventChainStage[id] > 0 then
+                set tag = tag + " · 짧은 이야기 " + I2S(ProtoEventChainStage[id]) + "/" + I2S(ProtoEventChainLength[id])
+            else
+                set tag = tag + " · 짧은 이야기"
+            endif
+            if ProtoActiveSideStory[pid] > 0 then
+                set action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 이야기 계속"
+            else
+                set action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 짧은 이야기 시작"
+            endif
         elseif ProtoEventEpilogue[id] > 0 then
             set tag = tag + " · 후일담"
         elseif ProtoEventChainStage[id] > 0 then
@@ -528,7 +539,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             if ProtoHeadCount[pid] >= ProtoHeadCapacity(pid) then
                 set value = value + "|n메인 이야기 완주 시 이번 원정의 머리 한도 +1."
             endif
-            set value = value + "|n다른 사건을 선택하면 열린 서브는 포기합니다. 목록 조회는 행동력을 쓰지 않습니다."
+            if ProtoHeadBrowse[pid] then
+                set value = value + "|n서브를 고르면 해당 이야기가 끝날 때까지 새 머리 선택은 잠깁니다."
+            elseif ProtoActiveSideStory[pid] > 0 then
+                set value = value + "|n짧은 이야기 진행 중 · 완료 후 다음 머리를 선택할 수 있습니다."
+            else
+                set value = value + "|n다른 사건을 선택하면 열린 서브는 포기합니다. 목록 조회는 행동력을 쓰지 않습니다."
+            endif
             call PaperText(EventStory, value, PAPER_META)
         elseif ProtoStage[pid] == 2 then
             call PaperText(EventTitle, "개인 사건 · 행동 선택", PAPER_TITLE)
@@ -632,14 +649,9 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endif
         call DzFrameShow(ExpUIButtons[RewardSkillButton], ProtoCanSelectRewardSkill(pid))
         call ExpUISetButton(RewardSkillButton, "강화할 스킬 · " + SubString("QWERASDFC", ProtoRewardSkill[pid], ProtoRewardSkill[pid] + 1) + " · 변경", true)
-        call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1 and ProtoHeadBrowse[pid])
-        call ExpUISetButton(RerollButton, "다음 작품 · " + I2S(ProtoHeadPage[pid] + 1) + "/" + I2S(ProtoHeadPages[pid]), ProtoHeadPages[pid] > 1)
-        call DzFrameShow(ExpUIButtons[HeadModeButton], ProtoStage[pid] == 1 and ProtoCanChooseHead(pid))
-        if ProtoHeadBrowse[pid] then
-            call ExpUISetButton(HeadModeButton, "열린 사건 보기", true)
-        else
-            call ExpUISetButton(HeadModeButton, "다음 머리 선택", true)
-        endif
+        call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1 and ProtoHeadPages[pid] > 1)
+        call ExpUISetButton(RerollButton, "다음 후보 · " + I2S(ProtoHeadPage[pid] + 1) + "/" + I2S(ProtoHeadPages[pid]), ProtoHeadPages[pid] > 1)
+        call DzFrameShow(ExpUIButtons[HeadModeButton], false)
         call DzFrameShow(ExpUIButtons[ResumeButton], ProtoStage[pid] == 3)
         if ProtoDialoguePending(pid) then
             call ExpUISetButton(ResumeButton, "계속 · 다음 장면", true)

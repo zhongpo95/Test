@@ -1732,7 +1732,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "abydos_ramen_shift",
@@ -1740,8 +1741,8 @@
       "title": "세리카의 교대 시간",
       "story": "시바세키 라멘에 손님이 몰렸는데 세리카는 대책위원회 일도 마쳐야 한다. 그녀는 가게가 자신의 것이 아니어도 피해를 주고 싶지 않다며 주문서를 붙잡는다. 배달과 주문 정리, 재료 운송 중 나눠 맡을 일을 고른다.",
       "intro": "라멘 가게 아르바이트와 학교 일이 겹친 세리카.",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "abydos_main_03",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -1789,7 +1790,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "abydos_ramen_shift",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "abydos_blackmarket_map",
@@ -1843,7 +1845,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "abydos_ramen_repair",
@@ -1900,7 +1903,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "abydos_ramen_shift",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "abydos_desert_watch",
@@ -1957,7 +1961,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "abydos_desert_watch",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 공격력 +3%",
+      "headChoice": true
     },
     {
       "key": "abydos_missing_senior",
@@ -2014,7 +2019,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "abydos_desert_watch",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "abydos_pace",
@@ -2068,7 +2074,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "abydos_sleepchair",
@@ -2122,7 +2129,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "abydos_snack_share",
@@ -2176,7 +2184,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "abydos_antique_note",
@@ -2230,7 +2239,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "abydos_aquarium_step",
@@ -2284,7 +2294,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "abydos_peroro_line",
@@ -2338,7 +2349,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ab68_big_bill",
@@ -2395,7 +2407,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "ab68_big_bill",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 스킬가속 +3"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 스킬가속 +3",
+      "headChoice": true
     },
     {
       "key": "ab68_disc_before_words",
@@ -2452,7 +2465,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "ab68_disc_before_words",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%",
+      "headChoice": true
     },
     {
       "key": "ab68_weed_hand",
@@ -2506,7 +2520,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ab68_two_envelopes",
@@ -2560,7 +2575,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ab68_name_after_bill",
@@ -2617,7 +2633,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "ab68_big_bill",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 스킬가속 +3"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +12.38% · 스킬가속 +3",
+      "choicePath": true
     },
     {
       "key": "ab68_reply_after_disc",
@@ -2674,7 +2691,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "ab68_disc_before_words",
-      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · Q 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "abydos_main_01",
@@ -3610,7 +3628,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_ABO_memory.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nQ 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

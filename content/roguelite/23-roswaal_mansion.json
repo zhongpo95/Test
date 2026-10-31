@@ -2159,7 +2159,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_tray",
@@ -2210,7 +2211,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_letters",
@@ -2261,7 +2263,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_door",
@@ -2312,7 +2315,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_window",
@@ -2363,7 +2367,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_laundry",
@@ -2414,7 +2419,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_orders",
@@ -2466,10 +2472,12 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "rz_side_orders",
-      "previousChoice": 0,
+      "previousChoice": 1,
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6% · 체력 재생 +0.2%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6% · 체력 재생 +0.2%",
+      "previous": "rz_main_01",
+      "choicePath": true
     },
     {
       "key": "rz_side_margin",
@@ -2520,7 +2528,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_garden",
@@ -2571,7 +2580,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_chain",
@@ -2622,7 +2632,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_map",
@@ -2673,7 +2684,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_village",
@@ -2724,7 +2736,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_library_follow",
@@ -2775,7 +2788,8 @@
       "icon": "war3mapImported\\UI_Event_XP_roswaal_mansion_beatrice.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_chain_follow",
@@ -2826,7 +2840,8 @@
       "icon": "war3mapImported\\UI_Event_XP_roswaal_mansion_rem.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_side_schedule_follow",
@@ -2882,7 +2897,8 @@
       "chainLength": 2,
       "chainRoot": "rz_side_orders",
       "failure": null,
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6% · 체력 재생 +0.2%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +6% · 체력 재생 +0.2%",
+      "choicePath": true
     },
     {
       "key": "rz_side_tablecloth",
@@ -2933,7 +2949,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_epilogue_seats",
@@ -2985,7 +3002,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "rz_epilogue_promise",
@@ -3037,7 +3055,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     }
   ],
   "editorReview": "content/reviews/additional-heads-20261010/editor-review.json",

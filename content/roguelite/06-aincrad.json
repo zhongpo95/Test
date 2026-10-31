@@ -1678,7 +1678,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "sao_smith_metal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +6% · 일반 공격 대미지 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +6% · 일반 공격 대미지 +7.5%",
+      "headChoice": true
     },
     {
       "key": "sao_smith_return",
@@ -1735,7 +1736,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "sao_smith_metal",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +6% · 일반 공격 대미지 +7.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +6% · 일반 공격 대미지 +7.5%",
+      "choicePath": true
     },
     {
       "key": "sao_companion_herb",
@@ -1789,7 +1791,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_rabbit_table",
@@ -1843,7 +1846,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_boss_warning",
@@ -1897,7 +1901,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_safezone_clue",
@@ -1951,7 +1956,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_counter_labels",
@@ -2005,7 +2011,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_guild_roll",
@@ -2059,7 +2066,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_middle_lantern",
@@ -2113,7 +2121,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_lakeside_wait",
@@ -2167,7 +2176,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_deputy_directions",
@@ -2221,7 +2231,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_argo_fork",
@@ -2229,8 +2240,8 @@
       "title": "강한 상대보다 돌아갈 길",
       "story": "아르고에게 그 길은 어떠냐고 묻자 상대의 위험부터 답이 돌아온다. 네가 궁금했던 것은 사냥을 마친 뒤 어느 갈림길로 돌아오는가였고 아르고는 처음부터 무엇을 알고 싶은지 말했어야 한다고 손을 펼친다.\n\n다음 상대와 돌아올 길 중 네 질문에 빠진 것이 남아 있다. 아르고는 접혀 있던 종이를 펴며 물을 범위를 먼저 가리키라고 한다.",
       "intro": "돌아올 길을 사서 들을까, 자기 간격부터 익힐까?",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "aincrad_main_02",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -2278,7 +2289,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "sao_argo_fork",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +4.5% · 일반 공격 대미지 +7.5% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +4.5% · 일반 공격 대미지 +7.5% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "sao_argo_same_answer",
@@ -2332,7 +2344,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_girl_unanswered",
@@ -2386,7 +2399,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_first_party_step",
@@ -2440,7 +2454,8 @@
       "uncertain": [],
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_argo_second_question",
@@ -2497,7 +2512,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "sao_argo_fork",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +4.5% · 일반 공격 대미지 +7.5% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격 속도 +4.5% · 일반 공격 대미지 +7.5% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "sao_tied_fishing_line",
@@ -2551,7 +2567,8 @@
         }
       ],
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "sao_verified_price",
@@ -2605,7 +2622,8 @@
         }
       ],
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     },
     {
       "key": "aincrad_main_01",
@@ -3594,7 +3612,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_SAO1_memory.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~750골드\n공격 속도 +4%"
+      "rewardPreview": "상품 300~750골드\n공격 속도 +4%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

@@ -1741,10 +1741,10 @@
     {
       "key": "ft_request_board",
       "title": "무너진 게시판 아래",
-      "story": "길드를 다시 정리하던 중 의뢰서와 수송 짐이 뒤섞여 있다. 나츠는 짐을 치울 테니 밖의 위험을 맡아 달라고 하고 루시는 주소부터 대조하자고 한다.\n\n샤를은 해피가 옮길 짐의 무게와 지나갈 곳을 먼저 살핀다. 같은 마당에서 운반 길·의뢰서·수송 동선 중 무엇부터 맡을까?",
+      "story": "길드를 다시 정리하던 중 의뢰서와 수송 짐이 뒤섞여 있다. 나츠는 짐을 치울 테니 밖의 위험을 맡아 달라고 하고 루시는 주소부터 대조하자고 한다.\n\n해피는 옮길 짐의 무게와 지나갈 곳을 먼저 살핀다. 같은 마당에서 운반 길·의뢰서·수송 동선 중 무엇부터 맡을까?",
       "intro": "길드 마당에 흩어진 물건들 사이로 엉킨 의뢰서들이 널브러져 있다.",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "magnolia_main_15",
+      "previousChoice": 2,
       "requiredCard": null,
       "choices": [
         {
@@ -1792,7 +1792,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "ft_request_board",
-      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "ft_timber",
@@ -1848,7 +1849,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "ft_request_board",
-      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "ft_receipt",
@@ -1905,7 +1907,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "ft_request_board",
-      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "ft_fish",
@@ -1962,7 +1965,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "ft_request_board",
-      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +18.75%",
+      "choicePath": true
     },
     {
       "key": "ft_new_board",
@@ -2016,7 +2020,8 @@
       "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_armory",
@@ -2070,7 +2075,8 @@
       "icon": "war3mapImported\\UI_Card_FT_erza-scarlet_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_river",
@@ -2127,7 +2133,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "ft_river",
-      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +14.06% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +14.06% · 공격력 +3%",
+      "headChoice": true
     },
     {
       "key": "ft_wet_receipt",
@@ -2184,7 +2191,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "ft_river",
-      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +14.06% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · F 스킬 대미지 +14.06% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "ft_controlled_flame",
@@ -2238,7 +2246,8 @@
       "icon": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_iron_lunch",
@@ -2292,7 +2301,8 @@
       "icon": "war3mapImported\\UI_Card_FTG_gajeel_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_two_umbrellas",
@@ -2346,7 +2356,8 @@
       "icon": "war3mapImported\\UI_Card_FTG_juvia_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_magazine_queue",
@@ -2400,7 +2411,8 @@
       "icon": "war3mapImported\\UI_Card_FTG_mirajane_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_laxus_short_reply",
@@ -2454,7 +2466,8 @@
       "icon": "war3mapImported\\UI_Card_FTG_laxus_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_gildarts_wall",
@@ -2508,7 +2521,8 @@
       "icon": "war3mapImported\\UI_Card_FTG_gildarts_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_lucy_unfinished",
@@ -2562,7 +2576,8 @@
       "actionCost": 1,
       "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "ft_mirajane_next_note",
@@ -2616,7 +2631,8 @@
       ],
       "icon": "war3mapImported\\UI_Card_FTG_mirajane_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "magnolia_main_01",
@@ -3650,7 +3666,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%"
+      "rewardPreview": "상품 250~875골드\nF 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

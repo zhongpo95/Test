@@ -1923,8 +1923,8 @@
       "title": "수취인이 없는 짐",
       "story": "우라하라 상점 앞에 세 갈래 길로 보낼 짐이 쌓였다. 콘이 끼어든 상자에는 수취인 이름이 가려져 있고, 젖어 갈라진 배송 쪽지를 이치고와 우류가 서로 다르게 읽는다.\n\n오리히메는 부서진 운반대 때문에 뒷길의 짐이 멈췄다는 점을 알아챈다.",
       "intro": "우라하라 상점 앞에 네 갈래 길로 보낼 짐이 쌓여 있다.",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "karakura_main_03",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -1972,7 +1972,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "bl_shop_boxes",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%",
+      "choicePath": true
     },
     {
       "key": "bl_rooftop_marks",
@@ -2029,7 +2030,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "bl_shop_boxes",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%",
+      "choicePath": true
     },
     {
       "key": "bl_return_receipt",
@@ -2086,7 +2088,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "bl_shop_boxes",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%",
+      "choicePath": true
     },
     {
       "key": "bl_closed_lane",
@@ -2143,7 +2146,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "bl_shop_boxes",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +4.5%",
+      "choicePath": true
     },
     {
       "key": "bl_light_parcel",
@@ -2197,7 +2201,8 @@
       "icon": "war3mapImported\\UI_Card_BBS_kon_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_stray_alarm",
@@ -2254,7 +2259,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "bl_stray_alarm",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +3.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +3.38% · 공격력 +3%",
+      "headChoice": true
     },
     {
       "key": "bl_unmarked_corner",
@@ -2311,7 +2317,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "bl_stray_alarm",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +3.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 방어력 관통 +3.38% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "bl_joint_training",
@@ -2365,7 +2372,8 @@
       "icon": "war3mapImported\\UI_Card_BBO1_ichigo_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_ripped_sleeve",
@@ -2419,7 +2427,8 @@
       "icon": "war3mapImported\\UI_Card_BBO1_uryu_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_chad_toy",
@@ -2473,7 +2482,8 @@
       "icon": "war3mapImported\\UI_Card_BBO2_sado_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_yuzu_supplies",
@@ -2527,7 +2537,8 @@
       "icon": "war3mapImported\\UI_Card_QU7_yuzu_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_don_audience",
@@ -2581,7 +2592,8 @@
       "icon": "war3mapImported\\UI_Card_BBS_kanonji_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_uncertain_kit",
@@ -2635,7 +2647,8 @@
       "icon": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_tatsuki_space",
@@ -2689,7 +2702,8 @@
       "icon": "war3mapImported\\UI_Card_SUP5_tatsuki_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_empty_bench",
@@ -2743,7 +2757,8 @@
       "actionCost": 1,
       "icon": "war3mapImported\\UI_Card_SUP5_karin_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_welcome_at_door",
@@ -2797,7 +2812,8 @@
       "icon": "war3mapImported\\UI_Card_BBO2_isshin_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_small_shop_clerk",
@@ -2851,7 +2867,8 @@
       "icon": "war3mapImported\\UI_Card_BBS_ururu_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_unasked_invitation",
@@ -2905,7 +2922,8 @@
       "icon": "war3mapImported\\UI_Card_BKQ11_keigo_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "bl_urahara_return_list",
@@ -2959,7 +2977,8 @@
       ],
       "icon": "war3mapImported\\UI_Card_BBO2_urahara_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "karakura_main_01",
@@ -4151,7 +4170,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_KRO_memory.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%"
+      "rewardPreview": "상품 300~1000골드\n방어력 관통 +2%",
+      "headChoice": true
     },
     {
       "key": "karakura_main_hogyoku_escape",

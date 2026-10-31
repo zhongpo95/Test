@@ -1836,7 +1836,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_umbrella",
@@ -1886,7 +1887,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_classroom",
@@ -1936,7 +1938,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_radio",
@@ -1986,7 +1989,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_bench",
@@ -2036,7 +2040,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_target",
@@ -2086,7 +2091,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_cat",
@@ -2136,7 +2142,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_promise",
@@ -2186,7 +2193,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_echo",
@@ -2236,7 +2244,8 @@
       "icon": "war3mapImported\\UI_Event_XP_tengu_yoshino.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_precision",
@@ -2286,7 +2295,8 @@
       "icon": "war3mapImported\\UI_Event_XP_tengu_origami.tga",
       "growthRole": "shop",
       "failure": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_side_schedule",
@@ -2337,10 +2347,12 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "dal_side_schedule",
-      "previousChoice": 0,
+      "previousChoice": 1,
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "연계 총 행동력 10\n완결 · S 스킬 대미지 +15%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · S 스킬 대미지 +15%",
+      "previous": "tengu_main_08",
+      "choicePath": true
     },
     {
       "key": "dal_side_schedule_follow",
@@ -2395,7 +2407,8 @@
       "chainLength": 2,
       "chainRoot": "dal_side_schedule",
       "failure": null,
-      "rewardPreview": "연계 총 행동력 10\n완결 · S 스킬 대미지 +15%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · S 스킬 대미지 +15%",
+      "choicePath": true
     },
     {
       "key": "dal_epilogue_return",
@@ -2446,7 +2459,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "dal_epilogue_table",
@@ -2497,7 +2511,8 @@
       "growthRole": "shop",
       "failure": null,
       "requiredCard": null,
-      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nS 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

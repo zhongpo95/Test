@@ -2269,7 +2269,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_start_line",
@@ -2323,7 +2324,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_satotz.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_small_rest",
@@ -2377,7 +2379,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_leorio.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_board_wheels",
@@ -2434,7 +2437,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "hx_board_wheels",
-      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +12.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +12.38% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "hx_cup_offer",
@@ -2488,7 +2492,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_hanzo_distance",
@@ -2542,7 +2547,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hanzo.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_hisoka_glance",
@@ -2596,7 +2602,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hisoka.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_supply_sort",
@@ -2653,7 +2660,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "hx_supply_sort",
-      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "hx_pack_followup",
@@ -2710,7 +2718,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hx_supply_sort",
-      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "hx_path_followup",
@@ -2767,7 +2776,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hx_supply_sort",
-      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "hx_signal_followup",
@@ -2824,7 +2834,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "hx_board_wheels",
-      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +12.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · A 스킬 대미지 +12.38% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "hx_tower_vote",
@@ -2878,7 +2889,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_netero_recall",
@@ -2932,7 +2944,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_netero.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_badge_weight",
@@ -2986,7 +2999,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hisoka.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_trap_marks",
@@ -3040,7 +3054,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_leorio.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_rule_margin",
@@ -3094,7 +3109,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hanzo.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "choicePath": true
     },
     {
       "key": "hx_epilogue_three",
@@ -3149,7 +3165,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "hx_epilogue_meaning",
@@ -3204,7 +3221,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%"
+      "rewardPreview": "상품 300~875골드\nA 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "editorReview": "content/reviews/additional-heads-20261010/editor-review.json",

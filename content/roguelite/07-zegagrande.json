@@ -1711,8 +1711,8 @@
           "result": "라캄이 무거운 화물을 고정하는 동안 당신은 통로를 정리한다. 효율적인 이동 경로를 확보하며 작전의 기초를 다집니다."
         }
       ],
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "zegagrande_main_01",
+      "previousChoice": 2,
       "requiredCard": null,
       "failure": null,
       "canonFact": "공식 기공정 조타사 라캄·루리아를 지키는 카타리나·숙련된 오이겐의 역할을 활용한 창작 화물 사건이다. 실제 갑판 전투·기공정 운전·루리아의 운명을 구현하거나 해결하지 않는다.",
@@ -1722,7 +1722,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "gbf_airship_crate",
-      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "gbf_deck_position",
@@ -1779,7 +1780,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "gbf_airship_crate",
-      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +16.5%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +16.5%",
+      "choicePath": true
     },
     {
       "key": "gbf_broken_focus",
@@ -1833,7 +1835,8 @@
       "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_sealed_report",
@@ -1890,7 +1893,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "gbf_sealed_report",
-      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +12.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +12.38% · 공격력 +3%",
+      "headChoice": true
     },
     {
       "key": "gbf_alchemy_sample",
@@ -1944,7 +1948,8 @@
       "icon": "war3mapImported\\UI_Card_GBF_cagliostro_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_return_signal",
@@ -2001,7 +2006,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "gbf_sealed_report",
-      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +12.38% · 공격력 +3%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · C 스킬 대미지 +12.38% · 공격력 +3%",
+      "choicePath": true
     },
     {
       "key": "gbf_rosetta_dates",
@@ -2055,7 +2061,8 @@
       "icon": "war3mapImported\\UI_Card_GBF_rosetta_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_rolan_two_questions",
@@ -2109,7 +2116,8 @@
       "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_lancelot_shift",
@@ -2163,7 +2171,8 @@
       "icon": "war3mapImported\\UI_Card_GBF_lancelot_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_percival_load",
@@ -2217,7 +2226,8 @@
       "icon": "war3mapImported\\UI_Card_GBF_percival_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_yodarha_foot",
@@ -2271,7 +2281,8 @@
       "actionCost": 1,
       "icon": "war3mapImported\\UI_Card_GBF_yodarha_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_io_audience",
@@ -2325,7 +2336,8 @@
       "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "gbf_rolan_next_request",
@@ -2379,7 +2391,8 @@
       ],
       "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     },
     {
       "key": "zegagrande_main_01",
@@ -3351,7 +3364,8 @@
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
       "uncertain": [],
       "growthRole": "shop",
-      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%"
+      "rewardPreview": "상품 350~875골드\nC 스킬 대미지 +6%",
+      "headChoice": true
     }
   ],
   "reviewRecords": [

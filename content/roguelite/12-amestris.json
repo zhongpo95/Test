@@ -1889,8 +1889,8 @@
       "title": "떠나려는 손, 붙잡는 손",
       "story": "에드워드가 정비를 마친 팔을 움직이자 윈리가 손목에서 나는 미세한 소리에 귀를 기울인다. 에드는 밖에서 시험하면 금방 알 수 있다고 말하고, 알폰스는 우선 넘어지지 않을 자세부터 점검하자고 제안한다.\n\n누구의 확인을 도울지 결정해야 한다.",
       "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
-      "previous": null,
-      "previousChoice": 0,
+      "previous": "amestris_main_04",
+      "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
@@ -1939,7 +1939,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "fma_workshop",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9%",
+      "choicePath": true
     },
     {
       "key": "fma_measurement_notes",
@@ -1996,7 +1997,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "fma_workshop",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9%",
+      "choicePath": true
     },
     {
       "key": "fma_trial_footprints",
@@ -2052,7 +2054,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "fma_workshop",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9%",
+      "choicePath": true
     },
     {
       "key": "fma_library",
@@ -2106,7 +2109,8 @@
       "icon": "war3mapImported\\UI_Card_FMA_21_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_training",
@@ -2163,7 +2167,8 @@
       "chainStage": 1,
       "chainLength": 2,
       "chainRoot": "fma_training",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9.75%",
+      "headChoice": true
     },
     {
       "key": "fma_after_large",
@@ -2220,7 +2225,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "fma_training",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9.75%",
+      "choicePath": true
     },
     {
       "key": "fma_after_crowd",
@@ -2277,7 +2283,8 @@
       "chainStage": 2,
       "chainLength": 2,
       "chainRoot": "fma_training",
-      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9.75%"
+      "rewardPreview": "연계 총 행동력 10\n완결 · 공격력 +9.75%",
+      "choicePath": true
     },
     {
       "key": "fma_hayate_commands",
@@ -2331,7 +2338,8 @@
       "actionCost": 1,
       "icon": "war3mapImported\\UI_Card_FMO3_riza_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_family_photo",
@@ -2385,7 +2393,8 @@
       "icon": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_home_spares",
@@ -2439,7 +2448,8 @@
       "icon": "war3mapImported\\UI_Card_FMA_13_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_butcher_counter",
@@ -2493,7 +2503,8 @@
       "icon": "war3mapImported\\UI_Card_FMA_26_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_ling_lunch",
@@ -2547,7 +2558,8 @@
       "icon": "war3mapImported\\UI_Card_FMO2_lin_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_flame_supplies",
@@ -2601,7 +2613,8 @@
       "icon": "war3mapImported\\UI_Card_RMU12_roy_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_pie_delivery",
@@ -2655,7 +2668,8 @@
       "icon": "war3mapImported\\UI_Card_FMO1_hughes_Art.tga",
       "actionCost": 1,
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_sheska_next_blank",
@@ -2709,7 +2723,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Card_FMA_21_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "fma_pinako_return_list",
@@ -2763,7 +2778,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Card_FMA_13_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "amestris_main_01",
@@ -4076,7 +4092,8 @@
       "uncertain": [],
       "icon": "war3mapImported\\UI_Card_FCU8_alphonse_Art.tga",
       "growthRole": "shop",
-      "rewardPreview": "상품 250~625골드\n공격력 +4%"
+      "rewardPreview": "상품 250~625골드\n공격력 +4%",
+      "headChoice": true
     },
     {
       "key": "amestris_main_father_underground",
