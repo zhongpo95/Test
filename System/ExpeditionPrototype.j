@@ -72,8 +72,15 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         return required == 0 or ProtoHeadCompleted[ExpKey(pid, required)]
     endfunction
 
+    function ProtoStartingHead takes integer pid returns integer
+        if PROTO_TEST_START_HEAD > 0 then
+            return PROTO_TEST_START_HEAD
+        endif
+        return ProtoStartHead[pid]
+    endfunction
+
     function ProtoStartHeadReady takes integer pid returns boolean
-        local integer head = ProtoStartHead[pid]
+        local integer head = ProtoStartingHead(pid)
         // 최초 출발 머리는 발견 도감과 관계없이 직접 선택한다.
         return head >= 1 and head <= PROTO_HEAD_COUNT and ProtoHeadRequiredMain[head] == 0
     endfunction
@@ -177,13 +184,28 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         call ProtoRefreshStats(pid)
     endfunction
 
+    function ProtoCanChooseHead takes integer pid returns boolean
+        local integer head = 1
+        if ProtoHeadCount[pid] >= ProtoHeadCapacity(pid) then
+            return false
+        endif
+        loop
+            exitwhen head > PROTO_HEAD_COUNT
+            if ProtoHeadOwned[ExpKey(pid, head)] and ProtoMainProgress[ExpKey(pid, head)] < ProtoHeadMainLength[head] then
+                return false
+            endif
+            set head = head + 1
+        endloop
+        return true
+    endfunction
+
     function ProtoBranchAvailable takes integer pid, integer id, integer choice returns boolean
         local integer key = ProtoChoiceKey(id, choice)
         if choice < 1 or choice > ProtoEventChoices[id] then
             return false
         endif
         if ProtoEventKind[id] == 0 then
-            return choice == 1 and ProtoHeadUnlocked(pid, ProtoEventHead[id]) and ProtoHeadCount[pid] < ProtoHeadCapacity(pid) and not ProtoHeadOwned[ExpKey(pid, ProtoEventHead[id])]
+            return choice == 1 and ProtoHeadUnlocked(pid, ProtoEventHead[id]) and ProtoCanChooseHead(pid) and not ProtoHeadOwned[ExpKey(pid, ProtoEventHead[id])]
         endif
         return ExpGold[pid] >= ProtoBranchCost[key] and ProtoLevel[pid] + ProtoBranchLevel[key] <= 5 and ProtoDensity[pid] + ProtoBranchDensity[key] <= 10
     endfunction
@@ -201,7 +223,11 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set head = ProtoEventHead[id]
         if ProtoEventKind[id] == 0 then
             // 입구 ID는 플레이어별로 하나씩 배정한다. 다른 사람의 머리 획득이 내 입구를 소진하지 않는다.
-            return id == ProtoHeadEntryEvent[head * 4 + pid] and ProtoHeadUnlocked(pid, head) and ProtoHeadCount[pid] < ProtoHeadCapacity(pid) and not ProtoHeadOwned[ExpKey(pid, head)]
+            return id == ProtoHeadEntryEvent[head * 4 + pid] and ProtoHeadUnlocked(pid, head) and ProtoCanChooseHead(pid) and not ProtoHeadOwned[ExpKey(pid, head)]
+        endif
+        // 아직 선택지에 연결하지 않은 서브 원고는 보존하되 후보로 내보내지 않는다.
+        if ProtoEventMainStage[id] == 0 and (ProtoEventChoicePath[id] == 0 or ProtoSideState[ProtoStoryKey(pid, id)] != 1) then
+            return false
         endif
         // 잠긴 지역의 사건은 분기 조건까지 검사하지 않는다.
         if head > 0 and not ProtoHeadOwned[ExpKey(pid, head)] then
@@ -276,91 +302,74 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     endfunction
 
     function ProtoOffer takes integer pid returns nothing
-        local integer slot = 1
+        local integer slot = 0
         local integer id = 1
-        local integer j
         local integer count = 0
-        local integer total = 0
-        local integer selected
-        local integer weight
-        local integer roll
-        local integer mainSlot = 0
-        local integer mainProgress = 1024
+        local integer first
+        local integer entry
         if ProtoAP[pid] <= 0 or ProtoReady[pid] then
             return
         endif
-        // 조건 검사는 사건마다 한 번만 한다. 후보 수가 늘어도 전체 분기를 다시 훑지 않는다.
+        loop
+            exitwhen id > 4
+            set ProtoCandidates[ExpKey(pid, id)] = 0
+            set id = id + 1
+        endloop
+        if not ProtoCanChooseHead(pid) then
+            set ProtoHeadBrowse[pid] = false
+        endif
+        // 메인 다음 장을 먼저 배치하고, 선택으로 열린 서브만 뒤에 배치한다.
+        set id = 1
         loop
             exitwhen id > PROTO_EVENT_COUNT
-            if ProtoEventEligible(pid, id) then
-                set weight = 1
-                if ProtoEventKind[id] == 0 then
-                    set weight = 80
-                elseif ProtoEventRequired[id] > 0 then
-                    // 이미 시작한 이야기는 이어질 가능성을 높이되 강제로 등장시키지 않는다.
-                    set weight = 12
-                elseif ProtoEventHead[id] > 0 then
-                    set weight = 3
-                endif
+            if ProtoEventMainStage[id] > 0 and ProtoEventEligible(pid, id) and slot < 4 then
+                set slot = slot + 1
+                set ProtoCandidates[ExpKey(pid, slot)] = id
+            elseif ProtoEventChoicePath[id] > 0 and ProtoEventEligible(pid, id) then
                 set count = count + 1
                 set OfferEvents[count] = id
-                set OfferWeights[count] = weight
-                if ProtoEventMainStage[id] > 0 and ProtoMainProgress[ExpKey(pid, ProtoEventHead[id])] < mainProgress then
-                    set mainSlot = count
-                    set mainProgress = ProtoMainProgress[ExpKey(pid, ProtoEventHead[id])]
-                endif
-                set total = total + weight
             endif
             set id = id + 1
         endloop
+        set id = 1
         loop
-            exitwhen slot > 4
-            set ProtoCandidates[ExpKey(pid, slot)] = 0
-            if slot <= ProtoChoices[pid] and total > 0 then
-                set roll = GetRandomInt(1, total)
-                // 다음 장이 열려 있으면 첫 후보를 메인으로 보장한다. 남은 후보는 기존 가중 추첨을 쓴다.
-                if slot == 1 and mainSlot > 0 then
-                    set roll = 1
-                    set j = 1
-                    loop
-                        exitwhen j >= mainSlot
-                        set roll = roll + OfferWeights[j]
-                        set j = j + 1
-                    endloop
-                endif
-                if slot == 2 or (slot == 1 and mainSlot == 0) then
-                    set j = 1
-                    set selected = 1
-                    loop
-                        exitwhen j > count
-                        if ProtoEventChainStage[OfferEvents[j]] > 1 then
-                            set roll = selected
-                            exitwhen true
-                        endif
-                        set selected = selected + OfferWeights[j]
-                        set j = j + 1
-                    endloop
-                endif
-                set j = 1
-                set selected = 0
-                loop
-                    exitwhen j > count
-                    if roll <= OfferWeights[j] then
-                        set selected = OfferEvents[j]
-                        // 같은 가중치로 중복 없이 뽑는다. 선택한 사건은 이번 목록에서만 제거한다.
-                        set total = total - OfferWeights[j]
-                        set OfferEvents[j] = OfferEvents[count]
-                        set OfferWeights[j] = OfferWeights[count]
-                        set count = count - 1
-                        exitwhen true
-                    endif
-                    set roll = roll - OfferWeights[j]
-                    set j = j + 1
-                endloop
-                set ProtoCandidates[ExpKey(pid, slot)] = selected
-            endif
+            exitwhen id > count or slot >= 4
             set slot = slot + 1
+            set ProtoCandidates[ExpKey(pid, slot)] = OfferEvents[id]
+            set id = id + 1
         endloop
+        if slot == 0 and ProtoCanChooseHead(pid) then
+            set ProtoHeadBrowse[pid] = true
+        endif
+        if ProtoHeadBrowse[pid] then
+            set count = 0
+            set id = 1
+            loop
+                exitwhen id > PROTO_HEAD_COUNT
+                set entry = ProtoHeadEntryEvent[id * 4 + pid]
+                if ProtoEventEligible(pid, entry) then
+                    set count = count + 1
+                    set OfferEvents[count] = entry
+                endif
+                set id = id + 1
+            endloop
+            set ProtoHeadPages[pid] = IMaxBJ(1, R2I(I2R(count + 3) / 4.0))
+            if ProtoHeadPage[pid] >= ProtoHeadPages[pid] then
+                set ProtoHeadPage[pid] = 0
+            endif
+            set first = ProtoHeadPage[pid] * 4
+            set slot = 1
+            loop
+                exitwhen slot > 4
+                set ProtoCandidates[ExpKey(pid, slot)] = 0
+                if first + slot <= count then
+                    set ProtoCandidates[ExpKey(pid, slot)] = OfferEvents[first + slot]
+                endif
+                set slot = slot + 1
+            endloop
+            set slot = IMinBJ(4, count - first)
+        endif
+        set ProtoOfferCount[pid] = slot
         if ProtoCandidates[ExpKey(pid, 1)] == 0 then
             // 당장 유효한 사건이 없어도 행동력을 강제로 소비하지 않는다.
             call ProtoResetDialogue(pid)
@@ -382,7 +391,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ArcanaRecArgText = ""
             set slot = 1
             loop
-                exitwhen slot > ProtoChoices[pid] or slot > 4
+                exitwhen slot > ProtoOfferCount[pid] or slot > 4
                 if ProtoCandidates[ExpKey(pid, slot)] > 0 then
                     if ArcanaRecArgText != "" then
                         set ArcanaRecArgText = ArcanaRecArgText + ","
@@ -473,6 +482,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if not ProtoBranchAllowed(pid, choice) then
             set value = value + "|n현재 골드 또는 적 단계·수 상한 때문에 선택할 수 없습니다."
         endif
+        if StringLength(ProtoBranchOpens[key]) > 0 then
+            set value = value + "|n|n" + ProtoBranchOpens[key]
+        endif
         return value
     endfunction
 
@@ -527,6 +539,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         if cost != "" then
             set value = value + "|n|cff9c4a22[비용·변화] " + cost + "|r"
+        endif
+        if StringLength(ProtoBranchOpens[key]) > 0 then
+            set value = value + "|n|n" + ProtoBranchOpens[key]
         endif
         return value
     endfunction
@@ -604,6 +619,37 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             return ProtoBranchSummary(pid, choice)
         endif
         return ProtoBranchText(pid, choice)
+    endfunction
+
+    function ProtoOpenSidePaths takes integer pid, integer source, integer choice returns nothing
+        local integer id = ProtoBranchOpenFirst[ProtoChoiceKey(source, choice)]
+        local integer key
+        loop
+            exitwhen id == 0
+            set key = ProtoStoryKey(pid, id)
+            if ProtoSideState[key] == 0 then
+                set ProtoSideState[key] = 1
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n[후속 사건 개방] " + ProtoEventName[id] + "|n다음 사건 선택에서 진행 가능 · 행동력 " + I2S(ProtoEventAPCost[id])
+            endif
+            set id = ProtoEventOpenNext[id]
+        endloop
+    endfunction
+
+    function ProtoCommitSideChoice takes integer pid, integer selected returns nothing
+        local integer id = 1
+        local integer key
+        loop
+            exitwhen id > PROTO_EVENT_COUNT
+            set key = ProtoStoryKey(pid, id)
+            if ProtoSideState[key] == 1 then
+                if id == selected then
+                    set ProtoSideState[key] = 3
+                else
+                    set ProtoSideState[key] = 2
+                endif
+            endif
+            set id = id + 1
+        endloop
     endfunction
 
     function ProtoResolve takes integer pid, integer choice returns nothing
@@ -693,6 +739,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 endif
             endif
+            call ProtoOpenSidePaths(pid, id, choice)
             set ProtoOutcome[pid] = ProtoOutcome[pid] + ProtoUnlockStoryChanges(pid, id)
         else
             set ProtoEventHistory[ProtoStoryKey(pid, id)] = -choice
@@ -957,6 +1004,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer pid = ResetPid
         local integer id = 0
         local integer key
+        set ProtoOfferCount[pid] = 0
+        set ProtoHeadBrowse[pid] = false
+        set ProtoHeadPage[pid] = 0
         set ProtoCompletedHeadCount[pid] = 0
         loop
             exitwhen id > IMaxBJ(63, PROTO_CARD_LAST)
@@ -983,6 +1033,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set id = 1
         loop
             exitwhen id > PROTO_EVENT_COUNT
+            set ProtoSideState[ProtoStoryKey(pid, id)] = 0
             set ProtoEventHistory[ProtoStoryKey(pid, id)] = 0
             set ProtoChainComplete[ExpKey(pid, id)] = false
             set id = id + 1
@@ -1096,8 +1147,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set MapRectCheck[pid + 1] = false
                 set ReservedRegion[pid + 1] = true
                 if ProtoStartHeadReady(pid) then
-                    call ProtoGrantHead(pid, ProtoStartHead[pid])
-                    call ProtoGrantCard(pid, ProtoHeadEntryCard[ProtoStartHead[pid]])
+                    call ProtoGrantHead(pid, ProtoStartingHead(pid))
+                    call ProtoGrantCard(pid, ProtoHeadEntryCard[ProtoStartingHead(pid)])
                 endif
                 call ResetPlayerPotionCharges(pid)
                 call SetItemCharges(PlayerItem1[pid], 2)
@@ -1127,14 +1178,17 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer price
         local integer other
         if ExpState == EXP_LOBBY or ExpState == EXP_RESULT then
+            if PROTO_TEST_START_HEAD > 0 then
+                set ProtoStartHead[pid] = PROTO_TEST_START_HEAD
+            endif
             if action == 2002 then
                 call ProtoTryStart()
-            elseif action >= 2010 and action <= 2010 + PROTO_HEAD_COUNT and not ExpReady[pid] then
+            elseif action >= 2010 and action <= 2010 + PROTO_HEAD_COUNT and not ExpReady[pid] and PROTO_TEST_START_HEAD == 0 then
                 set id = action - 2010
                 if id == 0 or (ProtoHeadRequiredMain[id] == 0) then
                     set ProtoStartHead[pid] = id
                 endif
-            elseif action == 2003 and not ExpReady[pid] then
+            elseif action == 2003 and not ExpReady[pid] and PROTO_TEST_START_HEAD == 0 then
                 set id = ProtoStartHead[pid]
                 loop
                     set id = ModuloInteger(id, PROTO_HEAD_COUNT) + 1
@@ -1156,7 +1210,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         if action >= 2101 and action <= 2104 and ProtoStage[pid] == 1 then
             set slot = action - 2100
-            if slot > ProtoChoices[pid] then
+            if slot > ProtoOfferCount[pid] then
                 return
             endif
             set id = ProtoCandidates[ExpKey(pid, slot)]
@@ -1165,6 +1219,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 return
             endif
             call ProtoResetDialogue(pid)
+            call ProtoCommitSideChoice(pid, id)
+            set ProtoHeadBrowse[pid] = false
             set ProtoSelected[pid] = id
             static if ARCANA_RECORDS_ENABLED then
                 // 단계 7 기록(09 3.4): 사건 선택
@@ -1180,13 +1236,15 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             if ProtoEventKind[id] == 0 then
                 call ProtoResolve(pid, 1)
             endif
-        elseif action == 2300 and ProtoStage[pid] == 1 then
-            set price = ProtoRestCost(pid)
-            if ProtoAP[pid] < price then
-                return
-            endif
-            set ProtoAP[pid] = ProtoAP[pid] - price
-            set ProtoRerolls[pid] = ProtoRerolls[pid] + 1
+        elseif action == 2300 then
+            // 이전 클라이언트의 재추첨 요청은 자원과 기회를 변경하지 않는다.
+            return
+        elseif action == 2700 and ProtoStage[pid] == 1 and ProtoCanChooseHead(pid) then
+            set ProtoHeadBrowse[pid] = not ProtoHeadBrowse[pid]
+            set ProtoHeadPage[pid] = 0
+            call ProtoOffer(pid)
+        elseif action == 2701 and ProtoStage[pid] == 1 and ProtoHeadBrowse[pid] then
+            set ProtoHeadPage[pid] = ModuloInteger(ProtoHeadPage[pid] + 1, ProtoHeadPages[pid])
             call ProtoOffer(pid)
         elseif action == 2600 and ProtoCanSelectRewardSkill(pid) then
             set ProtoRewardSkill[pid] = ModuloInteger(ProtoRewardSkill[pid] + 1, 9)

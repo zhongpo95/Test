@@ -19,7 +19,7 @@ def run(args):
     (out / 'backups').mkdir()
     (out / 'bin').mkdir()
     # Import.j의 기존 절대 경로를 현재 체크아웃으로 재지정하여 다른 브랜치를 검증하지 않게 한다.
-    imports = (root / 'Import.j').read_text(encoding='utf-8-sig')
+    imports = (root / args.entry_import).read_text(encoding='utf-8-sig')
     def local_import(match):
         original = match.group(1)
         relative = re.split(r'[\\/]Test[\\/]', original, maxsplit=1)
@@ -32,7 +32,7 @@ def run(args):
     imports = re.sub(r'//! import "([^"\n]+)"', local_import, imports)
     (out / 'Import.j').write_text(imports, encoding='utf8')
     template = args.template.read_bytes()
-    source, replaced = re.subn(r'//! import "[^"\n]*[\\/]Import\.j"', lambda _: '//! import "' + str(out / 'Import.j') + '"', template.decode('utf-8-sig'))
+    source, replaced = re.subn(r'^//! import "[^"\n]*[\\/](?:ArcanaLoginImport|Import)\.j"', lambda _: '//! import "' + str(out / 'Import.j') + '"', template.decode('utf-8-sig'), flags=re.MULTILINE)
     if replaced != 1:
         raise ValueError('검증 템플릿의 Import.j 진입부는 정확히 하나여야 합니다.')
     (out / 'input.j').write_text(source, encoding='utf8')
@@ -66,6 +66,7 @@ def run(args):
 
 if __name__ == '__main__':
     p=argparse.ArgumentParser()
+    p.add_argument('--entry-import', default='Import.j')
     for option in ('template','jn-root','compiler-data','output-dir'):
         p.add_argument('--'+option, type=Path, required=True)
     raise SystemExit(run(p.parse_args()))

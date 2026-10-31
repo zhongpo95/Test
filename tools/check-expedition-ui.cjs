@@ -75,7 +75,7 @@ function fresh(localPlayer = 0, prototype = false) {
     throw Error('No visible button for action '+action);
   };
   const card = (group,i) => e.UIExpeditionChoice_CardButton[e['UIExpeditionChoice_'+group+'Cards'][i]];
-  const start = () => {render();if(prototype){e.ExpUIOpen(8);render();if(!e.ProtoStartHead[0])click(common(2003));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
+  const start = () => {render();if(prototype){e.ExpUIOpen(8);render();if(!e.ProtoStartHeadReady(0))click(common(2003));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
   const roots = () => Array.from({length:10},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
   render();
   if(prototype){

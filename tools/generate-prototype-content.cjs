@@ -116,8 +116,8 @@ function generate(worlds, options={}) {
     }
     w.head = w.world.key==='common' ? 0 : registry.heads[w.world.key];
   }
-  const strings = ['ProtoHeadCompletionText','ProtoEventRewardPreview','ProtoCardDescription','ProtoEventCommonResult','ProtoDialogueStory','ProtoDialogueLabel','ProtoDialogueResult','ProtoStoryChangeKey','ProtoStoryChangeName','ProtoStoryChangeDescriptionText','ProtoHeadKey','ProtoHeadName','ProtoHeadIntro','ProtoHeadIcon','ProtoCardKey','ProtoCardName','ProtoCardEffectName','ProtoCardKeyword','ProtoEventKey','ProtoEventName','ProtoEventStory','ProtoEventIntro','ProtoEventIcon','ProtoEventFailure','ProtoBranchLabel','ProtoBranchResult'];
-  const integers = ['ProtoEventChainRoot','ProtoEventChainStage','ProtoEventChainLength','ProtoEventChainFinal','ProtoCardRetired','ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadEntryEvent','ProtoHeadMainLength','ProtoHeadRequiredMain','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
+  const strings = ['ProtoBranchOpens','ProtoHeadCompletionText','ProtoEventRewardPreview','ProtoCardDescription','ProtoEventCommonResult','ProtoDialogueStory','ProtoDialogueLabel','ProtoDialogueResult','ProtoStoryChangeKey','ProtoStoryChangeName','ProtoStoryChangeDescriptionText','ProtoHeadKey','ProtoHeadName','ProtoHeadIntro','ProtoHeadIcon','ProtoCardKey','ProtoCardName','ProtoCardEffectName','ProtoCardKeyword','ProtoEventKey','ProtoEventName','ProtoEventStory','ProtoEventIntro','ProtoEventIcon','ProtoEventFailure','ProtoBranchLabel','ProtoBranchResult'];
+  const integers = ['ProtoBranchOpenFirst','ProtoEventOpenNext','ProtoEventChoicePath','ProtoEventChainRoot','ProtoEventChainStage','ProtoEventChainLength','ProtoEventChainFinal','ProtoCardRetired','ProtoCardEnding','ProtoEventDialogueEnabled','ProtoEventDialogueFirst','ProtoDialogueNext','ProtoDialogueChoices','ProtoStoryChangeDescriptionLines','ProtoStoryChangeCharacter','ProtoStoryChangeForCharacter','ProtoStoryChangeFirst','ProtoStoryChangeNext','ProtoHeadEntryCard','ProtoHeadEntryEvent','ProtoHeadMainLength','ProtoHeadRequiredMain','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
   lines.push('// 검토된 머리 카드, 캐릭터 카드와 사건 콘텐츠를 로드한다. 생성 도구로 갱신한다.', 'library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototypeStats','    globals',
     '        constant integer PROTO_HEAD_COUNT = '+head,
     '        constant integer PROTO_STORY_CHANGE_COUNT = '+changeCount,
@@ -173,6 +173,7 @@ function generate(worlds, options={}) {
     }
     for (const e of w.events) {
       const id=events.get(e.key);
+      if (e.choicePath) set('ProtoEventChoicePath',id,1);
       set('ProtoEventKey',id,e.key);set('ProtoEventName',id,e.title);set('ProtoEventHead',id,h);set('ProtoEventKind',id,1);set('ProtoEventChoices',id,e.choices.length);
       set('ProtoEventChainRoot',id,e.chainRoot ? events.get(e.chainRoot) : 0);set('ProtoEventChainStage',id,e.chainStage || 0);set('ProtoEventChainLength',id,e.chainLength || 0);set('ProtoEventChainFinal',id,e.growthRole==='chain_final' ? 1 : 0);set('ProtoEventRewardPreview',id,e.rewardPreview || '');
       set('ProtoEventAPCost',id,e.actionCost ?? 1);set('ProtoEventMainStage',id,e.mainStage || 0);set('ProtoEventEpilogue',id,e.epilogue ? 1 : 0);
@@ -198,6 +199,12 @@ function generate(worlds, options={}) {
       }
       e.choices.forEach((b,i)=>{
         const key=id*4+i;
+        const opened=w.events.filter(x=>x.choicePath && x.previous===e.key && x.previousChoice===i+1);
+        if (opened.length>3) throw Error('갈림길 서브는 최대 3개. '+e.key);
+        if (opened.length) set('ProtoBranchOpenFirst',key,events.get(opened[0].key));
+        opened.forEach((x,j)=>set('ProtoEventOpenNext',events.get(x.key),j+1<opened.length ? events.get(opened[j+1].key):0));
+        if (opened.length) set('ProtoBranchOpens',key,opened.map(x=>'후속 사건 개방 · '+x.title+'\n다음 사건 선택에서 진행 가능 · 행동력 '+x.actionCost).join('\n'));
+
         set('ProtoBranchLabel',key,marked(b.label,'label'));set('ProtoBranchResult',key,marked(b.result,'result'));
         for (const n of ['card','card2']) set('ProtoBranch'+n[0].toUpperCase()+n.slice(1),key,b[n] ? cards.get(b[n]):0);
         for (const n of ['gold','cost','level','density','potions','chance']) set('ProtoBranch'+n[0].toUpperCase()+n.slice(1),key,b[n]);

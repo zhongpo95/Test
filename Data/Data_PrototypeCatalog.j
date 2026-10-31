@@ -8,6 +8,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         constant integer PROTO_CARD_FIRST = 13
         constant integer PROTO_CARD_LAST = 1860
         constant string PROTO_SAVE_PREFIX = "원정.콘텐츠2."
+        string array ProtoBranchOpens
         string array ProtoHeadCompletionText
         string array ProtoEventRewardPreview
         string array ProtoCardDescription
@@ -34,6 +35,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         string array ProtoEventFailure
         string array ProtoBranchLabel
         string array ProtoBranchResult
+        integer array ProtoBranchOpenFirst
+        integer array ProtoEventOpenNext
+        integer array ProtoEventChoicePath
         integer array ProtoEventChainRoot
         integer array ProtoEventChainStage
         integer array ProtoEventChainLength
@@ -25381,6 +25385,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1438] = 0
         set ProtoBranchPotions[1438] = 0
         set ProtoBranchChance[1438] = 100
+        set ProtoEventChoicePath[360] = 1
         set ProtoEventKey[360] = "hsr_masked_stage"
         set ProtoEventName[360] = "서로 다른 얼굴의 안내인"
         set ProtoEventHead[360] = 10
@@ -25395,16 +25400,16 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[360] = 0
         set ProtoEventEpilogue[360] = 0
         set ProtoEventGrade[360] = 1
-        set ProtoEventStory[360] = "무대 앞에서 같은 안내인이 한 번은 오른쪽을, 다음에는 왼쪽을 가리킨다. 스파클은 어느 쪽 얼굴을 믿느냐고 되묻고, |cFF006B8F블랙 스완|r은 두 안내를 들었을 때의 |cFF80560C기억|r을 따로 살펴보자고 한다."
-        set ProtoEventIntro[360] = "스파클의 연극에 맞출지, 들었던 안내를 |cFF80560C기억|r으로 대조할지 정한다."
+        set ProtoEventStory[360] = "다시 |cFF80560C꿈|r에 들어온 뒤, |cFF006B8F블랙 스완|r과 탈출 직전의 |cFF80560C기억|r을 되짚는다. 같은 안내인이 서로 다른 방향을 가리켰던 장면이 떠오른다. 스파클의 배역이 섞인 기억인지, 실제로 놓친 길인지 확인해야 한다."
+        set ProtoEventIntro[360] = "|cFF006B8F블랙 스완|r에게 부탁한 |cFF80560C기억|r을 되짚는다. 서로 달랐던 두 안내 중 어느 쪽을 따라갈까?"
         set ProtoEventIcon[360] = "war3mapImported\\UI_EventThumb_Card_HSR_1306_Art.blp"
         set ProtoEventImageAspect[360] = 1.777778
-        set ProtoEventRequired[360] = 0
-        set ProtoEventRequiredChoice[360] = 0
+        set ProtoEventRequired[360] = 380
+        set ProtoEventRequiredChoice[360] = 2
         set ProtoEventRequiredCard[360] = 0
         set ProtoEventFailure[360] = ""
-        set ProtoBranchLabel[1440] = "스파클의 바뀐 배역에 맞춰 무대를 빠져나간다"
-        set ProtoBranchResult[1440] = "스파클의 바뀐 배역에 맞춰 무대를 빠져나갔다. 스파클이 바꾼 배역의 박자에 맞춰 막 밖으로 나왔다. 왼쪽을 가리켰던 얼굴이 이번에는 왜 오른쪽을 보는지는 묻지 못했다."
+        set ProtoBranchLabel[1440] = "|cFF80560C기억|r 속 바뀐 배역을 따라 무대 밖을 살핀다"
+        set ProtoBranchResult[1440] = "스파클이 바꾼 배역의 움직임을 |cFF80560C기억|r 속에서 따라가 본다. 막 밖으로 나오는 장면은 떠올랐지만, 두 안내가 왜 달랐는지는 확인하지 못했다."
         set ProtoBranchCard[1440] = 654
         set ProtoBranchCard2[1440] = 0
         set ProtoBranchGold[1440] = 0
@@ -25413,6 +25418,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1440] = 0
         set ProtoBranchPotions[1440] = 0
         set ProtoBranchChance[1440] = 100
+        set ProtoBranchOpenFirst[1441] = 361
+        set ProtoEventOpenNext[361] = 0
+        set ProtoBranchOpens[1441] = "후속 사건 개방 · 기억에 남겨 둔 출구|n다음 사건 선택에서 진행 가능 · 행동력 6"
         set ProtoBranchLabel[1441] = "|cFF006B8F블랙 스완|r과 두 안내가 갈린 순간을 대조한다"
         set ProtoBranchResult[1441] = "|cFF006B8F블랙 스완|r과 두 안내가 갈린 순간을 대조했다. 블랙 스완은 두 말을 들었을 때 네 걸음이 꺾인 장면을 비교했다. 길이 갈린 순간은 남았지만 아직 지나지 않은 출구는 확인하지 못했다."
         set ProtoBranchCard[1441] = 648
@@ -25433,6 +25441,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1442] = 0
         set ProtoBranchPotions[1442] = 0
         set ProtoBranchChance[1442] = 100
+        set ProtoEventChoicePath[361] = 1
         set ProtoEventKey[361] = "hsr_remembered_exit"
         set ProtoEventName[361] = "기억에 남겨 둔 출구"
         set ProtoEventHead[361] = 10
@@ -25447,7 +25456,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[361] = 0
         set ProtoEventEpilogue[361] = 0
         set ProtoEventGrade[361] = 1
-        set ProtoEventStory[361] = "서로 달랐던 안내를 |cFF80560C기억|r과 대조한 뒤, 사람들의 걸음이 꺾이는 자리를 찾았다. |cFF006B8F어벤츄린|r은 그 좁은 자리를 그대로 통과하지 말자고 하고, 갤러거는 남아 있는 경비 안내를 다시 확인한다.|n|n|cFF006B8F아케론|r은 아직 지나지 않은 좁은 자리 앞에서 |cFF80560C검|r을 뽑기보다 간격을 남긴다."
+        set ProtoEventStory[361] = "두 안내가 갈라진 순간을 대조하자 |cFF80560C기억|r 속 출구가 드러난다. |cFF006B8F블랙 스완|r은 기억에 남은 말들을 길잡이로 삼아 보라고 한다. 넓은 통로를 확보할지, 경비의 흔적을 좇을지, 잠시 멈춰 방향을 정할지 고른다."
         set ProtoEventIntro[361] = "찾아낸 출구의 빈틈을 안전한 준비로 바꾼다."
         set ProtoEventIcon[361] = "war3mapImported\\UI_EventThumb_Card_HSR_1304_Art.blp"
         set ProtoEventImageAspect[361] = 1.777778
@@ -25455,8 +25464,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredChoice[361] = 2
         set ProtoEventRequiredCard[361] = 0
         set ProtoEventFailure[361] = ""
-        set ProtoBranchLabel[1444] = "|cFF006B8F어벤츄린|r과 넓은 통로를 준비한다"
-        set ProtoBranchResult[1444] = "|cFF006B8F어벤츄린|r의 조언에 따라 좁은 길목을 피해서 이동할 계획을 세운다. 사람들의 동선을 파악하며 안전한 통로에 대한 |cFF80560C기억|r을 확보한다."
+        set ProtoBranchLabel[1444] = "넓은 통로를 찾아 이동 계획을 세운다"
+        set ProtoBranchResult[1444] = "좁은 길목 대신 넓은 통로를 |cFF80560C기억|r에 남긴다. |cFF006B8F블랙 스완|r과 사람들의 동선을 대조하며 다음에 같은 장소를 만났을 때의 이동 계획을 세운다."
         set ProtoBranchCard[1444] = 690
         set ProtoBranchCard2[1444] = 0
         set ProtoBranchGold[1444] = 0
@@ -25465,8 +25474,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1444] = 0
         set ProtoBranchPotions[1444] = 0
         set ProtoBranchChance[1444] = 100
-        set ProtoBranchLabel[1445] = "갤러거와 경비가 확인한 우회로를 택한다"
-        set ProtoBranchResult[1445] = "갤러거와 경비가 확인한 우회로를 택했다. 갤러거는 경비가 본 구역과 아직 말하지 않은 구역을 나눴다. 경비 안내 한 줄을 모든 귀환길의 답으로 바꾸지는 않았다."
+        set ProtoBranchLabel[1445] = "|cFF80560C기억|r 속 경비 안내를 따라 우회로를 찾는다"
+        set ProtoBranchResult[1445] = "경비가 확인한 구역과 아직 확인되지 않은 길을 구분한다. |cFF80560C기억|r 속 안내를 따라 우회로를 찾되, 그 길이 언제나 안전하다고 단정하지는 않는다."
         set ProtoBranchCard[1445] = 699
         set ProtoBranchCard2[1445] = 0
         set ProtoBranchGold[1445] = 0
@@ -25475,8 +25484,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1445] = 0
         set ProtoBranchPotions[1445] = 0
         set ProtoBranchChance[1445] = 100
-        set ProtoBranchLabel[1446] = "|cFF006B8F아케론|r와 함께 다음 길을 준비한다"
-        set ProtoBranchResult[1446] = "보급품을 확보하며 |cFF006B8F아케론|r과 함께 이동할 최적의 경로를 재설계한다. 좁은 길목을 우회하는 구체적인 지형 정보를 머릿속에 새긴다."
+        set ProtoBranchLabel[1446] = "출구 앞에서 멈춰 다음 길을 정리한다"
+        set ProtoBranchResult[1446] = "서둘러 출구를 넘기 전에 지나온 길과 남은 길을 정리한다. |cFF006B8F블랙 스완|r과 확인한 지형을 |cFF80560C기억|r에 남기고, 본래 확인하려던 꿈속 호텔로 돌아간다."
         set ProtoBranchCard[1446] = 669
         set ProtoBranchCard2[1446] = 0
         set ProtoBranchGold[1446] = 0
@@ -26465,7 +26474,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[1520] = 0
         set ProtoBranchPotions[1520] = 0
         set ProtoBranchChance[1520] = 100
-        set ProtoBranchLabel[1521] = "“어디로 가면 돼?”"
+        set ProtoBranchOpenFirst[1521] = 360
+        set ProtoEventOpenNext[360] = 0
+        set ProtoBranchOpens[1521] = "후속 사건 개방 · 서로 다른 얼굴의 안내인|n다음 사건 선택에서 진행 가능 · 행동력 4"
+        set ProtoBranchLabel[1521] = "길을 알려 줘. 서로 달랐던 안내도 나중에 확인해 줄래?"
         set ProtoBranchResult[1521] = "|cFF006B8F블랙 스완|r은 오래 머물 곳이 아니라며 움직일 방향을 가리킨다. 당신은 경계를 늦추지 않은 채 |cFF006B8F반디|r와 함께 그쪽으로 발을 옮긴다."
         set ProtoBranchCard[1521] = 683
         set ProtoBranchCard2[1521] = 0

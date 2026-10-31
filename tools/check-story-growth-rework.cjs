@@ -6,7 +6,7 @@ const stats=['attack_percent','damage_percent','final_damage_percent','boss_dama
 const worlds=fs.readdirSync('content/roguelite').filter(f=>f.endsWith('.json')).map(f=>JSON.parse(fs.readFileSync('content/roguelite/'+f,'utf8')));
 const t=fresh(0,true),e=t.e;t.start();
 function reset(head){e.ResetPid=0;e.ProtoResetRunCards();e.ProtoStatReset(0);e.ProtoHeadCount[0]=0;e.ProtoCompletedHeadCount[0]=0;e.ProtoAP[0]=100;e.ProtoAPMax[0]=100;e.ExpGold[0]=10000;e.ExpState=e.EXP_HUNT;e.ExpWon=false;e.ProtoReady[0]=false;e.ProtoStage[0]=0;if(e.ProtoHeadRequiredMain[head])e.ProtoHeadCompleted[e.ExpKey(0,e.ProtoHeadRequiredMain[head])]=true;e.ProtoGrantHead(0,head);}
-function choose(id,branch){e.ProtoStage[0]=1;e.ProtoCandidates[e.ExpKey(0,1)]=id;assert(e.ProtoEventEligible(0,id),'선택 불가 '+e.ProtoEventKey[id]);e.ProtoAction(0,2101);let guard=0;while(e.ProtoStage[0]===2||e.ProtoDialoguePending(0)){assert(++guard<50);e.ProtoAction(0,e.ProtoStage[0]===2?2200+(e.ProtoDialogueFollowing(0)?1:branch):2400)}assert.equal(e.ProtoStage[0],3);e.ProtoAction(0,2400)}
+function choose(id,branch){e.ProtoStage[0]=1;e.ProtoOfferCount[0]=1;e.ProtoCandidates[e.ExpKey(0,1)]=id;assert(e.ProtoEventEligible(0,id),'선택 불가 '+e.ProtoEventKey[id]);e.ProtoAction(0,2101);let guard=0;while(e.ProtoStage[0]===2||e.ProtoDialoguePending(0)){assert(++guard<50);e.ProtoAction(0,e.ProtoStage[0]===2?2200+(e.ProtoDialogueFollowing(0)?1:branch):2400)}assert.equal(e.ProtoStage[0],3);e.ProtoAction(0,2400)}
 let mains=0,links=0,shops=0;
 for(const w of worlds){
  if(!w.world.mainStory)continue;const head=e.ProtoHeadKey.indexOf(w.world.key);
@@ -18,10 +18,10 @@ for(const w of worlds){
   assert.equal(e.ProtoHeadCapacity(0),2,w.world.key+' 완주 한도');assert.equal(e.ProtoStat(0,kind)-finalBefore,specs[w.world.key][1],w.world.key+' 완결 핵심 지급');mains++;
  }
  // 첫 사용 가능한 2단계 연계와 개인별 완료 제한.
- const root=w.events.find(x=>x.chainStage===1&&!x.previous);
- if(root){reset(head);const child=w.events.find(x=>x.previous===root.key&&x.chainRoot===root.key);assert(child);choose(e.ProtoEventKey.indexOf(root.key),child.previousChoice);e.ProtoOffer(0);assert(e.ProtoCandidates.slice(e.ExpKey(0,1),e.ExpKey(0,4)+1).includes(e.ProtoEventKey.indexOf(child.key)),'후속 후보 보장');choose(e.ProtoEventKey.indexOf(child.key),1);assert.equal(e.ProtoAP[0],90);assert(e.ProtoChainComplete[e.ExpKey(0,e.ProtoEventKey.indexOf(root.key))]);links++;}
+ const root=w.events.find(x=>x.chainStage===1&&x.choicePath);
+ if(root){reset(head);const previous=e.ProtoEventKey.indexOf(root.previous);e.ProtoEventHistory[e.ProtoStoryKey(0,previous)]=root.previousChoice;e.ProtoOpenSidePaths(0,previous,root.previousChoice);const child=w.events.find(x=>x.previous===root.key&&x.chainRoot===root.key);assert(child);choose(e.ProtoEventKey.indexOf(root.key),child.previousChoice);e.ProtoOffer(0);assert(e.ProtoCandidates.slice(e.ExpKey(0,1),e.ExpKey(0,4)+1).includes(e.ProtoEventKey.indexOf(child.key)),'후속 후보 보장');choose(e.ProtoEventKey.indexOf(child.key),1);assert.equal(e.ProtoAP[0],90);assert(e.ProtoChainComplete[e.ExpKey(0,e.ProtoEventKey.indexOf(root.key))]);links++;}
  const shop=w.events.find(x=>x.growthRole==='shop'&&!x.previous&&!x.epilogue);
- if(shop){reset(head);const before=e.ExpGold[0];choose(e.ProtoEventKey.indexOf(shop.key),1);assert.equal(e.ExpGold[0],before-shop.choices[0].cost);assert.equal(e.ProtoAP[0],99);shops++;}
+ if(shop){reset(head);assert(!e.ProtoEventEligible(0,e.ProtoEventKey.indexOf(shop.key)),'미연결 상점은 후보에서 제외');shops++;}
 }
 reset(1);e.ProtoAP[0]=17;e.ProtoRerolls[0]=7;e.ProtoMainProgress[e.ExpKey(0,1)]=2;e.ProtoStatValues[e.PROTO_STAT_ATTACK]=12;e.ExpState=e.EXP_BATTLE;e.ExpWon=true;e.ProtoBossRound=1;e.ProtoBeginNextHunt();assert.equal(e.ProtoBossRound,2);assert.equal(e.ProtoAP[0],100);assert.equal(e.ProtoRestCost(0),1);assert.equal(e.ProtoMainProgress[e.ExpKey(0,1)],2);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),12);assert(e.ProtoHeadOwned[e.ExpKey(0,1)]);
 e.ProtoAP[0]=1;e.ExpGold[0]=0;e.ProtoStage[0]=0;assert(e.ProtoCanFinishGrowth(0),'사용 불가능한 잔여 행동력 종료');
@@ -50,10 +50,11 @@ for(const w of worlds){
 // 메인 선행 조건을 가진 연계를 포함해 각 후속 분기를 완주한다.
 let chainPaths=0;
 for(const w of worlds){
- for(const last of w.events.filter(x=>x.growthRole==='chain_final')){
+ for(const last of w.events.filter(x=>x.growthRole==='chain_final'&&x.choicePath)){
   const path=[last];while(path[0].key!==last.chainRoot)path.unshift(w.events.find(x=>x.key===path[0].previous));
   reset(Math.max(1,e.ProtoHeadKey.indexOf(w.world.key)));
   const root=path[0];if(root.previous)e.ProtoEventHistory[e.ProtoStoryKey(0,e.ProtoEventKey.indexOf(root.previous))]=root.previousChoice;
+  e.ProtoOpenSidePaths(0,e.ProtoEventKey.indexOf(root.previous),root.previousChoice);
   if(root.epilogue)e.ProtoMainProgress[e.ExpKey(0,e.ProtoHeadKey.indexOf(w.world.key))]=w.world.mainStory.length;
   for(let i=0;i<path.length;i++)choose(e.ProtoEventKey.indexOf(path[i].key),i+1<path.length?path[i+1].previousChoice:1);
   assert.equal(e.ProtoAP[0],100-path.reduce((n,x)=>n+x.actionCost,0));

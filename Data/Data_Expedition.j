@@ -17,6 +17,8 @@ library DataExpedition
         boolean ExpPrototypeActive = false
         boolean ExpPrototypeEnabled = false
         constant integer PROTO_BASE_AP = 100
+        // 페나코니 시범 테스트의 출발 머리 고정. 0이면 기존 자유 선택으로 복귀한다.
+        constant integer PROTO_TEST_START_HEAD = 10
         constant integer PROTO_BASE_HEAD_CAPACITY = 1
         constant integer PROTO_HUNT_SECONDS = 1200
         constant integer PROTO_CHOICE_SECONDS = 90
@@ -68,6 +70,12 @@ library DataExpedition
         boolean array ProtoHeadKnown
         integer array ProtoCodexSlot
         integer array ProtoStage
+        // 서브 기회는 이번 원정의 선택 이력과 별도로 유지한다. 0 잠김, 1 개방, 2 포기, 3 선택.
+        integer array ProtoSideState
+        integer array ProtoOfferCount
+        integer array ProtoHeadPage
+        integer array ProtoHeadPages
+        boolean array ProtoHeadBrowse
         integer array ProtoCandidates
         integer array ProtoSelected
         boolean array ProtoEventUsed

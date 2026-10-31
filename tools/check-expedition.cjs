@@ -12,6 +12,8 @@ function environment(files, extras = {}, onlyFunctions = null) {
   let seed = 41, unitId = 100;
   const no = () => {};
   Object.assign(env, {
+    ARCANA_HF_Q: 2, ARCANA_HF_QB: 3, ArcanaSaveHeroInt: (pid,h,f)=>records.get(`hero:${pid}:${h}:${f}`)||0, ArcanaSaveSetHeroInt: (pid,h,f,v)=>records.set(`hero:${pid}:${h}:${f}`,v),
+    ARCANA_RECORDS_ENABLED: false, ARCANA_CODEX_HEAD: 2, ARCANA_CODEX_CARD: 0, ARCANA_CODEX_AWAKE: 1, ArcanaSaveCodexAdd: (pid,kind,id)=>records.set(`codex:${pid}:${kind}:${id}`,true), ArcanaSaveCodexFlag: (pid,kind,id)=>records.has(`codex:${pid}:${kind}:${id}`)?"1":"0",
     localPlayer: 0, eventPlayer: 0, syncData: '', uploadAccepted: true, uploadSuccess: true,
     online: [true, false, false, false], selected: [true, true, true, true], home: true,
     PLAYER_SLOT_STATE_PLAYING: 1, MAP_CONTROL_USER: 1, PLAYER_NEUTRAL_AGGRESSIVE: 12,
@@ -117,6 +119,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
       else if (line === 'endloop' || line === 'endif') js.push('}');
       else if (line === 'else') js.push('}else{');
       else if (line.startsWith('elseif ')) js.push('}else if(' + expr(line.slice(7, -5)) + '){');
+      else if (line.startsWith('static if ')) js.push('if(' + expr(line.slice(10, -5)) + '){');
       else if (line.startsWith('if ')) js.push('if(' + expr(line.slice(3, -5)) + '){');
       else if (line.startsWith('exitwhen ')) js.push('if(' + expr(line.slice(9)) + ')break;');
       else if (line.startsWith('set ')) js.push(expr(line.slice(4)) + ';');
