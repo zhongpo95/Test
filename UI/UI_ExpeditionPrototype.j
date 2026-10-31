@@ -510,7 +510,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUISetButton(LobbyReady, "출발 준비", AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid]) and PlayerSlotNumber[pid] > 0 and ProtoStartHeadReady(pid))
         endif
         call DzFrameShow(HuntHUD, ExpPrototypeActive and ExpMember[pid] and ExpState == EXP_HUNT and not F_UpgradeOnOff[pid] and ExpUIPanel != 9)
-        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + "   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(PROTO_BASE_HIT_PERCENT * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
+        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + "   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 몬스터 공격력 " + I2S(R2I(PROTO_HUNT_ATTACK * (1.0 + 0.25 * (ProtoLevel[pid] - 1))))
         if ProtoReady[pid] then
             set value = "보스 합류 대기 · " + value
         endif

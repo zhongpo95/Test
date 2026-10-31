@@ -23,7 +23,7 @@ library DataExpedition
         constant integer PROTO_HUNT_SECONDS = 1200
         constant integer PROTO_CHOICE_SECONDS = 90
         constant integer PROTO_DEFAULT_DENSITY = 8
-        constant real PROTO_BASE_HIT_PERCENT = 2.0
+        constant real PROTO_HUNT_ATTACK = 50.0 // 일반 사냥 몬스터 1회 피해(1단계), 단계마다 25% 증가
         // 성장 100 → 아처 → 성장 100 → 레밀리아의 두 구간을 진행한다.
         // 보스 스크립트가 붙어 있지 않으면 예전 세리아 전투. 보스 목록 확장 시 런의 사냥 구간 수를 함께 설정한다.
         integer ProtoBossLimit = 2

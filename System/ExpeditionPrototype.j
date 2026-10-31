@@ -754,7 +754,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
         endif
         if levelBefore != ProtoLevel[pid] then
-            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n적 단계 " + I2S(levelBefore) + " → " + I2S(ProtoLevel[pid]) + "|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (levelBefore - 1)))) + " → " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + "|n한 번의 공격 피해 · 내 최대 체력의 " + R2SW(PROTO_BASE_HIT_PERCENT * (1.0 + 0.25 * (levelBefore - 1)), 0, 1) + "% → " + R2SW(PROTO_BASE_HIT_PERCENT * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n적 단계 " + I2S(levelBefore) + " → " + I2S(ProtoLevel[pid]) + "|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (levelBefore - 1)))) + " → " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + "|n몬스터 공격력 " + I2S(R2I(PROTO_HUNT_ATTACK * (1.0 + 0.25 * (levelBefore - 1)))) + " → " + I2S(R2I(PROTO_HUNT_ATTACK * (1.0 + 0.25 * (ProtoLevel[pid] - 1))))
         endif
         if densityBefore != ProtoDensity[pid] then
             set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n동시 몬스터 수 " + I2S(densityBefore) + " → " + I2S(ProtoDensity[pid])
@@ -1385,7 +1385,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     if AttackWarning[key] then
                         if AttackClock[key] <= 0.0 then
                             if IsUnitInRange(HuntUnits[key], MainUnit[pid], 190.0) then
-                                call BossDeal(HuntUnits[key], MainUnit[pid], GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE) * (PROTO_BASE_HIT_PERCENT / 100.0) * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), false)
+                                call BossDeal(HuntUnits[key], MainUnit[pid], PROTO_HUNT_ATTACK * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), false)
                             endif
                             set AttackWarning[key] = false
                             set AttackClock[key] = 1.0
